@@ -10,6 +10,20 @@
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E1FD7CE2148A5EB0056F902 /* AddRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7CD2148A5EB0056F902 /* AddRecordsRequest.swift */; };
+		3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7CF2148A94D0056F902 /* UpdateRecordsRequest.swift */; };
+		3E1FD7D22148A9640056F902 /* UpdateRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7D12148A9640056F902 /* UpdateRecordRequest.swift */; };
+		3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7D32148AB200056F902 /* DeleteRecordsRequest.swift */; };
+		3E1FD7D62148AB370056F902 /* UpdateRecordStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7D52148AB370056F902 /* UpdateRecordStatusRequest.swift */; };
+		3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7D72148AB490056F902 /* UpdateRecordsStatusRequest.swift */; };
+		3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7D92148AB580056F902 /* UpdateRecordAssigneesRequest.swift */; };
+		3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7DB2148AB9D0056F902 /* GetRecordsResponse.swift */; };
+		3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7DD2148ADA60056F902 /* AddRecordResponse.swift */; };
+		3E1FD7E02148ADB70056F902 /* AddRecordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7DF2148ADB70056F902 /* AddRecordsResponse.swift */; };
+		3E1FD7E22148ADD20056F902 /* UpdateRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7E12148ADD20056F902 /* UpdateRecordResponse.swift */; };
+		3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7E32148ADEE0056F902 /* UpdateRecordsResponse.swift */; };
+		3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7E52148AE220056F902 /* RecordUpdateResponseItem.swift */; };
+		3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7E72148AE5C0056F902 /* RecordUpdateStatusItem.swift */; };
 		3E25BF89213F646C00ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF88213F646C00ABBB13 /* .gitkeep */; };
 		3E25BF8B213F648900ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF8A213F648900ABBB13 /* .gitkeep */; };
 		3E25BF8D213F64A400ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF8C213F64A400ABBB13 /* .gitkeep */; };
@@ -17,15 +31,14 @@
 		3E25BF91213F654000ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF90213F654000ABBB13 /* .gitkeep */; };
 		3E25BF93213F654D00ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF92213F654D00ABBB13 /* .gitkeep */; };
 		3E25BF95213F656200ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF94213F656200ABBB13 /* .gitkeep */; };
-		3E25BF9B213F7BB000ABBB13 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BF9A213F7BB000ABBB13 /* test.swift */; };
 		3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */; };
 		3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA4213F953D00ABBB13 /* FieldValue.swift */; };
 		3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA6213F956400ABBB13 /* FieldType.swift */; };
 		3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */; };
+		3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BF95C214656D4000F8B9D /* FileModel.swift */; };
 		3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */; };
 		3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81252141109A00A1499F /* RecordUpdateItem.swift */; };
 		3EFD81282141117500A1499F /* RecordUpdateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81272141117500A1499F /* RecordUpdateKey.swift */; };
-		3EFD812A2141125E00A1499F /* UpdataRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81292141125E00A1499F /* UpdataRecordRequest.swift */; };
 		3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD812B21411B6100A1499F /* AddRecordRequest.swift */; };
 		3EFD812F21420FC900A1499F /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD812E21420FC900A1499F /* Member.swift */; };
 		3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81302146060200A1499F /* SubTableValueItem.swift */; };
@@ -48,6 +61,20 @@
 		3E17EA1A213E427F002D9BC0 /* kintone-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kintone-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kintone_ios_sdkTests.swift; sourceTree = "<group>"; };
 		3E17EA21213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E1FD7CD2148A5EB0056F902 /* AddRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordsRequest.swift; sourceTree = "<group>"; };
+		3E1FD7CF2148A94D0056F902 /* UpdateRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecordsRequest.swift; sourceTree = "<group>"; };
+		3E1FD7D12148A9640056F902 /* UpdateRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecordRequest.swift; sourceTree = "<group>"; };
+		3E1FD7D32148AB200056F902 /* DeleteRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecordsRequest.swift; sourceTree = "<group>"; };
+		3E1FD7D52148AB370056F902 /* UpdateRecordStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecordStatusRequest.swift; sourceTree = "<group>"; };
+		3E1FD7D72148AB490056F902 /* UpdateRecordsStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecordsStatusRequest.swift; sourceTree = "<group>"; };
+		3E1FD7D92148AB580056F902 /* UpdateRecordAssigneesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecordAssigneesRequest.swift; sourceTree = "<group>"; };
+		3E1FD7DB2148AB9D0056F902 /* GetRecordsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordsResponse.swift; sourceTree = "<group>"; };
+		3E1FD7DD2148ADA60056F902 /* AddRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordResponse.swift; sourceTree = "<group>"; };
+		3E1FD7DF2148ADB70056F902 /* AddRecordsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordsResponse.swift; sourceTree = "<group>"; };
+		3E1FD7E12148ADD20056F902 /* UpdateRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecordResponse.swift; sourceTree = "<group>"; };
+		3E1FD7E32148ADEE0056F902 /* UpdateRecordsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRecordsResponse.swift; sourceTree = "<group>"; };
+		3E1FD7E52148AE220056F902 /* RecordUpdateResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateResponseItem.swift; sourceTree = "<group>"; };
+		3E1FD7E72148AE5C0056F902 /* RecordUpdateStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateStatusItem.swift; sourceTree = "<group>"; };
 		3E25BF88213F646C00ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3E25BF8A213F648900ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3E25BF8C213F64A400ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
@@ -55,15 +82,14 @@
 		3E25BF90213F654000ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3E25BF92213F654D00ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3E25BF94213F656200ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		3E25BF9A213F7BB000ABBB13 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordResponse.swift; sourceTree = "<group>"; };
 		3E25BFA4213F953D00ABBB13 /* FieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValue.swift; sourceTree = "<group>"; };
 		3E25BFA6213F956400ABBB13 /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordRequest.swift; sourceTree = "<group>"; };
+		3E9BF95C214656D4000F8B9D /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordsRequest.swift; sourceTree = "<group>"; };
 		3EFD81252141109A00A1499F /* RecordUpdateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateItem.swift; sourceTree = "<group>"; };
 		3EFD81272141117500A1499F /* RecordUpdateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateKey.swift; sourceTree = "<group>"; };
-		3EFD81292141125E00A1499F /* UpdataRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdataRecordRequest.swift; sourceTree = "<group>"; };
 		3EFD812B21411B6100A1499F /* AddRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordRequest.swift; sourceTree = "<group>"; };
 		3EFD812E21420FC900A1499F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3EFD81302146060200A1499F /* SubTableValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableValueItem.swift; sourceTree = "<group>"; };
@@ -159,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				3E25BF90213F654000ABBB13 /* .gitkeep */,
-				3E25BF9A213F7BB000ABBB13 /* test.swift */,
 				3E25BFA6213F956400ABBB13 /* FieldType.swift */,
 			);
 			path = constant;
@@ -176,6 +201,7 @@
 		3E25BF85213F639A00ABBB13 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3E9BF95B2146569F000F8B9D /* file */,
 				3EFD812D21420FA300A1499F /* member */,
 				3E25BFA0213F948F00ABBB13 /* record */,
 				3E25BF8C213F64A400ABBB13 /* .gitkeep */,
@@ -202,15 +228,28 @@
 		3E25BFA0213F948F00ABBB13 /* record */ = {
 			isa = PBXGroup;
 			children = (
-				3E25BFA1213F94D800ABBB13 /* field */,
-				3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */,
+				3EFD812B21411B6100A1499F /* AddRecordRequest.swift */,
+				3E1FD7DD2148ADA60056F902 /* AddRecordResponse.swift */,
+				3E1FD7CD2148A5EB0056F902 /* AddRecordsRequest.swift */,
+				3E1FD7DF2148ADB70056F902 /* AddRecordsResponse.swift */,
+				3E1FD7D32148AB200056F902 /* DeleteRecordsRequest.swift */,
 				3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */,
+				3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */,
 				3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */,
+				3E1FD7DB2148AB9D0056F902 /* GetRecordsResponse.swift */,
 				3EFD81252141109A00A1499F /* RecordUpdateItem.swift */,
 				3EFD81272141117500A1499F /* RecordUpdateKey.swift */,
-				3EFD81292141125E00A1499F /* UpdataRecordRequest.swift */,
-				3EFD812B21411B6100A1499F /* AddRecordRequest.swift */,
+				3E1FD7E52148AE220056F902 /* RecordUpdateResponseItem.swift */,
+				3E1FD7E72148AE5C0056F902 /* RecordUpdateStatusItem.swift */,
 				3EFD81302146060200A1499F /* SubTableValueItem.swift */,
+				3E1FD7D92148AB580056F902 /* UpdateRecordAssigneesRequest.swift */,
+				3E1FD7D12148A9640056F902 /* UpdateRecordRequest.swift */,
+				3E1FD7E12148ADD20056F902 /* UpdateRecordResponse.swift */,
+				3E1FD7CF2148A94D0056F902 /* UpdateRecordsRequest.swift */,
+				3E1FD7E32148ADEE0056F902 /* UpdateRecordsResponse.swift */,
+				3E1FD7D72148AB490056F902 /* UpdateRecordsStatusRequest.swift */,
+				3E1FD7D52148AB370056F902 /* UpdateRecordStatusRequest.swift */,
+				3E25BFA1213F94D800ABBB13 /* field */,
 			);
 			path = record;
 			sourceTree = "<group>";
@@ -221,6 +260,14 @@
 				3E25BFA4213F953D00ABBB13 /* FieldValue.swift */,
 			);
 			path = field;
+			sourceTree = "<group>";
+		};
+		3E9BF95B2146569F000F8B9D /* file */ = {
+			isa = PBXGroup;
+			children = (
+				3E9BF95C214656D4000F8B9D /* FileModel.swift */,
+			);
+			path = file;
 			sourceTree = "<group>";
 		};
 		3EFD812D21420FA300A1499F /* member */ = {
@@ -347,18 +394,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
+				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
+				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
+				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
 				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
 				3EFD81282141117500A1499F /* RecordUpdateKey.swift in Sources */,
-				3E25BF9B213F7BB000ABBB13 /* test.swift in Sources */,
-				3EFD812A2141125E00A1499F /* UpdataRecordRequest.swift in Sources */,
+				3E1FD7CE2148A5EB0056F902 /* AddRecordsRequest.swift in Sources */,
+				3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */,
+				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
 				3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */,
 				3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */,
+				3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */,
+				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
+				3E1FD7E22148ADD20056F902 /* UpdateRecordResponse.swift in Sources */,
 				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
+				3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */,
+				3E1FD7D62148AB370056F902 /* UpdateRecordStatusRequest.swift in Sources */,
 				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
+				3E1FD7E02148ADB70056F902 /* AddRecordsResponse.swift in Sources */,
+				3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */,
 				3EFD812F21420FC900A1499F /* Member.swift in Sources */,
+				3E1FD7D22148A9640056F902 /* UpdateRecordRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
