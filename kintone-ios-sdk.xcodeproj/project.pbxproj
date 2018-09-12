@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1118929A214893410077A87E /* ConnectionConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11189299214893410077A87E /* ConnectionConstans.swift */; };
+		1118929C214893AF0077A87E /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1118929B214893AF0077A87E /* Connection.swift */; };
+		1118929F214893F60077A87E /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1118929E214893F60077A87E /* ErrorResponse.swift */; };
+		111892A1214893FF0077A87E /* KintoneAPIException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892A0214893FF0077A87E /* KintoneAPIException.swift */; };
+		111892A42148D5FF0077A87E /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 111892A32148D5FF0077A87E /* .gitkeep */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11189299214893410077A87E /* ConnectionConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionConstans.swift; sourceTree = "<group>"; };
+		1118929B214893AF0077A87E /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		1118929E214893F60077A87E /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		111892A0214893FF0077A87E /* KintoneAPIException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KintoneAPIException.swift; sourceTree = "<group>"; };
+		111892A32148D5FF0077A87E /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111892A22148D5FF0077A87E /* connection */ = {
+			isa = PBXGroup;
+			children = (
+				1118929B214893AF0077A87E /* Connection.swift */,
+				111892A32148D5FF0077A87E /* .gitkeep */,
+			);
+			path = connection;
+			sourceTree = "<group>";
+		};
 		3E17EA07213E427F002D9BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +126,7 @@
 		3E25BF7E213F615F00ABBB13 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				111892A22148D5FF0077A87E /* connection */,
 				3E25BF81213F634800ABBB13 /* authentication */,
 				3E25BF83213F638100ABBB13 /* constant */,
 				3E25BF84213F638F00ABBB13 /* exception */,
@@ -127,6 +147,7 @@
 		3E25BF83213F638100ABBB13 /* constant */ = {
 			isa = PBXGroup;
 			children = (
+				11189299214893410077A87E /* ConnectionConstans.swift */,
 				3E25BF90213F654000ABBB13 /* .gitkeep */,
 			);
 			path = constant;
@@ -135,6 +156,8 @@
 		3E25BF84213F638F00ABBB13 /* exception */ = {
 			isa = PBXGroup;
 			children = (
+				111892A0214893FF0077A87E /* KintoneAPIException.swift */,
+				1118929E214893F60077A87E /* ErrorResponse.swift */,
 				3E25BF8E213F652D00ABBB13 /* .gitkeep */,
 			);
 			path = exception;
@@ -278,6 +301,7 @@
 				3E25BF8D213F64A400ABBB13 /* .gitkeep in Resources */,
 				3E25BF89213F646C00ABBB13 /* .gitkeep in Resources */,
 				3E25BF91213F654000ABBB13 /* .gitkeep in Resources */,
+				111892A42148D5FF0077A87E /* .gitkeep in Resources */,
 				3E25BF8B213F648900ABBB13 /* .gitkeep in Resources */,
 				3E25BF8F213F652D00ABBB13 /* .gitkeep in Resources */,
 			);
@@ -297,7 +321,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1118929A214893410077A87E /* ConnectionConstans.swift in Sources */,
 				AB9A5FC821463E9C00F9FE41 /* Auth.swift in Sources */,
+				111892A1214893FF0077A87E /* KintoneAPIException.swift in Sources */,
+				1118929C214893AF0077A87E /* Connection.swift in Sources */,
+				1118929F214893F60077A87E /* ErrorResponse.swift in Sources */,
 				AB9A5FCB21463F1900F9FE41 /* Credential.swift in Sources */,
 				AB9A5FCE21463F5800F9FE41 /* HTTPHeader.swift in Sources */,
 			);
