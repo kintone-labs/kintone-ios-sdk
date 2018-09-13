@@ -35,6 +35,13 @@
 		3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA4213F953D00ABBB13 /* FieldValue.swift */; };
 		3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA6213F956400ABBB13 /* FieldType.swift */; };
 		3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */; };
+		3E60AFC4214A014F0041B02C /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFC3214A014F0041B02C /* Auth.swift */; };
+		3E60AFC6214A01590041B02C /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFC5214A01580041B02C /* Connection.swift */; };
+		3E60AFC8214A01720041B02C /* ConnectionConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFC7214A01720041B02C /* ConnectionConstans.swift */; };
+		3E60AFCB214A017F0041B02C /* KintoneAPIException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFC9214A017F0041B02C /* KintoneAPIException.swift */; };
+		3E60AFCC214A017F0041B02C /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFCA214A017F0041B02C /* ErrorResponse.swift */; };
+		3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFCE214A018E0041B02C /* HTTPHeader.swift */; };
+		3E60AFD2214A018E0041B02C /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD0214A018E0041B02C /* Credential.swift */; };
 		3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BF95C214656D4000F8B9D /* FileModel.swift */; };
 		3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */; };
 		3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81252141109A00A1499F /* RecordUpdateItem.swift */; };
@@ -86,6 +93,13 @@
 		3E25BFA4213F953D00ABBB13 /* FieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValue.swift; sourceTree = "<group>"; };
 		3E25BFA6213F956400ABBB13 /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordRequest.swift; sourceTree = "<group>"; };
+		3E60AFC3214A014F0041B02C /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		3E60AFC5214A01580041B02C /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		3E60AFC7214A01720041B02C /* ConnectionConstans.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionConstans.swift; sourceTree = "<group>"; };
+		3E60AFC9214A017F0041B02C /* KintoneAPIException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KintoneAPIException.swift; sourceTree = "<group>"; };
+		3E60AFCA214A017F0041B02C /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		3E60AFCE214A018E0041B02C /* HTTPHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		3E60AFD0214A018E0041B02C /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		3E9BF95C214656D4000F8B9D /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordsRequest.swift; sourceTree = "<group>"; };
 		3EFD81252141109A00A1499F /* RecordUpdateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateItem.swift; sourceTree = "<group>"; };
@@ -168,6 +182,7 @@
 		3E25BF81213F634800ABBB13 /* authentication */ = {
 			isa = PBXGroup;
 			children = (
+				3E60AFC3214A014F0041B02C /* Auth.swift */,
 				3E25BF94213F656200ABBB13 /* .gitkeep */,
 			);
 			path = authentication;
@@ -176,6 +191,7 @@
 		3E25BF82213F637200ABBB13 /* connection */ = {
 			isa = PBXGroup;
 			children = (
+				3E60AFC5214A01580041B02C /* Connection.swift */,
 				3E25BF92213F654D00ABBB13 /* .gitkeep */,
 			);
 			path = connection;
@@ -184,6 +200,7 @@
 		3E25BF83213F638100ABBB13 /* constant */ = {
 			isa = PBXGroup;
 			children = (
+				3E60AFC7214A01720041B02C /* ConnectionConstans.swift */,
 				3E25BF90213F654000ABBB13 /* .gitkeep */,
 				3E25BFA6213F956400ABBB13 /* FieldType.swift */,
 			);
@@ -193,6 +210,8 @@
 		3E25BF84213F638F00ABBB13 /* exception */ = {
 			isa = PBXGroup;
 			children = (
+				3E60AFCA214A017F0041B02C /* ErrorResponse.swift */,
+				3E60AFC9214A017F0041B02C /* KintoneAPIException.swift */,
 				3E25BF8E213F652D00ABBB13 /* .gitkeep */,
 			);
 			path = exception;
@@ -201,6 +220,8 @@
 		3E25BF85213F639A00ABBB13 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3E60AFCF214A018E0041B02C /* authentication */,
+				3E60AFCD214A018E0041B02C /* http */,
 				3E9BF95B2146569F000F8B9D /* file */,
 				3EFD812D21420FA300A1499F /* member */,
 				3E25BFA0213F948F00ABBB13 /* record */,
@@ -260,6 +281,22 @@
 				3E25BFA4213F953D00ABBB13 /* FieldValue.swift */,
 			);
 			path = field;
+			sourceTree = "<group>";
+		};
+		3E60AFCD214A018E0041B02C /* http */ = {
+			isa = PBXGroup;
+			children = (
+				3E60AFCE214A018E0041B02C /* HTTPHeader.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		3E60AFCF214A018E0041B02C /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3E60AFD0214A018E0041B02C /* Credential.swift */,
+			);
+			path = authentication;
 			sourceTree = "<group>";
 		};
 		3E9BF95B2146569F000F8B9D /* file */ = {
@@ -394,11 +431,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E60AFC8214A01720041B02C /* ConnectionConstans.swift in Sources */,
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
+				3E60AFD2214A018E0041B02C /* Credential.swift in Sources */,
 				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
 				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
 				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
@@ -407,13 +446,18 @@
 				3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */,
 				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
 				3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */,
+				3E60AFC4214A014F0041B02C /* Auth.swift in Sources */,
+				3E60AFCC214A017F0041B02C /* ErrorResponse.swift in Sources */,
 				3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */,
 				3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */,
+				3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */,
 				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
 				3E1FD7E22148ADD20056F902 /* UpdateRecordResponse.swift in Sources */,
 				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
+				3E60AFC6214A01590041B02C /* Connection.swift in Sources */,
 				3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */,
 				3E1FD7D62148AB370056F902 /* UpdateRecordStatusRequest.swift in Sources */,
+				3E60AFCB214A017F0041B02C /* KintoneAPIException.swift in Sources */,
 				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
 				3E1FD7E02148ADB70056F902 /* AddRecordsResponse.swift in Sources */,
 				3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */,
