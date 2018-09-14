@@ -15,4 +15,32 @@ public class FileModel: NSObject, Codable {
     private var name: String?
     private var size: String?
 
+    public func getContentType() -> String? {
+        return self.contentType
+    }
+    public func setContentType(_ contentType: String) {
+        self.contentType = contentType
+    }
+    
+    public func getFileKey() -> String? {
+        return self.fileKey
+    }
+    public func setFileKey(_ fileKey: String) {
+        self.fileKey = fileKey
+    }
+
+    public func getName() -> String? {
+        return self.name
+    }
+    public func setName(_ name: String) {
+        self.name = name
+    }
+
+    public func getSize() -> String? {
+        return self.size
+    }
+    func setSize(_ size: String) {
+        self.size = size
+    }
+    
 }
