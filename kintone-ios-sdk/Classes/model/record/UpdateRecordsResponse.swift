@@ -8,6 +8,21 @@
 
 import UIKit
 
-class UpdateRecordsResponse: NSObject {
-
+class UpdateRecordsResponse: NSObject, Codable {
+    
+    private var records: [RecordUpdateResponseItem]?
+    
+    /// get the array of record's IDs
+    ///
+    /// - Returns: the array of record's IDs
+    public func getRecords() -> [RecordUpdateResponseItem]? {
+        return self.records;
+    }
+    
+    /// set the array of record's ID
+    ///
+    /// - Parameter records: the array of record's ID
+    public func setRecords(_ records: [RecordUpdateResponseItem]) {
+        self.records = records
+    }
 }

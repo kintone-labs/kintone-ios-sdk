@@ -8,11 +8,21 @@
 
 import UIKit
 
-class RecordUpdateItem: NSObject {
+class RecordUpdateItem: NSObject, Codable {
+    
     private var id: Int?
     private var revision: Int?
+    private var updateKey: RecordUpdateKey?
+    private var record: [String:FieldValue]?
 
-    public init(id: Int?, revision: Int?) {
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - id: the ID of record
+    ///   - revision: the number of revision
+    ///   - updateKey: the unique key of the record to be updated
+    ///   - record: the record data which will update
+    public init(_ id: Int?, _ revision: Int?, _ updateKey: RecordUpdateKey?, _ record: [String:FieldValue]?) {
         self.id = id
         self.revision = revision
     }

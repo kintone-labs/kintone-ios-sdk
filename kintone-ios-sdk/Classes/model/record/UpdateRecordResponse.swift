@@ -8,6 +8,21 @@
 
 import UIKit
 
-class UpdateRecordResponse: NSObject {
+class UpdateRecordResponse: NSObject, Codable {
+    
+    private var revision: Int?
 
+    /// get the number of revision
+    ///
+    /// - Returns: the number of revision
+    public func getRevision() -> Int? {
+        return self.revision;
+    }
+
+    /// sdt the number of revision
+    ///
+    /// - Parameter revision: the number of revision
+    public func setRevision(_ revision: Int?) {
+        self.revision = revision;
+    }
 }

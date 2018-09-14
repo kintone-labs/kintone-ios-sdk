@@ -8,6 +8,19 @@
 
 import UIKit
 
-class AddRecordsRequest: NSObject {
+class AddRecordsRequest: NSObject, Codable {
+    
+    private var app: Int?
+    private var records: [[String:FieldValue]]?
+    
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - app: the  ID of kintone app
+    ///   - records: the records data which will add to kintone app
+    public init(_ app: Int?, _ records: [[String:FieldValue]]?) {
+        self.app = app
+        self.records = records
+    }
 
 }

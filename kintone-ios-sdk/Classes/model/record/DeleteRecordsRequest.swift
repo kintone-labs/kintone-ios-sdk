@@ -8,6 +8,21 @@
 
 import UIKit
 
-class DeleteRecordsRequest: NSObject {
-
+class DeleteRecordsRequest: NSObject, Codable {
+    
+    private var app: Int?
+    private var ids: [Int]?
+    private var revisions: [Int?]?
+    
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - ids: the array of record IDs
+    ///   - revisions: the array of revision number
+    public init(_ app: Int?, _ ids: [Int]?, _ revisions: [Int?]?) {
+        self.app = app
+        self.ids = ids
+        self.revisions = revisions
+    }
 }
