@@ -9,8 +9,8 @@
 
 public class FieldValue: NSObject, Codable{
     
-    public var type: FieldType?
-    public var value: Any?
+    private var type: FieldType?
+    private var value: Any?
     
     enum CodingKeys: String, CodingKey {
         case type
@@ -20,10 +20,26 @@ public class FieldValue: NSObject, Codable{
     public override init() {
     }
     
+    public func getType() -> FieldType? {
+        return self.type
+    }
+    
+    public func setType(_ type: FieldType) {
+        self.type = type
+    }
+    
+    public func getValue() -> Any? {
+        return self.value
+    }
+    
+    public func setValue(_ value: Any?) {
+        self.value = value
+    }
+    
     /// Convert Json to fieldValue.class
     ///
-    /// - Parameter decoder: <#decoder description#>
-    /// - Throws: <#throws value description#>
+    /// - Parameter decoder:
+    /// - Throws:
     public required init(from decoder: Decoder) throws {
         do {
             // Set coding-key for decoding
@@ -31,6 +47,7 @@ public class FieldValue: NSObject, Codable{
             // Convert type to FieldType Class
             self.type = try container.decodeIfPresent(FieldType.self, forKey: CodingKeys.type)
             // Convert value to Swift Class corresponding to FieldType
+            // ★★★ todo : フィールドの中身がnullだった場合の処理はConnection側の仕様が確定してから実装を行う
             switch self.type! {
             case .CREATOR:
                 fallthrough
@@ -64,55 +81,60 @@ public class FieldValue: NSObject, Codable{
                 self.value = try container.decodeIfPresent(String.self, forKey: .value)
             }
         } catch {
-            print("parse error")
+            throw KintoneAPIException("parse error")
         }
     }
     /// convert fieldValue.class to Json
     ///
-    /// - Parameter encoder: <#encoder description#>
-    /// - Throws: <#throws value description#>
+    /// - Parameter encoder:
+    /// - Throws:
     public func encode(to encoder: Encoder) throws {
-        // Set coding-key for encoding
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        // Convert type to json-item
-        try! container.encodeIfPresent(type, forKey: CodingKeys.type)
-        // Convert value to json-item corresponding to FieldType
-        switch self.type! {
-        case .CREATOR:
-            fallthrough
-        case .MODIFIER:
-            let value = self.value as! Member
-            try! container.encodeIfPresent(value, forKey: CodingKeys.value)
-            break
-            
-        case .USER_SELECT:
-            fallthrough
-        case .ORGANIZATION_SELECT:
-            fallthrough
-        case .GROUP_SELECT:
-            fallthrough
-        case .STATUS_ASSIGNEE:
-            let value = self.value as! [Member]
-            try! container.encodeIfPresent(value, forKey: CodingKeys.value)
-            break
-            
-        case .CHECK_BOX:
-            fallthrough
-        case .MULTI_SELECT:
-            fallthrough
-        case .CATEGORY:
-            let value = self.value as! [String]
-            try! container.encodeIfPresent(value, forKey: CodingKeys.value)
-            break
-            
-        case .FILE:
-            let value = self.value as! FileModel
-            try! container.encodeIfPresent(value, forKey: CodingKeys.value)
-            break
-            
-        default:
-            let value = self.value as! String
-            try! container.encodeIfPresent(value, forKey: CodingKeys.value)
+        do {
+            // Set coding-key for encoding
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            // Convert type to json-item
+            try container.encodeIfPresent(type, forKey: CodingKeys.type)
+            // Convert value to json-item corresponding to FieldType
+            // ★★★ todo : フィールドの中身がnullだった場合の処理はConnection側の仕様が確定してから実装を行う
+            switch self.type! {
+            case .CREATOR:
+                fallthrough
+            case .MODIFIER:
+                let value = self.value as! Member
+                try container.encodeIfPresent(value, forKey: CodingKeys.value)
+                break
+                
+            case .USER_SELECT:
+                fallthrough
+            case .ORGANIZATION_SELECT:
+                fallthrough
+            case .GROUP_SELECT:
+                fallthrough
+            case .STATUS_ASSIGNEE:
+                let value = self.value as! [Member]
+                try container.encodeIfPresent(value, forKey: CodingKeys.value)
+                break
+                
+            case .CHECK_BOX:
+                fallthrough
+            case .MULTI_SELECT:
+                fallthrough
+            case .CATEGORY:
+                let value = self.value as! [String]
+                try container.encodeIfPresent(value, forKey: CodingKeys.value)
+                break
+                
+            case .FILE:
+                let value = self.value as! FileModel
+                try container.encodeIfPresent(value, forKey: CodingKeys.value)
+                break
+                
+            default:
+                let value = self.value as! String
+                try container.encodeIfPresent(value, forKey: CodingKeys.value)
+            }
+        } catch {
+            throw KintoneAPIException("parse error")
         }
     }
 }

@@ -9,8 +9,15 @@
 import UIKit
 
 class RecordUpdateKey: NSObject, Codable {
+    
     private var field: String?
     private var value: String?
+    
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - field: the field code of unique key in the kintone app
+    ///   - value: the field value in the record
     public init(field: String?, value: String?) {
         self.field = field
         self.value = value

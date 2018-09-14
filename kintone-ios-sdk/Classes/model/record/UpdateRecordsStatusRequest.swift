@@ -8,6 +8,18 @@
 
 import UIKit
 
-class UpdateRecordsStatusRequest: NSObject {
-
+class UpdateRecordsStatusRequest: NSObject, Codable {
+    
+    private var app: Int?
+    private var records: [RecordUpdateStatusItem]?
+    
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - records: the array of record's ID
+    public init(_ app: Int?, _ records: [RecordUpdateStatusItem]?) {
+        self.app = app;
+        self.records = records;
+    }
 }

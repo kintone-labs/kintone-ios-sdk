@@ -8,6 +8,18 @@
 
 import UIKit
 
-class UpdateRecordsRequest: NSObject {
+class UpdateRecordsRequest: NSObject, Codable {
 
+    private var app: Int?
+    private var records: [RecordUpdateItem]?
+    
+    /// Constructor
+    ///
+    /// - Parameters:
+    ///   - app: the ID of record
+    ///   - records: the array of record data which will update
+    public init(_ app: Int?, _ records: [RecordUpdateItem]?) {
+        self.app = app;
+        self.records = records;
+    }
 }
