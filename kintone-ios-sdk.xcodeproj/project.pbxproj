@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B021500F190077A87E /* LanguageSetting.swift */; };
+		111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B6215012330077A87E /* BulkRequestConstants.swift */; };
+		111892BB215012330077A87E /* BulkRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B7215012330077A87E /* BulkRequestResponse.swift */; };
+		111892BC215012330077A87E /* BulkRequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B8215012330077A87E /* BulkRequestItem.swift */; };
+		111892BD215012330077A87E /* BulkRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B9215012330077A87E /* BulkRequestModel.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -57,6 +62,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		111892B021500F190077A87E /* LanguageSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageSetting.swift; sourceTree = "<group>"; };
+		111892B6215012330077A87E /* BulkRequestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestConstants.swift; sourceTree = "<group>"; };
+		111892B7215012330077A87E /* BulkRequestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestResponse.swift; sourceTree = "<group>"; };
+		111892B8215012330077A87E /* BulkRequestItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestItem.swift; sourceTree = "<group>"; };
+		111892B9215012330077A87E /* BulkRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestModel.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +128,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		111892B5215012330077A87E /* bulkrequest */ = {
+			isa = PBXGroup;
+			children = (
+				111892B6215012330077A87E /* BulkRequestConstants.swift */,
+				111892B7215012330077A87E /* BulkRequestResponse.swift */,
+				111892B8215012330077A87E /* BulkRequestItem.swift */,
+				111892B9215012330077A87E /* BulkRequestModel.swift */,
+			);
+			path = bulkrequest;
+			sourceTree = "<group>";
+		};
 		3E17EA07213E427F002D9BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +209,7 @@
 		3E25BF83213F638100ABBB13 /* constant */ = {
 			isa = PBXGroup;
 			children = (
+				111892B021500F190077A87E /* LanguageSetting.swift */,
 				3E60AFC7214A01720041B02C /* ConnectionConstans.swift */,
 				3E25BFA6213F956400ABBB13 /* FieldType.swift */,
 			);
@@ -206,6 +228,7 @@
 		3E25BF85213F639A00ABBB13 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				111892B5215012330077A87E /* bulkrequest */,
 				3E60AFCF214A018E0041B02C /* authentication */,
 				3E60AFCD214A018E0041B02C /* http */,
 				3E9BF95B2146569F000F8B9D /* file */,
@@ -412,11 +435,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E60AFC8214A01720041B02C /* ConnectionConstans.swift in Sources */,
+				111892BD215012330077A87E /* BulkRequestModel.swift in Sources */,
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
+				111892BC215012330077A87E /* BulkRequestItem.swift in Sources */,
 				3E60AFD2214A018E0041B02C /* Credential.swift in Sources */,
 				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
 				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
@@ -425,12 +450,15 @@
 				3E1FD7CE2148A5EB0056F902 /* AddRecordsRequest.swift in Sources */,
 				3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */,
 				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
+				111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */,
 				3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */,
 				3E60AFC4214A014F0041B02C /* Auth.swift in Sources */,
 				3E60AFCC214A017F0041B02C /* ErrorResponse.swift in Sources */,
 				3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */,
+				111892BB215012330077A87E /* BulkRequestResponse.swift in Sources */,
 				3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */,
 				3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */,
+				111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
 				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
 				3E1FD7E22148ADD20056F902 /* UpdateRecordResponse.swift in Sources */,
 				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
