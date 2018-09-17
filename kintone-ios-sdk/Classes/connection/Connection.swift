@@ -10,62 +10,46 @@ import UIKit
 
 class Connection: NSObject {
     
-    /*
-     * HTTP header content-type for getting json data from rest api.
-     */
+    /// HTTP header content-type for getting json data from rest api.
     private let JSON_CONTENT: String = "application/json"
     
-    /*
-     * User agent http header.
-     */
+    /// User agent http header.
     private var userAgent: String = ConnectionConstants.USER_AGENT_VALUE
     
-    /*
-     * Object contains user's credential.
-     */
+    /// Object contains user's credential.
     private var auth: Auth
     
-    /*
-     * Kintone domain url.
-     */
+    /// Kintone domain url.
     private var domain: String?
 
-    /*
-     * Guest space number in kintone domain.
-     * User describe it when connect data in guest space.
-     */
-    private var guestSpaceID: Int = -1
+    /// Guest space number in kintone domain.
+    /// User describe it when connect data in guest space.
+    private var guestSpaceID: Int? = -1
     
-    /*
-     * Contains addition headers user set.
-     */
+    /// Contains addition headers user set.
     private var headers: Array<HTTPHeader> = []
     
-    /*
-     * Contains information for bypass proxy.
-     */
+    /// Contains information for bypass proxy.
     private var proxyHost: String? = nil
     private var proxyPort: Int? = nil
     
-    /**
-     * Constructor for init a connection object to connect to guest space.
-     *
-     * @param domain Kintone domain url
-     * @param auth Credential information
-     * @param guestSpaceId Guest space number in kintone domain.
-     */
+    /// Constructor for init a connection object to connect to guest space.
+    ///
+    /// - Parameters:
+    ///   - domain: Kintone domain url
+    ///   - auth: Credential information
+    ///   - guestSpaceID: guestSpaceId Guest space number in kintone domain.
     public init(_ domain: String?, _ auth: Auth, _ guestSpaceID: Int) {
         self.domain = domain
         self.auth = auth
         self.guestSpaceID = guestSpaceID
     }
     
-    /**
-     * Constructor for init a connection object to connect to normal space.
-     *
-     * @param domain Kintone domain url
-     * @param auth Credential information
-     */
+    /// Constructor for init a connection object to connect to normal space.
+    ///
+    /// - Parameters:
+    ///   - domain: Kintone domain url
+    ///   - auth: Credential information
     public convenience init(_ domain: String, _ auth: Auth) {
         self.init(domain, auth, -1)
     }
@@ -80,7 +64,17 @@ class Connection: NSObject {
      * @return json object
      * @throws KintoneAPIException
      */
-    public func request(_ method: String, _ apiName: String, _ body: String) -> String {
+    
+    /// Rest http request.
+    /// This method is low level api, use the correspondence methods in module package instead.
+    ///
+    /// - Parameters:
+    ///   - method: rest http method. Only accept "GET", "POST", "PUT", "DELETE" value.
+    ///   - apiName: apiName
+    ///   - body: json object
+    /// - Returns: Any?
+    /// - Throws: KintoneAPIException
+    public func request(_ method: String, _ apiName: String, _ body: String) throws -> Any? {
         
         var isGet: Bool = false
         if (method == ConnectionConstants.GET_REQUEST){
@@ -101,31 +95,53 @@ class Connection: NSObject {
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
-        // use NSURLSessionDataTask
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let data = data, let response = response {
-                
-                do {
-                    try self.checkStatus(response, data, body)
-                    //return response
-                } catch {
-                }
-                
-                //print(response)
-                //let json = try? JSONDecoder().decode(AddRecordRequest.self, from: data)
-                //json?.api
-            }else{
-                print("#error########################")
-                print(error ?? "error")
-                print("#########################")
-                //return "error"
-            }
-        }
-        task.resume()
+        let session: URLSession = URLSession.shared
         
-        return "sasd"
+        let (data, response, error) = self.execute(session, request)
+        
+        if (error != nil){
+            print(error!)
+            return nil
+        }
+        if (data != nil || response != nil){
+            do {
+                try self.checkStatus(response, data, body)
+                return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+            }
+            //catch {
+            //    throw KintoneAPIException("an error occurred while receiving data")
+            //}
+        }
+        return nil
+    }
+ 
+    ///
+    ///
+    /// - Parameters:
+    ///   - session: session
+    ///   - request: request
+    /// - Returns: Data?, URLResponse?, NSError?
+    private func execute(_ session: URLSession, _ request: URLRequest) -> (Data?, URLResponse?, NSError?) {
+        var tmpData: Data? = nil
+        var tmpResponse: URLResponse? = nil
+        var tmpError: NSError? = nil
+        let semaphore = DispatchSemaphore(value: 0)
+        session.dataTask(with: request) { (data, response, error) -> Void in
+            tmpData = data as Data?
+            tmpResponse = response
+            tmpError = error as NSError?
+            semaphore.signal()
+        }.resume()
+        _ = semaphore.wait(timeout: DispatchTime.now() + 100)
+        return (tmpData, tmpResponse, tmpError)
     }
     
+    /// Get url string from domain name, api name and parameters.
+    ///
+    /// - Parameters:
+    ///   - apiName: api name
+    ///   - parameters: parameters
+    /// - Returns: String
     private func getURL(_ apiName: String?, _ parameters: String?) -> String {
         guard let unwrappedDomain = self.domain else {
             print("domain is empty")
@@ -155,15 +171,13 @@ class Connection: NSObject {
         if let range2: Range = sb.range(of: "¥¥s") {
             sb.replaceSubrange(range2, with: "%20")
         }
-        
-        return urlString
+        return sb
     }
     
-    /**
-     * Set HTTP headers for connections.
-     *
-     * @param connection
-     */
+    /// Set HTTP headers for connections.
+    ///
+    /// - Parameter connection: connection
+    /// - Returns: URLRequest
     private func setHTTPHeaders(_ connection: URLRequest) -> URLRequest {
         var request: URLRequest = connection
         for header: HTTPHeader? in self.auth.createHeaderCredentials(){
@@ -178,44 +192,83 @@ class Connection: NSObject {
         return request
     }
     
-    /**
-     * Set addition header when connect.
-     *
-     * @param key
-     * @param value
-     * @return
-     */
+    /// Set addition header when connect.
+    ///
+    /// - Parameters:
+    ///   - key: key
+    ///   - value: value
+    /// - Returns: Connection
     public func setHeader(_ key: String, _ value: String) -> Connection {
         self.headers.append(HTTPHeader(key, value));
         return self
     }
     
-    /**
-     * Set authentication for connection
-     *
-     * @param auth
-     * @return connection
-     *            Connection object.
-     */
+    /// Set authentication for connection
+    ///
+    /// - Parameter auth: auth
+    /// - Returns: Connection
     public func setAuth(_ auth: Auth) -> Connection {
         self.auth = auth;
         return self;
     }
     
-    private func checkStatus(_ response: URLResponse, _ data: Data?, _ body: String) throws {
+    /// Get kintone domain url of connection.
+    ///
+    /// - Returns: domain
+    public func getDomain() -> String? {
+        return self.domain
+    }
+    
+    /// Get guest space id of connection.
+    ///
+    /// - Returns: guest space id
+    public func getGuestSpaceId() -> Int? {
+        return self.guestSpaceID
+    }
+    
+    /// Get auth of connection.
+    ///
+    /// - Returns: Auth?
+    public func getAuth() -> Auth? {
+        return self.auth
+    }
+    
+    /// Checks the status code of the response.
+    ///
+    /// - Parameters:
+    ///   - response: response
+    ///   - data: data
+    ///   - body: body
+    /// - Throws: KintoneIOSException
+    private func checkStatus(_ response: URLResponse?, _ data: Data?, _ body: String?) throws {
         let http_response = response as? HTTPURLResponse
         let statusCode: Int? = http_response?.statusCode
         
-        if (statusCode == 404){
+        if (statusCode == 404) {
             if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
                 throw KintoneAPIException(statusCode, unWrapResponse)
             }else{
-                throw KintoneAPIException("sssss")
+                throw KintoneAPIException("not found")
             }
-            
+        }
+        
+        if (statusCode == 401) {
+            throw KintoneAPIException("401 Unauthorized")
+        }
+        
+        if (statusCode != 200) {
+            if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
+                throw KintoneAPIException(statusCode, unWrapResponse)
+            }else{
+                throw KintoneAPIException("http status error(" + String(statusCode!) + ")")
+            }
         }
     }
     
+    /// Creates an error response object.
+    ///
+    /// - Parameter data: data
+    /// - Returns: ErrorResponse?
     private func getErrorResponse(_ data: Data?) -> ErrorResponse? {
         let decoder: JSONDecoder = JSONDecoder()
         
@@ -230,21 +283,39 @@ class Connection: NSObject {
         return nil
     }
     
-    
-    public func getDomain() -> String? {
-        return self.domain
-    }
-    
-    public func getGuestSpaceId() -> Int {
-        return self.guestSpaceID
-    }
-    
-    public func getAuth() -> Auth {
-        return self.auth
-    }
-    
+    /// Sets the proxy host.
+    ///
+    /// - Parameters:
+    ///   - host: proxy host
+    ///   - port: proxy port
     public func setProxy(_ host: String, _ port: Int) {
         self.proxyHost = host
         self.proxyPort = port
+    }
+    
+    /// Get uri string from api name.
+    ///
+    /// - Parameter apiName: apiName
+    /// - Returns: String
+    public func getPathURI(_ apiName: String) -> String {
+        var pathURI: String = ""
+        
+        if (self.guestSpaceID != nil){
+            if (self.guestSpaceID! >= 0) {
+                pathURI = ConnectionConstants.BASE_GUEST_URL
+                if let range: Range = pathURI.range(of: "{GUEST_SPACE_ID}") {
+                    pathURI.replaceSubrange(range, with: String(self.guestSpaceID!) + "")
+                }
+            } else {
+                pathURI = ConnectionConstants.BASE_URL
+            }
+        } else {
+            pathURI = ConnectionConstants.BASE_URL
+        }
+        
+        if let range: Range = pathURI.range(of: "{API_NAME}") {
+            pathURI.replaceSubrange(range, with: apiName)
+        }
+        return pathURI
     }
 }
