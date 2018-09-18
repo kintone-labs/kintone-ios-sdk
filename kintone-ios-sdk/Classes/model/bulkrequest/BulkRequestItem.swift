@@ -60,7 +60,7 @@ public class BulkRequestItem: NSObject, Codable {
             
             // Convert value to Swift Class corresponding to payload
             switch type(of: self.payload) {
-            case AddRecordRequest.self:
+            case is AddRecordRequest:
                 self.payload = try container.decodeIfPresent(AddRecordRequest.self, forKey: CodingKeys.payload)
                 break
             default:
@@ -85,7 +85,7 @@ public class BulkRequestItem: NSObject, Codable {
             try container.encodeIfPresent(api, forKey: CodingKeys.api)
             // Convert value to json-item corresponding to payload
             switch type(of: self.payload) {
-            case AddRecordRequest.self:
+            case is AddRecordRequest:
                 let payload = self.payload as! AddRecordRequest
                 try container.encodeIfPresent(payload, forKey: CodingKeys.payload)
                 break
