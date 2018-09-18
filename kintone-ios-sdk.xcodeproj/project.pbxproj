@@ -29,8 +29,6 @@
 		3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7E32148ADEE0056F902 /* UpdateRecordsResponse.swift */; };
 		3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7E52148AE220056F902 /* RecordUpdateResponseItem.swift */; };
 		3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1FD7E72148AE5C0056F902 /* RecordUpdateStatusItem.swift */; };
-		3E25BF89213F646C00ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF88213F646C00ABBB13 /* .gitkeep */; };
-		3E25BF8B213F648900ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF8A213F648900ABBB13 /* .gitkeep */; };
 		3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */; };
 		3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA4213F953D00ABBB13 /* FieldValue.swift */; };
 		3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA6213F956400ABBB13 /* FieldType.swift */; };
@@ -415,8 +413,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E25BF89213F646C00ABBB13 /* .gitkeep in Resources */,
-				3E25BF8B213F648900ABBB13 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
