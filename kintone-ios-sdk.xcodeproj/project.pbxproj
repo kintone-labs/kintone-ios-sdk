@@ -42,6 +42,9 @@
 		3E60AFCC214A017F0041B02C /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFCA214A017F0041B02C /* ErrorResponse.swift */; };
 		3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFCE214A018E0041B02C /* HTTPHeader.swift */; };
 		3E60AFD2214A018E0041B02C /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD0214A018E0041B02C /* Credential.swift */; };
+		3E60AFD6215093AC0041B02C /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD5215093AC0041B02C /* Record.swift */; };
+		3E60AFD92150BAD90041B02C /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD82150BAD90041B02C /* BaseParser.swift */; };
+		3E60AFDB2150C1C10041B02C /* RecordParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFDA2150C1C10041B02C /* RecordParser.swift */; };
 		3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BF95C214656D4000F8B9D /* FileModel.swift */; };
 		3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */; };
 		3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81252141109A00A1499F /* RecordUpdateItem.swift */; };
@@ -100,6 +103,9 @@
 		3E60AFCA214A017F0041B02C /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		3E60AFCE214A018E0041B02C /* HTTPHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
 		3E60AFD0214A018E0041B02C /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
+		3E60AFD5215093AC0041B02C /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		3E60AFD82150BAD90041B02C /* BaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
+		3E60AFDA2150C1C10041B02C /* RecordParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordParser.swift; sourceTree = "<group>"; };
 		3E9BF95C214656D4000F8B9D /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordsRequest.swift; sourceTree = "<group>"; };
 		3EFD81252141109A00A1499F /* RecordUpdateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateItem.swift; sourceTree = "<group>"; };
@@ -241,6 +247,8 @@
 		3E25BF86213F63AC00ABBB13 /* module */ = {
 			isa = PBXGroup;
 			children = (
+				3E60AFD72150BA600041B02C /* parser */,
+				3E60AFD4215091500041B02C /* record */,
 				3E25BF8A213F648900ABBB13 /* .gitkeep */,
 			);
 			path = module;
@@ -305,6 +313,23 @@
 				3E60AFD0214A018E0041B02C /* Credential.swift */,
 			);
 			path = authentication;
+			sourceTree = "<group>";
+		};
+		3E60AFD4215091500041B02C /* record */ = {
+			isa = PBXGroup;
+			children = (
+				3E60AFD5215093AC0041B02C /* Record.swift */,
+			);
+			path = record;
+			sourceTree = "<group>";
+		};
+		3E60AFD72150BA600041B02C /* parser */ = {
+			isa = PBXGroup;
+			children = (
+				3E60AFD82150BAD90041B02C /* BaseParser.swift */,
+				3E60AFDA2150C1C10041B02C /* RecordParser.swift */,
+			);
+			path = parser;
 			sourceTree = "<group>";
 		};
 		3E9BF95B2146569F000F8B9D /* file */ = {
@@ -439,6 +464,7 @@
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
+				3E60AFD92150BAD90041B02C /* BaseParser.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
 				111892BC215012330077A87E /* BulkRequestItem.swift in Sources */,
@@ -458,12 +484,14 @@
 				111892BB215012330077A87E /* BulkRequestResponse.swift in Sources */,
 				3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */,
 				3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */,
+				3E60AFDB2150C1C10041B02C /* RecordParser.swift in Sources */,
 				111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
 				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
 				3E1FD7E22148ADD20056F902 /* UpdateRecordResponse.swift in Sources */,
 				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
 				3E60AFC6214A01590041B02C /* Connection.swift in Sources */,
 				3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */,
+				3E60AFD6215093AC0041B02C /* Record.swift in Sources */,
 				3E1FD7D62148AB370056F902 /* UpdateRecordStatusRequest.swift in Sources */,
 				3E60AFCB214A017F0041B02C /* KintoneAPIException.swift in Sources */,
 				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
