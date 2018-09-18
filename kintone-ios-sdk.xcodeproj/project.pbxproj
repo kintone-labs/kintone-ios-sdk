@@ -47,6 +47,9 @@
 		3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD812B21411B6100A1499F /* AddRecordRequest.swift */; };
 		3EFD812F21420FC900A1499F /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD812E21420FC900A1499F /* Member.swift */; };
 		3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81302146060200A1499F /* SubTableValueItem.swift */; };
+		4C0982BF2150F46400D8C258 /* GetAppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982BE2150F46400D8C258 /* GetAppRequest.swift */; };
+		4C0982C12150FA0200D8C258 /* GetAppsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982C02150FA0200D8C258 /* GetAppsRequest.swift */; };
+		4C0982C32151044400D8C258 /* AddPreviewAppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982C22151044400D8C258 /* AddPreviewAppRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,9 @@
 		3EFD812B21411B6100A1499F /* AddRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordRequest.swift; sourceTree = "<group>"; };
 		3EFD812E21420FC900A1499F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		3EFD81302146060200A1499F /* SubTableValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableValueItem.swift; sourceTree = "<group>"; };
+		4C0982BE2150F46400D8C258 /* GetAppRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppRequest.swift; sourceTree = "<group>"; };
+		4C0982C02150FA0200D8C258 /* GetAppsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsRequest.swift; sourceTree = "<group>"; };
+		4C0982C22151044400D8C258 /* AddPreviewAppRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPreviewAppRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +232,7 @@
 		3E25BF85213F639A00ABBB13 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				4C0982BA2150F21200D8C258 /* app */,
 				111892B5215012330077A87E /* bulkrequest */,
 				3E60AFCF214A018E0041B02C /* authentication */,
 				3E60AFCD214A018E0041B02C /* http */,
@@ -319,6 +326,40 @@
 				3EFD812E21420FC900A1499F /* Member.swift */,
 			);
 			path = member;
+			sourceTree = "<group>";
+		};
+		4C0982BA2150F21200D8C258 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				4C0982BB2150F22700D8C258 /* basic */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		4C0982BB2150F22700D8C258 /* basic */ = {
+			isa = PBXGroup;
+			children = (
+				4C0982BC2150F3BD00D8C258 /* request */,
+				4C0982BD2150F3C400D8C258 /* response */,
+			);
+			path = basic;
+			sourceTree = "<group>";
+		};
+		4C0982BC2150F3BD00D8C258 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				4C0982BE2150F46400D8C258 /* GetAppRequest.swift */,
+				4C0982C02150FA0200D8C258 /* GetAppsRequest.swift */,
+				4C0982C22151044400D8C258 /* AddPreviewAppRequest.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		4C0982BD2150F3C400D8C258 /* response */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = response;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +475,7 @@
 				111892BD215012330077A87E /* BulkRequestModel.swift in Sources */,
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
+				4C0982BF2150F46400D8C258 /* GetAppRequest.swift in Sources */,
 				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
@@ -446,6 +488,8 @@
 				3E1FD7CE2148A5EB0056F902 /* AddRecordsRequest.swift in Sources */,
 				3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */,
 				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
+				4C0982C12150FA0200D8C258 /* GetAppsRequest.swift in Sources */,
+				4C0982C32151044400D8C258 /* AddPreviewAppRequest.swift in Sources */,
 				111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */,
 				3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */,
 				3E60AFC4214A014F0041B02C /* Auth.swift in Sources */,
