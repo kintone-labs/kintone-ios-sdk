@@ -43,7 +43,7 @@
 		3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFCE214A018E0041B02C /* HTTPHeader.swift */; };
 		3E60AFD2214A018E0041B02C /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD0214A018E0041B02C /* Credential.swift */; };
 		3E60AFD6215093AC0041B02C /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD5215093AC0041B02C /* Record.swift */; };
-		3E60AFD92150BAD90041B02C /* BaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD82150BAD90041B02C /* BaseParser.swift */; };
+		3E60AFD92150BAD90041B02C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFD82150BAD90041B02C /* Parser.swift */; };
 		3E60AFDB2150C1C10041B02C /* RecordParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60AFDA2150C1C10041B02C /* RecordParser.swift */; };
 		3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9BF95C214656D4000F8B9D /* FileModel.swift */; };
 		3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */; };
@@ -104,7 +104,7 @@
 		3E60AFCE214A018E0041B02C /* HTTPHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
 		3E60AFD0214A018E0041B02C /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		3E60AFD5215093AC0041B02C /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
-		3E60AFD82150BAD90041B02C /* BaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseParser.swift; sourceTree = "<group>"; };
+		3E60AFD82150BAD90041B02C /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		3E60AFDA2150C1C10041B02C /* RecordParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordParser.swift; sourceTree = "<group>"; };
 		3E9BF95C214656D4000F8B9D /* FileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileModel.swift; sourceTree = "<group>"; };
 		3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordsRequest.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 		3E60AFD72150BA600041B02C /* parser */ = {
 			isa = PBXGroup;
 			children = (
-				3E60AFD82150BAD90041B02C /* BaseParser.swift */,
+				3E60AFD82150BAD90041B02C /* Parser.swift */,
 				3E60AFDA2150C1C10041B02C /* RecordParser.swift */,
 			);
 			path = parser;
@@ -464,7 +464,7 @@
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
-				3E60AFD92150BAD90041B02C /* BaseParser.swift in Sources */,
+				3E60AFD92150BAD90041B02C /* Parser.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
 				111892BC215012330077A87E /* BulkRequestItem.swift in Sources */,
