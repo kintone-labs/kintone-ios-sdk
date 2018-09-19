@@ -17,7 +17,7 @@ class AddPreviewAppResponse: NSObject {
         self.revision = revision
     }
     public func getApp() -> Int? {
-        self.app
+        return self.app
     }
     public func setApp(_ app: Int) {
         self.app = app
