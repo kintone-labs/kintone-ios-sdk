@@ -59,6 +59,7 @@
 		4C0982D32151F19700D8C258 /* GetViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D22151F19700D8C258 /* GetViewsResponse.swift */; };
 		4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */; };
 		4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */; };
+		A890514921524154007BC18B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890514821524154007BC18B /* ViewModel.swift */; };
 		A8F4320C21522F4C00C15EDA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4320B21522F4C00C15EDA /* App.swift */; };
 		A8F4320E21522F8300C15EDA /* AppForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4320D21522F8300C15EDA /* AppForm.swift */; };
 		A8F432102152300500C15EDA /* AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4320F2152300500C15EDA /* AppApp.swift */; };
@@ -141,6 +142,7 @@
 		4C0982D22151F19700D8C258 /* GetViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewsResponse.swift; sourceTree = "<group>"; };
 		4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewsResponse.swift; sourceTree = "<group>"; };
 		4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusResponse.swift; sourceTree = "<group>"; };
+		A890514821524154007BC18B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A8F4320B21522F4C00C15EDA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A8F4320D21522F8300C15EDA /* AppForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppForm.swift; sourceTree = "<group>"; };
 		A8F4320F2152300500C15EDA /* AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppApp.swift; sourceTree = "<group>"; };
@@ -416,6 +418,14 @@
 			path = response;
 			sourceTree = "<group>";
 		};
+		A890514721524139007BC18B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A890514821524154007BC18B /* ViewModel.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		A8F4320A21522F3D00C15EDA /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +444,7 @@
 		AB59F5C82150F29900BCD0EE /* app */ = {
 			isa = PBXGroup;
 			children = (
+				A890514721524139007BC18B /* view */,
 				AB59F5C92150F31000BCD0EE /* form */,
 				111892B021500F190077A87E /* LanguageSetting.swift */,
 				4C0982BB2150F22700D8C258 /* basic */,
@@ -574,6 +585,7 @@
 				3E60AFD2214A018E0041B02C /* Credential.swift in Sources */,
 				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
 				4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */,
+				A890514921524154007BC18B /* ViewModel.swift in Sources */,
 				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
 				A8F43216215231A600C15EDA /* AppCustomization.swift in Sources */,
 				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
