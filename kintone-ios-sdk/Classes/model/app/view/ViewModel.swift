@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class ViewModel: NSObject, Codable{
+public class ViewModel: NSObject, Codable {
     private var builtinType: BuiltinType?
     private var date: String?
     private var fields: [String]?
