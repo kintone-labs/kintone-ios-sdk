@@ -50,6 +50,16 @@
 		4C0982BF2150F46400D8C258 /* GetAppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982BE2150F46400D8C258 /* GetAppRequest.swift */; };
 		4C0982C12150FA0200D8C258 /* GetAppsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982C02150FA0200D8C258 /* GetAppsRequest.swift */; };
 		4C0982C32151044400D8C258 /* AddPreviewAppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982C22151044400D8C258 /* AddPreviewAppRequest.swift */; };
+		4C0982C52151D98A00D8C258 /* DeployAppSettingsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982C42151D98A00D8C258 /* DeployAppSettingsRequest.swift */; };
+		4C0982C72151DCAE00D8C258 /* GetFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982C62151DCAE00D8C258 /* GetFormFieldsRequest.swift */; };
+		4C0982C92151DCF100D8C258 /* GetFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982C82151DCF100D8C258 /* GetFormLayoutRequest.swift */; };
+		4C0982CB2151E4FD00D8C258 /* GetViewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982CA2151E4FD00D8C258 /* GetViewsRequest.swift */; };
+		4C0982CD2151EB8300D8C258 /* UpdateViewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982CC2151EB8300D8C258 /* UpdateViewsRequest.swift */; };
+		4C0982CF2151EDBF00D8C258 /* BasicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982CE2151EDBF00D8C258 /* BasicResponse.swift */; };
+		4C0982D12151EEA300D8C258 /* AddPreviewAppResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D02151EEA300D8C258 /* AddPreviewAppResponse.swift */; };
+		4C0982D32151F19700D8C258 /* GetViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D22151F19700D8C258 /* GetViewsResponse.swift */; };
+		4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */; };
+		4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +121,16 @@
 		4C0982BE2150F46400D8C258 /* GetAppRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppRequest.swift; sourceTree = "<group>"; };
 		4C0982C02150FA0200D8C258 /* GetAppsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsRequest.swift; sourceTree = "<group>"; };
 		4C0982C22151044400D8C258 /* AddPreviewAppRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPreviewAppRequest.swift; sourceTree = "<group>"; };
+		4C0982C42151D98A00D8C258 /* DeployAppSettingsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeployAppSettingsRequest.swift; sourceTree = "<group>"; };
+		4C0982C62151DCAE00D8C258 /* GetFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFormFieldsRequest.swift; sourceTree = "<group>"; };
+		4C0982C82151DCF100D8C258 /* GetFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFormLayoutRequest.swift; sourceTree = "<group>"; };
+		4C0982CA2151E4FD00D8C258 /* GetViewsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewsRequest.swift; sourceTree = "<group>"; };
+		4C0982CC2151EB8300D8C258 /* UpdateViewsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewsRequest.swift; sourceTree = "<group>"; };
+		4C0982CE2151EDBF00D8C258 /* BasicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicResponse.swift; sourceTree = "<group>"; };
+		4C0982D02151EEA300D8C258 /* AddPreviewAppResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPreviewAppResponse.swift; sourceTree = "<group>"; };
+		4C0982D22151F19700D8C258 /* GetViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewsResponse.swift; sourceTree = "<group>"; };
+		4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewsResponse.swift; sourceTree = "<group>"; };
+		4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +371,11 @@
 				4C0982BE2150F46400D8C258 /* GetAppRequest.swift */,
 				4C0982C02150FA0200D8C258 /* GetAppsRequest.swift */,
 				4C0982C22151044400D8C258 /* AddPreviewAppRequest.swift */,
+				4C0982C42151D98A00D8C258 /* DeployAppSettingsRequest.swift */,
+				4C0982CA2151E4FD00D8C258 /* GetViewsRequest.swift */,
+				4C0982CC2151EB8300D8C258 /* UpdateViewsRequest.swift */,
+				4C0982C62151DCAE00D8C258 /* GetFormFieldsRequest.swift */,
+				4C0982C82151DCF100D8C258 /* GetFormLayoutRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -358,6 +383,11 @@
 		4C0982BD2150F3C400D8C258 /* response */ = {
 			isa = PBXGroup;
 			children = (
+				4C0982CE2151EDBF00D8C258 /* BasicResponse.swift */,
+				4C0982D02151EEA300D8C258 /* AddPreviewAppResponse.swift */,
+				4C0982D22151F19700D8C258 /* GetViewsResponse.swift */,
+				4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */,
+				4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -474,14 +504,18 @@
 				3E60AFC8214A01720041B02C /* ConnectionConstans.swift in Sources */,
 				111892BD215012330077A87E /* BulkRequestModel.swift in Sources */,
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
+				4C0982C72151DCAE00D8C258 /* GetFormFieldsRequest.swift in Sources */,
+				4C0982D12151EEA300D8C258 /* AddPreviewAppResponse.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				4C0982BF2150F46400D8C258 /* GetAppRequest.swift in Sources */,
 				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
+				4C0982CF2151EDBF00D8C258 /* BasicResponse.swift in Sources */,
 				111892BC215012330077A87E /* BulkRequestItem.swift in Sources */,
 				3E60AFD2214A018E0041B02C /* Credential.swift in Sources */,
 				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
+				4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */,
 				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
 				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
 				3EFD81282141117500A1499F /* RecordUpdateKey.swift in Sources */,
@@ -489,6 +523,7 @@
 				3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */,
 				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
 				4C0982C12150FA0200D8C258 /* GetAppsRequest.swift in Sources */,
+				4C0982C52151D98A00D8C258 /* DeployAppSettingsRequest.swift in Sources */,
 				4C0982C32151044400D8C258 /* AddPreviewAppRequest.swift in Sources */,
 				111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */,
 				3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */,
@@ -497,16 +532,21 @@
 				3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */,
 				111892BB215012330077A87E /* BulkRequestResponse.swift in Sources */,
 				3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */,
+				4C0982D32151F19700D8C258 /* GetViewsResponse.swift in Sources */,
 				3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */,
 				111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
 				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
 				3E1FD7E22148ADD20056F902 /* UpdateRecordResponse.swift in Sources */,
+				4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */,
+				4C0982C92151DCF100D8C258 /* GetFormLayoutRequest.swift in Sources */,
 				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
 				3E60AFC6214A01590041B02C /* Connection.swift in Sources */,
+				4C0982CD2151EB8300D8C258 /* UpdateViewsRequest.swift in Sources */,
 				3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */,
 				3E1FD7D62148AB370056F902 /* UpdateRecordStatusRequest.swift in Sources */,
 				3E60AFCB214A017F0041B02C /* KintoneAPIException.swift in Sources */,
 				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
+				4C0982CB2151E4FD00D8C258 /* GetViewsRequest.swift in Sources */,
 				3E1FD7E02148ADB70056F902 /* AddRecordsResponse.swift in Sources */,
 				3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */,
 				3EFD812F21420FC900A1499F /* Member.swift in Sources */,

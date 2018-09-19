@@ -16,7 +16,7 @@ public class GetAppRequest: NSObject {
         self.id = id
     }
     
-    init(id: Int) {
+    public init(_ id: Int) {
         self.id = id
     }
 }
