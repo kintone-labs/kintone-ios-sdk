@@ -60,6 +60,7 @@
 		4C0982D32151F19700D8C258 /* GetViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D22151F19700D8C258 /* GetViewsResponse.swift */; };
 		4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */; };
 		4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */; };
+		4C0982DB2151FD1B00D8C258 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982DA2151FD1B00D8C258 /* AppModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		4C0982D22151F19700D8C258 /* GetViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewsResponse.swift; sourceTree = "<group>"; };
 		4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewsResponse.swift; sourceTree = "<group>"; };
 		4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusResponse.swift; sourceTree = "<group>"; };
+		4C0982DA2151FD1B00D8C258 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +353,7 @@
 		4C0982BA2150F21200D8C258 /* app */ = {
 			isa = PBXGroup;
 			children = (
+				4C0982D92151F8AF00D8C258 /* app */,
 				4C0982BB2150F22700D8C258 /* basic */,
 			);
 			path = app;
@@ -390,6 +393,14 @@
 				4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */,
 			);
 			path = response;
+			sourceTree = "<group>";
+		};
+		4C0982D92151F8AF00D8C258 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				4C0982DA2151FD1B00D8C258 /* AppModel.swift */,
+			);
+			path = app;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -525,6 +536,7 @@
 				4C0982C12150FA0200D8C258 /* GetAppsRequest.swift in Sources */,
 				4C0982C52151D98A00D8C258 /* DeployAppSettingsRequest.swift in Sources */,
 				4C0982C32151044400D8C258 /* AddPreviewAppRequest.swift in Sources */,
+				4C0982DB2151FD1B00D8C258 /* AppModel.swift in Sources */,
 				111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */,
 				3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */,
 				3E60AFC4214A014F0041B02C /* Auth.swift in Sources */,
