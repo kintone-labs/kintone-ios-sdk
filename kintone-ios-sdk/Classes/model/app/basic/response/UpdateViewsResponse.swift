@@ -10,7 +10,7 @@ class UpdateViewsResponse: NSObject {
     private var views: [String: ViewModel]?
     
     public func getViews() -> [String: ViewModel]? {
-        self.views
+        return self.views
     }
     public func setViews(_ views: [String: ViewModel]) {
         self.views = views

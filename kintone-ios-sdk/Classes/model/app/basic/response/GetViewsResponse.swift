@@ -17,7 +17,7 @@ class GetViewsResponse: NSObject {
         self.revision = revision
     }
     public func getViews() -> [String: ViewModel]? {
-        self.views
+        return self.views
     }
     public func setViews(_ views: [String: ViewModel]) {
         self.views = views
