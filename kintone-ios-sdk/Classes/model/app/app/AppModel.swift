@@ -36,4 +36,46 @@ class AppModel: NSObject {
     public func setName(_ name: String) {
         self.name = name
     }
+    public func getDescription() -> String? {
+        return self.appDescription
+    }
+    public func setDescription(_ appDescription: String ) {
+        return self.appDescription = appDescription
+    }
+    public func getSpaceId() -> Int? {
+        return self.spaceId
+    }
+    public func setSpaceId(_ spaceId: Int) {
+        self.spaceId = spaceId
+    }
+    public func getThreadId() -> Int? {
+        return self.threadId
+    }
+    public func setThreadId(_ threadId: Int) {
+        self.threadId = threadId
+    }
+    public func getCreadtedAt() -> Date? {
+        return self.createdAt
+    }
+    public func setCreatedAt(_ createdAt: Date) {
+        self.createdAt = createdAt
+    }
+    public func getCreator() -> UserBase? {
+        return self.creator
+    }
+    public func setCreator(_ creator: UserBase) {
+        self.creator = creator
+    }
+    public func getUpdatedAt() -> Date? {
+        return self.updatedAt
+    }
+    public func setUpdatedAt(_ updatedAt: Date) {
+        self.updatedAt = updatedAt
+    }
+    public func getModifier() -> UserBase? {
+        return self.modifier
+    }
+    public func setModifier(_ modifier: UserBase) {
+        self.modifier = modifier
+    }
 }
