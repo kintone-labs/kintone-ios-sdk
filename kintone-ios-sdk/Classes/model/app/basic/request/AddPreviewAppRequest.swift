@@ -14,19 +14,25 @@ class AddPreviewAppRequest: NSObject {
     public func getName() -> String? {
         return self.name
     }
-    public func setName(name: String) {
+    public func setName(_ name: String) {
         self.name = name
     }
     public func getSpace() -> Int? {
         return self.space
     }
-    public func setSpace(space: Int) {
+    public func setSpace(_ space: Int) {
         self.space = space
     }
     public func getThread() -> Int? {
         return self.thread
     }
-    public func setThread(thread: Int) {
+    public func setThread(_ thread: Int) {
+        self.thread = thread
+    }
+    
+    public init(name: String, space: Int, thread: Int){
+        self.name = name
+        self.space = space
         self.thread = thread
     }
 }
