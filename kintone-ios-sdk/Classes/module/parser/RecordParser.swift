@@ -8,6 +8,6 @@
 
 import UIKit
 
-class RecordParser: BaseParser {
+class RecordParser: Parser {
 
 }
