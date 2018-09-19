@@ -12,8 +12,8 @@ public class ViewModel: NSObject, Codable{
     private var fields: [String]?
     private var filterCond: String?
     private var html: String?
-    private var id: String?
-    private var index: String?
+    private var id: Int?
+    private var index: Int?
     private var name: String?
     private var pager: Bool?
     private var sort: String?
@@ -70,19 +70,19 @@ public class ViewModel: NSObject, Codable{
         self.html = html
     }
     
-    public func getId() -> String? {
+    public func getId() -> Int? {
         return self.id
     }
     
-    public func setId(_ id: String?) {
+    public func setId(_ id: Int?) {
         self.id = id
     }
     
-    public func getIndex() -> String? {
+    public func getIndex() -> Int? {
         return self.index
     }
     
-    public func setIndex(_ index: String?) {
+    public func setIndex(_ index: Int?) {
         self.index = index
     }
     
@@ -121,7 +121,7 @@ public class ViewModel: NSObject, Codable{
     public func getType() -> ViewType? {
         return self.type
     }
-
+    
     public func setType(_ type: ViewType?) {
         self.type = type
     }
