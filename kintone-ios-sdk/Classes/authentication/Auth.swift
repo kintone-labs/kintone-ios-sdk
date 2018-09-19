@@ -8,11 +8,6 @@
 
 public class Auth: NSObject {
 
-    public let HEADER_KEY_AUTH_PASSWORD = "X-Cybozu-Authorization"
-    public let HEADER_KEY_AUTH_APITOKEN = "X-Cybozu-API-Token"
-    public let HEADER_KEY_AUTH_BASIC = "Authorization"
-    public let AUTH_BASIC_PREFIX = "Basic "
-
     private var basicAuth: Credential?
     private var passwordAuth: Credential?
     private var apiToken: String?
@@ -78,19 +73,19 @@ public class Auth: NSObject {
         if (self.passwordAuth != nil) {
             let passwordAuthString = (self.passwordAuth?.getUsername())! + ":" + (self.passwordAuth?.getPassword())!
             let passwordAuthData = passwordAuthString.data(using: .utf8)
-            let httpHeader = HTTPHeader(HEADER_KEY_AUTH_PASSWORD, (passwordAuthData?.base64EncodedString())!)
+            let httpHeader = HTTPHeader(AuthenticationConstants.HEADER_KEY_AUTH_PASSWORD, (passwordAuthData?.base64EncodedString())!)
             headers.append(httpHeader)
         }
 
         if (self.apiToken != nil) {
-            let httpHeader = HTTPHeader(HEADER_KEY_AUTH_APITOKEN, self.apiToken)
+            let httpHeader = HTTPHeader(AuthenticationConstants.HEADER_KEY_AUTH_APITOKEN, self.apiToken)
             headers.append(httpHeader)
         }
 
         if (self.basicAuth != nil) {
             let basicAuthString = (self.basicAuth?.getUsername())! + ":" + (self.basicAuth?.getPassword())!
             let basicAUthData = basicAuthString.data(using: .utf8)
-            let httpHeader = HTTPHeader(HEADER_KEY_AUTH_BASIC, AUTH_BASIC_PREFIX + (basicAUthData?.base64EncodedString())!)
+            let httpHeader = HTTPHeader(AuthenticationConstants.HEADER_KEY_AUTH_BASIC, AuthenticationConstants.AUTH_BASIC_PREFIX + (basicAUthData?.base64EncodedString())!)
             headers.append(httpHeader)
         }
         return headers
