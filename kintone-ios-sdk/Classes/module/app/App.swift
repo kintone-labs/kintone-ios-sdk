@@ -8,6 +8,7 @@
 
 class App: NSObject {
     var connection: Connection?
+    var parser = AppParser()
     
     public init(_ connection: Connection?) {
         self.connection = connection;
