@@ -14,7 +14,7 @@
 		111892BD215012330077A87E /* BulkRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B9215012330077A87E /* BulkRequestModel.swift */; };
 		126751FA215276570008A43A /* AlignLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126751F8215276570008A43A /* AlignLayout.swift */; };
 		126751FB215276570008A43A /* LayoutType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126751F9215276570008A43A /* LayoutType.swift */; };
-		1267524B215277A30008A43A /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12675245215277A20008A43A /* FormField.swift */; };
+		1267524B215277A30008A43A /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12675245215277A20008A43A /* Field.swift */; };
 		1267524C215277A30008A43A /* FieldGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12675246215277A20008A43A /* FieldGroup.swift */; };
 		1267524D215277A30008A43A /* FormFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12675247215277A30008A43A /* FormFields.swift */; };
 		1267524E215277A30008A43A /* SubTableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12675248215277A30008A43A /* SubTableField.swift */; };
@@ -53,6 +53,26 @@
 		1267529221527B640008A43A /* AddPreviewAppResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D02151EEA300D8C258 /* AddPreviewAppResponse.swift */; };
 		1267529321527B6B0008A43A /* AddRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD812B21411B6100A1499F /* AddRecordRequest.swift */; };
 		1267529521527CA30008A43A /* GetAppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267529421527CA30008A43A /* GetAppRequest.swift */; };
+		1267529A21533F940008A43A /* ReferenceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267529921533F940008A43A /* ReferenceTable.swift */; };
+		1267529C21533FE30008A43A /* RelatedRecordsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267529B21533FE30008A43A /* RelatedRecordsField.swift */; };
+		1267529E215355D00008A43A /* AbstractSystemField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267529D215355D00008A43A /* AbstractSystemField.swift */; };
+		126752A0215355E50008A43A /* AbstractProcessManagementField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1267529F215355E50008A43A /* AbstractProcessManagementField.swift */; };
+		126752A2215355F10008A43A /* AbstractSystemInfoField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752A1215355F10008A43A /* AbstractSystemInfoField.swift */; };
+		126752A4215356080008A43A /* StatusField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752A3215356080008A43A /* StatusField.swift */; };
+		126752A6215356150008A43A /* CategoryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752A5215356150008A43A /* CategoryField.swift */; };
+		126752A82153561F0008A43A /* AssigneeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752A72153561F0008A43A /* AssigneeField.swift */; };
+		126752AA215356290008A43A /* RecordNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752A9215356290008A43A /* RecordNumberField.swift */; };
+		126752AC215356370008A43A /* CreatorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752AB215356370008A43A /* CreatorField.swift */; };
+		126752AE215356420008A43A /* ModifierField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752AD215356420008A43A /* ModifierField.swift */; };
+		126752B0215356580008A43A /* CreatedTimeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752AF215356580008A43A /* CreatedTimeField.swift */; };
+		126752B2215356630008A43A /* UpdatedTimeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752B1215356630008A43A /* UpdatedTimeField.swift */; };
+		126752B421539BB70008A43A /* FormLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752B321539BB70008A43A /* FormLayout.swift */; };
+		126752B621539BC60008A43A /* ItemLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752B521539BC60008A43A /* ItemLayout.swift */; };
+		126752B821539BD30008A43A /* SubTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752B721539BD30008A43A /* SubTableLayout.swift */; };
+		126752BA21539BE00008A43A /* GroupLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752B921539BE00008A43A /* GroupLayout.swift */; };
+		126752BC21539BED0008A43A /* RowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752BB21539BED0008A43A /* RowLayout.swift */; };
+		126752BE21539BF80008A43A /* FieldLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752BD21539BF80008A43A /* FieldLayout.swift */; };
+		126752C021539C0C0008A43A /* FieldSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126752BF21539C0C0008A43A /* FieldSize.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -130,7 +150,7 @@
 		111892B9215012330077A87E /* BulkRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestModel.swift; sourceTree = "<group>"; };
 		126751F8215276570008A43A /* AlignLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlignLayout.swift; sourceTree = "<group>"; };
 		126751F9215276570008A43A /* LayoutType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutType.swift; sourceTree = "<group>"; };
-		12675245215277A20008A43A /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		12675245215277A20008A43A /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		12675246215277A20008A43A /* FieldGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldGroup.swift; sourceTree = "<group>"; };
 		12675247215277A30008A43A /* FormFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFields.swift; sourceTree = "<group>"; };
 		12675248215277A30008A43A /* SubTableField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTableField.swift; sourceTree = "<group>"; };
@@ -166,6 +186,26 @@
 		1267528C215278880008A43A /* MemberSelectEntityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSelectEntityType.swift; sourceTree = "<group>"; };
 		1267528F215279D50008A43A /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		1267529421527CA30008A43A /* GetAppRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppRequest.swift; sourceTree = "<group>"; };
+		1267529921533F940008A43A /* ReferenceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferenceTable.swift; sourceTree = "<group>"; };
+		1267529B21533FE30008A43A /* RelatedRecordsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedRecordsField.swift; sourceTree = "<group>"; };
+		1267529D215355D00008A43A /* AbstractSystemField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractSystemField.swift; sourceTree = "<group>"; };
+		1267529F215355E50008A43A /* AbstractProcessManagementField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractProcessManagementField.swift; sourceTree = "<group>"; };
+		126752A1215355F10008A43A /* AbstractSystemInfoField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractSystemInfoField.swift; sourceTree = "<group>"; };
+		126752A3215356080008A43A /* StatusField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusField.swift; sourceTree = "<group>"; };
+		126752A5215356150008A43A /* CategoryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryField.swift; sourceTree = "<group>"; };
+		126752A72153561F0008A43A /* AssigneeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigneeField.swift; sourceTree = "<group>"; };
+		126752A9215356290008A43A /* RecordNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordNumberField.swift; sourceTree = "<group>"; };
+		126752AB215356370008A43A /* CreatorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorField.swift; sourceTree = "<group>"; };
+		126752AD215356420008A43A /* ModifierField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierField.swift; sourceTree = "<group>"; };
+		126752AF215356580008A43A /* CreatedTimeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatedTimeField.swift; sourceTree = "<group>"; };
+		126752B1215356630008A43A /* UpdatedTimeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedTimeField.swift; sourceTree = "<group>"; };
+		126752B321539BB70008A43A /* FormLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLayout.swift; sourceTree = "<group>"; };
+		126752B521539BC60008A43A /* ItemLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLayout.swift; sourceTree = "<group>"; };
+		126752B721539BD30008A43A /* SubTableLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableLayout.swift; sourceTree = "<group>"; };
+		126752B921539BE00008A43A /* GroupLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLayout.swift; sourceTree = "<group>"; };
+		126752BB21539BED0008A43A /* RowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowLayout.swift; sourceTree = "<group>"; };
+		126752BD21539BF80008A43A /* FieldLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldLayout.swift; sourceTree = "<group>"; };
+		126752BF21539C0C0008A43A /* FieldSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldSize.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -273,10 +313,13 @@
 		126752442152777B0008A43A /* field */ = {
 			isa = PBXGroup;
 			children = (
+				1267529821533F750008A43A /* layout */,
+				1267529721533F6B0008A43A /* system */,
+				1267529621533F640008A43A /* related_record */,
 				12675251215277AC0008A43A /* input */,
 				12675246215277A20008A43A /* FieldGroup.swift */,
 				1267524A215277A30008A43A /* FieldMapping.swift */,
-				12675245215277A20008A43A /* FormField.swift */,
+				12675245215277A20008A43A /* Field.swift */,
 				12675247215277A30008A43A /* FormFields.swift */,
 				12675249215277A30008A43A /* RelatedApp.swift */,
 				12675248215277A30008A43A /* SubTableField.swift */,
@@ -356,6 +399,47 @@
 				1267528F215279D50008A43A /* AppModel.swift */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		1267529621533F640008A43A /* related_record */ = {
+			isa = PBXGroup;
+			children = (
+				1267529921533F940008A43A /* ReferenceTable.swift */,
+				1267529B21533FE30008A43A /* RelatedRecordsField.swift */,
+			);
+			path = related_record;
+			sourceTree = "<group>";
+		};
+		1267529721533F6B0008A43A /* system */ = {
+			isa = PBXGroup;
+			children = (
+				1267529D215355D00008A43A /* AbstractSystemField.swift */,
+				1267529F215355E50008A43A /* AbstractProcessManagementField.swift */,
+				126752A1215355F10008A43A /* AbstractSystemInfoField.swift */,
+				126752A3215356080008A43A /* StatusField.swift */,
+				126752A5215356150008A43A /* CategoryField.swift */,
+				126752A72153561F0008A43A /* AssigneeField.swift */,
+				126752A9215356290008A43A /* RecordNumberField.swift */,
+				126752AB215356370008A43A /* CreatorField.swift */,
+				126752AD215356420008A43A /* ModifierField.swift */,
+				126752AF215356580008A43A /* CreatedTimeField.swift */,
+				126752B1215356630008A43A /* UpdatedTimeField.swift */,
+			);
+			path = system;
+			sourceTree = "<group>";
+		};
+		1267529821533F750008A43A /* layout */ = {
+			isa = PBXGroup;
+			children = (
+				126752B321539BB70008A43A /* FormLayout.swift */,
+				126752B521539BC60008A43A /* ItemLayout.swift */,
+				126752B721539BD30008A43A /* SubTableLayout.swift */,
+				126752B921539BE00008A43A /* GroupLayout.swift */,
+				126752BB21539BED0008A43A /* RowLayout.swift */,
+				126752BD21539BF80008A43A /* FieldLayout.swift */,
+				126752BF21539C0C0008A43A /* FieldSize.swift */,
+			);
+			path = layout;
 			sourceTree = "<group>";
 		};
 		3E17EA07213E427F002D9BC0 = {
@@ -755,15 +839,20 @@
 				A8F4321A2152320500C15EDA /* AppProcessManagement.swift in Sources */,
 				A8F432142152315300C15EDA /* AppView.swift in Sources */,
 				4C0982C72151DCAE00D8C258 /* GetFormFieldsRequest.swift in Sources */,
-				1267524B215277A30008A43A /* FormField.swift in Sources */,
+				1267524B215277A30008A43A /* Field.swift in Sources */,
+				1267529C21533FE30008A43A /* RelatedRecordsField.swift in Sources */,
+				126752A4215356080008A43A /* StatusField.swift in Sources */,
 				1267528D215278880008A43A /* MemberSelectEntityType.swift in Sources */,
 				3E60AFD92150BAD90041B02C /* Parser.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
 				1267528A2152785A0008A43A /* GroupSelectionField.swift in Sources */,
 				1267525F215277C70008A43A /* NumberField.swift in Sources */,
+				126752C021539C0C0008A43A /* FieldSize.swift in Sources */,
 				4C0982CF2151EDBF00D8C258 /* BasicResponse.swift in Sources */,
 				1267525E215277C70008A43A /* LinkField.swift in Sources */,
+				126752B821539BD30008A43A /* SubTableLayout.swift in Sources */,
+				126752AE215356420008A43A /* ModifierField.swift in Sources */,
 				126751FB215276570008A43A /* LayoutType.swift in Sources */,
 				12675263215277C70008A43A /* AbstractInputField.swift in Sources */,
 				111892BC215012330077A87E /* BulkRequestItem.swift in Sources */,
@@ -772,14 +861,20 @@
 				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
 				1267528B2152785A0008A43A /* MemberSelectEntity.swift in Sources */,
 				4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */,
+				126752B0215356580008A43A /* CreatedTimeField.swift in Sources */,
 				A890514921524154007BC18B /* ViewModel.swift in Sources */,
 				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
 				A8F43216215231A600C15EDA /* AppCustomization.swift in Sources */,
+				1267529A21533F940008A43A /* ReferenceTable.swift in Sources */,
 				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
 				1267524D215277A30008A43A /* FormFields.swift in Sources */,
+				126752B421539BB70008A43A /* FormLayout.swift in Sources */,
 				1267524C215277A30008A43A /* FieldGroup.swift in Sources */,
+				126752BC21539BED0008A43A /* RowLayout.swift in Sources */,
 				3EFD81282141117500A1499F /* RecordUpdateKey.swift in Sources */,
+				126752A6215356150008A43A /* CategoryField.swift in Sources */,
 				A8F432102152300500C15EDA /* AppApp.swift in Sources */,
+				126752AC215356370008A43A /* CreatorField.swift in Sources */,
 				3E1FD7CE2148A5EB0056F902 /* AddRecordsRequest.swift in Sources */,
 				126752872152785A0008A43A /* AbstractMemberSelectField.swift in Sources */,
 				A8F43212215230D900C15EDA /* AppGeneral.swift in Sources */,
@@ -789,10 +884,12 @@
 				126752892152785A0008A43A /* DepartmentSelectionField.swift in Sources */,
 				3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */,
 				12675250215277A30008A43A /* FieldMapping.swift in Sources */,
+				1267529E215355D00008A43A /* AbstractSystemField.swift in Sources */,
 				126751FA215276570008A43A /* AlignLayout.swift in Sources */,
 				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
 				4C0982C12150FA0200D8C258 /* GetAppsRequest.swift in Sources */,
 				4C0982C52151D98A00D8C258 /* DeployAppSettingsRequest.swift in Sources */,
+				126752B2215356630008A43A /* UpdatedTimeField.swift in Sources */,
 				4C0982C32151044400D8C258 /* AddPreviewAppRequest.swift in Sources */,
 				111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */,
 				126752812152783A0008A43A /* DateTimeField.swift in Sources */,
@@ -803,6 +900,8 @@
 				1267527A215278280008A43A /* DropDownField.swift in Sources */,
 				3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */,
 				111892BB215012330077A87E /* BulkRequestResponse.swift in Sources */,
+				126752BA21539BE00008A43A /* GroupLayout.swift in Sources */,
+				126752A82153561F0008A43A /* AssigneeField.swift in Sources */,
 				ABAD53382151E68C00D75939 /* AuthenticationConstants.swift in Sources */,
 				12675277215278280008A43A /* CheckboxField.swift in Sources */,
 				12675264215277C70008A43A /* CalculatedField.swift in Sources */,
@@ -813,13 +912,17 @@
 				111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
 				AB59F5C72150EFCD00BCD0EE /* ConnectionConstans.swift in Sources */,
 				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
+				126752BE21539BF80008A43A /* FieldLayout.swift in Sources */,
 				12675262215277C70008A43A /* UnitPosition.swift in Sources */,
 				1267527F2152783A0008A43A /* TimeField.swift in Sources */,
 				3E1FD7E22148ADD20056F902 /* UpdateRecordResponse.swift in Sources */,
 				12675276215278280008A43A /* RadioButtonField.swift in Sources */,
 				4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */,
 				4C0982C92151DCF100D8C258 /* GetFormLayoutRequest.swift in Sources */,
+				126752B621539BC60008A43A /* ItemLayout.swift in Sources */,
+				126752A0215355E50008A43A /* AbstractProcessManagementField.swift in Sources */,
 				126752802152783A0008A43A /* DateField.swift in Sources */,
+				126752AA215356290008A43A /* RecordNumberField.swift in Sources */,
 				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
 				3E60AFC6214A01590041B02C /* Connection.swift in Sources */,
 				4C0982CD2151EB8300D8C258 /* UpdateViewsRequest.swift in Sources */,
@@ -838,6 +941,7 @@
 				1267529521527CA30008A43A /* GetAppRequest.swift in Sources */,
 				12675260215277C70008A43A /* LinkProtocol.swift in Sources */,
 				4C0982CB2151E4FD00D8C258 /* GetViewsRequest.swift in Sources */,
+				126752A2215355F10008A43A /* AbstractSystemInfoField.swift in Sources */,
 				3E1FD7E02148ADB70056F902 /* AddRecordsResponse.swift in Sources */,
 				1267526E215278090008A43A /* LookupItem.swift in Sources */,
 				3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */,
