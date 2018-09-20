@@ -1,21 +1,14 @@
 //
-//  AddPreviewAppResponse.swift
+//  GetGeneralSettings.swift
 //  kintone-ios-sdk
 //
 //  Created by Trinh Hung Anh on 9/19/18.
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AddPreviewAppResponse: NSObject {
-    private var app: Int?
+class GetGeneralSettings: NSObject {
     private var revision: Int?
     
-    public func getApp() -> Int? {
-        return self.app
-    }
-    public func setApp(_ app: Int) {
-        self.app = app
-    }
     public func getRevision() -> Int? {
         return self.revision
     }
@@ -23,8 +16,7 @@ class AddPreviewAppResponse: NSObject {
         self.revision = revision
     }
     
-    public init(_ app: Int, _ revision: Int) {
-        self.app =  app
+    public init(_ revision: Int) {
         self.revision = revision
     }
 }
