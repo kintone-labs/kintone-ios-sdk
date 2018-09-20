@@ -10,9 +10,9 @@ class GeneralSettings: NSObject {
     private var name: String?
     private var generalDescription: String?
     private var icon: Icon?
-    private var theme: Theme?
+    private var theme: IconTheme?
     
-    public enum Theme: String {
+    public enum IconTheme: String {
         case WHITE
         case RED
         case BLUE
@@ -36,17 +36,17 @@ class GeneralSettings: NSObject {
     public func getIcon() -> Icon? {
         return self.icon
     }
-    public func setIcon(_ icon: String) {
+    public func setIcon(_ icon: Icon) {
         self.icon = icon
     }
-    public func getTheme() -> Theme? {
+    public func getTheme() -> IconTheme? {
         return self.theme
     }
-    public func setTheme(_ theme: Theme) {
+    public func setTheme(_ theme: IconTheme) {
         self.theme = theme
     }
     
-    public init(_ name: String, _ description: String, _ icon: Icon, _ theme: Theme) {
+    public init(_ name: String, _ description: String, _ icon: Icon, _ theme: IconTheme) {
         self.name = name
         self.generalDescription = description
         self.icon = icon
