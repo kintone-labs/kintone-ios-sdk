@@ -13,6 +13,8 @@ class Connection: NSObject {
     /// HTTP header content-type for getting json data from rest api.
     private let JSON_CONTENT: String = "application/json"
     
+    private let MULTIPART_CONTENT: String = "multipart/form-data; boundary="
+    
     /// User agent http header.
     private var userAgent: String = ConnectionConstants.USER_AGENT_VALUE
     
@@ -43,6 +45,9 @@ class Connection: NSObject {
         self.domain = domain
         self.auth = auth
         self.guestSpaceID = guestSpaceID
+        
+        //TODO: ユーザーエージェントの追加
+        //self.userAgent += "/" + (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
     }
     
     /// Constructor for init a connection object to connect to normal space.
@@ -53,17 +58,6 @@ class Connection: NSObject {
     public convenience init(_ domain: String, _ auth: Auth) {
         self.init(domain, auth, -1)
     }
-    
-    /**
-     * Rest http request.
-     * This method is low level api, use the correspondence methods in module package instead.
-     *
-     * @param method rest http method. Only accept "GET", "POST", "PUT", "DELETE" value.
-     * @param apiName
-     * @param body body of http request. In case "GET" method, the parameters.
-     * @return json object
-     * @throws KintoneAPIException
-     */
     
     /// Rest http request.
     /// This method is low level api, use the correspondence methods in module package instead.
@@ -85,13 +79,17 @@ class Connection: NSObject {
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
+        //TODO プロキシ設定の追加
+        
         request = self.setHTTPHeaders(request)
         request.httpMethod = ConnectionConstants.POST_REQUEST
+        //request.httpMethod = method
         
         request.addValue(JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
-        if (isGet) {
-            request.addValue(ConnectionConstants.GET_REQUEST, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
-        }
+        //if (isGet) {
+        //    request.addValue(ConnectionConstants.GET_REQUEST, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+        //}
+        request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
@@ -115,7 +113,94 @@ class Connection: NSObject {
         return nil
     }
  
-    ///
+    public func downloadFile(_ body: String) throws -> Data? {
+        
+        let urlString: String = self.getURL(ConnectionConstants.FILE, nil)
+        let url: URL = URL(string: urlString)!
+        var request = URLRequest(url: url)
+        
+        //TODO プロキシ設定の追加
+        
+        request = self.setHTTPHeaders(request)
+        request.httpMethod = ConnectionConstants.POST_REQUEST
+        
+        request.addValue(JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
+        request.addValue(ConnectionConstants.GET_REQUEST, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+        
+        request.httpBody = body.data(using: String.Encoding.utf8)
+        
+        let session: URLSession = URLSession.shared
+        
+        let (data, response, error) = self.execute(session, request)
+        
+        if (error != nil){
+            print(error!)
+            return nil
+        }
+        if (data != nil || response != nil){
+            do {
+                try self.checkStatus(response, data, body)
+                return data
+            }
+            //catch {
+            //    throw KintoneAPIException("an error occurred while receiving data")
+            //}
+        }
+        return nil
+    }
+    
+    public func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Any? {
+        
+        let urlString: String = self.getURL(ConnectionConstants.FILE, nil)
+        let url: URL = URL(string: urlString)!
+        var request = URLRequest(url: url)
+        
+        //TODO プロキシ設定の追加
+        
+        request = self.setHTTPHeaders(request)
+        request.httpMethod = ConnectionConstants.POST_REQUEST
+        
+        request.addValue(MULTIPART_CONTENT + ConnectionConstants.BOUNDARY, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
+        
+        var body: Data = Data()
+        var bodyText: String = String()
+        
+        bodyText += "--\(ConnectionConstants.BOUNDARY)\r\n"
+        bodyText += "Content-Disposition: form-data; name=\"file\"; filename=\"\(fileName)\"\r\n"
+        bodyText += "\(ConnectionConstants.CONTENT_TYPE_HEADER): \(ConnectionConstants.DEFAULT_CONTENT_TYPE)\r\n\r\n"
+        
+        body.append(bodyText.data(using: String.Encoding.utf8)!)
+        body.append(binaryData)
+        
+        var footerText:String = String()
+        footerText += "\r\n"
+        footerText += "\r\n--\(ConnectionConstants.BOUNDARY)--\r\n"
+        
+        body.append(footerText.data(using: String.Encoding.utf8)!)
+        
+        request.httpBody = body
+        
+        let session: URLSession = URLSession.shared
+        
+        let (data, response, error) = self.execute(session, request)
+        
+        if (error != nil){
+            print(error!)
+            return nil
+        }
+        if (data != nil || response != nil){
+            do {
+                try self.checkStatus(response, data, nil)
+                return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+            }
+            //catch {
+            //    throw KintoneAPIException("an error occurred while receiving data")
+            //}
+        }
+        return nil
+    }
+    
+    /// Synchronous HTTP communication execution processing
     ///
     /// - Parameters:
     ///   - session: session
@@ -160,17 +245,14 @@ class Connection: NSObject {
         
         var urlString: String = ConnectionConstants.BASE_URL
         
-        if let range: Range = urlString.range(of: "{API_NAME}"){
-            urlString.replaceSubrange(range, with: unwrappedApiName)
-        }
+        urlString = urlString.replacingOccurrences(of: "{API_NAME}", with: unwrappedApiName)
+        
         sb.append(urlString)
         if (parameters != nil){
             sb.append(parameters!)
         }
         
-        if let range2: Range = sb.range(of: "¥¥s") {
-            sb.replaceSubrange(range2, with: "%20")
-        }
+        sb = sb.replacingOccurrences(of: "¥¥s", with: "%20")
         return sb
     }
     
