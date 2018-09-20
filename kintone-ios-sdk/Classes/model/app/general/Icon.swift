@@ -28,4 +28,16 @@ class Icon: NSObject {
     public func setKey(_ key: String) {
         self.key = key
     }
+    public func getIconType() -> IconType? {
+        return self.iconType
+    }
+    public func setIconType(_ iconType: IconType) {
+        self.iconType = iconType
+    }
+    
+    public init(_ file: IconFile, _ key: String, _ iconType: IconType) {
+        self.file = file
+        self.key = key
+        self.iconType = iconType
+    }
 }
