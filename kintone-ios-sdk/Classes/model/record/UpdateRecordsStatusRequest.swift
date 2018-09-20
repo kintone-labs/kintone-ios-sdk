@@ -17,7 +17,7 @@ class UpdateRecordsStatusRequest: NSObject, Codable {
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
-    ///   - records: the array of record's ID
+    ///   - records: the array of record's infomation for update
     public init(_ app: Int?, _ records: [RecordUpdateStatusItem]?) {
         self.app = app;
         self.records = records;

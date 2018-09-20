@@ -18,11 +18,11 @@ class GetRecordsRequest: NSObject, Codable {
     /// Constructor
     ///
     /// - Parameters:
-    ///   - fields: the field codes that you want in the response.
+    ///   - fields: the field codes that you want in the response
     ///   - app: the ID of kintone app
-    ///   - query: the query string that will specify what records will be responded.
+    ///   - query: the query string that will specify what records will be responded
     ///   - totalCount: the flag that  will or not retrieve the total count of records
-    public init(fields: Array<String>?, app: Int?, query: String?, totalCount: Bool?){
+    public init(_ fields: Array<String>?, _ app: Int?, _ query: String?, _ totalCount: Bool?){
         self.fields = fields
         self.app = app
         self.query = query
