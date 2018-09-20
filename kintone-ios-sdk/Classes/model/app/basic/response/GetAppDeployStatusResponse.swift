@@ -7,12 +7,12 @@
 //
 
 class GetAppDeployStatusResponse: NSObject {
-    private var apps: Array<AppDeployStatus>?
+    //private var apps: Array<AppDeployStatus>?
     
-    public func getApps() -> Array<AppDeployStatus>? {
-        return self.apps
-    }
-    public func setApps(apps: Array<AppDeployStatus>) {
-        self.apps = apps
-    }
+    //public func getApps() -> Array<AppDeployStatus>? {
+    //    return self.apps
+    //}
+    //public func setApps(apps: Array<AppDeployStatus>) {
+     //   self.apps = apps
+    //}
 }
