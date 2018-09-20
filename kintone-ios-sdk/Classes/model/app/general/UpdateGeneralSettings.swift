@@ -1,12 +1,12 @@
 //
-//  AddPreviewAppResponse.swift
+//  UpdateGeneralSettings.swift
 //  kintone-ios-sdk
 //
 //  Created by Trinh Hung Anh on 9/19/18.
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AddPreviewAppResponse: NSObject {
+class UpdateGeneralSettings: NSObject {
     private var app: Int?
     private var revision: Int?
     
