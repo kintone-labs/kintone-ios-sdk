@@ -13,7 +13,6 @@ class Connection: NSObject {
     /// HTTP header content-type for getting json data from rest api.
     private let JSON_CONTENT: String = "application/json"
     
-    /// HTTP header content-type for multipart/form-data
     private let MULTIPART_CONTENT: String = "multipart/form-data; boundary="
     
     /// User agent http header.
@@ -85,8 +84,15 @@ class Connection: NSObject {
         
         request = self.setHTTPHeaders(request)
         request.httpMethod = ConnectionConstants.POST_REQUEST
+        //request.httpMethod = method
         
         request.addValue(JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
+<<<<<<< HEAD
+=======
+        //if (isGet) {
+        //    request.addValue(ConnectionConstants.GET_REQUEST, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+        //}
+>>>>>>> 84ec875... SSR-195 implimention :modify Connection classes
         request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
         
         request.httpBody = body.data(using: String.Encoding.utf8)
@@ -112,6 +118,7 @@ class Connection: NSObject {
         return Data.init()
     }
  
+<<<<<<< HEAD
     /// Rest http request.
     /// This method is execute file download
     ///
@@ -127,6 +134,11 @@ class Connection: NSObject {
             throw KintoneAPIException("Invalid URL")
         }
         
+=======
+    public func downloadFile(_ body: String) throws -> Data? {
+        
+        let urlString: String = self.getURL(ConnectionConstants.FILE, nil)
+>>>>>>> 84ec875... SSR-195 implimention :modify Connection classes
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
@@ -146,11 +158,16 @@ class Connection: NSObject {
         
         if (error != nil){
             print(error!)
+<<<<<<< HEAD
             return Data.init()
+=======
+            return nil
+>>>>>>> 84ec875... SSR-195 implimention :modify Connection classes
         }
         if (data != nil || response != nil){
             do {
                 try self.checkStatus(response, data, body)
+<<<<<<< HEAD
                 return data!
             } catch {
                 throw KintoneAPIException("an error occurred while receiving data")
@@ -176,6 +193,20 @@ class Connection: NSObject {
             throw KintoneAPIException("Invalid URL")
         }
         
+=======
+                return data
+            }
+            //catch {
+            //    throw KintoneAPIException("an error occurred while receiving data")
+            //}
+        }
+        return nil
+    }
+    
+    public func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Any? {
+        
+        let urlString: String = self.getURL(ConnectionConstants.FILE, nil)
+>>>>>>> 84ec875... SSR-195 implimention :modify Connection classes
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
@@ -210,11 +241,16 @@ class Connection: NSObject {
         
         if (error != nil){
             print(error!)
+<<<<<<< HEAD
             return Data.init()
+=======
+            return nil
+>>>>>>> 84ec875... SSR-195 implimention :modify Connection classes
         }
         if (data != nil || response != nil){
             do {
                 try self.checkStatus(response, data, nil)
+<<<<<<< HEAD
                 //return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                 let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                 return try JSONSerialization.data(withJSONObject: jsonobject, options: [])
@@ -223,6 +259,15 @@ class Connection: NSObject {
             }
         }
         return Data.init()
+=======
+                return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+            }
+            //catch {
+            //    throw KintoneAPIException("an error occurred while receiving data")
+            //}
+        }
+        return nil
+>>>>>>> 84ec875... SSR-195 implimention :modify Connection classes
     }
     
     /// Synchronous HTTP communication execution processing
