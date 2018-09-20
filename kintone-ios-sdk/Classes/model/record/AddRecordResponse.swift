@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddRecordResponse: NSObject, Codable {
+class AddRecordResponse: NSObject {
     
     private var id: Int?
     private var revision: Int?

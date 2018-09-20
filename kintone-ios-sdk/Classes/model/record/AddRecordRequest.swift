@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddRecordRequest: NSObject, Codable {
+class AddRecordRequest: NSObject {
     
     private var app: Int?
     private var record: [String: FieldValue]?

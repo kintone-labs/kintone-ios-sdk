@@ -14,9 +14,9 @@ class AppModel: NSObject {
     private var spaceId: Int?
     private var threadId: Int?
     private var createdAt: Date?
-    private var creator: UserBase?
+    private var creator: Member?
     private var updatedAt: Date?
-    private var modifier: UserBase?
+    private var modifier: Member?
     
     public func getAppId() -> Int? {
         return self.appId
@@ -60,10 +60,10 @@ class AppModel: NSObject {
     public func setCreatedAt(_ createdAt: Date) {
         self.createdAt = createdAt
     }
-    public func getCreator() -> UserBase? {
+    public func getCreator() -> Member? {
         return self.creator
     }
-    public func setCreator(_ creator: UserBase) {
+    public func setCreator(_ creator: Member) {
         self.creator = creator
     }
     public func getUpdatedAt() -> Date? {
@@ -72,10 +72,10 @@ class AppModel: NSObject {
     public func setUpdatedAt(_ updatedAt: Date) {
         self.updatedAt = updatedAt
     }
-    public func getModifier() -> UserBase? {
+    public func getModifier() -> Member? {
         return self.modifier
     }
-    public func setModifier(_ modifier: UserBase) {
+    public func setModifier(_ modifier: Member) {
         self.modifier = modifier
     }
 }

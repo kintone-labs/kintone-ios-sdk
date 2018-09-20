@@ -61,7 +61,7 @@ public class BulkRequestItem: NSObject, Codable {
             // Convert value to Swift Class corresponding to payload
             switch type(of: self.payload) {
             case is AddRecordRequest:
-                self.payload = try container.decodeIfPresent(AddRecordRequest.self, forKey: CodingKeys.payload)
+                self.payload = try container.decodeIfPresent(type: AddRecordRequest.self, forKey: CodingKeys.payload)
                 break
             default:
                 self.payload = try container.decodeIfPresent(String.self, forKey: CodingKeys.payload)
