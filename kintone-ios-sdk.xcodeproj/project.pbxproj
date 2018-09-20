@@ -99,6 +99,7 @@
 		4C0982D32151F19700D8C258 /* GetViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D22151F19700D8C258 /* GetViewsResponse.swift */; };
 		4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */; };
 		4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */; };
+		4CE019E6215373C300A9808B /* AppDeployStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE019E5215373C300A9808B /* AppDeployStatus.swift */; };
 		A890514921524154007BC18B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890514821524154007BC18B /* ViewModel.swift */; };
 		A8F4320C21522F4C00C15EDA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4320B21522F4C00C15EDA /* App.swift */; };
 		A8F4320E21522F8300C15EDA /* AppForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4320D21522F8300C15EDA /* AppForm.swift */; };
@@ -219,6 +220,7 @@
 		4C0982D22151F19700D8C258 /* GetViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewsResponse.swift; sourceTree = "<group>"; };
 		4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewsResponse.swift; sourceTree = "<group>"; };
 		4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusResponse.swift; sourceTree = "<group>"; };
+		4CE019E5215373C300A9808B /* AppDeployStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeployStatus.swift; sourceTree = "<group>"; };
 		A890514821524154007BC18B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A8F4320B21522F4C00C15EDA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A8F4320D21522F8300C15EDA /* AppForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppForm.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				1267528F215279D50008A43A /* AppModel.swift */,
+				4CE019E5215373C300A9808B /* AppDeployStatus.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
 				12675265215277C70008A43A /* MultiLineTextField.swift in Sources */,
 				12675278215278280008A43A /* AbstractSelectionField.swift in Sources */,
+				4CE019E6215373C300A9808B /* AppDeployStatus.swift in Sources */,
 				1267527B215278280008A43A /* OptionData.swift in Sources */,
 				A8F4320C21522F4C00C15EDA /* App.swift in Sources */,
 				1267529521527CA30008A43A /* GetAppRequest.swift in Sources */,
