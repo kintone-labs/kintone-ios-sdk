@@ -355,8 +355,7 @@
 			children = (
 				1267528F215279D50008A43A /* AppModel.swift */,
 			);
-			name = app;
-			path = "New Group";
+			path = app;
 			sourceTree = "<group>";
 		};
 		3E17EA07213E427F002D9BC0 = {
