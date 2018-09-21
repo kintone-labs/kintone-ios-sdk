@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FieldGroup: FormField {
+public class FieldGroup: Field {
     internal var label: String?
     internal var noLabel: Bool?
     internal var openGroup: Bool?
