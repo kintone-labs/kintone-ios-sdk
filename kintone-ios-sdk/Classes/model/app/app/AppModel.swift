@@ -7,21 +7,41 @@
 //
 
 class AppModel: NSObject, Codable {
-    private var appId: Int?
+    private var appId: String?
     private var code: String?
     private var name: String?
     private var appDescription: String?
-    private var spaceId: Int?
-    private var threadId: Int?
-    private var createdAt: Date?
+    private var spaceId: String?
+    private var threadId: String?
+    private var createdAt: String?
     private var creator: Member?
-    private var updatedAt: Date?
+    private var modifiedAt: String?
     private var modifier: Member?
     
-    public func getAppId() -> Int? {
+    enum CodingKeys:String,CodingKey
+    {
+        //It will replace the respective properties name by assigned string
+        //while encoding to Json or pList format.
+        //Also, while decoding respective Json or pList, these new names are
+        //expected in data rather that that defined in class declaration
+        
+        //will get renamed
+        case appDescription = "description"
+        case appId
+        case code
+        case name
+        case spaceId
+        case threadId
+        case createdAt
+        case creator
+        case modifiedAt
+        case modifier
+    }
+    
+    public func getAppId() -> String? {
         return self.appId
     }
-    public func setAppId(_ appId: Int) {
+    public func setAppId(_ appId: String) {
         self.appId = appId
     }
     public func getCode() -> String? {
@@ -42,22 +62,22 @@ class AppModel: NSObject, Codable {
     public func setDescription(_ appDescription: String ) {
         return self.appDescription = appDescription
     }
-    public func getSpaceId() -> Int? {
+    public func getSpaceId() -> String? {
         return self.spaceId
     }
-    public func setSpaceId(_ spaceId: Int) {
+    public func setSpaceId(_ spaceId: String) {
         self.spaceId = spaceId
     }
-    public func getThreadId() -> Int? {
+    public func getThreadId() -> String? {
         return self.threadId
     }
-    public func setThreadId(_ threadId: Int) {
+    public func setThreadId(_ threadId: String) {
         self.threadId = threadId
     }
-    public func getCreadtedAt() -> Date? {
+    public func getCreadtedAt() -> String? {
         return self.createdAt
     }
-    public func setCreatedAt(_ createdAt: Date) {
+    public func setCreatedAt(_ createdAt: String) {
         self.createdAt = createdAt
     }
     public func getCreator() -> Member? {
@@ -66,11 +86,11 @@ class AppModel: NSObject, Codable {
     public func setCreator(_ creator: Member) {
         self.creator = creator
     }
-    public func getUpdatedAt() -> Date? {
-        return self.updatedAt
+    public func getModifiedAt() -> String? {
+        return self.modifiedAt
     }
-    public func setUpdatedAt(_ updatedAt: Date) {
-        self.updatedAt = updatedAt
+    public func setModifiedAt(_ modifiedAt: String) {
+        self.modifiedAt = modifiedAt
     }
     public func getModifier() -> Member? {
         return self.modifier
