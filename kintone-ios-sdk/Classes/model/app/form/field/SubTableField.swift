@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class SubTableField: Field {
     internal var fields: [String: AbstractInputField] = [String: AbstractInputField]();
