@@ -16,7 +16,16 @@ public class AbstractMemberSelectField: AbstractInputField {
     public override init() {
         self.defaultValue = [MemberSelectEntity]()
         self.entites = [MemberSelectEntity]()
+        super.init()
+      
     }
+    
+    public required init(from decoder: Decoder) throws {
+        self.defaultValue = [MemberSelectEntity]()
+        self.entites = [MemberSelectEntity]()
+        super.init()
+    }
+
     /**
      * @return the defaultValue
      */

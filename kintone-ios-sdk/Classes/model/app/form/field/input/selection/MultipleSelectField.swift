@@ -21,6 +21,10 @@ public class MultipleSelectField: AbstractSelectionField {
         self.type = FieldType.MULTI_SELECT
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the defaultValue
      */

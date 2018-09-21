@@ -17,4 +17,8 @@ public class DepartmentSelectionField: AbstractMemberSelectField {
         self.code = code
         self.type = FieldType.ORGANIZATION_SELECT
     }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
 }

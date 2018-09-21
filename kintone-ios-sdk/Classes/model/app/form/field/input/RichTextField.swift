@@ -21,6 +21,11 @@ public class RichTextField: AbstractInputField {
         self.type = FieldType.RICH_TEXT
     }
     
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the defaultValue
      */

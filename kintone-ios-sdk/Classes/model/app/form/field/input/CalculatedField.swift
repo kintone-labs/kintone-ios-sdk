@@ -31,6 +31,11 @@ public class CalculatedField: AbstractInputField {
         self.type = FieldType.CALC
     }
     
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the expression
      */

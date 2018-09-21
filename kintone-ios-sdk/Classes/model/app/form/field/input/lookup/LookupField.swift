@@ -22,6 +22,10 @@ public class LookupField: AbstractInputField {
         self.code = code
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the lookup
      */

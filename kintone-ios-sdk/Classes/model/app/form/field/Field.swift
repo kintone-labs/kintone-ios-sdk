@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Field: NSObject {
+public class Field: NSObject, Codable {
     internal var code: String = ""
     internal var type: FieldType?
     

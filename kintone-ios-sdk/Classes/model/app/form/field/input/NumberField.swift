@@ -25,6 +25,10 @@ public class NumberField: AbstractInputField {
         self.type = FieldType.NUMBER
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     public func getDisplayScale() -> Int? {
         return self.displayScale
     }

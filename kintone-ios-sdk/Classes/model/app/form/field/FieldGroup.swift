@@ -27,6 +27,10 @@ public class FieldGroup: Field {
         self.type = FieldType.GROUP;
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     public func getLabel() -> String? {
         return self.label;
     }

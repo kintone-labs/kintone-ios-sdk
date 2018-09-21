@@ -14,8 +14,13 @@ public class AbstractSelectionField: AbstractInputField {
     
     public override init() {
         self.options = [String: OptionData]()
+        super.init()
     }
     
+    public required init(from decoder: Decoder) throws {
+         self.options = [String: OptionData]()
+         super.init()
+    }
     /**
      * @return the options
      */

@@ -17,4 +17,8 @@ public class RecordNumberField: AbstractSystemInfoField {
         self.code = code
         self.type = FieldType.RECORD_NUMBER
     }
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
 }

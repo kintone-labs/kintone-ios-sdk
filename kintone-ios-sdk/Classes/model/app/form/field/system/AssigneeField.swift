@@ -17,4 +17,7 @@ public class AssigneeField: AbstractProcessManagementField {
         self.code = code
         self.type = FieldType.STATUS_ASSIGNEE;
     }
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
 }

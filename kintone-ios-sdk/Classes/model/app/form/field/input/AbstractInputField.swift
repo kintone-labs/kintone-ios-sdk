@@ -14,6 +14,13 @@ public class AbstractInputField: Field
     internal var noLabel: Bool?
     internal var required: Bool?
     
+    public override init() {
+        super.init()
+    }
+    public required init(from decoder: Decoder) throws {
+       super.init()
+    }
+    
     public func getLabel() -> String? {
         return self.label;
     }

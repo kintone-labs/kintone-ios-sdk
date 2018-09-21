@@ -17,4 +17,8 @@ public class StatusField: AbstractProcessManagementField {
         self.code = code
         self.type = FieldType.STATUS
     }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
 }

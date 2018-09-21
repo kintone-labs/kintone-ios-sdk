@@ -17,4 +17,8 @@ public class ModifierField: AbstractSystemInfoField {
         self.code = code
         self.type = FieldType.MODIFIER
     }
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
 }
