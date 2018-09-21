@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AppDeployStatus: NSObject {
+class AppDeployStatus: NSObject, Codable {
     private var app: Int?
     private var status: Status?
     
@@ -30,8 +30,9 @@ class AppDeployStatus: NSObject {
         self.status = status
     }
     
-    public init(_ app: Int, _ status: Status) {
-        self.app = app
-        self.status = status
+    public required init(from decoder: Decoder) throws {
+    }
+    
+    public func encode(to encoder: Encoder) throws {
     }
 }
