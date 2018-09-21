@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class SingleLineTextField: AbstractInputField {
     private var expression: String?
