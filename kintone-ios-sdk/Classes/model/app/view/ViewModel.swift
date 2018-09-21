@@ -34,7 +34,7 @@ public class ViewModel: NSObject, Codable {
         return self.builtinType
     }
     
-    public func setBuiltinType(_ builtinType: BuiltinType) {
+    public func setBuiltinType(_ builtinType: BuiltinType?) {
         self.builtinType = builtinType
     }
     
