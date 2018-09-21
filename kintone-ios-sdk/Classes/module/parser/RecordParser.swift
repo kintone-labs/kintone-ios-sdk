@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class RecordParser: Parser {
     
     public func parseJsonToFieldValue(_ decoder: Decoder) throws -> FieldValue {
@@ -45,7 +43,11 @@ class RecordParser: Parser {
                 break
                 
             case .FILE:
-                fieldValue.setValue(try container.decodeIfPresent(FileModel.self, forKey: FieldValue.CodingKeys.value))
+                fieldValue.setValue(try container.decodeIfPresent([FileModel].self, forKey: FieldValue.CodingKeys.value))
+                break
+                
+            case .SUBTABLE:
+                fieldValue.setValue(try container.decodeIfPresent([SubTableValueItem].self, forKey: FieldValue.CodingKeys.value))
                 break
                 
             default:
@@ -53,7 +55,8 @@ class RecordParser: Parser {
             }
             return fieldValue
         } catch {
-            throw KintoneAPIException("parse error")
+            // " + (fieldValue.getType()?.rawValue)"の箇所はデバッグ用のためテスト完了後に削除する
+            throw KintoneAPIException("parse error" + (fieldValue.getType()?.rawValue)!)
         }
     }
     
@@ -97,7 +100,13 @@ class RecordParser: Parser {
                 break
                 
             case .FILE:
-                if let fv = value as? FileModel {
+                if let fv = value as? [FileModel] {
+                    try container.encodeIfPresent(fv, forKey: FieldValue.CodingKeys.value)
+                }
+                break
+                
+            case .SUBTABLE:
+                if let fv = value as? [SubTableValueItem] {
                     try container.encodeIfPresent(fv, forKey: FieldValue.CodingKeys.value)
                 }
                 break
@@ -108,7 +117,8 @@ class RecordParser: Parser {
                 }
             }
         } catch {
-            throw KintoneAPIException("parse error")
+            // "+ type.rawValue"の箇所はデバッグ用のためテスト完了後に削除する
+            throw KintoneAPIException("parse error" + type.rawValue)
         }
     }
 

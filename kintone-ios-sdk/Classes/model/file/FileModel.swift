@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public class FileModel: NSObject, Codable {
     
     private var contentType: String?
