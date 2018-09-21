@@ -17,7 +17,9 @@ extension AppView where Self: App {
             let getViewsRequest = GetViewsRequest(app!, lang!)
             let body = try! self.parser.parseObject(getViewsRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_VIEWS, jsonBody)
+            let apiName = isPreview ?? false ? ConnectionConstants.APP_VIEWS : ConnectionConstants.APP_VIEWS_PREVIEW
+
+            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, apiName, jsonBody)
             return try self.parser.parseJson(GetViewsResponse.self, response!)
         } catch let error as KintoneAPIException {
             throw error
