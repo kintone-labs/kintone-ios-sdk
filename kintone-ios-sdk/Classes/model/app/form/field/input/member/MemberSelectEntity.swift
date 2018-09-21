@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class MemberSelectEntity: NSObject {
     private var code: String?
     private var type: MemberSelectEntityType?

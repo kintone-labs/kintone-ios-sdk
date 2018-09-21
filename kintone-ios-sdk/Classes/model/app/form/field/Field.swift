@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class Field: NSObject, Codable {
     internal var code: String = ""
     internal var type: FieldType?

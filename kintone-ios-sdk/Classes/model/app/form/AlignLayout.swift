@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public enum AlignLayout: String, Codable {
     case HORIZONTAL
     case VERTICAL

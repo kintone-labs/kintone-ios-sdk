@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public enum FieldType: String, Codable {
     case CALC
     case GROUP
