@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class UpdateViewsResponse: NSObject {
+class UpdateViewsResponse: NSObject, Codable {
     private var views: [String: ViewModel]?
     
     public func getViews() -> [String: ViewModel]? {

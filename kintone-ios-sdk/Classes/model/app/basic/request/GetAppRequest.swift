@@ -15,7 +15,7 @@ import Foundation
 //  Created by Trinh Hung Anh on 9/18/18.
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
-public class GetAppRequest: NSObject {
+public class GetAppRequest: NSObject, Codable {
     private var id: Int?
     
     public func getId() -> Int? {
@@ -25,7 +25,7 @@ public class GetAppRequest: NSObject {
         self.id = id
     }
     
-    public init(_ id: Int) {
+    public init(_ id: Int?) {
         self.id = id
     }
 }
