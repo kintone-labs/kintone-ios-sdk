@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public class ErrorResponse: NSObject, Codable {
     private var message: String?
     private var id: String?

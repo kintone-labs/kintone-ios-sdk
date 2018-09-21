@@ -6,7 +6,7 @@
 //  Copyright © 2018年 y001112. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for kintone_ios_sdk.
 FOUNDATION_EXPORT double kintone_ios_sdkVersionNumber;
