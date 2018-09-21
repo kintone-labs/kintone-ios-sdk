@@ -6,8 +6,6 @@
 //  Copyright © 2018年 h001218. All rights reserved.
 //
 
-import UIKit
-
 class ConnectionConstants: NSObject {
     static let BASE_URL:String = "/k/v1/{API_NAME}.json"
     static let BASE_GUEST_URL:String = "/k/guest/{GUEST_SPACE_ID}/v1/{API_NAME}.json"

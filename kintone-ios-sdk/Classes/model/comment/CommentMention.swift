@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class CommentMention: NSObject, Codable {
     
     private var code: String?
