@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class AddRecordsResponse: NSObject, Codable {
     
     private var ids: [Int]?

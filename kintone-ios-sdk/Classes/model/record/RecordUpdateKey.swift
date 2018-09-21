@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class RecordUpdateKey: NSObject, Codable {
     
     private var field: String?
