@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class BasicResponse: NSObject {
+class BasicResponse: NSObject, Codable {
     private var revision: Int?
     
     public func getRevision() -> Int? {

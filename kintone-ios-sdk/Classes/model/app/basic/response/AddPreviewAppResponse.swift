@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AddPreviewAppResponse: NSObject {
+class AddPreviewAppResponse: NSObject, Codable {
     private var app: Int?
     private var revision: Int?
     

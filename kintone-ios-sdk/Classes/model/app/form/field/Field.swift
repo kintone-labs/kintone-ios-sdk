@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class FormField: NSObject {
+public class Field: NSObject {
     internal var code: String = ""
     internal var type: FieldType?
     
@@ -54,10 +54,10 @@ public class FormField: NSObject {
         if (obj == nil) {
             return false
         }
-        if (!(obj is FormField)) {
+        if (!(obj is Field)) {
             return false
         }
-        let other = obj as! FormField
+        let other = obj as! Field
         if (self.code.isEmpty) {
             if (!other.code.isEmpty) {
                 return false
