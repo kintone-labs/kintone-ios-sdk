@@ -246,7 +246,6 @@
 		3E1FD7E52148AE220056F902 /* RecordUpdateResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateResponseItem.swift; sourceTree = "<group>"; };
 		3E1FD7E72148AE5C0056F902 /* RecordUpdateStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateStatusItem.swift; sourceTree = "<group>"; };
 		3E25BF88213F646C00ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		3E25BF8A213F648900ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordResponse.swift; sourceTree = "<group>"; };
 		3E25BFA4213F953D00ABBB13 /* FieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValue.swift; sourceTree = "<group>"; };
 		3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordRequest.swift; sourceTree = "<group>"; };
@@ -577,7 +576,6 @@
 				A8F4320A21522F3D00C15EDA /* app */,
 				3E60AFD72150BA600041B02C /* parser */,
 				3E60AFD4215091500041B02C /* record */,
-				3E25BF8A213F648900ABBB13 /* .gitkeep */,
 			);
 			path = module;
 			sourceTree = "<group>";
@@ -990,6 +988,7 @@
 				3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */,
 				3E60AFDB2150C1C10041B02C /* RecordParser.swift in Sources */,
 				111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
+				AB59F5C72150EFCD00BCD0EE /* ConnectionConstans.swift in Sources */,
 				3E60AFE42151E09D0041B02C /* Comment.swift in Sources */,
 				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
 				126752BE21539BF80008A43A /* FieldLayout.swift in Sources */,
@@ -1035,12 +1034,17 @@
 				3E60AFE22151E07D0041B02C /* AddCommentResponse.swift in Sources */,
 				3E60AFEC2151E2A00041B02C /* GetCommentsRecordRequest.swift in Sources */,
 				3E60AFEA2151E2890041B02C /* DeleteCommentRecordRequest.swift in Sources */,
+				3E1FD7E02148ADB70056F902 /* AddRecordsResponse.swift in Sources */,
+				3E60AFEE2151E2BD0041B02C /* GetCommentsResponse.swift in Sources */,
+				3E60AFE22151E07D0041B02C /* AddCommentResponse.swift in Sources */,
+				3E60AFEC2151E2A00041B02C /* GetCommentsRecordRequest.swift in Sources */,
 				3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */,
 				A8F4320E21522F8300C15EDA /* AppForm.swift in Sources */,
 				12675290215279D50008A43A /* AppModel.swift in Sources */,
 				3EFD812F21420FC900A1499F /* Member.swift in Sources */,
 				12675267215277C70008A43A /* RichTextField.swift in Sources */,
 				12675279215278280008A43A /* MultipleSelectField.swift in Sources */,
+				3E60AFEA2151E2890041B02C /* DeleteCommentRecordRequest.swift in Sources */,
 				3E1FD7D22148A9640056F902 /* UpdateRecordRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
