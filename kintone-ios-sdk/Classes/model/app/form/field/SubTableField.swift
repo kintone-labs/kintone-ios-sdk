@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SubTableField: FormField {
+public class SubTableField: Field {
     internal var fields: [String: AbstractInputField] = [String: AbstractInputField]();
    
     public override init() {
