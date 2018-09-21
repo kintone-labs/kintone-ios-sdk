@@ -103,8 +103,8 @@ class Connection: NSObject {
                 //return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                 let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                 return try JSONSerialization.data(withJSONObject: jsonobject, options: [])
-            } catch {
-                throw KintoneAPIException("an error occurred while receiving data")
+            } catch let error as KintoneAPIException {
+                throw error
             }
         }
         return Data.init()
