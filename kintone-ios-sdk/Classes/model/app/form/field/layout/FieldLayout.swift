@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class FieldLayout: NSObject, Codable {
     private var type: String?
     private var code: String?

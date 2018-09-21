@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public enum UnitPosition: String, Codable{
     case BEFORE
     case AFTER

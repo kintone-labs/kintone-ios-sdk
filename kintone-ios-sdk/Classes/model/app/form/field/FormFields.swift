@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class FormFields: NSObject, Codable {
     private var app: String?
     private var revision: String?

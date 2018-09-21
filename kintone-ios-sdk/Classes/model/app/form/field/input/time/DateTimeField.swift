@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class DateTimeField: AbstractInputField {
     internal var unique: Bool?
     internal var defaultValue: String?

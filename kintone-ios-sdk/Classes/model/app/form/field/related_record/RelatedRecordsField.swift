@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class RelatedRecordsField: Field {
     internal var label: String?
     internal var noLabel: Bool?
