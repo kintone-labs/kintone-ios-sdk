@@ -136,7 +136,7 @@
         A8F43216215231A600C15EDA /* AppCustomization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F43215215231A600C15EDA /* AppCustomization.swift */; };
         A8F43218215231CA00C15EDA /* AppPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F43217215231CA00C15EDA /* AppPermission.swift */; };
         A8F4321A2152320500C15EDA /* AppProcessManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F432192152320500C15EDA /* AppProcessManagement.swift */; };
-        AB59F5C72150EFCD00BCD0EE /* ConnectionConstans.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59F5C62150EFCD00BCD0EE /* ConnectionConstans.swift */; };
+        AB59F5C72150EFCD00BCD0EE /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */; };
         ABAD53382151E68C00D75939 /* AuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */; };
 /* End PBXBuildFile section */
 
@@ -284,7 +284,7 @@
         A8F43215215231A600C15EDA /* AppCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomization.swift; sourceTree = "<group>"; };
         A8F43217215231CA00C15EDA /* AppPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermission.swift; sourceTree = "<group>"; };
         A8F432192152320500C15EDA /* AppProcessManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProcessManagement.swift; sourceTree = "<group>"; };
-        AB59F5C62150EFCD00BCD0EE /* ConnectionConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstans.swift; sourceTree = "<group>"; };
+        AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
         AB59F5CA2150F36A00BCD0EE /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
         ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -522,7 +522,7 @@
         3E25BF82213F637200ABBB13 /* connection */ = {
             isa = PBXGroup;
             children = (
-                AB59F5C62150EFCD00BCD0EE /* ConnectionConstans.swift */,
+                AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */,
                 3E60AFC5214A01580041B02C /* Connection.swift */,
             );
             path = connection;
@@ -950,7 +950,7 @@
                 3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */,
                 3E60AFDB2150C1C10041B02C /* RecordParser.swift in Sources */,
                 111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
-                AB59F5C72150EFCD00BCD0EE /* ConnectionConstans.swift in Sources */,
+                AB59F5C72150EFCD00BCD0EE /* ConnectionConstants.swift in Sources */,
                 3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
                 126752BE21539BF80008A43A /* FieldLayout.swift in Sources */,
                 12675262215277C70008A43A /* UnitPosition.swift in Sources */,
