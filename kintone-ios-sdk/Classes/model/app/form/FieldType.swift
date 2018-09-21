@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public enum FieldType: String, Codable {
     case CALC
