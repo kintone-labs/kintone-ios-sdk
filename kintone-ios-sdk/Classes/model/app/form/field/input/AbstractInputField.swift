@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class AbstractInputField: FormField
+public class AbstractInputField: Field
 {
     internal var label: String?
     internal var noLabel: Bool?

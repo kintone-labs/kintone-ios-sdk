@@ -11,16 +11,16 @@ import UIKit
 public class FormFields: NSObject {
     private var app: Int?
     private var revision: Int?
-    private var properties: [String: FormField]?
+    private var properties: [String: Field]?
     
     public override init() {
         app = nil;
         revision = nil;
-        properties = [String: FormField]()
+        properties = [String: Field]()
     }
     
     
-    public init(_ app: Int, _ properties: [String: FormField]?, _ revision: Int?) {
+    public init(_ app: Int, _ properties: [String: Field]?, _ revision: Int?) {
         self.app = app;
         self.revision = revision;
         self.properties = properties;
@@ -42,11 +42,11 @@ public class FormFields: NSObject {
         self.revision = revision;
     }
     
-    public func getProperties() -> [String: FormField]? {
+    public func getProperties() -> [String: Field]? {
         return self.properties;
     }
     
-    public func setProperties(_ properties: [String: FormField]?) {
+    public func setProperties(_ properties: [String: Field]?) {
         self.properties = properties;
     }
 }
