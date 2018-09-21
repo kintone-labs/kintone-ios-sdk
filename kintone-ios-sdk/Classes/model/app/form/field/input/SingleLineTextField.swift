@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class SingleLineTextField: AbstractInputField {
     private var expression: String?
@@ -21,6 +21,10 @@ public class SingleLineTextField: AbstractInputField {
         super.init()
         self.code = code
         self.type = FieldType.SINGLE_LINE_TEXT
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     public func getMinLength() -> Int? {

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 public class FieldGroup: Field {
     internal var label: String?
@@ -25,6 +25,10 @@ public class FieldGroup: Field {
         super.init()
         self.code = code!;
         self.type = FieldType.GROUP;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     public func getLabel() -> String? {

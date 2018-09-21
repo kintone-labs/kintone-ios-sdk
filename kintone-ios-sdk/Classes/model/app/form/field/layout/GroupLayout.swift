@@ -22,6 +22,10 @@ public class GroupLayout: ItemLayout {
         self.layout = [RowLayout]()
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the code
      */

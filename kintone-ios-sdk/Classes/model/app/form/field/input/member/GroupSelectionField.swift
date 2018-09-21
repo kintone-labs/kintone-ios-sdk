@@ -25,4 +25,8 @@ public class GroupSelectionField: AbstractMemberSelectField {
         self.code = code
         self.type = FieldType.GROUP_SELECT
     }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
 }

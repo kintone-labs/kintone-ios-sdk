@@ -22,6 +22,10 @@ public class RadioButtonField: AbstractSelectionField {
         self.type = FieldType.RADIO_BUTTON
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the align
      */

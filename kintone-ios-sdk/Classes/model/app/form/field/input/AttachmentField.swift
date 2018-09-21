@@ -21,6 +21,10 @@ public class AttachmentField: AbstractInputField {
         self.type = FieldType.FILE
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the thumbnailSize
      */

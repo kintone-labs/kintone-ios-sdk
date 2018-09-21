@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class FieldSize: NSObject {
+public class FieldSize: NSObject, Codable {
     private var width: String?
     private var height: String?
     private var innerHeight: String?

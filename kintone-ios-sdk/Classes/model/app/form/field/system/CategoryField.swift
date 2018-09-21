@@ -21,6 +21,10 @@ public class CategoryField: AbstractSystemField {
         self.type = FieldType.CATEGORY
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return
      */

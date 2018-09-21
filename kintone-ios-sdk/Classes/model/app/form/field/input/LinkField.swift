@@ -25,6 +25,10 @@ public class LinkField: AbstractInputField {
         self.type = FieldType.LINK
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the defaultValue
      */

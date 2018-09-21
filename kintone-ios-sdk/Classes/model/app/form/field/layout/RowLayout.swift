@@ -22,6 +22,10 @@ public class RowLayout: ItemLayout {
         self.fields = [FieldLayout]()
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the fields
      */

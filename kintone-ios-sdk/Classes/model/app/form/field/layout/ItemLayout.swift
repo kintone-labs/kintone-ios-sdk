@@ -10,9 +10,8 @@ import Foundation
 
 
 
-public class ItemLayout: NSObject {
+public class ItemLayout: NSObject, Codable {
     internal var type: LayoutType?
-    
     /**
      * @return the type
      */

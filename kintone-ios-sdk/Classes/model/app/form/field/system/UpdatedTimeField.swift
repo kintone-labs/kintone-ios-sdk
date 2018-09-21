@@ -17,4 +17,8 @@ public class UpdatedTimeField: AbstractSystemInfoField {
         self.code = code
         self.type = FieldType.UPDATED_TIME
     }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
 }

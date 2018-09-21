@@ -17,4 +17,8 @@ public class UserSelectionField: AbstractMemberSelectField {
         self.code = code
         self.type = FieldType.USER_SELECT
     }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
 }

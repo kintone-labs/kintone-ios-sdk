@@ -21,6 +21,10 @@ public class DropDownField: AbstractSelectionField {
         self.type = FieldType.DROP_DOWN
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the defaultValue
      */
