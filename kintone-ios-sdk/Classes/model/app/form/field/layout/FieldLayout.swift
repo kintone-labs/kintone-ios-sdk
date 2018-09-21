@@ -9,7 +9,7 @@
 import Foundation
 
 
-public class FieldLayout: NSObject {
+public class FieldLayout: NSObject, Codable {
     private var type: String?
     private var code: String?
     private var elementId: String?
@@ -17,7 +17,9 @@ public class FieldLayout: NSObject {
     private var size: FieldSize?
     
     public override init() {
+        super.init()
     }
+
     
     /**
      * @return the type

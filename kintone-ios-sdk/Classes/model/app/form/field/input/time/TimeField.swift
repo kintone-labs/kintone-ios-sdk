@@ -22,6 +22,10 @@ public class TimeField: AbstractInputField {
         self.type = FieldType.TIME
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return
      */

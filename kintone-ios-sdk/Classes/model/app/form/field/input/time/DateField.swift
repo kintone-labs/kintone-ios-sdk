@@ -23,6 +23,10 @@ public class DateField: AbstractInputField {
         self.type = FieldType.DATE
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     /**
      * @return the unique
      */

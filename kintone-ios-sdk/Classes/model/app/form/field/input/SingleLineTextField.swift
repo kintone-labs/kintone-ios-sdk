@@ -23,6 +23,10 @@ public class SingleLineTextField: AbstractInputField {
         self.type = FieldType.SINGLE_LINE_TEXT
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     public func getMinLength() -> Int? {
         return self.minLength
     }

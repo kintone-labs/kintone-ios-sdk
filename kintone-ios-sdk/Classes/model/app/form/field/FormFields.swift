@@ -6,11 +6,11 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-public class FormFields: NSObject {
-    private var app: Int?
-    private var revision: Int?
+public class FormFields: NSObject, Codable {
+    private var app: String?
+    private var revision: String?
     private var properties: [String: Field]?
     
     public override init() {
@@ -20,33 +20,34 @@ public class FormFields: NSObject {
     }
     
     
-    public init(_ app: Int, _ properties: [String: Field]?, _ revision: Int?) {
+    public init(_ app: String?, _ properties: [String: Field]?, _ revision: String?) {
+        super.init()
         self.app = app;
         self.revision = revision;
         self.properties = properties;
     }
     
     public func getApp() -> Int? {
-        return self.app;
+        return Int(self.app!)
     }
    
-    public func setApp(_ app: Int?) {
-        return self.app = app;
+    public func setApp(_ app: String?) {
+        return self.app = app
     }
     
     public func getRevision() -> Int? {
-        return self.revision;
+        return  Int(self.revision!)
     }
     
-    public func setRevision(_ revision: Int? ) {
-        self.revision = revision;
+    public func setRevision(_ revision: String? ) {
+        self.revision = revision
     }
     
     public func getProperties() -> [String: Field]? {
-        return self.properties;
+        return self.properties
     }
     
     public func setProperties(_ properties: [String: Field]?) {
-        self.properties = properties;
+        self.properties = properties
     }
 }

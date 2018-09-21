@@ -22,6 +22,10 @@ public class SubTableField: Field {
         self.type = FieldType.SUBTABLE;
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
     public func getFields() -> [String: AbstractInputField] {
         return self.fields;
     }

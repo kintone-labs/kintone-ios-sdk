@@ -15,6 +15,9 @@ public class AbstractSystemField: Field {
     public override init() {
         super.init()
     }
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
     /**
      * @return the label
      */
