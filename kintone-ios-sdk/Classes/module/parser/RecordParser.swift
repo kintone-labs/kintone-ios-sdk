@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class RecordParser: Parser {
     
     public func parseJsonToFieldValue(_ decoder: Decoder) throws -> FieldValue {

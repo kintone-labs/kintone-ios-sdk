@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public enum LanguageSetting: String, Codable {
     case DEFAULT
     case EN

@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class GetRecordsRequest: NSObject, Codable {
     
     private var fields: Array<String>?
