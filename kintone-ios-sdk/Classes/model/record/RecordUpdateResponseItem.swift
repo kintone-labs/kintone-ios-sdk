@@ -7,8 +7,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class RecordUpdateResponseItem: NSObject, Codable {
     
     private var id: Int?

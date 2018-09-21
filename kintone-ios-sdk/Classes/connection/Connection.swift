@@ -6,8 +6,6 @@
 //  Copyright © 2018年 h001218. All rights reserved.
 //
 
-import UIKit
-
 class Connection: NSObject {
     
     /// HTTP header content-type for getting json data from rest api.
