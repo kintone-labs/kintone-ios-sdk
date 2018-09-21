@@ -13,6 +13,7 @@ class Connection: NSObject {
     /// HTTP header content-type for getting json data from rest api.
     private let JSON_CONTENT: String = "application/json"
     
+    /// HTTP header content-type for multipart/form-data
     private let MULTIPART_CONTENT: String = "multipart/form-data; boundary="
     
     /// User agent http header.
@@ -68,14 +69,15 @@ class Connection: NSObject {
     ///   - body: json object
     /// - Returns: Any?
     /// - Throws: KintoneAPIException
-    public func request(_ method: String, _ apiName: String, _ body: String) throws -> Any? {
+    public func request(_ method: String, _ apiName: String, _ body: String) throws -> Data {
         
-        var isGet: Bool = false
-        if (method == ConnectionConstants.GET_REQUEST){
-            isGet = true
+        var urlString: String = ""
+        do {
+            urlString = try self.getURL(apiName, nil)
+        } catch {
+            throw KintoneAPIException("Invalid URL")
         }
         
-        let urlString: String = self.getURL(apiName, nil)
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
@@ -83,12 +85,8 @@ class Connection: NSObject {
         
         request = self.setHTTPHeaders(request)
         request.httpMethod = ConnectionConstants.POST_REQUEST
-        //request.httpMethod = method
         
         request.addValue(JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
-        //if (isGet) {
-        //    request.addValue(ConnectionConstants.GET_REQUEST, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
-        //}
         request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
         
         request.httpBody = body.data(using: String.Encoding.utf8)
@@ -99,23 +97,36 @@ class Connection: NSObject {
         
         if (error != nil){
             print(error!)
-            return nil
+            return Data.init()
         }
         if (data != nil || response != nil){
             do {
                 try self.checkStatus(response, data, body)
-                return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                //return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                return try JSONSerialization.data(withJSONObject: jsonobject, options: [])
+            } catch {
+                throw KintoneAPIException("an error occurred while receiving data")
             }
-            //catch {
-            //    throw KintoneAPIException("an error occurred while receiving data")
-            //}
         }
-        return nil
+        return Data.init()
     }
  
-    public func downloadFile(_ body: String) throws -> Data? {
+    /// Rest http request.
+    /// This method is execute file download
+    ///
+    /// - Parameter body: String
+    /// - Returns: Data?
+    /// - Throws: KintoneAPIException
+    public func downloadFile(_ body: String) throws -> Data {
         
-        let urlString: String = self.getURL(ConnectionConstants.FILE, nil)
+        var urlString: String = ""
+        do {
+            urlString = try self.getURL(ConnectionConstants.FILE, nil)
+        } catch {
+            throw KintoneAPIException("Invalid URL")
+        }
+        
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
@@ -135,23 +146,36 @@ class Connection: NSObject {
         
         if (error != nil){
             print(error!)
-            return nil
+            return Data.init()
         }
         if (data != nil || response != nil){
             do {
                 try self.checkStatus(response, data, body)
-                return data
+                return data!
+            } catch {
+                throw KintoneAPIException("an error occurred while receiving data")
             }
-            //catch {
-            //    throw KintoneAPIException("an error occurred while receiving data")
-            //}
         }
-        return nil
+        return Data.init()
     }
     
-    public func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Any? {
+    /// Rest http request.
+    /// This method is execute file upload.
+    ///
+    /// - Parameters:
+    ///   - fileName: String
+    ///   - binaryData: Data
+    /// - Returns: Any?
+    /// - Throws: KintoneAPIException
+    public func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Data {
         
-        let urlString: String = self.getURL(ConnectionConstants.FILE, nil)
+        var urlString: String = ""
+        do {
+            urlString = try self.getURL(ConnectionConstants.FILE, nil)
+        } catch {
+            throw KintoneAPIException("Invalid URL")
+        }
+        
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
@@ -186,18 +210,19 @@ class Connection: NSObject {
         
         if (error != nil){
             print(error!)
-            return nil
+            return Data.init()
         }
         if (data != nil || response != nil){
             do {
                 try self.checkStatus(response, data, nil)
-                return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                //return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                return try JSONSerialization.data(withJSONObject: jsonobject, options: [])
+            } catch {
+                throw KintoneAPIException("an error occurred while receiving data")
             }
-            //catch {
-            //    throw KintoneAPIException("an error occurred while receiving data")
-            //}
         }
-        return nil
+        return Data.init()
     }
     
     /// Synchronous HTTP communication execution processing
@@ -227,15 +252,13 @@ class Connection: NSObject {
     ///   - apiName: api name
     ///   - parameters: parameters
     /// - Returns: String
-    private func getURL(_ apiName: String?, _ parameters: String?) -> String {
+    private func getURL(_ apiName: String?, _ parameters: String?) throws -> String {
         guard let unwrappedDomain = self.domain else {
-            print("domain is empty")
-            return ""
+            throw KintoneAPIException("domain is empty")
         }
         
         guard let unwrappedApiName = apiName else {
-            print("api is empty")
-            return ""
+            throw KintoneAPIException("api is empty")
         }
         var sb: String = ""
         if (!unwrappedDomain.contains(ConnectionConstants.HTTPS_PREFIX)){
@@ -385,9 +408,7 @@ class Connection: NSObject {
         if (self.guestSpaceID != nil){
             if (self.guestSpaceID! >= 0) {
                 pathURI = ConnectionConstants.BASE_GUEST_URL
-                if let range: Range = pathURI.range(of: "{GUEST_SPACE_ID}") {
-                    pathURI.replaceSubrange(range, with: String(self.guestSpaceID!) + "")
-                }
+                pathURI = pathURI.replacingOccurrences(of: "{GUEST_SPACE_ID}", with: String(self.guestSpaceID!) + "")
             } else {
                 pathURI = ConnectionConstants.BASE_URL
             }
@@ -395,9 +416,7 @@ class Connection: NSObject {
             pathURI = ConnectionConstants.BASE_URL
         }
         
-        if let range: Range = pathURI.range(of: "{API_NAME}") {
-            pathURI.replaceSubrange(range, with: apiName)
-        }
+        pathURI = pathURI.replacingOccurrences(of: "{API_NAME}", with: apiName)
         return pathURI
     }
 }
