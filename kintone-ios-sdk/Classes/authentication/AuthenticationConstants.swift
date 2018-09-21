@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class AuthenticationConstants: NSObject {
     public static let HEADER_KEY_AUTH_PASSWORD = "X-Cybozu-Authorization"
     public static let HEADER_KEY_AUTH_APITOKEN = "X-Cybozu-API-Token"
