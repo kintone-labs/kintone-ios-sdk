@@ -7,23 +7,23 @@
 //
 
 class AddPreviewAppResponse: NSObject, Codable {
-    private var app: Int?
-    private var revision: Int?
+    private var app: String?
+    private var revision: String?
     
-    public func getApp() -> Int? {
+    public func getApp() -> String? {
         return self.app
     }
-    public func setApp(_ app: Int) {
+    public func setApp(_ app: String) {
         self.app = app
     }
-    public func getRevision() -> Int? {
+    public func getRevision() -> String? {
         return self.revision
     }
-    public func setRevision(_ revision: Int) {
+    public func setRevision(_ revision: String) {
         self.revision = revision
     }
     
-    public init(_ app: Int, _ revision: Int) {
+    public init(_ app: String, _ revision: String) {
         self.app =  app
         self.revision = revision
     }

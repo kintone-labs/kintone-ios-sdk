@@ -30,7 +30,7 @@ class AddPreviewAppRequest: NSObject, Codable {
         self.thread = thread
     }
     
-    public init(name: String, space: Int, thread: Int){
+    public init(name: String?, space: Int?, thread: Int?){
         self.name = name
         self.space = space
         self.thread = thread

@@ -7,20 +7,20 @@
 //
 
 class AppDeployStatus: NSObject, Codable {
-    private var app: Int?
+    private var app: String?
     private var status: Status?
     
-    public enum Status: String {
+    public enum Status: String, Codable {
         case PROCESSING
         case SUCCESS
         case FAIL
         case CANCEL
     }
     
-    public func getApp() -> Int? {
+    public func getApp() -> String? {
         return self.app
     }
-    public func setApp(_ app: Int) {
+    public func setApp(_ app: String) {
         self.app = app
     }
     public func getStatus() -> Status? {
@@ -30,9 +30,8 @@ class AppDeployStatus: NSObject, Codable {
         self.status = status
     }
     
-    public required init(from decoder: Decoder) throws {
-    }
-    
-    public func encode(to encoder: Encoder) throws {
+    init(_ app: String?, _ status: Status?) {
+        self.app = app
+        self.status = status
     }
 }
