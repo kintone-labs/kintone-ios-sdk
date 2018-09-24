@@ -23,7 +23,7 @@ class DeployAppSettingsRequest: NSObject, Codable {
         self.revert = revert
     }
     
-    public init(_ apps: Array<AddPreviewAppResponse>, _ revert: Bool) {
+    public init(_ apps: Array<AddPreviewAppResponse>?, _ revert: Bool? = nil) {
         self.apps = apps
         self.revert = revert
     }
