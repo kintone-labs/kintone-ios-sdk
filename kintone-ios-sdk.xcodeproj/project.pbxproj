@@ -917,7 +917,6 @@
 				4CA8DECF21523B9400BEA601 /* UpdateGeneralSettings.swift in Sources */,
 				4CE019E82153773300A9808B /* IconFile.swift in Sources */,
 				4CA8DECD215221FD00BEA601 /* GeneralSettings.swift in Sources */,
-				1267524B215277A30008A43A /* Field.swift in Sources */,
 				1267528D215278880008A43A /* MemberSelectEntityType.swift in Sources */,
 				3E60AFD92150BAD90041B02C /* Parser.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
