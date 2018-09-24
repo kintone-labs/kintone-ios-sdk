@@ -12,11 +12,11 @@ class BasicResponse: NSObject, Codable {
     public func getRevision() -> Int? {
         return self.revision
     }
-    public func setRevision(_ revision: Int) {
+    public func setRevision(_ revision: Int?) {
         self.revision = revision
     }
     
-    public init(_ revision: Int) {
+    public init(_ revision: Int?) {
         self.revision = revision
     }
 }
