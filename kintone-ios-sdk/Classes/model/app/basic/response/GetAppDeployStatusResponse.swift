@@ -12,7 +12,7 @@ class GetAppDeployStatusResponse: NSObject, Codable {
     public func getApps() -> Array<AppDeployStatus>? {
         return self.apps
     }
-    public func setApps(apps: Array<AppDeployStatus>) {
+    public func setApps(apps: Array<AppDeployStatus>?) {
         self.apps = apps
     }
 }

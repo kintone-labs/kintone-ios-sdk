@@ -8,7 +8,7 @@
 
 public class GetAppsRequest: NSObject, Codable {
     private var ids: [Int]?
-    private var codes: [Int]?
+    private var codes: [String]?
     private var name: String?
     private var spaceIds: [Int]?
     private var offset: Int?
@@ -20,10 +20,10 @@ public class GetAppsRequest: NSObject, Codable {
     public func setId(_ ids: [Int]) {
         self.ids = ids
     }
-    public func getCodes() -> [Int]? {
+    public func getCodes() -> [String]? {
         return self.codes
     }
-    public func setCodes(_ codes: [Int]) {
+    public func setCodes(_ codes: [String]) {
         self.codes = codes
     }
     public func getName() -> String? {
@@ -51,12 +51,12 @@ public class GetAppsRequest: NSObject, Codable {
         self.limit = limit
     }
     
-    public init(_ ids: [Int], _ codes: [Int], _ name: String, _ spaceIds: [Int], _ offset: Int, _ limit: Int) {
-        self.ids = ids
-        self.codes = codes
-        self.name = name
-        self.spaceIds = spaceIds
-        self.offset = offset
-        self.limit = limit
+    public init(ids idsOpt: [Int]? = nil, codes codesOpt: [String]? = nil, name nameOpt: String? = "", spaceIds spaceIdsOpt: [Int]? = nil, offset offsetOpt: Int? = 0, limit limitOpt: Int? = 100) {
+        self.ids = idsOpt
+        self.codes = codesOpt
+        self.name = nameOpt
+        self.spaceIds = spaceIdsOpt
+        self.offset = offsetOpt
+        self.limit = limitOpt
     }
 }

@@ -131,6 +131,8 @@
 		4C0982D52151F23F00D8C258 /* UpdateViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */; };
 		4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */; };
 		4C28757121539E09002D67CC /* AppParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28757021539E09002D67CC /* AppParser.swift */; };
+		4C90F6EC2154E80300F98487 /* GetAppsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90F6EB2154E80300F98487 /* GetAppsResponse.swift */; };
+		4C90F6EE21587E8A00F98487 /* GetAppDeployStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90F6ED21587E8A00F98487 /* GetAppDeployStatusRequest.swift */; };
 		4CA8DECD215221FD00BEA601 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DECC215221FD00BEA601 /* GeneralSettings.swift */; };
 		4CA8DECF21523B9400BEA601 /* UpdateGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DECE21523B9400BEA601 /* UpdateGeneralSettings.swift */; };
 		4CA8DED121523C7C00BEA601 /* GetGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */; };
@@ -246,6 +248,7 @@
 		3E1FD7E52148AE220056F902 /* RecordUpdateResponseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateResponseItem.swift; sourceTree = "<group>"; };
 		3E1FD7E72148AE5C0056F902 /* RecordUpdateStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateStatusItem.swift; sourceTree = "<group>"; };
 		3E25BF88213F646C00ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF8A213F648900ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordResponse.swift; sourceTree = "<group>"; };
 		3E25BFA4213F953D00ABBB13 /* FieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValue.swift; sourceTree = "<group>"; };
 		3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordRequest.swift; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 		4C0982D42151F23F00D8C258 /* UpdateViewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewsResponse.swift; sourceTree = "<group>"; };
 		4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusResponse.swift; sourceTree = "<group>"; };
 		4C28757021539E09002D67CC /* AppParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppParser.swift; sourceTree = "<group>"; };
+		4C90F6EB2154E80300F98487 /* GetAppsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsResponse.swift; sourceTree = "<group>"; };
+		4C90F6ED21587E8A00F98487 /* GetAppDeployStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusRequest.swift; sourceTree = "<group>"; };
 		4CA8DECC215221FD00BEA601 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		4CA8DECE21523B9400BEA601 /* UpdateGeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGeneralSettings.swift; sourceTree = "<group>"; };
 		4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGeneralSettings.swift; sourceTree = "<group>"; };
@@ -303,6 +308,7 @@
 		A8F43215215231A600C15EDA /* AppCustomization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCustomization.swift; sourceTree = "<group>"; };
 		A8F43217215231CA00C15EDA /* AppPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermission.swift; sourceTree = "<group>"; };
 		A8F432192152320500C15EDA /* AppProcessManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProcessManagement.swift; sourceTree = "<group>"; };
+		AB59F5C62150EFCD00BCD0EE /* ConnectionConstans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstans.swift; sourceTree = "<group>"; };
 		AB59F5CA2150F36A00BCD0EE /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -340,6 +346,7 @@
 		126751E1215275490008A43A /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				AB59F5C62150EFCD00BCD0EE /* ConnectionConstans.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -576,6 +583,7 @@
 				A8F4320A21522F3D00C15EDA /* app */,
 				3E60AFD72150BA600041B02C /* parser */,
 				3E60AFD4215091500041B02C /* record */,
+				3E25BF8A213F648900ABBB13 /* .gitkeep */,
 			);
 			path = module;
 			sourceTree = "<group>";
@@ -711,6 +719,7 @@
 				4C0982C62151DCAE00D8C258 /* GetFormFieldsRequest.swift */,
 				4C0982C82151DCF100D8C258 /* GetFormLayoutRequest.swift */,
 				1267529421527CA30008A43A /* GetAppRequest.swift */,
+				4C90F6ED21587E8A00F98487 /* GetAppDeployStatusRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -718,6 +727,7 @@
 		4C0982BD2150F3C400D8C258 /* response */ = {
 			isa = PBXGroup;
 			children = (
+				4C90F6EB2154E80300F98487 /* GetAppsResponse.swift */,
 				4C0982CE2151EDBF00D8C258 /* BasicResponse.swift */,
 				4C0982D02151EEA300D8C258 /* AddPreviewAppResponse.swift */,
 				4C0982D22151F19700D8C258 /* GetViewsResponse.swift */,
@@ -903,6 +913,7 @@
 				111892BD215012330077A87E /* BulkRequestModel.swift in Sources */,
 				3E60AFE02151E05F0041B02C /* AddCommentRecordRequest.swift in Sources */,
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
+				4C90F6EE21587E8A00F98487 /* GetAppDeployStatusRequest.swift in Sources */,
 				A8F4321A2152320500C15EDA /* AppProcessManagement.swift in Sources */,
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				A8F432142152315300C15EDA /* AppView.swift in Sources */,
@@ -960,6 +971,7 @@
 				3E1FD7D82148AB490056F902 /* UpdateRecordsStatusRequest.swift in Sources */,
 				12675250215277A30008A43A /* FieldMapping.swift in Sources */,
 				1267529E215355D00008A43A /* AbstractSystemField.swift in Sources */,
+				4C90F6EC2154E80300F98487 /* GetAppsResponse.swift in Sources */,
 				126751FA215276570008A43A /* AlignLayout.swift in Sources */,
 				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
 				4C0982C12150FA0200D8C258 /* GetAppsRequest.swift in Sources */,
@@ -988,7 +1000,6 @@
 				3E60AFD1214A018E0041B02C /* HTTPHeader.swift in Sources */,
 				3E60AFDB2150C1C10041B02C /* RecordParser.swift in Sources */,
 				111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
-				AB59F5C72150EFCD00BCD0EE /* ConnectionConstans.swift in Sources */,
 				3E60AFE42151E09D0041B02C /* Comment.swift in Sources */,
 				3E1FD7D02148A94D0056F902 /* UpdateRecordsRequest.swift in Sources */,
 				126752BE21539BF80008A43A /* FieldLayout.swift in Sources */,
@@ -1018,6 +1029,7 @@
 				126752882152785A0008A43A /* UserSelectionField.swift in Sources */,
 				3E1FD7D62148AB370056F902 /* UpdateRecordStatusRequest.swift in Sources */,
 				3E60AFCB214A017F0041B02C /* KintoneAPIException.swift in Sources */,
+				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
 				12675265215277C70008A43A /* MultiLineTextField.swift in Sources */,
 				12675278215278280008A43A /* AbstractSelectionField.swift in Sources */,
 				4CE019E6215373C300A9808B /* AppDeployStatus.swift in Sources */,
