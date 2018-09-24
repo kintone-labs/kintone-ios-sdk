@@ -6,20 +6,27 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class Icon: NSObject {
-    private var file: IconFile?
+class Icon: NSObject, Codable {
+    private var file: FileModel?
     private var key: String?
     private var iconType: IconType?
     
-    public enum IconType: String {
+    public enum IconType: String, Codable {
         case FILE
         case PRESET
     }
     
-    public func getFile() -> IconFile? {
+    enum CodingKeys: String, CodingKey
+    {
+        case file
+        case key
+        case iconType = "type"
+    }
+    
+    public func getFile() -> FileModel? {
         return self.file
     }
-    public func setFile(_ file: IconFile) {
+    public func setFile(_ file: FileModel) {
         self.file = file
     }
     public func getKey() -> String? {
@@ -35,7 +42,7 @@ class Icon: NSObject {
         self.iconType = iconType
     }
     
-    public init(_ file: IconFile, _ key: String, _ iconType: IconType) {
+    public init(_ file: FileModel, _ key: String, _ iconType: IconType) {
         self.file = file
         self.key = key
         self.iconType = iconType
