@@ -99,10 +99,11 @@ class Connection: NSObject {
         }
         if (data != nil || response != nil){
             do {
-                try self.checkStatus(response, data, body)
-                //return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                try self.checkStatus(response, data, body, apiName)
                 let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                 return try JSONSerialization.data(withJSONObject: jsonobject, options: [])
+            } catch let error as KintoneAPIException {
+                throw error
             } catch {
                 throw KintoneAPIException("an error occurred while receiving data")
             }
@@ -148,8 +149,10 @@ class Connection: NSObject {
         }
         if (data != nil || response != nil){
             do {
-                try self.checkStatus(response, data, body)
+                try self.checkStatus(response, data, body, nil)
                 return data!
+            } catch let error as KintoneAPIException {
+                throw error
             } catch {
                 throw KintoneAPIException("an error occurred while receiving data")
             }
@@ -212,10 +215,11 @@ class Connection: NSObject {
         }
         if (data != nil || response != nil){
             do {
-                try self.checkStatus(response, data, nil)
-                //return try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                try self.checkStatus(response, data, nil, nil)
                 let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
                 return try JSONSerialization.data(withJSONObject: jsonobject, options: [])
+            } catch let error as KintoneAPIException {
+                throw error
             } catch {
                 throw KintoneAPIException("an error occurred while receiving data")
             }
@@ -342,10 +346,12 @@ class Connection: NSObject {
     ///   - response: response
     ///   - data: data
     ///   - body: body
+    ///   - apiName: apiName
     /// - Throws: KintoneIOSException
-    private func checkStatus(_ response: URLResponse?, _ data: Data?, _ body: String?) throws {
+    private func checkStatus(_ response: URLResponse?, _ data: Data?, _ body: String?, _ apiName: String?) throws {
         let http_response = response as? HTTPURLResponse
         let statusCode: Int? = http_response?.statusCode
+        let decoder: JSONDecoder = JSONDecoder()
         
         if (statusCode == 404) {
             if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
@@ -360,10 +366,22 @@ class Connection: NSObject {
         }
         
         if (statusCode != 200) {
-            if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
-                throw KintoneAPIException(statusCode, unWrapResponse)
-            }else{
-                throw KintoneAPIException("http status error(" + String(statusCode!) + ")")
+            if (apiName == ConnectionConstants.BULK_REQUEST){
+                //let responses: Array<ErrorResponse> = (try getErrorResponses(data))!
+                do {
+                    if let unWrapResponses: Array<ErrorResponse> = self.getErrorResponses(data) {
+                        let errorResponseList: Array<BulkRequestItem>  = try decoder.decode([BulkRequestItem].self, from: data!)
+                        throw KintoneAPIException(statusCode, errorResponseList, unWrapResponses)
+                    } else {
+                        throw KintoneAPIException("http status error(\(String(describing: statusCode)))");
+                    }
+                }
+            } else {
+                if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
+                    throw KintoneAPIException(statusCode, unWrapResponse)
+                }else{
+                    throw KintoneAPIException("http status error(\(String(statusCode!)))")
+                }
             }
         }
     }
@@ -379,6 +397,24 @@ class Connection: NSObject {
             do {
                 let errorResponse: ErrorResponse  = try decoder.decode(ErrorResponse.self, from: unwrapData)
                 return errorResponse
+            } catch {
+                print("json convert failed in JSONDecoder", error.localizedDescription)
+            }
+        }
+        return nil
+    }
+    
+    private func getErrorResponses(_ data: Data?) -> Array<ErrorResponse>? {
+    
+        let decoder: JSONDecoder = JSONDecoder()
+        
+        if let unwrapData = data {
+            do {
+                //let parsedData = try JSONSerialization.jsonObject(with: data as! Data, options: .allowFragments)
+                //let dict = parsedData as? NSDictionary
+                //let currentConditions = "\(dict!["results"]!)"
+                let errorResponseList: Array<ErrorResponse>  = try decoder.decode([ErrorResponse].self, from: unwrapData)
+                return errorResponseList
             } catch {
                 print("json convert failed in JSONDecoder", error.localizedDescription)
             }
