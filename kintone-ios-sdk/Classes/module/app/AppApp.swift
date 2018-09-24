@@ -76,7 +76,7 @@ extension AppApp where Self: App {
             let deployAppSettingsRequest = DeployAppSettingsRequest(apps)
             let body = try! parser.parseObject(deployAppSettingsRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            try! self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
+            _ = try! self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
         }
     }
     
