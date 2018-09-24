@@ -7,16 +7,17 @@
 //
 
 class BasicResponse: NSObject, Codable {
-    private var revision: Int?
+    private var revision: String?
     
     public func getRevision() -> Int? {
-        return self.revision
+        return Int(self.revision!)
     }
     public func setRevision(_ revision: Int?) {
-        self.revision = revision
+        self.revision = "\(String(describing: revision!))"
     }
     
     public init(_ revision: Int?) {
-        self.revision = revision
+        super.init()
+        self.setRevision(revision)
     }
 }
