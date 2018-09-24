@@ -121,6 +121,7 @@
 		4C0982D72151F32D00D8C258 /* GetAppDeployStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */; };
 		4C28757121539E09002D67CC /* AppParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C28757021539E09002D67CC /* AppParser.swift */; };
 		4C90F6EC2154E80300F98487 /* GetAppsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90F6EB2154E80300F98487 /* GetAppsResponse.swift */; };
+		4C90F6EE21587E8A00F98487 /* GetAppDeployStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90F6ED21587E8A00F98487 /* GetAppDeployStatusRequest.swift */; };
 		4CA8DECD215221FD00BEA601 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DECC215221FD00BEA601 /* GeneralSettings.swift */; };
 		4CA8DECF21523B9400BEA601 /* UpdateGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DECE21523B9400BEA601 /* UpdateGeneralSettings.swift */; };
 		4CA8DED121523C7C00BEA601 /* GetGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */; };
@@ -270,6 +271,7 @@
 		4C0982D62151F32D00D8C258 /* GetAppDeployStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusResponse.swift; sourceTree = "<group>"; };
 		4C28757021539E09002D67CC /* AppParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppParser.swift; sourceTree = "<group>"; };
 		4C90F6EB2154E80300F98487 /* GetAppsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsResponse.swift; sourceTree = "<group>"; };
+		4C90F6ED21587E8A00F98487 /* GetAppDeployStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusRequest.swift; sourceTree = "<group>"; };
 		4CA8DECC215221FD00BEA601 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		4CA8DECE21523B9400BEA601 /* UpdateGeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGeneralSettings.swift; sourceTree = "<group>"; };
 		4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGeneralSettings.swift; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 				4C0982C62151DCAE00D8C258 /* GetFormFieldsRequest.swift */,
 				4C0982C82151DCF100D8C258 /* GetFormLayoutRequest.swift */,
 				1267529421527CA30008A43A /* GetAppRequest.swift */,
+				4C90F6ED21587E8A00F98487 /* GetAppDeployStatusRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 				1267529121527B5F0008A43A /* FieldType.swift in Sources */,
 				111892BD215012330077A87E /* BulkRequestModel.swift in Sources */,
 				3E1FD7DC2148AB9D0056F902 /* GetRecordsResponse.swift in Sources */,
+				4C90F6EE21587E8A00F98487 /* GetAppDeployStatusRequest.swift in Sources */,
 				A8F4321A2152320500C15EDA /* AppProcessManagement.swift in Sources */,
 				A8F432142152315300C15EDA /* AppView.swift in Sources */,
 				4C0982C72151DCAE00D8C258 /* GetFormFieldsRequest.swift in Sources */,

@@ -59,4 +59,35 @@ extension AppApp where Self: App {
             return try _getAppsBy(spaceIds: spaceIds, offset: offset, limit: limit)
         }
     }
+    
+    func addPreviewApp(_ name: String?, _ space: Int? = nil, _ thread: Int? = nil) throws -> AddPreviewAppResponse {
+        do {
+            let addPreviewAppRequest = AddPreviewAppRequest(name: name, space: space, thread: thread)
+            let body = try! parser.parseObject(addPreviewAppRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+            let response = try! self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_PREVIEW, jsonBody)
+            let app = try parser.parseJson(AddPreviewAppResponse.self, response!)
+            return app
+        }
+    }
+    
+    func deployAppSettings(_ apps: Array<AddPreviewAppResponse>?, _ revert: Bool? = nil) throws {
+        do {
+            let deployAppSettingsRequest = DeployAppSettingsRequest(apps)
+            let body = try! parser.parseObject(deployAppSettingsRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+            try! self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
+        }
+    }
+    
+    func getAppDeployStatus(_ apps: [Int]?) throws -> GetAppDeployStatusResponse {
+        do {
+            let deployStatusRequest = GetAppDeployStatusRequest(apps)
+            let body = try! parser.parseObject(deployStatusRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+            let response = try! self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
+            let status = try parser.parseJson(GetAppDeployStatusResponse.self, response!)
+            return status
+        }
+    }
 }
