@@ -6,8 +6,6 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public class GetRecordRequest: NSObject, Codable {
     
     private var app: Int?
@@ -18,7 +16,7 @@ public class GetRecordRequest: NSObject, Codable {
     /// - Parameters:
     ///   - app: the ID of kintone app
     ///   - id: the ID of record
-    public init(app: Int?, id: Int?) {
+    public init(_ app: Int?, _ id: Int?) {
         self.app = app
         self.id = id
     }
