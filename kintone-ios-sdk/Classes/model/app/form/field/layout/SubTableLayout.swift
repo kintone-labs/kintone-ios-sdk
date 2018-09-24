@@ -10,16 +10,16 @@ public class SubTableLayout: ItemLayout {
     private var code: String?
     private var fields: [FieldLayout]?
     
+    private enum CodingKeys: String, CodingKey {
+        case fields
+        case code
+    }
     /**
      * default constructor
      */
     public override init() {
         super.init()
         self.type = LayoutType.SUBTABLE
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        super.init()
     }
     
     /**
@@ -48,5 +48,12 @@ public class SubTableLayout: ItemLayout {
      */
     public func setFields(_ fields: [FieldLayout]?) {
         self.fields = fields
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.code = try container.decode(String.self, forKey: SubTableLayout.CodingKeys.code)
+        self.fields = try container.decode([FieldLayout].self, forKey: .fields)
+        try super.init(from: decoder)
     }
 }

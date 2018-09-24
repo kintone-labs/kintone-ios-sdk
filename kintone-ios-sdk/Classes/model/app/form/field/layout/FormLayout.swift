@@ -48,6 +48,7 @@ public class FormLayout: NSObject, Codable {
     
     enum LayoutsKey: CodingKey {
         case layout
+        case revision
     }
     
     enum LayoutTypeKey: CodingKey {
@@ -58,10 +59,9 @@ public class FormLayout: NSObject, Codable {
         let container = try decoder.container(keyedBy: LayoutsKey.self)
         var layoutsArrayForType = try container.nestedUnkeyedContainer(forKey: LayoutsKey.layout)
         var layouts = [ItemLayout]()
-        
         var layoutsArray = layoutsArrayForType
         print(layoutsArray)
-        while(!layoutsArrayForType.isAtEnd)
+        while(!layoutsArray.isAtEnd)
         {
             let layout = try layoutsArrayForType.nestedContainer(keyedBy: LayoutTypeKey.self)
             let type = try layout.decode(LayoutType.self, forKey: LayoutTypeKey.type)
@@ -71,10 +71,32 @@ public class FormLayout: NSObject, Codable {
                 layouts.append(try layoutsArray.decode(RowLayout.self))
             case .SUBTABLE:
                 print("found subtable")
+                 layouts.append(try layoutsArray.decode(SubTableLayout.self))
             case .GROUP:
                 print("found group")
+                layouts.append(try layoutsArray.decode(GroupLayout.self))
             }
         }
         self.layout = layouts
+        self.revision = try container.decode(String.self, forKey: LayoutsKey.revision)
+    }
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: LayoutsKey.self)
+        for layoutItem in self.layout! {
+            switch layoutItem.getType()! {
+            case .ROW:
+                print("encode row")
+                try container.encode(layoutItem, forKey: LayoutsKey.layout)
+            case .SUBTABLE:
+                print("encode subtable")
+                //try container.encode(layoutItem, forKey: LayoutsKey.layout)
+            case .GROUP:
+                print("encode group")
+                //try container.encode(layoutItem, forKey: LayoutsKey.layout)
+            }
+        }
+        if(self.revision != nil){
+            try container.encode(revision, forKey: .revision)
+        }
     }
 }

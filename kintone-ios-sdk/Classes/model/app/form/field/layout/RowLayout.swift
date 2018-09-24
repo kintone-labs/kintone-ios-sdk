@@ -37,9 +37,16 @@ public class RowLayout: ItemLayout {
         self.fields = fields
     }
     
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.fields = try container.decode([FieldLayout].self, forKey: .fields)
         try super.init(from: decoder)
+    }
+    public override func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        for fieldItem in self.fields! {
+           try container.encode(fieldItem, forKey: CodingKeys.fields)
+        }
+        try super.encode(to: encoder)
     }
 }
