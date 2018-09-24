@@ -6,13 +6,12 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 class DeleteRecordsRequest: NSObject, Codable {
     
     private var app: Int?
     private var ids: [Int]?
-    private var revisions: [Int?]?
+    // ★★★ todo revision未指定のレコードが点在する場合を容認するかを検討する
+    private var revisions: [Int]?
     
     /// Constructor
     ///
@@ -20,7 +19,7 @@ class DeleteRecordsRequest: NSObject, Codable {
     ///   - app: the ID of kintone app
     ///   - ids: the array of record IDs
     ///   - revisions: the array of revision number
-    public init(_ app: Int?, _ ids: [Int]?, _ revisions: [Int?]?) {
+    public init(_ app: Int?, _ ids: [Int]?, _ revisions: [Int]?) {
         self.app = app
         self.ids = ids
         self.revisions = revisions
