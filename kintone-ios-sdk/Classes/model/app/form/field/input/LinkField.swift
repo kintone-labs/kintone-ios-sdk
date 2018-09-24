@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class LinkField: AbstractInputField {
     private var defaultValue: String?
     private var unique: Bool?
@@ -23,6 +20,10 @@ public class LinkField: AbstractInputField {
         super.init()
         self.code = code
         self.type = FieldType.LINK
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

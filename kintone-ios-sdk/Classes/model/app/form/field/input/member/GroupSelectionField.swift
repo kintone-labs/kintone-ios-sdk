@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class GroupSelectionField: AbstractMemberSelectField {
     /**
      * default constructor
@@ -24,5 +22,9 @@ public class GroupSelectionField: AbstractMemberSelectField {
         super.init()
         self.code = code
         self.type = FieldType.GROUP_SELECT
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
 }

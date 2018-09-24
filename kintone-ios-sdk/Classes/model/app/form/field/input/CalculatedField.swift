@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class CalculatedField: AbstractInputField {
     private var expression: String?
     private var hideExpression: Bool?
@@ -29,6 +26,11 @@ public class CalculatedField: AbstractInputField {
         super.init()
         self.code = code
         self.type = FieldType.CALC
+    }
+    
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

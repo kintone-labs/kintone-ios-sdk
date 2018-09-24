@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class CreatorField: AbstractSystemInfoField {
     /**
      * @param code
@@ -17,4 +15,8 @@ public class CreatorField: AbstractSystemInfoField {
         self.code = code
         self.type = FieldType.CREATOR
     }
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
+    
 }

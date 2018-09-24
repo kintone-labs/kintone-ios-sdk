@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class DateTimeField: AbstractInputField {
     internal var unique: Bool?
     internal var defaultValue: String?
@@ -20,6 +18,10 @@ public class DateTimeField: AbstractInputField {
         super.init()
         self.code = code
         self.type = FieldType.DATETIME
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

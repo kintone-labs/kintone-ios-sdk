@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class MultiLineTextField: AbstractInputField {
     private var defaultValue: String?
     
@@ -20,7 +17,9 @@ public class MultiLineTextField: AbstractInputField {
         self.code = code
         self.type = FieldType.MULTI_LINE_TEXT
     }
-    
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
     /**
      * @return the defaultValue
      */

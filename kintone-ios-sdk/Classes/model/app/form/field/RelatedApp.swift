@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public class RelatedApp: NSObject {
     private var app: Int?
     private var code: String

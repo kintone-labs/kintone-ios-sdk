@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class RichTextField: AbstractInputField {
     private var defaultValue: String?
     
@@ -19,6 +16,11 @@ public class RichTextField: AbstractInputField {
         super.init()
         self.code = code
         self.type = FieldType.RICH_TEXT
+    }
+    
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

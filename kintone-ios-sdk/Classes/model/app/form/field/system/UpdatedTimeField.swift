@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class UpdatedTimeField: AbstractSystemInfoField {
     /**
      * @param code
@@ -16,5 +14,9 @@ public class UpdatedTimeField: AbstractSystemInfoField {
         super.init()
         self.code = code
         self.type = FieldType.UPDATED_TIME
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
 }

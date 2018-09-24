@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class RadioButtonField: AbstractSelectionField {
     internal var defaultValue: String?
     internal var align: AlignLayout?
@@ -20,6 +17,10 @@ public class RadioButtonField: AbstractSelectionField {
         super.init()
         self.code = code
         self.type = FieldType.RADIO_BUTTON
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

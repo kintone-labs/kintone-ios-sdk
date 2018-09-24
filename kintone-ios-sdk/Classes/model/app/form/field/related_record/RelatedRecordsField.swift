@@ -6,13 +6,11 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class RelatedRecordsField: Field {
     internal var label: String?
     internal var noLabel: Bool?
     internal var referenceTable: ReferenceTable?
-    
+   
     /**
      * @param code
      */
@@ -20,6 +18,11 @@ public class RelatedRecordsField: Field {
         super.init()
         self.code = code
         self.type = FieldType.REFERENCE_TABLE
+    }
+    
+    
+    public required init(from decoder: Decoder) throws {
+         super.init()
     }
     
     /**

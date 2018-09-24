@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class ModifierField: AbstractSystemInfoField {
     /**
      * @param code
@@ -17,4 +15,8 @@ public class ModifierField: AbstractSystemInfoField {
         self.code = code
         self.type = FieldType.MODIFIER
     }
+    required init(from decoder: Decoder) throws {
+        try super.init(from: decoder)
+    }
+    
 }

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class StatusField: AbstractProcessManagementField {
     /**
      * @param code
@@ -16,5 +14,9 @@ public class StatusField: AbstractProcessManagementField {
         super.init()
         self.code = code
         self.type = FieldType.STATUS
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
 }

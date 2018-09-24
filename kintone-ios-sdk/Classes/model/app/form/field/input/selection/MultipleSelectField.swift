@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class MultipleSelectField: AbstractSelectionField {
     internal var defaultValue: [String]?
     
@@ -19,6 +16,10 @@ public class MultipleSelectField: AbstractSelectionField {
         super.init()
         self.code = code
         self.type = FieldType.MULTI_SELECT
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

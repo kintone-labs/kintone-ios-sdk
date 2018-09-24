@@ -6,16 +6,18 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class AbstractSelectionField: AbstractInputField {
     internal var options: [String: OptionData]
     
     public override init() {
         self.options = [String: OptionData]()
+        super.init()
     }
     
+    public required init(from decoder: Decoder) throws {
+         self.options = [String: OptionData]()
+         super.init()
+    }
     /**
      * @return the options
      */

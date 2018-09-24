@@ -6,10 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
-public class FormLayout: NSObject {
+public class FormLayout: NSObject, Codable {
     private var revision: String?
     private var layout: [ItemLayout]?
     
@@ -17,6 +14,7 @@ public class FormLayout: NSObject {
      * default constructor
      */
     public override init() {
+        super.init()
         self.layout = [ItemLayout]();
     }
     

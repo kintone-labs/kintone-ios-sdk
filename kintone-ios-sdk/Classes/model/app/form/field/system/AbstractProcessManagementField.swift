@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class AbstractProcessManagementField: AbstractSystemField {
     internal var enabled: Bool?
     

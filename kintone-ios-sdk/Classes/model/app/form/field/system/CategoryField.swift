@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class CategoryField: AbstractSystemField {
     internal var enabled: Bool?
     
@@ -19,6 +16,10 @@ public class CategoryField: AbstractSystemField {
         super.init()
         self.code = code
         self.type = FieldType.CATEGORY
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

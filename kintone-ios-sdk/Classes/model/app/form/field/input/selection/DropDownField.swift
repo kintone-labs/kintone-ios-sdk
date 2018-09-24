@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class DropDownField: AbstractSelectionField {
     internal var defaultValue: String?
     
@@ -19,6 +16,10 @@ public class DropDownField: AbstractSelectionField {
         super.init()
         self.code = code
         self.type = FieldType.DROP_DOWN
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**
