@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public class SubTableField: Field {
     internal var fields: [String: AbstractInputField] = [String: AbstractInputField]();
    
@@ -20,6 +18,10 @@ public class SubTableField: Field {
         super.init()
         self.code = code!;
         self.type = FieldType.SUBTABLE;
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     public func getFields() -> [String: AbstractInputField] {

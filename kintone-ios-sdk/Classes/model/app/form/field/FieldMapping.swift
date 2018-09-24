@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public class FieldMapping: NSObject {
     private var field: String?
     private var relatedField: String?

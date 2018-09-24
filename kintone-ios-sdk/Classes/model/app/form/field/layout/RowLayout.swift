@@ -6,10 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
-
 public class RowLayout: ItemLayout {
     private var fields: [FieldLayout]?
     
@@ -20,6 +16,10 @@ public class RowLayout: ItemLayout {
         super.init()
         self.type = LayoutType.ROW
         self.fields = [FieldLayout]()
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

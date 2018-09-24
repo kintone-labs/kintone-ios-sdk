@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class GroupLayout: ItemLayout {
     private var code: String?
     private var layout: [RowLayout]?
@@ -20,6 +17,10 @@ public class GroupLayout: ItemLayout {
         super.init()
         self.type = LayoutType.GROUP
         self.layout = [RowLayout]()
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

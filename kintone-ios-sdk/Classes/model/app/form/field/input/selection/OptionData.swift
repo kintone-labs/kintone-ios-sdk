@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class OptionData: NSObject {
     internal var index: Int
     internal var label: String

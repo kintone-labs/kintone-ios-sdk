@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
-
-
 public class NumberField: AbstractInputField {
     private var displayScale: Int?
     private var unit: String?
@@ -23,6 +20,10 @@ public class NumberField: AbstractInputField {
         super.init()
         self.code = code;
         self.type = FieldType.NUMBER
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     public func getDisplayScale() -> Int? {

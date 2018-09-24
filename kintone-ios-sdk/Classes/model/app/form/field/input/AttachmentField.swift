@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class AttachmentField: AbstractInputField {
     internal var thumbnailSize: Int?
     
@@ -19,6 +16,10 @@ public class AttachmentField: AbstractInputField {
         super.init()
         self.code = code
         self.type = FieldType.FILE
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

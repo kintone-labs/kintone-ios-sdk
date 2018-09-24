@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class AbstractMemberSelectField: AbstractInputField {
     internal var defaultValue: [MemberSelectEntity]
     internal var entites: [MemberSelectEntity]
@@ -16,7 +13,16 @@ public class AbstractMemberSelectField: AbstractInputField {
     public override init() {
         self.defaultValue = [MemberSelectEntity]()
         self.entites = [MemberSelectEntity]()
+        super.init()
+      
     }
+    
+    public required init(from decoder: Decoder) throws {
+        self.defaultValue = [MemberSelectEntity]()
+        self.entites = [MemberSelectEntity]()
+        super.init()
+    }
+
     /**
      * @return the defaultValue
      */

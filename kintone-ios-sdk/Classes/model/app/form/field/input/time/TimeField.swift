@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class TimeField: AbstractInputField {
     internal var defaultValue: String?
     internal var defaultNowValue: Bool?
@@ -20,6 +17,10 @@ public class TimeField: AbstractInputField {
         super.init()
         self.code = code
         self.type = FieldType.TIME
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
     
     /**

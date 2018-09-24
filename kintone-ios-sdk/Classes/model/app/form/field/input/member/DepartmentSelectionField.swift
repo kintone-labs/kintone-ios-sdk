@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class DepartmentSelectionField: AbstractMemberSelectField {
     /**
      * @param code
@@ -16,5 +14,9 @@ public class DepartmentSelectionField: AbstractMemberSelectField {
         super.init()
         self.code = code
         self.type = FieldType.ORGANIZATION_SELECT
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
 }

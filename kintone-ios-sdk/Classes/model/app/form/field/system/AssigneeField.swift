@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
 public class AssigneeField: AbstractProcessManagementField {
     /**
      * @param code
@@ -16,5 +14,8 @@ public class AssigneeField: AbstractProcessManagementField {
         super.init()
         self.code = code
         self.type = FieldType.STATUS_ASSIGNEE;
+    }
+    public required init(from decoder: Decoder) throws {
+        super.init()
     }
 }

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import UIKit
-
 public enum LayoutType: String, Codable {
     case ROW
     case SUBTABLE

@@ -6,9 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-import Foundation
-
-
 public class CheckboxField: AbstractSelectionField {
     internal var defaultValue: [String]?
     internal var align: AlignLayout?
@@ -30,6 +27,9 @@ public class CheckboxField: AbstractSelectionField {
         self.type = FieldType.CHECK_BOX
     }
     
+    public required init(from decoder: Decoder) throws {
+        super.init()
+    }
     /**
      * @return the align
      */
