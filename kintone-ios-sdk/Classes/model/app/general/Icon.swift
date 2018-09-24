@@ -6,14 +6,21 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class Icon: NSObject {
+class Icon: NSObject, Codable {
     private var file: IconFile?
     private var key: String?
     private var iconType: IconType?
     
-    public enum IconType: String {
+    public enum IconType: String, Codable {
         case FILE
         case PRESET
+    }
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case file
+        case key
+        case iconType = "type"
     }
     
     public func getFile() -> IconFile? {

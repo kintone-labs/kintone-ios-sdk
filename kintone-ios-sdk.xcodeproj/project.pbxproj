@@ -139,7 +139,6 @@
 		4CA8DED321523E2700BEA601 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DED221523E2700BEA601 /* Icon.swift */; };
 		4CE019E6215373C300A9808B /* AppDeployStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE019E5215373C300A9808B /* AppDeployStatus.swift */; };
 		4CE019E82153773300A9808B /* IconFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE019E72153773300A9808B /* IconFile.swift */; };
-		4CE019EA215377ED00A9808B /* GetFileGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE019E9215377ED00A9808B /* GetFileGeneralSettings.swift */; };
 		A88FEB052155118300A7E838 /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEB042155118300A7E838 /* ConnectionConstants.swift */; };
 		A890514921524154007BC18B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890514821524154007BC18B /* ViewModel.swift */; };
 		A8F4320C21522F4C00C15EDA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4320B21522F4C00C15EDA /* App.swift */; };
@@ -297,7 +296,6 @@
 		4CA8DED221523E2700BEA601 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		4CE019E5215373C300A9808B /* AppDeployStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeployStatus.swift; sourceTree = "<group>"; };
 		4CE019E72153773300A9808B /* IconFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFile.swift; sourceTree = "<group>"; };
-		4CE019E9215377ED00A9808B /* GetFileGeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFileGeneralSettings.swift; sourceTree = "<group>"; };
 		A88FEB042155118300A7E838 /* ConnectionConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
 		A890514821524154007BC18B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A8F4320B21522F4C00C15EDA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -745,7 +743,6 @@
 				4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */,
 				4CA8DED221523E2700BEA601 /* Icon.swift */,
 				4CE019E72153773300A9808B /* IconFile.swift */,
-				4CE019E9215377ED00A9808B /* GetFileGeneralSettings.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -1017,7 +1014,6 @@
 				3E60AFC6214A01590041B02C /* Connection.swift in Sources */,
 				4C0982CD2151EB8300D8C258 /* UpdateViewsRequest.swift in Sources */,
 				3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */,
-				4CE019EA215377ED00A9808B /* GetFileGeneralSettings.swift in Sources */,
 				3E1FD7D62148AB370056F902 /* UpdateRecordStatusRequest.swift in Sources */,
 				3E60AFCB214A017F0041B02C /* KintoneAPIException.swift in Sources */,
 				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
