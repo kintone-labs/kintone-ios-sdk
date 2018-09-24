@@ -138,7 +138,6 @@
 		4CA8DED121523C7C00BEA601 /* GetGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */; };
 		4CA8DED321523E2700BEA601 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8DED221523E2700BEA601 /* Icon.swift */; };
 		4CE019E6215373C300A9808B /* AppDeployStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE019E5215373C300A9808B /* AppDeployStatus.swift */; };
-		4CE019E82153773300A9808B /* IconFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE019E72153773300A9808B /* IconFile.swift */; };
 		A88FEB052155118300A7E838 /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEB042155118300A7E838 /* ConnectionConstants.swift */; };
 		A890514921524154007BC18B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A890514821524154007BC18B /* ViewModel.swift */; };
 		A8F4320C21522F4C00C15EDA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F4320B21522F4C00C15EDA /* App.swift */; };
@@ -295,7 +294,6 @@
 		4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGeneralSettings.swift; sourceTree = "<group>"; };
 		4CA8DED221523E2700BEA601 /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		4CE019E5215373C300A9808B /* AppDeployStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeployStatus.swift; sourceTree = "<group>"; };
-		4CE019E72153773300A9808B /* IconFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFile.swift; sourceTree = "<group>"; };
 		A88FEB042155118300A7E838 /* ConnectionConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
 		A890514821524154007BC18B /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A8F4320B21522F4C00C15EDA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -742,7 +740,6 @@
 				4CA8DECE21523B9400BEA601 /* UpdateGeneralSettings.swift */,
 				4CA8DED021523C7C00BEA601 /* GetGeneralSettings.swift */,
 				4CA8DED221523E2700BEA601 /* Icon.swift */,
-				4CE019E72153773300A9808B /* IconFile.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -921,7 +918,6 @@
 				4CA8DECF21523B9400BEA601 /* UpdateGeneralSettings.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
-				4CE019E82153773300A9808B /* IconFile.swift in Sources */,
 				4CA8DECD215221FD00BEA601 /* GeneralSettings.swift in Sources */,
 				1267524B215277A30008A43A /* Field.swift in Sources */,
 				1267528D215278880008A43A /* MemberSelectEntityType.swift in Sources */,

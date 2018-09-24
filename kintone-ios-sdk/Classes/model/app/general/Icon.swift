@@ -7,7 +7,7 @@
 //
 
 class Icon: NSObject, Codable {
-    private var file: IconFile?
+    private var file: FileModel?
     private var key: String?
     private var iconType: IconType?
     
@@ -23,10 +23,10 @@ class Icon: NSObject, Codable {
         case iconType = "type"
     }
     
-    public func getFile() -> IconFile? {
+    public func getFile() -> FileModel? {
         return self.file
     }
-    public func setFile(_ file: IconFile) {
+    public func setFile(_ file: FileModel) {
         self.file = file
     }
     public func getKey() -> String? {
@@ -42,7 +42,7 @@ class Icon: NSObject, Codable {
         self.iconType = iconType
     }
     
-    public init(_ file: IconFile, _ key: String, _ iconType: IconType) {
+    public init(_ file: FileModel, _ key: String, _ iconType: IconType) {
         self.file = file
         self.key = key
         self.iconType = iconType
