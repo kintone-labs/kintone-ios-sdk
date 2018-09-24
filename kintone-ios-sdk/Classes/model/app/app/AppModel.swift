@@ -38,64 +38,64 @@ class AppModel: NSObject, Codable {
         case modifier
     }
     
-    public func getAppId() -> String? {
-        return self.appId
+    public func getAppId() -> Int? {
+        return Int(self.appId!)
     }
-    public func setAppId(_ appId: String) {
-        self.appId = appId
+    public func setAppId(_ appId: Int?) {
+        self.appId = "\(String(describing: appId))"
     }
     public func getCode() -> String? {
         return self.code
     }
-    public func setCode(_ code: String) {
+    public func setCode(_ code: String?) {
         self.code = code
     }
     public func getName() -> String? {
         return self.name
     }
-    public func setName(_ name: String) {
+    public func setName(_ name: String?) {
         self.name = name
     }
     public func getDescription() -> String? {
         return self.appDescription
     }
-    public func setDescription(_ appDescription: String ) {
+    public func setDescription(_ appDescription: String?) {
         return self.appDescription = appDescription
     }
-    public func getSpaceId() -> String? {
-        return self.spaceId
+    public func getSpaceId() -> Int? {
+        return Int(self.spaceId!)
     }
-    public func setSpaceId(_ spaceId: String) {
-        self.spaceId = spaceId
+    public func setSpaceId(_ spaceId: Int?) {
+        self.spaceId = "\(String(describing: spaceId))"
     }
-    public func getThreadId() -> String? {
-        return self.threadId
+    public func getThreadId() -> Int? {
+        return Int(self.threadId!)
     }
-    public func setThreadId(_ threadId: String) {
-        self.threadId = threadId
+    public func setThreadId(_ threadId: String?) {
+        self.threadId = "\(String(describing: threadId))"
     }
     public func getCreadtedAt() -> String? {
         return self.createdAt
     }
-    public func setCreatedAt(_ createdAt: String) {
+    public func setCreatedAt(_ createdAt: String?) {
         self.createdAt = createdAt
     }
     public func getCreator() -> Member? {
         return self.creator
     }
-    public func setCreator(_ creator: Member) {
+    public func setCreator(_ creator: Member?) {
         self.creator = creator
     }
     public func getModifiedAt() -> String? {
         return self.modifiedAt
     }
-    public func setModifiedAt(_ modifiedAt: String) {
+    public func setModifiedAt(_ modifiedAt: String?) {
         self.modifiedAt = modifiedAt
     }
     public func getModifier() -> Member? {
         return self.modifier
     }
-    public func setModifier(_ modifier: Member) {
+    public func setModifier(_ modifier: Member?) {
         self.modifier = modifier
     }
 }

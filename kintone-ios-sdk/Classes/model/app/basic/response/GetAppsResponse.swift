@@ -12,7 +12,7 @@ class GetAppsResponse: NSObject, Codable {
     public func getApps() -> Array<AppModel>? {
         return self.apps
     }
-    public func setApps(_ apps: Array<AppModel>) {
+    public func setApps(_ apps: Array<AppModel>?) {
         self.apps = apps
     }
 }
