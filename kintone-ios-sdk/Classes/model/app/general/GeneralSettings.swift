@@ -6,13 +6,13 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class GeneralSettings: NSObject {
+class GeneralSettings: NSObject, Codable {
     private var name: String?
     private var generalDescription: String?
     private var icon: Icon?
     private var theme: IconTheme?
     
-    public enum IconTheme: String {
+    public enum IconTheme: String, Codable {
         case WHITE
         case RED
         case BLUE
@@ -21,16 +21,24 @@ class GeneralSettings: NSObject {
         case BLACK
     }
     
+    private enum CodingKeys: String, CodingKey
+    {
+        case name
+        case generalDescription = "description"
+        case icon
+        case theme
+    }
+    
     public func getName() -> String? {
         return self.name
     }
-    public func setName(_ name: String) {
+    public func setName(_ name: String?) {
         self.name = name
     }
     public func getDescription() -> String? {
         return self.generalDescription
     }
-    public func setDescription(_ description: String) {
+    public func setDescription(_ description: String?) {
         self.generalDescription = description
     }
     public func getIcon() -> Icon? {
@@ -42,14 +50,7 @@ class GeneralSettings: NSObject {
     public func getTheme() -> IconTheme? {
         return self.theme
     }
-    public func setTheme(_ theme: IconTheme) {
-        self.theme = theme
-    }
-    
-    public init(_ name: String, _ description: String, _ icon: Icon, _ theme: IconTheme) {
-        self.name = name
-        self.generalDescription = description
-        self.icon = icon
+    public func setTheme(_ theme: IconTheme?) {
         self.theme = theme
     }
 }
