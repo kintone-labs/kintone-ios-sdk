@@ -80,4 +80,5 @@ public class FormLayout: NSObject, Codable {
         }
         self.setLayout(layouts)
         self.setRevision(try! container.decode(String.self, forKey: FormLayout.LayoutsKey.revision))
+    }
 }
