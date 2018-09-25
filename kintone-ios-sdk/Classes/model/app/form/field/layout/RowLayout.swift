@@ -37,7 +37,7 @@ public class RowLayout: ItemLayout {
         self.fields = fields
     }
     
-    required init(from decoder: Decoder) throws {
+    public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.fields = try container.decode([FieldLayout].self, forKey: .fields)
         try super.init(from: decoder)
