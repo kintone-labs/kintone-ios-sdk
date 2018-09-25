@@ -45,6 +45,12 @@ public class BulkRequestItem: NSObject, Codable {
         self.payload = payload
     }
     
+    public required init(_ method: String?, _ api: String?, _ payload: Any?) throws {
+        self.method = method
+        self.api = api
+        self.payload = payload
+    }
+    
     /// Convert Json to BulkRequestItem.class
     ///
     /// - Parameter decoder:
@@ -60,9 +66,9 @@ public class BulkRequestItem: NSObject, Codable {
             
             // Convert value to Swift Class corresponding to payload
             switch type(of: self.payload) {
-            case is AddRecordRequest:
-                self.payload = try container.decodeIfPresent(AddRecordRequest.self, forKey: CodingKeys.payload)
-                break
+            //case AddRecordRequest.self:
+            //    self.payload = try container.decodeIfPresent(AddRecordRequest.self, forKey: CodingKeys.payload)
+            //    break
             default:
                 self.payload = try container.decodeIfPresent(String.self, forKey: CodingKeys.payload)
             }
@@ -83,16 +89,28 @@ public class BulkRequestItem: NSObject, Codable {
             try container.encodeIfPresent(method, forKey: CodingKeys.method)
             // Convert api to json-item
             try container.encodeIfPresent(api, forKey: CodingKeys.api)
+            
             // Convert value to json-item corresponding to payload
-            switch type(of: self.payload) {
-            case is AddRecordRequest:
-                let payload = self.payload as! AddRecordRequest
-                try container.encodeIfPresent(payload, forKey: CodingKeys.payload)
-                break
-            default:
-                let payload = self.payload as! String
-                try container.encodeIfPresent(payload, forKey: CodingKeys.payload)
-            }
+            let fv = encoder as? String//AddRecordRequest
+            print(fv.debugDescription)
+            //if let fv = encoder as? AddRecordRequest {
+            //    try container.encodeIfPresent(fv, forKey: CodingKeys.payload)
+            //}else{
+            //    print("ERROR")
+            //}
+                
+                
+                
+            //try container.encodeIfPresent(payload, forKey: CodingKeys.payload)
+            //switch type(of: self.payload) {
+            //case AddRecordRequest.self:
+            //    let payload = self.payload as! AddRecordRequest
+            //    try container.encodeIfPresent(payload, forKey: CodingKeys.payload)
+            //    break
+            //default:
+            //    let payload = self.payload as! String
+            //    try container.encodeIfPresent(payload, forKey: CodingKeys.payload)
+            //}
         } catch {
             throw KintoneAPIException("parse error")
         }
