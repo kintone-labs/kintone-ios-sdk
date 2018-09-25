@@ -57,4 +57,11 @@ public class GroupLayout: ItemLayout {
         self.code = try container.decode(String.self, forKey: GroupLayout.CodingKeys.code)
         try super.init(from: decoder)
     }
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.layout, forKey: GroupLayout.CodingKeys.layout)
+        try container.encode(self.code, forKey: GroupLayout.CodingKeys.code)
+        try super.encode(to: encoder)
+    }
+    
 }
