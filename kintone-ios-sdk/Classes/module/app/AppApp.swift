@@ -8,6 +8,14 @@
 
 protocol AppApp {
     func getApp(_ appId: Int?) throws -> AppModel
+    func getApps(_ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    func getAppsByIDs(_ ids: [Int]?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    func getAppsByCodes(_ codes: [String]?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    func getAppsByName(_ name: String?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    func getAppsBySpaceIDs(_ spaceIds: [Int]?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    func addPreviewApp(_ name: String?, _ space: Int?, _ thread: Int?) throws -> AddPreviewAppResponse
+    func deployAppSettings(_ apps: Array<AddPreviewAppResponse>?, _ revert: Bool?) throws
+    func getAppDeployStatus(_ apps: [Int]?) throws -> GetAppDeployStatusResponse
 }
 
 extension AppApp where Self: App {
