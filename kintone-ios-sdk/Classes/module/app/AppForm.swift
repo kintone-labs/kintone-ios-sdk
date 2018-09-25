@@ -13,13 +13,14 @@ protocol AppForm {
 }
 
 extension AppForm where Self: App {
-    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> FormFields
+    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) throws -> FormFields
     {
         do {
             let getFormFieldsRequest = GetFormFieldsRequest(app!, lang!)
             let body = try! self.parser.parseObject(getFormFieldsRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_FIELDS, jsonBody)
+            let url = (isPreview! ? ConnectionConstants.APP_FIELDS_PREVIEW : ConnectionConstants.APP_FIELDS)
+            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody)
             return try self.parser.parseJson(FormFields.self, response!)
         } catch let error as KintoneAPIException {
             throw error
