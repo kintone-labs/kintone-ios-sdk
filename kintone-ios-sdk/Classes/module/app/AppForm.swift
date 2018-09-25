@@ -9,7 +9,7 @@
 protocol AppForm {
      func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> FormFields
      func getFormLayout(_ app: Int?, _ isPreview: Bool?) throws -> FormLayout
-     //func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) throws -> BasicResponse
+     func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) throws -> BasicResponse
 }
 
 extension AppForm where Self: App {
@@ -32,8 +32,24 @@ extension AppForm where Self: App {
             let getFormLayoutRequest = GetFormLayoutRequest(app!)
             let body = try! self.parser.parseObject(getFormLayoutRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_LAYOUT, jsonBody)
+            
+            let url = (isPreview! ? ConnectionConstants.APP_LAYOUT_PREVIEW : ConnectionConstants.APP_LAYOUT)
+            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody)
             return try self.parser.parseJson(FormLayout.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        }
+    }
+    
+    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,  _ revision: Int? = -1) throws -> BasicResponse
+    {
+        do {
+            let updateFormLayoutRequest = UpdateFormLayoutRequest(app!, layout!, revision!)
+            let body = try! parser.parseObject(updateFormLayoutRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+            let response = try! self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody)
+            let basicResponse = try parser.parseJson(BasicResponse.self, response!)
+            return basicResponse
         } catch let error as KintoneAPIException {
             throw error
         }

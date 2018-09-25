@@ -56,4 +56,11 @@ public class SubTableLayout: ItemLayout {
         self.fields = try container.decode([FieldLayout].self, forKey: .fields)
         try super.init(from: decoder)
     }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.code, forKey: SubTableLayout.CodingKeys.code)
+        try container.encode(self.fields, forKey: SubTableLayout.CodingKeys.fields)
+        try super.encode(to: encoder)
+    }
 }
