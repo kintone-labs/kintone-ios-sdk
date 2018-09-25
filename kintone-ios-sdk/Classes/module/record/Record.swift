@@ -18,7 +18,7 @@ class Record: NSObject {
         self.connection = connection
     }
     
-    /// Get a record from kintone app
+    /// Get the record from kintone app
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
@@ -37,7 +37,7 @@ class Record: NSObject {
         }
     }
     
-    /// Get records from kintone app by query
+    /// Get the records from kintone app by query
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
@@ -97,7 +97,7 @@ class Record: NSObject {
     }
     
     
-    /// Update a record on kintone app by ID
+    /// Update the record on kintone app by ID
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
@@ -118,7 +118,7 @@ class Record: NSObject {
         }
     }
     
-    /// Update a record on kintone app by UpdateKey
+    /// Update the record on kintone app by UpdateKey
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
@@ -139,7 +139,7 @@ class Record: NSObject {
         }
     }
     
-    /// Update records on kintone app
+    /// Update the records on kintone app
     ///
     /// - Parameters:
     ///   - app: the ID of record
@@ -158,7 +158,7 @@ class Record: NSObject {
         }
     }
     
-    /// Delete records on kintone app
+    /// Delete the records on kintone app
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
@@ -174,7 +174,7 @@ class Record: NSObject {
         }
     }
     
-    /// Delete records on kintone app with revision
+    /// Delete the records on kintone app with revision
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
@@ -240,7 +240,7 @@ class Record: NSObject {
         }
     }
     
-    /// Update status of records on kintone app
+    /// Update status of the records on kintone app
     ///
     /// - Parameters:
     ///   - app: the ID of kintone app
@@ -256,6 +256,65 @@ class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS_STATUS, jsonBody!)
             // return response as UpdateRecordsResponse class
             return try parser.parseJson(UpdateRecordsResponse.self, response as! Data)
+        }
+    }
+    
+    /// Get the comments on the record
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - record: the ID of record
+    ///   - order: the sort order of the comment ID
+    ///   - offset: the count you will skip the retrieval
+    ///   - limit: the number of records to retreive
+    /// - Returns: GetCommentsResponse
+    /// - Throws: KintoneAPIException
+    public func getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?) throws -> GetCommentsResponse {
+        do {
+            // execute GET RECORD_COMMENTS API
+            let recordRequest = GetCommentsRecordRequest(app, record, order, offset, limit)
+            let body = try parser.parseObject(recordRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)
+            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD_COMMENTS, jsonBody!)
+            // return response as GetCommentsResponse class
+            return try parser.parseJson(GetCommentsResponse.self, response as! Data)
+        }
+    }
+    
+    /// Add a comment on the record
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - record: the ID of record
+    ///   - comment: the detail of comment
+    /// - Returns: AddCommentResponse
+    /// - Throws: KintoneAPIException
+    public func addComment(_ app: Int, _ record: Int, _ comment: CommentContent) throws -> AddCommentResponse {
+        do {
+            // execute POST RECORD_COMMENT API
+            let recordRequest = AddCommentRecordRequest(app, record, comment)
+            let body = try parser.parseObject(recordRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)
+            let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody!)
+            // return response as AddCommentResponse class
+            return try parser.parseJson(AddCommentResponse.self, response as! Data)
+        }
+    }
+    
+    /// Delete the comment on the record
+    ///
+    /// - Parameters:
+    ///   - app: <#app description#>
+    ///   - record: <#record description#>
+    ///   - comment: <#comment description#>
+    /// - Throws: <#throws value description#>
+    public func deleteComment(_ app: Int, _ record: Int, _ comment: Int) throws {
+        do {
+            // execute DELETE RRECORD_COMMENT API
+            let recordRequest = DeleteCommentRecordRequest(app, record, comment)
+            let body = try parser.parseObject(recordRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)
+            try self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody!)
         }
     }
 }
