@@ -61,10 +61,8 @@ public class FormLayout: NSObject, Codable {
         var layoutsArrayForType = try container.nestedUnkeyedContainer(forKey: LayoutsKey.layout)
         var layouts = [ItemLayout]()
         
-        self.setRevision(try! container.decode(String.self, forKey: FormLayout.LayoutsKey.revision))
-        
         var layoutsArray = layoutsArrayForType
-        while(!layoutsArrayForType.isAtEnd)
+        while(!layoutsArray.isAtEnd)
         {
             let layout = try layoutsArrayForType.nestedContainer(keyedBy: LayoutTypeKey.self)
             let type = try layout.decode(LayoutType.self, forKey: LayoutTypeKey.type)
@@ -74,10 +72,12 @@ public class FormLayout: NSObject, Codable {
                 layouts.append(try layoutsArray.decode(RowLayout.self))
             case .SUBTABLE:
                 print("found subtable")
+                 layouts.append(try layoutsArray.decode(SubTableLayout.self))
             case .GROUP:
                 print("found group")
+                layouts.append(try layoutsArray.decode(GroupLayout.self))
             }
         }
         self.setLayout(layouts)
-    }
+        self.setRevision(try! container.decode(String.self, forKey: FormLayout.LayoutsKey.revision))
 }
