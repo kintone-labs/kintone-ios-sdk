@@ -18,8 +18,8 @@ public class RowLayout: ItemLayout {
         self.fields = [FieldLayout]()
     }
     
-    public required init(from decoder: Decoder) throws {
-        super.init()
+    private enum CodingKeys: String, CodingKey {
+        case fields
     }
     
     /**
@@ -35,5 +35,17 @@ public class RowLayout: ItemLayout {
      */
     public func setFields(_ fields: [FieldLayout]?) {
         self.fields = fields
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.fields = try container.decode([FieldLayout].self, forKey: .fields)
+        try super.init(from: decoder)
+    }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(fields, forKey: .fields)
+        try super.encode(to: encoder)
     }
 }

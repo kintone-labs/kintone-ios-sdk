@@ -10,6 +10,10 @@ public class GroupLayout: ItemLayout {
     private var code: String?
     private var layout: [RowLayout]?
     
+    private enum CodingKeys: String, CodingKey {
+        case layout
+        case code
+    }
     /**
      * default constructor
      */
@@ -17,10 +21,6 @@ public class GroupLayout: ItemLayout {
         super.init()
         self.type = LayoutType.GROUP
         self.layout = [RowLayout]()
-    }
-    
-    public required init(from decoder: Decoder) throws {
-        super.init()
     }
     
     /**
@@ -49,5 +49,12 @@ public class GroupLayout: ItemLayout {
      */
     public func setLayout(_ layout: [RowLayout]?) {
         self.layout = layout
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.layout = try container.decode([RowLayout].self, forKey: GroupLayout.CodingKeys.layout)
+        self.code = try container.decode(String.self, forKey: GroupLayout.CodingKeys.code)
+        try super.init(from: decoder)
     }
 }
