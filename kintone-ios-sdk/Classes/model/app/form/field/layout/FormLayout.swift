@@ -48,6 +48,7 @@ public class FormLayout: NSObject, Codable {
     
     enum LayoutsKey: CodingKey {
         case layout
+        case revision
     }
     
     enum LayoutTypeKey: CodingKey {
@@ -55,12 +56,14 @@ public class FormLayout: NSObject, Codable {
     }
     
     required public init(from decoder: Decoder) throws {
+        super.init()
         let container = try decoder.container(keyedBy: LayoutsKey.self)
         var layoutsArrayForType = try container.nestedUnkeyedContainer(forKey: LayoutsKey.layout)
         var layouts = [ItemLayout]()
         
+        self.setRevision(try! container.decode(String.self, forKey: FormLayout.LayoutsKey.revision))
+        
         var layoutsArray = layoutsArrayForType
-        print(layoutsArray)
         while(!layoutsArrayForType.isAtEnd)
         {
             let layout = try layoutsArrayForType.nestedContainer(keyedBy: LayoutTypeKey.self)
@@ -75,6 +78,6 @@ public class FormLayout: NSObject, Codable {
                 print("found group")
             }
         }
-        self.layout = layouts
+        self.setLayout(layouts)
     }
 }
