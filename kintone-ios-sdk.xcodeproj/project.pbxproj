@@ -628,16 +628,16 @@
 		A88FEE342159DD9E00A7E838 /* field */ = {
 			isa = PBXGroup;
 			children = (
+				A88FEE5F2159DD9E00A7E838 /* Field.swift */,
+				A88FEE702159DD9E00A7E838 /* FieldGroup.swift */,
 				A88FEE352159DD9E00A7E838 /* FieldMapping.swift */,
+				A88FEE712159DD9E00A7E838 /* FormFields.swift */,
+				A88FEE5E2159DD9E00A7E838 /* RelatedApp.swift */,
+				A88FEE6F2159DD9E00A7E838 /* SubTableField.swift */,
 				A88FEE362159DD9E00A7E838 /* input */,
 				A88FEE562159DD9E00A7E838 /* layout */,
-				A88FEE5E2159DD9E00A7E838 /* RelatedApp.swift */,
-				A88FEE5F2159DD9E00A7E838 /* Field.swift */,
-				A88FEE602159DD9E00A7E838 /* system */,
 				A88FEE6C2159DD9E00A7E838 /* related_record */,
-				A88FEE6F2159DD9E00A7E838 /* SubTableField.swift */,
-				A88FEE702159DD9E00A7E838 /* FieldGroup.swift */,
-				A88FEE712159DD9E00A7E838 /* FormFields.swift */,
+				A88FEE602159DD9E00A7E838 /* system */,
 			);
 			path = field;
 			sourceTree = "<group>";
@@ -752,14 +752,14 @@
 		A88FEEA92159DDC300A7E838 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				A88FEEAA2159DDC300A7E838 /* AppView.swift */,
-				A88FEEAB2159DDC300A7E838 /* AppCustomization.swift */,
-				A88FEEAC2159DDC300A7E838 /* AppProcessManagement.swift */,
-				A88FEEAD2159DDC300A7E838 /* AppGeneral.swift */,
-				A88FEEAE2159DDC300A7E838 /* AppForm.swift */,
-				A88FEEAF2159DDC300A7E838 /* AppApp.swift */,
-				A88FEEB02159DDC300A7E838 /* AppPermission.swift */,
 				A88FEEB12159DDC300A7E838 /* App.swift */,
+				A88FEEAF2159DDC300A7E838 /* AppApp.swift */,
+				A88FEEAB2159DDC300A7E838 /* AppCustomization.swift */,
+				A88FEEAE2159DDC300A7E838 /* AppForm.swift */,
+				A88FEEAD2159DDC300A7E838 /* AppGeneral.swift */,
+				A88FEEB02159DDC300A7E838 /* AppPermission.swift */,
+				A88FEEAC2159DDC300A7E838 /* AppProcessManagement.swift */,
+				A88FEEAA2159DDC300A7E838 /* AppView.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -767,12 +767,12 @@
 		AB59F5C82150F29900BCD0EE /* app */ = {
 			isa = PBXGroup;
 			children = (
+				111892B021500F190077A87E /* LanguageSetting.swift */,
 				A88FEE172159DD8A00A7E838 /* app */,
 				A88FEE002159DD8A00A7E838 /* basic */,
+				AB59F5C92150F31000BCD0EE /* form */,
 				A88FEE122159DD8A00A7E838 /* general */,
 				A88FEE1A2159DD8A00A7E838 /* view */,
-				AB59F5C92150F31000BCD0EE /* form */,
-				111892B021500F190077A87E /* LanguageSetting.swift */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -781,9 +781,9 @@
 			isa = PBXGroup;
 			children = (
 				A88FEE332159DD9E00A7E838 /* AlignLayout.swift */,
-				A88FEE342159DD9E00A7E838 /* field */,
-				A88FEE322159DD9E00A7E838 /* LayoutType.swift */,
 				AB59F5CA2150F36A00BCD0EE /* FieldType.swift */,
+				A88FEE322159DD9E00A7E838 /* LayoutType.swift */,
+				A88FEE342159DD9E00A7E838 /* field */,
 			);
 			path = form;
 			sourceTree = "<group>";
