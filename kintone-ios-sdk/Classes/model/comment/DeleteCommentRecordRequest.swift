@@ -18,7 +18,7 @@ class DeleteCommentRecordRequest: NSObject, Codable {
     ///   - app: the ID of kintone app
     ///   - record: the ID of record
     ///   - comment: the ID of comment
-    public func DeleteCommentRecordRequest(_ app: Int?, _ record: Int?, _ comment: Int?) {
+    public init(_ app: Int?, _ record: Int?, _ comment: Int?) {
         self.app = app;
         self.record = record;
         self.comment = comment;
