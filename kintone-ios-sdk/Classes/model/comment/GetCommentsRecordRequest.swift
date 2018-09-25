@@ -20,10 +20,10 @@ class GetCommentsRecordRequest: NSObject, Codable {
     /// - Parameters:
     ///   - app: the ID of kintone app
     ///   - record: the ID of record
-    ///   - order: the sort order of
+    ///   - order: the sort order of the comment ID
     ///   - offset: the count you will skip the retrieval
     ///   - limit: the number of records to retreive
-    public func GetCommentsRecordRequest(_ app: Int?, _ record: Int?, _ order: String?, _ offset: Int?, _ limit: Int?) {
+    public init(_ app: Int?, _ record: Int?, _ order: String?, _ offset: Int?, _ limit: Int?) {
         self.app = app;
         self.record = record;
         self.order = order;
