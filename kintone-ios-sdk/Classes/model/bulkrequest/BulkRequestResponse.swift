@@ -9,11 +9,18 @@
 public class BulkRequestResponse: NSObject {
     private var results: Array<Any>? = []
     
+    /// Get result
+    ///
+    /// - Returns: results
     public func getResults() -> Array<Any>? {
         return results;
     }
     
-    public func addResponse(responseObject: Any) {
+    
+    /// Add response Object to the results.
+    ///
+    /// - Parameter responseObject: <#responseObject description#>
+    public func addResponse(_ responseObject: Any) {
         self.results?.append(responseObject)
     }
 }
