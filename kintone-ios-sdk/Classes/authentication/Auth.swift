@@ -12,13 +12,13 @@ public class Auth: NSObject {
     private var passwordAuth: Credential?
     private var apiToken: String?
 
-    /// set basic login name
+    /// set basic authentication
     ///
     /// - Parameters:
     ///   - username: Basic login name
     ///   - password: Basic login password
     /// - Returns: basic authentication
-    public func setBasicAuth(_ username: String?, _ password: String?) -> Auth {
+    public func setBasicAuth(_ username: String, _ password: String) -> Auth {
         self.basicAuth = Credential(username, password)
         return self
     }
@@ -36,7 +36,7 @@ public class Auth: NSObject {
     ///   - username: login name
     ///   - password: login password
     /// - Returns: password authentication
-    public func setPasswordAuth(_ username: String?, _ password: String?) -> Auth? {
+    public func setPasswordAuth(_ username: String, _ password: String) -> Auth {
         self.passwordAuth = Credential(username, password)
         return self
     }
@@ -52,7 +52,7 @@ public class Auth: NSObject {
     ///
     /// - Parameter apiToken: it was generated in each kintone app
     /// - Returns: token authentication
-    public func setApiToken(_ apiToken: String?) -> Auth? {
+    public func setApiToken(_ apiToken: String) -> Auth {
         self.apiToken = apiToken
         return self
     }
@@ -73,7 +73,7 @@ public class Auth: NSObject {
         if (self.passwordAuth != nil) {
             let passwordAuthString = (self.passwordAuth?.getUsername())! + ":" + (self.passwordAuth?.getPassword())!
             let passwordAuthData = passwordAuthString.data(using: .utf8)
-            let httpHeader = HTTPHeader(AuthenticationConstants.HEADER_KEY_AUTH_PASSWORD, (passwordAuthData?.base64EncodedString())!)
+            let httpHeader = HTTPHeader(AuthenticationConstants.HEADER_KEY_AUTH_PASSWORD, passwordAuthData?.base64EncodedString())
             headers.append(httpHeader)
         }
 
