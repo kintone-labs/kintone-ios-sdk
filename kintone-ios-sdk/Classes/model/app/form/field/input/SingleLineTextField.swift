@@ -9,35 +9,39 @@
 public class SingleLineTextField: AbstractInputField {
     private var expression: String?
     private var hideExpression: Bool?
-    private var minLength: Int?
-    private var maxLength: Int?
+    private var minLength: String?
+    private var maxLength: String?
     private var defaultValue: String?
     private var unique: Bool?
     
-
+    enum CodingKeys: CodingKey {
+        case expression
+        case hideExpression
+        case minLength
+        case maxLength
+        case defaultValue
+        case unique
+    }
+    
     public init(_ code: String) {
         super.init()
         self.code = code
         self.type = FieldType.SINGLE_LINE_TEXT
     }
     
-    public required init(from decoder: Decoder) throws {
-        super.init()
-    }
-    
-    public func getMinLength() -> Int? {
+    public func getMinLength() -> String? {
         return self.minLength
     }
     
-    public func setMinLength(_ minLength: Int?) {
+    public func setMinLength(_ minLength: String?) {
         self.minLength = minLength
     }
     
-    public func getMaxLength() -> Int? {
+    public func getMaxLength() -> String? {
         return self.maxLength
     }
     
-    public func setMaxLength(_ maxLength: Int?) {
+    public func setMaxLength(_ maxLength: String?) {
         self.maxLength = maxLength;
     }
     
@@ -71,5 +75,11 @@ public class SingleLineTextField: AbstractInputField {
     
     public func setUnique(_ isUnique: Bool?) {
         self.unique = isUnique
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        super.init()
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.setDefaultValue(try container.decodeIfPresent(String.self, forKey: .defaultValue))
     }
 }
