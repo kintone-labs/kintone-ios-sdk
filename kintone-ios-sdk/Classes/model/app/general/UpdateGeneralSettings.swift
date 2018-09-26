@@ -40,7 +40,7 @@ public class UpdateGeneralSettings: GeneralSettings {
         super.init()
     }
     
-    override func encode(to encoder: Encoder) throws {
+    override public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(app, forKey: .app)
         if(self.revision != nil){
