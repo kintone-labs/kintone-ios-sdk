@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AddPreviewAppRequest: NSObject, Codable {
+public class AddPreviewAppRequest: NSObject, Codable {
     private var name: String?
     private var space: Int?
     private var thread: Int?

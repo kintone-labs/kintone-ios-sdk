@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class GetViewsRequest: NSObject, Codable {
+public class GetViewsRequest: NSObject, Codable {
     private var app: Int?
     private var lang: LanguageSetting?
     

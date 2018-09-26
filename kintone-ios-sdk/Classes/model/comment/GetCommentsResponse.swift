@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class GetCommentsResponse: NSObject, Codable {
+public class GetCommentsResponse: NSObject, Codable {
     
     private var comments: [Comment]?
     private var older: Bool = false

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AppDeployStatus: NSObject, Codable {
+public class AppDeployStatus: NSObject, Codable {
     private var app: String?
     private var status: Status?
     

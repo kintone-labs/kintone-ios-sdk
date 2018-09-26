@@ -7,7 +7,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class RecordUpdateResponseItem: NSObject, Codable {
+public class RecordUpdateResponseItem: NSObject, Codable {
     
     private var id: Int?
     private var revision: Int?

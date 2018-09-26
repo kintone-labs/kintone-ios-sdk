@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AppModel: NSObject, Codable {
+public class AppModel: NSObject, Codable {
     private var appId: String?
     private var code: String?
     private var name: String?

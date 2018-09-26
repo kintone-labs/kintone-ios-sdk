@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class DeployAppSettingsRequest: NSObject, Codable {
+public class DeployAppSettingsRequest: NSObject, Codable {
     private var apps: Array<AddPreviewAppResponse>? = []
     private var revert: Bool?
     

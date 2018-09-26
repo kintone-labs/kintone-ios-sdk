@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class SubTableValueItem: NSObject, Codable {
+public class SubTableValueItem: NSObject, Codable {
     
     private var id: Int?
     private var value: [String:FieldValue]?

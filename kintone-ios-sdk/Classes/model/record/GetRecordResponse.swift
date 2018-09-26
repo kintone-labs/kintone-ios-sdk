@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class GetRecordResponse: NSObject, Codable {
+public class GetRecordResponse: NSObject, Codable {
     
     private var record: [String:FieldValue]?
     

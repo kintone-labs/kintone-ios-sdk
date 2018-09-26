@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class GetFormLayoutRequest: NSObject, Codable {
+public class GetFormLayoutRequest: NSObject, Codable {
     private var app: Int?
     
     public func getApp() -> Int? {

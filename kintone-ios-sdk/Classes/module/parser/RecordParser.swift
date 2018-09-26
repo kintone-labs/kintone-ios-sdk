@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class RecordParser: Parser {
+public class RecordParser: Parser {
     
     public func parseJsonToFieldValue(_ decoder: Decoder) throws -> FieldValue {
         let fieldValue = FieldValue()

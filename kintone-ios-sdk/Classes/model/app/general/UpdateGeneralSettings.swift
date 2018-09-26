@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class UpdateGeneralSettings: GeneralSettings {
+public class UpdateGeneralSettings: GeneralSettings {
     private var app: String?
     private var revision: String?
     

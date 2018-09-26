@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class GetRecordsResponse: NSObject, Codable {
+public class GetRecordsResponse: NSObject, Codable {
     
     private var records: [[String:FieldValue]]?
     private var totalCount: Int?
