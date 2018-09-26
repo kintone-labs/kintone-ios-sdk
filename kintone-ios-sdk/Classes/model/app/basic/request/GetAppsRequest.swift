@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public public class GetAppsRequest: NSObject, Codable {
+public class GetAppsRequest: NSObject, Codable {
     private var ids: [Int]?
     private var codes: [String]?
     private var name: String?
