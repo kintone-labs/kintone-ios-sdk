@@ -10,6 +10,10 @@ public class TimeField: AbstractInputField {
     internal var defaultValue: String?
     internal var defaultNowValue: Bool?
     
+    enum TimeCodingKeys: CodingKey {
+        case defaultValue
+        case defaultNowValue
+    }
     /**
      * @param code
      */
@@ -20,7 +24,10 @@ public class TimeField: AbstractInputField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: TimeCodingKeys.self)
+        self.defaultValue = try container.decode(String.self, forKey: TimeCodingKeys.defaultValue)
+        self.defaultNowValue = try container.decode(Bool.self, forKey: TimeCodingKeys.defaultNowValue)
+        try super.init(from: decoder)
     }
     
     /**

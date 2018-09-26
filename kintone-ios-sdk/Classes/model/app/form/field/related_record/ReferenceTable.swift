@@ -6,13 +6,23 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class ReferenceTable: NSObject {
+public class ReferenceTable: NSObject, Codable {
     private var condition: FieldMapping?
     private var filterCond: String?
     private var relatedApp: RelatedApp?
-    private var size: Int?
+    private var size: String?
     private var displayFields: [String]?
     private var sort: String?
+    
+    
+    enum ReferenceTableCodingKeys: CodingKey {
+        case condition
+        case filterCond
+        case relatedApp
+        case size
+        case displayFields
+        case sort
+    }
     
     /**
      * default constructor
@@ -22,12 +32,22 @@ public class ReferenceTable: NSObject {
     }
     
 
-    public init(_ condition: FieldMapping?, _ filterCond: String?, _ relatedApp: RelatedApp?, _ size: Int?, _ displayFields: [String]?) {
+    public init(_ condition: FieldMapping?, _ filterCond: String?, _ relatedApp: RelatedApp?, _ size: String?, _ displayFields: [String]?) {
         self.condition = condition
         self.filterCond = filterCond
         self.relatedApp = relatedApp
         self.size = size
         self.displayFields = displayFields
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: ReferenceTableCodingKeys.self)
+        self.condition = try container.decode(FieldMapping.self, forKey: ReferenceTableCodingKeys.condition)
+        self.filterCond = try container.decode(String.self, forKey: ReferenceTableCodingKeys.filterCond)
+        self.relatedApp = try container.decode(RelatedApp.self, forKey: ReferenceTableCodingKeys.relatedApp)
+        self.size = try container.decode(String.self, forKey: ReferenceTableCodingKeys.size)
+        self.displayFields = try container.decode([String].self, forKey: ReferenceTableCodingKeys.displayFields)
+        self.sort = try container.decode(String.self, forKey: ReferenceTableCodingKeys.sort)
     }
     
     /**
@@ -76,13 +96,13 @@ public class ReferenceTable: NSObject {
      * @return the size
      */
     public func getSize() -> Int? {
-        return self.size
+        return Int(self.size!)
     }
     
     /**
      * @param size the size to set
      */
-    public func setSize(_ size: Int?) {
+    public func setSize(_ size: String?) {
         self.size = size
     }
     

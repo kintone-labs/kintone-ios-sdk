@@ -16,7 +16,7 @@ public class CreatorField: AbstractSystemInfoField {
         self.type = FieldType.CREATOR
     }
     public required init(from decoder: Decoder) throws {
-        super.init()
+         try super.init(from: decoder)
     }
     
 }

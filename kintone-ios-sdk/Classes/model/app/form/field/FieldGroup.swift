@@ -11,6 +11,11 @@ public class FieldGroup: Field {
     internal var noLabel: Bool?
     internal var openGroup: Bool?
     
+    enum FieldGroupCodingKeys: String, CodingKey {
+        case label
+        case noLabel
+        case openGroup
+    }
     /**
      * default constructor
      */
@@ -26,7 +31,11 @@ public class FieldGroup: Field {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: FieldGroupCodingKeys.self)
+        self.label = try container.decode(String.self, forKey: FieldGroupCodingKeys.label)
+        self.noLabel = try container.decode(Bool.self, forKey: FieldGroupCodingKeys.noLabel)
+        self.openGroup = try container.decode(Bool.self, forKey: FieldGroupCodingKeys.openGroup)
+        try super.init(from: decoder)
     }
     
     public func getLabel() -> String? {

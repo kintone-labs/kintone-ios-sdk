@@ -14,7 +14,7 @@ public class SingleLineTextField: AbstractInputField {
     private var defaultValue: String?
     private var unique: Bool?
     
-    enum CodingKeys: CodingKey {
+    enum SingleLineTextCodingKeys: CodingKey {
         case expression
         case hideExpression
         case minLength
@@ -77,9 +77,14 @@ public class SingleLineTextField: AbstractInputField {
         self.unique = isUnique
     }
     
-    required public init(from decoder: Decoder) throws {
-        super.init()
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.setDefaultValue(try container.decodeIfPresent(String.self, forKey: .defaultValue))
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: SingleLineTextCodingKeys.self)
+        self.expression = try container.decode(String.self, forKey: SingleLineTextCodingKeys.expression)
+        self.hideExpression = try container.decode(Bool.self, forKey: SingleLineTextCodingKeys.hideExpression)
+        self.minLength = try container.decode(String.self, forKey: SingleLineTextCodingKeys.minLength)
+        self.maxLength = try container.decode(String.self, forKey: SingleLineTextCodingKeys.maxLength)
+        self.defaultValue = try container.decode(String.self, forKey: SingleLineTextCodingKeys.defaultValue)
+        self.unique = try container.decode(Bool.self, forKey: SingleLineTextCodingKeys.unique)
+        try super.init(from: decoder)
     }
 }

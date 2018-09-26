@@ -9,9 +9,17 @@
 public class LinkField: AbstractInputField {
     private var defaultValue: String?
     private var unique: Bool?
-    private var maxLength: Int?
-    private var minLength: Int?
+    private var maxLength: String?
+    private var minLength: String?
     private var linkProtocol: LinkProtocol?
+    
+    enum LinkFieldCodingKeys: String, CodingKey {
+        case defaultValue
+        case unique
+        case minLength
+        case maxLength
+        case linkProtocol = "protocol"
+    }
     
     /**
      * @param code
@@ -23,7 +31,13 @@ public class LinkField: AbstractInputField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: LinkFieldCodingKeys.self)
+        self.linkProtocol = try container.decode(LinkProtocol.self, forKey: LinkFieldCodingKeys.linkProtocol)
+        self.minLength = try container.decode(String.self, forKey: LinkFieldCodingKeys.minLength)
+        self.maxLength = try container.decode(String.self, forKey: LinkFieldCodingKeys.maxLength)
+        self.defaultValue = try container.decode(String.self, forKey: LinkFieldCodingKeys.defaultValue)
+        self.unique = try container.decode(Bool.self, forKey: LinkFieldCodingKeys.unique)
+        try super.init(from: decoder)
     }
     
     /**
@@ -57,13 +71,13 @@ public class LinkField: AbstractInputField {
      * @return the maxLength
      */
     public func getMaxLength() -> Int? {
-        return self.maxLength
+        return Int(self.maxLength!)
     }
     
     /**
      * @param maxLength the maxLength to set
      */
-    public func setMaxLength(_ maxLength: Int?) {
+    public func setMaxLength(_ maxLength: String?) {
         self.maxLength = maxLength
     }
     
@@ -71,13 +85,13 @@ public class LinkField: AbstractInputField {
      * @return the minLength
      */
     public func getMinLength() -> Int? {
-        return self.minLength
+        return Int(self.minLength!)
     }
     
     /**
      * @param minLength the minLength to set
      */
-    public func setMinLength(_ minLength: Int?) {
+    public func setMinLength(_ minLength: String?) {
         self.minLength = minLength
     }
     
