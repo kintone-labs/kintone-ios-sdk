@@ -17,6 +17,26 @@ public class FormFields: NSObject, Codable {
         properties = [String: Field]()
     }
     
+    enum CodingKeys: CodingKey {
+        case app
+        case revision
+        case properties
+    }
+    
+    struct DynamicKeys: CodingKey {
+        var stringValue: String
+        var intValue: Int?
+        init?(stringValue: String) {
+            self.stringValue = stringValue
+        }
+        init?(intValue: Int) {
+            self.intValue = intValue
+            stringValue = "\(intValue)"
+        }
+        static func key(named name: String) -> DynamicKeys? {
+            return DynamicKeys(stringValue: name)
+        }
+    }
     
     public init(_ app: String?, _ properties: [String: Field]?, _ revision: String?) {
         super.init()
@@ -47,5 +67,27 @@ public class FormFields: NSObject, Codable {
     
     public func setProperties(_ properties: [String: Field]?) {
         self.properties = properties
+    }
+    
+    required public init(from decoder: Decoder) throws {
+        super.init()
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.setApp(try container.decodeIfPresent(String.self, forKey: .app))
+        self.setRevision(try container.decodeIfPresent(String.self, forKey: .revision))
+        var properties = [String: Field]()
+        
+        let fields = try container.decode([String: Field].self, forKey: .properties)
+        let nestedContainer = try container.nestedContainer(keyedBy: DynamicKeys.self, forKey:FormFields.CodingKeys.properties)
+        for (key, field) in fields {
+            switch field.getType()! {
+            case .SINGLE_LINE_TEXT:
+                let dynamicKey = DynamicKeys.key(named: key)
+                let single_line = try nestedContainer.decodeIfPresent(SingleLineTextField.self, forKey: dynamicKey!)
+                properties[key] = single_line
+            default: break
+            }
+        }
+        
+        self.setProperties(properties)
     }
 }
