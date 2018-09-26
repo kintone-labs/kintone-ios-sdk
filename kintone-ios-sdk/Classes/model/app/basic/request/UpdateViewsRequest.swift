@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class UpdateViewsRequest: NSObject, Codable {
+public class UpdateViewsRequest: NSObject, Codable {
     private var app: Int?
     private var views: [String: ViewModel]?
     private var revision: Int?

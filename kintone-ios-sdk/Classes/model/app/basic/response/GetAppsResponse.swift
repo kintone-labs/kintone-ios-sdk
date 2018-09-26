@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class GetAppsResponse: NSObject, Codable {
+public class GetAppsResponse: NSObject, Codable {
     private var apps: Array<AppModel>?
     
     public func getApps() -> Array<AppModel>? {

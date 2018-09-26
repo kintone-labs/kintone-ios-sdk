@@ -6,6 +6,6 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class AppParser: Parser {
+public class AppParser: Parser {
     
 }

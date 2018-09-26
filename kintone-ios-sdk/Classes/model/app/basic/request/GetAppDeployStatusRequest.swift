@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class GetAppDeployStatusRequest: NSObject, Codable {
+public class GetAppDeployStatusRequest: NSObject, Codable {
     private var apps: [Int]?
     
     public func getApps() -> [Int]? {

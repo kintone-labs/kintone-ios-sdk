@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class Icon: NSObject, Codable {
+public class Icon: NSObject, Codable {
     private var file: FileModel?
     private var key: String?
     private var iconType: IconType?

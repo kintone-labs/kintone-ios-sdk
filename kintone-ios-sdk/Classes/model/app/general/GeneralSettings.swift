@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class GeneralSettings: NSObject, Codable {
+public class GeneralSettings: NSObject, Codable {
     private var name: String?
     private var generalDescription: String?
     private var icon: Icon?

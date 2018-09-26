@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class AddRecordsResponse: NSObject, Codable {
+public class AddRecordsResponse: NSObject, Codable {
     
     private var ids: [Int]?
     // ★★★　revisionsの値としてところどころnilとなるような配列を許容するかを考慮する必要あり

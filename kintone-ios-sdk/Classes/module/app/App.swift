@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class App: NSObject {
+public class App: NSObject {
     var connection: Connection?
     var parser = AppParser()
     

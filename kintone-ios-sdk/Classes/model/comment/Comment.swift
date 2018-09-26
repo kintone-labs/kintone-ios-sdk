@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class Comment: NSObject, Codable {
+public class Comment: NSObject, Codable {
     
     private var id: Int?
     private var text: String?

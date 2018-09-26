@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class BulkRequest: NSObject {
+public class BulkRequest: NSObject {
     //private static let BulkRequestParser parser = new BulkRequestParser();
     private var connection: Connection
     private var bulkRequests: BulkRequestModel

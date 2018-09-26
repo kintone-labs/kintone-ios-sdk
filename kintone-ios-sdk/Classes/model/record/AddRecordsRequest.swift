@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class AddRecordsRequest: NSObject, Codable {
+public class AddRecordsRequest: NSObject, Codable {
     
     private var app: Int?
     private var records: [[String:FieldValue]]?

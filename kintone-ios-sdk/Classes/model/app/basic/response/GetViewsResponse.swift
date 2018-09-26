@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-class GetViewsResponse: NSObject, Codable {
+public class GetViewsResponse: NSObject, Codable {
     private var revision: String?
     private var views: [String: ViewModel]?
     

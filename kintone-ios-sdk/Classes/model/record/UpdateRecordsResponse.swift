@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class UpdateRecordsResponse: NSObject, Codable {
+public class UpdateRecordsResponse: NSObject, Codable {
     
     private var records: [RecordUpdateResponseItem]?
     
