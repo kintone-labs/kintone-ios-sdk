@@ -8,19 +8,26 @@
 
 public class AbstractMemberSelectField: AbstractInputField {
     internal var defaultValue: [MemberSelectEntity]
-    internal var entites: [MemberSelectEntity]
+    internal var entities: [MemberSelectEntity]
+    
+    
+    enum AbstractMemberSelectCodingKeys: CodingKey {
+        case defaultValue
+        case entities
+    }
     
     public override init() {
         self.defaultValue = [MemberSelectEntity]()
-        self.entites = [MemberSelectEntity]()
+        self.entities = [MemberSelectEntity]()
         super.init()
       
     }
     
     public required init(from decoder: Decoder) throws {
-        self.defaultValue = [MemberSelectEntity]()
-        self.entites = [MemberSelectEntity]()
-        super.init()
+        let container = try decoder.container(keyedBy: AbstractMemberSelectCodingKeys.self)
+        self.defaultValue = try container.decode([MemberSelectEntity].self, forKey: AbstractMemberSelectCodingKeys.defaultValue)
+        self.entities = try container.decode([MemberSelectEntity].self, forKey: AbstractMemberSelectCodingKeys.entities)
+        try super.init(from: decoder)
     }
 
     /**
@@ -42,14 +49,14 @@ public class AbstractMemberSelectField: AbstractInputField {
      * @return the entites
      */
     public func getEntites() -> [MemberSelectEntity] {
-        return self.entites
+        return self.entities
     }
     
     /**
      * @param entites
      * the entites to set
      */
-    public func setEntites(_ entites: [MemberSelectEntity]) {
-        self.entites = entites;
+    public func setEntites(_ entities: [MemberSelectEntity]) {
+        self.entities = entities;
     }
 }

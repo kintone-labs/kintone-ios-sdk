@@ -9,6 +9,25 @@
 public class SubTableField: Field {
     internal var fields: [String: AbstractInputField] = [String: AbstractInputField]();
    
+    enum SubTableFieldCodingKeys: CodingKey {
+        case fields
+    }
+    
+    struct DynamicKeys: CodingKey {
+        var stringValue: String
+        var intValue: Int?
+        init?(stringValue: String) {
+            self.stringValue = stringValue
+        }
+        init?(intValue: Int) {
+            self.intValue = intValue
+            stringValue = "\(intValue)"
+        }
+        static func key(named name: String) -> DynamicKeys? {
+            return DynamicKeys(stringValue: name)
+        }
+    }
+    
     public override init() {
         super.init()
         self.type = FieldType.SUBTABLE;
@@ -21,7 +40,23 @@ public class SubTableField: Field {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: SubTableFieldCodingKeys.self)
+         var properties = [String: AbstractInputField]()
+        let fields = try container.decode([String: AbstractInputField].self, forKey: SubTableFieldCodingKeys.fields)
+        let nestedContainer = try container.nestedContainer(keyedBy: DynamicKeys.self, forKey: SubTableFieldCodingKeys.fields)
+        for (key, field) in fields {
+            switch field.getType()! {
+            case .SINGLE_LINE_TEXT:
+                let dynamicKey = DynamicKeys.key(named: key)
+                let singleLine = try nestedContainer.decodeIfPresent(SingleLineTextField.self, forKey: dynamicKey!)
+                properties[key] = singleLine
+                break
+            default:
+                break
+            }
+        }
+        self.fields = properties
+        try super.init(from: decoder)
     }
     
     public func getFields() -> [String: AbstractInputField] {

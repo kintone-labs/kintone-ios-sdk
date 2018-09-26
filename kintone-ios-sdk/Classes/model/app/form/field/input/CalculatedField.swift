@@ -9,11 +9,19 @@
 public class CalculatedField: AbstractInputField {
     private var expression: String?
     private var hideExpression: Bool?
-    private var displayScale: Int?
+    private var displayScale: String?
     private var unit: String?
     private var unitPosition: UnitPosition?
     private var format: NumberFormat?
     
+    enum CalculatedFieldCodingKeys: CodingKey {
+        case expression
+        case hideExpression
+        case displayScale
+        case unit
+        case unitPosition
+        case format
+    }
     /**
      * default constructor
      */
@@ -30,7 +38,14 @@ public class CalculatedField: AbstractInputField {
     
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: CalculatedFieldCodingKeys.self)
+        self.expression = try container.decode(String.self, forKey: CalculatedFieldCodingKeys.expression)
+        self.hideExpression = try container.decode(Bool.self, forKey: CalculatedFieldCodingKeys.hideExpression)
+        self.displayScale = try container.decode(String.self, forKey: CalculatedFieldCodingKeys.displayScale)
+        self.format = try container.decode(NumberFormat.self, forKey: CalculatedFieldCodingKeys.format)
+        self.unitPosition = try container.decode(UnitPosition.self, forKey: CalculatedFieldCodingKeys.unitPosition)
+        self.unit = try container.decode(String.self, forKey: CalculatedFieldCodingKeys.unit)
+        try super.init(from: decoder)
     }
     
     /**
@@ -67,14 +82,14 @@ public class CalculatedField: AbstractInputField {
      * @return the displayScale
      */
     public func getDisplayScale() -> Int? {
-        return self.displayScale
+        return Int(self.displayScale!)
     }
     
     /**
      * @param displayScale
      *            the displayScale to set
      */
-    public func setDisplayScale(_ displayScale: Int?) {
+    public func setDisplayScale(_ displayScale: String?) {
         self.displayScale = displayScale
     }
     

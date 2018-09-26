@@ -7,30 +7,50 @@
 //
 
 public class NumberField: AbstractInputField {
-    private var displayScale: Int?
+    private var displayScale: String?
     private var unit: String?
     private var unitPosition: UnitPosition?
     private var digit: Bool?
-    private var maxValue: Int?
-    private var minValue: Int?
+    private var maxValue: String?
+    private var minValue: String?
     private var defaultValue: String?
     private var unique: Bool?
     
+    enum NumberCodingKeys: CodingKey {
+        case displayScale
+        case unit
+        case unitPosition
+        case digit
+        case maxValue
+        case minValue
+        case defaultValue
+        case unique
+    }
+    
     public init(_ code: String) {
         super.init()
-        self.code = code;
+        self.code = code
         self.type = FieldType.NUMBER
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: NumberCodingKeys.self)
+        self.displayScale = try container.decode(String.self, forKey: NumberCodingKeys.displayScale)
+        self.unit = try container.decode(String.self, forKey: NumberCodingKeys.unit)
+        self.unitPosition = try container.decode(UnitPosition.self, forKey: NumberCodingKeys.unitPosition)
+        self.digit = try container.decode(Bool.self, forKey: NumberCodingKeys.digit)
+        self.maxValue = try container.decode(String.self, forKey: NumberCodingKeys.maxValue)
+        self.minValue = try container.decode(String.self, forKey: NumberCodingKeys.minValue)
+        self.defaultValue = try container.decode(String.self, forKey: NumberCodingKeys.defaultValue)
+        self.unique = try container.decode(Bool.self, forKey: NumberCodingKeys.unique)
+        try super.init(from: decoder)
     }
     
     public func getDisplayScale() -> Int? {
-        return self.displayScale
+        return Int(self.displayScale!)
     }
     
-    public func setDisplayScale(_ displayScale: Int?) {
+    public func setDisplayScale(_ displayScale: String?) {
         self.displayScale = displayScale
     }
     
@@ -63,13 +83,13 @@ public class NumberField: AbstractInputField {
      * @return the maxValue
      */
     public func getMaxValue() -> Int? {
-        return self.maxValue
+        return Int(self.maxValue!)
     }
     
     /**
      * @param maxValue the maxValue to set
      */
-    public func setMaxValue(_ maxValue: Int?) {
+    public func setMaxValue(_ maxValue: String?) {
         self.maxValue = maxValue
     }
     
@@ -77,13 +97,13 @@ public class NumberField: AbstractInputField {
      * @return the minValue
      */
     public func getMinValue() -> Int? {
-        return self.minValue
+        return Int(self.minValue!)
     }
     
     /**
      * @param minValue the minValue to set
      */
-    public func setMinValue(_ minValue: Int?) {
+    public func setMinValue(_ minValue: String?) {
         self.minValue = minValue
     }
     

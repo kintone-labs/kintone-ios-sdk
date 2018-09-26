@@ -9,14 +9,19 @@
 public class AbstractSelectionField: AbstractInputField {
     internal var options: [String: OptionData]
     
+    enum AbstractSelectionCodingKeys: CodingKey {
+        case options
+    }
+    
     public override init() {
         self.options = [String: OptionData]()
         super.init()
     }
     
     public required init(from decoder: Decoder) throws {
-         self.options = [String: OptionData]()
-         super.init()
+        let container = try decoder.container(keyedBy: AbstractSelectionCodingKeys.self)
+        self.options = try container.decode([String: OptionData].self, forKey: AbstractSelectionCodingKeys.options)
+        try super.init(from: decoder)
     }
     /**
      * @return the options

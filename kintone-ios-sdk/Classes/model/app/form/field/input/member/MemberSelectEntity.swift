@@ -6,12 +6,12 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class MemberSelectEntity: NSObject {
+public class MemberSelectEntity: NSObject, Codable {
     private var code: String?
     private var type: MemberSelectEntityType?
     
     public override init(){
-        
+         super.init()
     }
     
     /**
