@@ -6,11 +6,11 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-protocol AppCustomization {
+public protocol AppCustomization {
     
 }
 
-extension AppCustomization where Self: App {
+public extension AppCustomization where Self: App {
     
 }
 

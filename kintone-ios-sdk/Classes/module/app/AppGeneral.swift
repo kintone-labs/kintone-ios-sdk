@@ -6,12 +6,12 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-protocol AppGeneral {
+public protocol AppGeneral {
     func getGeneralSettings(_ app: Int?, _ lang: LanguageSetting?, _ isPreview: Bool?) throws -> GeneralSettings
     func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?, _ revision: Int?) throws -> BasicResponse
 }
 
-extension AppGeneral where Self: App {
+public extension AppGeneral where Self: App {
     func getGeneralSettings(_ app: Int?, _ lang: LanguageSetting? = nil, _ isPreview: Bool? = false) throws -> GeneralSettings {
         let getGeneralSettingsRequest = GetGeneralSettingsRequest(app)
         let body = try! parser.parseObject(getGeneralSettingsRequest)

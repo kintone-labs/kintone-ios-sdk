@@ -6,10 +6,10 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-protocol AppPermission {
+public protocol AppPermission {
     
 }
 
-extension AppPermission where Self: App {
+public extension AppPermission where Self: App {
     
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-protocol AppApp {
+public protocol AppApp {
     func getApp(_ appId: Int?) throws -> AppModel
     func getApps(_ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
     func getAppsByIDs(_ ids: [Int]?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
@@ -18,7 +18,7 @@ protocol AppApp {
     func getAppDeployStatus(_ apps: [Int]?) throws -> GetAppDeployStatusResponse
 }
 
-extension AppApp where Self: App {
+public extension AppApp where Self: App {
     private func _getAppsBy(ids idsOpt: [Int]? = nil, codes codesOpt: [String]? = nil, name nameOpt: String? = nil, spaceIds spaceIdsOpt: [Int]? = nil, offset offsetOpt: Int? = 0, limit limitOpt: Int? = 100) throws -> Array<AppModel> {
         let getAppsRequest = GetAppsRequest(ids: idsOpt, codes: codesOpt, name: nameOpt, spaceIds:spaceIdsOpt, offset: offsetOpt, limit: limitOpt)
         let body = try! parser.parseObject(getAppsRequest)
