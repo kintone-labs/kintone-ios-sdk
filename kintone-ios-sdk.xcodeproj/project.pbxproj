@@ -573,8 +573,6 @@
 		A88FEE012159DD8A00A7E838 /* response */ = {
 			isa = PBXGroup;
 			children = (
-				A88FEE162159DD8A00A7E838 /* UpdateGeneralSettingsRequest.swift */,
-				A88FEE132159DD8A00A7E838 /* GetGeneralSettingsRequest.swift */,
 				A88FEE022159DD8A00A7E838 /* UpdateViewsResponse.swift */,
 				A88FEE032159DD8A00A7E838 /* GetAppsResponse.swift */,
 				A88FEE042159DD8A00A7E838 /* BasicResponse.swift */,
@@ -588,6 +586,8 @@
 		A88FEE082159DD8A00A7E838 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A88FEE162159DD8A00A7E838 /* UpdateGeneralSettingsRequest.swift */,
+				A88FEE132159DD8A00A7E838 /* GetGeneralSettingsRequest.swift */,
 				A88FEE092159DD8A00A7E838 /* UpdateViewsRequest.swift */,
 				A88FEE0A2159DD8A00A7E838 /* GetAppDeployStatusRequest.swift */,
 				A88FEE0B2159DD8A00A7E838 /* GetViewsRequest.swift */,
