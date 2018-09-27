@@ -10,8 +10,7 @@ class UpdateRecordAssigneesRequest: NSObject, Codable {
     
     private var app: Int?
     private var id: Int?
-    // ★★★　todo:アサインがいない配列を許可するかを検討する
-    private var assignees: [String?]?;
+    private var assignees: [String]?;
     private var revision: Int?
     
     /// Constructor
@@ -21,7 +20,7 @@ class UpdateRecordAssigneesRequest: NSObject, Codable {
     ///   - id: the ID of record
     ///   - assignees: the array of assignee's user code
     ///   - revision: the number of revision
-    public init(_ app: Int?, _ id: Int?, _ assignees: [String?]?, _ revision: Int?) {
+    public init(_ app: Int?, _ id: Int?, _ assignees: [String]?, _ revision: Int?) {
         self.app = app;
         self.id = id;
         self.assignees = assignees;
