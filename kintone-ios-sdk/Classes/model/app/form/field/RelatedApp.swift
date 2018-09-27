@@ -6,20 +6,20 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class RelatedApp: NSObject {
-    private var app: Int?
+public class RelatedApp: NSObject, Codable {
+    private var app: String?
     private var code: String
     
-    public init(_ app: Int, _ code: String) {
+    public init(_ app: String?, _ code: String) {
         self.app = app
         self.code = code
     }
     
     public func getApp() -> Int? {
-        return self.app;
+        return Int(self.app!)
     }
     
-    public func setApp(_ app: Int?) {
+    public func setApp(_ app: String?) {
         self.app = app
     }
     

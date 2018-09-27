@@ -9,6 +9,9 @@
 public class MultiLineTextField: AbstractInputField {
     private var defaultValue: String?
     
+    enum MultiLineTextCodingKeys: CodingKey {
+        case defaultValue
+    }
     /**
      * @param code
      */
@@ -18,7 +21,9 @@ public class MultiLineTextField: AbstractInputField {
         self.type = FieldType.MULTI_LINE_TEXT
     }
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: MultiLineTextCodingKeys.self)
+        self.defaultValue = try container.decode(String.self, forKey: MultiLineTextCodingKeys.defaultValue)
+        try super.init(from: decoder)
     }
     /**
      * @return the defaultValue

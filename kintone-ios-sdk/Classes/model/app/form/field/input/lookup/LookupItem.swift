@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class LookupItem: NSObject {
+public class LookupItem: NSObject, Codable {
     private var fieldMappings: [FieldMapping]
     private var filterCond: String?
     private var lookupPickerFields: [String]
@@ -14,12 +14,31 @@ public class LookupItem: NSObject {
     private var relatedKeyField: String?
     private var sort: String?
     
-
+    enum LookupItemCodingKeys: String, CodingKey {
+        case fieldMappings
+        case filterCond
+        case lookupPickerFields
+        case relatedApp
+        case relatedKeyField
+        case sort
+    }
+    
     public override init() {
         self.fieldMappings = [FieldMapping]()
         self.lookupPickerFields = [String]()
     }
     
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: LookupItemCodingKeys.self)
+        self.fieldMappings = try container.decode([FieldMapping].self, forKey: LookupItemCodingKeys.fieldMappings)
+        self.filterCond = try container.decode(String.self, forKey: LookupItemCodingKeys.filterCond)
+        self.filterCond = try container.decode(String.self, forKey: LookupItemCodingKeys.filterCond)
+        self.lookupPickerFields = try container.decode([String].self, forKey: LookupItemCodingKeys.lookupPickerFields)
+         self.relatedApp = try container.decode(RelatedApp.self, forKey: LookupItemCodingKeys.relatedApp)
+        self.relatedKeyField = try container.decode(String.self, forKey: LookupItemCodingKeys.relatedKeyField)
+        self.sort = try container.decode(String.self, forKey: LookupItemCodingKeys.sort)
+        super.init()
+    }
     /**
      * @return the fieldMapping
      */

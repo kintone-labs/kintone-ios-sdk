@@ -7,8 +7,11 @@
 //
 
 public class AttachmentField: AbstractInputField {
-    internal var thumbnailSize: Int?
+    internal var thumbnailSize: String?
     
+    enum AttachmentFieldCodingKeys: String, CodingKey {
+        case thumbnailSize
+    }
     /**
      * @param code
      */
@@ -19,21 +22,22 @@ public class AttachmentField: AbstractInputField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: AttachmentFieldCodingKeys.self)
+        self.thumbnailSize = try container.decode(String.self, forKey: AttachmentFieldCodingKeys.thumbnailSize)
+        try super.init(from: decoder)
     }
-    
     /**
      * @return the thumbnailSize
      */
     public func getThumbnailSize() -> Int? {
-        return self.thumbnailSize
+        return Int(self.thumbnailSize!)
     }
     
     /**
      * @param thumbnailSize
      * the thumbnailSize to set
      */
-    public func setThumbnailSize(_ thumbnailSize: Int?) {
+    public func setThumbnailSize(_ thumbnailSize: String?) {
         self.thumbnailSize = thumbnailSize
     }
 }

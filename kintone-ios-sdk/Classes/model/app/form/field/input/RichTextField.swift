@@ -9,6 +9,10 @@
 public class RichTextField: AbstractInputField {
     private var defaultValue: String?
     
+    enum RichTextCodingKeys: CodingKey {
+        case defaultValue
+    }
+    
     /**
      * @param code
      */
@@ -20,7 +24,9 @@ public class RichTextField: AbstractInputField {
     
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: RichTextCodingKeys.self)
+        self.defaultValue = try container.decode(String.self, forKey: RichTextCodingKeys.defaultValue)
+        try super.init(from: decoder)
     }
     
     /**

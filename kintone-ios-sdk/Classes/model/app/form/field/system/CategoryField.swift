@@ -9,6 +9,9 @@
 public class CategoryField: AbstractSystemField {
     internal var enabled: Bool?
     
+    enum CategoryCodingKeys: CodingKey {
+        case enabled
+    }
     /**
      * @param code
      */
@@ -19,7 +22,9 @@ public class CategoryField: AbstractSystemField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: CategoryCodingKeys.self)
+        self.enabled = try container.decode(Bool.self, forKey: CategoryCodingKeys.enabled)
+        try super.init(from: decoder)
     }
     
     /**

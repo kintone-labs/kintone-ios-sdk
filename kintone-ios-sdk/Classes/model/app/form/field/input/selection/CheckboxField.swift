@@ -10,6 +10,10 @@ public class CheckboxField: AbstractSelectionField {
     internal var defaultValue: [String]?
     internal var align: AlignLayout?
     
+    enum CheckboxCodingKeys: CodingKey {
+        case defaultValue
+        case align
+    }
     /**
      * default constructor
      */
@@ -28,7 +32,10 @@ public class CheckboxField: AbstractSelectionField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: CheckboxCodingKeys.self)
+        self.defaultValue = try container.decode([String].self, forKey: CheckboxCodingKeys.defaultValue)
+        self.align = try container.decode(AlignLayout.self, forKey: CheckboxCodingKeys.align)
+        try super.init(from: decoder)
     }
     /**
      * @return the align

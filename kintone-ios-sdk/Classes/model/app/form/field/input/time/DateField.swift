@@ -11,6 +11,12 @@ public class DateField: AbstractInputField {
     internal var defaultValue: String?
     internal var defaultNowValue: Bool?
     
+    enum DateCodingKeys: CodingKey {
+        case unique
+        case defaultValue
+        case defaultNowValue
+    }
+    
     /**
      * @param code
      */
@@ -21,7 +27,11 @@ public class DateField: AbstractInputField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: DateCodingKeys.self)
+        self.defaultValue = try container.decode(String.self, forKey: DateCodingKeys.defaultValue)
+        self.defaultNowValue = try container.decode(Bool.self, forKey: DateCodingKeys.defaultNowValue)
+        self.unique = try container.decode(Bool.self, forKey: DateCodingKeys.unique)
+        try super.init(from: decoder)
     }
     
     /**

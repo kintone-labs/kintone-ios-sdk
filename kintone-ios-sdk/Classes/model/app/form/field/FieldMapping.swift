@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class FieldMapping: NSObject {
+public class FieldMapping: NSObject, Codable {
     private var field: String?
     private var relatedField: String?
     

@@ -12,11 +12,21 @@ public class AbstractInputField: Field
     internal var noLabel: Bool?
     internal var required: Bool?
     
+    enum AbstractCodingKeys: CodingKey {
+        case label
+        case noLabel
+        case required
+    }
+    
     public override init() {
         super.init()
     }
     public required init(from decoder: Decoder) throws {
-       super.init()
+        let container = try decoder.container(keyedBy: AbstractCodingKeys.self)
+        self.label = try container.decode(String.self, forKey: AbstractCodingKeys.label)
+        self.noLabel = try container.decode(Bool.self, forKey: AbstractCodingKeys.noLabel)
+        self.required = try container.decode(Bool.self, forKey: AbstractCodingKeys.required)
+        try super.init(from: decoder)
     }
     
     public func getLabel() -> String? {

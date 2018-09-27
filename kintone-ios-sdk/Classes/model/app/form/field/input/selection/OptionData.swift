@@ -6,8 +6,8 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class OptionData: NSObject {
-    internal var index: Int
+public class OptionData: NSObject, Codable {
+    internal var index: String
     internal var label: String
 
     
@@ -15,7 +15,7 @@ public class OptionData: NSObject {
      * @param index
      * @param label
      */
-    public init(_ index: Int, _ label: String) {
+    public init(_ index: String, _ label: String) {
         self.index = index
         self.label = label
     }
@@ -24,14 +24,14 @@ public class OptionData: NSObject {
      * @return the index
      */
     public func getIndex() -> Int {
-        return self.index
+        return Int(self.index)!
     }
     
     /**
      * @param index
      *            the index to set
      */
-    public func setIndex(_ index: Int) {
+    public func setIndex(_ index: String) {
         self.index = index
     }
     
@@ -49,19 +49,6 @@ public class OptionData: NSObject {
     public func setLabel(_ label: String) {
         self.label = label
     }
-    
-//    /* (non-Javadoc)
-//     * @see java.lang.Object#hashCode()
-//     */
-//    @Override
-//    public int hashCode() {
-//    final int prime = 31;
-//    int result = 1;
-//    result = prime * result + index;
-//    result = prime * result + ((label == null) ? 0 : label.hashCode());
-//    return result;
-//    }
-    
    
     public func equals(_ obj: AnyObject?) -> Bool {
         if (obj == nil) {

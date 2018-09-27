@@ -9,6 +9,9 @@
 public class DropDownField: AbstractSelectionField {
     internal var defaultValue: String?
     
+    enum DropDownCodingKeys: CodingKey {
+        case defaultValue
+    }
     /**
      * @param code
      */
@@ -19,7 +22,9 @@ public class DropDownField: AbstractSelectionField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: DropDownCodingKeys.self)
+        self.defaultValue = try container.decode(String.self, forKey: DropDownCodingKeys.defaultValue)
+        try super.init(from: decoder)
     }
     
     /**

@@ -11,6 +11,11 @@ public class RelatedRecordsField: Field {
     internal var noLabel: Bool?
     internal var referenceTable: ReferenceTable?
    
+    enum RelatedRecordsFieldCodingKeys: CodingKey {
+        case label
+        case noLabel
+        case referenceTable
+    }
     /**
      * @param code
      */
@@ -22,7 +27,11 @@ public class RelatedRecordsField: Field {
     
     
     public required init(from decoder: Decoder) throws {
-         super.init()
+        let container = try decoder.container(keyedBy: RelatedRecordsFieldCodingKeys.self)
+        self.label = try container.decode(String.self, forKey: RelatedRecordsFieldCodingKeys.label)
+        self.noLabel = try container.decode(Bool.self, forKey: RelatedRecordsFieldCodingKeys.noLabel)
+        self.referenceTable = try container.decode(ReferenceTable.self, forKey: RelatedRecordsFieldCodingKeys.referenceTable)
+        try super.init(from: decoder)
     }
     
     /**

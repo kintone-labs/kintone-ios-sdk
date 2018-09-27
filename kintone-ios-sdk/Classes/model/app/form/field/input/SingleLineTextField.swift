@@ -9,35 +9,39 @@
 public class SingleLineTextField: AbstractInputField {
     private var expression: String?
     private var hideExpression: Bool?
-    private var minLength: Int?
-    private var maxLength: Int?
+    private var minLength: String?
+    private var maxLength: String?
     private var defaultValue: String?
     private var unique: Bool?
     
-
+    enum SingleLineTextCodingKeys: CodingKey {
+        case expression
+        case hideExpression
+        case minLength
+        case maxLength
+        case defaultValue
+        case unique
+    }
+    
     public init(_ code: String) {
         super.init()
         self.code = code
         self.type = FieldType.SINGLE_LINE_TEXT
     }
     
-    public required init(from decoder: Decoder) throws {
-        super.init()
-    }
-    
-    public func getMinLength() -> Int? {
+    public func getMinLength() -> String? {
         return self.minLength
     }
     
-    public func setMinLength(_ minLength: Int?) {
+    public func setMinLength(_ minLength: String?) {
         self.minLength = minLength
     }
     
-    public func getMaxLength() -> Int? {
+    public func getMaxLength() -> String? {
         return self.maxLength
     }
     
-    public func setMaxLength(_ maxLength: Int?) {
+    public func setMaxLength(_ maxLength: String?) {
         self.maxLength = maxLength;
     }
     
@@ -71,5 +75,16 @@ public class SingleLineTextField: AbstractInputField {
     
     public func setUnique(_ isUnique: Bool?) {
         self.unique = isUnique
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: SingleLineTextCodingKeys.self)
+        self.expression = try container.decode(String.self, forKey: SingleLineTextCodingKeys.expression)
+        self.hideExpression = try container.decode(Bool.self, forKey: SingleLineTextCodingKeys.hideExpression)
+        self.minLength = try container.decode(String.self, forKey: SingleLineTextCodingKeys.minLength)
+        self.maxLength = try container.decode(String.self, forKey: SingleLineTextCodingKeys.maxLength)
+        self.defaultValue = try container.decode(String.self, forKey: SingleLineTextCodingKeys.defaultValue)
+        self.unique = try container.decode(Bool.self, forKey: SingleLineTextCodingKeys.unique)
+        try super.init(from: decoder)
     }
 }

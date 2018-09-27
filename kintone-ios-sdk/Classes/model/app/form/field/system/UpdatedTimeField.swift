@@ -17,6 +17,6 @@ public class UpdatedTimeField: AbstractSystemInfoField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        try super.init(from: decoder)
     }
 }

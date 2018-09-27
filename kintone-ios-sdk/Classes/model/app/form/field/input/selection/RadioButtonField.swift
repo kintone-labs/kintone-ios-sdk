@@ -10,6 +10,10 @@ public class RadioButtonField: AbstractSelectionField {
     internal var defaultValue: String?
     internal var align: AlignLayout?
     
+    enum RadioButtonCodingKeys: CodingKey {
+        case defaultValue
+        case align
+    }
     /**
      * @param code
      */
@@ -20,7 +24,10 @@ public class RadioButtonField: AbstractSelectionField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: RadioButtonCodingKeys.self)
+        self.defaultValue = try container.decode(String.self, forKey: RadioButtonCodingKeys.defaultValue)
+         self.align = try container.decode(AlignLayout.self, forKey: RadioButtonCodingKeys.align)
+        try super.init(from: decoder)
     }
     
     /**
