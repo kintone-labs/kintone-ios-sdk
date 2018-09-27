@@ -76,10 +76,10 @@
 		A88FEE282159DD8B00A7E838 /* GetAppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE0F2159DD8A00A7E838 /* GetAppRequest.swift */; };
 		A88FEE292159DD8B00A7E838 /* DeployAppSettingsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE102159DD8A00A7E838 /* DeployAppSettingsRequest.swift */; };
 		A88FEE2A2159DD8B00A7E838 /* AddPreviewAppRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE112159DD8A00A7E838 /* AddPreviewAppRequest.swift */; };
-		A88FEE2B2159DD8B00A7E838 /* GetGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE132159DD8A00A7E838 /* GetGeneralSettings.swift */; };
+		A88FEE2B2159DD8B00A7E838 /* GetGeneralSettingsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE132159DD8A00A7E838 /* GetGeneralSettingsRequest.swift */; };
 		A88FEE2C2159DD8B00A7E838 /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE142159DD8A00A7E838 /* Icon.swift */; };
 		A88FEE2D2159DD8B00A7E838 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE152159DD8A00A7E838 /* GeneralSettings.swift */; };
-		A88FEE2E2159DD8B00A7E838 /* UpdateGeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE162159DD8A00A7E838 /* UpdateGeneralSettings.swift */; };
+		A88FEE2E2159DD8B00A7E838 /* UpdateGeneralSettingsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE162159DD8A00A7E838 /* UpdateGeneralSettingsRequest.swift */; };
 		A88FEE2F2159DD8B00A7E838 /* AppDeployStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE182159DD8A00A7E838 /* AppDeployStatus.swift */; };
 		A88FEE302159DD8B00A7E838 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE192159DD8A00A7E838 /* AppModel.swift */; };
 		A88FEE312159DD8B00A7E838 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE1B2159DD8A00A7E838 /* ViewModel.swift */; };
@@ -232,10 +232,10 @@
 		A88FEE0F2159DD8A00A7E838 /* GetAppRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAppRequest.swift; sourceTree = "<group>"; };
 		A88FEE102159DD8A00A7E838 /* DeployAppSettingsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeployAppSettingsRequest.swift; sourceTree = "<group>"; };
 		A88FEE112159DD8A00A7E838 /* AddPreviewAppRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPreviewAppRequest.swift; sourceTree = "<group>"; };
-		A88FEE132159DD8A00A7E838 /* GetGeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetGeneralSettings.swift; sourceTree = "<group>"; };
+		A88FEE132159DD8A00A7E838 /* GetGeneralSettingsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetGeneralSettingsRequest.swift; sourceTree = "<group>"; };
 		A88FEE142159DD8A00A7E838 /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		A88FEE152159DD8A00A7E838 /* GeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
-		A88FEE162159DD8A00A7E838 /* UpdateGeneralSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateGeneralSettings.swift; sourceTree = "<group>"; };
+		A88FEE162159DD8A00A7E838 /* UpdateGeneralSettingsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateGeneralSettingsRequest.swift; sourceTree = "<group>"; };
 		A88FEE182159DD8A00A7E838 /* AppDeployStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDeployStatus.swift; sourceTree = "<group>"; };
 		A88FEE192159DD8A00A7E838 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		A88FEE1B2159DD8A00A7E838 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -586,6 +586,8 @@
 		A88FEE082159DD8A00A7E838 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				A88FEE162159DD8A00A7E838 /* UpdateGeneralSettingsRequest.swift */,
+				A88FEE132159DD8A00A7E838 /* GetGeneralSettingsRequest.swift */,
 				A88FEE092159DD8A00A7E838 /* UpdateViewsRequest.swift */,
 				A88FEE0A2159DD8A00A7E838 /* GetAppDeployStatusRequest.swift */,
 				A88FEE0B2159DD8A00A7E838 /* GetViewsRequest.swift */,
@@ -603,10 +605,8 @@
 		A88FEE122159DD8A00A7E838 /* general */ = {
 			isa = PBXGroup;
 			children = (
-				A88FEE132159DD8A00A7E838 /* GetGeneralSettings.swift */,
 				A88FEE142159DD8A00A7E838 /* Icon.swift */,
 				A88FEE152159DD8A00A7E838 /* GeneralSettings.swift */,
-				A88FEE162159DD8A00A7E838 /* UpdateGeneralSettings.swift */,
 			);
 			path = general;
 			sourceTree = "<group>";
@@ -903,7 +903,7 @@
 			files = (
 				129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */,
 				A88FEEBB2159DDCF00A7E838 /* AppParser.swift in Sources */,
-				A88FEE2B2159DD8B00A7E838 /* GetGeneralSettings.swift in Sources */,
+				A88FEE2B2159DD8B00A7E838 /* GetGeneralSettingsRequest.swift in Sources */,
 				A88FEE992159DD9E00A7E838 /* AbstractSystemField.swift in Sources */,
 				A88FEE732159DD9E00A7E838 /* AlignLayout.swift in Sources */,
 				A88FEEBD2159DE7600A7E838 /* MemberSelectEntityType.swift in Sources */,
@@ -986,7 +986,7 @@
 				A88FEE212159DD8B00A7E838 /* GetAppDeployStatusResponse.swift in Sources */,
 				111892BA215012330077A87E /* BulkRequestConstants.swift in Sources */,
 				AB59F5C72150EFCD00BCD0EE /* ConnectionConstants.swift in Sources */,
-				A88FEE2E2159DD8B00A7E838 /* UpdateGeneralSettings.swift in Sources */,
+				A88FEE2E2159DD8B00A7E838 /* UpdateGeneralSettingsRequest.swift in Sources */,
 				A88FEE922159DD9E00A7E838 /* FieldSize.swift in Sources */,
 				A88FEE262159DD8B00A7E838 /* GetFormLayoutRequest.swift in Sources */,
 				A88FEE272159DD8B00A7E838 /* GetFormFieldsRequest.swift in Sources */,
