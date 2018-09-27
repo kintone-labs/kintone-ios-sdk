@@ -9,8 +9,15 @@
 class AddRecordsResponse: NSObject, Codable {
     
     private var ids: [Int]?
-    // ★★★　revisionsの値としてところどころnilとなるような配列を許容するかを考慮する必要あり
-    private var revisions: [Int?]?
+    private var revisions: [Int]?
+    
+    enum CodingKeys: String, CodingKey {
+        case ids
+        case revisions
+    }
+    
+    public override init() {
+    }
     
     /// get the array of record IDs
     ///
@@ -29,12 +36,21 @@ class AddRecordsResponse: NSObject, Codable {
     /// get the array of revision numbers
     ///
     /// - Returns: the array of revision numbers
-    public func getRevisions() -> [Int?]? {
+    public func getRevisions() -> [Int]? {
         return self.ids
     }
     
-    public func setRevisions(_ revisions: [Int?]) {
+    public func setRevisions(_ revisions: [Int]) {
         self.revisions = revisions
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        do {
+            let parser = RecordParser()
+            let response = try parser.parseForAddRecordsResponse(decoder)
+            self.ids = response.getIDs()
+            self.revisions = response.getRevisions()
+        }
     }
 
 }

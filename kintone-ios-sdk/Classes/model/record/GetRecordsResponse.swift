@@ -11,6 +11,14 @@ class GetRecordsResponse: NSObject, Codable {
     private var records: [[String:FieldValue]]?
     private var totalCount: Int?
     
+    enum CodingKeys: String, CodingKey {
+        case records
+        case totalCount
+    }
+    
+    public override init() {
+    }
+    
     /// get the array of record data
     ///
     /// - Returns: the array of record data
@@ -34,6 +42,15 @@ class GetRecordsResponse: NSObject, Codable {
     
     public func setTotalCount(_ totalCount: Int) {
         self.totalCount = totalCount
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        do {
+            let parser = RecordParser()
+            let response = try parser.parseForGetRecordsResponse(decoder)
+            self.records = response.getRecords()
+            self.totalCount = response.getTotalCount()
+        }
     }
 
 }

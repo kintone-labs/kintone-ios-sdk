@@ -179,10 +179,10 @@ class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - idsWithRevision: the map of revision number to record ID
     /// - Throws: KintoneAPIException
-    public func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int]) throws {
+    public func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?]) throws {
         // split idsWithRevision into key list and value list
         var ids = [Int]()
-        var revisions = [Int]()
+        var revisions = [Int?]()
         for entry in idsWithRevision {
             ids.append(entry.key)
             revisions.append(entry.value)

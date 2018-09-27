@@ -9,6 +9,13 @@
 class UpdateRecordResponse: NSObject, Codable {
     
     private var revision: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case revision
+    }
+    
+    public override init() {
+    }
 
     /// get the number of revision
     ///
@@ -23,4 +30,13 @@ class UpdateRecordResponse: NSObject, Codable {
     public func setRevision(_ revision: Int?) {
         self.revision = revision;
     }
+    
+    public required init(from decoder: Decoder) throws {
+        do {
+            let parser = RecordParser()
+            let response = try parser.parseForUpdateRecordResponse(decoder)
+            self.revision = response.getRevision()
+        }
+    }
+    
 }
