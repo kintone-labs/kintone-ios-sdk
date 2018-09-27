@@ -4,7 +4,25 @@
 //
 
 public protocol AppView {
+    
+    /// Gets the View settings of an App.
+    ///
+    /// - Parameters:
+    ///   - app: Int | The app ID.
+    ///   - lang: LanguageSetting | The localized language to retrieve the data
+    ///   - isPreview: Bool
+    /// - Returns: GetViewsResponse Model
+    /// - Throws: throws KintoneAPIException
     func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> GetViewsResponse
+    
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - app: Int | The app ID.
+    ///   - lang: LanguageSetting | The localized language to retrieve the data
+    ///   - revision: Bool
+    /// - Returns: GetViewsResponse
+    /// - Throws: throws KintoneAPIException
     func updateViews(_ app: Int?, _ lang: [String: ViewModel],_ revision: Int?) throws -> UpdateViewsResponse
 }
 

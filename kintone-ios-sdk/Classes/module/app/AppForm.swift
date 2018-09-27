@@ -4,11 +4,68 @@
 //
 
 public protocol AppForm {
+    
+    /// Gets the list of fields and field settings of an App.
+    ///
+    /// - Parameters:
+    ///   - app: Int | The App ID.
+    ///   - lang: LanguageSetting | The localized language to retrieve the data in
+    ///   - isPreview: isPreview
+    /// - Returns: FormFields Model
+    /// - Throws: throws KintoneAPIException
     func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> FormFields
+    
+    /// Adds fields to a form of an App.
+    /// This API updates the pre-live settings.
+    ///
+    /// - Parameters:
+    ///   - app: Int | The App ID.
+    ///   - fields: [String: Field] | An object with data of the field settings.
+    ///   - revision: Int | The revision number of the settings that will be deployed
+    /// - Returns: BasicResponse Model
+    /// - Throws: throws KintoneAPIException
     func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) throws -> BasicResponse
+    
+    /// Updates the field settings of fields in a form of an App.
+    /// This API updates the pre-live settings.
+    ///
+    /// - Parameters:
+    ///   - app: Int | The App ID.
+    ///   - fields: [String: Field] | An object with data of the field settings for update.
+    ///   - revision: Int | The revision number of the settings that will be deployed
+    /// - Returns: BasicResponse Model
+    /// - Throws: throws KintoneAPIException
     func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) throws -> BasicResponse
+    
+    /// Deletes fields from a form of an App.
+    /// This API updates the pre-live settings.
+    ///
+    /// - Parameters:
+    ///   - app:  Int | The App ID.
+    ///   - fields: [String] | The list of field codes of the fields to delete.
+    ///   - revision: Int | The revision number of the settings that will be deployed
+    /// - Returns: BasicResponse Model
+    /// - Throws: throws KintoneAPIException
     func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int?) throws -> BasicResponse
+    
+    /// Gets the field layout info of a form in an App.
+    ///
+    /// - Parameters:
+    ///   - app: Int | The App ID.
+    ///   - isPreview: isPreview description
+    /// - Returns: FormLayout Model
+    /// - Throws: throws KintoneAPIException
     func getFormLayout(_ app: Int?, _ isPreview: Bool?) throws -> FormLayout
+    
+    /// Updates the field layout info of a form in an App.
+    /// This API updates the pre-live settings.
+    ///
+    /// - Parameters:
+    ///   - app:  Int | The App ID.
+    ///   - layout: [ItemLayout] | A list of field layouts for each row.
+    ///   - revision: Int | The revision number of the settings that will be deployed
+    /// - Returns: BasicResponse Model
+    /// - Throws: throws KintoneAPIException
     func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) throws -> BasicResponse
 }
 
