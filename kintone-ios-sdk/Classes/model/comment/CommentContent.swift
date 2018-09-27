@@ -15,7 +15,7 @@ class CommentContent: NSObject, Codable {
     ///
     /// - Returns: the comment content including line feed codes
     public func getText() -> String? {
-        return self.text;
+        return self.text
     }
     
     /// set the comment content including line feed codes

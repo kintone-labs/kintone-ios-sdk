@@ -161,6 +161,29 @@ class RecordParser: Parser {
         }
     }
     
+    /// Convert Json to AddCommentResponse
+    ///
+    /// - Parameter decoder: Decoder
+    /// - Returns: AddCommentResponse
+    /// - Throws: KintoneAPIException
+    func parseJsonToAddCommentResponse(_ decoder: Decoder) throws -> AddCommentResponse {
+        let  response = AddCommentResponse()
+        do {
+            // Set coding-key for decoding
+            let container = try decoder.container(keyedBy: SubTableValueItem.CodingKeys.self)
+            // Convert id to String
+            let strId = try container.decode(String.self, forKey: .id)
+            // Convert strId to Int
+            let id = Int(strId)
+            if id != nil {
+                response.setId(id!)
+            }
+            return response
+        } catch  {
+            throw KintoneAPIException("parse error")
+        }
+    }
+    
     /// Convert Json to SubTableValueItem
     ///
     /// - Parameter decoder: Decoder
@@ -182,6 +205,49 @@ class RecordParser: Parser {
             let value = try container.decodeIfPresent([String:FieldValue].self, forKey: .value)
             if value != nil {
                 response.setValue(value!)
+            }
+            return response
+        } catch  {
+            throw KintoneAPIException("parse error")
+        }
+    }
+    
+    /// Convert Json to Comment
+    ///
+    /// - Parameter decoder: Decoder
+    /// - Returns: Comment
+    /// - Throws: KintoneAPIException
+    func parseJsonToComment(_ decoder: Decoder) throws -> Comment {
+        let  response = Comment()
+        do {
+            // Set coding-key for decoding
+            let container = try decoder.container(keyedBy: Comment.CodingKeys.self)
+            // Convert id to String
+            let strId = try container.decode(String.self, forKey: .id)
+            // Convert strId to Int
+            let id = Int(strId)
+            if id != nil {
+                response.setId(id!)
+            }
+            // Convert text to String
+            let text = try container.decodeIfPresent(String.self, forKey: .text)
+            if text != nil {
+                response.setText(text!)
+            }
+            // Convert createdAt to Date
+            let createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt)
+            if createdAt != nil {
+                response.setCreatedAt(createdAt!)
+            }
+            // Convert creator to String
+            let creator = try container.decodeIfPresent(Member.self, forKey: .creator)
+            if creator != nil {
+                response.setCreator(creator!)
+            }
+            // Convert mentions to array of CommentMention
+            let mentions = try container.decodeIfPresent([CommentMention].self, forKey: .mentions)
+            if mentions != nil {
+                response.setMentions(mentions!)
             }
             return response
         } catch  {

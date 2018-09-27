@@ -16,41 +16,41 @@ class GetCommentsResponse: NSObject, Codable {
     ///
     /// - Returns: the array of comments on a record
     public func getComments() -> [Comment]? {
-        return self.comments;
+        return self.comments
     }
     
     /// set the array of comments on a record
     ///
     /// - Parameter comments: the array of comments on a record
     public func setComments(_ comments: [Comment]) {
-        self.comments = comments;
+        self.comments = comments
     }
     
     /// get older flag
     ///
     /// - Returns: infomation of older comments
     public func getOlder() -> Bool {
-        return self.older;
+        return self.older
     }
     
     /// set older flag
     ///
     /// - Parameter older: infomation of older comments
     public func setOlder(_ older: Bool) {
-        self.older = older;
+        self.older = older
     }
     
     /// get newer flag
     ///
     /// - Returns: infomation of newer comments
     public func getNewer() -> Bool {
-        return self.newer;
+        return self.newer
     }
     
     /// set older flag
     ///
     /// - Parameter older: infomation of older comments
     public func setNewer(_ newer: Bool) {
-        self.newer = newer;
+        self.newer = newer
     }
 }

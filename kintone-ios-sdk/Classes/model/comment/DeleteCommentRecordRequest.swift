@@ -19,9 +19,9 @@ class DeleteCommentRecordRequest: NSObject, Codable {
     ///   - record: the ID of record
     ///   - comment: the ID of comment
     public init(_ app: Int?, _ record: Int?, _ comment: Int?) {
-        self.app = app;
-        self.record = record;
-        self.comment = comment;
+        self.app = app
+        self.record = record
+        self.comment = comment
     }
 
 }

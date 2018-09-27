@@ -19,9 +19,9 @@ class AddCommentRecordRequest: NSObject, Codable {
     ///   - record: the ID of record
     ///   - comment: the content of comment
     public init(_ app: Int?, _ record: Int?, _ comment: CommentContent?) {
-        self.app = app;
-        self.record = record;
-        self.comment = comment;
+        self.app = app
+        self.record = record
+        self.comment = comment
     }
 
 }
