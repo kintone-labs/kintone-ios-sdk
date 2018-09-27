@@ -68,13 +68,10 @@ public class FormLayout: NSObject, Codable {
             let type = try layout.decode(LayoutType.self, forKey: LayoutTypeKey.type)
             switch type {
             case .ROW:
-                print("found row")
                 layouts.append(try layoutsArray.decode(RowLayout.self))
             case .SUBTABLE:
-                print("found subtable")
                  layouts.append(try layoutsArray.decode(SubTableLayout.self))
             case .GROUP:
-                print("found group")
                 layouts.append(try layoutsArray.decode(GroupLayout.self))
             }
         }

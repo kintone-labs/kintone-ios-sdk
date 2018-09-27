@@ -9,6 +9,10 @@
 public class MultipleSelectField: AbstractSelectionField {
     internal var defaultValue: [String]?
     
+    
+    enum MultipleSelectCodingKeys: CodingKey {
+        case defaultValue
+    }
     /**
      * @param code
      */
@@ -19,7 +23,9 @@ public class MultipleSelectField: AbstractSelectionField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: MultipleSelectCodingKeys.self)
+        self.defaultValue = try container.decode([String].self, forKey: MultipleSelectCodingKeys.defaultValue)
+        try super.init(from: decoder)
     }
     
     /**

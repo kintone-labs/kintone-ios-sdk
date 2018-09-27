@@ -9,6 +9,9 @@
 public class LookupField: AbstractInputField {
     private var lookup: LookupItem?
     
+    enum LookupFieldCodingKeys: CodingKey {
+        case lookup
+    }
     /**
      * @param code
      * @param type
@@ -20,7 +23,9 @@ public class LookupField: AbstractInputField {
     }
     
     public required init(from decoder: Decoder) throws {
-        super.init()
+        let container = try decoder.container(keyedBy: LookupFieldCodingKeys.self)
+        self.lookup = try container.decode(LookupItem.self, forKey: LookupFieldCodingKeys.lookup)
+        try super.init(from: decoder)
     }
     
     /**
