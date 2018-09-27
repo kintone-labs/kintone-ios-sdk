@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-protocol AppForm {
+public protocol AppForm {
     func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> FormFields
     func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) throws -> BasicResponse
     func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) throws -> BasicResponse
@@ -15,7 +15,7 @@ protocol AppForm {
     func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) throws -> BasicResponse
 }
 
-extension AppForm where Self: App {
+public extension AppForm where Self: App {
     func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) throws -> FormFields
     {
         do {

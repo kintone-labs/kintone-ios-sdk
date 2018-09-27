@@ -6,12 +6,12 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-protocol AppView {
+public protocol AppView {
     func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> GetViewsResponse
     func updateViews(_ app: Int?, _ lang: [String: ViewModel],_ revision: Int?) throws -> UpdateViewsResponse
 }
 
-extension AppView where Self: App {
+public extension AppView where Self: App {
     func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> GetViewsResponse {
         do {
             let getViewsRequest = GetViewsRequest(app!, lang!)

@@ -6,10 +6,10 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-protocol AppProcessManagement {
+public protocol AppProcessManagement {
     
 }
 
-extension AppProcessManagement where Self: App {
+public extension AppProcessManagement where Self: App {
     
 }
