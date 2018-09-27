@@ -4,14 +4,87 @@
 //
 
 public protocol AppApp {
+    
+    /// Gets general information of an App, including the name, description, related Space, creator and updater information.
+    ///
+    /// - Parameter appId: Int | The App ID.
+    /// - Returns: AppModel Model
+    /// - Throws: throws KintoneAPIException
     func getApp(_ appId: Int?) throws -> AppModel
+    
+    /// Gets general information of multiple Apps
+    ///
+    /// - Parameters:
+    ///   - offset: Int | The number of retrievals that will be skipped
+    ///   - limit: Int | The number of Apps to retrieve.
+    /// - Returns: Array<AppModel>
+    /// - Throws: throws KintoneAPIException
     func getApps(_ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    
+    /// Gets general information of multiple Apps by Array Ids
+    ///
+    /// - Parameters:
+    ///   - ids: [Int] | The App IDs. Up to 100 IDs can be specified.
+    ///   - offset: Int | The number of retrievals that will be skipped
+    ///   - limit: Int | The number of Apps to retrieve.
+    /// - Returns: Array<AppModel>
+    /// - Throws: throws KintoneAPIException
     func getAppsByIDs(_ ids: [Int]?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    
+    /// Gets general information of multiple Apps by Array App Code
+    ///
+    /// - Parameters:
+    ///   - codes: The App Code. Up to 100 App Codes can be specified.
+    ///   - offset: Int | The number of retrievals that will be skipped
+    ///   - limit: Int | The number of Apps to retrieve.
+    /// - Returns: Array<AppModel>
+    /// - Throws: throws KintoneAPIException
     func getAppsByCodes(_ codes: [String]?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    
+    /// Gets general information of multiple Apps by App Name
+    ///
+    /// - Parameters:
+    ///   - name: String | The App Name.
+    ///   - offset: Int | The number of retrievals that will be skipped
+    ///   - limit: Int | The number of Apps to retrieve.
+    /// - Returns: Array<AppModel>
+    /// - Throws: throws KintoneAPIException
     func getAppsByName(_ name: String?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    
+    /// Gets general information of multiple Apps by Array Space Ids
+    ///
+    /// - Parameters:
+    ///   - spaceIds: [Int] | The Space ID of where the App resides in. Up to 100 IDs can be specified.
+    ///   - offset: Int | The number of retrievals that will be skipped
+    ///   - limit: Int | The number of Apps to retrieve.
+    /// - Returns: Array<AppModel>
+    /// - Throws: throws KintoneAPIException
     func getAppsBySpaceIDs(_ spaceIds: [Int]?, _ offset: Int?, _ limit: Int?) throws -> Array<AppModel>
+    
+    /// Creates a preview App. The Deploy App Settings API must be used on the created preview App for the App to become live.
+    ///
+    /// - Parameters:
+    ///   - name: String | The App name.
+    ///   - space: Int | The Space ID of where the App will be created
+    ///   - thread: Int | The Thread ID of the thread in the Space where the App will be created.
+    /// - Returns: AddPreviewAppResponse Model
+    /// - Throws: throws KintoneAPIException
     func addPreviewApp(_ name: String?, _ space: Int?, _ thread: Int?) throws -> AddPreviewAppResponse
+    
+    /// Updates the settings of a pre-live App to the live App.
+    ///
+    /// - Parameters:
+    ///   - apps: [AddPreviewAppResponse] | The list of Apps to deploy the pre-live settings to the live Apps
+    ///   - revert: Bool | The pre-live settings will be reverted back to the current settings of the live app.
+    /// - Returns: none
+    /// - Throws: throws KintoneAPIException
     func deployAppSettings(_ apps: Array<AddPreviewAppResponse>?, _ revert: Bool?) throws
+    
+    /// Gets the deployment status of the App settings for multiple Apps.
+    ///
+    /// - Parameter apps: [Int] | The list of Apps
+    /// - Returns: GetAppDeployStatusResponse Model
+    /// - Throws: throws KintoneAPIException
     func getAppDeployStatus(_ apps: [Int]?) throws -> GetAppDeployStatusResponse
 }
 

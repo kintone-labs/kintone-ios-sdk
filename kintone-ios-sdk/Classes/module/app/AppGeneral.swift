@@ -4,7 +4,25 @@
 //
 
 public protocol AppGeneral {
+    
+    /// Gets the description, name, icon, revision and color theme of an App.
+    ///
+    /// - Parameters:
+    ///   - app: Int | The app ID.
+    ///   - lang: LanguageSetting | The localized language to retrieve the data
+    ///   - isPreview: isPreview description
+    /// - Returns: GeneralSettings Model
+    /// - Throws: throws KintoneAPIException
     func getGeneralSettings(_ app: Int?, _ lang: LanguageSetting?, _ isPreview: Bool?) throws -> GeneralSettings
+    
+    /// Updates the description, name, icon, revision and color theme of an App.
+    ///
+    /// - Parameters:
+    ///   - app: Int | The app ID.
+    ///   - generalSettings: GeneralSettings | It will set the description, name, icon, revision and color theme of an App
+    ///   - revision: Int | Specify the revision number of the settings that will be deployed.
+    /// - Returns: BasicResponse Model
+    /// - Throws: throws KintoneAPIException
     func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?, _ revision: Int?) throws -> BasicResponse
 }
 
