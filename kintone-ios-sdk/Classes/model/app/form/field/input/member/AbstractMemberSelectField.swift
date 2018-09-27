@@ -29,6 +29,17 @@ public class AbstractMemberSelectField: AbstractInputField {
         self.entities = try container.decode([MemberSelectEntity].self, forKey: AbstractMemberSelectCodingKeys.entities)
         try super.init(from: decoder)
     }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: AbstractMemberSelectCodingKeys.self)
+        if(self.defaultValue.count > 0){
+            try container.encode(self.defaultValue, forKey: AbstractMemberSelectCodingKeys.defaultValue)
+        }
+        if(self.entities.count > 0){
+            try container.encode(self.entities, forKey: AbstractMemberSelectCodingKeys.entities)
+        }
+        try super.encode(to: encoder)
+    }
 
     /**
      * @return the defaultValue

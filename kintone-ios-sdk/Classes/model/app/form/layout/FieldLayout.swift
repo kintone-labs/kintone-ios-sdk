@@ -87,14 +87,6 @@ public class FieldLayout: NSObject, Codable {
     public func setSize(_ size: FieldSize?) {
         self.size = size
     }
-    
-//    @Override
-//    public int hashCode() {
-//    final int prime = 31;
-//    int result = 1;
-//    result = prime * result + ((code == null) ? 0 : code.hashCode());
-//    return result;
-//    }
 
     public func equals(_ obj: AnyObject? ) -> Bool? {
         if (obj == nil){

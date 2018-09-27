@@ -46,6 +46,35 @@ public class NumberField: AbstractInputField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: NumberCodingKeys.self)
+        if(self.displayScale != nil){
+            try container.encode(self.displayScale, forKey: NumberCodingKeys.displayScale)
+        }
+        if(self.unit != nil){
+            try container.encode(self.unit, forKey: NumberCodingKeys.unit)
+        }
+        if(self.unitPosition != nil){
+            try container.encode(self.unitPosition, forKey: NumberCodingKeys.unitPosition)
+        }
+        if(self.digit != nil){
+            try container.encode(self.digit, forKey: NumberCodingKeys.digit)
+        }
+        if(self.maxValue != nil){
+            try container.encode(self.maxValue, forKey: NumberCodingKeys.maxValue)
+        }
+        if(self.minValue != nil){
+            try container.encode(self.minValue, forKey: NumberCodingKeys.minValue)
+        }
+        if(self.unique != nil){
+            try container.encode(self.unique, forKey: NumberCodingKeys.unique)
+        }
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: NumberCodingKeys.defaultValue)
+        }
+        try super.encode(to: encoder)
+    }
+    
     public func getDisplayScale() -> Int? {
         return Int(self.displayScale!)
     }

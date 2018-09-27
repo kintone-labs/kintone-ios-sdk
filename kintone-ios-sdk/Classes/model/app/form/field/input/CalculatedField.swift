@@ -48,6 +48,29 @@ public class CalculatedField: AbstractInputField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CalculatedFieldCodingKeys.self)
+        if(self.displayScale != nil){
+            try container.encode(self.displayScale, forKey: CalculatedFieldCodingKeys.displayScale)
+        }
+        if(self.unit != nil){
+            try container.encode(self.unit, forKey: CalculatedFieldCodingKeys.unit)
+        }
+        if(self.unitPosition != nil){
+            try container.encode(self.unitPosition, forKey: CalculatedFieldCodingKeys.unitPosition)
+        }
+        if(self.expression != nil){
+            try container.encode(self.expression, forKey: CalculatedFieldCodingKeys.expression)
+        }
+        if(self.format != nil){
+            try container.encode(self.format, forKey: CalculatedFieldCodingKeys.format)
+        }
+        if(self.hideExpression != nil){
+            try container.encode(self.hideExpression, forKey: CalculatedFieldCodingKeys.hideExpression)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the expression
      */

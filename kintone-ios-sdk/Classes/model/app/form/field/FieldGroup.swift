@@ -38,6 +38,20 @@ public class FieldGroup: Field {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: FieldGroupCodingKeys.self)
+        if(self.label != nil){
+            try container.encode(self.label, forKey: FieldGroupCodingKeys.label)
+        }
+        if(self.noLabel != nil){
+            try container.encode(self.noLabel, forKey: FieldGroupCodingKeys.noLabel)
+        }
+        if(self.openGroup != nil){
+            try container.encode(self.openGroup, forKey: FieldGroupCodingKeys.openGroup)
+        }
+        try super.encode(to: encoder)
+    }
+    
     public func getLabel() -> String? {
         return self.label;
     }

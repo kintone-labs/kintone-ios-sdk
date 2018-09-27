@@ -38,6 +38,13 @@ public class SubTableField: Field {
         self.code = code!;
         self.type = FieldType.SUBTABLE;
     }
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: SubTableFieldCodingKeys.self)
+        if(self.fields.count > 0){
+            try container.encode(self.fields, forKey: SubTableFieldCodingKeys.fields)
+        }
+        try super.encode(to: encoder)
+    }
     
     public required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: SubTableFieldCodingKeys.self)
