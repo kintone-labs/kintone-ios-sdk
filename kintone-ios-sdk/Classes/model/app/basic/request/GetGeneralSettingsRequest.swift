@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class GetGeneralSettings: NSObject, Codable {
+public class GetGeneralSettingsRequest: NSObject, Codable {
     private var app: Int?
     private var lang: LanguageSetting?
     private var isPreview: Bool?

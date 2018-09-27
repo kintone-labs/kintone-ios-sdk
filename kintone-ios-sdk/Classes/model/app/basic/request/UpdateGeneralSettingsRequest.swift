@@ -6,7 +6,7 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
-public class UpdateGeneralSettings: GeneralSettings {
+public class UpdateGeneralSettingsRequest: GeneralSettings {
     private var app: String?
     private var revision: String?
     
@@ -28,6 +28,14 @@ public class UpdateGeneralSettings: GeneralSettings {
         if(revision != nil) {
             self.revision = "\(String(describing: revision!))"
         }
+    }
+    
+    public init(_ generalSettings: GeneralSettings?) {
+        super.init()
+        self.setName(generalSettings!.getName())
+        self.setDescription(generalSettings!.getDescription())
+        self.setIcon(generalSettings!.getIcon()!)
+        self.setTheme(generalSettings!.getTheme())
     }
     
     public init(_ app: Int?, _ revision: Int? = nil) {
