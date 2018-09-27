@@ -30,6 +30,17 @@ public class TimeField: AbstractInputField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: TimeCodingKeys.self)
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: TimeCodingKeys.defaultValue)
+        }
+        if(self.defaultNowValue != nil){
+            try container.encode(self.defaultNowValue, forKey: TimeCodingKeys.defaultNowValue)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return
      */

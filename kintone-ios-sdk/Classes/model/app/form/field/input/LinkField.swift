@@ -40,6 +40,26 @@ public class LinkField: AbstractInputField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: LinkFieldCodingKeys.self)
+        if(self.linkProtocol != nil){
+            try container.encode(self.linkProtocol, forKey: LinkFieldCodingKeys.linkProtocol)
+        }
+        if(self.minLength != nil){
+            try container.encode(self.minLength, forKey: LinkFieldCodingKeys.minLength)
+        }
+        if(self.maxLength != nil){
+            try container.encode(self.maxLength, forKey: LinkFieldCodingKeys.maxLength)
+        }
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: LinkFieldCodingKeys.defaultValue)
+        }
+        if(self.unique != nil){
+            try container.encode(self.unique, forKey: LinkFieldCodingKeys.unique)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the defaultValue
      */

@@ -19,4 +19,7 @@ public class DepartmentSelectionField: AbstractMemberSelectField {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
     }
+    override public func encode(to encoder: Encoder) throws {
+        try super.encode(to: encoder)
+    }
 }

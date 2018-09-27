@@ -23,6 +23,15 @@ public class AbstractSelectionField: AbstractInputField {
         self.options = try container.decode([String: OptionData].self, forKey: AbstractSelectionCodingKeys.options)
         try super.init(from: decoder)
     }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: AbstractSelectionCodingKeys.self)
+        if(self.options.count > 0){
+            try container.encode(self.options, forKey: AbstractSelectionCodingKeys.options)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the options
      */
