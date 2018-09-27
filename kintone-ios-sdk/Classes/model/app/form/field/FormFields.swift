@@ -12,8 +12,8 @@ public class FormFields: NSObject, Codable {
     private var properties: [String: Field]?
     
     public override init() {
-        app = nil;
-        revision = nil;
+        app = nil
+        revision = nil
         properties = [String: Field]()
     }
     
@@ -79,7 +79,7 @@ public class FormFields: NSObject, Codable {
         let fields = try container.decode([String: Field].self, forKey: .properties)
         let nestedContainer = try container.nestedContainer(keyedBy: DynamicKeys.self, forKey:FormFields.CodingKeys.properties)
         for (key, field) in fields {
-           let dynamicKey = DynamicKeys.key(named: key)
+            let dynamicKey = DynamicKeys.key(named: key)
             switch field.getType()! {
             case .SINGLE_LINE_TEXT:
                 do {
