@@ -30,14 +30,6 @@ public class RelatedApp: NSObject, Codable {
     public func setCode(_ code: String) {
         self.code = code
     }
-   
-//    public func hashCode() -> Int {
-//        let prime = 31;
-//        var result: Int = 1;
-//        result = prime * result + ((app == nil) ? 0 : app!.hashCode());
-//        result = prime * result + ((code == nil) ? 0 : code!.hashCode());
-//        return result;
-//    }
     
     public func equals(_ obj: AnyObject?) -> Bool {
         if (obj == nil) {

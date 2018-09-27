@@ -25,6 +25,15 @@ public class MultiLineTextField: AbstractInputField {
         self.defaultValue = try container.decode(String.self, forKey: MultiLineTextCodingKeys.defaultValue)
         try super.init(from: decoder)
     }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: MultiLineTextCodingKeys.self)
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: MultiLineTextCodingKeys.defaultValue)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the defaultValue
      */

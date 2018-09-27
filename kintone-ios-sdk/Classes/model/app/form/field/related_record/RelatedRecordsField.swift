@@ -34,6 +34,19 @@ public class RelatedRecordsField: Field {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: RelatedRecordsFieldCodingKeys.self)
+        if(self.label != nil){
+            try container.encode(self.label, forKey: RelatedRecordsFieldCodingKeys.label)
+        }
+        if(self.noLabel != nil){
+            try container.encode(self.noLabel, forKey: RelatedRecordsFieldCodingKeys.noLabel)
+        }
+        if(self.referenceTable != nil){
+            try container.encode(self.referenceTable, forKey: RelatedRecordsFieldCodingKeys.referenceTable)
+        }
+        try super.encode(to: encoder)
+    }
     /**
      * @return the label
      */

@@ -15,6 +15,8 @@
 		11B14EF22157E64F00894E37 /* BulkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF12157E64F00894E37 /* BulkRequest.swift */; };
 		129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
+		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
+		129CB2AE215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -169,6 +171,8 @@
 		111892B9215012330077A87E /* BulkRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestModel.swift; sourceTree = "<group>"; };
 		11B14EF12157E64F00894E37 /* BulkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequest.swift; sourceTree = "<group>"; };
 		129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutRequest.swift; sourceTree = "<group>"; };
+		129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateFormFieldsRequest.swift; sourceTree = "<group>"; };
+		129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsRequest.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -596,6 +600,8 @@
 				A88FEE102159DD8A00A7E838 /* DeployAppSettingsRequest.swift */,
 				A88FEE112159DD8A00A7E838 /* AddPreviewAppRequest.swift */,
 				129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */,
+				129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */,
+				129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -973,6 +979,7 @@
 				A88FEE772159DD9E00A7E838 /* LinkField.swift in Sources */,
 				11B14EF22157E64F00894E37 /* BulkRequest.swift in Sources */,
 				A88FEEB72159DDC300A7E838 /* AppApp.swift in Sources */,
+				129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */,
 				A88FEE222159DD8B00A7E838 /* UpdateViewsRequest.swift in Sources */,
 				3E9BF95D214656D4000F8B9D /* FileModel.swift in Sources */,
 				A88FEE252159DD8B00A7E838 /* GetAppsRequest.swift in Sources */,
@@ -1035,6 +1042,7 @@
 				A88FEE832159DD9E00A7E838 /* DateTimeField.swift in Sources */,
 				A88FEE8A2159DD9E00A7E838 /* RadioButtonField.swift in Sources */,
 				3E1FD7D22148A9640056F902 /* UpdateRecordRequest.swift in Sources */,
+				129CB2AE215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift in Sources */,
 				A88FEE792159DD9E00A7E838 /* RichTextField.swift in Sources */,
 				A88FEE2A2159DD8B00A7E838 /* AddPreviewAppRequest.swift in Sources */,
 				A88FEE892159DD9E00A7E838 /* OptionData.swift in Sources */,
