@@ -42,7 +42,7 @@ public class SingleLineTextField: AbstractInputField {
     }
     
     public func setMaxLength(_ maxLength: String?) {
-        self.maxLength = maxLength;
+        self.maxLength = maxLength
     }
     
     public func getExpression() -> String? {
@@ -86,5 +86,29 @@ public class SingleLineTextField: AbstractInputField {
         self.defaultValue = try container.decode(String.self, forKey: SingleLineTextCodingKeys.defaultValue)
         self.unique = try container.decode(Bool.self, forKey: SingleLineTextCodingKeys.unique)
         try super.init(from: decoder)
+    }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: SingleLineTextCodingKeys.self)
+        if(self.expression != nil)
+        {
+            try container.encode(self.expression, forKey: SingleLineTextCodingKeys.expression)
+        }
+        if(self.hideExpression != nil){
+            try container.encode(self.hideExpression, forKey: SingleLineTextCodingKeys.hideExpression)
+        }
+        if(self.minLength != nil){
+            try container.encode(self.minLength, forKey: SingleLineTextCodingKeys.minLength)
+        }
+        if(self.maxLength != nil){
+            try container.encode(self.maxLength, forKey: SingleLineTextCodingKeys.maxLength)
+        }
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: SingleLineTextCodingKeys.defaultValue)
+        }
+        if(self.unique != nil){
+            try container.encode(self.unique, forKey: SingleLineTextCodingKeys.unique)
+        }
+        try super.encode(to: encoder)
     }
 }

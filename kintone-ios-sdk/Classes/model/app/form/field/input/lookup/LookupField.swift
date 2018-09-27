@@ -28,6 +28,14 @@ public class LookupField: AbstractInputField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: LookupFieldCodingKeys.self)
+        if(self.lookup != nil){
+            try container.encode(self.lookup, forKey: LookupFieldCodingKeys.lookup)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the lookup
      */

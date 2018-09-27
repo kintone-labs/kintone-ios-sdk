@@ -30,26 +30,40 @@ public class AbstractInputField: Field
     }
     
     public func getLabel() -> String? {
-        return self.label;
+        return self.label
     }
     
     public func setLabel(_ label: String?) {
-        self.label = label;
+        self.label = label
     }
     
     public func getNoLabel() -> Bool? {
-        return self.noLabel;
+        return self.noLabel
     }
     
     public func setNoLabel(_ noLabel: Bool?) {
-        self.noLabel = noLabel;
+        self.noLabel = noLabel
     }
     
     public func getRequired() -> Bool? {
-        return self.required;
+        return self.required
     }
     
     public func setRequired(_ required: Bool?) {
-        self.required = required;
+        self.required = required
+    }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: AbstractCodingKeys.self)
+        if(self.label != nil){
+            try container.encode(self.label, forKey: AbstractCodingKeys.label)
+        }
+        if(self.required != nil){
+            try container.encode(self.required, forKey: AbstractCodingKeys.required)
+        }
+        if(self.noLabel != nil){
+            try container.encode(self.noLabel, forKey: AbstractCodingKeys.noLabel)
+        }
+        try super.encode(to: encoder)
     }
 }

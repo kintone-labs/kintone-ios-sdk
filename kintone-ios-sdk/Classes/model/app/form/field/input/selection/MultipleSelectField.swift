@@ -28,6 +28,14 @@ public class MultipleSelectField: AbstractSelectionField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: MultipleSelectCodingKeys.self)
+        if(self.defaultValue!.count > 0){
+            try container.encode(self.defaultValue, forKey: MultipleSelectCodingKeys.defaultValue)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the defaultValue
      */

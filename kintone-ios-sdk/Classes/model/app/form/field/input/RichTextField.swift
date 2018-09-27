@@ -29,6 +29,14 @@ public class RichTextField: AbstractInputField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: RichTextCodingKeys.self)
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: RichTextCodingKeys.defaultValue)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the defaultValue
      */

@@ -26,6 +26,15 @@ public class AttachmentField: AbstractInputField {
         self.thumbnailSize = try container.decode(String.self, forKey: AttachmentFieldCodingKeys.thumbnailSize)
         try super.init(from: decoder)
     }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: AttachmentFieldCodingKeys.self)
+        if(self.thumbnailSize != nil){
+            try container.encode(self.thumbnailSize, forKey: AttachmentFieldCodingKeys.thumbnailSize)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the thumbnailSize
      */

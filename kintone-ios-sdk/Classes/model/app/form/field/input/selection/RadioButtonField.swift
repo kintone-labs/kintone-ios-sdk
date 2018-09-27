@@ -30,6 +30,17 @@ public class RadioButtonField: AbstractSelectionField {
         try super.init(from: decoder)
     }
     
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: RadioButtonCodingKeys.self)
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: RadioButtonCodingKeys.defaultValue)
+        }
+        if(self.align != nil){
+            try container.encode(self.align, forKey: RadioButtonCodingKeys.align)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the align
      */

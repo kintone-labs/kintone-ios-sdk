@@ -50,6 +50,27 @@ public class ReferenceTable: NSObject, Codable {
         self.sort = try container.decode(String.self, forKey: ReferenceTableCodingKeys.sort)
     }
     
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: ReferenceTableCodingKeys.self)
+        if(self.condition != nil){
+            try container.encode(self.condition, forKey: ReferenceTableCodingKeys.condition)
+        }
+        if(self.filterCond != nil){
+            try container.encode(self.filterCond, forKey: ReferenceTableCodingKeys.filterCond)
+        }
+        if(self.relatedApp != nil){
+            try container.encode(self.relatedApp, forKey: ReferenceTableCodingKeys.relatedApp)
+        }
+        if(self.size != nil){
+            try container.encode(self.size, forKey: ReferenceTableCodingKeys.size)
+        }
+        if(self.displayFields != nil){
+            try container.encode(self.displayFields, forKey: ReferenceTableCodingKeys.displayFields)
+        }
+        if(self.sort != nil){
+            try container.encode(self.sort, forKey: ReferenceTableCodingKeys.sort)
+        }
+    }
     /**
      * @return the condition
      */

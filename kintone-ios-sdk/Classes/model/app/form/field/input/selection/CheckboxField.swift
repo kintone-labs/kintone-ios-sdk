@@ -37,6 +37,18 @@ public class CheckboxField: AbstractSelectionField {
         self.align = try container.decode(AlignLayout.self, forKey: CheckboxCodingKeys.align)
         try super.init(from: decoder)
     }
+    
+    override public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CheckboxCodingKeys.self)
+        if(self.defaultValue != nil){
+            try container.encode(self.defaultValue, forKey: CheckboxCodingKeys.defaultValue)
+        }
+        if(self.align != nil){
+            try container.encode(self.align, forKey: CheckboxCodingKeys.align)
+        }
+        try super.encode(to: encoder)
+    }
+    
     /**
      * @return the align
      */
