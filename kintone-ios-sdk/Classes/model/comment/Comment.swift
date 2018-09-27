@@ -10,30 +10,41 @@ class Comment: NSObject, Codable {
     
     private var id: Int?
     private var text: String?
-    private var createdAt:Date?
+    private var createdAt: Date?
     private var creator: Member?
     private var mentions: [CommentMention]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case text
+        case createdAt
+        case creator
+        case mentions
+    }
+    
+    public override init() {
+    }
     
 
     /// get the ID of comment
     ///
     /// - Returns: the ID of comment
     public func getId() -> Int? {
-        return self.id;
+        return self.id
     }
     
     /// set the ID of comment
     ///
     /// - Parameter id: the ID of comment
     public func setId(_ id: Int?) {
-        self.id = id;
+        self.id = id
     }
     
     /// get the comment content including line feed codes
     ///
     /// - Returns: the comment content including line feed codes
     public func getText() -> String? {
-        return self.text;
+        return self.text
     }
 
     /// set the comment content including line feed codes
@@ -82,7 +93,19 @@ class Comment: NSObject, Codable {
     ///
     /// - Parameter mentions: an Object including infomation of the comment creator
     public func setMentions(_ mentions: [CommentMention]) {
-        self.mentions = mentions;
+        self.mentions = mentions
+    }
+    
+    public required init(from decoder: Decoder) throws {
+        do {
+            let parser = RecordParser()
+            let response = try parser.parseJsonToComment(decoder)
+            self.id = response.getId()
+            self.text = response.getText()
+            self.createdAt = response.getCreatedAt()
+            self.creator = response.getCreator()
+            self.mentions = response.getMentions()
+        }
     }
 
 }
