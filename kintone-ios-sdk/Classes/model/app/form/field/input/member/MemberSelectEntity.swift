@@ -2,9 +2,6 @@
 //  MemberSelectEntity.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class MemberSelectEntity: NSObject, Codable {
     private var code: String?
@@ -13,40 +10,24 @@ public class MemberSelectEntity: NSObject, Codable {
     public override init(){
          super.init()
     }
-    
-    /**
-     * @param code
-     * @param type
-     */
+
     public init(_ code: String?, _ type: MemberSelectEntityType?) {
         self.code = code
         self.type = type
     }
     
-    /**
-     * @return the code
-     */
     public func getCode() -> String? {
         return self.code
     }
     
-    /**
-     * @param code the code to set
-     */
     public func setCode(_ code: String?) {
         self.code = code
     }
-    
-    /**
-     * @return the type
-     */
+   
     public func getType() -> MemberSelectEntityType? {
         return self.type
     }
-    
-    /**
-     * @param type the type to set
-     */
+   
     public func setType(_ type: MemberSelectEntityType?) {
         self.type = type
     }

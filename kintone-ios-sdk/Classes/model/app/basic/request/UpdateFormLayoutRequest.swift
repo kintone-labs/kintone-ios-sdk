@@ -2,9 +2,6 @@
 //  UpdateFormLayoutRequest.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/25/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class UpdateFormLayoutRequest: NSObject, Codable  {
     private var app: Int?

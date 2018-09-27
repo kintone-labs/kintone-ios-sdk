@@ -2,9 +2,6 @@
 //  RadioButtonField.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class RadioButtonField: AbstractSelectionField {
     internal var defaultValue: String?
@@ -14,9 +11,7 @@ public class RadioButtonField: AbstractSelectionField {
         case defaultValue
         case align
     }
-    /**
-     * @param code
-     */
+    
     public init(_ code: String) {
         super.init()
         self.code = code
@@ -41,31 +36,18 @@ public class RadioButtonField: AbstractSelectionField {
         try super.encode(to: encoder)
     }
     
-    /**
-     * @return the align
-     */
     public func getAlign() -> AlignLayout? {
         return self.align
     }
     
-    /**
-     * @param align
-     *            the align to set
-     */
     public func setAlign(_ align: AlignLayout?) {
         self.align = align
     }
     
-    /**
-     * @return
-     */
     public func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    /**
-     * @param defaultValue
-     */
     public func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }

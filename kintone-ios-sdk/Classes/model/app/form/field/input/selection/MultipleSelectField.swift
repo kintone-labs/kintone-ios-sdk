@@ -2,9 +2,6 @@
 //  MultipleSelectField.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class MultipleSelectField: AbstractSelectionField {
     internal var defaultValue: [String]?
@@ -13,9 +10,7 @@ public class MultipleSelectField: AbstractSelectionField {
     enum MultipleSelectCodingKeys: CodingKey {
         case defaultValue
     }
-    /**
-     * @param code
-     */
+   
     public init(_ code: String) {
         super.init()
         self.code = code
@@ -36,17 +31,10 @@ public class MultipleSelectField: AbstractSelectionField {
         try super.encode(to: encoder)
     }
     
-    /**
-     * @return the defaultValue
-     */
     public func getDefaultValue() -> [String]? {
         return self.defaultValue
     }
     
-    /**
-     * @param defaultValue
-     *            the defaultValue to set
-     */
     public func setDefaultValue(_ defaultValue: [String]?) {
         self.defaultValue = defaultValue
     }

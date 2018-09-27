@@ -2,9 +2,6 @@
 //  View.swift
 //  kintone-ios-sdk
 //
-//  Created by trung-doan on 9/18/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class ViewModel: NSObject, Codable {
     private var builtinType: BuiltinType?

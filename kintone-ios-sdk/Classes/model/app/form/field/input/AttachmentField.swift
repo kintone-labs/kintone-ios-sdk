@@ -2,9 +2,6 @@
 //  AttachmentField.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class AttachmentField: AbstractInputField {
     internal var thumbnailSize: String?
@@ -12,9 +9,7 @@ public class AttachmentField: AbstractInputField {
     enum AttachmentFieldCodingKeys: String, CodingKey {
         case thumbnailSize
     }
-    /**
-     * @param code
-     */
+    
     public init(_ code: String) {
         super.init()
         self.code = code
@@ -35,17 +30,10 @@ public class AttachmentField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    /**
-     * @return the thumbnailSize
-     */
     public func getThumbnailSize() -> Int? {
         return Int(self.thumbnailSize!)
     }
     
-    /**
-     * @param thumbnailSize
-     * the thumbnailSize to set
-     */
     public func setThumbnailSize(_ thumbnailSize: String?) {
         self.thumbnailSize = thumbnailSize
     }

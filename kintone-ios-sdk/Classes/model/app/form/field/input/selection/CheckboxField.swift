@@ -2,9 +2,6 @@
 //  CheckboxField.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class CheckboxField: AbstractSelectionField {
     internal var defaultValue: [String]?
@@ -14,17 +11,12 @@ public class CheckboxField: AbstractSelectionField {
         case defaultValue
         case align
     }
-    /**
-     * default constructor
-     */
+   
     public override init() {
         super.init()
         self.type = FieldType.CHECK_BOX;
     }
     
-    /**
-     * @param code
-     */
     public init(_ code: String) {
         super.init()
         self.code = code
@@ -49,31 +41,18 @@ public class CheckboxField: AbstractSelectionField {
         try super.encode(to: encoder)
     }
     
-    /**
-     * @return the align
-     */
     public func getAlign() -> AlignLayout? {
         return self.align
     }
     
-    /**
-     * @param align
-     * the align to set
-     */
     public func setAlign(_ align: AlignLayout?) {
         self.align = align
     }
     
-    /**
-     * @return
-     */
     public func getDefaultValue() -> [String]? {
         return self.defaultValue
     }
     
-    /**
-     * @param defaultValue
-     */
     public func setDefaultValue(_ defaultValue: [String]?) {
         self.defaultValue = defaultValue
     }

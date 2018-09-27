@@ -2,9 +2,6 @@
 //  FieldType.swift
 //  kintone-ios-sdk
 //
-//  Created by y001112 on 2018/09/05.
-//  Copyright © 2018年 Cybozu. All rights reserved.
-//
 
 public enum FieldType: String, Codable {
     case CALC
