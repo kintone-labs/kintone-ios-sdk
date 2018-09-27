@@ -2,9 +2,6 @@
 //  NumberField.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class NumberField: AbstractInputField {
     private var displayScale: String?
@@ -108,58 +105,34 @@ public class NumberField: AbstractInputField {
         self.digit = digit
     }
     
-    /**
-     * @return the maxValue
-     */
     public func getMaxValue() -> Int? {
         return Int(self.maxValue!)
     }
     
-    /**
-     * @param maxValue the maxValue to set
-     */
     public func setMaxValue(_ maxValue: String?) {
         self.maxValue = maxValue
     }
-    
-    /**
-     * @return the minValue
-     */
+   
     public func getMinValue() -> Int? {
         return Int(self.minValue!)
     }
     
-    /**
-     * @param minValue the minValue to set
-     */
     public func setMinValue(_ minValue: String?) {
         self.minValue = minValue
     }
     
-    /**
-     * @return the defaultValue
-     */
     public func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    /**
-     * @param defaultValue the defaultValue to set
-     */
     public func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
     
-    /**
-     * @return
-     */
     public func getUnique() -> Bool? {
         return self.unique
     }
     
-    /**
-     * @param unique
-     */
     public func setUnique(_ unique: Bool?) {
         self.unique = unique
     }

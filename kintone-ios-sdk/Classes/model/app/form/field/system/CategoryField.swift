@@ -2,9 +2,6 @@
 //  CategoryField.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/20/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class CategoryField: AbstractSystemField {
     internal var enabled: Bool?
@@ -12,9 +9,7 @@ public class CategoryField: AbstractSystemField {
     enum CategoryCodingKeys: CodingKey {
         case enabled
     }
-    /**
-     * @param code
-     */
+ 
     public init(_ code: String) {
         super.init()
         self.code = code
@@ -27,16 +22,10 @@ public class CategoryField: AbstractSystemField {
         try super.init(from: decoder)
     }
     
-    /**
-     * @return
-     */
     public func getEnabled() -> Bool? {
         return self.enabled;
     }
     
-    /**
-     * @param enabled
-     */
     public func setEnabled(_ enabled: Bool?) {
         self.enabled = enabled
     }

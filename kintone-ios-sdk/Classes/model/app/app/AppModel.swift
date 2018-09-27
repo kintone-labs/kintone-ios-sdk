@@ -2,9 +2,6 @@
 //  App.swift
 //  kintone-ios-sdk
 //
-//  Created by Trinh Hung Anh on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class AppModel: NSObject, Codable {
     private var appId: String?
@@ -20,12 +17,6 @@ public class AppModel: NSObject, Codable {
     
     enum CodingKeys:String,CodingKey
     {
-        //It will replace the respective properties name by assigned string
-        //while encoding to Json or pList format.
-        //Also, while decoding respective Json or pList, these new names are
-        //expected in data rather that that defined in class declaration
-        
-        //will get renamed
         case appDescription = "description"
         case appId
         case code

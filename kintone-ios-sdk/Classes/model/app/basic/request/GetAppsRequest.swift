@@ -2,9 +2,6 @@
 //  GetAppsRequest.swift
 //  kintone-ios-sdk
 //
-//  Created by Trinh Hung Anh on 9/18/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class GetAppsRequest: NSObject, Codable {
     private var ids: [Int]?

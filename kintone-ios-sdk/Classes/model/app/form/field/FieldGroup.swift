@@ -2,9 +2,6 @@
 //  FieldGroup.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/18/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class FieldGroup: Field {
     internal var label: String?
@@ -16,9 +13,7 @@ public class FieldGroup: Field {
         case noLabel
         case openGroup
     }
-    /**
-     * default constructor
-     */
+ 
     public override init() {
         super.init()
         self.type = FieldType.GROUP;

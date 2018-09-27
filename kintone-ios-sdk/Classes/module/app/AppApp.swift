@@ -2,9 +2,6 @@
 //  AppApp.swift
 //  kintone-ios-sdk
 //
-//  Created by trung-doan on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public protocol AppApp {
     func getApp(_ appId: Int?) throws -> AppModel

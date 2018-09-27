@@ -2,9 +2,6 @@
 //  TimeField.swift
 //  kintone-ios-sdk
 //
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
 
 public class TimeField: AbstractInputField {
     internal var defaultValue: String?
@@ -14,9 +11,7 @@ public class TimeField: AbstractInputField {
         case defaultValue
         case defaultNowValue
     }
-    /**
-     * @param code
-     */
+    
     public init(_ code: String) {
         super.init()
         self.code = code
@@ -41,30 +36,18 @@ public class TimeField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    /**
-     * @return
-     */
     public func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    /**
-     * @param defaultValue
-     */
     public func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
     
-    /**
-     * @return
-     */
     public func getDefaultNowValue() -> Bool? {
         return self.defaultNowValue
     }
     
-    /**
-     * @param defaultNowValue
-     */
     public func setDefaultNowValue(_ defaultNowValue: Bool?) {
         self.defaultNowValue = defaultNowValue
     }
