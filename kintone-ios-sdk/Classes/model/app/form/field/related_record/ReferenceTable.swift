@@ -87,7 +87,7 @@ public class ReferenceTable: NSObject, Codable {
     }
     
     public func getSize() -> Int? {
-        return Int(self.size!)
+        return Int(self.size != nil ? self.size! : "")
     }
     
     public func setSize(_ size: String?) {
