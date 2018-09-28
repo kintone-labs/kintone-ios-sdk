@@ -8,10 +8,10 @@
 
 public class Credential: NSObject {
     
-    private var username: String?
-    private var password: String?
+    private var username: String
+    private var password: String
 
-    init(_ username: String?, _ password: String?) {
+    init(_ username: String, _ password: String) {
         self.username = username
         self.password = password
     }
@@ -19,14 +19,14 @@ public class Credential: NSObject {
     /// get the login name
     ///
     /// - Returns: the login name
-    public func getUsername() -> String? {
+    public func getUsername() -> String {
         return self.username
     }
 
     /// get the login password
     ///
     /// - Returns: the login password
-    public func getPassword() -> String? {
+    public func getPassword() -> String {
         return self.password
     }
 

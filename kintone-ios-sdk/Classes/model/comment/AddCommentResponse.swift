@@ -10,18 +10,25 @@ public class AddCommentResponse: NSObject, Codable {
     
     private var id: Int?
     
+    enum CodingKeys: String, CodingKey {
+        case id
+    }
+    
+    public override init() {
+    }
+    
     /// get the ID of comment
     ///
     /// - Returns: the ID of comment which have just created
     public func getId() -> Int? {
-        return self.id;
+        return self.id
     }
 
     /// set the ID of comment
     ///
     /// - Parameter id: the ID of comment which have just created
     public func setId(_ id: Int) {
-        self.id = id;
+        self.id = id
     }
 
 }
