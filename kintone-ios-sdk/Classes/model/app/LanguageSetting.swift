@@ -4,9 +4,9 @@
 //
 
 public enum LanguageSetting: String, Codable {
-    case DEFAULT
-    case EN
-    case ZH
-    case JA
-    case USER
+    case DEFAULT = "default"
+    case EN = "en"
+    case ZH = "zh"
+    case JA = "ja"
+    case USER = "user"
 }

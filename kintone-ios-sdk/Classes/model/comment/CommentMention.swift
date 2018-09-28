@@ -15,28 +15,28 @@ public class CommentMention: NSObject, Codable {
     ///
     /// - Returns: the code of th mentioned user, group or organization
     public func getCode() -> String? {
-        return self.code;
+        return self.code
     }
     
     /// set the code of th mentioned user, group or organization
     ///
     /// - Parameter code: the code of th mentioned user, group or organization
     public func setCode(_ code: String) {
-        self.code = code;
+        self.code = code
     }
     
     /// get the type of mentioned user
     ///
     /// - Returns: the type of mentioned user
     public func getType() -> String? {
-        return self.type;
+        return self.type
     }
     
     /// set the type of mentioned user
     ///
     /// - Parameter type: the type of mentioned user
     public func setType(_ type: String) {
-        self.type = type;
+        self.type = type
     }
     
 }
