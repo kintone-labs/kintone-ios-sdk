@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class UpdateRecordRequest: NSObject, Codable {
+internal class UpdateRecordRequest: NSObject, Codable {
     
     private var app: Int?
     private var id: Int?

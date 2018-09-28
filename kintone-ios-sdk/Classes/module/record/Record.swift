@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class Record: NSObject {
+public class Record: NSObject {
     
     private var connection: Connection?
     private let parser = RecordParser()
