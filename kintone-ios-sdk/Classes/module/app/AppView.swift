@@ -24,7 +24,7 @@ public protocol AppView {
 }
 
 public extension AppView where Self: App {
-    func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> GetViewsResponse {
+    func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) throws -> GetViewsResponse {
         do {
             let getViewsRequest = GetViewsRequest(app!, lang!)
             let body = try! self.parser.parseObject(getViewsRequest)
