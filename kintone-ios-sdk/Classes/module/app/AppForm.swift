@@ -126,7 +126,7 @@ public extension AppForm where Self: App {
         }
     }
     
-    func getFormLayout(_ app: Int?, _ isPreview: Bool?) throws -> FormLayout
+    func getFormLayout(_ app: Int?, _ isPreview: Bool? = false) throws -> FormLayout
     {
         do {
             let getFormLayoutRequest = GetFormLayoutRequest(app!)
