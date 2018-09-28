@@ -44,7 +44,7 @@ public class BulkRequestItem: NSObject, Codable {
     
     /// Set api
     ///
-    /// - Parameter api: <#api description#>
+    /// - Parameter api: api
     public func setApi(_ api: String) {
         self.api = api
     }
@@ -59,7 +59,7 @@ public class BulkRequestItem: NSObject, Codable {
     /// Set payload
     ///
     /// - Parameter payload: <#payload description#>
-    public func setPayload(_ payload: Any?) {
+    public func setPayload(_ payload: Any) {
         self.payload = payload
     }
     
@@ -95,13 +95,8 @@ public class BulkRequestItem: NSObject, Codable {
     /// - Throws:
     public func encode(to encoder: Encoder) throws {
         do {
-            guard self.method == nil else {
-                let payload: Any? = self.payload
-                let api: String = self.api!
                 let parser = BulkRequestParser()
-                try parser.parseBulkRequestToJson(to: encoder, method, api, payload)
-                return
-            }
+                try parser.parseBulkRequestToJson(to: encoder, self.method, self.api, self.payload)
         }
     }
 }
