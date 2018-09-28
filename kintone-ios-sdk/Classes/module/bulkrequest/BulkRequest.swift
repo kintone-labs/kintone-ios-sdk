@@ -159,16 +159,11 @@ class BulkRequest: NSObject {
     public func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int: Int?]) throws -> BulkRequest {
     
         var ids: Array<Int> = []
-        var revisions: Array<Int>?
+        var revisions: Array<Int?> = []
     
         for entry in idsWithRevision {
             ids.append(entry.key)
-            if (entry.value != nil) {
-                if (revisions == nil) {
-                    revisions = []
-                }
-                revisions!.append(entry.value!)
-            }
+            revisions.append(entry.value)
         }
         
         let deleteRecordsRequest: DeleteRecordsRequest = DeleteRecordsRequest(app, ids, revisions)
