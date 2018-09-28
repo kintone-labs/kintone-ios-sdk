@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class BulkRequestParser: Parser {
+internal class BulkRequestParser: Parser {
     
     public func parseJsonToBulkRequestItem(_ decoder: Decoder) throws -> BulkRequestItem {
         do {

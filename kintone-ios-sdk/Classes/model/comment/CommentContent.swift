@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class CommentContent: NSObject, Codable {
+public class CommentContent: NSObject, Codable {
     
     private var text: String?
     private var mentions: [CommentMention]?

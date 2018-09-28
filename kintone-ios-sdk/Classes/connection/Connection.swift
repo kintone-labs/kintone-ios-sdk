@@ -6,7 +6,7 @@
 //  Copyright © 2018年 h001218. All rights reserved.
 //
 
-class Connection: NSObject {
+public class Connection: NSObject {
     
     /// HTTP header content-type for getting json data from rest api.
     private let JSON_CONTENT: String = "application/json"

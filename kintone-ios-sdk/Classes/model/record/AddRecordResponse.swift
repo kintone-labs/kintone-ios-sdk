@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class AddRecordResponse: NSObject, Codable {
+public class AddRecordResponse: NSObject, Codable {
     
     private var id: Int?
     private var revision: Int?

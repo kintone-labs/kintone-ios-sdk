@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class AddCommentResponse: NSObject, Codable {
+public class AddCommentResponse: NSObject, Codable {
     
     private var id: Int?
     

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class ErrorResponseParser: Parser {
+internal class ErrorResponseParser: Parser {
     
     public func parseJsonToErrorResponse(_ decoder: Decoder) throws -> ErrorResponse {
         do {
