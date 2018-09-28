@@ -1,7 +1,4 @@
-//
-//  BasicResponse.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class BasicResponse: NSObject, Codable {
     private var revision: String?

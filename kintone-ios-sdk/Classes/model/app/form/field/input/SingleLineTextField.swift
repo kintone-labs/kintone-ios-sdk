@@ -1,7 +1,4 @@
-//
-//  SingleLineTextField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class SingleLineTextField: AbstractInputField {
     private var expression: String?

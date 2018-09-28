@@ -1,7 +1,4 @@
-//
-//  SubTableLayout.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class SubTableLayout: ItemLayout {
     private var code: String?

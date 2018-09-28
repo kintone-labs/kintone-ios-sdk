@@ -1,7 +1,4 @@
-//
-//  LookupItem.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class LookupItem: NSObject, Codable {
     private var fieldMappings: [FieldMapping]

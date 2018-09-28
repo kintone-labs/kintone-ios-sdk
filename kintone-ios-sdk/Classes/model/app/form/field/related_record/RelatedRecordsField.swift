@@ -1,7 +1,4 @@
-//
-//  RelatedRecordsField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class RelatedRecordsField: Field {
     internal var label: String?

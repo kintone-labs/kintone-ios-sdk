@@ -1,7 +1,4 @@
-//
-//  DeployAppSettingsRequest.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class DeployAppSettingsRequest: NSObject, Codable {
     private var apps: Array<AddPreviewAppResponse>? = []

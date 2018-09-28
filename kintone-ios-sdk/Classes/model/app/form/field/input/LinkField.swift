@@ -1,7 +1,4 @@
-//
-//  LinkField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class LinkField: AbstractInputField {
     private var defaultValue: String?

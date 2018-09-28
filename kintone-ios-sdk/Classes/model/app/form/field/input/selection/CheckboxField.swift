@@ -1,7 +1,4 @@
-//
-//  CheckboxField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class CheckboxField: AbstractSelectionField {
     internal var defaultValue: [String]?

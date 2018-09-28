@@ -1,7 +1,4 @@
-//
-//  AddPreviewAppRequest.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class AddPreviewAppRequest: NSObject, Codable {
     private var name: String?

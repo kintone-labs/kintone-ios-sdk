@@ -1,7 +1,4 @@
-//
-//  AbstractSelectionField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class AbstractSelectionField: AbstractInputField {
     internal var options: [String: OptionData]

@@ -1,7 +1,4 @@
-//
-//  FieldMapping.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class FieldMapping: NSObject, Codable {
     private var field: String?

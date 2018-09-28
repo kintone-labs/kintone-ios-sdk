@@ -1,7 +1,4 @@
-//
-//  GeneralSettings.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class GeneralSettings: NSObject, Codable {
     private var name: String?

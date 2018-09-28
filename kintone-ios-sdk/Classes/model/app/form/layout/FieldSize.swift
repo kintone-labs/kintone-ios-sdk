@@ -1,7 +1,4 @@
-//
-//  FieldSize.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class FieldSize: NSObject, Codable {
     private var width: String?

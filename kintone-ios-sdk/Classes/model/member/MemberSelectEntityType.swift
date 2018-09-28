@@ -1,10 +1,4 @@
-//
-//  MemberSelectEntityType.swift
-//  kintone-ios-sdk
-//
-//  Created by Pham Anh Quoc Phien on 9/19/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public enum MemberSelectEntityType: String, Codable {
     case USER

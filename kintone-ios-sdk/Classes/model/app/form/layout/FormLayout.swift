@@ -1,7 +1,4 @@
-//
-//  FormLayout.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class FormLayout: NSObject, Codable {
     private var revision: String?

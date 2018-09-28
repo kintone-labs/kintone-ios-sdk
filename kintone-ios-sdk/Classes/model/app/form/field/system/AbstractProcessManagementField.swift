@@ -1,7 +1,4 @@
-//
-//  AbstractProcessManagementField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class AbstractProcessManagementField: AbstractSystemField {
     internal var enabled: Bool?

@@ -1,7 +1,4 @@
-//
-//  CalculatedField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class CalculatedField: AbstractInputField {
     private var expression: String?
