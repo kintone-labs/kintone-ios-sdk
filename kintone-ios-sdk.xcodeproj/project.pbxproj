@@ -14,6 +14,7 @@
 		111892BD215012330077A87E /* BulkRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B9215012330077A87E /* BulkRequestModel.swift */; };
 		11B14EF22157E64F00894E37 /* BulkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF12157E64F00894E37 /* BulkRequest.swift */; };
 		11B14EF4215A1ED500894E37 /* BulkRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */; };
+		11B14EFF215DE07800894E37 /* ErrorResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -82,6 +83,7 @@
 		111892B9215012330077A87E /* BulkRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestModel.swift; sourceTree = "<group>"; };
 		11B14EF12157E64F00894E37 /* BulkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequest.swift; sourceTree = "<group>"; };
 		11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestParser.swift; sourceTree = "<group>"; };
+		11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponseParser.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		3E60AFD72150BA600041B02C /* parser */ = {
 			isa = PBXGroup;
 			children = (
+				11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */,
 				3E60AFD82150BAD90041B02C /* Parser.swift */,
 				3E60AFDA2150C1C10041B02C /* RecordParser.swift */,
 				11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */,
@@ -518,6 +521,7 @@
 				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
 				3E60AFD92150BAD90041B02C /* Parser.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
+				11B14EFF215DE07800894E37 /* ErrorResponseParser.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
 				111892BC215012330077A87E /* BulkRequestItem.swift in Sources */,
 				3E60AFD2214A018E0041B02C /* Credential.swift in Sources */,
