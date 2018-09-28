@@ -1,7 +1,4 @@
-//
-//  FormField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class Field: NSObject, Codable {
     internal var code: String = ""

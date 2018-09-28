@@ -1,7 +1,5 @@
-//
-//  GetAppRequest.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
+
 public class GetAppRequest: NSObject, Codable {
     private var id: Int?
     

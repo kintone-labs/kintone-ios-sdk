@@ -1,7 +1,4 @@
-//
-//  TimeField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class TimeField: AbstractInputField {
     internal var defaultValue: String?

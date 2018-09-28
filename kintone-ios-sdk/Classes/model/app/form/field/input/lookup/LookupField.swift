@@ -1,7 +1,4 @@
-//
-//  LookupField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class LookupField: AbstractInputField {
     private var lookup: LookupItem?

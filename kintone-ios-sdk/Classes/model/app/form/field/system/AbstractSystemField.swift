@@ -1,7 +1,4 @@
-//
-//  AbstractSystemField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class AbstractSystemField: Field {
     internal var label: String?

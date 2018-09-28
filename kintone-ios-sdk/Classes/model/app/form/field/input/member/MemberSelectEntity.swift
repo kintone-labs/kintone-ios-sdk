@@ -1,7 +1,4 @@
-//
-//  MemberSelectEntity.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class MemberSelectEntity: NSObject, Codable {
     private var code: String?

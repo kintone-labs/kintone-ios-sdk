@@ -1,7 +1,4 @@
-//
-//  CategoryField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class CategoryField: AbstractSystemField {
     internal var enabled: Bool?

@@ -1,7 +1,4 @@
-//
-//  GetGeneralSettings.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class GetGeneralSettingsRequest: NSObject, Codable {
     private var app: Int?

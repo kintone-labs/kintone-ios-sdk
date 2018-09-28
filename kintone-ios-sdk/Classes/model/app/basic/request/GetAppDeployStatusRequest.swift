@@ -1,7 +1,4 @@
-//
-//  GetAppDeployStatusRequest.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class GetAppDeployStatusRequest: NSObject, Codable {
     private var apps: [Int]?

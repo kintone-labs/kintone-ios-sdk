@@ -1,7 +1,4 @@
-//
-//  ReferenceTable.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class ReferenceTable: NSObject, Codable {
     private var condition: FieldMapping?

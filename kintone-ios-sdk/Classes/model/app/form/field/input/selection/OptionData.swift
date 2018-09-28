@@ -1,7 +1,4 @@
-//
-//  OptionData.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class OptionData: NSObject, Codable {
     internal var index: String

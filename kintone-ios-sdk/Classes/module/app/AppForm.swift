@@ -1,7 +1,4 @@
-//
-//  AppForm.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public protocol AppForm {
     

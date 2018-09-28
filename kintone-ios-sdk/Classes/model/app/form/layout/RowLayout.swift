@@ -1,7 +1,4 @@
-//
-//  RowLayout.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class RowLayout: ItemLayout {
     private var fields: [FieldLayout]?

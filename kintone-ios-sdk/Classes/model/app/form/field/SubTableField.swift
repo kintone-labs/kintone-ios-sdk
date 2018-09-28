@@ -1,7 +1,4 @@
-//
-//  SubTableField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class SubTableField: Field {
     internal var fields: [String: AbstractInputField] = [String: AbstractInputField]();

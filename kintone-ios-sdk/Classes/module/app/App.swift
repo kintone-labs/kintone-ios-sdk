@@ -1,7 +1,4 @@
-//
-//  App.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class App: NSObject {
     var connection: Connection?

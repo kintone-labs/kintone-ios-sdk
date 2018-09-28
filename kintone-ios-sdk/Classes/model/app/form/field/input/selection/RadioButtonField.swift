@@ -1,7 +1,4 @@
-//
-//  RadioButtonField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class RadioButtonField: AbstractSelectionField {
     internal var defaultValue: String?

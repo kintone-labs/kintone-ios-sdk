@@ -1,7 +1,4 @@
-//
-//  AbstractSystemInfoField.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class AbstractSystemInfoField: AbstractSystemField {
     internal var noLabel: Bool?

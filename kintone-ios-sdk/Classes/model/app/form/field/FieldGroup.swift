@@ -1,7 +1,4 @@
-//
-//  FieldGroup.swift
-//  kintone-ios-sdk
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public class FieldGroup: Field {
     internal var label: String?
