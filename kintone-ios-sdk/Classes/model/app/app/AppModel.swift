@@ -51,13 +51,13 @@ public class AppModel: NSObject, Codable {
         return self.appDescription = appDescription
     }
     public func getSpaceId() -> Int? {
-        return Int(self.spaceId!)
+        return Int(self.spaceId != nil ? self.spaceId! : "")
     }
     public func setSpaceId(_ spaceId: Int?) {
         self.spaceId = "\(String(describing: spaceId))"
     }
     public func getThreadId() -> Int? {
-        return Int(self.threadId!)
+        return Int(self.threadId != nil ? self.threadId! : "")
     }
     public func setThreadId(_ threadId: String?) {
         self.threadId = "\(String(describing: threadId))"

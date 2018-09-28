@@ -68,7 +68,7 @@ public class LinkField: AbstractInputField {
     }
    
     public func getMaxLength() -> Int? {
-        return Int(self.maxLength!)
+        return Int(self.maxLength != nil ? self.maxLength! : "")
     }
     
     public func setMaxLength(_ maxLength: String?) {
@@ -76,7 +76,7 @@ public class LinkField: AbstractInputField {
     }
   
     public func getMinLength() -> Int? {
-        return Int(self.minLength!)
+        return Int(self.minLength != nil ? self.minLength! : "")
     }
   
     public func setMinLength(_ minLength: String?) {

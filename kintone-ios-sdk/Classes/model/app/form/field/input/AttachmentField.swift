@@ -28,7 +28,7 @@ public class AttachmentField: AbstractInputField {
     }
     
     public func getThumbnailSize() -> Int? {
-        return Int(self.thumbnailSize!)
+        return Int(self.thumbnailSize != nil ? self.thumbnailSize! : "")
     }
     
     public func setThumbnailSize(_ thumbnailSize: String?) {

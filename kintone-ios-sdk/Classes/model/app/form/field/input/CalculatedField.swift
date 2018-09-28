@@ -79,7 +79,7 @@ public class CalculatedField: AbstractInputField {
     }
    
     public func getDisplayScale() -> Int? {
-        return Int(self.displayScale!)
+        return Int(self.displayScale != nil ? self.displayScale! : "")
     }
     
     public func setDisplayScale(_ displayScale: String?) {

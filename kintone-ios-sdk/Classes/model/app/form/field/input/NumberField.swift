@@ -70,7 +70,7 @@ public class NumberField: AbstractInputField {
     }
     
     public func getDisplayScale() -> Int? {
-        return Int(self.displayScale!)
+        return Int(self.displayScale != nil ? self.displayScale! : "")
     }
     
     public func setDisplayScale(_ displayScale: String?) {
@@ -103,7 +103,7 @@ public class NumberField: AbstractInputField {
     }
     
     public func getMaxValue() -> Int? {
-        return Int(self.maxValue!)
+        return Int(self.maxValue != nil ? self.maxValue! : "")
     }
     
     public func setMaxValue(_ maxValue: String?) {
@@ -111,7 +111,7 @@ public class NumberField: AbstractInputField {
     }
    
     public func getMinValue() -> Int? {
-        return Int(self.minValue!)
+        return Int(self.minValue != nil ? self.minValue! : "")
     }
     
     public func setMinValue(_ minValue: String?) {
