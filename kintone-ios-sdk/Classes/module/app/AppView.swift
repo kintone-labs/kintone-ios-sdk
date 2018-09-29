@@ -38,7 +38,7 @@ public extension AppView where Self: App {
         }
     }
     
-    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?) throws -> UpdateViewsResponse {
+    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int? = -1) throws -> UpdateViewsResponse {
         do {
             let updateViewsRequest = UpdateViewsRequest(app!, views, revision ?? -1)
             let body = try! self.parser.parseObject(updateViewsRequest)
