@@ -7,12 +7,21 @@
 //
 
 /// Response error message which be sent by kintone RestAPI when sending request unsuccessfully.
-public class ErrorResponse: NSObject, Codable {
+public class ErrorResponse: NSObject, Decodable {
     private var message: String?
     private var id: String?
     private var code: String?
-    private var errors: String?
+    private var errors: [String: [String: Array<String>]]?
     
+    enum CodingKeys: String, CodingKey {
+        case message
+        case id
+        case code
+        case errors
+    }
+    
+    public override init() {
+    }
     
     /// Constructor
     ///
@@ -21,23 +30,34 @@ public class ErrorResponse: NSObject, Codable {
     ///   - id: The error ID which is returned from the kintone API
     ///   - code: The error code which is returned from the kintone API
     ///   - errors: Description of error
-    public init(message: String?, id: String?, code: String?, errors: String?){
+    public required init(message: String?, id: String?, code: String?, errors: [String: [String: Array<String>]]?){
         self.message = message
         self.id = id
         self.code = code
         self.errors = errors
     }
     
+    public required init(from decoder: Decoder) throws {
+        do {
+            let parser = ErrorResponseParser()
+            let er = try parser.parseJsonToErrorResponse(decoder)
+            self.message = er.getMessage()
+            self.id = er.getId()
+            self.code = er.getCode()
+            self.errors = er.getErrors()
+        }
+    }
+    
     /// Return error message.
     ///
-    /// - Returns: Description of error
+    /// - Returns: the message of error
     public func getMessage() -> String? {
         return self.message
     }
     
     /// Set error message
     ///
-    /// - Parameter message: Description of error
+    /// - Parameter message: the message of error
     public func setMessage(_ message: String?) {
         self.message = message
     }
@@ -52,7 +72,7 @@ public class ErrorResponse: NSObject, Codable {
     /// Set id for message.
     ///
     /// - Parameter id: The error ID which is returned from the kintone API
-    public func setId(id: String?) {
+    public func setId(_ id: String?) {
         self.id = id
     }
     
@@ -66,21 +86,21 @@ public class ErrorResponse: NSObject, Codable {
     /// Set code for message.
     ///
     /// - Parameter code: Code of message
-    public func setCode(code: String?) {
+    public func setCode(_ code: String?) {
         self.code = code
     }
     
-    /// get the info of error
+    /// get the Description of error
     ///
-    /// - Returns: the info of error
-    public func getErrors() -> String? {
+    /// - Returns: the Description of error
+    public func getErrors() -> [String: [String: Array<String>]]? {
         return self.errors
     }
     
-    /// set the info of error
+    /// set the Description of error
     ///
-    /// - Parameter errors: the info of error
-    public func setErrors(errors: String?) {
+    /// - Parameter errors: the Description of error
+    public func setErrors(_ errors: [String: [String: Array<String>]]?) {
         self.errors = errors
     }
 }

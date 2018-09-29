@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class UpdateRecordStatusRequest: NSObject, Codable {
+internal class UpdateRecordStatusRequest: NSObject, Codable {
     
     private var action: String?
     private var app: Int?
