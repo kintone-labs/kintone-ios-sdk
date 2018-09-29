@@ -64,39 +64,57 @@ public class KintoneAPIException: Error {
     public func toString() -> String? {
         if (self.errorResponse == nil){
             if (self.request == nil || self.errorResponses == nil){
-                return message
+                return self.message
             }
         }
         
         var sb: String = ""
         if (self.errorResponses == nil){
-            if (errorResponse?.getId() != nil){
-                sb.append("id: " + (errorResponse?.getId())!)
+            if (self.errorResponse?.getId() != nil){
+                sb.append("id: " + (self.errorResponse?.getId())!)
             }
-            if (errorResponse?.getCode() != nil){
-                sb.append(", code: " + (errorResponse?.getCode())!)
+            if (self.errorResponse?.getCode() != nil){
+                sb.append(", code: " + (self.errorResponse?.getCode())!)
             }
-            if (errorResponse?.getMessage() != nil){
-                sb.append(", message: " + (errorResponse?.getMessage())!)
+            if (self.errorResponse?.getMessage() != nil){
+                sb.append(", message: " + (self.errorResponse?.getMessage())!)
             }
-            if (errorResponse?.getErrors() != nil){
-                sb.append(", errors: " + (errorResponse?.getErrors())!)
+            if (self.errorResponse?.getErrors() != nil){
+                
+                var sb2: String = ""
+                for (key, value) in (self.errorResponse?.getErrors())! {
+                    for (key2, value2) in value {
+                        let str = value2.joined(separator: "/")
+                        sb2.append("\(key): -> \(key2): -> \(str)")
+                    }
+                }
+                sb.append(", errors: \(sb2)")
             }
         } else {
             var count: Int = 1
-            if (errorResponses != nil) {
-                for errorResponse in errorResponses! {
-                    if (errorResponse.getId() != nil) {
-                        sb.append("api_no: " + String(count))
-                        sb.append(", method: " + (self.request?[count - 1].getMethod())!)
-                        sb.append(", api_name: " + (self.request?[count - 1].getApi())!)
-                        sb.append(", id: " + errorResponse.getId()!)
-                        sb.append(", code: " + errorResponse.getCode()!)
-                        sb.append(", message: " + errorResponse.getMessage()!)
-                        sb.append(", errors: " + errorResponse.getErrors()!)
+            
+            for errorResponse in self.errorResponses! {
+                if (errorResponse.getId() != nil) {
+                    sb.append("api_no: " + String(count))
+                    sb.append(", method: " + (self.request?[count - 1].getMethod())!)
+                    sb.append(", api_name: " + (self.request?[count - 1].getApi())!)
+                    sb.append(", id: " + errorResponse.getId()!)
+                    sb.append(", code: " + errorResponse.getCode()!)
+                    sb.append(", message: " + errorResponse.getMessage()!)
+                    
+                    if (errorResponse.getErrors() != nil){
+                        
+                        var sb2: String = ""
+                        for (key, value) in (errorResponse.getErrors())! {
+                            for (key2, value2) in value {
+                                let str = value2.joined(separator: "/")
+                                sb2.append("\(key) -> \(key2) -> \(str)")
+                            }
+                        }
+                        sb.append(", errors: \(sb2)")
                     }
-                    count += 1
                 }
+                count += 1
             }
         }
         sb.append(", status: \(String(describing: self.httpErrorCode))")

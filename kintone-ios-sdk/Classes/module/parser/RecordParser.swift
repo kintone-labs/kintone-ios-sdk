@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class RecordParser: Parser {
+internal class RecordParser: Parser {
     
     /// Convert Json to AddRecordResponse
     ///

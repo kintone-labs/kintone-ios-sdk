@@ -65,7 +65,7 @@ public class Connection: NSObject {
     ///   - method: rest http method. Only accept "GET", "POST", "PUT", "DELETE" value.
     ///   - apiName: apiName
     ///   - body: json object
-    /// - Returns: Any?
+    /// - Returns: Data
     /// - Throws: KintoneAPIException
     public func request(_ method: String, _ apiName: String, _ body: String) throws -> Data {
         
@@ -115,7 +115,7 @@ public class Connection: NSObject {
     /// This method is execute file download
     ///
     /// - Parameter body: String
-    /// - Returns: Data?
+    /// - Returns: Data
     /// - Throws: KintoneAPIException
     public func downloadFile(_ body: String) throws -> Data {
         
@@ -166,7 +166,7 @@ public class Connection: NSObject {
     /// - Parameters:
     ///   - fileName: String
     ///   - binaryData: Data
-    /// - Returns: Any?
+    /// - Returns: Data
     /// - Throws: KintoneAPIException
     public func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Data {
         
@@ -367,14 +367,24 @@ public class Connection: NSObject {
         
         if (statusCode != 200) {
             if (apiName == ConnectionConstants.BULK_REQUEST){
-                //let responses: Array<ErrorResponse> = (try getErrorResponses(data))!
                 do {
                     if let unWrapResponses: Array<ErrorResponse> = self.getErrorResponses(data) {
-                        let errorResponseList: Array<BulkRequestItem>  = try decoder.decode([BulkRequestItem].self, from: data!)
-                        throw KintoneAPIException(statusCode, errorResponseList, unWrapResponses)
+                        
+                        if let jsonBody = body?.data(using: String.Encoding.utf8) {
+                            let jsonobject = try JSONSerialization.jsonObject(with: jsonBody, options: JSONSerialization.ReadingOptions.allowFragments)
+                            
+                            let jsonArray = (jsonobject as! NSDictionary)["requests"] as! NSArray
+                            let jsonRequest: Data = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
+                            let errorResponseList: Array<BulkRequestItem>  = try decoder.decode([BulkRequestItem].self, from: jsonRequest)
+                            throw KintoneAPIException(statusCode, errorResponseList, unWrapResponses)
+                        } else {
+                            throw KintoneAPIException("http status error(\(String(describing: statusCode)))")
+                        }
                     } else {
-                        throw KintoneAPIException("http status error(\(String(describing: statusCode)))");
+                        throw KintoneAPIException("http status error(\(String(describing: statusCode)))")
                     }
+                } catch {
+                    throw error
                 }
             } else {
                 if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
@@ -399,24 +409,32 @@ public class Connection: NSObject {
                 return errorResponse
             } catch {
                 print("json convert failed in JSONDecoder", error.localizedDescription)
+                return nil
             }
         }
         return nil
     }
     
+    
+    /// Creates an error response list object.
+    ///
+    /// - Parameter data: <#data description#>
+    /// - Returns: <#return value description#>
     private func getErrorResponses(_ data: Data?) -> Array<ErrorResponse>? {
     
         let decoder: JSONDecoder = JSONDecoder()
         
         if let unwrapData = data {
             do {
-                //let parsedData = try JSONSerialization.jsonObject(with: data as! Data, options: .allowFragments)
-                //let dict = parsedData as? NSDictionary
-                //let currentConditions = "\(dict!["results"]!)"
-                let errorResponseList: Array<ErrorResponse>  = try decoder.decode([ErrorResponse].self, from: unwrapData)
+                let parsedData = try JSONSerialization.jsonObject(with: unwrapData, options: .allowFragments)
+                
+                let jsonArray = (parsedData as! NSDictionary)["results"] as! NSArray
+                let target = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
+                let errorResponseList: Array<ErrorResponse>  = try decoder.decode([ErrorResponse].self, from: target)
                 return errorResponseList
             } catch {
                 print("json convert failed in JSONDecoder", error.localizedDescription)
+                return nil
             }
         }
         return nil
