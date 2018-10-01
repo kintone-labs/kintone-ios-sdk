@@ -4,34 +4,18 @@ public class Field: NSObject, Codable {
     internal var code: String = ""
     internal var type: FieldType?
     
-
-    /// get
-    ///
-    /// - Returns: code
     public func getCode() -> String {
         return self.code
     }
     
-    
-    /// <#Description#>
-    ///
-    /// - Parameter code: <#code description#>
     public func setCode(_ code: String) {
         self.code = code;
     }
     
-    
-    /// <#Description#>
-    ///
-    /// - Returns: <#return value description#>
     public func getType() -> FieldType? {
         return self.type
     }
-    
-    
-    /// <#Description#>
-    ///
-    /// - Parameter type: <#type description#>
+   
     public func setType(_ type: FieldType) {
         self.type = type
     }
