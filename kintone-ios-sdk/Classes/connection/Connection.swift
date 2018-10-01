@@ -70,6 +70,12 @@ public class Connection: NSObject {
     public func request(_ method: String, _ apiName: String, _ body: String) throws -> Data {
         
         var urlString: String = ""
+        var isGet = false
+        
+        if (ConnectionConstants.GET_REQUEST == method){
+            isGet = true
+        }
+        
         do {
             urlString = try self.getURL(apiName, nil)
         } catch {
@@ -82,10 +88,16 @@ public class Connection: NSObject {
         //TODO プロキシ設定の追加
         
         request = self.setHTTPHeaders(request)
-        request.httpMethod = ConnectionConstants.POST_REQUEST
+        if (isGet) {
+            request.httpMethod = ConnectionConstants.POST_REQUEST
+        } else {
+            request.httpMethod = method
+        }
         
         request.addValue(JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
-        request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+        if (isGet) {
+            request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+        }
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
@@ -94,7 +106,6 @@ public class Connection: NSObject {
         let (data, response, error) = self.execute(session, request)
         
         if (error != nil){
-            print(error!)
             return Data.init()
         }
         if (data != nil || response != nil){
@@ -269,7 +280,11 @@ public class Connection: NSObject {
         sb.append(unwrappedDomain)
         
         var urlString: String = ConnectionConstants.BASE_URL
-        
+        if (self.guestSpaceID != nil){
+            if (self.guestSpaceID! >= 0) {
+                urlString = ConnectionConstants.BASE_GUEST_URL.replacingOccurrences(of: "{GUEST_SPACE_ID}", with: String(self.guestSpaceID!) + "")
+            }
+        }
         urlString = urlString.replacingOccurrences(of: "{API_NAME}", with: unwrappedApiName)
         
         sb.append(urlString)
@@ -296,6 +311,16 @@ public class Connection: NSObject {
                 }
             }
         }
+        
+        request.addValue(ConnectionConstants.USER_AGENT_KEY, forHTTPHeaderField: self.userAgent)
+        for header in self.headers {
+            if let unwrap_getvalue = header.getValue() {
+                if let unwrap_getKey = header.getKey() {
+                    request.addValue(unwrap_getvalue, forHTTPHeaderField: unwrap_getKey)
+                }
+            }
+        }
+        
         return request
     }
     
@@ -356,7 +381,7 @@ public class Connection: NSObject {
         if (statusCode == 404) {
             if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
                 throw KintoneAPIException(statusCode, unWrapResponse)
-            }else{
+            } else {
                 throw KintoneAPIException("not found")
             }
         }
@@ -389,7 +414,7 @@ public class Connection: NSObject {
             } else {
                 if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
                     throw KintoneAPIException(statusCode, unWrapResponse)
-                }else{
+                } else {
                     throw KintoneAPIException("http status error(\(String(statusCode!)))")
                 }
             }
@@ -408,7 +433,6 @@ public class Connection: NSObject {
                 let errorResponse: ErrorResponse  = try decoder.decode(ErrorResponse.self, from: unwrapData)
                 return errorResponse
             } catch {
-                print("json convert failed in JSONDecoder", error.localizedDescription)
                 return nil
             }
         }
@@ -433,7 +457,6 @@ public class Connection: NSObject {
                 let errorResponseList: Array<ErrorResponse>  = try decoder.decode([ErrorResponse].self, from: target)
                 return errorResponseList
             } catch {
-                print("json convert failed in JSONDecoder", error.localizedDescription)
                 return nil
             }
         }
