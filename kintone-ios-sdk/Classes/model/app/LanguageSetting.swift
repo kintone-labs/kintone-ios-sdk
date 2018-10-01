@@ -1,10 +1,4 @@
-//
-//  LanguageSetting.swift
-//  kintone-ios-sdk
-//
-//  Created by h001218 on 2018/09/14.
-//  Copyright © 2018年 Cybozu. All rights reserved.
-//
+// Copyright (c) 2018 Cybozu, Inc.
 
 public enum LanguageSetting: String, Codable {
     case DEFAULT = "default"
