@@ -13,12 +13,12 @@
 		111892BC215012330077A87E /* BulkRequestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B8215012330077A87E /* BulkRequestItem.swift */; };
 		111892BD215012330077A87E /* BulkRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B9215012330077A87E /* BulkRequestModel.swift */; };
 		11B14EF22157E64F00894E37 /* BulkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF12157E64F00894E37 /* BulkRequest.swift */; };
+		11B14EF4215A1ED500894E37 /* BulkRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */; };
+		11B14EFF215DE07800894E37 /* ErrorResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */; };
 		129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
 		129CB2AE215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */; };
-		11B14EF4215A1ED500894E37 /* BulkRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */; };
-		11B14EFF215DE07800894E37 /* ErrorResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,6 +153,8 @@
 		A88FEEBD2159DE7600A7E838 /* MemberSelectEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEEBC2159DE7500A7E838 /* MemberSelectEntityType.swift */; };
 		AB59F5C72150EFCD00BCD0EE /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */; };
 		ABAD53382151E68C00D75939 /* AuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */; };
+		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
+		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,11 +174,11 @@
 		111892B8215012330077A87E /* BulkRequestItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestItem.swift; sourceTree = "<group>"; };
 		111892B9215012330077A87E /* BulkRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestModel.swift; sourceTree = "<group>"; };
 		11B14EF12157E64F00894E37 /* BulkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequest.swift; sourceTree = "<group>"; };
+		11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestParser.swift; sourceTree = "<group>"; };
+		11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponseParser.swift; sourceTree = "<group>"; };
 		129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutRequest.swift; sourceTree = "<group>"; };
 		129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateFormFieldsRequest.swift; sourceTree = "<group>"; };
 		129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsRequest.swift; sourceTree = "<group>"; };
-		11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestParser.swift; sourceTree = "<group>"; };
-		11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponseParser.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -315,6 +317,8 @@
 		AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
 		AB59F5CA2150F36A00BCD0EE /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
+		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +454,7 @@
 		3E25BF86213F63AC00ABBB13 /* module */ = {
 			isa = PBXGroup;
 			children = (
+				DD6291D32164904D0060231D /* File */,
 				A88FEEA92159DDC300A7E838 /* app */,
 				11B14EF02157E5BE00894E37 /* bulkrequest */,
 				3E60AFD72150BA600041B02C /* parser */,
@@ -557,6 +562,7 @@
 		3E9BF95B2146569F000F8B9D /* file */ = {
 			isa = PBXGroup;
 			children = (
+				DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */,
 				3E9BF95C214656D4000F8B9D /* FileModel.swift */,
 			);
 			path = file;
@@ -803,6 +809,14 @@
 			path = form;
 			sourceTree = "<group>";
 		};
+		DD6291D32164904D0060231D /* File */ = {
+			isa = PBXGroup;
+			children = (
+				DD0C0B4B21649FCD003F9A6C /* File.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -950,6 +964,7 @@
 				A88FEE2F2159DD8B00A7E838 /* AppDeployStatus.swift in Sources */,
 				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
 				A88FEEB32159DDC300A7E838 /* AppCustomization.swift in Sources */,
+				DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */,
 				A88FEE902159DD9E00A7E838 /* FieldLayout.swift in Sources */,
 				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
 				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
@@ -1045,6 +1060,7 @@
 				3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */,
 				A88FEEA82159DD9E00A7E838 /* FormFields.swift in Sources */,
 				A88FEE742159DD9E00A7E838 /* FieldMapping.swift in Sources */,
+				DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */,
 				3EFD812F21420FC900A1499F /* Member.swift in Sources */,
 				3E60AFEA2151E2890041B02C /* DeleteCommentRecordRequest.swift in Sources */,
 				A88FEE832159DD9E00A7E838 /* DateTimeField.swift in Sources */,
