@@ -16,7 +16,7 @@ internal class AddRecordRequest: NSObject, Codable {
     /// - Parameters:
     ///   - app: the ID of kintone app
     ///   - record: the record data which will add to kintone app
-    public init(_ app: Int?, _ record: [String: FieldValue]) {
+    public init(_ app: Int?, _ record: [String: FieldValue]?) {
         self.app = app
         self.record = record
     }
