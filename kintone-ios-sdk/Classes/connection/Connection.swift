@@ -406,7 +406,11 @@ public class Connection: NSObject {
                             throw KintoneAPIException("http status error(\(String(describing: statusCode)))")
                         }
                     } else {
-                        throw KintoneAPIException("http status error(\(String(describing: statusCode)))")
+                        if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
+                            throw KintoneAPIException(statusCode, unWrapResponse)
+                        } else {
+                            throw KintoneAPIException("http status error(\(String(describing: statusCode)))")
+                        }
                     }
                 } catch {
                     throw error
@@ -452,10 +456,14 @@ public class Connection: NSObject {
             do {
                 let parsedData = try JSONSerialization.jsonObject(with: unwrapData, options: .allowFragments)
                 
-                let jsonArray = (parsedData as! NSDictionary)["results"] as! NSArray
-                let target = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
-                let errorResponseList: Array<ErrorResponse>  = try decoder.decode([ErrorResponse].self, from: target)
-                return errorResponseList
+                if let unwrapJsonArray = (parsedData as! NSDictionary)["results"] {
+                    let jsonArray = unwrapJsonArray as! NSArray
+                    let target = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
+                    let errorResponseList: Array<ErrorResponse>  = try decoder.decode([ErrorResponse].self, from: target)
+                    return errorResponseList
+                } else {
+                    return nil
+                }
             } catch {
                 return nil
             }
