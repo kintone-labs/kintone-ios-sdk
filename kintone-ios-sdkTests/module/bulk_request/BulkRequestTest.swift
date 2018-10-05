@@ -10,13 +10,9 @@ import XCTest
 @testable import kintone_ios_sdk
 
 class BulkRequestTest: XCTestCase {
-    
-    private let DOMAIN = "https://syscon.cybozu.com"
+
     private let USERNAME = "hiroyuki-sekiyama"
     private let PASSWORD = "2`G`ZadF"
-    private let PROXY_HOST = "10.224.136.41"
-    private let PROXY_PORT = 3128
-    
     private let APP_ID = 1678
     
     private var bulkRequest: BulkRequest? = nil
@@ -28,7 +24,7 @@ class BulkRequestTest: XCTestCase {
         
         var auth = Auth.init()
         auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
-        self.connection = Connection(self.DOMAIN, auth)
+        self.connection = Connection(TestsConstants.DOMAIN, auth)
         self.bulkRequest = BulkRequest(self.connection!)
     }
     
@@ -1133,4 +1129,3 @@ class BulkRequestTest: XCTestCase {
         }
     }
 }
- 
