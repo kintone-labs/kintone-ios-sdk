@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-class File: NSObject{
+public class File: NSObject{
     private var connection: Connection
     private let parser = Parser()
     
@@ -25,8 +25,11 @@ class File: NSObject{
     /// - Throws: KintoneAPIException
     public func upload(_ filePath: String) throws -> FileModel {
         do{
-        let response = try self.connection.uploadFile(filePath, )
-        return try self.parser.parseJson(FileModel.self, response)
+            let targetFilePath = URL(string: filePath)!
+            let fileData: Data = try Data(contentsOf: targetFilePath)
+            
+            let response = try self.connection.uploadFile(targetFilePath.lastPathComponent, fileData)
+            return try self.parser.parseJson(FileModel.self, response)
         }
     }
     
@@ -39,10 +42,12 @@ class File: NSObject{
     /// - Throws: KintoneAPIException
     public func download(_ filekey: String, _ outPutFilePath: String) throws {
         do{
-        let request = DownloadRequest(filekey)
-        let body = try self.parser.parseObject(request)
-        let jsonBody = String(data: body, encoding: .utf8)
-            try self.connection.downloadFile(jsonBody!)
+            let request = DownloadRequest(filekey)
+            let body = try self.parser.parseObject(request)
+            let jsonBody = String(data: body, encoding: .utf8)
+            let fileData = try self.connection.downloadFile(jsonBody!)
+            
+            try fileData.write(to: URL(string: outPutFilePath)!, options: .atomic)
         }
     }
     

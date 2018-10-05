@@ -7,14 +7,14 @@
 //
 
 public class DownloadRequest: NSObject, Codable {
-    private var filekey: String
+    private var fileKey: String
     
     /// Constructor
     ///
     /// - Parameters:
     ///   - filekey
     public init(_ filekey: String){
-     self.filekey = filekey
+     self.fileKey = filekey
     }
     
 }
