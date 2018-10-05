@@ -23,5 +23,7 @@ public class RecordUpdateItem: NSObject, Codable {
     public init(_ id: Int?, _ revision: Int?, _ updateKey: RecordUpdateKey?, _ record: [String:FieldValue]?) {
         self.id = id
         self.revision = revision
+        self.updateKey = updateKey
+        self.record = record
     }
 }

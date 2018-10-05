@@ -26,7 +26,7 @@ public class BulkRequest: NSObject {
     ///   - record: The record data which will add to kintone app
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func addRecord(_ app: Int, _ record: [String: FieldValue]) throws -> BulkRequest {
+    public func addRecord(_ app: Int, _ record: [String: FieldValue]?) throws -> BulkRequest {
         let addRecordRequest: AddRecordRequest = AddRecordRequest(app, record)
         do {
             let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.POST_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), addRecordRequest as Any)
@@ -46,9 +46,9 @@ public class BulkRequest: NSObject {
     ///   - records: The records data which will add to kintone app
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func addRecords(_ app: Int, _ records: Array<[String: FieldValue]>) throws -> BulkRequest {
+    public func addRecords(_ app: Int, _ records: Array<[String: FieldValue]?>) throws -> BulkRequest {
         
-        var tempRecords: Array<[String: FieldValue]> = []
+        var tempRecords: Array<[String: FieldValue]?> = []
         for record in records {
             tempRecords.append(record)
         }
@@ -74,7 +74,7 @@ public class BulkRequest: NSObject {
     ///   - revision: The expected revision number.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecordByID(_ app: Int, _ id: Int, _ record: [String: FieldValue], _ revision: Int?) throws -> BulkRequest {
+    public func updateRecordByID(_ app: Int, _ id: Int, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
         let updateRecordRequest: UpdateRecordRequest = UpdateRecordRequest(app, id, nil, revision, record)
         do {
             let bulkRequestItem: BulkRequestItem  = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest as Any)
@@ -96,7 +96,7 @@ public class BulkRequest: NSObject {
     ///   - revision: The expected revision number.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String: FieldValue], _ revision: Int?) throws -> BulkRequest {
+    public func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
         let updateRecordRequest: UpdateRecordRequest  = UpdateRecordRequest(app, nil, updateKey, revision, record)
         do {
             let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest)
@@ -268,7 +268,7 @@ public class BulkRequest: NSObject {
             
             var count: Int = 0
             for request in requests {
-                let jsonRequest: Data = try JSONSerialization.data(withJSONObject: jsonArray[count], options: [])
+                let jsonResponse: Data = try JSONSerialization.data(withJSONObject: jsonArray[count], options: [])
                 
                 var apiName: NSString = request.getApi()! as NSString
                 let regex = try NSRegularExpression(pattern: "/v1/(.*).json", options: NSRegularExpression.Options())
@@ -281,35 +281,35 @@ public class BulkRequest: NSObject {
                 
                 switch (apiName as String) + ":" + request.getMethod()! {
                     case "\(ConnectionConstants.RECORD):\(ConnectionConstants.POST_REQUEST)":
-                        let res: AddRecordResponse = try parser.parseJson(AddRecordResponse.self, jsonRequest)
+                        let res: AddRecordResponse = try parser.parseJson(AddRecordResponse.self, jsonResponse)
                         responses.addResponse(res)
                         break
                     case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.POST_REQUEST)":
-                        let res: AddRecordsResponse = try parser.parseJson(AddRecordsResponse.self, jsonRequest)
+                        let res: AddRecordsResponse = try parser.parseJson(AddRecordsResponse.self, jsonResponse)
                         responses.addResponse(res)
                         break
                     case "\(ConnectionConstants.RECORD):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordRequest = try parser.parseJson(UpdateRecordRequest.self, jsonRequest)
+                        let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
                         responses.addResponse(res)
                         break
                     case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordsRequest = try parser.parseJson(UpdateRecordsRequest.self, jsonRequest)
+                        let res: UpdateRecordsResponse = try parser.parseJson(UpdateRecordsResponse.self, jsonResponse)
                         responses.addResponse(res)
                         break
                     case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.DELETE_REQUEST)":
-                        let res: DeleteRecordsRequest = try parser.parseJson(DeleteRecordsRequest.self, jsonRequest)
+                        let res: [String: String] = try parser.parseJson([String: String].self, jsonResponse)
                         responses.addResponse(res)
                         break
                     case "\(ConnectionConstants.RECORD_STATUS):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordStatusRequest = try parser.parseJson(UpdateRecordStatusRequest.self, jsonRequest)
+                        let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
                         responses.addResponse(res)
                         break
                     case "\(ConnectionConstants.RECORDS_STATUS):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordsStatusRequest = try parser.parseJson(UpdateRecordsStatusRequest.self, jsonRequest)
+                        let res: UpdateRecordsResponse = try parser.parseJson(UpdateRecordsResponse.self, jsonResponse)
                         responses.addResponse(res)
                         break
                     case "\(ConnectionConstants.RECORD_ASSIGNEES):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordAssigneesRequest = try parser.parseJson(UpdateRecordAssigneesRequest.self, jsonRequest)
+                        let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
                         responses.addResponse(res)
                         break
                     default:

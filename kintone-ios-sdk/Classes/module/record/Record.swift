@@ -65,7 +65,7 @@ public class Record: NSObject {
     ///   - record: the record data which will add to kintone app
     /// - Returns: AddRecordResponse
     /// - Throws: KintoneAPIException
-    public func addRecord(_ app: Int, _ record: [String:FieldValue]) throws -> AddRecordResponse {
+    public func addRecord(_ app: Int, _ record: [String:FieldValue]?) throws -> AddRecordResponse {
         do {
             // execute POST RECORD API
             let recordRequest = AddRecordRequest(app, record)
