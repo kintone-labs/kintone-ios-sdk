@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-internal class AddCommentRecordRequest: NSObject, Codable {
+public class AddCommentRecordRequest: NSObject, Codable {
     
     private var app: Int?
     private var record: Int?
