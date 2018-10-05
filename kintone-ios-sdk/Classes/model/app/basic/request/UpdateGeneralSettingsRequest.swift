@@ -38,7 +38,7 @@ public class UpdateGeneralSettingsRequest: GeneralSettings {
         self.setRevision(revision)
     }
     
-    required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         super.init()
     }
     
