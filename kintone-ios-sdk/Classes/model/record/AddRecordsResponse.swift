@@ -37,7 +37,7 @@ public class AddRecordsResponse: NSObject, Codable {
     ///
     /// - Returns: the array of revision numbers
     public func getRevisions() -> [Int]? {
-        return self.ids
+        return self.revisions
     }
     
     public func setRevisions(_ revisions: [Int]) {

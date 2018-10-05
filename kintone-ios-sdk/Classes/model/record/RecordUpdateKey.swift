@@ -16,7 +16,7 @@ public class RecordUpdateKey: NSObject, Codable {
     /// - Parameters:
     ///   - field: the field code of unique key in the kintone app
     ///   - value: the field value in the record
-    public init(field: String?, value: String?) {
+    public init(_ field: String?, _ value: String?) {
         self.field = field
         self.value = value
     }
