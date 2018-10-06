@@ -87,21 +87,31 @@ public protocol AppApp {
 
 public extension AppApp where Self: App {
     private func _getAppsBy(ids idsOpt: [Int]? = nil, codes codesOpt: [String]? = nil, name nameOpt: String? = nil, spaceIds spaceIdsOpt: [Int]? = nil, offset offsetOpt: Int? = 0, limit limitOpt: Int? = 100) throws -> Array<AppModel> {
-        let getAppsRequest = GetAppsRequest(ids: idsOpt, codes: codesOpt, name: nameOpt, spaceIds:spaceIdsOpt, offset: offsetOpt, limit: limitOpt)
-        let body = try! parser.parseObject(getAppsRequest)
-        let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-        let response = try! self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APPS, jsonBody)
-        let apps = try parser.parseJson(GetAppsResponse.self, response!)
-        return apps.getApps()!
+        do {
+            let getAppsRequest = GetAppsRequest(ids: idsOpt, codes: codesOpt, name: nameOpt, spaceIds:spaceIdsOpt, offset: offsetOpt, limit: limitOpt)
+            let body = try parser.parseObject(getAppsRequest)
+            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APPS, jsonBody)
+            let apps = try parser.parseJson(GetAppsResponse.self, response!)
+            return apps.getApps()!
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
+        }
     }
     
     func getApp(_ appId: Int?) throws -> AppModel {
         do {
             let getAppRequest = GetAppRequest(appId)
-            let body = try! parser.parseObject(getAppRequest)
+            let body = try parser.parseObject(getAppRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try! self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody)
+            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody)
             return try parser.parseJson(AppModel.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -138,31 +148,43 @@ public extension AppApp where Self: App {
     func addPreviewApp(_ name: String?, _ space: Int? = nil, _ thread: Int? = nil) throws -> AddPreviewAppResponse {
         do {
             let addPreviewAppRequest = AddPreviewAppRequest(name: name, space: space, thread: thread)
-            let body = try! parser.parseObject(addPreviewAppRequest)
+            let body = try parser.parseObject(addPreviewAppRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try! self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_PREVIEW, jsonBody)
+            let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_PREVIEW, jsonBody)
             let app = try parser.parseJson(AddPreviewAppResponse.self, response!)
             return app
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
     func deployAppSettings(_ apps: Array<AddPreviewAppResponse>?, _ revert: Bool? = nil) throws {
         do {
             let deployAppSettingsRequest = DeployAppSettingsRequest(apps)
-            let body = try! parser.parseObject(deployAppSettingsRequest)
+            let body = try parser.parseObject(deployAppSettingsRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            _ = try! self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
+            _ = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
     func getAppDeployStatus(_ apps: [Int]?) throws -> GetAppDeployStatusResponse {
         do {
             let deployStatusRequest = GetAppDeployStatusRequest(apps)
-            let body = try! parser.parseObject(deployStatusRequest)
+            let body = try parser.parseObject(deployStatusRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try! self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
+            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody)
             let status = try parser.parseJson(GetAppDeployStatusResponse.self, response!)
             return status
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
 }
