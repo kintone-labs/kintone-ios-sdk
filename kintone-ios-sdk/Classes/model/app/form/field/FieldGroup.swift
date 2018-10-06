@@ -23,25 +23,33 @@ public class FieldGroup: Field {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: FieldGroupCodingKeys.self)
-        self.label = try container.decode(String.self, forKey: FieldGroupCodingKeys.label)
-        self.noLabel = try container.decode(Bool.self, forKey: FieldGroupCodingKeys.noLabel)
-        self.openGroup = try container.decode(Bool.self, forKey: FieldGroupCodingKeys.openGroup)
-        try super.init(from: decoder)
+        do {
+            let container = try decoder.container(keyedBy: FieldGroupCodingKeys.self)
+            self.label = try container.decode(String.self, forKey: FieldGroupCodingKeys.label)
+            self.noLabel = try container.decode(Bool.self, forKey: FieldGroupCodingKeys.noLabel)
+            self.openGroup = try container.decode(Bool.self, forKey: FieldGroupCodingKeys.openGroup)
+            try super.init(from: decoder)
+        } catch {
+            throw KintoneAPIException("Parse error")
+        }
     }
     
     override public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: FieldGroupCodingKeys.self)
-        if(self.label != nil){
-            try container.encode(self.label, forKey: FieldGroupCodingKeys.label)
+        do {
+            var container = encoder.container(keyedBy: FieldGroupCodingKeys.self)
+            if(self.label != nil){
+                try container.encode(self.label, forKey: FieldGroupCodingKeys.label)
+            }
+            if(self.noLabel != nil){
+                try container.encode(self.noLabel, forKey: FieldGroupCodingKeys.noLabel)
+            }
+            if(self.openGroup != nil){
+                try container.encode(self.openGroup, forKey: FieldGroupCodingKeys.openGroup)
+            }
+            try super.encode(to: encoder)
+        } catch {
+            throw KintoneAPIException("Encode error")
         }
-        if(self.noLabel != nil){
-            try container.encode(self.noLabel, forKey: FieldGroupCodingKeys.noLabel)
-        }
-        if(self.openGroup != nil){
-            try container.encode(self.openGroup, forKey: FieldGroupCodingKeys.openGroup)
-        }
-        try super.encode(to: encoder)
     }
     
     public func getLabel() -> String? {

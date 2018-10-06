@@ -71,13 +71,15 @@ public extension AppForm where Self: App {
     {
         do {
             let getFormFieldsRequest = GetFormFieldsRequest(app!, lang!)
-            let body = try! self.parser.parseObject(getFormFieldsRequest)
+            let body = try self.parser.parseObject(getFormFieldsRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
             let url = (isPreview! ? ConnectionConstants.APP_FIELDS_PREVIEW : ConnectionConstants.APP_FIELDS)
             let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody)
             return try self.parser.parseJson(FormFields.self, response!)
         } catch let error as KintoneAPIException {
             throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -85,7 +87,7 @@ public extension AppForm where Self: App {
     {
         do {
             let addFormFieldsRequest = AddUpdateFormFieldsRequest(app, fields, revision)
-            let body = try! self.parser.parseObject(addFormFieldsRequest)
+            let body = try self.parser.parseObject(addFormFieldsRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
             let url = ConnectionConstants.APP_FIELDS_PREVIEW
             let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, url, jsonBody)
@@ -93,6 +95,8 @@ public extension AppForm where Self: App {
             return basicResponse
         } catch let error as KintoneAPIException {
             throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -100,7 +104,7 @@ public extension AppForm where Self: App {
     {
         do {
             let updateFormFields = AddUpdateFormFieldsRequest(app, fields, revision)
-            let body = try! self.parser.parseObject(updateFormFields)
+            let body = try self.parser.parseObject(updateFormFields)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
             let url = ConnectionConstants.APP_FIELDS_PREVIEW
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, url, jsonBody)
@@ -108,6 +112,8 @@ public extension AppForm where Self: App {
             return basicResponse
         } catch let error as KintoneAPIException {
             throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -115,7 +121,7 @@ public extension AppForm where Self: App {
     {
         do {
             let deleteFormFields = DeleteFormFieldsRequest(app, fields, revision)
-            let body = try! self.parser.parseObject(deleteFormFields)
+            let body = try self.parser.parseObject(deleteFormFields)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
             let url = ConnectionConstants.APP_FIELDS_PREVIEW
             let response = try self.connection?.request(ConnectionConstants.DELETE_REQUEST, url, jsonBody)
@@ -123,6 +129,8 @@ public extension AppForm where Self: App {
             return basicResponse
         } catch let error as KintoneAPIException {
             throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -130,14 +138,15 @@ public extension AppForm where Self: App {
     {
         do {
             let getFormLayoutRequest = GetFormLayoutRequest(app!)
-            let body = try! self.parser.parseObject(getFormLayoutRequest)
+            let body = try self.parser.parseObject(getFormLayoutRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            
             let url = (isPreview! ? ConnectionConstants.APP_LAYOUT_PREVIEW : ConnectionConstants.APP_LAYOUT)
             let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody)
             return try self.parser.parseJson(FormLayout.self, response!)
         } catch let error as KintoneAPIException {
             throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -145,13 +154,15 @@ public extension AppForm where Self: App {
     {
         do {
             let updateFormLayoutRequest = UpdateFormLayoutRequest(app!, layout!, revision!)
-            let body = try! parser.parseObject(updateFormLayoutRequest)
+            let body = try parser.parseObject(updateFormLayoutRequest)
             let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try! self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody)
+            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody)
             let basicResponse = try parser.parseJson(BasicResponse.self, response!)
             return basicResponse
         } catch let error as KintoneAPIException {
             throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
 }

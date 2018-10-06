@@ -23,35 +23,43 @@ public class LookupItem: NSObject, Codable {
     }
     
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: LookupItemCodingKeys.self)
-        self.fieldMappings = try container.decode([FieldMapping].self, forKey: LookupItemCodingKeys.fieldMappings)
-        self.filterCond = try container.decode(String.self, forKey: LookupItemCodingKeys.filterCond)
-        self.lookupPickerFields = try container.decode([String].self, forKey: LookupItemCodingKeys.lookupPickerFields)
-        self.relatedApp = try container.decode(RelatedApp.self, forKey: LookupItemCodingKeys.relatedApp)
-        self.relatedKeyField = try container.decode(String.self, forKey: LookupItemCodingKeys.relatedKeyField)
-        self.sort = try container.decode(String.self, forKey: LookupItemCodingKeys.sort)
-        super.init()
+        do {
+            let container = try decoder.container(keyedBy: LookupItemCodingKeys.self)
+            self.fieldMappings = try container.decode([FieldMapping].self, forKey: LookupItemCodingKeys.fieldMappings)
+            self.filterCond = try container.decode(String.self, forKey: LookupItemCodingKeys.filterCond)
+            self.lookupPickerFields = try container.decode([String].self, forKey: LookupItemCodingKeys.lookupPickerFields)
+            self.relatedApp = try container.decode(RelatedApp.self, forKey: LookupItemCodingKeys.relatedApp)
+            self.relatedKeyField = try container.decode(String.self, forKey: LookupItemCodingKeys.relatedKeyField)
+            self.sort = try container.decode(String.self, forKey: LookupItemCodingKeys.sort)
+            super.init()
+        } catch {
+            throw KintoneAPIException("Encode error")
+        }
     }
     
     public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: LookupItemCodingKeys.self)
-        if(self.fieldMappings.count > 0){
-            try container.encode(self.fieldMappings, forKey: LookupItemCodingKeys.fieldMappings)
-        }
-        if(self.filterCond != nil){
-            try container.encode(self.filterCond, forKey: LookupItemCodingKeys.filterCond)
-        }
-        if(self.lookupPickerFields.count > 0){
-            try container.encode(self.lookupPickerFields, forKey: LookupItemCodingKeys.lookupPickerFields)
-        }
-        if(self.relatedApp != nil){
-            try container.encode(self.relatedApp, forKey: LookupItemCodingKeys.relatedApp)
-        }
-        if(self.relatedKeyField != nil){
-            try container.encode(self.relatedKeyField, forKey: LookupItemCodingKeys.relatedKeyField)
-        }
-        if(self.sort != nil){
-            try container.encode(self.sort, forKey: LookupItemCodingKeys.sort)
+        do {
+            var container = encoder.container(keyedBy: LookupItemCodingKeys.self)
+            if(self.fieldMappings.count > 0){
+                try container.encode(self.fieldMappings, forKey: LookupItemCodingKeys.fieldMappings)
+            }
+            if(self.filterCond != nil){
+                try container.encode(self.filterCond, forKey: LookupItemCodingKeys.filterCond)
+            }
+            if(self.lookupPickerFields.count > 0){
+                try container.encode(self.lookupPickerFields, forKey: LookupItemCodingKeys.lookupPickerFields)
+            }
+            if(self.relatedApp != nil){
+                try container.encode(self.relatedApp, forKey: LookupItemCodingKeys.relatedApp)
+            }
+            if(self.relatedKeyField != nil){
+                try container.encode(self.relatedKeyField, forKey: LookupItemCodingKeys.relatedKeyField)
+            }
+            if(self.sort != nil){
+                try container.encode(self.sort, forKey: LookupItemCodingKeys.sort)
+            }
+        } catch {
+            throw KintoneAPIException("Parse error")
         }
     }
     
