@@ -34,6 +34,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody)
             // return response as GetRecordResponse class
             return try self.parser.parseJson(GetRecordResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -55,6 +59,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORDS, jsonBody)
             // return response as GetRecordsResponse class
             return try self.parser.parseJson(GetRecordsResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -74,6 +82,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
             // return response as AddRecordResponse class
             return try self.parser.parseJson(AddRecordResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -93,6 +105,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
             // return response as AddRecordsResponse class
             return try self.parser.parseJson(AddRecordsResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -114,6 +130,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!)
             // return response as UpdateRecordResponse class
             return try self.parser.parseJson(UpdateRecordResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -135,6 +155,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!)
             // return response as UpdateRecordResponse class
             return try self.parser.parseJson(UpdateRecordResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -154,6 +178,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
             // return response as UpdateRecordsResponse class
             return try self.parser.parseJson(UpdateRecordsResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -170,6 +198,10 @@ public class Record: NSObject {
             let body = try self.parser.parseObject(recordRequest)
             let jsonBody = String(data: body, encoding: .utf8)
             try self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -193,6 +225,10 @@ public class Record: NSObject {
             let body = try self.parser.parseObject(recordRequest)
             let jsonBody = String(data: body, encoding: .utf8)
             try self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -214,6 +250,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_ASSIGNEES, jsonBody!)
             // return response as UpdateRecordResponse class
             return try self.parser.parseJson(UpdateRecordResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -236,6 +276,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_STATUS, jsonBody!)
             // return response as UpdateRecordResponse class
             return try self.parser.parseJson(UpdateRecordResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -255,6 +299,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS_STATUS, jsonBody!)
             // return response as UpdateRecordsResponse class
             return try self.parser.parseJson(UpdateRecordsResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -277,6 +325,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD_COMMENTS, jsonBody!)
             // return response as GetCommentsResponse class
             return try self.parser.parseJson(GetCommentsResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -297,6 +349,10 @@ public class Record: NSObject {
             let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody!)
             // return response as AddCommentResponse class
             return try self.parser.parseJson(AddCommentResponse.self, response!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -314,6 +370,10 @@ public class Record: NSObject {
             let body = try self.parser.parseObject(recordRequest)
             let jsonBody = String(data: body, encoding: .utf8)
             try self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody!)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
 }
