@@ -25,7 +25,7 @@ class GetViewsTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGetViewsSuccess() {
+    func testGetPreLiveAppViewsSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let isPreview: Bool = true
@@ -52,7 +52,7 @@ class GetViewsTest: XCTestCase {
         XCTAssertEqual(fieldsViewsExpected, viewEntry?.getFields()!)
     }
     
-    func testGetViewsFailWhenAppIDNotExist() {
+    func testGetPreLiveAppViewsFailWhenAppIDNotExist() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let appId: Int = 99999
