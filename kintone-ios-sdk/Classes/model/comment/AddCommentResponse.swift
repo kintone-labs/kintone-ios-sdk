@@ -30,5 +30,13 @@ public class AddCommentResponse: NSObject, Codable {
     public func setId(_ id: Int) {
         self.id = id
     }
+    
+    public required init(from decoder: Decoder) throws {
+        do {
+            let parser = RecordParser()
+            let response = try parser.parseJsonToAddCommentResponse(decoder)
+            self.id = response.getId()
+        }
+    }
 
 }

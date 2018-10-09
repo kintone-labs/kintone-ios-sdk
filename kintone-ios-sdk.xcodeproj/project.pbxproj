@@ -153,6 +153,7 @@
 		A88FEEB92159DDC300A7E838 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEEB12159DDC300A7E838 /* App.swift */; };
 		A88FEEBB2159DDCF00A7E838 /* AppParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEEBA2159DDCF00A7E838 /* AppParser.swift */; };
 		A88FEEBD2159DE7600A7E838 /* MemberSelectEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEEBC2159DE7500A7E838 /* MemberSelectEntityType.swift */; };
+		AB4D643521670A22005807C1 /* RecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D643421670A22005807C1 /* RecordTest.swift */; };
 		AB59F5C72150EFCD00BCD0EE /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */; };
 		ABAD53382151E68C00D75939 /* AuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */; };
 /* End PBXBuildFile section */
@@ -316,6 +317,7 @@
 		A88FEEB12159DDC300A7E838 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A88FEEBA2159DDCF00A7E838 /* AppParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppParser.swift; sourceTree = "<group>"; };
 		A88FEEBC2159DE7500A7E838 /* MemberSelectEntityType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSelectEntityType.swift; sourceTree = "<group>"; };
+		AB4D643421670A22005807C1 /* RecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTest.swift; sourceTree = "<group>"; };
 		AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
 		AB59F5CA2150F36A00BCD0EE /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		110578E521620B9300F6E8C0 /* module */ = {
 			isa = PBXGroup;
 			children = (
+				AB4D6433216709E5005807C1 /* record */,
 				110578E621620B9300F6E8C0 /* bulk_request */,
 			);
 			path = module;
@@ -797,6 +800,14 @@
 			path = app;
 			sourceTree = "<group>";
 		};
+		AB4D6433216709E5005807C1 /* record */ = {
+			isa = PBXGroup;
+			children = (
+				AB4D643421670A22005807C1 /* RecordTest.swift */,
+			);
+			path = record;
+			sourceTree = "<group>";
+		};
 		AB59F5C82150F29900BCD0EE /* app */ = {
 			isa = PBXGroup;
 			children = (
@@ -1086,6 +1097,7 @@
 			files = (
 				110578EC2166D11300F6E8C0 /* TestsConstants.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
+				AB4D643521670A22005807C1 /* RecordTest.swift in Sources */,
 				110578E821620B9300F6E8C0 /* BulkRequestTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

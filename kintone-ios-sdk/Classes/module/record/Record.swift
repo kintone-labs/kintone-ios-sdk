@@ -105,7 +105,7 @@ public class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    public func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue], _ revision: Int?) throws -> UpdateRecordResponse {
+    public func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
         do {
             // execute PUT RECORD API
             let recordRequest = UpdateRecordRequest(app, id, nil, revision, record)
@@ -126,7 +126,7 @@ public class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    public func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int?) throws -> UpdateRecordResponse {
+    public func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
         do {
             // execute PUT RECORD API
             let recordRequest = UpdateRecordRequest(app, nil, updateKey, revision, record)

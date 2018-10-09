@@ -170,7 +170,7 @@ internal class RecordParser: Parser {
         let  response = AddCommentResponse()
         do {
             // Set coding-key for decoding
-            let container = try decoder.container(keyedBy: SubTableValueItem.CodingKeys.self)
+            let container = try decoder.container(keyedBy: AddCommentResponse.CodingKeys.self)
             // Convert id to String
             let strId = try container.decode(String.self, forKey: .id)
             // Convert strId to Int
@@ -235,9 +235,11 @@ internal class RecordParser: Parser {
                 response.setText(text!)
             }
             // Convert createdAt to Date
-            let createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt)
+            let createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt)
             if createdAt != nil {
-                response.setCreatedAt(createdAt!)
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+                response.setCreatedAt(formatter.date(from: createdAt!)!)
             }
             // Convert creator to String
             let creator = try container.decodeIfPresent(Member.self, forKey: .creator)
