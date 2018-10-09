@@ -45,8 +45,9 @@ public class Connection: NSObject {
         self.auth = auth
         self.guestSpaceID = guestSpaceID
         
-        //TODO: ユーザーエージェントの追加
-        //self.userAgent += "/" + (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
+        if let version = Bundle(for: type(of: self)).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            self.userAgent += "/" + version
+        }
     }
     
     /// Constructor for init a connection object to connect to normal space.
@@ -85,7 +86,16 @@ public class Connection: NSObject {
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
-        //TODO プロキシ設定の追加
+        let config = URLSessionConfiguration.default
+        if (self.proxyHost != nil || self.proxyPort != nil) {
+            config.requestCachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+            config.connectionProxyDictionary = [AnyHashable: Any]()
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = self.proxyPort
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
+        }
         
         request = self.setHTTPHeaders(request)
         if (isGet) {
@@ -101,7 +111,7 @@ public class Connection: NSObject {
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
-        let session: URLSession = URLSession.shared
+        let session: URLSession = URLSession(configuration: config)
         
         let (data, response, error) = self.execute(session, request)
         
@@ -140,7 +150,16 @@ public class Connection: NSObject {
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
-        //TODO プロキシ設定の追加
+        let config = URLSessionConfiguration.default
+        if (self.proxyHost != nil || self.proxyPort != nil) {
+            config.requestCachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+            config.connectionProxyDictionary = [AnyHashable: Any]()
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = self.proxyPort
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
+        }
         
         request = self.setHTTPHeaders(request)
         request.httpMethod = ConnectionConstants.POST_REQUEST
@@ -150,7 +169,7 @@ public class Connection: NSObject {
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
-        let session: URLSession = URLSession.shared
+        let session: URLSession = URLSession(configuration: config)
         
         let (data, response, error) = self.execute(session, request)
         
@@ -191,7 +210,16 @@ public class Connection: NSObject {
         let url: URL = URL(string: urlString)!
         var request = URLRequest(url: url)
         
-        //TODO プロキシ設定の追加
+        let config = URLSessionConfiguration.default
+        if (self.proxyHost != nil || self.proxyPort != nil) {
+            config.requestCachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+            config.connectionProxyDictionary = [AnyHashable: Any]()
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = self.proxyPort
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
+        }
         
         request = self.setHTTPHeaders(request)
         request.httpMethod = ConnectionConstants.POST_REQUEST
@@ -216,7 +244,7 @@ public class Connection: NSObject {
         
         request.httpBody = body
         
-        let session: URLSession = URLSession.shared
+        let session: URLSession = URLSession(configuration: config)
         
         let (data, response, error) = self.execute(session, request)
         
