@@ -69,7 +69,7 @@ public class ViewModel: NSObject, Codable {
     }
     
     public func setId(_ id: Int?) {
-        self.id = "\(String(describing: id))"
+        self.id = "\(String(describing: id!))"
     }
     
     public func getIndex() -> Int? {
@@ -77,7 +77,7 @@ public class ViewModel: NSObject, Codable {
     }
     
     public func setIndex(_ index: Int?) {
-        self.index = "\(String(describing: index))"
+        self.index = "\(String(describing: index!))"
     }
     
     public func getName() -> String? {
