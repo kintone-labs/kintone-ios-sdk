@@ -7,26 +7,67 @@
 //
 
 import XCTest
+import kintone_ios_sdk
 
 class GetAppsByNameTest: XCTestCase {
+    private let USERNAME = "Phien"
+    private let PASSWORD = "Phien"
+    private let APP_NAME: String = "GetApp_Test"
+    private let OFFSET = 0
+    private let LIMIT = 100
+    private let LANG = LanguageSetting.EN
+    private var app: App? = nil
+    private var connection: Connection? = nil
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        var auth = Auth.init()
+        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        self.connection = Connection(TestsConstants.DOMAIN, auth)
+        self.app = App(self.connection!)
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
+    func testGetAppsByNameSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        var expectedAppModel: [String: String] = [String: String]()
+        expectedAppModel["appId"] = "1691"
+        expectedAppModel["code"] = "GetAppTest"
+        expectedAppModel["name"] = "GetApp_Test"
+        expectedAppModel["description"] = "<div>A list of great places to go!</div>"
+        expectedAppModel["spaceId"] = "130"
+        expectedAppModel["threadId"] = "151"
+        
+        var appsResponse: [AppModel] =  [AppModel]()
+        XCTAssertNoThrow(appsResponse = try (self.app?.getAppsByName(self.APP_NAME, self.OFFSET, self.LIMIT))!)
+        
+        var appModel: AppModel = AppModel()
+        XCTAssertEqual(appsResponse.count, 1)
+        XCTAssertNoThrow(appModel = (appsResponse.first)!)
+        
+        XCTAssertEqual(Int(expectedAppModel["appId"]!), appModel.getAppId()!)
+        XCTAssertEqual(expectedAppModel["code"], appModel.getCode()!)
+        XCTAssertEqual(expectedAppModel["name"], appModel.getName()!)
+        XCTAssertEqual(expectedAppModel["description"], appModel.getDescription()!)
+        XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appModel.getSpaceId()!)
+        XCTAssertEqual(Int(expectedAppModel["threadId"]!), appModel.getThreadId()!)
+        
+        XCTAssertNotNil(appModel.getCreator())
+        XCTAssertNotNil(appModel.getModifier())
+        
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testGetAppsByNamesFailWhenLimitGreaterThanMaxValue() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let limit: Int = 2147483648
+        
+        XCTAssertThrowsError(try self.app?.getAppsByName(self.APP_NAME, self.OFFSET, limit)){
+            error in XCTAssert(type(of: error) == KintoneAPIException.self)
         }
     }
 

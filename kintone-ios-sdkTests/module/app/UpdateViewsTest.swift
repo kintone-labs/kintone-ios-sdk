@@ -15,7 +15,6 @@ class UpdateViewsTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         var auth = Auth.init()
         auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
         self.connection = Connection(TestsConstants.DOMAIN, auth)
