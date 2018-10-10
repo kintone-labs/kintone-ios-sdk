@@ -26,7 +26,7 @@ public class File: NSObject{
     public func upload(_ filePath: String) throws -> FileModel {
         do{
             let targetFilePath = URL(string: filePath)!
-            let fileData: Data = try Data(contentsOf: targetFilePath)
+            let fileData = try Data(contentsOf: targetFilePath)
             
             let response = try self.connection.uploadFile(targetFilePath.lastPathComponent, fileData)
             return try self.parser.parseJson(FileModel.self, response)
