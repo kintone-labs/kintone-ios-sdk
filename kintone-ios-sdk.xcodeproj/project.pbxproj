@@ -156,6 +156,8 @@
 		AB4D643521670A22005807C1 /* RecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D643421670A22005807C1 /* RecordTest.swift */; };
 		AB59F5C72150EFCD00BCD0EE /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */; };
 		ABAD53382151E68C00D75939 /* AuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */; };
+		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
+		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -321,6 +323,8 @@
 		AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
 		AB59F5CA2150F36A00BCD0EE /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
 		ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
+		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -475,6 +479,7 @@
 		3E25BF86213F63AC00ABBB13 /* module */ = {
 			isa = PBXGroup;
 			children = (
+				DD6291D32164904D0060231D /* File */,
 				A88FEEA92159DDC300A7E838 /* app */,
 				11B14EF02157E5BE00894E37 /* bulkrequest */,
 				3E60AFD72150BA600041B02C /* parser */,
@@ -582,6 +587,7 @@
 		3E9BF95B2146569F000F8B9D /* file */ = {
 			isa = PBXGroup;
 			children = (
+				DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */,
 				3E9BF95C214656D4000F8B9D /* FileModel.swift */,
 			);
 			path = file;
@@ -836,6 +842,14 @@
 			path = form;
 			sourceTree = "<group>";
 		};
+		DD6291D32164904D0060231D /* File */ = {
+			isa = PBXGroup;
+			children = (
+				DD0C0B4B21649FCD003F9A6C /* File.swift */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -983,6 +997,7 @@
 				A88FEE2F2159DD8B00A7E838 /* AppDeployStatus.swift in Sources */,
 				3E1FD7D42148AB200056F902 /* DeleteRecordsRequest.swift in Sources */,
 				A88FEEB32159DDC300A7E838 /* AppCustomization.swift in Sources */,
+				DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */,
 				A88FEE902159DD9E00A7E838 /* FieldLayout.swift in Sources */,
 				3E1FD7DA2148AB580056F902 /* UpdateRecordAssigneesRequest.swift in Sources */,
 				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
@@ -1078,6 +1093,7 @@
 				3E1FD7E62148AE220056F902 /* RecordUpdateResponseItem.swift in Sources */,
 				A88FEEA82159DD9E00A7E838 /* FormFields.swift in Sources */,
 				A88FEE742159DD9E00A7E838 /* FieldMapping.swift in Sources */,
+				DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */,
 				3EFD812F21420FC900A1499F /* Member.swift in Sources */,
 				3E60AFEA2151E2890041B02C /* DeleteCommentRecordRequest.swift in Sources */,
 				A88FEE832159DD9E00A7E838 /* DateTimeField.swift in Sources */,
