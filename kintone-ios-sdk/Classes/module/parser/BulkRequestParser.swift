@@ -23,7 +23,7 @@ internal class BulkRequestParser: Parser {
             
             // Convert value to Swift Class corresponding to payload
             if bulkRequestItem.getApi() != nil {
-                var apiName: NSString = (bulkRequestItem.getApi()! as NSString)
+                var apiName = (bulkRequestItem.getApi()! as NSString)
                 let regex = try NSRegularExpression(pattern: "/v1/(.*).json", options: NSRegularExpression.Options())
                 if let regex_result = regex.firstMatch(in: apiName as String, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, apiName.length)){
                     
@@ -85,7 +85,7 @@ internal class BulkRequestParser: Parser {
             try container.encodeIfPresent(api, forKey: BulkRequestItem.CodingKeys.api)
             
             // Convert value to json-item corresponding to payload
-            var apiName: NSString = api! as NSString
+            var apiName = api! as NSString
             let regex = try NSRegularExpression(pattern: "/v1/(.*).json", options: NSRegularExpression.Options())
             if let regex_result = regex.firstMatch(in: apiName as String, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, apiName.length)){
                 

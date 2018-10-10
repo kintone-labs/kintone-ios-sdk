@@ -9,13 +9,13 @@
 public class Connection: NSObject {
     
     /// HTTP header content-type for getting json data from rest api.
-    private let JSON_CONTENT: String = "application/json"
+    private let JSON_CONTENT = "application/json"
     
     /// HTTP header content-type for multipart/form-data
-    private let MULTIPART_CONTENT: String = "multipart/form-data; boundary="
+    private let MULTIPART_CONTENT = "multipart/form-data; boundary="
     
     /// User agent http header.
-    private var userAgent: String = ConnectionConstants.USER_AGENT_VALUE
+    private var userAgent = ConnectionConstants.USER_AGENT_VALUE
     
     /// Object contains user's credential.
     private var auth: Auth
@@ -45,8 +45,9 @@ public class Connection: NSObject {
         self.auth = auth
         self.guestSpaceID = guestSpaceID
         
-        //TODO: ユーザーエージェントの追加
-        //self.userAgent += "/" + (Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String)
+        if let version = Bundle(for: type(of: self)).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
+            self.userAgent += "/" + version
+        }
     }
     
     /// Constructor for init a connection object to connect to normal space.
@@ -69,7 +70,7 @@ public class Connection: NSObject {
     /// - Throws: KintoneAPIException
     public func request(_ method: String, _ apiName: String, _ body: String) throws -> Data {
         
-        var urlString: String = ""
+        var urlString = ""
         var isGet = false
         
         if (ConnectionConstants.GET_REQUEST == method){
@@ -82,10 +83,8 @@ public class Connection: NSObject {
             throw KintoneAPIException("Invalid URL")
         }
         
-        let url: URL = URL(string: urlString)!
+        let url = URL(string: urlString)!
         var request = URLRequest(url: url)
-        
-        //TODO プロキシ設定の追加
         
         request = self.setHTTPHeaders(request)
         if (isGet) {
@@ -101,7 +100,7 @@ public class Connection: NSObject {
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
-        let session: URLSession = URLSession.shared
+        let session = URLSession(configuration: setURLSessionConfiguration())
         
         let (data, response, error) = self.execute(session, request)
         
@@ -137,10 +136,8 @@ public class Connection: NSObject {
             throw KintoneAPIException("Invalid URL")
         }
         
-        let url: URL = URL(string: urlString)!
+        let url = URL(string: urlString)!
         var request = URLRequest(url: url)
-        
-        //TODO プロキシ設定の追加
         
         request = self.setHTTPHeaders(request)
         request.httpMethod = ConnectionConstants.POST_REQUEST
@@ -150,7 +147,7 @@ public class Connection: NSObject {
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
-        let session: URLSession = URLSession.shared
+        let session = URLSession(configuration: setURLSessionConfiguration())
         
         let (data, response, error) = self.execute(session, request)
         
@@ -181,25 +178,23 @@ public class Connection: NSObject {
     /// - Throws: KintoneAPIException
     public func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Data {
         
-        var urlString: String = ""
+        var urlString = ""
         do {
             urlString = try self.getURL(ConnectionConstants.FILE, nil)
         } catch {
             throw KintoneAPIException("Invalid URL")
         }
         
-        let url: URL = URL(string: urlString)!
+        let url = URL(string: urlString)!
         var request = URLRequest(url: url)
-        
-        //TODO プロキシ設定の追加
         
         request = self.setHTTPHeaders(request)
         request.httpMethod = ConnectionConstants.POST_REQUEST
         
         request.addValue(MULTIPART_CONTENT + ConnectionConstants.BOUNDARY, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
         
-        var body: Data = Data()
-        var bodyText: String = String()
+        var body = Data()
+        var bodyText = ""
         
         bodyText += "--\(ConnectionConstants.BOUNDARY)\r\n"
         bodyText += "Content-Disposition: form-data; name=\"file\"; filename=\"\(fileName)\"\r\n"
@@ -208,7 +203,7 @@ public class Connection: NSObject {
         body.append(bodyText.data(using: String.Encoding.utf8)!)
         body.append(binaryData)
         
-        var footerText:String = String()
+        var footerText = ""
         footerText += "\r\n"
         footerText += "\r\n--\(ConnectionConstants.BOUNDARY)--\r\n"
         
@@ -216,7 +211,7 @@ public class Connection: NSObject {
         
         request.httpBody = body
         
-        let session: URLSession = URLSession.shared
+        let session = URLSession(configuration: setURLSessionConfiguration())
         
         let (data, response, error) = self.execute(session, request)
         
@@ -273,13 +268,13 @@ public class Connection: NSObject {
         guard let unwrappedApiName = apiName else {
             throw KintoneAPIException("api is empty")
         }
-        var sb: String = ""
+        var sb = ""
         if (!unwrappedDomain.contains(ConnectionConstants.HTTPS_PREFIX)){
             sb.append(ConnectionConstants.HTTPS_PREFIX)
         }
         sb.append(unwrappedDomain)
         
-        var urlString: String = ConnectionConstants.BASE_URL
+        var urlString = ConnectionConstants.BASE_URL
         if (self.guestSpaceID != nil){
             if (self.guestSpaceID! >= 0) {
                 urlString = ConnectionConstants.BASE_GUEST_URL.replacingOccurrences(of: "{GUEST_SPACE_ID}", with: String(self.guestSpaceID!) + "")
@@ -301,7 +296,7 @@ public class Connection: NSObject {
     /// - Parameter connection: connection
     /// - Returns: URLRequest
     private func setHTTPHeaders(_ connection: URLRequest) -> URLRequest {
-        var request: URLRequest = connection
+        var request = connection
         for header: HTTPHeader? in self.auth.createHeaderCredentials(){
             if let unwrapHeader = header {
                 if let unwrap_getvalue = unwrapHeader.getValue() {
@@ -375,11 +370,11 @@ public class Connection: NSObject {
     /// - Throws: KintoneIOSException
     private func checkStatus(_ response: URLResponse?, _ data: Data?, _ body: String?, _ apiName: String?) throws {
         let http_response = response as? HTTPURLResponse
-        let statusCode: Int? = http_response?.statusCode
+        let statusCode = http_response?.statusCode
         let decoder: JSONDecoder = JSONDecoder()
         
         if (statusCode == 404) {
-            if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
+            if let unWrapResponse = self.getErrorResponse(data) {
                 throw KintoneAPIException(statusCode, unWrapResponse)
             } else {
                 throw KintoneAPIException("not found")
@@ -399,14 +394,14 @@ public class Connection: NSObject {
                             let jsonobject = try JSONSerialization.jsonObject(with: jsonBody, options: JSONSerialization.ReadingOptions.allowFragments)
                             
                             let jsonArray = (jsonobject as! NSDictionary)["requests"] as! NSArray
-                            let jsonRequest: Data = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
+                            let jsonRequest = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
                             let errorResponseList: Array<BulkRequestItem>  = try decoder.decode([BulkRequestItem].self, from: jsonRequest)
                             throw KintoneAPIException(statusCode, errorResponseList, unWrapResponses)
                         } else {
                             throw KintoneAPIException("http status error(\(String(describing: statusCode)))")
                         }
                     } else {
-                        if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
+                        if let unWrapResponse = self.getErrorResponse(data) {
                             throw KintoneAPIException(statusCode, unWrapResponse)
                         } else {
                             throw KintoneAPIException("http status error(\(String(describing: statusCode)))")
@@ -416,7 +411,7 @@ public class Connection: NSObject {
                     throw error
                 }
             } else {
-                if let unWrapResponse: ErrorResponse = self.getErrorResponse(data) {
+                if let unWrapResponse = self.getErrorResponse(data) {
                     throw KintoneAPIException(statusCode, unWrapResponse)
                 } else {
                     throw KintoneAPIException("http status error(\(String(statusCode!)))")
@@ -434,7 +429,7 @@ public class Connection: NSObject {
         
         if let unwrapData = data {
             do {
-                let errorResponse: ErrorResponse  = try decoder.decode(ErrorResponse.self, from: unwrapData)
+                let errorResponse  = try decoder.decode(ErrorResponse.self, from: unwrapData)
                 return errorResponse
             } catch {
                 return nil
@@ -450,7 +445,7 @@ public class Connection: NSObject {
     /// - Returns: <#return value description#>
     private func getErrorResponses(_ data: Data?) -> Array<ErrorResponse>? {
     
-        let decoder: JSONDecoder = JSONDecoder()
+        let decoder = JSONDecoder()
         
         if let unwrapData = data {
             do {
@@ -471,6 +466,23 @@ public class Connection: NSObject {
         return nil
     }
     
+    /// setting session configuration
+    ///
+    /// - Returns: URLSessionConfiguration
+    private func setURLSessionConfiguration() -> URLSessionConfiguration {
+        let config = URLSessionConfiguration.default
+        if (self.proxyHost != nil || self.proxyPort != nil) {
+            config.requestCachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
+            config.connectionProxyDictionary = [AnyHashable: Any]()
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = self.proxyPort
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
+            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
+        }
+        return config
+    }
+    
     /// Sets the proxy host.
     ///
     /// - Parameters:
@@ -486,7 +498,7 @@ public class Connection: NSObject {
     /// - Parameter apiName: apiName
     /// - Returns: String
     public func getPathURI(_ apiName: String) -> String {
-        var pathURI: String = ""
+        var pathURI = ""
         
         if (self.guestSpaceID != nil){
             if (self.guestSpaceID! >= 0) {

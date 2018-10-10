@@ -68,7 +68,7 @@ public class KintoneAPIException: Error {
             }
         }
         
-        var sb: String = ""
+        var sb = ""
         if (self.errorResponses == nil){
             if (self.errorResponse?.getId() != nil){
                 sb.append("id: " + (self.errorResponse?.getId())!)
@@ -81,7 +81,7 @@ public class KintoneAPIException: Error {
             }
             if (self.errorResponse?.getErrors() != nil){
                 
-                var sb2: String = ""
+                var sb2 = ""
                 for (key, value) in (self.errorResponse?.getErrors())! {
                     for (key2, value2) in value {
                         let str = value2.joined(separator: "/")
@@ -91,7 +91,7 @@ public class KintoneAPIException: Error {
                 sb.append(", errors: \(sb2)")
             }
         } else {
-            var count: Int = 1
+            var count = 1
             
             for errorResponse in self.errorResponses! {
                 if (errorResponse.getId() != nil) {
@@ -104,7 +104,7 @@ public class KintoneAPIException: Error {
                     
                     if (errorResponse.getErrors() != nil){
                         
-                        var sb2: String = ""
+                        var sb2 = ""
                         for (key, value) in (errorResponse.getErrors())! {
                             for (key2, value2) in value {
                                 let str = value2.joined(separator: "/")
