@@ -15,7 +15,7 @@ public class ConnectionConstants: NSObject {
     static let DELETE_REQUEST:String = "DELETE"
     static let HTTPS_PREFIX:String = "https://"
     static let USER_AGENT_KEY:String = "User-Agent"
-    static let USER_AGENT_VALUE:String = "kintone-java-SDK"
+    static let USER_AGENT_VALUE:String = "kintone-ios-sdk"
     static let CONTENT_TYPE_HEADER:String = "Content-Type"
     static let METHOD_OVERRIDE_HEADER:String = "X-HTTP-Method-Override"
     static let DEFAULT_CONTENT_TYPE:String = "application/octet-stream"
