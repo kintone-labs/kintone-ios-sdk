@@ -27,9 +27,9 @@ public class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     public func addRecord(_ app: Int, _ record: [String: FieldValue]?) throws -> BulkRequest {
-        let addRecordRequest: AddRecordRequest = AddRecordRequest(app, record)
+        let addRecordRequest = AddRecordRequest(app, record)
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.POST_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), addRecordRequest as Any)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.POST_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), addRecordRequest as Any)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -53,9 +53,9 @@ public class BulkRequest: NSObject {
             tempRecords.append(record)
         }
         
-        let addRecordRequest: AddRecordsRequest = AddRecordsRequest(app, tempRecords)
+        let addRecordRequest = AddRecordsRequest(app, tempRecords)
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.POST_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), addRecordRequest as Any)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.POST_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), addRecordRequest as Any)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -75,9 +75,9 @@ public class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     public func updateRecordByID(_ app: Int, _ id: Int, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
-        let updateRecordRequest: UpdateRecordRequest = UpdateRecordRequest(app, id, nil, revision, record)
+        let updateRecordRequest = UpdateRecordRequest(app, id, nil, revision, record)
         do {
-            let bulkRequestItem: BulkRequestItem  = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest as Any)
+            let bulkRequestItem  = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest as Any)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -97,9 +97,9 @@ public class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     public func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
-        let updateRecordRequest: UpdateRecordRequest  = UpdateRecordRequest(app, nil, updateKey, revision, record)
+        let updateRecordRequest  = UpdateRecordRequest(app, nil, updateKey, revision, record)
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -117,9 +117,9 @@ public class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     public func updateRecords(_ app: Int, _ records: Array<RecordUpdateItem> ) throws -> BulkRequest {
-        let updateRecordsRequest: UpdateRecordsRequest = UpdateRecordsRequest(app, records)
+        let updateRecordsRequest = UpdateRecordsRequest(app, records)
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), updateRecordsRequest)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), updateRecordsRequest)
                 self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -137,9 +137,9 @@ public class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     public func deleteRecords(_ app: Int, _ ids: Array<Int>) throws -> BulkRequest {
-        let deleteRecordsRequest: DeleteRecordsRequest = DeleteRecordsRequest(app, ids, nil)
+        let deleteRecordsRequest = DeleteRecordsRequest(app, ids, nil)
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.DELETE_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), deleteRecordsRequest)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.DELETE_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), deleteRecordsRequest)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -166,10 +166,10 @@ public class BulkRequest: NSObject {
             revisions.append(entry.value)
         }
         
-        let deleteRecordsRequest: DeleteRecordsRequest = DeleteRecordsRequest(app, ids, revisions)
+        let deleteRecordsRequest = DeleteRecordsRequest(app, ids, revisions)
         
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.DELETE_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), deleteRecordsRequest)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.DELETE_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), deleteRecordsRequest)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -190,9 +190,9 @@ public class BulkRequest: NSObject {
     /// - Throws: KintoneAPIException
     public func updateRecordAssignees(_ app: Int, _ record: Int, _ assignees: Array<String>, _ revision: Int?) throws -> BulkRequest {
     
-        let updateRecordAssigneesRequest: UpdateRecordAssigneesRequest = UpdateRecordAssigneesRequest(app, record, assignees, revision)
+        let updateRecordAssigneesRequest = UpdateRecordAssigneesRequest(app, record, assignees, revision)
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD_ASSIGNEES), updateRecordAssigneesRequest)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD_ASSIGNEES), updateRecordAssigneesRequest)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -214,10 +214,10 @@ public class BulkRequest: NSObject {
     /// - Throws: KintoneAPIException
     public func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> BulkRequest {
     
-        let updateRecordStatusRequest: UpdateRecordStatusRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
+        let updateRecordStatusRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
         
         do {
-            let bulkRequestItem: BulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD_STATUS), updateRecordStatusRequest)
+            let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD_STATUS), updateRecordStatusRequest)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -236,9 +236,9 @@ public class BulkRequest: NSObject {
     /// - Throws: KintoneAPIException
     public func updateRecordsStatus(_ app: Int, _ records: Array<RecordUpdateStatusItem>) throws -> BulkRequest {
     
-        let updateRecordsStatusRequest: UpdateRecordsStatusRequest = UpdateRecordsStatusRequest(app, records)
+        let updateRecordsStatusRequest = UpdateRecordsStatusRequest(app, records)
         do {
-            let bulkRequestItem: BulkRequestItem  = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS_STATUS), updateRecordsStatusRequest)
+            let bulkRequestItem  = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS_STATUS), updateRecordsStatusRequest)
             self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
@@ -254,23 +254,23 @@ public class BulkRequest: NSObject {
     /// - Throws: KintoneAPIExcdeption
     public func execute() throws -> BulkRequestResponse {
         let parser = BulkRequestParser()
-        let responses: BulkRequestResponse = BulkRequestResponse();
+        let responses = BulkRequestResponse();
         do {
-            let requests: Array<BulkRequestItem>  = self.bulkRequests.getRequests()!
+            let requests = self.bulkRequests.getRequests()!
     
             let body = try parser.parseObject(self.bulkRequests)
             let jsonBody = String(data: body, encoding: .utf8)
         
-            let response: Data = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.BULK_REQUEST, jsonBody!)
+            let response = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.BULK_REQUEST, jsonBody!)
             let jsonobject = try JSONSerialization.jsonObject(with: response, options: .allowFragments)
             
             let jsonArray = (jsonobject as! NSDictionary)["results"] as! NSArray
             
             var count: Int = 0
             for request in requests {
-                let jsonResponse: Data = try JSONSerialization.data(withJSONObject: jsonArray[count], options: [])
+                let jsonResponse = try JSONSerialization.data(withJSONObject: jsonArray[count], options: [])
                 
-                var apiName: NSString = request.getApi()! as NSString
+                var apiName = request.getApi()! as NSString
                 let regex = try NSRegularExpression(pattern: "/v1/(.*).json", options: NSRegularExpression.Options())
                 if let regex_result = regex.firstMatch(in: apiName as String, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, apiName.length)){
                     

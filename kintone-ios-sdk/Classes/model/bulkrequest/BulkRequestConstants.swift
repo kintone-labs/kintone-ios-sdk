@@ -7,12 +7,12 @@
 //
 
 public class BulkRequestConstants: NSObject {
-    public static let ADD_RECORD: String = "AddRecordRequest";
-    public static let ADD_RECORDS: String = "AddRecordsRequest";
-    public static let UPDATE_RECORD: String = "UpdateRecordRequest";
-    public static let UPDATE_RECORDS: String = "UpdateRecordsRequest";
-    public static let DELETE_RECORDS: String = "DeleteRecordsRequest";
-    public static let UPDATE_STATUS_RECORD: String = "UpdateRecordStatusRequest";
-    public static let UPDATE_STATUS_RECORDS: String = "UpdateRecordsStatusRequest";
-    public static let UPDATE_ASSIGNEE_RECORDS: String = "UpdateRecordAssigneesRequest";
+    public static let ADD_RECORD = "AddRecordRequest";
+    public static let ADD_RECORDS = "AddRecordsRequest";
+    public static let UPDATE_RECORD = "UpdateRecordRequest";
+    public static let UPDATE_RECORDS = "UpdateRecordsRequest";
+    public static let DELETE_RECORDS = "DeleteRecordsRequest";
+    public static let UPDATE_STATUS_RECORD = "UpdateRecordStatusRequest";
+    public static let UPDATE_STATUS_RECORDS = "UpdateRecordsStatusRequest";
+    public static let UPDATE_ASSIGNEE_RECORDS = "UpdateRecordAssigneesRequest";
 }
