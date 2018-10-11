@@ -24,12 +24,16 @@ public class File: NSObject{
     /// - Returns:
     /// - Throws: KintoneAPIException
     public func upload(_ filePath: String) throws -> FileModel {
-        do{
+        do {
             let targetFilePath = URL(string: filePath)!
             let fileData = try Data(contentsOf: targetFilePath)
             
             let response = try self.connection.uploadFile(targetFilePath.lastPathComponent, fileData)
             return try self.parser.parseJson(FileModel.self, response)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -41,13 +45,17 @@ public class File: NSObject{
     /// - Returns:
     /// - Throws: KintoneAPIException
     public func download(_ filekey: String, _ outPutFilePath: String) throws {
-        do{
+        do {
             let request = DownloadRequest(filekey)
             let body = try self.parser.parseObject(request)
             let jsonBody = String(data: body, encoding: .utf8)
             let fileData = try self.connection.downloadFile(jsonBody!)
             
             try fileData.write(to: URL(string: outPutFilePath)!, options: .atomic)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
