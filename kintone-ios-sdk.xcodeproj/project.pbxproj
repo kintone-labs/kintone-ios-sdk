@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		110578E821620B9300F6E8C0 /* BulkRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110578E721620B9300F6E8C0 /* BulkRequestTest.swift */; };
 		110578EC2166D11300F6E8C0 /* TestsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110578EB2166D11300F6E8C0 /* TestsConstants.swift */; };
 		110578F4216756A900F6E8C0 /* ConnectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110578F3216756A900F6E8C0 /* ConnectionTest.swift */; };
 		111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111892B021500F190077A87E /* LanguageSetting.swift */; };
@@ -161,6 +160,7 @@
 		AB98C011216DE43000E9F9DD /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB98C00E216DE43000E9F9DD /* test.txt */; };
 		AB98C012216DE43000E9F9DD /* test.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AB98C00F216DE43000E9F9DD /* test.xlsx */; };
 		ABAD53382151E68C00D75939 /* AuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */; };
+		ABE0234A216F3A0F002C47EC /* BulkRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE02349216F3A0F002C47EC /* BulkRequestTest.swift */; };
 		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
 		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
 /* End PBXBuildFile section */
@@ -176,7 +176,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		110578E721620B9300F6E8C0 /* BulkRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestTest.swift; sourceTree = "<group>"; };
 		110578EB2166D11300F6E8C0 /* TestsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsConstants.swift; sourceTree = "<group>"; };
 		110578F3216756A900F6E8C0 /* ConnectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTest.swift; sourceTree = "<group>"; };
 		111892B021500F190077A87E /* LanguageSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageSetting.swift; sourceTree = "<group>"; };
@@ -333,6 +332,7 @@
 		AB98C00E216DE43000E9F9DD /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		AB98C00F216DE43000E9F9DD /* test.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.xlsx; sourceTree = "<group>"; };
 		ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
+		ABE02349216F3A0F002C47EC /* BulkRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestTest.swift; sourceTree = "<group>"; };
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -369,7 +369,7 @@
 		110578E621620B9300F6E8C0 /* bulk_request */ = {
 			isa = PBXGroup;
 			children = (
-				110578E721620B9300F6E8C0 /* BulkRequestTest.swift */,
+				ABE02349216F3A0F002C47EC /* BulkRequestTest.swift */,
 			);
 			path = bulk_request;
 			sourceTree = "<group>";
@@ -1163,9 +1163,25 @@
 			files = (
 				110578EC2166D11300F6E8C0 /* TestsConstants.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
+				122F1DD2216B7AAA00160A27 /* AddPreviewAppTest.swift in Sources */,
+				122F1DDA216B7B1100160A27 /* GetAppDeployStatusTest.swift in Sources */,
+				ABE0234A216F3A0F002C47EC /* BulkRequestTest.swift in Sources */,
+				122F1DDE216B7B3D00160A27 /* GetFormFieldsTest.swift in Sources */,
+				122F1DD8216B7AE300160A27 /* GetAppTest.swift in Sources */,
+				122F1DE2216B7B5A00160A27 /* GetGeneralSettingsTest.swift in Sources */,
+				122F1DEA216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift in Sources */,
+				122F1DE0216B7B4800160A27 /* GetFormLayoutTest.swift in Sources */,
+				122F1DEE216B7BC400160A27 /* GetAppsByCodesTest.swift in Sources */,
+				122F1DE8216B7B7B00160A27 /* UpdateFormLayoutTest.swift in Sources */,
+				122F1DF2216B7BE100160A27 /* GetAppsByNameTest.swift in Sources */,
+				122F1DD0216B7A8C00160A27 /* AddFormFieldsTest.swift in Sources */,
+				122F1DE4216B7B6500160A27 /* GetViewsTest.swift in Sources */,
+				122F1DF0216B7BD200160A27 /* GetAppsByIDsTest.swift in Sources */,
+				122F1DD6216B7AD600160A27 /* DeployAppSettingsTest.swift in Sources */,
+				122F1DE6216B7B7000160A27 /* UpdateFormFieldsTest.swift in Sources */,
+				122F1DEC216B7BB700160A27 /* UpdateViewsTest.swift in Sources */,
 				AB4D643521670A22005807C1 /* RecordTest.swift in Sources */,
-				AB98C00A216DDA0700E9F9DD /* FileTest.swift in Sources */,
-				110578E821620B9300F6E8C0 /* BulkRequestTest.swift in Sources */,
+        AB98C00A216DDA0700E9F9DD /* FileTest.swift in Sources */,
 				110578F4216756A900F6E8C0 /* ConnectionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
