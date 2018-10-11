@@ -20,7 +20,7 @@ public protocol AppView {
     ///   - revision: Bool
     /// - Returns: GetViewsResponse
     /// - Throws: throws KintoneAPIException
-    func updateViews(_ app: Int?, _ lang: [String: ViewModel],_ revision: Int?) throws -> UpdateViewsResponse
+    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?) throws -> UpdateViewsResponse
 }
 
 public extension AppView where Self: App {
