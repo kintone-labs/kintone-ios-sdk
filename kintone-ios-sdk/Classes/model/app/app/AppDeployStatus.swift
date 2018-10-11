@@ -15,7 +15,7 @@ public class AppDeployStatus: NSObject, Codable {
         return Int(self.app!)
     }
     public func setApp(_ app: Int?) {
-        self.app = "\(String(describing: app!))"
+        self.app = "\(String(describing: app))"
     }
     public func getStatus() -> Status? {
         return self.status

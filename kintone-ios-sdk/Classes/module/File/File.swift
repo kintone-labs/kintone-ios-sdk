@@ -30,6 +30,10 @@ public class File: NSObject{
             
             let response = try self.connection.uploadFile(targetFilePath.lastPathComponent, fileData)
             return try self.parser.parseJson(FileModel.self, response)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
@@ -48,6 +52,10 @@ public class File: NSObject{
             let fileData = try self.connection.downloadFile(jsonBody!)
             
             try fileData.write(to: URL(string: outPutFilePath)!, options: .atomic)
+        } catch let error as KintoneAPIException {
+            throw error
+        } catch {
+            throw KintoneAPIException(error.localizedDescription)
         }
     }
     
