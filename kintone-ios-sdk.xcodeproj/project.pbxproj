@@ -17,6 +17,25 @@
 		11B14EF22157E64F00894E37 /* BulkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF12157E64F00894E37 /* BulkRequest.swift */; };
 		11B14EF4215A1ED500894E37 /* BulkRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */; };
 		11B14EFF215DE07800894E37 /* ErrorResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */; };
+		122F1DD0216B7A8C00160A27 /* AddFormFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DCF216B7A8C00160A27 /* AddFormFieldsTest.swift */; };
+		122F1DD2216B7AAA00160A27 /* AddPreviewAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DD1216B7AAA00160A27 /* AddPreviewAppTest.swift */; };
+		122F1DD4216B7ABC00160A27 /* DeleteFormFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DD3216B7ABC00160A27 /* DeleteFormFieldsTest.swift */; };
+		122F1DD6216B7AD600160A27 /* DeployAppSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DD5216B7AD600160A27 /* DeployAppSettingsTest.swift */; };
+		122F1DD8216B7AE300160A27 /* GetAppTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DD7216B7AE300160A27 /* GetAppTest.swift */; };
+		122F1DDA216B7B1100160A27 /* GetAppDeployStatusTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DD9216B7B1100160A27 /* GetAppDeployStatusTest.swift */; };
+		122F1DDC216B7B1C00160A27 /* GetAppsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DDB216B7B1C00160A27 /* GetAppsTest.swift */; };
+		122F1DDE216B7B3D00160A27 /* GetFormFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DDD216B7B3D00160A27 /* GetFormFieldsTest.swift */; };
+		122F1DE0216B7B4800160A27 /* GetFormLayoutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DDF216B7B4800160A27 /* GetFormLayoutTest.swift */; };
+		122F1DE2216B7B5A00160A27 /* GetGeneralSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DE1216B7B5A00160A27 /* GetGeneralSettingsTest.swift */; };
+		122F1DE4216B7B6500160A27 /* GetViewsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DE3216B7B6500160A27 /* GetViewsTest.swift */; };
+		122F1DE6216B7B7000160A27 /* UpdateFormFieldsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DE5216B7B7000160A27 /* UpdateFormFieldsTest.swift */; };
+		122F1DE8216B7B7B00160A27 /* UpdateFormLayoutTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DE7216B7B7B00160A27 /* UpdateFormLayoutTest.swift */; };
+		122F1DEA216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DE9216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift */; };
+		122F1DEC216B7BB700160A27 /* UpdateViewsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DEB216B7BB700160A27 /* UpdateViewsTest.swift */; };
+		122F1DEE216B7BC400160A27 /* GetAppsByCodesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DED216B7BC400160A27 /* GetAppsByCodesTest.swift */; };
+		122F1DF0216B7BD200160A27 /* GetAppsByIDsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DEF216B7BD200160A27 /* GetAppsByIDsTest.swift */; };
+		122F1DF2216B7BE100160A27 /* GetAppsByNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DF1216B7BE100160A27 /* GetAppsByNameTest.swift */; };
+		122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DF3216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift */; };
 		129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
@@ -155,10 +174,6 @@
 		A88FEEBD2159DE7600A7E838 /* MemberSelectEntityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEEBC2159DE7500A7E838 /* MemberSelectEntityType.swift */; };
 		AB4D643521670A22005807C1 /* RecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4D643421670A22005807C1 /* RecordTest.swift */; };
 		AB59F5C72150EFCD00BCD0EE /* ConnectionConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */; };
-		AB98C00A216DDA0700E9F9DD /* FileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98C009216DDA0700E9F9DD /* FileTest.swift */; };
-		AB98C010216DE43000E9F9DD /* test.pptx in Resources */ = {isa = PBXBuildFile; fileRef = AB98C00D216DE43000E9F9DD /* test.pptx */; };
-		AB98C011216DE43000E9F9DD /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = AB98C00E216DE43000E9F9DD /* test.txt */; };
-		AB98C012216DE43000E9F9DD /* test.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = AB98C00F216DE43000E9F9DD /* test.xlsx */; };
 		ABAD53382151E68C00D75939 /* AuthenticationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */; };
 		ABE0234A216F3A0F002C47EC /* BulkRequestTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE02349216F3A0F002C47EC /* BulkRequestTest.swift */; };
 		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
@@ -186,6 +201,25 @@
 		11B14EF12157E64F00894E37 /* BulkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequest.swift; sourceTree = "<group>"; };
 		11B14EF3215A1ED500894E37 /* BulkRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestParser.swift; sourceTree = "<group>"; };
 		11B14EFE215DE07700894E37 /* ErrorResponseParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponseParser.swift; sourceTree = "<group>"; };
+		122F1DCF216B7A8C00160A27 /* AddFormFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFormFieldsTest.swift; sourceTree = "<group>"; };
+		122F1DD1216B7AAA00160A27 /* AddPreviewAppTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPreviewAppTest.swift; sourceTree = "<group>"; };
+		122F1DD3216B7ABC00160A27 /* DeleteFormFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsTest.swift; sourceTree = "<group>"; };
+		122F1DD5216B7AD600160A27 /* DeployAppSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeployAppSettingsTest.swift; sourceTree = "<group>"; };
+		122F1DD7216B7AE300160A27 /* GetAppTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppTest.swift; sourceTree = "<group>"; };
+		122F1DD9216B7B1100160A27 /* GetAppDeployStatusTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusTest.swift; sourceTree = "<group>"; };
+		122F1DDB216B7B1C00160A27 /* GetAppsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsTest.swift; sourceTree = "<group>"; };
+		122F1DDD216B7B3D00160A27 /* GetFormFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFormFieldsTest.swift; sourceTree = "<group>"; };
+		122F1DDF216B7B4800160A27 /* GetFormLayoutTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFormLayoutTest.swift; sourceTree = "<group>"; };
+		122F1DE1216B7B5A00160A27 /* GetGeneralSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGeneralSettingsTest.swift; sourceTree = "<group>"; };
+		122F1DE3216B7B6500160A27 /* GetViewsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetViewsTest.swift; sourceTree = "<group>"; };
+		122F1DE5216B7B7000160A27 /* UpdateFormFieldsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormFieldsTest.swift; sourceTree = "<group>"; };
+		122F1DE7216B7B7B00160A27 /* UpdateFormLayoutTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutTest.swift; sourceTree = "<group>"; };
+		122F1DE9216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGeneralSettingsTest.swift; sourceTree = "<group>"; };
+		122F1DEB216B7BB700160A27 /* UpdateViewsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewsTest.swift; sourceTree = "<group>"; };
+		122F1DED216B7BC400160A27 /* GetAppsByCodesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsByCodesTest.swift; sourceTree = "<group>"; };
+		122F1DEF216B7BD200160A27 /* GetAppsByIDsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsByIDsTest.swift; sourceTree = "<group>"; };
+		122F1DF1216B7BE100160A27 /* GetAppsByNameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsByNameTest.swift; sourceTree = "<group>"; };
+		122F1DF3216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsBySpaceIDsTest.swift; sourceTree = "<group>"; };
 		129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutRequest.swift; sourceTree = "<group>"; };
 		129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateFormFieldsRequest.swift; sourceTree = "<group>"; };
 		129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsRequest.swift; sourceTree = "<group>"; };
@@ -327,10 +361,6 @@
 		AB4D643421670A22005807C1 /* RecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTest.swift; sourceTree = "<group>"; };
 		AB59F5C62150EFCD00BCD0EE /* ConnectionConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionConstants.swift; sourceTree = "<group>"; };
 		AB59F5CA2150F36A00BCD0EE /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
-		AB98C009216DDA0700E9F9DD /* FileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTest.swift; sourceTree = "<group>"; };
-		AB98C00D216DE43000E9F9DD /* test.pptx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.pptx; sourceTree = "<group>"; };
-		AB98C00E216DE43000E9F9DD /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
-		AB98C00F216DE43000E9F9DD /* test.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.xlsx; sourceTree = "<group>"; };
 		ABAD53372151E68C00D75939 /* AuthenticationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationConstants.swift; sourceTree = "<group>"; };
 		ABE02349216F3A0F002C47EC /* BulkRequestTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulkRequestTest.swift; sourceTree = "<group>"; };
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
@@ -359,7 +389,7 @@
 		110578E521620B9300F6E8C0 /* module */ = {
 			isa = PBXGroup;
 			children = (
-				AB98C008216DD9DE00E9F9DD /* file */,
+				122F1DCE216B755000160A27 /* app */,
 				AB4D6433216709E5005807C1 /* record */,
 				110578E621620B9300F6E8C0 /* bulk_request */,
 			);
@@ -401,6 +431,32 @@
 			path = bulkrequest;
 			sourceTree = "<group>";
 		};
+		122F1DCE216B755000160A27 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				122F1DDD216B7B3D00160A27 /* GetFormFieldsTest.swift */,
+				122F1DCF216B7A8C00160A27 /* AddFormFieldsTest.swift */,
+				122F1DD3216B7ABC00160A27 /* DeleteFormFieldsTest.swift */,
+				122F1DE5216B7B7000160A27 /* UpdateFormFieldsTest.swift */,
+				122F1DD1216B7AAA00160A27 /* AddPreviewAppTest.swift */,
+				122F1DD5216B7AD600160A27 /* DeployAppSettingsTest.swift */,
+				122F1DD9216B7B1100160A27 /* GetAppDeployStatusTest.swift */,
+				122F1DD7216B7AE300160A27 /* GetAppTest.swift */,
+				122F1DDB216B7B1C00160A27 /* GetAppsTest.swift */,
+				122F1DED216B7BC400160A27 /* GetAppsByCodesTest.swift */,
+				122F1DEF216B7BD200160A27 /* GetAppsByIDsTest.swift */,
+				122F1DF1216B7BE100160A27 /* GetAppsByNameTest.swift */,
+				122F1DF3216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift */,
+				122F1DDF216B7B4800160A27 /* GetFormLayoutTest.swift */,
+				122F1DE7216B7B7B00160A27 /* UpdateFormLayoutTest.swift */,
+				122F1DE1216B7B5A00160A27 /* GetGeneralSettingsTest.swift */,
+				122F1DE9216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift */,
+				122F1DE3216B7B6500160A27 /* GetViewsTest.swift */,
+				122F1DEB216B7BB700160A27 /* UpdateViewsTest.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
 		3E17EA07213E427F002D9BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -433,7 +489,6 @@
 		3E17EA1E213E427F002D9BC0 /* kintone-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
-				AB98C00B216DE17100E9F9DD /* resources */,
 				110578F2216756A900F6E8C0 /* connection */,
 				110578E521620B9300F6E8C0 /* module */,
 				3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */,
@@ -863,32 +918,6 @@
 			path = form;
 			sourceTree = "<group>";
 		};
-		AB98C008216DD9DE00E9F9DD /* file */ = {
-			isa = PBXGroup;
-			children = (
-				AB98C009216DDA0700E9F9DD /* FileTest.swift */,
-			);
-			path = file;
-			sourceTree = "<group>";
-		};
-		AB98C00B216DE17100E9F9DD /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				AB98C00C216DE18400E9F9DD /* upload_file */,
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
-		AB98C00C216DE18400E9F9DD /* upload_file */ = {
-			isa = PBXGroup;
-			children = (
-				AB98C00D216DE43000E9F9DD /* test.pptx */,
-				AB98C00E216DE43000E9F9DD /* test.txt */,
-				AB98C00F216DE43000E9F9DD /* test.xlsx */,
-			);
-			path = upload_file;
-			sourceTree = "<group>";
-		};
 		DD6291D32164904D0060231D /* File */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,9 +1026,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB98C011216DE43000E9F9DD /* test.txt in Resources */,
-				AB98C010216DE43000E9F9DD /* test.pptx in Resources */,
-				AB98C012216DE43000E9F9DD /* test.xlsx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,7 +1187,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				122F1DDC216B7B1C00160A27 /* GetAppsTest.swift in Sources */,
 				110578EC2166D11300F6E8C0 /* TestsConstants.swift in Sources */,
+				122F1DD4216B7ABC00160A27 /* DeleteFormFieldsTest.swift in Sources */,
+				122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
 				122F1DD2216B7AAA00160A27 /* AddPreviewAppTest.swift in Sources */,
 				122F1DDA216B7B1100160A27 /* GetAppDeployStatusTest.swift in Sources */,
@@ -1181,7 +1210,6 @@
 				122F1DE6216B7B7000160A27 /* UpdateFormFieldsTest.swift in Sources */,
 				122F1DEC216B7BB700160A27 /* UpdateViewsTest.swift in Sources */,
 				AB4D643521670A22005807C1 /* RecordTest.swift in Sources */,
-        AB98C00A216DDA0700E9F9DD /* FileTest.swift in Sources */,
 				110578F4216756A900F6E8C0 /* ConnectionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
