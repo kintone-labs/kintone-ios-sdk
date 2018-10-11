@@ -36,7 +36,7 @@ public class Icon: NSObject, Codable {
         self.iconType = iconType
     }
     
-    public init(_ key: String, _ iconType: IconType, _ file: FileModel? = nil) {
+    public init(_ file: FileModel, _ key: String, _ iconType: IconType) {
         self.file = file
         self.key = key
         self.iconType = iconType
