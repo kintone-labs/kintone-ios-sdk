@@ -8,7 +8,7 @@ public class GetViewsResponse: NSObject, Codable {
         return Int(self.revision!)
     }
     public func setRevision(_ revision: Int?) {
-        self.revision = "\(String(describing: revision!))"
+        self.revision = "\(String(describing: revision))"
     }
     public func getViews() -> [String: ViewModel]? {
         return self.views
