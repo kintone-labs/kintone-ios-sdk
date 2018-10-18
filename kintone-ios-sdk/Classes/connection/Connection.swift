@@ -147,7 +147,11 @@ public class Connection: NSObject {
         
         request.httpBody = body.data(using: String.Encoding.utf8)
         
-        let session = URLSession(configuration: setURLSessionConfiguration())
+        let config = setURLSessionConfiguration()
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
+        config.urlCache = nil
+        
+        let session = URLSession(configuration: config)
         
         let (data, response, error) = self.execute(session, request)
         
