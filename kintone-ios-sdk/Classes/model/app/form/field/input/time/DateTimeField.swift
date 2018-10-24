@@ -10,7 +10,11 @@ public class DateTimeField: AbstractInputField {
         case defaultValue
         case defaultNowValue
     }
-   
+    
+    public override init() {
+        super.init()
+    }
+    
     public init(_ code: String) {
         super.init()
         self.code = code

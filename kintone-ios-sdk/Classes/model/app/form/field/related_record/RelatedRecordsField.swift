@@ -11,6 +11,10 @@ public class RelatedRecordsField: Field {
         case referenceTable
     }
     
+    public override init() {
+        super.init()
+    }
+    
     public init(_ code: String) {
         super.init()
         self.code = code
