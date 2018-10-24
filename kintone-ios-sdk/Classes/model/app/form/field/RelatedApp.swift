@@ -4,6 +4,11 @@ public class RelatedApp: NSObject, Codable {
     private var app: String?
     private var code: String
     
+    public override init() {
+        self.code = ""
+        super.init()
+    }
+    
     public init(_ app: String?, _ code: String) {
         self.app = app
         self.code = code

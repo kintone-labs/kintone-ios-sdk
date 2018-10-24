@@ -7,6 +7,10 @@ public class LookupField: AbstractInputField {
         case lookup
     }
    
+    public override init(){
+        super.init()
+    }
+    
     public init(_ code: String, _ type: FieldType) {
         super.init()
         self.type = type
