@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class BulkRequest: NSObject {
+open class BulkRequest: NSObject {
     //private static let BulkRequestParser parser = new BulkRequestParser();
     private var connection: Connection
     private var bulkRequests: BulkRequestModel
@@ -26,7 +26,7 @@ public class BulkRequest: NSObject {
     ///   - record: The record data which will add to kintone app
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func addRecord(_ app: Int, _ record: [String: FieldValue]?) throws -> BulkRequest {
+    open func addRecord(_ app: Int, _ record: [String: FieldValue]?) throws -> BulkRequest {
         let addRecordRequest = AddRecordRequest(app, record)
         do {
             let bulkRequestItem = try BulkRequestItem(ConnectionConstants.POST_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), addRecordRequest as Any)
@@ -46,7 +46,7 @@ public class BulkRequest: NSObject {
     ///   - records: The records data which will add to kintone app
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func addRecords(_ app: Int, _ records: Array<[String: FieldValue]?>) throws -> BulkRequest {
+    open func addRecords(_ app: Int, _ records: Array<[String: FieldValue]?>) throws -> BulkRequest {
         
         var tempRecords: Array<[String: FieldValue]?> = []
         for record in records {
@@ -74,7 +74,7 @@ public class BulkRequest: NSObject {
     ///   - revision: The expected revision number.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecordByID(_ app: Int, _ id: Int, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
+    open func updateRecordByID(_ app: Int, _ id: Int, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
         let updateRecordRequest = UpdateRecordRequest(app, id, nil, revision, record)
         do {
             let bulkRequestItem  = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest as Any)
@@ -96,7 +96,7 @@ public class BulkRequest: NSObject {
     ///   - revision: The expected revision number.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
+    open func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest {
         let updateRecordRequest  = UpdateRecordRequest(app, nil, updateKey, revision, record)
         do {
             let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD), updateRecordRequest)
@@ -116,7 +116,7 @@ public class BulkRequest: NSObject {
     ///   - records: The records data which will update to kintone app
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecords(_ app: Int, _ records: Array<RecordUpdateItem> ) throws -> BulkRequest {
+    open func updateRecords(_ app: Int, _ records: Array<RecordUpdateItem> ) throws -> BulkRequest {
         let updateRecordsRequest = UpdateRecordsRequest(app, records)
         do {
             let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), updateRecordsRequest)
@@ -136,7 +136,7 @@ public class BulkRequest: NSObject {
     ///   - ids: Array of record IDs that will be deleted
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func deleteRecords(_ app: Int, _ ids: Array<Int>) throws -> BulkRequest {
+    open func deleteRecords(_ app: Int, _ ids: Array<Int>) throws -> BulkRequest {
         let deleteRecordsRequest = DeleteRecordsRequest(app, ids, nil)
         do {
             let bulkRequestItem = try BulkRequestItem(ConnectionConstants.DELETE_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), deleteRecordsRequest)
@@ -156,7 +156,7 @@ public class BulkRequest: NSObject {
     ///   - idsWithRevision: The expected revision number per record ID.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int: Int?]) throws -> BulkRequest {
+    open func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int: Int?]) throws -> BulkRequest {
     
         var ids: Array<Int> = []
         var revisions: Array<Int?> = []
@@ -188,7 +188,7 @@ public class BulkRequest: NSObject {
     ///   - revision: The revision number of the record before updating the assignees.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecordAssignees(_ app: Int, _ record: Int, _ assignees: Array<String>, _ revision: Int?) throws -> BulkRequest {
+    open func updateRecordAssignees(_ app: Int, _ record: Int, _ assignees: Array<String>, _ revision: Int?) throws -> BulkRequest {
     
         let updateRecordAssigneesRequest = UpdateRecordAssigneesRequest(app, record, assignees, revision)
         do {
@@ -212,7 +212,7 @@ public class BulkRequest: NSObject {
     ///   - revision: The revision number of the record before updating the status.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> BulkRequest {
+    open func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> BulkRequest {
     
         let updateRecordStatusRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
         
@@ -234,7 +234,7 @@ public class BulkRequest: NSObject {
     ///   - records: An array including information of the record to be updated.
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
-    public func updateRecordsStatus(_ app: Int, _ records: Array<RecordUpdateStatusItem>) throws -> BulkRequest {
+    open func updateRecordsStatus(_ app: Int, _ records: Array<RecordUpdateStatusItem>) throws -> BulkRequest {
     
         let updateRecordsStatusRequest = UpdateRecordsStatusRequest(app, records)
         do {
@@ -252,7 +252,7 @@ public class BulkRequest: NSObject {
     ///
     /// - Returns: BulkRequestResponse
     /// - Throws: KintoneAPIExcdeption
-    public func execute() throws -> BulkRequestResponse {
+    open func execute() throws -> BulkRequestResponse {
         let parser = BulkRequestParser()
         let responses = BulkRequestResponse();
         do {

@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class CreatorField: AbstractSystemInfoField {
+open class CreatorField: AbstractSystemInfoField {
     
     public init(_ code: String) {
         super.init()

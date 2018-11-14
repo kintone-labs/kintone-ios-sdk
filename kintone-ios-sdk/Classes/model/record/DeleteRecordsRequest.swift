@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class DeleteRecordsRequest: NSObject, Codable {
+open class DeleteRecordsRequest: NSObject, Codable {
     
     private var app: Int?
     private var ids: [Int]?

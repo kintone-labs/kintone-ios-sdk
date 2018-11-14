@@ -6,7 +6,7 @@
 //  Copyright © 2018年 h001218. All rights reserved.
 //
 
-public class ConnectionConstants: NSObject {
+open class ConnectionConstants: NSObject {
     public static let BASE_URL = "/k/v1/{API_NAME}.json"
     public static let BASE_GUEST_URL = "/k/guest/{GUEST_SPACE_ID}/v1/{API_NAME}.json"
     public static let GET_REQUEST = "GET"

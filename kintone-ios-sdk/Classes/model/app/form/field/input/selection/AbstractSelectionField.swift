@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AbstractSelectionField: AbstractInputField {
+open class AbstractSelectionField: AbstractInputField {
     internal var options: [String: OptionData]
     
     enum AbstractSelectionCodingKeys: CodingKey {
@@ -18,7 +18,7 @@ public class AbstractSelectionField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: AbstractSelectionCodingKeys.self)
         if(self.options.count > 0){
             try container.encode(self.options, forKey: AbstractSelectionCodingKeys.options)
@@ -26,15 +26,15 @@ public class AbstractSelectionField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    public func getOptions() -> [String: OptionData] {
+    open func getOptions() -> [String: OptionData] {
         return self.options
     }
     
-    public func setOptions(_ options: [String: OptionData]) {
+    open func setOptions(_ options: [String: OptionData]) {
         self.options = options
     }
     
-    public func addOption(_ option: OptionData?) -> Bool {
+    open func addOption(_ option: OptionData?) -> Bool {
         if (option == nil || option!.getLabel().isEmpty) {
             return false
         }
@@ -42,7 +42,7 @@ public class AbstractSelectionField: AbstractInputField {
         return true
     }
     
-    public func removeOption(_ option: OptionData?) -> Bool {
+    open func removeOption(_ option: OptionData?) -> Bool {
         if (option == nil || option!.getLabel().isEmpty) {
             return false
         }

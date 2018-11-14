@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class SubTableLayout: ItemLayout {
+open class SubTableLayout: ItemLayout {
     private var code: String?
     private var fields: [FieldLayout]?
     
@@ -14,19 +14,19 @@ public class SubTableLayout: ItemLayout {
         self.type = LayoutType.SUBTABLE
     }
    
-    public func getCode() -> String? {
+    open func getCode() -> String? {
         return self.code
     }
  
-    public func setCode(_ code: String?) {
+    open func setCode(_ code: String?) {
         self.code = code
     }
     
-    public func getFields() -> [FieldLayout]? {
+    open func getFields() -> [FieldLayout]? {
         return self.fields
     }
    
-    public func setFields(_ fields: [FieldLayout]?) {
+    open func setFields(_ fields: [FieldLayout]?) {
         self.fields = fields
     }
     
@@ -37,7 +37,7 @@ public class SubTableLayout: ItemLayout {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.code, forKey: SubTableLayout.CodingKeys.code)
         try container.encode(self.fields, forKey: SubTableLayout.CodingKeys.fields)

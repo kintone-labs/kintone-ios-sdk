@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GroupLayout: ItemLayout {
+open class GroupLayout: ItemLayout {
     private var code: String?
     private var layout: [RowLayout]?
     
@@ -15,19 +15,19 @@ public class GroupLayout: ItemLayout {
         self.layout = [RowLayout]()
     }
     
-    public func getCode() -> String? {
+    open func getCode() -> String? {
         return self.code
     }
    
-    public func setCode(_ code: String?) {
+    open func setCode(_ code: String?) {
         self.code = code
     }
     
-    public func getLayout() -> [RowLayout]? {
+    open func getLayout() -> [RowLayout]? {
         return self.layout
     }
   
-    public func setLayout(_ layout: [RowLayout]?) {
+    open func setLayout(_ layout: [RowLayout]?) {
         self.layout = layout
     }
     
@@ -38,7 +38,7 @@ public class GroupLayout: ItemLayout {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(self.layout, forKey: GroupLayout.CodingKeys.layout)
         try container.encode(self.code, forKey: GroupLayout.CodingKeys.code)

@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class FormFields: NSObject, Codable {
+open class FormFields: NSObject, Codable {
     private var app: String?
     private var revision: String?
     private var properties: [String: Field]?
@@ -39,27 +39,27 @@ public class FormFields: NSObject, Codable {
         self.properties = properties;
     }
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return Int(self.app!)
     }
    
-    public func setApp(_ app: String?) {
+    open func setApp(_ app: String?) {
         return self.app = app
     }
     
-    public func getRevision() -> Int? {
+    open func getRevision() -> Int? {
         return  Int(self.revision!)
     }
     
-    public func setRevision(_ revision: String? ) {
+    open func setRevision(_ revision: String? ) {
         self.revision = revision
     }
     
-    public func getProperties() -> [String: Field]? {
+    open func getProperties() -> [String: Field]? {
         return self.properties
     }
     
-    public func setProperties(_ properties: [String: Field]?) {
+    open func setProperties(_ properties: [String: Field]?) {
         self.properties = properties
     }
     

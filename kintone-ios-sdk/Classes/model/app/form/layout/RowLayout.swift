@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class RowLayout: ItemLayout {
+open class RowLayout: ItemLayout {
     private var fields: [FieldLayout]?
     
     public override init() {
@@ -13,11 +13,11 @@ public class RowLayout: ItemLayout {
         case fields
     }
    
-    public func getFields() -> [FieldLayout]? {
+    open func getFields() -> [FieldLayout]? {
         return self.fields
     }
    
-    public func setFields(_ fields: [FieldLayout]?) {
+    open func setFields(_ fields: [FieldLayout]?) {
         self.fields = fields
     }
     
@@ -27,7 +27,7 @@ public class RowLayout: ItemLayout {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(fields, forKey: .fields)
         try super.encode(to: encoder)

@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class FieldGroup: Field {
+open class FieldGroup: Field {
     internal var label: String?
     internal var noLabel: Bool?
     internal var openGroup: Bool?
@@ -22,7 +22,7 @@ public class FieldGroup: Field {
         self.type = FieldType.GROUP;
     }
     
-    public required init(from decoder: Decoder) throws {
+    required public init(from decoder: Decoder) throws {
         do {
             let container = try decoder.container(keyedBy: FieldGroupCodingKeys.self)
             self.label = try container.decode(String.self, forKey: FieldGroupCodingKeys.label)
@@ -34,7 +34,7 @@ public class FieldGroup: Field {
         }
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         do {
             var container = encoder.container(keyedBy: FieldGroupCodingKeys.self)
             if(self.label != nil){
@@ -52,27 +52,27 @@ public class FieldGroup: Field {
         }
     }
     
-    public func getLabel() -> String? {
+    open func getLabel() -> String? {
         return self.label;
     }
     
-    public func setLabel(_ label: String?) {
+    open func setLabel(_ label: String?) {
         self.label = label;
     }
     
-    public func getNoLabel() -> Bool? {
+    open func getNoLabel() -> Bool? {
         return self.noLabel;
     }
     
-    public func setNoLabel(_ noLabel: Bool?) {
+    open func setNoLabel(_ noLabel: Bool?) {
         self.noLabel = noLabel;
     }
     
-    public func getOpenGroup() -> Bool? {
+    open func getOpenGroup() -> Bool? {
         return self.openGroup;
     }
     
-    public func setOpenGroup(_ openGroup: Bool?) {
+    open func setOpenGroup(_ openGroup: Bool?) {
         self.openGroup = openGroup;
     }
 }

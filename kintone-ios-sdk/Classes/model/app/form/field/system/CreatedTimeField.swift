@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class CreatedTimeField: AbstractSystemInfoField {
+open class CreatedTimeField: AbstractSystemInfoField {
     
     public init(_ code: String) {
         super.init()

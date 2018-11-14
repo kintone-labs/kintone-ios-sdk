@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class Record: NSObject {
+open class Record: NSObject {
     
     private var connection: Connection?
     private let parser = RecordParser()
@@ -25,7 +25,7 @@ public class Record: NSObject {
     ///   - id: the ID of record
     /// - Returns: GetRecordResponse
     /// - Throws: KintoneAPIException
-    public func getRecord(_ app: Int, _ id: Int) throws -> GetRecordResponse {
+    open func getRecord(_ app: Int, _ id: Int) throws -> GetRecordResponse {
         do {
             // execute GET RECORDS API
             let recordRequest = GetRecordRequest(app, id)
@@ -50,7 +50,7 @@ public class Record: NSObject {
     ///   - totalCount: the flag that  will or not retrieve the total count of records
     /// - Returns: GetRecordsResponse
     /// - Throws: KintoneAPIException
-    public func getRecords(_ app: Int, _ query: String?, _ fields: [String]?, _ totalCount: Bool?) throws -> GetRecordsResponse {
+    open func getRecords(_ app: Int, _ query: String?, _ fields: [String]?, _ totalCount: Bool?) throws -> GetRecordsResponse {
         do {
             // execute GET RECORDS API
             let recordsRequest = GetRecordsRequest(fields, app, query, totalCount)
@@ -73,7 +73,7 @@ public class Record: NSObject {
     ///   - record: the record data which will add to kintone app
     /// - Returns: AddRecordResponse
     /// - Throws: KintoneAPIException
-    public func addRecord(_ app: Int, _ record: [String:FieldValue]?) throws -> AddRecordResponse {
+    open func addRecord(_ app: Int, _ record: [String:FieldValue]?) throws -> AddRecordResponse {
         do {
             // execute POST RECORD API
             let recordRequest = AddRecordRequest(app, record)
@@ -96,7 +96,7 @@ public class Record: NSObject {
     ///   - records: the records data which will add to kintone app
     /// - Returns: AddRecordsResponse
     /// - Throws: KintoneAPIException
-    public func addRecords(_ app: Int, _ records: [[String:FieldValue]]) throws -> AddRecordsResponse {
+    open func addRecords(_ app: Int, _ records: [[String:FieldValue]]) throws -> AddRecordsResponse {
         do {
             // execute POST RECORDS API
             let recordRequest = AddRecordsRequest(app, records)
@@ -121,7 +121,7 @@ public class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    public func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
+    open func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
         do {
             // execute PUT RECORD API
             let recordRequest = UpdateRecordRequest(app, id, nil, revision, record)
@@ -146,7 +146,7 @@ public class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    public func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
+    open func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
         do {
             // execute PUT RECORD API
             let recordRequest = UpdateRecordRequest(app, nil, updateKey, revision, record)
@@ -169,7 +169,7 @@ public class Record: NSObject {
     ///   - records: the array of record data which will update
     /// - Returns: UpdateRecordsResponse
     /// - Throws: KintoneAPIException
-    public func updateRecords(_ app: Int, _ records: [RecordUpdateItem]) throws -> UpdateRecordsResponse {
+    open func updateRecords(_ app: Int, _ records: [RecordUpdateItem]) throws -> UpdateRecordsResponse {
         do {
             // execute PUT RECORDS API
             let recordRequest = UpdateRecordsRequest(app, records)
@@ -191,7 +191,7 @@ public class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - ids: the array of record IDs
     /// - Throws: KintoneAPIException
-    public func deleteRecords(_ app: Int, _ ids: [Int]) throws {
+    open func deleteRecords(_ app: Int, _ ids: [Int]) throws {
         do {
             // execute DELETE RECORDS API
             let recordRequest = DeleteRecordsRequest(app, ids, nil)
@@ -211,7 +211,7 @@ public class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - idsWithRevision: the map of revision number to record ID
     /// - Throws: KintoneAPIException
-    public func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?]) throws {
+    open func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?]) throws {
         // split idsWithRevision into key list and value list
         var ids = [Int]()
         var revisions = [Int?]()
@@ -241,7 +241,7 @@ public class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    public func updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) throws -> UpdateRecordResponse {
+    open func updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) throws -> UpdateRecordResponse {
         do {
             // execute PUT RECORD_ASSIGNEES API
             let recordRequest = UpdateRecordAssigneesRequest(app, id, assignees, revision)
@@ -267,7 +267,7 @@ public class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    public func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> UpdateRecordResponse {
+    open func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> UpdateRecordResponse {
         do {
             // execute PUT RECORD_STATUS API
             let recordRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
@@ -290,7 +290,7 @@ public class Record: NSObject {
     ///   - records: the array of record's infomation for update status
     /// - Returns: UpdateRecordsResponse
     /// - Throws: KintoneAPIException
-    public func updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem]) throws -> UpdateRecordsResponse {
+    open func updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem]) throws -> UpdateRecordsResponse {
         do {
             // execute PUT RECORDS_STATUS API
             let recordRequest = UpdateRecordsStatusRequest(app, records)
@@ -316,7 +316,7 @@ public class Record: NSObject {
     ///   - limit: the number of records to retreive
     /// - Returns: GetCommentsResponse
     /// - Throws: KintoneAPIException
-    public func getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?) throws -> GetCommentsResponse {
+    open func getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?) throws -> GetCommentsResponse {
         do {
             // execute GET RECORD_COMMENTS API
             let recordRequest = GetCommentsRecordRequest(app, record, order, offset, limit)
@@ -340,7 +340,7 @@ public class Record: NSObject {
     ///   - comment: the detail of comment
     /// - Returns: AddCommentResponse
     /// - Throws: KintoneAPIException
-    public func addComment(_ app: Int, _ record: Int, _ comment: CommentContent) throws -> AddCommentResponse {
+    open func addComment(_ app: Int, _ record: Int, _ comment: CommentContent) throws -> AddCommentResponse {
         do {
             // execute POST RECORD_COMMENT API
             let recordRequest = AddCommentRecordRequest(app, record, comment)
@@ -363,7 +363,7 @@ public class Record: NSObject {
     ///   - record: the ID of record
     ///   - comment: the ID of comment on the record
     /// - Throws: KintoneAPIException
-    public func deleteComment(_ app: Int, _ record: Int, _ comment: Int) throws {
+    open func deleteComment(_ app: Int, _ record: Int, _ comment: Int) throws {
         do {
             // execute DELETE RRECORD_COMMENT API
             let recordRequest = DeleteCommentRecordRequest(app, record, comment)

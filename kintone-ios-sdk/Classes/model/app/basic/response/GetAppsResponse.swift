@@ -1,12 +1,12 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GetAppsResponse: NSObject, Codable {
+open class GetAppsResponse: NSObject, Codable {
     private var apps: Array<AppModel>?
     
-    public func getApps() -> Array<AppModel>? {
+    open func getApps() -> Array<AppModel>? {
         return self.apps
     }
-    public func setApps(_ apps: Array<AppModel>?) {
+    open func setApps(_ apps: Array<AppModel>?) {
         self.apps = apps
     }
 }

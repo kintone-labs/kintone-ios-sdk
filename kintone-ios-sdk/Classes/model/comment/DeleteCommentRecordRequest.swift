@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class DeleteCommentRecordRequest: NSObject, Codable {
+open class DeleteCommentRecordRequest: NSObject, Codable {
     
     private var app: Int?
     private var record: Int?

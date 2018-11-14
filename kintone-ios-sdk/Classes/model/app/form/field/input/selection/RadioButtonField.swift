@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class RadioButtonField: AbstractSelectionField {
+open class RadioButtonField: AbstractSelectionField {
     internal var defaultValue: String?
     internal var align: AlignLayout?
     
@@ -22,7 +22,7 @@ public class RadioButtonField: AbstractSelectionField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: RadioButtonCodingKeys.self)
         if(self.defaultValue != nil){
             try container.encode(self.defaultValue, forKey: RadioButtonCodingKeys.defaultValue)
@@ -33,19 +33,19 @@ public class RadioButtonField: AbstractSelectionField {
         try super.encode(to: encoder)
     }
     
-    public func getAlign() -> AlignLayout? {
+    open func getAlign() -> AlignLayout? {
         return self.align
     }
     
-    public func setAlign(_ align: AlignLayout?) {
+    open func setAlign(_ align: AlignLayout?) {
         self.align = align
     }
     
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
 }

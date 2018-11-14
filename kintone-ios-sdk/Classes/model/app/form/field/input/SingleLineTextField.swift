@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class SingleLineTextField: AbstractInputField {
+open class SingleLineTextField: AbstractInputField {
     private var expression: String?
     private var hideExpression: Bool?
     private var minLength: String?
@@ -23,51 +23,51 @@ public class SingleLineTextField: AbstractInputField {
         self.type = FieldType.SINGLE_LINE_TEXT
     }
     
-    public func getMinLength() -> String? {
+    open func getMinLength() -> String? {
         return self.minLength
     }
     
-    public func setMinLength(_ minLength: String?) {
+    open func setMinLength(_ minLength: String?) {
         self.minLength = minLength
     }
     
-    public func getMaxLength() -> String? {
+    open func getMaxLength() -> String? {
         return self.maxLength
     }
     
-    public func setMaxLength(_ maxLength: String?) {
+    open func setMaxLength(_ maxLength: String?) {
         self.maxLength = maxLength
     }
     
-    public func getExpression() -> String? {
+    open func getExpression() -> String? {
         return self.expression
     }
     
-    public func setExpression(_ expression: String?) {
+    open func setExpression(_ expression: String?) {
         self.expression = expression
     }
   
-    public func getHideExpression() -> Bool? {
+    open func getHideExpression() -> Bool? {
         return self.hideExpression
     }
     
-    public func setHideExpression(_ hideExpression: Bool?) {
+    open func setHideExpression(_ hideExpression: Bool?) {
         self.hideExpression = hideExpression
     }
     
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
   
-    public func getUnique() -> Bool? {
+    open func getUnique() -> Bool? {
         return self.unique
     }
     
-    public func setUnique(_ isUnique: Bool?) {
+    open func setUnique(_ isUnique: Bool?) {
         self.unique = isUnique
     }
     
@@ -82,7 +82,7 @@ public class SingleLineTextField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: SingleLineTextCodingKeys.self)
         if(self.expression != nil)
         {

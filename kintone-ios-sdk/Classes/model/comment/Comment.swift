@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class Comment: NSObject, Codable {
+open class Comment: NSObject, Codable {
     
     private var id: Int?
     private var text: String?
@@ -29,70 +29,70 @@ public class Comment: NSObject, Codable {
     /// get the ID of comment
     ///
     /// - Returns: the ID of comment
-    public func getId() -> Int? {
+    open func getId() -> Int? {
         return self.id
     }
     
     /// set the ID of comment
     ///
     /// - Parameter id: the ID of comment
-    public func setId(_ id: Int?) {
+    open func setId(_ id: Int?) {
         self.id = id
     }
     
     /// get the comment content including line feed codes
     ///
     /// - Returns: the comment content including line feed codes
-    public func getText() -> String? {
+    open func getText() -> String? {
         return self.text
     }
 
     /// set the comment content including line feed codes
     ///
     /// - Parameter text: the comment content including line feed codes
-    public func setText(_ text: String) {
+    open func setText(_ text: String) {
         self.text = text
     }
 
     /// get the created date and time of the comment
     ///
     /// - Returns: he created date and time of the comment
-    public func getCreatedAt() -> Date? {
+    open func getCreatedAt() -> Date? {
         return self.createdAt
     }
 
     /// set he created date and time of the comment
     ///
     /// - Parameter createAt: he created date and time of the comment
-    public func setCreatedAt(_ createAt: Date) {
+    open func setCreatedAt(_ createAt: Date) {
         self.createdAt = createAt
     }
 
     /// get an Object including infomation of the comment creator
     ///
     /// - Returns: an Object including infomation of the comment creator
-    public func getCreator() -> Member? {
+    open func getCreator() -> Member? {
         return self.creator
     }
 
     /// set an Object including infomation of the comment creator
     ///
     /// - Parameter creator: an Object including infomation of the comment creator
-    public func setCreator(_ creator: Member) {
+    open func setCreator(_ creator: Member) {
         self.creator = creator
     }
 
     /// get an Array including infomation of the comment creator
     ///
     /// - Returns: an Array cluding infomation of the comment creator
-    public func getMentions() -> [CommentMention]? {
+    open func getMentions() -> [CommentMention]? {
         return self.mentions
     }
     
     /// set an Array including infomation of the comment creator
     ///
     /// - Parameter mentions: an Object including infomation of the comment creator
-    public func setMentions(_ mentions: [CommentMention]) {
+    open func setMentions(_ mentions: [CommentMention]) {
         self.mentions = mentions
     }
     

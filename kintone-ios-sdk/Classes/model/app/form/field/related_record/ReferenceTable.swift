@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class ReferenceTable: NSObject, Codable {
+open class ReferenceTable: NSObject, Codable {
     private var condition: FieldMapping?
     private var filterCond: String?
     private var relatedApp: RelatedApp?
@@ -40,7 +40,7 @@ public class ReferenceTable: NSObject, Codable {
         self.sort = try container.decode(String.self, forKey: ReferenceTableCodingKeys.sort)
     }
     
-    public func encode(to encoder: Encoder) throws {
+    open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: ReferenceTableCodingKeys.self)
         if(self.condition != nil){
             try container.encode(self.condition, forKey: ReferenceTableCodingKeys.condition)
@@ -62,55 +62,55 @@ public class ReferenceTable: NSObject, Codable {
         }
     }
     
-    public func getCondition() -> FieldMapping? {
+    open func getCondition() -> FieldMapping? {
         return self.condition
     }
     
-    public func setCondition(_ condition: FieldMapping?) {
+    open func setCondition(_ condition: FieldMapping?) {
         self.condition = condition
     }
     
-    public func getFilterCond() -> String? {
+    open func getFilterCond() -> String? {
         return self.filterCond
     }
     
-    public func setFilterCond(_ filterCond: String?) {
+    open func setFilterCond(_ filterCond: String?) {
         self.filterCond = filterCond
     }
     
-    public func getRelatedApp() -> RelatedApp? {
+    open func getRelatedApp() -> RelatedApp? {
         return self.relatedApp
     }
     
-    public func setRelatedApp(_ relatedApp: RelatedApp?) {
+    open func setRelatedApp(_ relatedApp: RelatedApp?) {
         self.relatedApp = relatedApp
     }
     
-    public func getSize() -> Int? {
+    open func getSize() -> Int? {
         return Int(self.size != nil ? self.size! : "")
     }
     
-    public func setSize(_ size: String?) {
+    open func setSize(_ size: String?) {
         self.size = size
     }
    
-    public func getDisplayFields() -> [String]? {
+    open func getDisplayFields() -> [String]? {
         return self.displayFields
     }
     
-    public func setDisplayFields(_ displayFields: [String]?) {
+    open func setDisplayFields(_ displayFields: [String]?) {
         self.displayFields = displayFields
     }
     
-    public func getSort() -> String? {
+    open func getSort() -> String? {
         return self.sort;
     }
     
-    public func setSort(_ sort: String?) {
+    open func setSort(_ sort: String?) {
         self.sort = sort
     }
 
-    public func equals(_ obj: AnyObject?) -> Bool {
+    open func equals(_ obj: AnyObject?) -> Bool {
         if (obj == nil) {
             return false
         }

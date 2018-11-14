@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class DateTimeField: AbstractInputField {
+open class DateTimeField: AbstractInputField {
     internal var unique: Bool?
     internal var defaultValue: String?
     internal var defaultNowValue: Bool?
@@ -14,7 +14,7 @@ public class DateTimeField: AbstractInputField {
     public override init() {
         super.init()
     }
-    
+
     public init(_ code: String) {
         super.init()
         self.code = code
@@ -29,7 +29,7 @@ public class DateTimeField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: DateTimeCodingKeys.self)
         if(self.defaultValue != nil){
             try container.encode(self.defaultValue, forKey: DateTimeCodingKeys.defaultValue)
@@ -43,27 +43,27 @@ public class DateTimeField: AbstractInputField {
         try super.encode(to: encoder)
     }
    
-    public func getUnique() -> Bool? {
+    open func getUnique() -> Bool? {
         return unique;
     }
   
-    public func setUnique(_ unique: Bool?) {
+    open func setUnique(_ unique: Bool?) {
         self.unique = unique
     }
     
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
    
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
    
-    public func getDefaultNowValue() -> Bool? {
+    open func getDefaultNowValue() -> Bool? {
         return self.defaultNowValue
     }
    
-    public func setDefaultNowValue(_ defaultNowValue: Bool?) {
+    open func setDefaultNowValue(_ defaultNowValue: Bool?) {
         self.defaultNowValue = defaultNowValue
     }
 }
