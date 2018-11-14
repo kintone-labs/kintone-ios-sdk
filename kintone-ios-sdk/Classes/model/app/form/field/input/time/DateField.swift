@@ -10,6 +10,10 @@ open class DateField: AbstractInputField {
         case defaultValue
         case defaultNowValue
     }
+    
+    public override init() {
+        super.init()
+    }
    
     public init(_ code: String) {
         super.init()
