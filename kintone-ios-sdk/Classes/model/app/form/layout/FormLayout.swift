@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class FormLayout: NSObject, Codable {
+open class FormLayout: NSObject, Codable {
     private var revision: String?
     private var layout: [ItemLayout]?
     
@@ -9,19 +9,19 @@ public class FormLayout: NSObject, Codable {
         self.layout = [ItemLayout]();
     }
   
-    public func getRevision() -> String? {
+    open func getRevision() -> String? {
         return self.revision
     }
   
-    public func setRevision(_ revision: String?) {
+    open func setRevision(_ revision: String?) {
         self.revision = revision
     }
   
-    public func getLayout() -> [ItemLayout]? {
+    open func getLayout() -> [ItemLayout]? {
         return self.layout
     }
     
-    public func setLayout(_ layout: [ItemLayout]?) {
+    open func setLayout(_ layout: [ItemLayout]?) {
         self.layout = layout
     }
     

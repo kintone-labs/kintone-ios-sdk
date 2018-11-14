@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class DownloadRequest: NSObject, Codable {
+open class DownloadRequest: NSObject, Codable {
     private var fileKey: String
     
     /// Constructor

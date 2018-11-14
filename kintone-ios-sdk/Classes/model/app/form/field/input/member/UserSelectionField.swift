@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class UserSelectionField: AbstractMemberSelectField {
+open class UserSelectionField: AbstractMemberSelectField {
     
     public init (_ code: String) {
         super.init()
@@ -12,7 +12,7 @@ public class UserSelectionField: AbstractMemberSelectField {
       try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder)
     }
 }

@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class DepartmentSelectionField: AbstractMemberSelectField {
+open class DepartmentSelectionField: AbstractMemberSelectField {
     
     public init(_ code: String) {
         super.init()
@@ -11,7 +11,7 @@ public class DepartmentSelectionField: AbstractMemberSelectField {
     public required init(from decoder: Decoder) throws {
         try super.init(from: decoder)
     }
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         try super.encode(to: encoder)
     }
 }

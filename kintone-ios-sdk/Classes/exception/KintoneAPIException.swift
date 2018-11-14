@@ -7,7 +7,7 @@
 //
 
 /// Exception will occur in using kintone RestAPI.
-public class KintoneAPIException: Error {
+open class KintoneAPIException: Error {
     private var message: String?
     private var httpErrorCode: Int?
     private var errorResponse: ErrorResponse?
@@ -47,21 +47,21 @@ public class KintoneAPIException: Error {
     /// get Http error code
     ///
     /// - Returns: Http error code
-    public func getHttpErrorCode() -> Int? {
+    open func getHttpErrorCode() -> Int? {
         return self.httpErrorCode
     }
     
     /// get Error Response message
     ///
     /// - Returns: Response message sent by kintone RestAPI
-    public func getErrorResponse() -> ErrorResponse? {
+    open func getErrorResponse() -> ErrorResponse? {
         return self.errorResponse
     }
     
     /// output error message
     ///
     /// - Returns: Error message
-    public func toString() -> String? {
+    open func toString() -> String? {
         if (self.errorResponse == nil){
             if (self.request == nil || self.errorResponses == nil){
                 return self.message

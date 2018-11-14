@@ -1,26 +1,26 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class Field: NSObject, Codable {
+open class Field: NSObject, Codable {
     internal var code: String = ""
     internal var type: FieldType?
     
-    public func getCode() -> String {
+    open func getCode() -> String {
         return self.code
     }
     
-    public func setCode(_ code: String) {
+    open func setCode(_ code: String) {
         self.code = code;
     }
     
-    public func getType() -> FieldType? {
+    open func getType() -> FieldType? {
         return self.type
     }
    
-    public func setType(_ type: FieldType) {
+    open func setType(_ type: FieldType) {
         self.type = type
     }
     
-    public func equals(_ obj: AnyObject?) -> Bool {
+    open func equals(_ obj: AnyObject?) -> Bool {
         if (obj == nil) {
             return false
         }

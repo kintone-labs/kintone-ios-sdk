@@ -1,12 +1,12 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class BasicResponse: NSObject, Codable {
+open class BasicResponse: NSObject, Codable {
     private var revision: String?
     
-    public func getRevision() -> Int? {
+    open func getRevision() -> Int? {
         return Int(self.revision!)
     }
-    public func setRevision(_ revision: Int?) {
+    open func setRevision(_ revision: Int?) {
         self.revision = "\(String(describing: revision!))"
     }
     

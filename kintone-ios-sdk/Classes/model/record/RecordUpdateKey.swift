@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class RecordUpdateKey: NSObject, Codable {
+open class RecordUpdateKey: NSObject, Codable {
     
     private var field: String?
     private var value: String?

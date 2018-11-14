@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class RichTextField: AbstractInputField {
+open class RichTextField: AbstractInputField {
     private var defaultValue: String?
     
     enum RichTextCodingKeys: CodingKey {
@@ -19,7 +19,7 @@ public class RichTextField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: RichTextCodingKeys.self)
         if(self.defaultValue != nil){
             try container.encode(self.defaultValue, forKey: RichTextCodingKeys.defaultValue)
@@ -27,11 +27,11 @@ public class RichTextField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
    
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
 }

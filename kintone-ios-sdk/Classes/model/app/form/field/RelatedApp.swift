@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class RelatedApp: NSObject, Codable {
+open class RelatedApp: NSObject, Codable {
     private var app: String?
     private var code: String
     
@@ -9,23 +9,23 @@ public class RelatedApp: NSObject, Codable {
         self.code = code
     }
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return Int(self.app!)
     }
     
-    public func setApp(_ app: String?) {
+    open func setApp(_ app: String?) {
         self.app = app
     }
     
-    public func getCode() -> String {
+    open func getCode() -> String {
         return self.code
     }
     
-    public func setCode(_ code: String) {
+    open func setCode(_ code: String) {
         self.code = code
     }
     
-    public func equals(_ obj: AnyObject?) -> Bool {
+    open func equals(_ obj: AnyObject?) -> Bool {
         if (obj == nil) {
             return false
         }

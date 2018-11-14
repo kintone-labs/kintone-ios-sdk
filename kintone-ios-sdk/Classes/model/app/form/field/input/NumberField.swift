@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class NumberField: AbstractInputField {
+open class NumberField: AbstractInputField {
     private var displayScale: String?
     private var unit: String?
     private var unitPosition: UnitPosition?
@@ -40,7 +40,7 @@ public class NumberField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: NumberCodingKeys.self)
         if(self.displayScale != nil){
             try container.encode(self.displayScale, forKey: NumberCodingKeys.displayScale)
@@ -69,68 +69,68 @@ public class NumberField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    public func getDisplayScale() -> Int? {
+    open func getDisplayScale() -> Int? {
         return Int(self.displayScale != nil ? self.displayScale! : "")
     }
     
-    public func setDisplayScale(_ displayScale: String?) {
+    open func setDisplayScale(_ displayScale: String?) {
         self.displayScale = displayScale
     }
     
-    public func getUnit() -> String? {
+    open func getUnit() -> String? {
         return self.unit
     }
     
-    public func setUnit(_ unit: String?) {
+    open func setUnit(_ unit: String?) {
         self.unit = unit
     }
     
-    public func getUnitPosition() -> UnitPosition? {
+    open func getUnitPosition() -> UnitPosition? {
         return self.unitPosition
     }
     
-    public func setUnitPosition(_ unitPosition: UnitPosition?) {
+    open func setUnitPosition(_ unitPosition: UnitPosition?) {
         self.unitPosition = unitPosition;
     }
     
 
-    public func getDigit() -> Bool? {
+    open func getDigit() -> Bool? {
         return self.digit
     }
     
-    public func setDigit(_ digit: Bool?) {
+    open func setDigit(_ digit: Bool?) {
         self.digit = digit
     }
     
-    public func getMaxValue() -> Int? {
+    open func getMaxValue() -> Int? {
         return Int(self.maxValue != nil ? self.maxValue! : "")
     }
     
-    public func setMaxValue(_ maxValue: String?) {
+    open func setMaxValue(_ maxValue: String?) {
         self.maxValue = maxValue
     }
    
-    public func getMinValue() -> Int? {
+    open func getMinValue() -> Int? {
         return Int(self.minValue != nil ? self.minValue! : "")
     }
     
-    public func setMinValue(_ minValue: String?) {
+    open func setMinValue(_ minValue: String?) {
         self.minValue = minValue
     }
     
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
     
-    public func getUnique() -> Bool? {
+    open func getUnique() -> Bool? {
         return self.unique
     }
     
-    public func setUnique(_ unique: Bool?) {
+    open func setUnique(_ unique: Bool?) {
         self.unique = unique
     }
 }

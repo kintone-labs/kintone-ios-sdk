@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class CategoryField: AbstractSystemField {
+open class CategoryField: AbstractSystemField {
     internal var enabled: Bool?
     
     enum CategoryCodingKeys: CodingKey {
@@ -19,11 +19,11 @@ public class CategoryField: AbstractSystemField {
         try super.init(from: decoder)
     }
     
-    public func getEnabled() -> Bool? {
+    open func getEnabled() -> Bool? {
         return self.enabled;
     }
     
-    public func setEnabled(_ enabled: Bool?) {
+    open func setEnabled(_ enabled: Bool?) {
         self.enabled = enabled
     }
 }

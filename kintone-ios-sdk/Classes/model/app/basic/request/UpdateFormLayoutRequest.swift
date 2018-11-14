@@ -1,26 +1,26 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class UpdateFormLayoutRequest: NSObject, Codable  {
+open class UpdateFormLayoutRequest: NSObject, Codable  {
     private var app: Int?
     private var revision: Int?
     private var layout: [ItemLayout]?
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return self.app
     }
-    public func setApp(_ app: Int) {
+    open func setApp(_ app: Int) {
         self.app = app
     }
-    public func getLayout() -> [ItemLayout]? {
+    open func getLayout() -> [ItemLayout]? {
         return self.layout
     }
-    public func setLayout(_ layout: [ItemLayout]?) {
+    open func setLayout(_ layout: [ItemLayout]?) {
         self.layout = layout
     }
-    public func getRevision() -> Int? {
+    open func getRevision() -> Int? {
         return self.revision
     }
-    public func setRevision(_ revision: Int) {
+    open func setRevision(_ revision: Int) {
         self.revision = revision
     }
     

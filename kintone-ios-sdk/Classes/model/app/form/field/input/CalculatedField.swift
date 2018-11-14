@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class CalculatedField: AbstractInputField {
+open class CalculatedField: AbstractInputField {
     private var expression: String?
     private var hideExpression: Bool?
     private var displayScale: String?
@@ -39,7 +39,7 @@ public class CalculatedField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CalculatedFieldCodingKeys.self)
         if(self.displayScale != nil){
             try container.encode(self.displayScale, forKey: CalculatedFieldCodingKeys.displayScale)
@@ -62,51 +62,51 @@ public class CalculatedField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    public func getExpression() -> String? {
+    open func getExpression() -> String? {
         return self.expression
     }
    
-    public func setExpression(_ expression: String?) {
+    open func setExpression(_ expression: String?) {
         self.expression = expression
     }
   
-    public func getHideExpression() -> Bool? {
+    open func getHideExpression() -> Bool? {
         return self.hideExpression
     }
    
-    public func setHideExpression(_ hideExpression: Bool?) {
+    open func setHideExpression(_ hideExpression: Bool?) {
         self.hideExpression = hideExpression
     }
    
-    public func getDisplayScale() -> Int? {
+    open func getDisplayScale() -> Int? {
         return Int(self.displayScale != nil ? self.displayScale! : "")
     }
     
-    public func setDisplayScale(_ displayScale: String?) {
+    open func setDisplayScale(_ displayScale: String?) {
         self.displayScale = displayScale
     }
     
-    public func getUnit() -> String? {
+    open func getUnit() -> String? {
         return self.unit
     }
    
-    public func setUnit(_ unit: String?) {
+    open func setUnit(_ unit: String?) {
         self.unit = unit
     }
    
-    public func getUnitPosition() -> UnitPosition? {
+    open func getUnitPosition() -> UnitPosition? {
         return self.unitPosition
     }
    
-    public func setUnitPosition(_ unitPosition: UnitPosition?) {
+    open func setUnitPosition(_ unitPosition: UnitPosition?) {
         self.unitPosition = unitPosition;
     }
   
-    public func getFormat() -> NumberFormat? {
+    open func getFormat() -> NumberFormat? {
         return self.format;
     }
     
-    public func setFormat(_ format: NumberFormat?) {
+    open func setFormat(_ format: NumberFormat?) {
         self.format = format;
     }
 }

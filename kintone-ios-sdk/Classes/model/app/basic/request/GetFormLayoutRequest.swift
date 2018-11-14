@@ -1,12 +1,12 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GetFormLayoutRequest: NSObject, Codable {
+open class GetFormLayoutRequest: NSObject, Codable {
     private var app: Int?
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return self.app
     }
-    public func setApp(_ app: Int) {
+    open func setApp(_ app: Int) {
         self.app = app
     }
     

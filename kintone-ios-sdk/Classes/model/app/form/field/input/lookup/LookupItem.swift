@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class LookupItem: NSObject, Codable {
+open class LookupItem: NSObject, Codable {
     private var fieldMappings: [FieldMapping]
     private var filterCond: String?
     private var lookupPickerFields: [String]
@@ -37,7 +37,7 @@ public class LookupItem: NSObject, Codable {
         }
     }
     
-    public func encode(to encoder: Encoder) throws {
+    open func encode(to encoder: Encoder) throws {
         do {
             var container = encoder.container(keyedBy: LookupItemCodingKeys.self)
             if(self.fieldMappings.count > 0){
@@ -63,55 +63,55 @@ public class LookupItem: NSObject, Codable {
         }
     }
     
-    public func getFieldMapping() -> [FieldMapping] {
+    open func getFieldMapping() -> [FieldMapping] {
         return self.fieldMappings
     }
    
-    public func setFieldMapping(_ fieldMapping: [FieldMapping]) {
+    open func setFieldMapping(_ fieldMapping: [FieldMapping]) {
         self.fieldMappings = fieldMapping
     }
     
-    public func getFilterCond() -> String? {
+    open func getFilterCond() -> String? {
         return self.filterCond
     }
     
-    public func setFilterCond(_ filterCond: String?) {
+    open func setFilterCond(_ filterCond: String?) {
         self.filterCond = filterCond
     }
     
-    public func getLookupPickerFields() -> [String] {
+    open func getLookupPickerFields() -> [String] {
         return self.lookupPickerFields;
     }
     
-    public func setLookupPickerFields(_ lookupPickerFields: [String]) {
+    open func setLookupPickerFields(_ lookupPickerFields: [String]) {
         self.lookupPickerFields = lookupPickerFields
     }
     
-    public func getRelatedApp() -> RelatedApp? {
+    open func getRelatedApp() -> RelatedApp? {
         return self.relatedApp
     }
     
-    public func setRelatedApp(_ relatedApp: RelatedApp?) {
+    open func setRelatedApp(_ relatedApp: RelatedApp?) {
         self.relatedApp = relatedApp
     }
     
-    public func getRelatedKeyField() -> String? {
+    open func getRelatedKeyField() -> String? {
         return self.relatedKeyField
     }
     
-    public func setRelatedKeyField(_ relatedKeyField: String?) {
+    open func setRelatedKeyField(_ relatedKeyField: String?) {
         self.relatedKeyField = relatedKeyField
     }
     
-    public func getSort() -> String? {
+    open func getSort() -> String? {
         return self.sort
     }
     
-    public func setSort(_ sort: String?) {
+    open func setSort(_ sort: String?) {
         self.sort = sort
     }
     
-    public func equals(_ obj: Any?) -> Bool {
+    open func equals(_ obj: Any?) -> Bool {
         if (obj == nil) {
             return false;
         }

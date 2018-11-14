@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AbstractSystemInfoField: AbstractSystemField {
+open class AbstractSystemInfoField: AbstractSystemField {
     internal var noLabel: Bool?
     
     enum AbstractSystemInfoCodingKeys: CodingKey {
@@ -17,11 +17,11 @@ public class AbstractSystemInfoField: AbstractSystemField {
         try super.init(from: decoder)
     }
     
-    public func getNoLabel() -> Bool? {
+    open func getNoLabel() -> Bool? {
         return self.noLabel
     }
     
-    public func setNoLabel(_ noLabel: Bool?) {
+    open func setNoLabel(_ noLabel: Bool?) {
         self.noLabel = noLabel
     }
 }

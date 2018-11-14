@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class UpdateGeneralSettingsRequest: GeneralSettings {
+open class UpdateGeneralSettingsRequest: GeneralSettings {
     private var app: String?
     private var revision: String?
     
@@ -9,16 +9,16 @@ public class UpdateGeneralSettingsRequest: GeneralSettings {
         case revision
     }
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return Int(self.app!)
     }
-    public func setApp(_ app: Int?) {
+    open func setApp(_ app: Int?) {
         self.app = "\(String(describing: app!))"
     }
-    public func getRevision() -> Int? {
+    open func getRevision() -> Int? {
         return Int(self.revision!)
     }
-    public func setRevision(_ revision: Int?) {
+    open func setRevision(_ revision: Int?) {
         if(revision != nil) {
             self.revision = "\(String(describing: revision!))"
         }
@@ -42,7 +42,7 @@ public class UpdateGeneralSettingsRequest: GeneralSettings {
         super.init()
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(app, forKey: .app)
         if(self.revision != nil){
