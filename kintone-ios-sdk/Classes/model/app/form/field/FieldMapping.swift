@@ -4,11 +4,15 @@ open class FieldMapping: NSObject, Codable {
     private var field: String?
     private var relatedField: String?
     
+    public override init() {
+        super.init()
+    }
+    
     public init(_ field: String?, _ relatedFields: String?) {
         self.field = field
         self.relatedField = relatedFields
     }
-   
+    
     open func getField() -> String? {
         return self.field;
     }
