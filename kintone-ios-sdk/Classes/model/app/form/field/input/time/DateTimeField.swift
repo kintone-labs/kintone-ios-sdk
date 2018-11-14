@@ -14,7 +14,7 @@ open class DateTimeField: AbstractInputField {
     public override init() {
         super.init()
     }
-   
+
     public init(_ code: String) {
         super.init()
         self.code = code
