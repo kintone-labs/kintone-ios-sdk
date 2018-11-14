@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GeneralSettings: NSObject, Codable {
+open class GeneralSettings: NSObject, Codable {
     private var name: String?
     private var generalDescription: String?
     private var icon: Icon?
@@ -23,28 +23,28 @@ public class GeneralSettings: NSObject, Codable {
         case theme
     }
     
-    public func getName() -> String? {
+    open func getName() -> String? {
         return self.name
     }
-    public func setName(_ name: String?) {
+    open func setName(_ name: String?) {
         self.name = name
     }
-    public func getDescription() -> String? {
+    open func getDescription() -> String? {
         return self.generalDescription
     }
-    public func setDescription(_ description: String?) {
+    open func setDescription(_ description: String?) {
         self.generalDescription = description
     }
-    public func getIcon() -> Icon? {
+    open func getIcon() -> Icon? {
         return self.icon
     }
-    public func setIcon(_ icon: Icon) {
+    open func setIcon(_ icon: Icon) {
         self.icon = icon
     }
-    public func getTheme() -> IconTheme? {
+    open func getTheme() -> IconTheme? {
         return self.theme
     }
-    public func setTheme(_ theme: IconTheme?) {
+    open func setTheme(_ theme: IconTheme?) {
         self.theme = theme
     }
 }

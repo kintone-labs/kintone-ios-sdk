@@ -7,7 +7,7 @@
 //
 
 
-public class HTTPHeader: NSObject {
+open class HTTPHeader: NSObject {
 
     private var key: String?
     private var value: String?
@@ -20,14 +20,14 @@ public class HTTPHeader: NSObject {
     /// get key of the authentication
     ///
     /// - Returns: key of the authentication
-    public func getKey() -> String? {
+    open func getKey() -> String? {
         return self.key
     }
 
     /// get value of the authentication
     ///
     /// - Returns: value of the authentication
-    public func getValue() -> String? {
+    open func getValue() -> String? {
         return self.value
     }
 }

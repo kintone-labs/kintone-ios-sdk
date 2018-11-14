@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AssigneeField: AbstractProcessManagementField {
+open class AssigneeField: AbstractProcessManagementField {
     
     public init(_ code: String) {
         super.init()

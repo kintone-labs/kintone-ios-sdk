@@ -1,12 +1,12 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GetAppDeployStatusResponse: NSObject, Codable {
+open class GetAppDeployStatusResponse: NSObject, Codable {
     private var apps: Array<AppDeployStatus>?
     
-    public func getApps() -> Array<AppDeployStatus>? {
+    open func getApps() -> Array<AppDeployStatus>? {
         return self.apps
     }
-    public func setApps(apps: Array<AppDeployStatus>?) {
+    open func setApps(apps: Array<AppDeployStatus>?) {
         self.apps = apps
     }
 }

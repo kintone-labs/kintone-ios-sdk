@@ -1,26 +1,26 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class UpdateViewsRequest: NSObject, Codable {
+open class UpdateViewsRequest: NSObject, Codable {
     private var app: Int?
     private var views: [String: ViewModel]?
     private var revision: Int?
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return self.app
     }
-    public func setApp(_ app: Int) {
+    open func setApp(_ app: Int) {
         self.app = app
     }
-    public func getViews() -> [String: ViewModel]? {
+    open func getViews() -> [String: ViewModel]? {
         return self.views
     }
-    public func setViews(_ views: [String: ViewModel]) {
+    open func setViews(_ views: [String: ViewModel]) {
         self.views = views
     }
-    public func getRevision() -> Int? {
+    open func getRevision() -> Int? {
         return self.revision
     }
-    public func setRevision(_ revision: Int) {
+    open func setRevision(_ revision: Int) {
         self.revision = revision
     }
     

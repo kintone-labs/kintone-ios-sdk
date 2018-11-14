@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AbstractInputField: Field
+open class AbstractInputField: Field
 {
     internal var label: String?
     internal var noLabel: Bool?
@@ -23,31 +23,31 @@ public class AbstractInputField: Field
         try super.init(from: decoder)
     }
     
-    public func getLabel() -> String? {
+    open func getLabel() -> String? {
         return self.label
     }
     
-    public func setLabel(_ label: String?) {
+    open func setLabel(_ label: String?) {
         self.label = label
     }
     
-    public func getNoLabel() -> Bool? {
+    open func getNoLabel() -> Bool? {
         return self.noLabel
     }
     
-    public func setNoLabel(_ noLabel: Bool?) {
+    open func setNoLabel(_ noLabel: Bool?) {
         self.noLabel = noLabel
     }
     
-    public func getRequired() -> Bool? {
+    open func getRequired() -> Bool? {
         return self.required
     }
     
-    public func setRequired(_ required: Bool?) {
+    open func setRequired(_ required: Bool?) {
         self.required = required
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: AbstractCodingKeys.self)
         if(self.label != nil){
             try container.encode(self.label, forKey: AbstractCodingKeys.label)

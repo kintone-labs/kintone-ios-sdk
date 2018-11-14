@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class SubTableField: Field {
+open class SubTableField: Field {
     internal var fields: [String: AbstractInputField] = [String: AbstractInputField]();
    
     enum SubTableFieldCodingKeys: CodingKey {
@@ -32,7 +32,7 @@ public class SubTableField: Field {
         self.code = code!;
         self.type = FieldType.SUBTABLE;
     }
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         do {
             var container = encoder.container(keyedBy: SubTableFieldCodingKeys.self)
             if(self.fields.count > 0){
@@ -143,22 +143,22 @@ public class SubTableField: Field {
         }
     }
     
-    public func getFields() -> [String: AbstractInputField] {
+    open func getFields() -> [String: AbstractInputField] {
         return self.fields;
     }
     
-    public func setFields(_ fields: [String: AbstractInputField]) {
+    open func setFields(_ fields: [String: AbstractInputField]) {
         self.fields = fields;
     }
     
-    public func addField(_ field: AbstractInputField?) {
+    open func addField(_ field: AbstractInputField?) {
         if (field == nil || field!.getCode() == "" || field!.getCode().count == 0) {
             return;
         }
         fields[field!.getCode()] = field!;
     }
     
-    public func removeField(_ field: AbstractInputField?) {
+    open func removeField(_ field: AbstractInputField?) {
         if (field == nil || field!.getCode() == "" || field!.getCode().count == 0) {
             return;
         }

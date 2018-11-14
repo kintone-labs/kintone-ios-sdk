@@ -1,19 +1,19 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GetViewsRequest: NSObject, Codable {
+open class GetViewsRequest: NSObject, Codable {
     private var app: Int?
     private var lang: LanguageSetting?
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return self.app
     }
-    public func setApp(_ app: Int) {
+    open func setApp(_ app: Int) {
         self.app = app
     }
-    public func getLang() -> LanguageSetting? {
+    open func getLang() -> LanguageSetting? {
         return self.lang
     }
-    public func setLang(_ lang: LanguageSetting) {
+    open func setLang(_ lang: LanguageSetting) {
         self.lang = lang
     }
     

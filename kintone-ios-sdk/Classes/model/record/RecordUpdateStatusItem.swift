@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class RecordUpdateStatusItem: NSObject, Codable {
+open class RecordUpdateStatusItem: NSObject, Codable {
     
     private var action: String?
     private var assignee: String?

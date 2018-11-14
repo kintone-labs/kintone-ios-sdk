@@ -7,7 +7,7 @@
 //
 
 /// Response error message which be sent by kintone RestAPI when sending request unsuccessfully.
-public class ErrorResponse: NSObject, Decodable {
+open class ErrorResponse: NSObject, Decodable {
     private var message: String?
     private var id: String?
     private var code: String?
@@ -51,56 +51,56 @@ public class ErrorResponse: NSObject, Decodable {
     /// Return error message.
     ///
     /// - Returns: the message of error
-    public func getMessage() -> String? {
+    open func getMessage() -> String? {
         return self.message
     }
     
     /// Set error message
     ///
     /// - Parameter message: the message of error
-    public func setMessage(_ message: String?) {
+    open func setMessage(_ message: String?) {
         self.message = message
     }
     
     /// Get the id of message.
     ///
     /// - Returns: Id of message
-    public func getId() -> String? {
+    open func getId() -> String? {
         return self.id
     }
     
     /// Set id for message.
     ///
     /// - Parameter id: The error ID which is returned from the kintone API
-    public func setId(_ id: String?) {
+    open func setId(_ id: String?) {
         self.id = id
     }
     
     /// Get the message's code.
     ///
     /// - Returns: Code of message
-    public func getCode() -> String? {
+    open func getCode() -> String? {
         return self.code
     }
     
     /// Set code for message.
     ///
     /// - Parameter code: Code of message
-    public func setCode(_ code: String?) {
+    open func setCode(_ code: String?) {
         self.code = code
     }
     
     /// get the Description of error
     ///
     /// - Returns: the Description of error
-    public func getErrors() -> [String: [String: Array<String>]]? {
+    open func getErrors() -> [String: [String: Array<String>]]? {
         return self.errors
     }
     
     /// set the Description of error
     ///
     /// - Parameter errors: the Description of error
-    public func setErrors(_ errors: [String: [String: Array<String>]]?) {
+    open func setErrors(_ errors: [String: [String: Array<String>]]?) {
         self.errors = errors
     }
 }

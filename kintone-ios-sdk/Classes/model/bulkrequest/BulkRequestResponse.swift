@@ -6,13 +6,13 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class BulkRequestResponse: NSObject {
+open class BulkRequestResponse: NSObject {
     private var results: Array<Any>? = []
     
     /// Get result
     ///
     /// - Returns: results
-    public func getResults() -> Array<Any>? {
+    open func getResults() -> Array<Any>? {
         return results;
     }
     
@@ -20,7 +20,7 @@ public class BulkRequestResponse: NSObject {
     /// Add response Object to the results.
     ///
     /// - Parameter responseObject: <#responseObject description#>
-    public func addResponse(_ responseObject: Any) {
+    open func addResponse(_ responseObject: Any) {
         self.results?.append(responseObject)
     }
 }

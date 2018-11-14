@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class RecordNumberField: AbstractSystemInfoField {
+open class RecordNumberField: AbstractSystemInfoField {
 
     public init(_ code: String) {
         super.init()

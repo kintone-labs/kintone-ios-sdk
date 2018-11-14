@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class CommentContent: NSObject, Codable {
+open class CommentContent: NSObject, Codable {
     
     private var text: String?
     private var mentions: [CommentMention]?
@@ -14,28 +14,28 @@ public class CommentContent: NSObject, Codable {
     /// get the comment content including line feed codes
     ///
     /// - Returns: the comment content including line feed codes
-    public func getText() -> String? {
+    open func getText() -> String? {
         return self.text
     }
     
     /// set the comment content including line feed codes
     ///
     /// - Parameter text: the comment content including line feed codes
-    public func setText(_ text: String){
+    open func setText(_ text: String){
         self.text = text
     }
     
     /// set an Array including infomation of the comment creator
     ///
     /// - Parameter mentions: an Object including infomation of the comment creator
-    public func getMentions() -> [CommentMention]? {
+    open func getMentions() -> [CommentMention]? {
         return self.mentions
     }
     
     /// set an Array including infomation of the comment creator
     ///
     /// - Parameter mentions: an Object including infomation of the comment creator
-    public func setMentions(_ mentions: [CommentMention]?){
+    open func setMentions(_ mentions: [CommentMention]?){
         self.mentions = mentions
     }
 

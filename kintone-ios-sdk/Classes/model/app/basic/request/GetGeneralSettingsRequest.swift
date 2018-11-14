@@ -1,26 +1,26 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GetGeneralSettingsRequest: NSObject, Codable {
+open class GetGeneralSettingsRequest: NSObject, Codable {
     private var app: Int?
     private var lang: LanguageSetting?
     private var isPreview: Bool?
     
-    public func getApp() -> Int? {
+    open func getApp() -> Int? {
         return self.app
     }
-    public func setApp(_ app: Int?) {
+    open func setApp(_ app: Int?) {
         self.app = app
     }
-    public func getLang() -> LanguageSetting? {
+    open func getLang() -> LanguageSetting? {
         return self.lang
     }
-    public func setLang(_ lang: LanguageSetting?) {
+    open func setLang(_ lang: LanguageSetting?) {
         self.lang = lang
     }
-    public func getIsPreview() -> Bool? {
+    open func getIsPreview() -> Bool? {
         return self.isPreview
     }
-    public func setIsPreview(_ isPreview: Bool?) {
+    open func setIsPreview(_ isPreview: Bool?) {
         self.isPreview = isPreview
     }
     

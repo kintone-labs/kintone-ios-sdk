@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class ModifierField: AbstractSystemInfoField {
+open class ModifierField: AbstractSystemInfoField {
 
     public init(_ code: String) {
         super.init()

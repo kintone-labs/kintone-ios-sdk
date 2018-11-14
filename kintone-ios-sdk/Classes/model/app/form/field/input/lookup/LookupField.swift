@@ -1,10 +1,14 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class LookupField: AbstractInputField {
+open class LookupField: AbstractInputField {
     private var lookup: LookupItem?
     
     enum LookupFieldCodingKeys: CodingKey {
         case lookup
+    }
+    
+    public override init() {
+        super.init()
     }
    
     public override init(){
@@ -23,7 +27,7 @@ public class LookupField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: LookupFieldCodingKeys.self)
         if(self.lookup != nil){
             try container.encode(self.lookup, forKey: LookupFieldCodingKeys.lookup)
@@ -31,15 +35,15 @@ public class LookupField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    public func getLookup() -> LookupItem? {
+    open func getLookup() -> LookupItem? {
         return self.lookup;
     }
     
-    public func setLookup(_ lookup: LookupItem?) {
+    open func setLookup(_ lookup: LookupItem?) {
         self.lookup = lookup
     }
     
-    public override func setType(_ type: FieldType?) {
+    open override func setType(_ type: FieldType?) {
         self.type = type
     }
     

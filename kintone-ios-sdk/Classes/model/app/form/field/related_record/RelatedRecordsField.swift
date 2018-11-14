@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class RelatedRecordsField: Field {
+open class RelatedRecordsField: Field {
     internal var label: String?
     internal var noLabel: Bool?
     internal var referenceTable: ReferenceTable?
@@ -29,7 +29,7 @@ public class RelatedRecordsField: Field {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: RelatedRecordsFieldCodingKeys.self)
         if(self.label != nil){
             try container.encode(self.label, forKey: RelatedRecordsFieldCodingKeys.label)
@@ -43,27 +43,27 @@ public class RelatedRecordsField: Field {
         try super.encode(to: encoder)
     }
    
-    public func getLabel() -> String? {
+    open func getLabel() -> String? {
         return self.label
     }
     
-    public func setLabel(_ label: String?) {
+    open func setLabel(_ label: String?) {
         self.label = label
     }
     
-    public func getNoLabel() -> Bool? {
+    open func getNoLabel() -> Bool? {
         return self.noLabel
     }
 
-    public func setNoLabel(_ noLabel: Bool?) {
+    open func setNoLabel(_ noLabel: Bool?) {
         self.noLabel = noLabel
     }
     
-    public func getReferenceTable() -> ReferenceTable? {
+    open func getReferenceTable() -> ReferenceTable? {
         return self.referenceTable
     }
     
-    public func setReferenceTable(_ referenceTable: ReferenceTable?) {
+    open func setReferenceTable(_ referenceTable: ReferenceTable?) {
         self.referenceTable = referenceTable
     }
 }

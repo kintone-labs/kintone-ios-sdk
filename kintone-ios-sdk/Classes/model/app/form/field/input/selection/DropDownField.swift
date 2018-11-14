@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class DropDownField: AbstractSelectionField {
+open class DropDownField: AbstractSelectionField {
     internal var defaultValue: String?
     
     enum DropDownCodingKeys: CodingKey {
@@ -19,7 +19,7 @@ public class DropDownField: AbstractSelectionField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: DropDownCodingKeys.self)
         if(self.defaultValue != nil){
             try container.encode(self.defaultValue, forKey: DropDownCodingKeys.defaultValue)
@@ -27,11 +27,11 @@ public class DropDownField: AbstractSelectionField {
         try super.encode(to: encoder)
     }
     
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
 }
