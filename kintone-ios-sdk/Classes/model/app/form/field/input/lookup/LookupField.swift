@@ -11,6 +11,10 @@ open class LookupField: AbstractInputField {
         super.init()
     }
    
+    public override init(){
+        super.init()
+    }
+    
     public init(_ code: String, _ type: FieldType) {
         super.init()
         self.type = type

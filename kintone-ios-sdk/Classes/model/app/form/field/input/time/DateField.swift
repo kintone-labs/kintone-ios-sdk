@@ -15,6 +15,10 @@ open class DateField: AbstractInputField {
         super.init()
     }
    
+    public override init() {
+        super.init()
+    }
+    
     public init(_ code: String) {
         super.init()
         self.code = code
