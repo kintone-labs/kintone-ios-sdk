@@ -1,26 +1,26 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AddPreviewAppRequest: NSObject, Codable {
+open class AddPreviewAppRequest: NSObject, Codable {
     private var name: String?
     private var space: Int?
     private var thread: Int?
     
-    public func getName() -> String? {
+    open func getName() -> String? {
         return self.name
     }
-    public func setName(_ name: String) {
+    open func setName(_ name: String) {
         self.name = name
     }
-    public func getSpace() -> Int? {
+    open func getSpace() -> Int? {
         return self.space
     }
-    public func setSpace(_ space: Int) {
+    open func setSpace(_ space: Int) {
         self.space = space
     }
-    public func getThread() -> Int? {
+    open func getThread() -> Int? {
         return self.thread
     }
-    public func setThread(_ thread: Int) {
+    open func setThread(_ thread: Int) {
         self.thread = thread
     }
     

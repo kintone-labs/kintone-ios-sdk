@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AppModel: NSObject, Codable {
+open class AppModel: NSObject, Codable {
     private var appId: String?
     private var code: String?
     private var name: String?
@@ -26,64 +26,64 @@ public class AppModel: NSObject, Codable {
         case modifier
     }
     
-    public func getAppId() -> Int? {
+    open func getAppId() -> Int? {
         return Int(self.appId!)
     }
-    public func setAppId(_ appId: Int?) {
+    open func setAppId(_ appId: Int?) {
         self.appId = "\(String(describing: appId!))"
     }
-    public func getCode() -> String? {
+    open func getCode() -> String? {
         return self.code
     }
-    public func setCode(_ code: String?) {
+    open func setCode(_ code: String?) {
         self.code = code
     }
-    public func getName() -> String? {
+    open func getName() -> String? {
         return self.name
     }
-    public func setName(_ name: String?) {
+    open func setName(_ name: String?) {
         self.name = name
     }
-    public func getDescription() -> String? {
+    open func getDescription() -> String? {
         return self.appDescription
     }
-    public func setDescription(_ appDescription: String?) {
+    open func setDescription(_ appDescription: String?) {
         return self.appDescription = appDescription
     }
-    public func getSpaceId() -> Int? {
+    open func getSpaceId() -> Int? {
         return Int(self.spaceId != nil ? self.spaceId! : "")
     }
-    public func setSpaceId(_ spaceId: Int?) {
+    open func setSpaceId(_ spaceId: Int?) {
         self.spaceId = "\(String(describing: spaceId!))"
     }
-    public func getThreadId() -> Int? {
+    open func getThreadId() -> Int? {
         return Int(self.threadId != nil ? self.threadId! : "")
     }
-    public func setThreadId(_ threadId: String?) {
+    open func setThreadId(_ threadId: String?) {
         self.threadId = "\(String(describing: threadId!))"
     }
-    public func getCreadtedAt() -> String? {
+    open func getCreadtedAt() -> String? {
         return self.createdAt
     }
-    public func setCreatedAt(_ createdAt: String?) {
+    open func setCreatedAt(_ createdAt: String?) {
         self.createdAt = createdAt
     }
-    public func getCreator() -> Member? {
+    open func getCreator() -> Member? {
         return self.creator
     }
-    public func setCreator(_ creator: Member?) {
+    open func setCreator(_ creator: Member?) {
         self.creator = creator
     }
-    public func getModifiedAt() -> String? {
+    open func getModifiedAt() -> String? {
         return self.modifiedAt
     }
-    public func setModifiedAt(_ modifiedAt: String?) {
+    open func setModifiedAt(_ modifiedAt: String?) {
         self.modifiedAt = modifiedAt
     }
-    public func getModifier() -> Member? {
+    open func getModifier() -> Member? {
         return self.modifier
     }
-    public func setModifier(_ modifier: Member?) {
+    open func setModifier(_ modifier: Member?) {
         self.modifier = modifier
     }
 }

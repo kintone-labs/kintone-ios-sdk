@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class OptionData: NSObject, Codable {
+open class OptionData: NSObject, Codable {
     internal var index: String
     internal var label: String
 
@@ -9,23 +9,23 @@ public class OptionData: NSObject, Codable {
         self.label = label
     }
     
-    public func getIndex() -> Int {
+    open func getIndex() -> Int {
         return Int(self.index)!
     }
     
-    public func setIndex(_ index: String) {
+    open func setIndex(_ index: String) {
         self.index = index
     }
    
-    public func getLabel() -> String {
+    open func getLabel() -> String {
         return self.label
     }
     
-    public func setLabel(_ label: String) {
+    open func setLabel(_ label: String) {
         self.label = label
     }
    
-    public func equals(_ obj: AnyObject?) -> Bool {
+    open func equals(_ obj: AnyObject?) -> Bool {
         if (obj == nil) {
             return false
         }

@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class ViewModel: NSObject, Codable {
+open class ViewModel: NSObject, Codable {
     private var builtinType: BuiltinType?
     private var date: String?
     private var fields: [String]?
@@ -24,99 +24,99 @@ public class ViewModel: NSObject, Codable {
         case ASSIGNEE
     }
     
-    public func getBuiltinType() -> BuiltinType? {
+    open func getBuiltinType() -> BuiltinType? {
         return self.builtinType
     }
     
-    public func setBuiltinType(_ builtinType: BuiltinType?) {
+    open func setBuiltinType(_ builtinType: BuiltinType?) {
         self.builtinType = builtinType
     }
     
-    public func getDate() -> String? {
+    open func getDate() -> String? {
         return self.date
     }
     
-    public func setDate(_ date: String?) {
+    open func setDate(_ date: String?) {
         self.date = date
     }
     
-    public func getFields() -> [String]? {
+    open func getFields() -> [String]? {
         return self.fields
     }
     
-    public func setFields(_ fields: [String]?) {
+    open func setFields(_ fields: [String]?) {
         self.fields = fields
     }
     
-    public func getFilterCond() -> String? {
+    open func getFilterCond() -> String? {
         return self.filterCond
     }
     
-    public func setFilterCond(_ filterCond: String?) {
+    open func setFilterCond(_ filterCond: String?) {
         self.filterCond = filterCond
     }
     
-    public func getHtml() -> String? {
+    open func getHtml() -> String? {
         return self.html
     }
     
-    public func setHtml(_ html: String?) {
+    open func setHtml(_ html: String?) {
         self.html = html
     }
     
-    public func getId() -> Int? {
+    open func getId() -> Int? {
         return Int(self.id!)
     }
     
-    public func setId(_ id: Int?) {
+    open func setId(_ id: Int?) {
         self.id = "\(String(describing: id!))"
     }
     
-    public func getIndex() -> Int? {
+    open func getIndex() -> Int? {
         return Int(self.index!)
     }
     
-    public func setIndex(_ index: Int?) {
+    open func setIndex(_ index: Int?) {
         self.index = "\(String(describing: index!))"
     }
     
-    public func getName() -> String? {
+    open func getName() -> String? {
         return self.name
     }
     
-    public func setName(_ name: String?) {
+    open func setName(_ name: String?) {
         self.name = name
     }
     
-    public func getPager() -> Bool? {
+    open func getPager() -> Bool? {
         return self.pager
     }
     
-    public func setPager(_ pager: Bool?) {
+    open func setPager(_ pager: Bool?) {
         self.pager = pager
     }
     
-    public func getSort() -> String? {
+    open func getSort() -> String? {
         return self.sort
     }
     
-    public func setSort(_ sort: String?) {
+    open func setSort(_ sort: String?) {
         self.sort = sort
     }
     
-    public func getTitle() -> String? {
+    open func getTitle() -> String? {
         return self.title
     }
     
-    public func setTitle(_ title: String?) {
+    open func setTitle(_ title: String?) {
         self.title = title
     }
     
-    public func getType() -> ViewType? {
+    open func getType() -> ViewType? {
         return self.type
     }
     
-    public func setType(_ type: ViewType?) {
+    open func setType(_ type: ViewType?) {
         self.type = type
     }
 }

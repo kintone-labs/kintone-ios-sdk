@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AbstractSystemField: Field {
+open class AbstractSystemField: Field {
     internal var label: String?
     
     
@@ -18,11 +18,11 @@ public class AbstractSystemField: Field {
         try super.init(from: decoder)
     }
    
-    public func getLabel() -> String? {
+    open func getLabel() -> String? {
         return self.label
     }
     
-    public func setLabel(_ label: String?) {
+    open func setLabel(_ label: String?) {
         self.label = label
     }
 }

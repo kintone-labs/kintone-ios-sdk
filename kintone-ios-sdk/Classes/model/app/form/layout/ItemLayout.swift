@@ -1,9 +1,9 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class ItemLayout: NSObject, Codable {
-    internal var type: LayoutType?
+open class ItemLayout: NSObject, Codable {
+    open var type: LayoutType?
   
-    public func getType() -> LayoutType? {
+    open func getType() -> LayoutType? {
         return self.type
     }
 }

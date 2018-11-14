@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class GetAppsRequest: NSObject, Codable {
+open class GetAppsRequest: NSObject, Codable {
     private var ids: [Int]?
     private var codes: [String]?
     private var name: String?
@@ -8,40 +8,40 @@ public class GetAppsRequest: NSObject, Codable {
     private var offset: Int?
     private var limit: Int?
     
-    public func getIds() -> [Int]? {
+    open func getIds() -> [Int]? {
         return self.ids
     }
-    public func setId(_ ids: [Int]) {
+    open func setId(_ ids: [Int]) {
         self.ids = ids
     }
-    public func getCodes() -> [String]? {
+    open func getCodes() -> [String]? {
         return self.codes
     }
-    public func setCodes(_ codes: [String]) {
+    open func setCodes(_ codes: [String]) {
         self.codes = codes
     }
-    public func getName() -> String? {
+    open func getName() -> String? {
         return self.name
     }
-    public func setName(_ name: String) {
+    open func setName(_ name: String) {
         self.name = name
     }
-    public func getSpaceIds() -> [Int]? {
+    open func getSpaceIds() -> [Int]? {
         return self.spaceIds
     }
-    public func setSpaceIds(_ spaceIds: [Int]) {
+    open func setSpaceIds(_ spaceIds: [Int]) {
         self.spaceIds = spaceIds
     }
-    public func getOffset() -> Int? {
+    open func getOffset() -> Int? {
         return self.offset
     }
-    public func setOffset(_ offset: Int) {
+    open func setOffset(_ offset: Int) {
         self.offset = offset
     }
-    public func getLimit() -> Int? {
+    open func getLimit() -> Int? {
         return self.limit
     }
-    public func setLimit(_ limit: Int) {
+    open func setLimit(_ limit: Int) {
         self.limit = limit
     }
     

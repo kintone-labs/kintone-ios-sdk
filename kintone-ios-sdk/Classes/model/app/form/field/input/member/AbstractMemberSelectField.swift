@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AbstractMemberSelectField: AbstractInputField {
+open class AbstractMemberSelectField: AbstractInputField {
     internal var defaultValue: [MemberSelectEntity]
     internal var entities: [MemberSelectEntity]
     
@@ -24,7 +24,7 @@ public class AbstractMemberSelectField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: AbstractMemberSelectCodingKeys.self)
         if(self.defaultValue.count > 0){
             try container.encode(self.defaultValue, forKey: AbstractMemberSelectCodingKeys.defaultValue)
@@ -35,19 +35,19 @@ public class AbstractMemberSelectField: AbstractInputField {
         try super.encode(to: encoder)
     }
 
-    public func getDefaultValue() -> [MemberSelectEntity] {
+    open func getDefaultValue() -> [MemberSelectEntity] {
         return self.defaultValue;
     }
     
-    public func setDefaultValue(_ defaultValue: [MemberSelectEntity]) {
+    open func setDefaultValue(_ defaultValue: [MemberSelectEntity]) {
         self.defaultValue = defaultValue;
     }
     
-    public func getEntites() -> [MemberSelectEntity] {
+    open func getEntites() -> [MemberSelectEntity] {
         return self.entities
     }
     
-    public func setEntites(_ entities: [MemberSelectEntity]) {
+    open func setEntites(_ entities: [MemberSelectEntity]) {
         self.entities = entities;
     }
 }

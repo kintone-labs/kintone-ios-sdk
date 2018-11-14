@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class BulkRequestItem: NSObject, Codable {
+open class BulkRequestItem: NSObject, Codable {
     
     private var method: String?
     private var api: String?
@@ -24,42 +24,42 @@ public class BulkRequestItem: NSObject, Codable {
     /// Get http method
     ///
     /// - Returns: http method
-    public func getMethod() -> String? {
+    open func getMethod() -> String? {
         return self.method
     }
     
     /// Set http method
     ///
     /// - Parameter method: http method
-    public func setMethod(_ method: String) {
+    open func setMethod(_ method: String) {
         self.method = method
     }
     
     /// Get api
     ///
     /// - Returns: self.api
-    public func getApi() -> String? {
+    open func getApi() -> String? {
         return self.api
     }
     
     /// Set api
     ///
     /// - Parameter api: api
-    public func setApi(_ api: String) {
+    open func setApi(_ api: String) {
         self.api = api
     }
     
     /// Get payload
     ///
     /// - Returns: self.payload
-    public func getPayload() -> Any? {
+    open func getPayload() -> Any? {
         return self.payload
     }
     
     /// Set payload
     ///
     /// - Parameter payload: <#payload description#>
-    public func setPayload(_ payload: Any) {
+    open func setPayload(_ payload: Any) {
         self.payload = payload
     }
     
@@ -93,7 +93,7 @@ public class BulkRequestItem: NSObject, Codable {
     ///
     /// - Parameter encoder:
     /// - Throws:
-    public func encode(to encoder: Encoder) throws {
+    open func encode(to encoder: Encoder) throws {
         do {
                 let parser = BulkRequestParser()
                 try parser.parseBulkRequestToJson(to: encoder, self.method, self.api, self.payload)

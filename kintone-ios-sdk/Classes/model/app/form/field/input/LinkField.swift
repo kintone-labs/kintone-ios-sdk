@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class LinkField: AbstractInputField {
+open class LinkField: AbstractInputField {
     private var defaultValue: String?
     private var unique: Bool?
     private var maxLength: String?
@@ -31,7 +31,7 @@ public class LinkField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: LinkFieldCodingKeys.self)
         if(self.linkProtocol != nil){
             try container.encode(self.linkProtocol, forKey: LinkFieldCodingKeys.linkProtocol)
@@ -51,43 +51,43 @@ public class LinkField: AbstractInputField {
         try super.encode(to: encoder)
     }
   
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
   
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
    
-    public func getUnique() -> Bool? {
+    open func getUnique() -> Bool? {
         return self.unique
     }
     
-    public func setUnique(_ unique: Bool?) {
+    open func setUnique(_ unique: Bool?) {
         self.unique = unique
     }
    
-    public func getMaxLength() -> Int? {
+    open func getMaxLength() -> Int? {
         return Int(self.maxLength != nil ? self.maxLength! : "")
     }
     
-    public func setMaxLength(_ maxLength: String?) {
+    open func setMaxLength(_ maxLength: String?) {
         self.maxLength = maxLength
     }
   
-    public func getMinLength() -> Int? {
+    open func getMinLength() -> Int? {
         return Int(self.minLength != nil ? self.minLength! : "")
     }
   
-    public func setMinLength(_ minLength: String?) {
+    open func setMinLength(_ minLength: String?) {
         self.minLength = minLength
     }
   
-    public func getProtocol() -> LinkProtocol? {
+    open func getProtocol() -> LinkProtocol? {
         return self.linkProtocol
     }
    
-    public func setProtocol(_ linkProtocol: LinkProtocol?) {
+    open func setProtocol(_ linkProtocol: LinkProtocol?) {
         self.linkProtocol = linkProtocol
     }
 }

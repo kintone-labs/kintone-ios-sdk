@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class UpdateRecordsStatusRequest: NSObject, Codable {
+open class UpdateRecordsStatusRequest: NSObject, Codable {
     
     private var app: Int?
     private var records: [RecordUpdateStatusItem]?

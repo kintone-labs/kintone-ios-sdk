@@ -7,7 +7,7 @@
 //
 
 
-public class FieldValue: NSObject, Codable{
+open class FieldValue: NSObject, Codable{
     
     private var type: FieldType?
     private var value: Any?
@@ -20,19 +20,19 @@ public class FieldValue: NSObject, Codable{
     public override init() {
     }
     
-    public func getType() -> FieldType? {
+    open func getType() -> FieldType? {
         return self.type
     }
     
-    public func setType(_ type: FieldType) {
+    open func setType(_ type: FieldType) {
         self.type = type
     }
     
-    public func getValue() -> Any? {
+    open func getValue() -> Any? {
         return self.value
     }
     
-    public func setValue(_ value: Any?) {
+    open func setValue(_ value: Any?) {
         self.value = value
     }
     /// Convert Json to fieldValue.class
@@ -51,7 +51,7 @@ public class FieldValue: NSObject, Codable{
     ///
     /// - Parameter encoder:
     /// - Throws:
-    public func encode(to encoder: Encoder) throws {
+    open func encode(to encoder: Encoder) throws {
         do {
             guard self.type == nil else {
                 let type: FieldType = self.type!

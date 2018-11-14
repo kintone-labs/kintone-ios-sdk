@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AbstractProcessManagementField: AbstractSystemField {
+open class AbstractProcessManagementField: AbstractSystemField {
     internal var enabled: Bool?
     
     enum AbstractProcessManagementCodingKeys: CodingKey {
@@ -17,11 +17,11 @@ public class AbstractProcessManagementField: AbstractSystemField {
         try super.init(from: decoder)
     }
     
-    public func getEnabled() -> Bool? {
+    open func getEnabled() -> Bool? {
         return self.enabled
     }
     
-    public func setEnabled(_ enabled: Bool?) {
+    open func setEnabled(_ enabled: Bool?) {
         self.enabled = enabled
     }
 }

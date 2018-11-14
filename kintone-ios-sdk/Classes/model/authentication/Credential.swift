@@ -6,7 +6,7 @@
 //  Copyright © 2018年 y001112. All rights reserved.
 //
 
-public class Credential: NSObject {
+open class Credential: NSObject {
     
     private var username: String
     private var password: String
@@ -19,14 +19,14 @@ public class Credential: NSObject {
     /// get the login name
     ///
     /// - Returns: the login name
-    public func getUsername() -> String {
+    open func getUsername() -> String {
         return self.username
     }
 
     /// get the login password
     ///
     /// - Returns: the login password
-    public func getPassword() -> String {
+    open func getPassword() -> String {
         return self.password
     }
 

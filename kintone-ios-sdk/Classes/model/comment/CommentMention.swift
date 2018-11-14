@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class CommentMention: NSObject, Codable {
+open class CommentMention: NSObject, Codable {
     
     private var code: String?
     private var type: String?
@@ -14,28 +14,28 @@ public class CommentMention: NSObject, Codable {
     /// get the code of th mentioned user, group or organization
     ///
     /// - Returns: the code of th mentioned user, group or organization
-    public func getCode() -> String? {
+    open func getCode() -> String? {
         return self.code
     }
     
     /// set the code of th mentioned user, group or organization
     ///
     /// - Parameter code: the code of th mentioned user, group or organization
-    public func setCode(_ code: String) {
+    open func setCode(_ code: String) {
         self.code = code
     }
     
     /// get the type of mentioned user
     ///
     /// - Returns: the type of mentioned user
-    public func getType() -> String? {
+    open func getType() -> String? {
         return self.type
     }
     
     /// set the type of mentioned user
     ///
     /// - Parameter type: the type of mentioned user
-    public func setType(_ type: String) {
+    open func setType(_ type: String) {
         self.type = type
     }
     

@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class AttachmentField: AbstractInputField {
+open class AttachmentField: AbstractInputField {
     internal var thumbnailSize: String?
     
     enum AttachmentFieldCodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ public class AttachmentField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: AttachmentFieldCodingKeys.self)
         if(self.thumbnailSize != nil){
             try container.encode(self.thumbnailSize, forKey: AttachmentFieldCodingKeys.thumbnailSize)
@@ -27,11 +27,11 @@ public class AttachmentField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    public func getThumbnailSize() -> Int? {
+    open func getThumbnailSize() -> Int? {
         return Int(self.thumbnailSize != nil ? self.thumbnailSize! : "")
     }
     
-    public func setThumbnailSize(_ thumbnailSize: String?) {
+    open func setThumbnailSize(_ thumbnailSize: String?) {
         self.thumbnailSize = thumbnailSize
     }
 }

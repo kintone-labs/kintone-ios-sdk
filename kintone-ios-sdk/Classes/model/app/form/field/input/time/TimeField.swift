@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class TimeField: AbstractInputField {
+open class TimeField: AbstractInputField {
     internal var defaultValue: String?
     internal var defaultNowValue: Bool?
     
@@ -22,7 +22,7 @@ public class TimeField: AbstractInputField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: TimeCodingKeys.self)
         if(self.defaultValue != nil){
             try container.encode(self.defaultValue, forKey: TimeCodingKeys.defaultValue)
@@ -33,19 +33,19 @@ public class TimeField: AbstractInputField {
         try super.encode(to: encoder)
     }
     
-    public func getDefaultValue() -> String? {
+    open func getDefaultValue() -> String? {
         return self.defaultValue
     }
     
-    public func setDefaultValue(_ defaultValue: String?) {
+    open func setDefaultValue(_ defaultValue: String?) {
         self.defaultValue = defaultValue
     }
     
-    public func getDefaultNowValue() -> Bool? {
+    open func getDefaultNowValue() -> Bool? {
         return self.defaultNowValue
     }
     
-    public func setDefaultNowValue(_ defaultNowValue: Bool?) {
+    open func setDefaultNowValue(_ defaultNowValue: Bool?) {
         self.defaultNowValue = defaultNowValue
     }
 }

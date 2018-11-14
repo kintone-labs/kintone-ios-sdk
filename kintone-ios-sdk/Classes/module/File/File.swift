@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class File: NSObject{
+open class File: NSObject{
     private var connection: Connection
     private let parser = Parser()
     
@@ -23,7 +23,7 @@ public class File: NSObject{
     ///   - filePath
     /// - Returns:
     /// - Throws: KintoneAPIException
-    public func upload(_ filePath: String) throws -> FileModel {
+    open func upload(_ filePath: String) throws -> FileModel {
         do {
             let targetFilePath = URL(string: filePath)!
             let fileData = try Data(contentsOf: targetFilePath)
@@ -44,7 +44,7 @@ public class File: NSObject{
     ///   - filePath
     /// - Returns:
     /// - Throws: KintoneAPIException
-    public func download(_ filekey: String, _ outPutFilePath: String) throws {
+    open func download(_ filekey: String, _ outPutFilePath: String) throws {
         do {
             let request = DownloadRequest(filekey)
             let body = try self.parser.parseObject(request)

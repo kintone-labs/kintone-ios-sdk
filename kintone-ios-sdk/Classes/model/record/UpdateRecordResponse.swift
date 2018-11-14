@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class UpdateRecordResponse: NSObject, Codable {
+open class UpdateRecordResponse: NSObject, Codable {
     
     private var revision: Int?
     
@@ -20,14 +20,14 @@ public class UpdateRecordResponse: NSObject, Codable {
     /// get the number of revision
     ///
     /// - Returns: the number of revision
-    public func getRevision() -> Int? {
+    open func getRevision() -> Int? {
         return self.revision;
     }
 
     /// sdt the number of revision
     ///
     /// - Parameter revision: the number of revision
-    public func setRevision(_ revision: Int?) {
+    open func setRevision(_ revision: Int?) {
         self.revision = revision;
     }
     

@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class BulkRequestConstants: NSObject {
+open class BulkRequestConstants: NSObject {
     public static let ADD_RECORD = "AddRecordRequest";
     public static let ADD_RECORDS = "AddRecordsRequest";
     public static let UPDATE_RECORD = "UpdateRecordRequest";

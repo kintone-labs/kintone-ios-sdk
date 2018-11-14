@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class AddRecordsResponse: NSObject, Codable {
+open class AddRecordsResponse: NSObject, Codable {
     
     private var ids: [Int]?
     private var revisions: [Int]?
@@ -22,25 +22,25 @@ public class AddRecordsResponse: NSObject, Codable {
     /// get the array of record IDs
     ///
     /// - Returns: the array of record IDs
-    public func getIDs() -> [Int]? {
+    open func getIDs() -> [Int]? {
         return self.ids
     }
     
     /// set the array of record IDs
     ///
     /// - Parameter ids: the array of record IDs
-    public func  setIDs(_ ids: [Int]) {
+    open func  setIDs(_ ids: [Int]) {
         self.ids = ids
     }
     
     /// get the array of revision numbers
     ///
     /// - Returns: the array of revision numbers
-    public func getRevisions() -> [Int]? {
+    open func getRevisions() -> [Int]? {
         return self.revisions
     }
     
-    public func setRevisions(_ revisions: [Int]) {
+    open func setRevisions(_ revisions: [Int]) {
         self.revisions = revisions
     }
     

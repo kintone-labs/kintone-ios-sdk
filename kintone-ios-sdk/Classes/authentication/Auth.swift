@@ -6,7 +6,7 @@
 //  Copyright © 2018年 y001112. All rights reserved.
 //
 
-public class Auth: NSObject {
+open class Auth: NSObject {
 
     private var basicAuth: Credential?
     private var passwordAuth: Credential?
@@ -18,7 +18,7 @@ public class Auth: NSObject {
     ///   - username: Basic login name
     ///   - password: Basic login password
     /// - Returns: basic authentication
-    public func setBasicAuth(_ username: String, _ password: String) -> Auth {
+    open func setBasicAuth(_ username: String, _ password: String) -> Auth {
         self.basicAuth = Credential(username, password)
         return self
     }
@@ -26,7 +26,7 @@ public class Auth: NSObject {
     /// get basic authentication
     ///
     /// - Returns: basic authentication
-    public func getBasicAuth() -> Credential? {
+    open func getBasicAuth() -> Credential? {
         return self.basicAuth
     }
 
@@ -36,7 +36,7 @@ public class Auth: NSObject {
     ///   - username: login name
     ///   - password: login password
     /// - Returns: password authentication
-    public func setPasswordAuth(_ username: String, _ password: String) -> Auth {
+    open func setPasswordAuth(_ username: String, _ password: String) -> Auth {
         self.passwordAuth = Credential(username, password)
         return self
     }
@@ -44,7 +44,7 @@ public class Auth: NSObject {
     /// get password authentication
     ///
     /// - Returns: password authentication
-    public func getPasswordAuth() -> Credential? {
+    open func getPasswordAuth() -> Credential? {
         return self.passwordAuth
     }
 
@@ -52,7 +52,7 @@ public class Auth: NSObject {
     ///
     /// - Parameter apiToken: it was generated in each kintone app
     /// - Returns: token authentication
-    public func setApiToken(_ apiToken: String) -> Auth {
+    open func setApiToken(_ apiToken: String) -> Auth {
         self.apiToken = apiToken
         return self
     }
@@ -60,14 +60,14 @@ public class Auth: NSObject {
     /// get token authentication
     ///
     /// - Returns: token authentication
-    public func getApiToken() -> String? {
+    open func getApiToken() -> String? {
         return self.apiToken
     }
 
     /// return header credentials for user if tha value of specific Attributes has not empty
     ///
     /// - Returns: header credentials
-    public func createHeaderCredentials() -> [HTTPHeader?] {
+    open func createHeaderCredentials() -> [HTTPHeader?] {
         var headers: [HTTPHeader?] = []
 
         if (self.passwordAuth != nil) {

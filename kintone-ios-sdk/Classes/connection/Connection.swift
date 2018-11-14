@@ -6,7 +6,7 @@
 //  Copyright © 2018年 h001218. All rights reserved.
 //
 
-public class Connection: NSObject {
+open class Connection: NSObject {
     
     /// HTTP header content-type for getting json data from rest api.
     private let JSON_CONTENT = "application/json"
@@ -68,7 +68,7 @@ public class Connection: NSObject {
     ///   - body: json object
     /// - Returns: Data
     /// - Throws: KintoneAPIException
-    public func request(_ method: String, _ apiName: String, _ body: String) throws -> Data {
+    open func request(_ method: String, _ apiName: String, _ body: String) throws -> Data {
         
         var urlString = ""
         var isGet = false
@@ -127,7 +127,7 @@ public class Connection: NSObject {
     /// - Parameter body: String
     /// - Returns: Data
     /// - Throws: KintoneAPIException
-    public func downloadFile(_ body: String) throws -> Data {
+    open func downloadFile(_ body: String) throws -> Data {
         
         var urlString: String = ""
         do {
@@ -180,7 +180,7 @@ public class Connection: NSObject {
     ///   - binaryData: Data
     /// - Returns: Data
     /// - Throws: KintoneAPIException
-    public func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Data {
+    open func uploadFile(_ fileName: String, _ binaryData: Data) throws -> Data {
         
         var urlString = ""
         do {
@@ -329,7 +329,7 @@ public class Connection: NSObject {
     ///   - key: key
     ///   - value: value
     /// - Returns: Connection
-    public func setHeader(_ key: String, _ value: String) -> Connection {
+    open func setHeader(_ key: String, _ value: String) -> Connection {
         self.headers.append(HTTPHeader(key, value));
         return self
     }
@@ -338,7 +338,7 @@ public class Connection: NSObject {
     ///
     /// - Parameter auth: auth
     /// - Returns: Connection
-    public func setAuth(_ auth: Auth) -> Connection {
+    open func setAuth(_ auth: Auth) -> Connection {
         self.auth = auth;
         return self;
     }
@@ -346,21 +346,21 @@ public class Connection: NSObject {
     /// Get kintone domain url of connection.
     ///
     /// - Returns: domain
-    public func getDomain() -> String? {
+    open func getDomain() -> String? {
         return self.domain
     }
     
     /// Get guest space id of connection.
     ///
     /// - Returns: guest space id
-    public func getGuestSpaceId() -> Int? {
+    open func getGuestSpaceId() -> Int? {
         return self.guestSpaceID
     }
     
     /// Get auth of connection.
     ///
     /// - Returns: Auth?
-    public func getAuth() -> Auth? {
+    open func getAuth() -> Auth? {
         return self.auth
     }
     
@@ -492,7 +492,7 @@ public class Connection: NSObject {
     /// - Parameters:
     ///   - host: proxy host
     ///   - port: proxy port
-    public func setProxy(_ host: String, _ port: Int) {
+    open func setProxy(_ host: String, _ port: Int) {
         self.proxyHost = host
         self.proxyPort = port
     }
@@ -501,7 +501,7 @@ public class Connection: NSObject {
     ///
     /// - Parameter apiName: apiName
     /// - Returns: String
-    public func getPathURI(_ apiName: String) -> String {
+    open func getPathURI(_ apiName: String) -> String {
         var pathURI = ""
         
         if (self.guestSpaceID != nil){

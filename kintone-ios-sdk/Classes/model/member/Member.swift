@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
-public class Member: NSObject, Codable {
+open class Member: NSObject, Codable {
     
     public var code: String?
     public var name: String?

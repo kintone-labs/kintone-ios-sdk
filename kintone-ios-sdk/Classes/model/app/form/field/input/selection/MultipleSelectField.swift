@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class MultipleSelectField: AbstractSelectionField {
+open class MultipleSelectField: AbstractSelectionField {
     internal var defaultValue: [String]?
     
     
@@ -20,7 +20,7 @@ public class MultipleSelectField: AbstractSelectionField {
         try super.init(from: decoder)
     }
     
-    override public func encode(to encoder: Encoder) throws {
+    override open func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: MultipleSelectCodingKeys.self)
         if(self.defaultValue!.count > 0){
             try container.encode(self.defaultValue, forKey: MultipleSelectCodingKeys.defaultValue)
@@ -28,11 +28,11 @@ public class MultipleSelectField: AbstractSelectionField {
         try super.encode(to: encoder)
     }
     
-    public func getDefaultValue() -> [String]? {
+    open func getDefaultValue() -> [String]? {
         return self.defaultValue
     }
     
-    public func setDefaultValue(_ defaultValue: [String]?) {
+    open func setDefaultValue(_ defaultValue: [String]?) {
         self.defaultValue = defaultValue
     }
 }

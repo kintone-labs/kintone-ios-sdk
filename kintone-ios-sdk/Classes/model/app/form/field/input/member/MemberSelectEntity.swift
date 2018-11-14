@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-public class MemberSelectEntity: NSObject, Codable {
+open class MemberSelectEntity: NSObject, Codable {
     private var code: String?
     private var type: MemberSelectEntityType?
     
@@ -13,23 +13,23 @@ public class MemberSelectEntity: NSObject, Codable {
         self.type = type
     }
     
-    public func getCode() -> String? {
+    open func getCode() -> String? {
         return self.code
     }
     
-    public func setCode(_ code: String?) {
+    open func setCode(_ code: String?) {
         self.code = code
     }
    
-    public func getType() -> MemberSelectEntityType? {
+    open func getType() -> MemberSelectEntityType? {
         return self.type
     }
    
-    public func setType(_ type: MemberSelectEntityType?) {
+    open func setType(_ type: MemberSelectEntityType?) {
         self.type = type
     }
 
-    public func equals(_ obj: AnyObject?) -> Bool? {
+    open func equals(_ obj: AnyObject?) -> Bool? {
         if (obj == nil) {
             return false
         }
