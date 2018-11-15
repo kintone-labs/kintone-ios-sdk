@@ -58,6 +58,13 @@ open class KintoneAPIException: Error {
         return self.errorResponse
     }
     
+    /// get Error Responses message
+    ///
+    /// - Returns: Response message sent by kintone RestAPI
+    open func getErrorResponses() -> Array<ErrorResponse>? {
+        return self.errorResponses
+    }
+    
     /// output error message
     ///
     /// - Returns: Error message
