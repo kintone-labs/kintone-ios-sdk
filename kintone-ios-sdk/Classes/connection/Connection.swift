@@ -5,6 +5,7 @@
 //  Created by h001218 on 2018/08/31.
 //  Copyright © 2018年 h001218. All rights reserved.
 //
+import Promises
 
 open class Connection: NSObject {
     
@@ -256,6 +257,85 @@ open class Connection: NSObject {
         }.resume()
         _ = semaphore.wait(timeout: DispatchTime.now() + 100)
         return (tmpData, tmpResponse, tmpError)
+    }
+    
+    /// Rest http request.
+    /// This method is low level api, use the correspondence methods in module package instead.
+    ///
+    /// - Parameters:
+    ///   - method: rest http method. Only accept "GET", "POST", "PUT", "DELETE" value.
+    ///   - apiName: apiName
+    ///   - body: json object
+    /// - Returns: Data
+    /// - Throws: KintoneAPIException
+    open func requestAsync(_ method: String, _ apiName: String, _ body: String) -> Promise<Data> {
+        
+        var urlString = ""
+        var isGet = false
+        
+        if (ConnectionConstants.GET_REQUEST == method){
+            isGet = true
+        }
+        
+        do {
+            urlString = try self.getURL(apiName, nil)
+        } catch {
+            //throw KintoneAPIException("Invalid URL")
+        }
+        
+        let url = URL(string: urlString)!
+        var request = URLRequest(url: url)
+        
+        request = self.setHTTPHeaders(request)
+        if (isGet) {
+            request.httpMethod = ConnectionConstants.POST_REQUEST
+        } else {
+            request.httpMethod = method
+        }
+        
+        request.addValue(JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
+        if (isGet) {
+            request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+        }
+        
+        request.httpBody = body.data(using: String.Encoding.utf8)
+        
+        let session = URLSession(configuration: setURLSessionConfiguration())
+        return Promise { fullfill, reject in
+            self.executeAsync(session, request).then { (data, response, error) in
+                if (data != nil || response != nil){
+                    do {
+                        try self.checkStatus(response, data, body, apiName)
+                        let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                        let dataParse = try JSONSerialization.data(withJSONObject: jsonobject, options: [])
+                        fullfill(dataParse)
+                    } catch let error as KintoneAPIException {
+                        reject(error)
+                    } catch {
+                        reject(KintoneAPIException("an error occurred while receiving data"))
+                    }
+                }
+            }.catch { error in
+                reject(error)
+            }
+        }
+    }
+    
+    /// Asynchronous HTTP communication execution processing
+    ///
+    /// - Parameters:
+    ///   - session: session
+    ///   - request: request
+    /// - Returns: Data?, URLResponse?, NSError?
+    private func executeAsync(_ session: URLSession, _ request: URLRequest) -> Promise<(Data?, URLResponse?, NSError?)> {
+        return Promise<(Data?, URLResponse?, NSError?)> { fulfill, reject in
+            session.dataTask(with: request) { (data, response, error) -> Void in
+                if error != nil {
+                    reject(error!)
+                }
+                fulfill((data, response, error as NSError?))
+            }.resume()
+        }
     }
     
     /// Get url string from domain name, api name and parameters.

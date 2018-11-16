@@ -5,6 +5,7 @@
 //  Created by y001112 on 2018/09/18.
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
+import Promises
 
 open class Record: NSObject {
     
@@ -38,6 +39,34 @@ open class Record: NSObject {
             throw error
         } catch {
             throw KintoneAPIException(error.localizedDescription)
+        }
+    }
+    
+    /// Get the record from kintone app
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - id: the ID of record
+    /// - Returns: GetRecordResponse
+    /// - Throws: KintoneAPIException
+    open func getRecordAsync(_ app: Int,_ id: Int) throws -> Promise<GetRecordResponse> {
+        // execute GET RECORDS API
+        let recordRequest = GetRecordRequest(app, id)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise { fulfill, reject in
+            self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                // return response as GetRecordResponse class
+                do {
+                    let parseResponse = try self.parser.parseJson(GetRecordResponse.self, response)
+                    fulfill(parseResponse)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+            }.catch{ error in
+                reject(error)
+            }
         }
     }
     
