@@ -36,6 +36,12 @@
 		122F1DF0216B7BD200160A27 /* GetAppsByIDsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DEF216B7BD200160A27 /* GetAppsByIDsTest.swift */; };
 		122F1DF2216B7BE100160A27 /* GetAppsByNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DF1216B7BE100160A27 /* GetAppsByNameTest.swift */; };
 		122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DF3216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift */; };
+		1283E3EF219E9C8500D8E282 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; };
+		1283E3F1219E9D9000D8E282 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; };
+		1283E3F4219E9F2900D8E282 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; };
+		1283E3F5219E9F9100D8E282 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; };
+		1283E3F7219ECCC100D8E282 /* FBLPromises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1283E3F8219ECCC100D8E282 /* Promises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
@@ -194,6 +200,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1283E3F6219ECCB600D8E282 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1283E3F7219ECCC100D8E282 /* FBLPromises.framework in CopyFiles */,
+				1283E3F8219ECCC100D8E282 /* Promises.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		110578EB2166D11300F6E8C0 /* TestsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsConstants.swift; sourceTree = "<group>"; };
 		110578F3216756A900F6E8C0 /* ConnectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionTest.swift; sourceTree = "<group>"; };
@@ -224,6 +244,8 @@
 		122F1DEF216B7BD200160A27 /* GetAppsByIDsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsByIDsTest.swift; sourceTree = "<group>"; };
 		122F1DF1216B7BE100160A27 /* GetAppsByNameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsByNameTest.swift; sourceTree = "<group>"; };
 		122F1DF3216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsBySpaceIDsTest.swift; sourceTree = "<group>"; };
+		1283E3EE219E9C8500D8E282 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
+		1283E3F3219E9F2900D8E282 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
 		129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutRequest.swift; sourceTree = "<group>"; };
 		129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateFormFieldsRequest.swift; sourceTree = "<group>"; };
 		129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsRequest.swift; sourceTree = "<group>"; };
@@ -376,10 +398,12 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3E17EA0D213E427F002D9BC0 /* Frameworks */ = {
+		1283E3ED219E9C7900D8E282 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1283E3F4219E9F2900D8E282 /* FBLPromises.framework in Frameworks */,
+				1283E3EF219E9C8500D8E282 /* Promises.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +411,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1283E3F5219E9F9100D8E282 /* FBLPromises.framework in Frameworks */,
+				1283E3F1219E9D9000D8E282 /* Promises.framework in Frameworks */,
 				3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,12 +492,22 @@
 			path = app;
 			sourceTree = "<group>";
 		};
+		1283E3DC219E6C9B00D8E282 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1283E3F3219E9F2900D8E282 /* FBLPromises.framework */,
+				1283E3EE219E9C8500D8E282 /* Promises.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3E17EA07213E427F002D9BC0 = {
 			isa = PBXGroup;
 			children = (
 				3E17EA13213E427F002D9BC0 /* kintone-ios-sdk */,
 				3E17EA1E213E427F002D9BC0 /* kintone-ios-sdkTests */,
 				3E17EA12213E427F002D9BC0 /* Products */,
+				1283E3DC219E6C9B00D8E282 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -973,9 +1009,9 @@
 			buildConfigurationList = 3E17EA25213E427F002D9BC0 /* Build configuration list for PBXNativeTarget "kintone-ios-sdk" */;
 			buildPhases = (
 				3E17EA0C213E427F002D9BC0 /* Sources */,
-				3E17EA0D213E427F002D9BC0 /* Frameworks */,
 				3E17EA0E213E427F002D9BC0 /* Headers */,
 				3E17EA0F213E427F002D9BC0 /* Resources */,
+				1283E3ED219E9C7900D8E282 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -993,6 +1029,7 @@
 				3E17EA16213E427F002D9BC0 /* Sources */,
 				3E17EA17213E427F002D9BC0 /* Frameworks */,
 				3E17EA18213E427F002D9BC0 /* Resources */,
+				1283E3F6219ECCB600D8E282 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1380,6 +1417,7 @@
 		3E17EA26213E427F002D9BC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1387,6 +1425,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "kintone-ios-sdk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1406,6 +1448,7 @@
 		3E17EA27213E427F002D9BC0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1413,6 +1456,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "kintone-ios-sdk/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1433,6 +1480,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33A3NA2C2V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "kintone-ios-sdkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1451,6 +1503,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 33A3NA2C2V;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "kintone-ios-sdkTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
