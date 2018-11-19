@@ -1,0 +1,2557 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="The SDK of kintone REST API client on Java">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
+    
+    
+      
+        <title>App - kintone Java SDK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.ba0fd1a6.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../asset/style/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="light-blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#app" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="kintone Java SDK" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">cloud</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                kintone Java SDK
+              </span>
+              <span class="md-header-nav__topic">
+                App
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.dev.cybozu.co.jp/SC/kintone-java-sdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Github
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon">cloud</i>
+      
+    </span>
+    kintone Java SDK
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.dev.cybozu.co.jp/SC/kintone-java-sdk" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      Github
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/quickstart/" title="Quickstart" class="md-nav__link">
+      Quickstart
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../authentication/" title="Authentication" class="md-nav__link">
+      Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../connection/" title="Connection" class="md-nav__link">
+      Connection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Record
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Record
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../record/" title="Record" class="md-nav__link">
+      Record
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../record-model/" title="Record Model" class="md-nav__link">
+      Record Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../record-field-model/" title="Field Model" class="md-nav__link">
+      Field Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../record-comment-model/" title="Comment Model" class="md-nav__link">
+      Comment Model
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Bulk Request
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Bulk Request
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bulk-request/" title="Bulk Request" class="md-nav__link">
+      Bulk Request
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bulk-request-model/" title="Bulk Request Model" class="md-nav__link">
+      Bulk Request Model
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5" checked>
+    
+    <label class="md-nav__link" for="nav-3-5">
+      App
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        App
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        App
+      </label>
+    
+    <a href="./" title="App" class="md-nav__link md-nav__link--active">
+      App
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructor" title="Constructor" class="md-nav__link">
+    Constructor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-code" title="Sample code" class="md-nav__link">
+    Sample code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" title="Methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getappappid" title="getApp(appId)" class="md-nav__link">
+    getApp(appId)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_1" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsoffset-limit" title="getApps(offset, limit)" class="md-nav__link">
+    getApps(offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbyidsids-offset-limit" title="getAppsByIDs(ids, offset, limit)" class="md-nav__link">
+    getAppsByIDs(ids, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbycodescodes-offset-limit" title="getAppsByCodes(codes, offset, limit)" class="md-nav__link">
+    getAppsByCodes(codes, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbynamename-offset-limit" title="getAppsByName(name, offset, limit)" class="md-nav__link">
+    getAppsByName(name, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbyspaceidsspaceids-offset-limit" title="getAppsBySpaceIDs(spaceIds, offset, limit)" class="md-nav__link">
+    getAppsBySpaceIDs(spaceIds, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addpreviewappname-space-thread" title="addPreviewApp(name, space, thread)" class="md-nav__link">
+    addPreviewApp(name, space, thread)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_2" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployappsettingsname-space-thread" title="deployAppSettings(name, space, thread)" class="md-nav__link">
+    deployAppSettings(name, space, thread)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_3" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappdeploystatusapps" title="getAppDeployStatus(apps)" class="md-nav__link">
+    getAppDeployStatus(apps)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_4" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getformfieldsappid-lang-ispreview" title="getFormFields(appId, lang, isPreview)" class="md-nav__link">
+    getFormFields(appId, lang, isPreview)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addformfieldsapp-fields-revision" title="addFormFields(app, fields, revision)" class="md-nav__link">
+    addFormFields(app, fields, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateformfieldsapp-fields-revision" title="updateFormFields(app, fields, revision)" class="md-nav__link">
+    updateFormFields(app, fields, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteformfieldsapp-fields-revision" title="deleteFormFields(app, fields, revision)" class="md-nav__link">
+    deleteFormFields(app, fields, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getformlayoutappid-ispreview" title="getFormLayout(appId, isPreview)" class="md-nav__link">
+    getFormLayout(appId, isPreview)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateformlayoutapp-layout-revision" title="updateFormLayout(app, layout, revision)" class="md-nav__link">
+    updateFormLayout(app, layout, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getgeneralsettingsapp-lang-ispreview" title="getGeneralSettings(app, lang, isPreview)" class="md-nav__link">
+    getGeneralSettings(app, lang, isPreview)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updategeneralsettingsapp-generalsettings-revision" title="updateGeneralSettings(app, GeneralSettings, revision)" class="md-nav__link">
+    updateGeneralSettings(app, GeneralSettings, revision)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-model/" title="App Model" class="md-nav__link">
+      App Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-3" type="checkbox" id="nav-3-5-3">
+    
+    <label class="md-nav__link" for="nav-3-5-3">
+      Basic
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-3">
+        Basic
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-response/" title="Response" class="md-nav__link">
+      Response
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4" type="checkbox" id="nav-3-5-4">
+    
+    <label class="md-nav__link" for="nav-3-5-4">
+      Form
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-5-4">
+        Form
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-form/" title="Form" class="md-nav__link">
+      Form
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4-2" type="checkbox" id="nav-3-5-4-2">
+    
+    <label class="md-nav__link" for="nav-3-5-4-2">
+      Form fields
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-3-5-4-2">
+        Form fields
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields/" title="Form fields" class="md-nav__link">
+      Form fields
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4-2-2" type="checkbox" id="nav-3-5-4-2-2">
+    
+    <label class="md-nav__link" for="nav-3-5-4-2-2">
+      Input
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-3-5-4-2-2">
+        Input
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields-input/" title="Input" class="md-nav__link">
+      Input
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields-input-lookup/" title="Lookup" class="md-nav__link">
+      Lookup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields-input-member/" title="Member" class="md-nav__link">
+      Member
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields-input-selection/" title="Selection" class="md-nav__link">
+      Selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields-input-time/" title="Time" class="md-nav__link">
+      Time
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields-related_record/" title="Related_record" class="md-nav__link">
+      Related_record
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-fields-system/" title="System" class="md-nav__link">
+      System
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../form-layout/" title="Form Layout" class="md-nav__link">
+      Form Layout
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-general/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../app-view/" title="View" class="md-nav__link">
+      View
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../kintone-api-exception/" title="Kintone APIException" class="md-nav__link">
+      Kintone APIException
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      File
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        File
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file/" title="File" class="md-nav__link">
+      File
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-model/" title="FileModel" class="md-nav__link">
+      FileModel
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../member/" title="Member" class="md-nav__link">
+      Member
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#constructor" title="Constructor" class="md-nav__link">
+    Constructor
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sample-code" title="Sample code" class="md-nav__link">
+    Sample code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods" title="Methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getappappid" title="getApp(appId)" class="md-nav__link">
+    getApp(appId)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_1" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsoffset-limit" title="getApps(offset, limit)" class="md-nav__link">
+    getApps(offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbyidsids-offset-limit" title="getAppsByIDs(ids, offset, limit)" class="md-nav__link">
+    getAppsByIDs(ids, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbycodescodes-offset-limit" title="getAppsByCodes(codes, offset, limit)" class="md-nav__link">
+    getAppsByCodes(codes, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbynamename-offset-limit" title="getAppsByName(name, offset, limit)" class="md-nav__link">
+    getAppsByName(name, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappsbyspaceidsspaceids-offset-limit" title="getAppsBySpaceIDs(spaceIds, offset, limit)" class="md-nav__link">
+    getAppsBySpaceIDs(spaceIds, offset, limit)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addpreviewappname-space-thread" title="addPreviewApp(name, space, thread)" class="md-nav__link">
+    addPreviewApp(name, space, thread)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_2" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployappsettingsname-space-thread" title="deployAppSettings(name, space, thread)" class="md-nav__link">
+    deployAppSettings(name, space, thread)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_3" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getappdeploystatusapps" title="getAppDeployStatus(apps)" class="md-nav__link">
+    getAppDeployStatus(apps)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter_4" title="Parameter" class="md-nav__link">
+    Parameter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getformfieldsappid-lang-ispreview" title="getFormFields(appId, lang, isPreview)" class="md-nav__link">
+    getFormFields(appId, lang, isPreview)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#addformfieldsapp-fields-revision" title="addFormFields(app, fields, revision)" class="md-nav__link">
+    addFormFields(app, fields, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateformfieldsapp-fields-revision" title="updateFormFields(app, fields, revision)" class="md-nav__link">
+    updateFormFields(app, fields, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deleteformfieldsapp-fields-revision" title="deleteFormFields(app, fields, revision)" class="md-nav__link">
+    deleteFormFields(app, fields, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getformlayoutappid-ispreview" title="getFormLayout(appId, isPreview)" class="md-nav__link">
+    getFormLayout(appId, isPreview)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updateformlayoutapp-layout-revision" title="updateFormLayout(app, layout, revision)" class="md-nav__link">
+    updateFormLayout(app, layout, revision)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getgeneralsettingsapp-lang-ispreview" title="getGeneralSettings(app, lang, isPreview)" class="md-nav__link">
+    getGeneralSettings(app, lang, isPreview)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updategeneralsettingsapp-generalsettings-revision" title="updateGeneralSettings(app, GeneralSettings, revision)" class="md-nav__link">
+    updateGeneralSettings(app, GeneralSettings, revision)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="app">App</h1>
+<p>Gets general information of an App, including the name, description, related Space, creator and updater information.</p>
+<blockquote>
+<ul>
+<li>Permissions to view the App is needed.</li>
+<li>API Tokens cannot be used with this API.</li>
+</ul>
+</blockquote>
+<h2 id="constructor">Constructor</h2>
+<h3 id="parameter"><strong>Parameter</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connection</td>
+<td><a href="../connection">Connection</a></td>
+<td>yes</td>
+<td>The connection module of this SDK.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sample-code"><strong>Sample code</strong></h3>
+<p><details class="tab-container" open>
+<Summary>Init app module</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Define Authentication object
+let username: String = {your_user_name}
+let password: String = {your_user_password}
+let kintoneAuth = Auth()
+kintoneAuth.setPasswordAuth(username, password)
+
+let myDomainName: String = &quot;sample.cybozu.com&quot;
+let connection = Connection(myDomainName, kintoneAuth)
+
+// Init App Module
+let app = App(connection)
+</code></pre>
+
+<p></details></p>
+<h2 id="methods">Methods</h2>
+<h3 id="getappappid">getApp(appId)</h3>
+<blockquote>
+<p>Get single app</p>
+</blockquote>
+<h4 id="parameter_1"><strong>Parameter</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appId</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The kintone app ID</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../app-model#appmodel">AppModel</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get App</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id}
+do {
+    let response = try app.getApp(appId)
+    print(&quot;appId : \(response.getAppId()!)&quot;)
+    print(&quot;spaceId : \(response.getSpaceId())&quot; )
+    print(&quot;threadId : \(response.getThreadId())&quot; )
+    print(&quot;name : \(response.getName()!)&quot;)
+    print(&quot;description : \(response.getDescription()!)&quot;)
+    print(&quot;----------------&quot;)
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+    // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getappsoffset-limit">getApps(offset, limit)</h3>
+<blockquote>
+<p>Get multiple apps</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offset</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>Array&lt;<a href="../app-model#appmodel">AppModel</a>&gt;</p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Get Apps</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+do {
+    let apps = try app.getApps()
+    var count = 1
+    for appInfo in apps {
+        print(&quot;App[\(count)] : &quot;);
+        print(&quot;appId : \(appInfo.getAppId()!)&quot;)
+        print(&quot;spaceId : \(appInfo.getSpaceId())&quot; )
+        print(&quot;threadId : \(appInfo.getThreadId())&quot; )
+        print(&quot;name : \(appInfo.getName()!)&quot;)
+        print(&quot;description : \(appInfo.getDescription()!)&quot;)
+        print(&quot;----------------&quot;)
+        count = count + 1
+    }
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+    // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getappsbyidsids-offset-limit">getAppsByIDs(ids, offset, limit)</h3>
+<blockquote>
+<p>Get multiple apps by list of ids</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ids</td>
+<td>Array&lt;Int>?</td>
+<td>yes</td>
+<td>The array of app ids</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>Array&lt;<a href="../app-model#appmodel">AppModel</a>&gt;</p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get Apps By IDs</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+var appIds: [Int] = [{your_app_id}, {your_app_id}]
+let limit: Int = {your_limit}
+let offset : Int = {your_offset}
+
+do {
+   let apps = try app.getAppsByIDs(appIds, offset, limit)
+   var count = 1
+   for appInfo in apps {
+      print(&quot;App[\(count)] : &quot;);
+      print(&quot;appId : \(appInfo.getAppId()!)&quot;)
+      print(&quot;spaceId : \(appInfo.getSpaceId())&quot; )
+      print(&quot;threadId : \(appInfo.getThreadId())&quot; )
+      print(&quot;name : \(appInfo.getName()!)&quot;)
+      print(&quot;description : \(appInfo.getDescription()!)&quot;)
+      print(&quot;----------------&quot;)
+      count = count + 1
+   }
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+    // Handle another error 
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getappsbycodescodes-offset-limit">getAppsByCodes(codes, offset, limit)</h3>
+<blockquote>
+<p>Get multiple apps by a list of codes</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>codes</td>
+<td>Array&lt;String>?</td>
+<td>yes</td>
+<td>The array of app codes</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>Array&lt;<a href="../app-model#appmodel">AppModel</a>&gt;</p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get Apps By Codes</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+var appCode: [String] = [{your_app_code}, {your_app_code}]
+let limit: Int = {your_limit}
+let offset: Int = {your_offset}
+
+do {
+   let apps = try app.getAppsByCodes(appCode, offset, limit)
+   var count = 1
+   for appInfo in apps {
+      print(&quot;App[\(count)] : &quot;);
+      print(&quot;appId : \(appInfo.getAppId()!)&quot;)
+      print(&quot;appCode : \(appInfo.getCode()!)&quot;)
+      print(&quot;spaceId : \(appInfo.getSpaceId())&quot; )
+      print(&quot;threadId : \(appInfo.getThreadId())&quot; )
+      print(&quot;name : \(appInfo.getName()!)&quot;)
+      print(&quot;description : \(appInfo.getDescription()!)&quot;)
+      print(&quot;----------------&quot;)
+      count = count + 1
+   }
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error         
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getappsbynamename-offset-limit">getAppsByName(name, offset, limit)</h3>
+<blockquote>
+<p>Get multiple apps by name</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>yes</td>
+<td>The app name</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Int</td>
+<td>(optional)</td>
+<td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Int</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>Array&lt;<a href="../app-model#appmodel">AppModel</a>&gt;</p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get Apps By Name</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appName: String = {your_app_name}
+let limit: Int = {your_limit}
+let offset: Int = {your_offset}
+
+do {
+   let apps = try app.getAppsByName(appName, offset, limit)
+   var count = 1
+   for appInfo in apps {
+      print(&quot;App[\(count)] : &quot;);
+      print(&quot;appId : \(appInfo.getAppId()!)&quot;)
+      print(&quot;appCode : \(appInfo.getCode()!)&quot;)
+      print(&quot;spaceId : \(appInfo.getSpaceId())&quot; )
+      print(&quot;threadId : \(appInfo.getThreadId())&quot; )
+      print(&quot;name : \(appInfo.getName()!)&quot;)
+      print(&quot;description : \(appInfo.getDescription()!)&quot;)
+      print(&quot;----------------&quot;)
+      count = count + 1
+   }
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error          
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getappsbyspaceidsspaceids-offset-limit">getAppsBySpaceIDs(spaceIds, offset, limit)</h3>
+<blockquote>
+<p>Get multiple apps by list of space's ids</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spaceIds</td>
+<td>Array&lt;Int>?</td>
+<td>yes</td>
+<td>The array of space ids</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Int</td>
+<td>(optional)</td>
+<td>The offset off data result</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Int</td>
+<td>(optional)</td>
+<td>The limit number of result</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>Array&lt;<a href="../app-model#appmodel">AppModel</a>&gt;</p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get Apps By Space IDs</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let spaceIds: [Int] = [{your_space_id}, {your_space_id}]
+let limit = {your_litmit}
+let offset = {your_offset}
+
+do {
+   let apps = try app.getAppsBySpaceIDs(spaceIds, offset, limit)
+   var count = 1
+   for appInfo in apps {
+      print(&quot;App[\(count)] : &quot;);
+      print(&quot;appId : \(appInfo.getAppId()!)&quot;)
+      print(&quot;spaceId : \(appInfo.getSpaceId())&quot; )
+      print(&quot;threadId : \(appInfo.getThreadId())&quot; )
+      print(&quot;name : \(appInfo.getName()!)&quot;)
+      print(&quot;description : \(appInfo.getDescription()!)&quot;)
+      print(&quot;----------------&quot;)
+      count = count + 1
+   }
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="addpreviewappname-space-thread">addPreviewApp(name, space, thread)</h3>
+<blockquote>
+<p>Creates a preview App. </p>
+</blockquote>
+<h4 id="parameter_2"><strong>Parameter</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>String?</td>
+<td>yes</td>
+<td>The App name. The maximum length is 64 characters.</td>
+</tr>
+<tr>
+<td>space</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The Space ID of where the App will be created.</td>
+</tr>
+<tr>
+<td>thread</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>The Thread ID of the thread in the Space where the App will be created.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../app-model/#AddPreviewAppResponse">AddPreviewAppResponse</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Creates a preview App.</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appName: String = {your_app_name}
+let spaceId = {your_space_id} // Space will add this app
+let threadId = {your_thread_id} // Thread will add this app
+
+do {
+   var addPreviewRespones: AddPreviewAppResponse? = nil
+   addPreviewRespones = try app.addPreviewApp(appName, spaceId, threadId)
+   print(addPreviewRespones?.getApp())
+   print(addPreviewRespones?.getRevision())
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="deployappsettingsname-space-thread">deployAppSettings(name, space, thread)</h3>
+<blockquote>
+<p>Updates the settings of a pre-live App to the live App. </p>
+</blockquote>
+<h4 id="parameter_3"><strong>Parameter</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apps</td>
+<td>Array&lt;<a href="../app-model/#AddPreviewAppResponse">AddPreviewAppResponse</a>&gt;?</td>
+<td>yes</td>
+<td>The list of Apps to deploy the pre-live settings to the live Apps.</td>
+</tr>
+<tr>
+<td>revert</td>
+<td>Bool?</td>
+<td>(optional)</td>
+<td>The flag that indicate whether to cancel all changes made to the pre-live settings.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>(none)</p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Updates the settings of a pre-live App to the live App.</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id}
+let revision: Int = {your_revision} // Revision of application to deploy
+let appPreview: AddPreviewAppResponse? = AddPreviewAppResponse(appId, revision)
+
+do {
+   try app.deployAppSettings([appPreview!], false)
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getappdeploystatusapps">getAppDeployStatus(apps)</h3>
+<blockquote>
+<p>Gets the deployment status of the App settings for multiple Apps.</p>
+</blockquote>
+<h4 id="parameter_4"><strong>Parameter</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apps</td>
+<td>Array<Int>?</td>
+<td>yes</td>
+<td>The list of Apps to check the deploy statuses of. The Maximum limit is 300.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>(none)</p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Gets the deployment status of the App settings for multiple Apps.</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appIds: [Int] = [{your_app_id}, {your_app_id}]
+do {
+    var deployStatusReponse: GetAppDeployStatusResponse? = nil
+    deployStatusReponse = try app.getAppDeployStatus(appIds)
+    let listAppsDeployStatus = deployStatusReponse?.getApps()
+    for appDeployStatus in listAppsDeployStatus! {
+        print(appDeployStatus.getApp())
+        print(appDeployStatus.getStatus())
+    }
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getformfieldsappid-lang-ispreview">getFormFields(appId, lang, isPreview)</h3>
+<blockquote>
+<p>Get field of form in kintone app</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appId</td>
+<td>Int</td>
+<td>yes</td>
+<td>The app ID</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>LanguageSetting</td>
+<td>(optional)</td>
+<td>The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: Japanese language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li></td>
+</tr>
+<tr>
+<td>isPreview</td>
+<td>Bool?</td>
+<td>(optional)</td>
+<td>Get the app form fields with a <a href="https://developer.kintone.io/hc/en-us/articles/115005509288">pre-live settings</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../form-fields/#formfields">FormFields</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get FormFields</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id} // Integer
+let lang: LanguageSetting = {language_code} // LanguageSetting .Ex: LanguageSetting.JA
+
+do {
+    let resp = try app.getFormFields(appId, lang)
+    print(resp) // FormFields Object
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+
+// Get a pre-live (preview) form fields
+let appId: Int = {your_app_id} // Integer
+let lang: LanguageSetting = {language_code} // LanguageSetting .Ex: LanguageSetting.JA
+let isPreview: Bool = true
+
+do {
+    let resp = try app.getFormFields(appId, lang, isPreview)
+    print(resp) // FormFields Object
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="addformfieldsapp-fields-revision">addFormFields(app, fields, revision)</h3>
+<blockquote>
+<p>Adds fields to a form of an App. </p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The app ID</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Dictionary&lt;String, <a href="../form-fields/#field">Field</a>>?</td>
+<td>yes</td>
+<td>The formFields which will add to form of kintone app</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>revision number of the settings that will be deployed.</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="../app-model/#basicresponse">BasicResponse</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Adds fields to a form of an App. </Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id} // App Id
+let fieldCode: String = {field_code_string} // Field code of new Field. It must be not as same as any fields in Pre-Live App Setttings
+let revision: Int = {latest_revision_of_the_settings} // Integer
+
+// Create Radio field instance and set properties
+let addNewField = RadioButtonField(fieldCode)
+var optionArray = [String: OptionData]()
+optionArray[&quot;1&quot;] = OptionData(&quot;1&quot;,&quot;1&quot;)
+optionArray[&quot;2&quot;] = OptionData(&quot;2&quot;,&quot;2&quot;)
+optionArray[&quot;3&quot;] = OptionData(&quot;3&quot;,&quot;3&quot;)
+addNewField.setOptions(optionArray)
+addNewField.setNoLabel(false)
+addNewField.setRequired(true)
+addNewField.setLabel(&quot;Label Radio&quot;)
+addNewField.setAlign(AlignLayout.VERTICAL)
+
+// Add Field object into dictionary with key is Field Code
+var properties = [String: Field]()
+properties[fieldCode] = addNewField
+// Another add field here
+
+do {
+    let response_add = try app.addFormFields(appId, properties, revision)
+    print(response_add) // BasicResponse { revision : &lt;String&gt; }
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="updateformfieldsapp-fields-revision">updateFormFields(app, fields, revision)</h3>
+<blockquote>
+<p>Updates the field settings of fields in a form of an App.</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The app ID</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Dictionary&lt;String, <a href="../form-fields/#field">Field</a>>?</td>
+<td>yes</td>
+<td>The formFields which will update</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>revision number of the settings that will be deployed.</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="../app-model/#basicresponse">BasicResponse</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Updates the field settings of fields in a form of an App.</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id} // Integer
+let fieldCode: String = {field_code_string} // String | fieldCode of exist fields in Pre-Live App Setttings
+let revision: Int = {latest_revision_of_the_settings} // Integer
+
+// Create Field Object to Update
+let updateField = SingleLineTextField(fieldCode)
+updateField.setDefaultValue(&quot;Hello Kintone&quot;)
+updateField.setRequired(true)
+
+// Add Update Field object into dictionary with key is Field Code
+var properties = [String: Field]()
+properties[fieldCode] = updateField
+
+do {
+    let response_update = try app?.updateFormFields(appId, properties, revision)
+    print(response_update) // BasicResponse { revision : &lt;String&gt; }
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="deleteformfieldsapp-fields-revision">deleteFormFields(app, fields, revision)</h3>
+<blockquote>
+<p>Deletes fields from a form of an App.</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The app ID</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Array<String>?</td>
+<td>yes</td>
+<td>The list of field codes of the fields to delete. Up to 100 field codes can be specified.</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>revision number of the settings that will be deployed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../app-model/#basicresponse">BasicResponse</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Deletes fields from a form of an App.</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id} // Integer
+let fieldCodeArray: [String] = [{field_code_string}] // Array&lt;String&gt; | Array of fieldCodes of exist fields in Pre-Live App Setttings
+let revision: Int = {latest_revision_of_the_settings} // Integer
+
+do {
+    let response_delete = try app.deleteFormFields(appId, fieldCodeArray, revision)
+    print(response_delete) // BasicResponse { revision : &lt;String&gt; }
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getformlayoutappid-ispreview">getFormLayout(appId, isPreview)</h3>
+<blockquote>
+<p>Get layout of form in kintone app</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appId</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The kintone app id</td>
+</tr>
+<tr>
+<td>isPreview</td>
+<td>Bool?</td>
+<td>(optional)</td>
+<td>Get the app form layout with a <a href="https://developer.kintone.io/hc/en-us/articles/115005509288">pre-live settings</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../form-layout#formlayout">FormLayout</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get FormLayout</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+// Get a pre-live (preview) form fields
+let appId: Int = {your_app_id}
+let isPreview: Bool = true
+
+do {
+   // Get form layout by app id
+   let response_layout = try app.getFormLayout(appId, isPreview)
+   print(response_layout.getLayout()!)
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error 
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="updateformlayoutapp-layout-revision">updateFormLayout(app, layout, revision)</h3>
+<blockquote>
+<p>Updates the field layout info of a form in an App. </p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The kintone app id</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>Array&lt;<a href="../form-layout/#itemlayout">ItemLayout</a>&gt;</td>
+<td>yes</td>
+<td>A list of field layouts for each row.</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>revision number of the settings that will be deployed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../app-model/#basicresponse">BasicResponse</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get FormLayout</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id} // Integer
+do {
+  let response = try app.getFormLayout(appId)
+  let response_layout = response.getLayout()!
+  let update_itemlayout = response_layout[0]
+  if update_itemlayout.getType() == LayoutType.ROW {
+    let rowLayout = update_itemlayout as! RowLayout
+    let firstFields = rowLayout.getFields()![0]
+    firstFields.getSize()!.setWidth(&quot;90&quot;)
+  }
+  let response_update_layout = try app.updateFormLayout(appId, response_layout)
+  print(response_update_layout)
+} catch let error as KintoneAPIException {
+    print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="getgeneralsettingsapp-lang-ispreview">getGeneralSettings(app, lang, isPreview)</h3>
+<blockquote>
+<p>Gets the description, name, icon, revision and color theme of an App.</p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The app ID</td>
+</tr>
+<tr>
+<td>lang</td>
+<td>LanguageSetting</td>
+<td>(optional)</td>
+<td>The language code. Support: <ul><li>DEFAULT: Default language setting of system </li><li>JA: Japanese language setting</li><li>ZH: Chinese language setting</li><li>EN: English language setting</li></td>
+</tr>
+<tr>
+<td>isPreview</td>
+<td>Bool?</td>
+<td>(optional)</td>
+<td>Get the app form fields with a <a href="https://developer.kintone.io/hc/en-us/articles/115005509288">pre-live settings</a>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../app-model/#GeneralSettings">GeneralSettings</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Deletes fields from a form of an App.</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId = {your_app_id}
+
+do {
+   let response = try app.getGeneralSettings(appId)
+   print(response)
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+
+// Get a pre-live (preview) general settings
+let appId = {your_app_id}
+let lang = {your_language_code} // LanguageSetting( EN | JA | ZH ). Ex: LanguageSetting.JA
+let isPreview = true
+do {
+   let response = try app.getGeneralSettings(appId, lang, isPreview)
+   print(response)
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h3 id="updategeneralsettingsapp-generalsettings-revision">updateGeneralSettings(app, GeneralSettings, revision)</h3>
+<blockquote>
+<p>Updates the field layout info of a form in an App. </p>
+</blockquote>
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app</td>
+<td>Int?</td>
+<td>yes</td>
+<td>The kintone app id</td>
+</tr>
+<tr>
+<td>generalSettings</td>
+<td><a href="../app-model/#generalsetting">GeneralSettings</a></td>
+<td>(Conditional)</td>
+<td>The description, name, icon, revision and color theme of an App.</td>
+</tr>
+<tr>
+<td>revision</td>
+<td>Int?</td>
+<td>(optional)</td>
+<td>revision number of the settings that will be deployed.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p><a href="../app-model/#basicresponse">BasicResponse</a></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>get FormLayout</Summary></p>
+<p><strong> Source code </strong></p>
+<pre><code class="java">// Init App Module
+let app = App(connection)
+
+let appId: Int = {your_app_id}
+let revision: Int = {latest_revision_id} // default: -1
+do {
+   let generalSetting = try app.getGeneralSettings(appId)
+   generalSetting.setDescription(&quot;Test preview app description&quot;)
+
+// Update current general settings
+   let response = try app.updateGeneralSettings(appId, generalSetting, revision)
+   print(response)
+   // After using this API, use the Deploy App Settings API to deploy the settings to the live App.
+} catch let error as KintoneAPIException {
+   print(error.getErrorResponse()!.getMessage()!)
+} catch {
+   // Handle another error
+}
+</code></pre>
+
+<p></details></p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/212494888">Get App</a><code>on developer network</code></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/115005336727">Get Apps</a><code>on developer network</code></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/115005509288">Get Form fields</a><code>on developer network</code></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/115005509068">Get Form Layout</a><code>on developer network</code></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../bulk-request-model/" title="Bulk Request Model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Bulk Request Model
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../app-model/" title="App Model" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                App Model
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"../.."}})</script>
+      
+        <script src="../../asset/js/extra.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
