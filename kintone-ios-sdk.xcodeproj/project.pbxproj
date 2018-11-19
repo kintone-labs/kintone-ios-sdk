@@ -42,8 +42,6 @@
 		1283E3F5219E9F9100D8E282 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; };
 		1283E3F7219ECCC100D8E282 /* FBLPromises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1283E3F8219ECCC100D8E282 /* Promises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1283E3FB21A29B7700D8E282 /* Promises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1283E3FC21A29B8200D8E282 /* FBLPromises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
@@ -211,17 +209,6 @@
 			files = (
 				1283E3F7219ECCC100D8E282 /* FBLPromises.framework in CopyFiles */,
 				1283E3F8219ECCC100D8E282 /* Promises.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1283E3FA21A29B6400D8E282 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				1283E3FC21A29B8200D8E282 /* FBLPromises.framework in CopyFiles */,
-				1283E3FB21A29B7700D8E282 /* Promises.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1025,8 +1012,6 @@
 				3E17EA0E213E427F002D9BC0 /* Headers */,
 				3E17EA0F213E427F002D9BC0 /* Resources */,
 				1283E3ED219E9C7900D8E282 /* Frameworks */,
-				1283E3F921A29AF600D8E282 /* ShellScript */,
-				1283E3FA21A29B6400D8E282 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1113,28 +1098,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1283E3F921A29AF600D8E282 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Promises.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/FBLPromises.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3E17EA0C213E427F002D9BC0 /* Sources */ = {
