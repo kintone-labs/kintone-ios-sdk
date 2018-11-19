@@ -56,7 +56,7 @@ open class Record: NSObject {
         let jsonBody = String(data: body, encoding: .utf8)!
         
         return Promise { fulfill, reject in
-            self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+            return self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
                 // return response as GetRecordResponse class
                 do {
                     let parseResponse = try self.parser.parseJson(GetRecordResponse.self, response)
@@ -67,6 +67,79 @@ open class Record: NSObject {
             }.catch{ error in
                 reject(error)
             }
+        }
+    }
+    
+    /// Add a record to kintone app
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - record: the record data which will add to kintone app
+    /// - Returns: AddRecordResponse
+    /// - Throws: KintoneAPIException
+    open func addRecordAsync(_ app: Int, _ record: [String:FieldValue]?) throws -> Promise<AddRecordResponse> {
+        // execute POST RECORD API
+        let recordRequest = AddRecordRequest(app, record)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<AddRecordResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                    // return response as GetRecordResponse class
+                    do {
+                        let parseResponseToJson = try self.parser.parseJson(AddRecordResponse.self, response)
+                        fulfill(parseResponseToJson)
+                    } catch {
+                        reject(KintoneAPIException(error.localizedDescription))
+                    }
+                }.catch{ error in
+                    reject(error)
+                }
+        }
+    }
+    
+    /// Update the record on kintone app by ID
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - id: the ID of record
+    ///   - record: the record data which will update
+    ///   - revision: the number of revision
+    /// - Returns: UpdateRecordResponse
+    /// - Throws: KintoneAPIException
+    open func updateRecordAsyncByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) throws -> Promise<UpdateRecordResponse> {
+        // execute PUT RECORD API
+        let recordRequest = UpdateRecordRequest(app, id, nil, revision, record)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        return Promise<UpdateRecordResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                // return response as GetRecordResponse class
+                do {
+                    let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
+                    fulfill(parseResponseToJson)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+            }.catch{ error in
+                reject(error)
+            }
+        }
+    }
+    
+    /// Delete the records on kintone app
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - ids: the array of record IDs
+    /// - Throws: KintoneAPIException
+    open func deleteRecordsAsync(_ app: Int, _ ids: [Int]) throws -> Promise<Void> {
+        // execute DELETE RECORDS API
+        let recordRequest = DeleteRecordsRequest(app, ids, nil)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        return Promise<Void> {
+            return self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody)
         }
     }
     

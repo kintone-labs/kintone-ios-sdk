@@ -269,39 +269,39 @@ open class Connection: NSObject {
     /// - Returns: Data
     /// - Throws: KintoneAPIException
     open func requestAsync(_ method: String, _ apiName: String, _ body: String) -> Promise<Data> {
-        
-        var urlString = ""
-        var isGet = false
-        
-        if (ConnectionConstants.GET_REQUEST == method){
-            isGet = true
-        }
-        
-        do {
-            urlString = try self.getURL(apiName, nil)
-        } catch {
-            //throw KintoneAPIException("Invalid URL")
-        }
-        
-        let url = URL(string: urlString)!
-        var request = URLRequest(url: url)
-        
-        request = self.setHTTPHeaders(request)
-        if (isGet) {
-            request.httpMethod = ConnectionConstants.POST_REQUEST
-        } else {
-            request.httpMethod = method
-        }
-        
-        request.addValue(JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
-        if (isGet) {
-            request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
-        }
-        
-        request.httpBody = body.data(using: String.Encoding.utf8)
-        
-        let session = URLSession(configuration: setURLSessionConfiguration())
         return Promise { fullfill, reject in
+            var urlString = ""
+            var isGet = false
+            
+            if (ConnectionConstants.GET_REQUEST == method){
+                isGet = true
+            }
+            
+            do {
+                urlString = try self.getURL(apiName, nil)
+            } catch {
+                reject(KintoneAPIException("Invalid URL"))
+            }
+            
+            let url = URL(string: urlString)!
+            var request = URLRequest(url: url)
+            
+            request = self.setHTTPHeaders(request)
+            if (isGet) {
+                request.httpMethod = ConnectionConstants.POST_REQUEST
+            } else {
+                request.httpMethod = method
+            }
+            
+            request.addValue(self.JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
+            if (isGet) {
+                request.addValue(method, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+            }
+            
+            request.httpBody = body.data(using: String.Encoding.utf8)
+            
+            let session = URLSession(configuration: self.setURLSessionConfiguration())
+            
             self.executeAsync(session, request).then { (data, response, error) in
                 if (data != nil || response != nil){
                     do {
