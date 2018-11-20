@@ -1,5 +1,5 @@
 // Copyright (c) 2018 Cybozu, Inc.
-
+import Promises
 public protocol AppForm {
     
     /// Gets the list of fields and field settings of an App.
@@ -10,7 +10,7 @@ public protocol AppForm {
     ///   - isPreview: isPreview
     /// - Returns: FormFields Model
     /// - Throws: throws KintoneAPIException
-    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) throws -> FormFields
+    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) -> FormFields
     
     /// Adds fields to a form of an App.
     /// This API updates the pre-live settings.
@@ -21,7 +21,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) throws -> BasicResponse
+    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> BasicResponse
     
     /// Updates the field settings of fields in a form of an App.
     /// This API updates the pre-live settings.
@@ -32,7 +32,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) throws -> BasicResponse
+    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> BasicResponse
     
     /// Deletes fields from a form of an App.
     /// This API updates the pre-live settings.
@@ -43,7 +43,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int?) throws -> BasicResponse
+    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int?) -> BasicResponse
     
     /// Gets the field layout info of a form in an App.
     ///
@@ -52,7 +52,7 @@ public protocol AppForm {
     ///   - isPreview: isPreview description
     /// - Returns: FormLayout Model
     /// - Throws: throws KintoneAPIException
-    func getFormLayout(_ app: Int?, _ isPreview: Bool?) throws -> FormLayout
+    func getFormLayout(_ app: Int?, _ isPreview: Bool?) -> FormLayout
     
     /// Updates the field layout info of a form in an App.
     /// This API updates the pre-live settings.
@@ -63,106 +63,126 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) throws -> BasicResponse
+    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) -> BasicResponse
 }
 
 public extension AppForm where Self: App {
-    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) throws -> FormFields
+    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) -> Promise<FormFields>
     {
-        do {
-            let getFormFieldsRequest = GetFormFieldsRequest(app!, lang!)
-            let body = try self.parser.parseObject(getFormFieldsRequest)
-            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let url = (isPreview! ? ConnectionConstants.APP_FIELDS_PREVIEW : ConnectionConstants.APP_FIELDS)
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody)
-            return try self.parser.parseJson(FormFields.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+        return Promise{ fulfill, reject in
+            do {
+                let getFormFieldsRequest = GetFormFieldsRequest(app!, lang!)
+                let body = try self.parser.parseObject(getFormFieldsRequest)
+                let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                let url = (isPreview! ? ConnectionConstants.APP_FIELDS_PREVIEW : ConnectionConstants.APP_FIELDS)
+                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
+                    let parsedResponse = try self.parser.parseJson(FormFields.self, response)
+                    fulfill(parsedResponse)
+                    }.catch{ error in
+                        reject(error)
+                }
+            } catch {
+                reject(error)
+            }
         }
     }
     
-    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int? = -1) throws -> BasicResponse
+    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int? = -1) -> Promise<BasicResponse>
     {
-        do {
-            let addFormFieldsRequest = AddUpdateFormFieldsRequest(app, fields, revision)
-            let body = try self.parser.parseObject(addFormFieldsRequest)
-            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let url = ConnectionConstants.APP_FIELDS_PREVIEW
-            let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, url, jsonBody)
-            let basicResponse = try parser.parseJson(BasicResponse.self, response!)
-            return basicResponse
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+        return Promise{ fulfill, reject in
+            do {
+                let addFormFieldsRequest = AddUpdateFormFieldsRequest(app, fields, revision)
+                let body = try self.parser.parseObject(addFormFieldsRequest)
+                let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                let url = ConnectionConstants.APP_FIELDS_PREVIEW
+                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, url, jsonBody).then{ response in
+                    let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
+                    fulfill(basicResponse)
+                    }.catch{ error in
+                        reject(error)
+                }
+            } catch {
+                reject(error)
+            }
         }
     }
     
-    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int? = -1) throws -> BasicResponse
+    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int? = -1) -> Promise<BasicResponse>
     {
-        do {
-            let updateFormFields = AddUpdateFormFieldsRequest(app, fields, revision)
-            let body = try self.parser.parseObject(updateFormFields)
-            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let url = ConnectionConstants.APP_FIELDS_PREVIEW
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, url, jsonBody)
-            let basicResponse = try parser.parseJson(BasicResponse.self, response!)
-            return basicResponse
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+        return Promise{ fulfill, reject in
+            do {
+                let updateFormFields = AddUpdateFormFieldsRequest(app, fields, revision)
+                let body = try self.parser.parseObject(updateFormFields)
+                let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                let url = ConnectionConstants.APP_FIELDS_PREVIEW
+                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, url, jsonBody).then{ response in
+                    let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
+                    fulfill(basicResponse)
+                    }.catch{ error in
+                        reject(error)
+                }
+            } catch {
+                reject(error)
+            }
         }
     }
     
-    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int? = -1) throws -> BasicResponse
+    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int? = -1) -> Promise<BasicResponse>
     {
-        do {
-            let deleteFormFields = DeleteFormFieldsRequest(app, fields, revision)
-            let body = try self.parser.parseObject(deleteFormFields)
-            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let url = ConnectionConstants.APP_FIELDS_PREVIEW
-            let response = try self.connection?.request(ConnectionConstants.DELETE_REQUEST, url, jsonBody)
-            let basicResponse = try parser.parseJson(BasicResponse.self, response!)
-            return basicResponse
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+        return Promise{ fulfill, reject in
+            do {
+                let deleteFormFields = DeleteFormFieldsRequest(app, fields, revision)
+                let body = try self.parser.parseObject(deleteFormFields)
+                let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                let url = ConnectionConstants.APP_FIELDS_PREVIEW
+                self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, url, jsonBody).then{ response in
+                    let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
+                    fulfill(basicResponse)
+                    }.catch{ error in
+                        reject(error)
+                }
+            } catch {
+                reject(error)
+            }
         }
     }
     
-    func getFormLayout(_ app: Int?, _ isPreview: Bool? = false) throws -> FormLayout
+    func getFormLayout(_ app: Int?, _ isPreview: Bool? = false) -> Promise<FormLayout>
     {
-        do {
-            let getFormLayoutRequest = GetFormLayoutRequest(app!)
-            let body = try self.parser.parseObject(getFormLayoutRequest)
-            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let url = (isPreview! ? ConnectionConstants.APP_LAYOUT_PREVIEW : ConnectionConstants.APP_LAYOUT)
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody)
-            return try self.parser.parseJson(FormLayout.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+        return Promise{ fulfill, reject in
+            do {
+                let getFormLayoutRequest = GetFormLayoutRequest(app!)
+                let body = try self.parser.parseObject(getFormLayoutRequest)
+                let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                let url = (isPreview! ? ConnectionConstants.APP_LAYOUT_PREVIEW : ConnectionConstants.APP_LAYOUT)
+                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
+                    let parsedResponse = try self.parser.parseJson(FormLayout.self, response)
+                    fulfill(parsedResponse)
+                    }.catch{ error in
+                        reject(error)
+                }
+            } catch {
+                reject(error)
+            }
         }
     }
     
-    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,  _ revision: Int? = -1) throws -> BasicResponse
+    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,  _ revision: Int? = -1) -> Promise<BasicResponse>
     {
-        do {
-            let updateFormLayoutRequest = UpdateFormLayoutRequest(app!, layout!, revision!)
-            let body = try parser.parseObject(updateFormLayoutRequest)
-            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody)
-            let basicResponse = try parser.parseJson(BasicResponse.self, response!)
-            return basicResponse
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+        return Promise{ fulfill, reject in
+            do {
+                let updateFormLayoutRequest = UpdateFormLayoutRequest(app!, layout!, revision!)
+                let body = try self.parser.parseObject(updateFormLayoutRequest)
+                let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody).then{ response in
+                    let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
+                    fulfill(basicResponse)
+                    }.catch{ error in
+                        reject(error)
+                }
+            } catch {
+                reject(error)
+            }
         }
     }
 }
