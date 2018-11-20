@@ -46,6 +46,7 @@ class GetViewsTest: XCTestCase {
             
             let fieldsViewsExpected: [String] = ["Text", "Text_Area", "Created_datetime"]
             XCTAssertEqual(fieldsViewsExpected, viewEntry?.getFields()!)
+            
             }.catch{ error in
                 var errorString = ""
                 if (type(of: error) == KintoneAPIException.self) {
