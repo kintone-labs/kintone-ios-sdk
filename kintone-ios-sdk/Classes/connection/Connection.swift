@@ -266,7 +266,7 @@ open class Connection: NSObject {
     ///   - method: rest http method. Only accept "GET", "POST", "PUT", "DELETE" value.
     ///   - apiName: apiName
     ///   - body: json object
-    /// - Returns: Data
+    /// - Returns: Promise
     /// - Throws: KintoneAPIException
     open func requestAsync(_ method: String, _ apiName: String, _ body: String) -> Promise<Data> {
         return Promise { fullfill, reject in
