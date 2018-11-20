@@ -33,18 +33,22 @@ open class Record: NSObject {
         let jsonBody = String(data: body, encoding: .utf8)!
         
         return Promise { fulfill, reject in
-            return self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
-                // return response as GetRecordResponse class
-                do {
-                    let parseResponse = try self.parser.parseJson(GetRecordResponse.self, response)
-                    fulfill(parseResponse)
+            // execute GET RECORDS API
+            let recordRequest = GetRecordRequest(app, id)
+            do {
+                let body = try self.parser.parseObject(recordRequest)
+                let jsonBody = String(data: body, encoding: .utf8)!
+                    self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                        // return response as GetRecordResponse class
+                        let parseResponse = try self.parser.parseJson(GetRecordResponse.self, response)
+                        fulfill(parseResponse)
+                    }.catch{ error in
+                        reject(error)
+                    }
                 } catch {
-                    reject(KintoneAPIException(error.localizedDescription))
+                    reject(error)
                 }
-            }.catch{ error in
-                reject(error)
             }
-        }
     }
     
     /// Add a record to kintone app
@@ -61,17 +65,21 @@ open class Record: NSObject {
         let jsonBody = String(data: body, encoding: .utf8)!
         
         return Promise<AddRecordResponse> { fulfill, reject in
-            return self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+            // execute POST RECORD API
+            let recordRequest = AddRecordRequest(app, record)
+            do {
+                let body = try self.parser.parseObject(recordRequest)
+                let jsonBody = String(data: body, encoding: .utf8)!
+                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
                     // return response as GetRecordResponse class
-                    do {
-                        let parseResponseToJson = try self.parser.parseJson(AddRecordResponse.self, response)
+                    let parseResponseToJson = try self.parser.parseJson(AddRecordResponse.self, response)
                         fulfill(parseResponseToJson)
-                    } catch {
-                        reject(KintoneAPIException(error.localizedDescription))
-                    }
                 }.catch{ error in
                     reject(error)
                 }
+            } catch {
+                reject(error)
+            }
         }
     }
     
@@ -90,15 +98,19 @@ open class Record: NSObject {
         let body = try self.parser.parseObject(recordRequest)
         let jsonBody = String(data: body, encoding: .utf8)!
         return Promise<UpdateRecordResponse> { fulfill, reject in
-            return self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
-                // return response as GetRecordResponse class
-                do {
+            // execute PUT RECORD API
+            let recordRequest = UpdateRecordRequest(app, id, nil, revision, record)
+            do {
+                let body = try self.parser.parseObject(recordRequest)
+                let jsonBody = String(data: body, encoding: .utf8)!
+                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                    // return response as GetRecordResponse class
                     let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
                     fulfill(parseResponseToJson)
-                } catch {
-                    reject(KintoneAPIException(error.localizedDescription))
+                }.catch{ error in
+                    reject(error)
                 }
-            }.catch{ error in
+            } catch {
                 reject(error)
             }
         }
@@ -113,10 +125,14 @@ open class Record: NSObject {
     open func deleteRecords(_ app: Int, _ ids: [Int]) throws -> Promise<Void> {
         // execute DELETE RECORDS API
         let recordRequest = DeleteRecordsRequest(app, ids, nil)
-        let body = try self.parser.parseObject(recordRequest)
-        let jsonBody = String(data: body, encoding: .utf8)!
-        return Promise<Void> {
-            return self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody)
+        return Promise<Void> { _, reject in
+            do {
+                let body = try self.parser.parseObject(recordRequest)
+                let jsonBody = String(data: body, encoding: .utf8)!
+                self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody)
+            } catch {
+                reject(error)
+            }
         }
     }
     
