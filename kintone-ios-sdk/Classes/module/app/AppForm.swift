@@ -10,7 +10,7 @@ public protocol AppForm {
     ///   - isPreview: isPreview
     /// - Returns: FormFields Model
     /// - Throws: throws KintoneAPIException
-    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) -> FormFields
+    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) -> Promise<FormFields>
     
     /// Adds fields to a form of an App.
     /// This API updates the pre-live settings.
@@ -21,7 +21,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> BasicResponse
+    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> Promise<BasicResponse>
     
     /// Updates the field settings of fields in a form of an App.
     /// This API updates the pre-live settings.
@@ -32,7 +32,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> BasicResponse
+    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> Promise<BasicResponse>
     
     /// Deletes fields from a form of an App.
     /// This API updates the pre-live settings.
@@ -43,7 +43,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int?) -> BasicResponse
+    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int?) -> Promise<BasicResponse>
     
     /// Gets the field layout info of a form in an App.
     ///
@@ -52,7 +52,7 @@ public protocol AppForm {
     ///   - isPreview: isPreview description
     /// - Returns: FormLayout Model
     /// - Throws: throws KintoneAPIException
-    func getFormLayout(_ app: Int?, _ isPreview: Bool?) -> FormLayout
+    func getFormLayout(_ app: Int?, _ isPreview: Bool?) -> Promise<FormLayout>
     
     /// Updates the field layout info of a form in an App.
     /// This API updates the pre-live settings.
@@ -63,7 +63,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) -> BasicResponse
+    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) -> Promise<BasicResponse>
 }
 
 public extension AppForm where Self: App {
