@@ -26,30 +26,7 @@ open class Record: NSObject {
     ///   - id: the ID of record
     /// - Returns: GetRecordResponse
     /// - Throws: KintoneAPIException
-    open func getRecord(_ app: Int, _ id: Int) throws -> GetRecordResponse {
-        do {
-            // execute GET RECORDS API
-            let recordRequest = GetRecordRequest(app, id)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)!
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody)
-            // return response as GetRecordResponse class
-            return try self.parser.parseJson(GetRecordResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
-        }
-    }
-    
-    /// Get the record from kintone app
-    ///
-    /// - Parameters:
-    ///   - app: the ID of kintone app
-    ///   - id: the ID of record
-    /// - Returns: GetRecordResponse
-    /// - Throws: KintoneAPIException
-    open func getRecordAsync(_ app: Int,_ id: Int) throws -> Promise<GetRecordResponse> {
+    open func getRecord(_ app: Int,_ id: Int) throws -> Promise<GetRecordResponse> {
         // execute GET RECORDS API
         let recordRequest = GetRecordRequest(app, id)
         let body = try self.parser.parseObject(recordRequest)
@@ -77,7 +54,7 @@ open class Record: NSObject {
     ///   - record: the record data which will add to kintone app
     /// - Returns: AddRecordResponse
     /// - Throws: KintoneAPIException
-    open func addRecordAsync(_ app: Int, _ record: [String:FieldValue]?) throws -> Promise<AddRecordResponse> {
+    open func addRecord(_ app: Int, _ record: [String:FieldValue]?) throws -> Promise<AddRecordResponse> {
         // execute POST RECORD API
         let recordRequest = AddRecordRequest(app, record)
         let body = try self.parser.parseObject(recordRequest)
@@ -107,7 +84,7 @@ open class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    open func updateRecordAsyncByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) throws -> Promise<UpdateRecordResponse> {
+    open func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) throws -> Promise<UpdateRecordResponse> {
         // execute PUT RECORD API
         let recordRequest = UpdateRecordRequest(app, id, nil, revision, record)
         let body = try self.parser.parseObject(recordRequest)
@@ -133,7 +110,7 @@ open class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - ids: the array of record IDs
     /// - Throws: KintoneAPIException
-    open func deleteRecordsAsync(_ app: Int, _ ids: [Int]) throws -> Promise<Void> {
+    open func deleteRecords(_ app: Int, _ ids: [Int]) throws -> Promise<Void> {
         // execute DELETE RECORDS API
         let recordRequest = DeleteRecordsRequest(app, ids, nil)
         let body = try self.parser.parseObject(recordRequest)
@@ -152,42 +129,23 @@ open class Record: NSObject {
     ///   - totalCount: the flag that  will or not retrieve the total count of records
     /// - Returns: GetRecordsResponse
     /// - Throws: KintoneAPIException
-    open func getRecords(_ app: Int, _ query: String?, _ fields: [String]?, _ totalCount: Bool?) throws -> GetRecordsResponse {
-        do {
-            // execute GET RECORDS API
-            let recordsRequest = GetRecordsRequest(fields, app, query, totalCount)
-            let body = try self.parser.parseObject(recordsRequest)
-            let jsonBody = String(data: body, encoding: .utf8)!
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORDS, jsonBody)
-            // return response as GetRecordsResponse class
-            return try self.parser.parseJson(GetRecordsResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
-        }
-    }
-    
-    /// Add a record to kintone app
-    ///
-    /// - Parameters:
-    ///   - app: the ID of kintone app
-    ///   - record: the record data which will add to kintone app
-    /// - Returns: AddRecordResponse
-    /// - Throws: KintoneAPIException
-    open func addRecord(_ app: Int, _ record: [String:FieldValue]?) throws -> AddRecordResponse {
-        do {
-            // execute POST RECORD API
-            let recordRequest = AddRecordRequest(app, record)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            // return response as AddRecordResponse class
-            return try self.parser.parseJson(AddRecordResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func getRecords(_ app: Int, _ query: String?, _ fields: [String]?, _ totalCount: Bool?) throws -> Promise<GetRecordsResponse> {
+        // execute GET RECORDS API
+        let recordsRequest = GetRecordsRequest(fields, app, query, totalCount)
+        let body = try self.parser.parseObject(recordsRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
+                do {
+                    let parseResponse = try self.parser.parseJson(GetRecordsResponse.self, response)
+                    fulfill(parseResponse)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -198,44 +156,24 @@ open class Record: NSObject {
     ///   - records: the records data which will add to kintone app
     /// - Returns: AddRecordsResponse
     /// - Throws: KintoneAPIException
-    open func addRecords(_ app: Int, _ records: [[String:FieldValue]]) throws -> AddRecordsResponse {
-        do {
-            // execute POST RECORDS API
-            let recordRequest = AddRecordsRequest(app, records)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
-            // return response as AddRecordsResponse class
-            return try self.parser.parseJson(AddRecordsResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
-        }
-    }
-    
-    /// Update the record on kintone app by ID
-    ///
-    /// - Parameters:
-    ///   - app: the ID of kintone app
-    ///   - id: the ID of record
-    ///   - record: the record data which will update
-    ///   - revision: the number of revision
-    /// - Returns: UpdateRecordResponse
-    /// - Throws: KintoneAPIException
-    open func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
-        do {
-            // execute PUT RECORD API
-            let recordRequest = UpdateRecordRequest(app, id, nil, revision, record)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            // return response as UpdateRecordResponse class
-            return try self.parser.parseJson(UpdateRecordResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func addRecords(_ app: Int, _ records: [[String:FieldValue]]) throws -> Promise<AddRecordsResponse> {
+        // execute POST RECORD API
+        let recordRequest = AddRecordsRequest(app, records)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<AddRecordsResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
+                // return response as GetRecordResponse class
+                do {
+                    let parseResponseToJson = try self.parser.parseJson(AddRecordsResponse.self, response)
+                    fulfill(parseResponseToJson)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -248,19 +186,24 @@ open class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    open func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) throws -> UpdateRecordResponse {
-        do {
-            // execute PUT RECORD API
-            let recordRequest = UpdateRecordRequest(app, nil, updateKey, revision, record)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            // return response as UpdateRecordResponse class
-            return try self.parser.parseJson(UpdateRecordResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) throws -> Promise<UpdateRecordResponse> {
+        // execute PUT RECORD API
+        let recordRequest = UpdateRecordRequest(app, nil, updateKey, revision, record)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<UpdateRecordResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                // return response as UpdateRecordResponse class
+                do {
+                    let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
+                    fulfill(parseResponseToJson)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -271,39 +214,24 @@ open class Record: NSObject {
     ///   - records: the array of record data which will update
     /// - Returns: UpdateRecordsResponse
     /// - Throws: KintoneAPIException
-    open func updateRecords(_ app: Int, _ records: [RecordUpdateItem]) throws -> UpdateRecordsResponse {
-        do {
-            // execute PUT RECORDS API
-            let recordRequest = UpdateRecordsRequest(app, records)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
-            // return response as UpdateRecordsResponse class
-            return try self.parser.parseJson(UpdateRecordsResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
-        }
-    }
-    
-    /// Delete the records on kintone app
-    ///
-    /// - Parameters:
-    ///   - app: the ID of kintone app
-    ///   - ids: the array of record IDs
-    /// - Throws: KintoneAPIException
-    open func deleteRecords(_ app: Int, _ ids: [Int]) throws {
-        do {
-            // execute DELETE RECORDS API
-            let recordRequest = DeleteRecordsRequest(app, ids, nil)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            try self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func updateRecords(_ app: Int, _ records: [RecordUpdateItem]) throws -> Promise<UpdateRecordsResponse> {
+        // execute PUT RECORDS API
+        let recordRequest = UpdateRecordsRequest(app, records)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<UpdateRecordsResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
+                // return response as UpdateRecordsResponse class
+                do {
+                    let parseResponseToJson = try self.parser.parseJson(UpdateRecordsResponse.self, response)
+                    fulfill(parseResponseToJson)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -313,7 +241,7 @@ open class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - idsWithRevision: the map of revision number to record ID
     /// - Throws: KintoneAPIException
-    open func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?]) throws {
+    open func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?]) throws -> Promise<Void> {
         // split idsWithRevision into key list and value list
         var ids = [Int]()
         var revisions = [Int?]()
@@ -321,16 +249,13 @@ open class Record: NSObject {
             ids.append(entry.key)
             revisions.append(entry.value)
         }
-        do {
-            // execute DELETE RECORDS API
-            let recordRequest = DeleteRecordsRequest(app, ids, revisions)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            try self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+        // execute DELETE RECORDS API
+        let recordRequest = DeleteRecordsRequest(app, ids, revisions)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<Void> {
+            return self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody)
         }
     }
     
@@ -343,19 +268,24 @@ open class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    open func updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) throws -> UpdateRecordResponse {
-        do {
-            // execute PUT RECORD_ASSIGNEES API
-            let recordRequest = UpdateRecordAssigneesRequest(app, id, assignees, revision)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_ASSIGNEES, jsonBody!)
-            // return response as UpdateRecordResponse class
-            return try self.parser.parseJson(UpdateRecordResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) throws -> Promise<UpdateRecordResponse> {
+        // execute PUT RECORD_ASSIGNEES API
+        let recordRequest = UpdateRecordAssigneesRequest(app, id, assignees, revision)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<UpdateRecordResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_ASSIGNEES, jsonBody).then{ response in
+                // return response as UpdateRecordsResponse class
+                do {
+                    let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
+                    fulfill(parseResponseToJson)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -369,19 +299,24 @@ open class Record: NSObject {
     ///   - revision: the number of revision
     /// - Returns: UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    open func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> UpdateRecordResponse {
-        do {
-            // execute PUT RECORD_STATUS API
-            let recordRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_STATUS, jsonBody!)
-            // return response as UpdateRecordResponse class
-            return try self.parser.parseJson(UpdateRecordResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> Promise<UpdateRecordResponse> {
+        // execute PUT RECORD_STATUS API
+        let recordRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<UpdateRecordResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_STATUS, jsonBody).then{ response in
+                // return response as UpdateRecordsResponse class
+                do {
+                    let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
+                    fulfill(parseResponseToJson)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -392,19 +327,24 @@ open class Record: NSObject {
     ///   - records: the array of record's infomation for update status
     /// - Returns: UpdateRecordsResponse
     /// - Throws: KintoneAPIException
-    open func updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem]) throws -> UpdateRecordsResponse {
-        do {
-            // execute PUT RECORDS_STATUS API
-            let recordRequest = UpdateRecordsStatusRequest(app, records)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS_STATUS, jsonBody!)
-            // return response as UpdateRecordsResponse class
-            return try self.parser.parseJson(UpdateRecordsResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem]) throws -> Promise<UpdateRecordsResponse> {
+        // execute PUT RECORDS_STATUS API
+        let recordRequest = UpdateRecordsStatusRequest(app, records)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise<UpdateRecordsResponse> { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS_STATUS, jsonBody).then{ response in
+                // return response as UpdateRecordsResponse class
+                do {
+                    let parseResponseToJson = try self.parser.parseJson(UpdateRecordsResponse.self, response)
+                    fulfill(parseResponseToJson)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -418,19 +358,23 @@ open class Record: NSObject {
     ///   - limit: the number of records to retreive
     /// - Returns: GetCommentsResponse
     /// - Throws: KintoneAPIException
-    open func getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?) throws -> GetCommentsResponse {
-        do {
-            // execute GET RECORD_COMMENTS API
-            let recordRequest = GetCommentsRecordRequest(app, record, order, offset, limit)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD_COMMENTS, jsonBody!)
-            // return response as GetCommentsResponse class
-            return try self.parser.parseJson(GetCommentsResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?) throws -> Promise<GetCommentsResponse> {
+        // execute GET RECORD_COMMENTS API
+        let recordRequest = GetCommentsRecordRequest(app, record, order, offset, limit)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD_COMMENTS, jsonBody).then{ response in
+                do {
+                    let parseResponse = try self.parser.parseJson(GetCommentsResponse.self, response)
+                    fulfill(parseResponse)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -442,19 +386,23 @@ open class Record: NSObject {
     ///   - comment: the detail of comment
     /// - Returns: AddCommentResponse
     /// - Throws: KintoneAPIException
-    open func addComment(_ app: Int, _ record: Int, _ comment: CommentContent) throws -> AddCommentResponse {
-        do {
-            // execute POST RECORD_COMMENT API
-            let recordRequest = AddCommentRecordRequest(app, record, comment)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            let response = try self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody!)
-            // return response as AddCommentResponse class
-            return try self.parser.parseJson(AddCommentResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func addComment(_ app: Int, _ record: Int, _ comment: CommentContent) throws -> Promise<AddCommentResponse> {
+        // execute GET RECORD_COMMENTS API
+        let recordRequest = AddCommentRecordRequest(app, record, comment)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        
+        return Promise { fulfill, reject in
+            return self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody).then{ response in
+                do {
+                    let parseResponse = try self.parser.parseJson(AddCommentResponse.self, response)
+                    fulfill(parseResponse)
+                } catch {
+                    reject(KintoneAPIException(error.localizedDescription))
+                }
+                }.catch{ error in
+                    reject(error)
+            }
         }
     }
     
@@ -465,17 +413,13 @@ open class Record: NSObject {
     ///   - record: the ID of record
     ///   - comment: the ID of comment on the record
     /// - Throws: KintoneAPIException
-    open func deleteComment(_ app: Int, _ record: Int, _ comment: Int) throws {
-        do {
-            // execute DELETE RRECORD_COMMENT API
-            let recordRequest = DeleteCommentRecordRequest(app, record, comment)
-            let body = try self.parser.parseObject(recordRequest)
-            let jsonBody = String(data: body, encoding: .utf8)
-            try self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    open func deleteComment(_ app: Int, _ record: Int, _ comment: Int) throws -> Promise<Void> {
+        // execute DELETE RRECORD_COMMENT API
+        let recordRequest = DeleteCommentRecordRequest(app, record, comment)
+        let body = try self.parser.parseObject(recordRequest)
+        let jsonBody = String(data: body, encoding: .utf8)!
+        return Promise<Void> {
+            return self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody)
         }
     }
 }
