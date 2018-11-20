@@ -2,7 +2,8 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 
 import XCTest
-import kintone_ios_sdk
+@testable import kintone_ios_sdk
+@testable import Promises
 
 class UpdateViewsTest: XCTestCase {
     private let USERNAME = "Phien"
@@ -28,7 +29,6 @@ class UpdateViewsTest: XCTestCase {
     func testUpdateViewsSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        var updateViewResponse: UpdateViewsResponse? = nil
         var viewEntry: [String: ViewModel] = [String: ViewModel]()
         let updateViewModel: ViewModel = ViewModel()
         updateViewModel.setName("ViewTest")
@@ -51,15 +51,24 @@ class UpdateViewsTest: XCTestCase {
         updateViewModel2.setFields(fieldsInViews2)
         
         viewEntry["ViewTest2"] = updateViewModel2
-        XCTAssertNoThrow(updateViewResponse = try self.app?.updateViews(self.APP_ID, viewEntry))
-        XCTAssertNotNil(updateViewResponse?.getRevision())
-
-        var viewResultEntry: ViewModel? = nil
-        var viewResultDict: [String: ViewModel] = [String: ViewModel]()
-        XCTAssertNotNil(viewResultDict = (updateViewResponse?.getViews())!)
-        
-        XCTAssertNotNil(viewResultEntry = viewResultDict["ViewTest2"])
-        XCTAssertNotNil(viewResultEntry?.getId())
+        self.app?.updateViews(self.APP_ID, viewEntry).then{ updateViewResponse in
+            XCTAssertNotNil(updateViewResponse.getRevision())
+            var viewResultEntry: ViewModel? = nil
+            var viewResultDict: [String: ViewModel] = [String: ViewModel]()
+            XCTAssertNotNil(viewResultDict = (updateViewResponse.getViews())!)
+            XCTAssertNotNil(viewResultEntry = viewResultDict["ViewTest2"])
+            XCTAssertNotNil(viewResultEntry?.getId())
+            }.catch{ error in
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                    
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testGetViewsFailWhenAppIDNotExist() {
@@ -88,10 +97,14 @@ class UpdateViewsTest: XCTestCase {
         updateViewModel2.setFields(fieldsInViews2)
         
         viewEntry["ViewTest2"] = updateViewModel2
-        XCTAssertThrowsError(try self.app?.updateViews(appId, viewEntry))
-        {
-             error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        
+        self.app?.updateViews(appId, viewEntry).then
+            { response in
+                XCTFail("No errors occurred")
+            }.catch { error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
+        XCTAssert(waitForPromises(timeout: 5))
     }
 
 }
