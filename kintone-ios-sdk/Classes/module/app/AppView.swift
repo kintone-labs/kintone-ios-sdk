@@ -21,7 +21,7 @@ public protocol AppView {
     ///   - revision: Bool
     /// - Returns: GetViewsResponse
     /// - Throws: throws KintoneAPIException
-    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?) throws -> UpdateViewsResponse
+    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?) -> Promise<UpdateViewsResponse>
 }
 
 public extension AppView where Self: App {
@@ -47,17 +47,24 @@ public extension AppView where Self: App {
         }
     }
     
-    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int? = -1) throws -> UpdateViewsResponse {
-        do {
-            let updateViewsRequest = UpdateViewsRequest(app!, views, revision ?? -1)
-            let body = try self.parser.parseObject(updateViewsRequest)
-            let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            let response = try self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_VIEWS_PREVIEW, jsonBody)
-            return try self.parser.parseJson(UpdateViewsResponse.self, response!)
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
+    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int? = -1) -> Promise<UpdateViewsResponse> {
+        return Promise { fulfill, reject in
+            do {
+                let updateViewsRequest = UpdateViewsRequest(app!, views, revision ?? -1)
+                let body = try self.parser.parseObject(updateViewsRequest)
+                let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_VIEWS_PREVIEW, jsonBody)
+                    .then { response in
+                        // return response as GetRecordResponse class
+                        let parseResponse = try self.parser.parseJson(UpdateViewsResponse.self, response)
+                        fulfill(parseResponse)
+                    }
+                    .catch { error in
+                        reject(error)
+                }
+            } catch {
+                reject(error)
+            }
         }
     }
 }
