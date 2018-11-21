@@ -36,10 +36,8 @@ class GetGeneralSettingsTest: XCTestCase {
         let isPreview: Bool = true
         self.app?.getGeneralSettings(self.APP_ID, self.LANG, isPreview).then{appGeneralSetting in
             XCTAssertNotNil(appGeneralSetting)
-            
             XCTAssertNotNil(appGeneralSetting.getName())
             XCTAssertEqual("GetViewsApp_Test", appGeneralSetting.getName()!)
-            
             XCTAssertNotNil(appGeneralSetting.getDescription())
             XCTAssertEqual("<div>A list of great places to go!</div>", appGeneralSetting.getDescription()!)
             
@@ -47,10 +45,8 @@ class GetGeneralSettingsTest: XCTestCase {
             XCTAssertNotNil(iconModel = appGeneralSetting.getIcon())
             XCTAssertNotNil(iconModel?.getKey())
             XCTAssertEqual("APP39", iconModel?.getKey())
-            
             XCTAssertNotNil(iconModel?.getIconType())
             XCTAssertEqual(Icon.IconType.PRESET,  iconModel?.getIconType()!)
-            
             XCTAssertNotNil(appGeneralSetting.getTheme())
             XCTAssertEqual( GeneralSettings.IconTheme.WHITE, appGeneralSetting.getTheme()!)
             }.catch{ error in
@@ -63,7 +59,7 @@ class GetGeneralSettingsTest: XCTestCase {
                 }
                 XCTFail(errorString)
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetPreLiveAppGeneralSettingsFailWhenAppIDNotExist() {
@@ -79,6 +75,6 @@ class GetGeneralSettingsTest: XCTestCase {
             .catch{ error in
                 XCTAssert(type(of: error) == KintoneAPIException.self)
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
     }
 }
