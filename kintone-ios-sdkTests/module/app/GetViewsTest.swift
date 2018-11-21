@@ -57,7 +57,7 @@ class GetViewsTest: XCTestCase {
                 }
                 XCTFail(errorString)
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetPreLiveAppViewsFailWhenAppIDNotExist() {
@@ -72,6 +72,6 @@ class GetViewsTest: XCTestCase {
             }.catch { error in
                 XCTAssert(type(of: error) == KintoneAPIException.self)
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
     }
 }
