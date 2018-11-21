@@ -17,7 +17,7 @@ class FileTest: XCTestCase {
     
     private var fileManagement: File?
     private var recordManagement: Record?
-    
+    private var connectionManagement: Connection?
     func addData(_ recData: Dictionary<String, FieldValue>, _ code: String, _ type: FieldType, _ value: Any) -> Dictionary<String, FieldValue> {
         var data = recData
         var field = FieldValue()
@@ -34,11 +34,11 @@ class FileTest: XCTestCase {
         // set auth
         let auth = Auth()
         auth.setApiToken(self.API_TOKEN)
-        let con = Connection(TestsConstants.DOMAIN, auth)
+        connectionManagement = Connection(TestsConstants.DOMAIN, auth)
         
         // instance of Record and file class
-        self.fileManagement = File(con)
-        self.recordManagement = Record(con)
+        self.fileManagement = File(connectionManagement!)
+        self.recordManagement = Record(connectionManagement!)
     }
     
     override func tearDown() {
@@ -295,11 +295,14 @@ class FileTest: XCTestCase {
             let fileResult: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
             if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                 let pathFileName = dowloadDir.absoluteString + fileResult[0].getName()!
-                self.fileManagement?.downloadAsync(fileResult[0].getFileKey()!, pathFileName).then {
-                    XCTAssertTrue(true)
-                    }.catch{ error in
-                        XCTFail()
-                    }
+                //print(dataFile)
+                try self.fileManagement?.download(fileResult[0].getFileKey()!, pathFileName)
+//                self.fileManagement?.downloadAsync(fileResult[0].getFileKey()!, pathFileName).then { resp in
+//                    print(resp )
+//                    XCTAssertTrue(true)
+//                    }.catch{ error in
+//                        XCTFail()
+//                    }
             }
         }
         XCTAssert(waitForPromises(timeout: 1000))
@@ -339,11 +342,11 @@ class FileTest: XCTestCase {
             for fileResult in fileResults {
                 if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                     let pathFileName = dowloadDir.absoluteString + fileResult.getName()!
-                    self.fileManagement?.downloadAsync(fileResult.getFileKey()!, pathFileName).then {
-                        XCTAssertTrue(true)
-                        }.catch{ error in
-                            XCTFail()
-                        }
+//                    self.fileManagement?.downloadAsync(fileResult.getFileKey()!, pathFileName).then {
+//                        XCTAssertTrue(true)
+//                        }.catch{ error in
+//                            XCTFail()
+//                        }
                 }
             }
         

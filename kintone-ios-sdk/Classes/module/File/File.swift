@@ -90,7 +90,7 @@ open class File: NSObject{
     ///   - filePath
     /// - Returns:
     /// - Throws: KintoneAPIException
-    open func downloadAsync(_ filekey: String, _ outPutFilePath: String) -> Promise<Void> {
+    open func downloadAsync(_ filekey: String, _ outPutFilePath: String) -> Promise<Bool> {
         return Promise { fulfill, reject in
             do {
                 let request = DownloadRequest(filekey)
@@ -98,7 +98,7 @@ open class File: NSObject{
                 let jsonBody = String(data: body, encoding: .utf8)
                 self.connection.downloadFileAsync(jsonBody!).then{ fileData in
                     try fileData.write(to: URL(string: outPutFilePath)!, options: .atomic)
-                    fulfill(())
+                    fulfill(true)
                 }.catch{ error in
                     reject(error)
                 }
