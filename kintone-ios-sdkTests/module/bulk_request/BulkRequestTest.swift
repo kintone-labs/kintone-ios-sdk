@@ -8,12 +8,14 @@
 
 import XCTest
 @testable import kintone_ios_sdk
+@testable import Promises
 
 class BulkRequestTest: XCTestCase {
 
-    private let USERNAME = "hiroyuki-sekiyama"
-    private let PASSWORD = "2`G`ZadF"
-    private let APP_ID = 1678
+    private let USERNAME = "cybozu"
+    private let PASSWORD = "cybozu"
+    private let DOMAIN = "https://phienphamf1811-1.cybozu-dev.com"
+    private let APP_ID = 10
     
     private var bulkRequest: BulkRequest? = nil
     private var connection: Connection? = nil
@@ -24,7 +26,7 @@ class BulkRequestTest: XCTestCase {
         
         var auth = Auth.init()
         auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
-        self.connection = Connection(TestsConstants.DOMAIN, auth)
+        self.connection = Connection(self.DOMAIN, auth)
         self.bulkRequest = BulkRequest(self.connection!)
     }
     
@@ -33,10 +35,16 @@ class BulkRequestTest: XCTestCase {
         super.tearDown()
     }
     
+    func getErrorMessage(_ error: Any) -> String {
+        if error is KintoneAPIException {
+            return (error as! KintoneAPIException).toString()!
+        }
+        else {
+            return (error as! Error).localizedDescription
+        }
+    }
+    
     func testAddRecordSuccess() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
         var record: [String: FieldValue] = [:]
         
         let fv = FieldValue()
@@ -45,38 +53,42 @@ class BulkRequestTest: XCTestCase {
         
         record["FieldCode1"] = fv
         
-        var responses: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
         
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: AddRecordResponse = (results![0] as! AddRecordResponse)
-        XCTAssert(type(of: result1.getId()) == Int?.self)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(1, result1.getRevision())
+        self.bulkRequest?.execute().then{responses in
+            let results: Array<Any>? = responses.getResults()
+            print(123)
+            print(results!)
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: AddRecordResponse = (results![0] as! AddRecordResponse)
+            XCTAssert(type(of: result1.getId()) == Int?.self)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(1, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
 
     func testAddRecordSuccessWhenRecordNull() {
-    
-        var responses: BulkRequestResponse? = nil
         
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, nil))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: AddRecordResponse = (results![0] as! AddRecordResponse)
-        XCTAssert(type(of: result1.getId()) == Int?.self)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(1, result1.getRevision())
+        self.bulkRequest?.execute().then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: AddRecordResponse = (results![0] as! AddRecordResponse)
+            XCTAssert(type(of: result1.getId()) == Int?.self)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(1, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testAddRecordsSuccess() {
@@ -100,29 +112,30 @@ class BulkRequestTest: XCTestCase {
         records.append(record2)
         records.append(nil)
         
-        var responses: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecords(APP_ID, records))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: AddRecordsResponse = (results![0] as! AddRecordsResponse)
-        
-        XCTAssertEqual(3, result1.getIDs()?.count)
-        XCTAssert(type(of: result1.getIDs()?[0]) == Int?.self)
-        XCTAssert(type(of: result1.getIDs()?[1]) == Int?.self)
-        XCTAssert(type(of: result1.getIDs()?[2]) == Int?.self)
-        XCTAssertEqual(3, result1.getRevisions()?.count)
-        XCTAssert(type(of: result1.getRevisions()?[0]) == Int?.self)
-        XCTAssert(type(of: result1.getRevisions()?[1]) == Int?.self)
-        XCTAssert(type(of: result1.getRevisions()?[2]) == Int?.self)
-        XCTAssertEqual(1, result1.getRevisions()?[0])
-        XCTAssertEqual(1, result1.getRevisions()?[1])
-        XCTAssertEqual(1, result1.getRevisions()?[2])
+        self.bulkRequest?.execute().then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: AddRecordsResponse = (results![0] as! AddRecordsResponse)
+            
+            XCTAssertEqual(3, result1.getIDs()?.count)
+            XCTAssert(type(of: result1.getIDs()?[0]) == Int?.self)
+            XCTAssert(type(of: result1.getIDs()?[1]) == Int?.self)
+            XCTAssert(type(of: result1.getIDs()?[2]) == Int?.self)
+            XCTAssertEqual(3, result1.getRevisions()?.count)
+            XCTAssert(type(of: result1.getRevisions()?[0]) == Int?.self)
+            XCTAssert(type(of: result1.getRevisions()?[1]) == Int?.self)
+            XCTAssert(type(of: result1.getRevisions()?[2]) == Int?.self)
+            XCTAssertEqual(1, result1.getRevisions()?[0])
+            XCTAssertEqual(1, result1.getRevisions()?[1])
+            XCTAssertEqual(1, result1.getRevisions()?[2])
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordByIdSuccess() {
@@ -136,39 +149,39 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        self.bulkRequest = BulkRequest(self.connection!)
-        var record: [String: FieldValue] = [:]
-        
-        let fv = FieldValue()
-        fv.setType(FieldType.SINGLE_LINE_TEXT)
-        fv.setValue("test_updateRecordById")
-        
-        record["FieldCode1"] = fv
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(APP_ID, preId, record, 1))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(2, result1.getRevision())
+        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(self.APP_ID, record_pre))
+        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(self.APP_ID, nil))
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            self.bulkRequest = BulkRequest(self.connection!)
+            var record: [String: FieldValue] = [:]
+            
+            let fv = FieldValue()
+            fv.setType(FieldType.SINGLE_LINE_TEXT)
+            fv.setValue("test_updateRecordById")
+            
+            record["FieldCode1"] = fv
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(self.APP_ID, preId, record, 1))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordByIdSuccessWhenRecordNull() {
@@ -182,39 +195,39 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        self.bulkRequest = BulkRequest(self.connection!)
-        var record: [String: FieldValue] = [:]
-        
-        let fv = FieldValue()
-        fv.setType(FieldType.SINGLE_LINE_TEXT)
-        fv.setValue("test_updateRecordById_recordNull")
-        
-        record["FieldCode1"] = fv
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(APP_ID, preId, nil, 1))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            self.bulkRequest = BulkRequest(self.connection!)
+            var record: [String: FieldValue] = [:]
+            
+            let fv = FieldValue()
+            fv.setType(FieldType.SINGLE_LINE_TEXT)
+            fv.setValue("test_updateRecordById_recordNull")
+            
+            record["FieldCode1"] = fv
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(self.APP_ID, preId, nil, 1))
+            return (self.bulkRequest?.execute())!
+            
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
 
     func testUpdateRecordByIdSuccessWhenRevisionNull() {
@@ -228,39 +241,39 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        self.bulkRequest = BulkRequest(self.connection!)
-        var record: [String: FieldValue] = [:]
-        
-        let fv = FieldValue()
-        fv.setType(FieldType.SINGLE_LINE_TEXT)
-        fv.setValue("test_updateRecordById_revisionNull")
-        
-        record["FieldCode1"] = fv
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(APP_ID, preId, record, nil))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            self.bulkRequest = BulkRequest(self.connection!)
+            var record: [String: FieldValue] = [:]
+            
+            let fv = FieldValue()
+            fv.setType(FieldType.SINGLE_LINE_TEXT)
+            fv.setValue("test_updateRecordById_revisionNull")
+            
+            record["FieldCode1"] = fv
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(self.APP_ID, preId, record, nil))
+            return (self.bulkRequest?.execute())!
+            
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordByUpdateKeySuccess() {
@@ -284,36 +297,35 @@ class BulkRequestTest: XCTestCase {
         fv_pre2.setValue("test_value")
         record_pre["FieldCode1"] = fv_pre2
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        // Main Test processing
-        self.bulkRequest = BulkRequest(self.connection!)
-        var record: [String: FieldValue] = [:]
-        
-        let fv = FieldValue()
-        fv.setType(FieldType.SINGLE_LINE_TEXT)
-        fv.setValue("test_updateRecordByUpdateKey")
-        
-        record["FieldCode1"] = fv
-        
-        var responses: BulkRequestResponse? = nil
-        
-        let uKey: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value)
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByUpdateKey(APP_ID, uKey, record, 1))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            // Main Test processing
+            self.bulkRequest = BulkRequest(self.connection!)
+            var record: [String: FieldValue] = [:]
+            
+            let fv = FieldValue()
+            fv.setType(FieldType.SINGLE_LINE_TEXT)
+            fv.setValue("test_updateRecordByUpdateKey")
+            
+            record["FieldCode1"] = fv
+            
+            let uKey: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value)
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByUpdateKey(self.APP_ID, uKey, record, 1))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordByUpdateKeySuccessWhenRecordNull() {
@@ -337,29 +349,28 @@ class BulkRequestTest: XCTestCase {
         fv_pre2.setValue("test_value")
         record_pre["FieldCode1"] = fv_pre2
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        // Main Test processing
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var responses: BulkRequestResponse? = nil
-        
-        let uKey: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value)
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByUpdateKey(APP_ID, uKey, nil, 1))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            // Main Test processing
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            let uKey: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value)
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByUpdateKey(self.APP_ID, uKey, nil, 1))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordByUpdateKeySuccessWhenRevisionNull() {
@@ -383,36 +394,35 @@ class BulkRequestTest: XCTestCase {
         fv_pre2.setValue("test_value")
         record_pre["FieldCode1"] = fv_pre2
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        // Main Test processing
-        self.bulkRequest = BulkRequest(self.connection!)
-        var record: [String: FieldValue] = [:]
-        
-        let fv = FieldValue()
-        fv.setType(FieldType.SINGLE_LINE_TEXT)
-        fv.setValue("test_updateRecordByUpdateKey_revisionNull")
-        
-        record["FieldCode1"] = fv
-        
-        var responses: BulkRequestResponse? = nil
-        
-        let uKey: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value)
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByUpdateKey(APP_ID, uKey, record, nil))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        XCTAssert(type(of: result1.getRevision()) == Int?.self)
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            // Main Test processing
+            self.bulkRequest = BulkRequest(self.connection!)
+            var record: [String: FieldValue] = [:]
+            
+            let fv = FieldValue()
+            fv.setType(FieldType.SINGLE_LINE_TEXT)
+            fv.setValue("test_updateRecordByUpdateKey_revisionNull")
+            
+            record["FieldCode1"] = fv
+            
+            let uKey: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value)
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByUpdateKey(self.APP_ID, uKey, record, nil))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            XCTAssert(type(of: result1.getRevision()) == Int?.self)
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordsSuccess() {
@@ -487,103 +497,109 @@ class BulkRequestTest: XCTestCase {
         records_pre.append(record5_pre)
         records_pre.append(record6_pre)
     
-        var responses_pre: BulkRequestResponse? = nil
+        var preId1: Int?
+        var preId2: Int?
+        var preId3: Int?
+        var preId4: Int?
+        var preId5: Int?
+        var preId6: Int?
         
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecords(APP_ID, records_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result1_pre: AddRecordsResponse = (results_pre![0] as! AddRecordsResponse)
-        
-        // Main Test processing
-        let preId1: Int = (result1_pre.getIDs()?[0])!
-        let preId2: Int = (result1_pre.getIDs()?[1])!
-        let preId3: Int = (result1_pre.getIDs()?[2])!
-        let preId4: Int = (result1_pre.getIDs()?[3])!
-        let preId5: Int = (result1_pre.getIDs()?[4])!
-        let preId6: Int = (result1_pre.getIDs()?[5])!
-        
-        let uKey4: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value_4_2)
-        let uKey5: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value_5_2)
-        let uKey6: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value_6_2)
-        
-        self.bulkRequest = BulkRequest(self.connection!)
-        var record1: [String: FieldValue] = [:]
-        var record2: [String: FieldValue] = [:]
-        var record4: [String: FieldValue] = [:]
-        var record5: [String: FieldValue] = [:]
-
-        let fv1 = FieldValue()
-        fv1.setType(FieldType.SINGLE_LINE_TEXT)
-        fv1.setValue("test_updateRecords1")
-        
-        let fv2 = FieldValue()
-        fv2.setType(FieldType.SINGLE_LINE_TEXT)
-        fv2.setValue("test_updateRecords2")
-        
-        let fv4 = FieldValue()
-        fv4.setType(FieldType.SINGLE_LINE_TEXT)
-        fv4.setValue("test_updateRecords4")
-        
-        let fv5 = FieldValue()
-        fv5.setType(FieldType.SINGLE_LINE_TEXT)
-        fv5.setValue("test_updateRecords5")
-        
-        record1["FieldCode1"] = fv1
-        record2["FieldCode1"] = fv2
-        record4["FieldCode1"] = fv4
-        record5["FieldCode1"] = fv5
-        
-        var records: Array<RecordUpdateItem> = []
-        records.append(RecordUpdateItem(preId1, 1, nil, record1))
-        records.append(RecordUpdateItem(preId2, nil, nil, record2))
-        records.append(RecordUpdateItem(preId3, nil, nil, nil))
-        records.append(RecordUpdateItem(nil, 1, uKey4, record4))
-        records.append(RecordUpdateItem(nil, nil, uKey5, record5))
-        records.append(RecordUpdateItem(nil, nil, uKey6, nil))
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecords(APP_ID, records))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordsResponse = (results![0] as! UpdateRecordsResponse)
-        
-        XCTAssertEqual(6, result1.getRecords()?.count)
-        
-        XCTAssert(type(of: (result1.getRecords()![0] as RecordUpdateResponseItem).getID()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![1] as RecordUpdateResponseItem).getID()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![2] as RecordUpdateResponseItem).getID()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![3] as RecordUpdateResponseItem).getID()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![4] as RecordUpdateResponseItem).getID()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![5] as RecordUpdateResponseItem).getID()) == Int?.self)
-        
-        XCTAssertEqual(preId1, (result1.getRecords()![0] as RecordUpdateResponseItem).getID())
-        XCTAssertEqual(preId2, (result1.getRecords()![1] as RecordUpdateResponseItem).getID())
-        XCTAssertEqual(preId3, (result1.getRecords()![2] as RecordUpdateResponseItem).getID())
-        XCTAssertEqual(preId4, (result1.getRecords()![3] as RecordUpdateResponseItem).getID())
-        XCTAssertEqual(preId5, (result1.getRecords()![4] as RecordUpdateResponseItem).getID())
-        XCTAssertEqual(preId6, (result1.getRecords()![5] as RecordUpdateResponseItem).getID())
-        
-        XCTAssert(type(of: (result1.getRecords()![0] as RecordUpdateResponseItem).getRevision()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![1] as RecordUpdateResponseItem).getRevision()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![2] as RecordUpdateResponseItem).getRevision()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![3] as RecordUpdateResponseItem).getRevision()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![4] as RecordUpdateResponseItem).getRevision()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![5] as RecordUpdateResponseItem).getRevision()) == Int?.self)
-        
-        XCTAssertEqual(2, (result1.getRecords()![0] as RecordUpdateResponseItem).getRevision())
-        XCTAssertEqual(2, (result1.getRecords()![1] as RecordUpdateResponseItem).getRevision())
-        XCTAssertEqual(2, (result1.getRecords()![2] as RecordUpdateResponseItem).getRevision())
-        XCTAssertEqual(2, (result1.getRecords()![3] as RecordUpdateResponseItem).getRevision())
-        XCTAssertEqual(2, (result1.getRecords()![4] as RecordUpdateResponseItem).getRevision())
-        XCTAssertEqual(2, (result1.getRecords()![5] as RecordUpdateResponseItem).getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result1_pre: AddRecordsResponse = (results_pre![0] as! AddRecordsResponse)
+            
+            // Main Test processing
+            preId1 = (result1_pre.getIDs()?[0])!
+            preId2 = (result1_pre.getIDs()?[1])!
+            preId3 = (result1_pre.getIDs()?[2])!
+            preId4 = (result1_pre.getIDs()?[3])!
+            preId5 = (result1_pre.getIDs()?[4])!
+            preId6 = (result1_pre.getIDs()?[5])!
+            
+            let uKey4: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value_4_2)
+            let uKey5: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value_5_2)
+            let uKey6: RecordUpdateKey = RecordUpdateKey("文字列__1行__0", unique_value_6_2)
+            
+            self.bulkRequest = BulkRequest(self.connection!)
+            var record1: [String: FieldValue] = [:]
+            var record2: [String: FieldValue] = [:]
+            var record4: [String: FieldValue] = [:]
+            var record5: [String: FieldValue] = [:]
+            
+            let fv1 = FieldValue()
+            fv1.setType(FieldType.SINGLE_LINE_TEXT)
+            fv1.setValue("test_updateRecords1")
+            
+            let fv2 = FieldValue()
+            fv2.setType(FieldType.SINGLE_LINE_TEXT)
+            fv2.setValue("test_updateRecords2")
+            
+            let fv4 = FieldValue()
+            fv4.setType(FieldType.SINGLE_LINE_TEXT)
+            fv4.setValue("test_updateRecords4")
+            
+            let fv5 = FieldValue()
+            fv5.setType(FieldType.SINGLE_LINE_TEXT)
+            fv5.setValue("test_updateRecords5")
+            
+            record1["FieldCode1"] = fv1
+            record2["FieldCode1"] = fv2
+            record4["FieldCode1"] = fv4
+            record5["FieldCode1"] = fv5
+            
+            var records: Array<RecordUpdateItem> = []
+            records.append(RecordUpdateItem(preId1, 1, nil, record1))
+            records.append(RecordUpdateItem(preId2, nil, nil, record2))
+            records.append(RecordUpdateItem(preId3, nil, nil, nil))
+            records.append(RecordUpdateItem(nil, 1, uKey4, record4))
+            records.append(RecordUpdateItem(nil, nil, uKey5, record5))
+            records.append(RecordUpdateItem(nil, nil, uKey6, nil))
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecords(self.APP_ID, records))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordsResponse = (results![0] as! UpdateRecordsResponse)
+            
+            XCTAssertEqual(6, result1.getRecords()?.count)
+            
+            XCTAssert(type(of: (result1.getRecords()![0] as RecordUpdateResponseItem).getID()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![1] as RecordUpdateResponseItem).getID()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![2] as RecordUpdateResponseItem).getID()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![3] as RecordUpdateResponseItem).getID()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![4] as RecordUpdateResponseItem).getID()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![5] as RecordUpdateResponseItem).getID()) == Int?.self)
+            
+            XCTAssertEqual(preId1, (result1.getRecords()![0] as RecordUpdateResponseItem).getID())
+            XCTAssertEqual(preId2, (result1.getRecords()![1] as RecordUpdateResponseItem).getID())
+            XCTAssertEqual(preId3, (result1.getRecords()![2] as RecordUpdateResponseItem).getID())
+            XCTAssertEqual(preId4, (result1.getRecords()![3] as RecordUpdateResponseItem).getID())
+            XCTAssertEqual(preId5, (result1.getRecords()![4] as RecordUpdateResponseItem).getID())
+            XCTAssertEqual(preId6, (result1.getRecords()![5] as RecordUpdateResponseItem).getID())
+            
+            XCTAssert(type(of: (result1.getRecords()![0] as RecordUpdateResponseItem).getRevision()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![1] as RecordUpdateResponseItem).getRevision()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![2] as RecordUpdateResponseItem).getRevision()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![3] as RecordUpdateResponseItem).getRevision()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![4] as RecordUpdateResponseItem).getRevision()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![5] as RecordUpdateResponseItem).getRevision()) == Int?.self)
+            
+            XCTAssertEqual(2, (result1.getRecords()![0] as RecordUpdateResponseItem).getRevision())
+            XCTAssertEqual(2, (result1.getRecords()![1] as RecordUpdateResponseItem).getRevision())
+            XCTAssertEqual(2, (result1.getRecords()![2] as RecordUpdateResponseItem).getRevision())
+            XCTAssertEqual(2, (result1.getRecords()![3] as RecordUpdateResponseItem).getRevision())
+            XCTAssertEqual(2, (result1.getRecords()![4] as RecordUpdateResponseItem).getRevision())
+            XCTAssertEqual(2, (result1.getRecords()![5] as RecordUpdateResponseItem).getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testDeleteRecordsSuccess() {
@@ -607,35 +623,34 @@ class BulkRequestTest: XCTestCase {
         records_pre.append(record1_pre)
         records_pre.append(record2_pre)
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecords(APP_ID, records_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result1_pre: AddRecordsResponse = (results_pre![0] as! AddRecordsResponse)
-        
-        // Main Test processing
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var ids: Array<Int> = []
-        ids.append(result1_pre.getIDs()![0])
-        ids.append(result1_pre.getIDs()![1])
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.deleteRecords(APP_ID, ids))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: [String: String] = (results![0] as! [String: String])
-        
-        XCTAssertTrue(result1.isEmpty)
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result1_pre: AddRecordsResponse = (results_pre![0] as! AddRecordsResponse)
+            
+            // Main Test processing
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            var ids: Array<Int> = []
+            ids.append(result1_pre.getIDs()![0])
+            ids.append(result1_pre.getIDs()![1])
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.deleteRecords(self.APP_ID, ids))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: [String: String] = (results![0] as! [String: String])
+            
+            XCTAssertTrue(result1.isEmpty)
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testDeleteRecordsWithRevisionSuccess() {
@@ -666,36 +681,35 @@ class BulkRequestTest: XCTestCase {
         records_pre.append(record2_pre)
         records_pre.append(record3_pre)
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecords(APP_ID, records_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result1_pre: AddRecordsResponse = (results_pre![0] as! AddRecordsResponse)
-        
-        // Main Test processing
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var idsWithRevision: [Int: Int?]  = [:]
-        idsWithRevision[result1_pre.getIDs()![0]] = 1
-        idsWithRevision[result1_pre.getIDs()![1]] = nil
-        idsWithRevision[result1_pre.getIDs()![2]] = -1
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.deleteRecordsWithRevision(APP_ID, idsWithRevision))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: [String: String] = (results![0] as! [String: String])
-        
-        XCTAssertTrue(result1.isEmpty)
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result1_pre: AddRecordsResponse = (results_pre![0] as! AddRecordsResponse)
+            
+            // Main Test processing
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            var idsWithRevision: [Int: Int?]  = [:]
+            idsWithRevision[result1_pre.getIDs()![0]] = 1
+            idsWithRevision[result1_pre.getIDs()![1]] = nil
+            idsWithRevision[result1_pre.getIDs()![2]] = -1
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.deleteRecordsWithRevision(self.APP_ID, idsWithRevision))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: [String: String] = (results![0] as! [String: String])
+            
+            XCTAssertTrue(result1.isEmpty)
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordAssigneesSuccess() {
@@ -709,36 +723,35 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        
-        self.bulkRequest = BulkRequest(self.connection!)
-        var assignees: Array<String> = []
-        
-        assignees.append("yutaro-suzuki")
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordAssignees(APP_ID, preId, assignees, 1))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            
+            self.bulkRequest = BulkRequest(self.connection!)
+            var assignees: Array<String> = []
+            
+            assignees.append("cybozu")
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordAssignees(self.APP_ID, preId, assignees, 1))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordAssigneesSuccessWhenRevisionNull() {
@@ -752,36 +765,35 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        
-        self.bulkRequest = BulkRequest(self.connection!)
-        var assignees: Array<String> = []
-        
-        assignees.append("yutaro-suzuki")
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordAssignees(APP_ID, preId, assignees, nil))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            
+            self.bulkRequest = BulkRequest(self.connection!)
+            var assignees: Array<String> = []
+            
+            assignees.append("cybozu")
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordAssignees(self.APP_ID, preId, assignees, nil))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordAssigneesSuccessWhenAssigneesNull() {
@@ -795,34 +807,33 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        
-        self.bulkRequest = BulkRequest(self.connection!)
-        let assignees: Array<String> = []
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordAssignees(APP_ID, preId, assignees, -1))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        
-        XCTAssertEqual(2, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            
+            self.bulkRequest = BulkRequest(self.connection!)
+            let assignees: Array<String> = []
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordAssignees(self.APP_ID, preId, assignees, -1))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            
+            XCTAssertEqual(2, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordStatusSuccess() {
@@ -835,34 +846,35 @@ class BulkRequestTest: XCTestCase {
         fv_pre.setValue("test_updateRecordStatus")
         
         record_pre["FieldCode1"] = fv_pre
-        
-        var responses_pre: BulkRequestResponse? = nil
+        var preId: Int?
         
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(APP_ID, preId, "処理開始", "tomoya-takaki", 1))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        
-        XCTAssertEqual(3, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            preId = result_pre.getId()!
+            
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(self.APP_ID, preId!, "処理開始", "cybozu", 1))
+    
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            
+            XCTAssertEqual(3, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordStatusSuccessWhenRevisionNull() {
@@ -876,33 +888,33 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(APP_ID, preId, "処理開始", "tomoya-takaki", nil))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        
-        XCTAssertEqual(3, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(self.APP_ID, preId, "処理開始", "cybozu", nil))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            
+            XCTAssertEqual(3, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordStatusSuccessWhenAssigneesNull() {
@@ -916,37 +928,38 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
+        var preId: Int?
         
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        let preId: Int = result_pre.getId()!
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(APP_ID, preId, "処理開始", "hiroyuki-sekiyama", nil))
-        XCTAssertNoThrow(try self.bulkRequest?.execute())
-        
-        // Main Test processing
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(APP_ID, preId, "レビューする", nil, nil))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
-        
-        XCTAssertEqual(5, result1.getRevision())
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            preId = result_pre.getId()!
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(self.APP_ID, preId!, "処理開始", "cybozu", nil))
+            return (self.bulkRequest?.execute())!
+        }.then{_ -> Promise<BulkRequestResponse> in
+            // Main Test processing
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordStatus(self.APP_ID, preId!, "レビューする", nil, nil))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordResponse = (results![0] as! UpdateRecordResponse)
+            
+            XCTAssertEqual(5, result1.getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateRecordsStatusSuccess() {
@@ -977,53 +990,60 @@ class BulkRequestTest: XCTestCase {
         records_pre.append(record2_pre)
         records_pre.append(record3_pre)
         
-        var responses_pre: BulkRequestResponse? = nil
+        var results_pre: Array<Any>?
+        var result1_pre: AddRecordsResponse?
         
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecords(APP_ID, records_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            results_pre = responses_pre.getResults()!
+            
+            result1_pre = (results_pre![0] as! AddRecordsResponse)
+            
+            // Main Test processing
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            var rusi: Array<RecordUpdateStatusItem> = []
+            rusi.append(RecordUpdateStatusItem("処理開始", "cybozu", result1_pre!.getIDs()?[0], 1))
+            rusi.append(RecordUpdateStatusItem("処理開始", "cybozu", result1_pre!.getIDs()?[1], nil))
+            rusi.append(RecordUpdateStatusItem("処理開始", "cybozu", result1_pre!.getIDs()?[2], -1))
+            
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordsStatus(self.APP_ID, rusi))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            let results: Array<Any>? = responses.getResults()
+            
+            XCTAssertNotNil(results)
+            XCTAssertEqual(1, results?.count)
+            
+            let result1: UpdateRecordsResponse = (results![0] as! UpdateRecordsResponse)
+            
+            XCTAssertEqual(3, result1.getRecords()?.count)
+            
+            XCTAssert(type(of: (result1.getRecords()![0] as RecordUpdateResponseItem).getID()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![1] as RecordUpdateResponseItem).getID()) == Int?.self)
+            XCTAssert(type(of: (result1.getRecords()![2] as RecordUpdateResponseItem).getID()) == Int?.self)
+            
+            XCTAssertEqual(result1_pre!.getIDs()![0], (result1.getRecords()![0] as RecordUpdateResponseItem).getID())
+            XCTAssertEqual(result1_pre!.getIDs()![1], (result1.getRecords()![1] as RecordUpdateResponseItem).getID())
+            XCTAssertEqual(result1_pre!.getIDs()![2], (result1.getRecords()![2] as RecordUpdateResponseItem).getID())
+            
+            XCTAssertEqual(3, (result1.getRecords()![0] as RecordUpdateResponseItem).getRevision())
+            XCTAssertEqual(3, (result1.getRecords()![1] as RecordUpdateResponseItem).getRevision())
+            XCTAssertEqual(3, (result1.getRecords()![2] as RecordUpdateResponseItem).getRevision())
+        }.catch{error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
         
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result1_pre: AddRecordsResponse = (results_pre![0] as! AddRecordsResponse)
-        
-        // Main Test processing
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var rusi: Array<RecordUpdateStatusItem> = []
-        rusi.append(RecordUpdateStatusItem("処理開始", "yutaro-suzuki", result1_pre.getIDs()?[0], 1))
-        rusi.append(RecordUpdateStatusItem("処理開始", "yutaro-suzuki", result1_pre.getIDs()?[1], nil))
-        rusi.append(RecordUpdateStatusItem("処理開始", "yutaro-suzuki", result1_pre.getIDs()?[2], -1))
-        
-        var responses: BulkRequestResponse? = nil
-        
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordsStatus(APP_ID, rusi))
-        XCTAssertNoThrow(responses = (try self.bulkRequest?.execute())!)
-        
-        let results: Array<Any>? = responses?.getResults()
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(1, results?.count)
-        
-        let result1: UpdateRecordsResponse = (results![0] as! UpdateRecordsResponse)
-        
-        XCTAssertEqual(3, result1.getRecords()?.count)
-        
-        XCTAssert(type(of: (result1.getRecords()![0] as RecordUpdateResponseItem).getID()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![1] as RecordUpdateResponseItem).getID()) == Int?.self)
-        XCTAssert(type(of: (result1.getRecords()![2] as RecordUpdateResponseItem).getID()) == Int?.self)
-        
-        XCTAssertEqual(result1_pre.getIDs()![0], (result1.getRecords()![0] as RecordUpdateResponseItem).getID())
-        XCTAssertEqual(result1_pre.getIDs()![1], (result1.getRecords()![1] as RecordUpdateResponseItem).getID())
-        XCTAssertEqual(result1_pre.getIDs()![2], (result1.getRecords()![2] as RecordUpdateResponseItem).getID())
-        
-        XCTAssertEqual(3, (result1.getRecords()![0] as RecordUpdateResponseItem).getRevision())
-        XCTAssertEqual(3, (result1.getRecords()![1] as RecordUpdateResponseItem).getRevision())
-        XCTAssertEqual(3, (result1.getRecords()![2] as RecordUpdateResponseItem).getRevision())
     }
     
     func testExcuteFail() {
         // Preprocessing
-        XCTAssertThrowsError(try self.bulkRequest?.execute())
+        self.bulkRequest?.execute().then{ response in
+            XCTFail("Execute empty bulk")
+        }.catch{error in
+            XCTAssertTrue(true)
+        }
     }
     
     func testExcuteFailWhenRequestOverFlow() {
@@ -1059,7 +1079,11 @@ class BulkRequestTest: XCTestCase {
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record))
         
         // Preprocessing
-        XCTAssertThrowsError(try self.bulkRequest?.execute())
+        self.bulkRequest?.execute().then{response in
+            XCTFail("Bulk Request overflow running")
+        }.catch{error in
+            XCTAssertTrue(true)
+        }
     }
     
     func testUpdateRecordFail() {
@@ -1072,60 +1096,61 @@ class BulkRequestTest: XCTestCase {
         
         record_pre["FieldCode1"] = fv_pre
         
-        var responses_pre: BulkRequestResponse? = nil
-        
         XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record_pre))
-        XCTAssertNoThrow(responses_pre = (try self.bulkRequest?.execute())!)
-        
-        let results_pre: Array<Any>? = responses_pre?.getResults()
-        
-        let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
-        
-        // Main Test processing
-        let preId: Int = result_pre.getId()!
-        
-        self.bulkRequest = BulkRequest(self.connection!)
-        
-        var record1: [String: FieldValue] = [:]
-        
-        let fv1 = FieldValue()
-        fv1.setType(FieldType.SINGLE_LINE_TEXT)
-        fv1.setValue("test_updateRecordFail2")
-        
-        record1["FieldCode1"] = fv1
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record1))
-        
-        var record2: [String: FieldValue] = [:]
-        
-        let fv2 = FieldValue()
-        fv2.setType(FieldType.SINGLE_LINE_TEXT)
-        fv2.setValue("test_updateRecordById")
-        
-        record2["FieldCode1"] = fv2
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(APP_ID, preId, record2, 100))
-        
-        var record3: [String: FieldValue] = [:]
-        
-        let fv3 = FieldValue()
-        fv3.setType(FieldType.SINGLE_LINE_TEXT)
-        fv3.setValue("test_updateRecordFail3")
-        
-        record3["FieldCode1"] = fv3
-        XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(APP_ID, record3))
-        
-        do {
-            try self.bulkRequest?.execute()
-        } catch let error as KintoneAPIException{
-            let er = error.toString()!
-            let exinfo = er.split(separator: ",")
-            XCTAssertEqual("api_no: 2", exinfo[0].trimmingCharacters(in: .whitespaces))
-            XCTAssertEqual("method: PUT", exinfo[1].trimmingCharacters(in: .whitespaces))
-            XCTAssertEqual("api_name: /k/v1/record.json", exinfo[2].trimmingCharacters(in: .whitespaces))
-            XCTAssertEqual("code: GAIA_CO02", exinfo[4].trimmingCharacters(in: .whitespaces))
-            XCTAssertEqual("message: The revision is not the latest. Someone may update a record.", exinfo[5].trimmingCharacters(in: .whitespaces))
-            XCTAssertEqual("status: Optional(409)", exinfo[6].trimmingCharacters(in: .whitespaces))
-        } catch {
-            print("例外発生：　\(error)")
+        self.bulkRequest?.execute().then{responses_pre -> Promise<BulkRequestResponse> in
+            let results_pre: Array<Any>? = responses_pre.getResults()
+            
+            let result_pre: AddRecordResponse = (results_pre![0] as! AddRecordResponse)
+            
+            // Main Test processing
+            let preId: Int = result_pre.getId()!
+            
+            self.bulkRequest = BulkRequest(self.connection!)
+            
+            var record1: [String: FieldValue] = [:]
+            
+            let fv1 = FieldValue()
+            fv1.setType(FieldType.SINGLE_LINE_TEXT)
+            fv1.setValue("test_updateRecordFail2")
+            
+            record1["FieldCode1"] = fv1
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(self.APP_ID, record1))
+            
+            var record2: [String: FieldValue] = [:]
+            
+            let fv2 = FieldValue()
+            fv2.setType(FieldType.SINGLE_LINE_TEXT)
+            fv2.setValue("test_updateRecordById")
+            
+            record2["FieldCode1"] = fv2
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.updateRecordByID(self.APP_ID, preId, record2, 100))
+            
+            var record3: [String: FieldValue] = [:]
+            
+            let fv3 = FieldValue()
+            fv3.setType(FieldType.SINGLE_LINE_TEXT)
+            fv3.setValue("test_updateRecordFail3")
+            
+            record3["FieldCode1"] = fv3
+            XCTAssertNoThrow(self.bulkRequest = try self.bulkRequest?.addRecord(self.APP_ID, record3))
+            return (self.bulkRequest?.execute())!
+        }.then{responses in
+            XCTFail("No Error")
+        }.catch{error in
+            if error is KintoneAPIException {
+                let er = (error as! KintoneAPIException).toString()!
+                let exinfo = er.split(separator: ",")
+                XCTAssertEqual("api_no: 2", exinfo[0].trimmingCharacters(in: .whitespaces))
+                XCTAssertEqual("method: PUT", exinfo[1].trimmingCharacters(in: .whitespaces))
+                XCTAssertEqual("api_name: /k/v1/record.json", exinfo[2].trimmingCharacters(in: .whitespaces))
+                XCTAssertEqual("code: GAIA_CO02", exinfo[4].trimmingCharacters(in: .whitespaces))
+                XCTAssertEqual("message: The revision is not the latest. Someone may update a record.", exinfo[5].trimmingCharacters(in: .whitespaces))
+                XCTAssertEqual("status: Optional(409)", exinfo[6].trimmingCharacters(in: .whitespaces))
+            }
+            else {
+                XCTFail(self.getErrorMessage(error))
+            }
         }
+        XCTAssert(waitForPromises(timeout: 5))
     }
 }
