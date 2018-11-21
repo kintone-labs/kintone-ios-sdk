@@ -2,6 +2,7 @@
 
 import XCTest
 import kintone_ios_sdk
+@testable import Promises
 
 class GetAppTest: XCTestCase {
     private let USERNAME = "Phien"
@@ -23,6 +24,15 @@ class GetAppTest: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+    func getErrorMessage(_ error: Any) -> String {
+        if error is KintoneAPIException {
+            return (error as! KintoneAPIException).toString()!
+        }
+        else {
+            return (error as! Error).localizedDescription
+        }
+    }
+    
     func testGetAppSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -34,18 +44,20 @@ class GetAppTest: XCTestCase {
         expectedAppModel["spaceId"] = "130"
         expectedAppModel["threadId"] = "151"
         
-        var appResponse: AppModel? = AppModel()
-        XCTAssertNoThrow(appResponse = try self.app?.getApp(self.APP_ID))
+        self.app?.getApp(self.APP_ID).then{appResponse in
+            XCTAssertEqual(Int(expectedAppModel["appId"]!), appResponse.getAppId()!)
+            XCTAssertEqual(expectedAppModel["code"], appResponse.getCode()!)
+            XCTAssertEqual(expectedAppModel["name"], appResponse.getName()!)
+            XCTAssertEqual(expectedAppModel["description"], appResponse.getDescription()!)
+            XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appResponse.getSpaceId()!)
+            XCTAssertEqual(Int(expectedAppModel["threadId"]!), appResponse.getThreadId()!)
+            XCTAssertNotNil(appResponse.getCreator())
+            XCTAssertNotNil(appResponse.getModifier())
+        }.catch{ error in
+                XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 10))
         
-        XCTAssertEqual(Int(expectedAppModel["appId"]!), appResponse?.getAppId()!)
-        XCTAssertEqual(expectedAppModel["code"], appResponse?.getCode()!)
-        XCTAssertEqual(expectedAppModel["name"], appResponse?.getName()!)
-        XCTAssertEqual(expectedAppModel["description"], appResponse?.getDescription()!)
-        XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appResponse?.getSpaceId()!)
-        XCTAssertEqual(Int(expectedAppModel["threadId"]!), appResponse?.getThreadId()!)
-        
-        XCTAssertNotNil(appResponse?.getCreator())
-        XCTAssertNotNil(appResponse?.getModifier())
         
     }
     
@@ -61,11 +73,11 @@ class GetAppTest: XCTestCase {
         expectedAppModel["spaceId"] = "130"
         expectedAppModel["threadId"] = "151"
 
-        XCTAssertThrowsError(try self.app?.getApp(appId)){
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        self.app?.getApp(appId).then{_ in
+            XCTFail(self.getErrorMessage("CAN GET UNEXIST APP"))
+        }.catch{ error in
+            XCTAssert(type(of: error) == KintoneAPIException.self)
         }
-
-        
+        XCTAssert(waitForPromises(timeout: 5))
     }
-
 }
