@@ -2,6 +2,7 @@
 
 import XCTest
 import kintone_ios_sdk
+@testable import Promises
 
 class DeployAppSettingsTest: XCTestCase {
     private let USERNAME = "Phien"
@@ -22,12 +23,26 @@ class DeployAppSettingsTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func getErrorMessage(_ error: Any) -> String {
+        if error is KintoneAPIException {
+            return (error as! KintoneAPIException).toString()!
+        }
+        else {
+            return (error as! Error).localizedDescription
+        }
+    }
 
     func testDeployAppSettingsSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let appPreview: AddPreviewAppResponse? = AddPreviewAppResponse(self.APP_ID, self.REVISION)
-        XCTAssertNoThrow(try self.app?.deployAppSettings([appPreview!]))
+        self.app?.deployAppSettings([appPreview!]).then{ respone in
+            XCTAssertEqual(true, respone)
+        }.catch{ error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testDeployAppSettingsFailWhenAppIDNotExist() {
@@ -35,10 +50,12 @@ class DeployAppSettingsTest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let appID: Int = 99999
         let appPreview: AddPreviewAppResponse? = AddPreviewAppResponse(appID, self.REVISION)
-        XCTAssertThrowsError(try self.app?.deployAppSettings([appPreview!]))
-        {
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
-        }
+        self.app?.deployAppSettings([appPreview!]).then{_ in
+            XCTFail(self.getErrorMessage("CAN GET UNEXIST APP"))
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
+            }
+            XCTAssert(waitForPromises(timeout: 10))
     }
 
 }
