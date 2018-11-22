@@ -7,14 +7,14 @@
 //
 
 import XCTest
-import kintone_ios_sdk
+@testable import kintone_ios_sdk
+@testable import Promises
 
 class GetGeneralSettingsTest: XCTestCase {
     private let USERNAME = "Phien"
     private let PASSWORD = "Phien"
     private let APP_ID = 1686
     private let LANG = LanguageSetting.EN
-    
     private var app: App? = nil
     private var connection: Connection? = nil
     
@@ -34,28 +34,32 @@ class GetGeneralSettingsTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let isPreview: Bool = true
-        var appGeneralSetting: GeneralSettings? = nil
-        
-        XCTAssertNoThrow(appGeneralSetting = try self.app?.getGeneralSettings(self.APP_ID, self.LANG, isPreview))
-        XCTAssertNotNil(appGeneralSetting)
-        
-        XCTAssertNotNil(appGeneralSetting?.getName())
-        XCTAssertEqual("GetViewsApp_Test", appGeneralSetting?.getName()!)
-        
-        XCTAssertNotNil(appGeneralSetting?.getDescription())
-        XCTAssertEqual("<div>A list of great places to go!</div>", appGeneralSetting?.getDescription()!)
-        
-        var iconModel: Icon? = nil
-        XCTAssertNotNil(iconModel = appGeneralSetting?.getIcon())
-        XCTAssertNotNil(iconModel?.getKey())
-        XCTAssertEqual("APP39", iconModel?.getKey())
-        
-        XCTAssertNotNil(iconModel?.getIconType())
-        XCTAssertEqual(Icon.IconType.PRESET,  iconModel?.getIconType()!)
-        
-        XCTAssertNotNil(appGeneralSetting?.getTheme())
-        XCTAssertEqual( GeneralSettings.IconTheme.WHITE, appGeneralSetting?.getTheme()!)
-      
+        self.app?.getGeneralSettings(self.APP_ID, self.LANG, isPreview).then{appGeneralSetting in
+            XCTAssertNotNil(appGeneralSetting)
+            XCTAssertNotNil(appGeneralSetting.getName())
+            XCTAssertEqual("GetViewsApp_Test", appGeneralSetting.getName()!)
+            XCTAssertNotNil(appGeneralSetting.getDescription())
+            XCTAssertEqual("<div>A list of great places to go!</div>", appGeneralSetting.getDescription()!)
+            
+            var iconModel: Icon? = nil
+            XCTAssertNotNil(iconModel = appGeneralSetting.getIcon())
+            XCTAssertNotNil(iconModel?.getKey())
+            XCTAssertEqual("APP39", iconModel?.getKey())
+            XCTAssertNotNil(iconModel?.getIconType())
+            XCTAssertEqual(Icon.IconType.PRESET,  iconModel?.getIconType()!)
+            XCTAssertNotNil(appGeneralSetting.getTheme())
+            XCTAssertEqual( GeneralSettings.IconTheme.WHITE, appGeneralSetting.getTheme()!)
+            }.catch{ error in
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                    
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
+        }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetPreLiveAppGeneralSettingsFailWhenAppIDNotExist() {
@@ -64,10 +68,13 @@ class GetGeneralSettingsTest: XCTestCase {
         let appId: Int = 99999
         let isPreview: Bool = true
         
-        XCTAssertThrowsError(try self.app!.getGeneralSettings(appId, self.LANG, isPreview))
-        {
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        self.app!.getGeneralSettings(appId, self.LANG, isPreview)
+            .then{ response in
+                XCTFail("No errors occurred")
+            }
+            .catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
-
 }

@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import kintone_ios_sdk
+@testable import Promises
 
 class ConnectionTest: XCTestCase {
     
@@ -43,10 +44,11 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
-            
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestShouldFailWhenGivenWrongDomain() throws {
@@ -59,8 +61,15 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!))
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestShouldFailWhenGivenWrongUsername() throws {
@@ -73,8 +82,15 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!))
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestShouldFailWhenGivenWrongPassword() throws {
@@ -87,8 +103,15 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!))
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestWithPasswordAuthenticationShouldSuccess() throws {
@@ -101,9 +124,11 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestWithTokenAuthenticationShouldSuccess() throws {
@@ -116,9 +141,11 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestWithTokenAuthenticationShouldFail() throws {
@@ -131,8 +158,15 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!))
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestWithPassAuthenticationShouldSuccessWhenTokenAuthenticationNotAllow() throws {
@@ -146,12 +180,14 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
-    func hInvalidPassAuthenticationShouldFailWhenTokenAuthenticationAllow() throws {
+    func testInvalidPassAuthenticationShouldFailWhenTokenAuthenticationAllow() throws {
         var auth: Auth = Auth.init()
         auth = auth.setApiToken("11ZkR2UsPjONME2eQL7durBe48TURXR5eVWl1ecg")
         auth = auth.setPasswordAuth("WrongUsername", self.PASSWORD)
@@ -162,9 +198,11 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestWithBasicAuthenticationShouldSuccess() throws {
@@ -178,9 +216,11 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(5)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestWithPasswordAuthenticationShouldFailWithBasicAuthenticationSite() throws {
@@ -193,8 +233,15 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(5)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!))
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRequestWithPasswordAuthenticationShouldSuccessWhenGivenBasicAuthentication() throws {
@@ -208,9 +255,11 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testPostRequestShouldSuccess() throws {
@@ -229,9 +278,11 @@ class ConnectionTest: XCTestCase {
             let requests: AddRecordRequest = AddRecordRequest(APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testPostRequestShouldFailWhenGivenWrongBody() throws {
@@ -241,8 +292,15 @@ class ConnectionTest: XCTestCase {
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, ""))
+            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, "")
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testPutRequestShouldSuccess() throws {
@@ -261,9 +319,11 @@ class ConnectionTest: XCTestCase {
             let requests: UpdateRecordRequest = UpdateRecordRequest(APP_ID, 1, nil, nil, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testPutRequestShouldFailWhenGivenWrongBody() throws {
@@ -273,8 +333,15 @@ class ConnectionTest: XCTestCase {
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, ""))
+            connection.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, "")
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testDeleteRequestShouldFailWhenGivenWrongBody() throws {
@@ -284,8 +351,15 @@ class ConnectionTest: XCTestCase {
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, ""))
+            connection.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, "")
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testDeleteRequestShouldSuccess() throws {
@@ -304,17 +378,21 @@ class ConnectionTest: XCTestCase {
             let requests: AddRecordRequest = AddRecordRequest(APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
-            
-            let res: AddRecordResponse = try parser.parseJson(AddRecordResponse.self, jsonobject)
-            let id = res.getId()
-            let del_request: DeleteRecordsRequest = DeleteRecordsRequest(APP_ID, [id!], [nil])
-            let del_body = try parser.parseObject(del_request)
-            let del_jsonBody = String(data: del_body, encoding: .utf8)
-            let del_jsonobject = try connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
-            XCTAssertNotEqual(del_jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
+                .then { jsonobject -> Promise<Data> in
+                    XCTAssertNotEqual(jsonobject, Data.init())
+                    
+                    let res: AddRecordResponse = try self.parser.parseJson(AddRecordResponse.self, jsonobject)
+                    let id = res.getId()
+                    let del_request: DeleteRecordsRequest = DeleteRecordsRequest(self.APP_ID, [id!], nil)
+                    let del_body = try self.parser.parseObject(del_request)
+                    let del_jsonBody = String(data: del_body, encoding: .utf8)
+                    return connection.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
+                }.then{ del_jsonobject in
+                    XCTAssertNotEqual(del_jsonobject, Data.init())
+                }
         }
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testGetRequestInGuestSpaceShouldSuccessWithPasswordAuthentication() throws {
@@ -327,9 +405,13 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(GUEST_SPACE_APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }.catch{error in
+                print(error)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testGetRequestInGuestSpaceShouldFailWhenGivenInvalidSpaceId() throws {
@@ -342,8 +424,15 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(GUEST_SPACE_APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            XCTAssertThrowsError(try connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!))
+            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+                .then{jsonObject in
+                    XCTFail()
+                }
+                .catch{ error in
+                    XCTAssertTrue(true)
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testPostRequestInGuestSpaceShouldSuccess() throws {
@@ -362,9 +451,11 @@ class ConnectionTest: XCTestCase {
             let requests: AddRecordRequest = AddRecordRequest(GUEST_SPACE_APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testPutRequestInGuestSpaceShouldSuccess() throws {
@@ -383,9 +474,11 @@ class ConnectionTest: XCTestCase {
             let requests: UpdateRecordRequest = UpdateRecordRequest(GUEST_SPACE_APP_ID, 1, nil, nil, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+                XCTAssertNotEqual(jsonobject, Data.init())
+            }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testDeleteRequestInGuestSpaceShouldSuccess() throws {
@@ -406,14 +499,18 @@ class ConnectionTest: XCTestCase {
             let jsonBody = String(data: body, encoding: .utf8)
             let jsonobject = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
             XCTAssertNotEqual(jsonobject, Data.init())
-            
-            let res: AddRecordResponse = try parser.parseJson(AddRecordResponse.self, jsonobject)
-            let id = res.getId()
-            let del_request: DeleteRecordsRequest = DeleteRecordsRequest(GUEST_SPACE_APP_ID, [id!], [nil])
-            let del_body = try parser.parseObject(del_request)
-            let del_jsonBody = String(data: del_body, encoding: .utf8)
-            let del_jsonobject = try connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
-            XCTAssertNotEqual(del_jsonobject, Data.init())
+            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
+                .then { jsonobject -> Promise<Data> in
+                    let res: AddRecordResponse = try self.parser.parseJson(AddRecordResponse.self, jsonobject)
+                    let id = res.getId()
+                    let del_request: DeleteRecordsRequest = DeleteRecordsRequest(self.GUEST_SPACE_APP_ID, [id!], [nil])
+                    let del_body = try self.parser.parseObject(del_request)
+                    let del_jsonBody = String(data: del_body, encoding: .utf8)
+                    return connection.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
+                }.then{ del_jsonobject in
+                    XCTAssertNotEqual(del_jsonobject, Data.init())
+                }
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
 }

@@ -1,7 +1,8 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 
 import XCTest
-import kintone_ios_sdk
+@testable import kintone_ios_sdk
+@testable import Promises
 
 class GetFormLayoutTest: XCTestCase {
     private let USERNAME = "Phien"
@@ -26,89 +27,106 @@ class GetFormLayoutTest: XCTestCase {
 
     func testGetAppFormLayoutSuccess()
     {
-        var formLayoutResponse: FormLayout? = nil
-        XCTAssertNoThrow(formLayoutResponse = try self.app?.getFormLayout(self.APP_ID))
-        XCTAssertNotNil(formLayoutResponse?.getRevision())
-        
-        var itemLayouts: [ItemLayout]? = [ItemLayout]()
-        XCTAssertNotNil(itemLayouts = formLayoutResponse?.getLayout())
-        XCTAssertGreaterThan(itemLayouts!.count, 0 )
-        var fields: [FieldLayout]? = nil
-        for itemLayout in itemLayouts!
-        {
-            var itemLayoutType: LayoutType? = nil
-            XCTAssertNotNil(itemLayoutType = itemLayout.getType()!)
-            XCTAssertTrue(type(of: itemLayoutType!) == LayoutType.self)
-            switch itemLayoutType!
+        self.app?.getFormLayout(self.APP_ID).then{ formLayoutResponse in
+            XCTAssertNotNil(formLayoutResponse.getRevision())
+            
+            var itemLayouts: [ItemLayout]? = [ItemLayout]()
+            XCTAssertNotNil(itemLayouts = formLayoutResponse.getLayout())
+            XCTAssertGreaterThan(itemLayouts!.count, 0 )
+            var fields: [FieldLayout]? = nil
+            for itemLayout in itemLayouts!
             {
-            case LayoutType.ROW:
-                var itemRowLayout: RowLayout? = nil
-                XCTAssertNoThrow(itemRowLayout = itemLayout as? RowLayout)
-                XCTAssertNotNil(fields = itemRowLayout?.getFields())
-                XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
-                break
-            case LayoutType.SUBTABLE:
-                var itemSubTableLayout: SubTableLayout? = nil
-                XCTAssertNoThrow(itemSubTableLayout = itemLayout as? SubTableLayout)
-                XCTAssertNotNil(fields = itemSubTableLayout?.getFields())
-                XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
-                XCTAssertNotNil(itemSubTableLayout?.getCode())
-                break
-            case LayoutType.GROUP:
-                var layout: [RowLayout]? = nil
-                var itemGroupLayout: GroupLayout? = nil
-                XCTAssertNoThrow(itemGroupLayout = itemLayout as? GroupLayout)
-                XCTAssertNotNil(itemGroupLayout?.getCode())
-                XCTAssertNotNil(layout = itemGroupLayout?.getLayout())
-                XCTAssertGreaterThanOrEqual((layout?.count)!, 0)
-                testGroupLayoutSuccess(layout)
-                break
+                var itemLayoutType: LayoutType? = nil
+                XCTAssertNotNil(itemLayoutType = itemLayout.getType()!)
+                XCTAssertTrue(type(of: itemLayoutType!) == LayoutType.self)
+                switch itemLayoutType!
+                {
+                case LayoutType.ROW:
+                    var itemRowLayout: RowLayout? = nil
+                    XCTAssertNoThrow(itemRowLayout = itemLayout as? RowLayout)
+                    XCTAssertNotNil(fields = itemRowLayout?.getFields())
+                    XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
+                    break
+                case LayoutType.SUBTABLE:
+                    var itemSubTableLayout: SubTableLayout? = nil
+                    XCTAssertNoThrow(itemSubTableLayout = itemLayout as? SubTableLayout)
+                    XCTAssertNotNil(fields = itemSubTableLayout?.getFields())
+                    XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
+                    XCTAssertNotNil(itemSubTableLayout?.getCode())
+                    break
+                case LayoutType.GROUP:
+                    var layout: [RowLayout]? = nil
+                    var itemGroupLayout: GroupLayout? = nil
+                    XCTAssertNoThrow(itemGroupLayout = itemLayout as? GroupLayout)
+                    XCTAssertNotNil(itemGroupLayout?.getCode())
+                    XCTAssertNotNil(layout = itemGroupLayout?.getLayout())
+                    XCTAssertGreaterThanOrEqual((layout?.count)!, 0)
+                    self.testGroupLayoutSuccess(layout)
+                    break
+                }
             }
+            }.catch{ error in 
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
         }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testGetPreLiveAppFormLayoutSuccess()
     {
         let isPreview = true
-        var formLayoutResponse: FormLayout? = nil
-        XCTAssertNoThrow(formLayoutResponse = try self.app?.getFormLayout(self.APP_ID, isPreview))
-        XCTAssertNotNil(formLayoutResponse?.getRevision())
-        
-        var itemLayouts: [ItemLayout]? = [ItemLayout]()
-        XCTAssertNotNil(itemLayouts = formLayoutResponse?.getLayout())
-        XCTAssertGreaterThan(itemLayouts!.count, 0 )
-        var fields: [FieldLayout]? = nil
-        for itemLayout in itemLayouts!
-        {
-            var itemLayoutType: LayoutType? = nil
-            XCTAssertNotNil(itemLayoutType = itemLayout.getType()!)
-            XCTAssertTrue(type(of: itemLayoutType!) == LayoutType.self)
-            switch itemLayoutType!
+        self.app?.getFormLayout(self.APP_ID, isPreview).then{ formLayoutResponse in
+            XCTAssertNotNil(formLayoutResponse.getRevision())
+            var itemLayouts: [ItemLayout]? = [ItemLayout]()
+            XCTAssertNotNil(itemLayouts = formLayoutResponse.getLayout())
+            XCTAssertGreaterThan(itemLayouts!.count, 0 )
+            var fields: [FieldLayout]? = nil
+            for itemLayout in itemLayouts!
             {
-            case LayoutType.ROW:
-                var itemRowLayout: RowLayout? = nil
-                XCTAssertNoThrow(itemRowLayout = itemLayout as? RowLayout)
-                XCTAssertNotNil(fields = itemRowLayout?.getFields())
-                XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
-                break
-            case LayoutType.SUBTABLE:
-                var itemSubTableLayout: SubTableLayout? = nil
-                XCTAssertNoThrow(itemSubTableLayout = itemLayout as? SubTableLayout)
-                XCTAssertNotNil(fields = itemSubTableLayout?.getFields())
-                XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
-                XCTAssertNotNil(itemSubTableLayout?.getCode())
-                break
-            case LayoutType.GROUP:
-                var layout: [RowLayout]? = nil
-                var itemGroupLayout: GroupLayout? = nil
-                XCTAssertNoThrow(itemGroupLayout = itemLayout as? GroupLayout)
-                XCTAssertNotNil(itemGroupLayout?.getCode())
-                XCTAssertNotNil(layout = itemGroupLayout?.getLayout())
-                XCTAssertGreaterThanOrEqual((layout?.count)!, 0)
-                testGroupLayoutSuccess(layout)
-                break
+                var itemLayoutType: LayoutType? = nil
+                XCTAssertNotNil(itemLayoutType = itemLayout.getType()!)
+                XCTAssertTrue(type(of: itemLayoutType!) == LayoutType.self)
+                switch itemLayoutType!
+                {
+                case LayoutType.ROW:
+                    var itemRowLayout: RowLayout? = nil
+                    XCTAssertNoThrow(itemRowLayout = itemLayout as? RowLayout)
+                    XCTAssertNotNil(fields = itemRowLayout?.getFields())
+                    XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
+                    break
+                case LayoutType.SUBTABLE:
+                    var itemSubTableLayout: SubTableLayout? = nil
+                    XCTAssertNoThrow(itemSubTableLayout = itemLayout as? SubTableLayout)
+                    XCTAssertNotNil(fields = itemSubTableLayout?.getFields())
+                    XCTAssertGreaterThanOrEqual((fields?.count)!, 1)
+                    XCTAssertNotNil(itemSubTableLayout?.getCode())
+                    break
+                case LayoutType.GROUP:
+                    var layout: [RowLayout]? = nil
+                    var itemGroupLayout: GroupLayout? = nil
+                    XCTAssertNoThrow(itemGroupLayout = itemLayout as? GroupLayout)
+                    XCTAssertNotNil(itemGroupLayout?.getCode())
+                    XCTAssertNotNil(layout = itemGroupLayout?.getLayout())
+                    XCTAssertGreaterThanOrEqual((layout?.count)!, 0)
+                    self.testGroupLayoutSuccess(layout)
+                    break
+                }
             }
+            }.catch{ error in
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
         }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testGroupLayoutSuccess(_ rowLayouts: [RowLayout]?)
@@ -140,11 +158,11 @@ class GetFormLayoutTest: XCTestCase {
     func testGetAppFormLayoutFailWhenAppIDNotExist()
     {
         let appId = 99999
-        XCTAssertThrowsError(try self.app?.getFormLayout(appId))
-        {
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        self.app?.getFormLayout(appId).then{ response in
+            XCTFail("No errors occurred")
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
+        XCTAssert(waitForPromises(timeout: 5))
     }
-    
-    
 }
