@@ -20,7 +20,7 @@ class FileTest: XCTestCase {
     private var connectionManagement: Connection?
     func addData(_ recData: Dictionary<String, FieldValue>, _ code: String, _ type: FieldType, _ value: Any) -> Dictionary<String, FieldValue> {
         var data = recData
-        var field = FieldValue()
+        let field = FieldValue()
         field.setType(type)
         field.setValue(value)
         data[code] = field
@@ -58,10 +58,10 @@ class FileTest: XCTestCase {
                 // exec add record
                 let fileList = [fileResponse]
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-                try self.recordManagement?.addRecord(self.APP_ID, fileTestRecord)
+                self.recordManagement?.addRecord(self.APP_ID, fileTestRecord)
                     .then{ addResponse -> Promise<GetRecordResponse> in
                         let recId = addResponse.getId()
-                        return try (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+                        return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
                     }.then { getResponse in
                         // result check
                         let fileResult: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -74,7 +74,7 @@ class FileTest: XCTestCase {
             }.catch{ error in
                 XCTFail()
             }
-            XCTAssert(waitForPromises(timeout: 5))
+            XCTAssert(waitForPromises(timeout: 50))
         }
         
     }
@@ -102,11 +102,11 @@ class FileTest: XCTestCase {
             // exec add record
             let fileList = [fileResponse1, fileResponse2, fileResponse3]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-            return try (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
         }.then{ addResponse -> Promise<GetRecordResponse> in
             // exec get record
             let recId = addResponse.getId()!
-            return try (self.recordManagement?.getRecord(self.APP_ID, recId))!
+            return (self.recordManagement?.getRecord(self.APP_ID, recId))!
         }.then { getResponse in
             // result check
             let fileResults: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -150,11 +150,11 @@ class FileTest: XCTestCase {
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-            return try (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             // exec get record
             let recId = addResponse.getId()
-            return try (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
         }.then{ getResponse in
             // result check
             let fileResult1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -231,10 +231,10 @@ class FileTest: XCTestCase {
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-            return (try self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return (try self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
         }.then { getResponse in
             // result check
             let fileResults1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -263,7 +263,7 @@ class FileTest: XCTestCase {
                 XCTAssertNotNil(fileResult3.getContentType()!)
             }
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testUploadFailForUnexistFileKey() throws {
@@ -286,26 +286,23 @@ class FileTest: XCTestCase {
             // exec add record
             let fileList = [fileResponse]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-            return try (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return try (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
         }.then { getResponse in
             // exec download file and result check
             let fileResult: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
-            if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            if let dowloadDir = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
                 let pathFileName = dowloadDir.absoluteString + fileResult[0].getName()!
-                //print(dataFile)
-                try self.fileManagement?.download(fileResult[0].getFileKey()!, pathFileName)
-//                self.fileManagement?.downloadAsync(fileResult[0].getFileKey()!, pathFileName).then { resp in
-//                    print(resp )
-//                    XCTAssertTrue(true)
-//                    }.catch{ error in
-//                        XCTFail()
-//                    }
+                self.fileManagement?.downloadAsync((fileResult[0].getFileKey()!), pathFileName).then { _ in
+                    XCTAssertTrue(true)
+                }.catch{ error in
+                    XCTFail()
+                }
             }
         }
-        XCTAssert(waitForPromises(timeout: 1000))
+        XCTAssert(waitForPromises(timeout: 60))
     }
     
     func testDownloadSuccessForMultiFile() throws {
@@ -332,26 +329,27 @@ class FileTest: XCTestCase {
         ).then { fileResponse1, fileResponse2, fileResponse3 -> Promise<AddRecordResponse> in
             let fileList = [fileResponse1, fileResponse2, fileResponse3]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-            return try (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return try (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
         }.then { getResponse in
             // exec download file and result check
             let fileResults: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
             for fileResult in fileResults {
                 if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                     let pathFileName = dowloadDir.absoluteString + fileResult.getName()!
-//                    self.fileManagement?.downloadAsync(fileResult.getFileKey()!, pathFileName).then {
-//                        XCTAssertTrue(true)
-//                        }.catch{ error in
-//                            XCTFail()
-//                        }
+                    try self.fileManagement?.download(fileResult.getFileKey()!, pathFileName)
+                    self.fileManagement?.downloadAsync(fileResult.getFileKey()!, pathFileName).then { _ in
+                        XCTAssertTrue(true)
+                    }.catch{ error in
+                        XCTFail()
+                    }
                 }
             }
         
         }
-        XCTAssert(waitForPromises(timeout: 50))
+        XCTAssert(waitForPromises(timeout: 60))
     }
     
     func testDownloadSuccessForSingleFileToMultiField() throws {
@@ -383,10 +381,10 @@ class FileTest: XCTestCase {
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-            return try (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return try (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
         }.then { getResponse in
             // exec download file and result check
             let fileResult1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -394,14 +392,23 @@ class FileTest: XCTestCase {
             let fileResult3: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_3"]!.getValue() as! [FileModel]
             if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                 let pathFileName1 = dowloadDir.absoluteString + fileResult1[0].getName()!
-                XCTAssertNoThrow(self.fileManagement?.downloadAsync(fileResult1[0].getFileKey()!, pathFileName1))
                 let pathFileName2 = dowloadDir.absoluteString + fileResult2[0].getName()!
-                XCTAssertNoThrow(self.fileManagement?.downloadAsync(fileResult2[0].getFileKey()!, pathFileName2))
                 let pathFileName3 = dowloadDir.absoluteString + fileResult3[0].getName()!
-                XCTAssertNoThrow(self.fileManagement?.downloadAsync(fileResult3[0].getFileKey()!, pathFileName3))
+                self.fileManagement?.downloadAsync(fileResult1[0].getFileKey()!, pathFileName1)
+                    .then { _ -> Promise<Void> in
+                        XCTAssertTrue(true)
+                        return (self.fileManagement?.downloadAsync(fileResult2[0].getFileKey()!, pathFileName2))!
+                    }.then { _ -> Promise<Void> in
+                        XCTAssertTrue(true)
+                        return (self.fileManagement?.downloadAsync(fileResult3[0].getFileKey()!, pathFileName3))!
+                    }.then { resp in
+                        XCTAssertTrue(true)
+                    }.catch { error in
+                        XCTFail()
+                    }
             }
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 500))
     }
     
     func testDownloadSuccessForMultiFileToMultiField() throws {
@@ -456,36 +463,44 @@ class FileTest: XCTestCase {
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-                return (try self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+                return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
             }.then { addResponse -> Promise<GetRecordResponse> in
                 let recId = addResponse.getId()
-                return try (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+                return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
             }.then { getResponse in
                 // exec file download and result check
                 let fileResults1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
                 let fileResults2: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_2"]!.getValue() as! [FileModel]
                 let fileResults3: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_3"]!.getValue() as! [FileModel]
                 
-                for fileResult1 in fileResults1 {
-                    if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                        let pathFileName = dowloadDir.absoluteString + "attach1/" + fileResult1.getName()!
-                        XCTAssertNoThrow(self.fileManagement?.downloadAsync(fileResult1.getFileKey()!, pathFileName))
+                if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    var fileResultsPromiseArray: [Promise<Void>] = [Promise<Void>]()
+                        let fileResultsPromise1 = fileResults1.map { (fileResult1) -> Promise<Void> in
+                            let pathFileName = dowloadDir.absoluteString + fileResult1.getName()!
+                            return (self.fileManagement?.downloadAsync(fileResult1.getFileKey()!, pathFileName))!
+                        }
+                        fileResultsPromiseArray.append(contentsOf: fileResultsPromise1)
+                    let fileResultsPromise2 = fileResults2.map { (fileResult2) -> Promise<Void> in
+                        let pathFileName = dowloadDir.absoluteString + fileResult2.getName()!
+                        return (self.fileManagement?.downloadAsync(fileResult2.getFileKey()!, pathFileName))!
                     }
-                }
-                for fileResult2 in fileResults2 {
-                    if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                        let pathFileName = dowloadDir.absoluteString + "attach2/" + fileResult2.getName()!
-                        XCTAssertNoThrow(self.fileManagement?.downloadAsync(fileResult2.getFileKey()!, pathFileName))
+                    fileResultsPromiseArray.append(contentsOf: fileResultsPromise2)
+                    let fileResultsPromise3 = fileResults3.map { (fileResult3) -> Promise<Void> in
+                        let pathFileName = dowloadDir.absoluteString + fileResult3.getName()!
+                        return (self.fileManagement?.downloadAsync(fileResult3.getFileKey()!, pathFileName))!
                     }
-                }
-                for fileResult3 in fileResults3 {
-                    if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                        let pathFileName = dowloadDir.absoluteString + "attach3/" + fileResult3.getName()!
-                        XCTAssertNoThrow(self.fileManagement?.downloadAsync(fileResult3.getFileKey()!, pathFileName))
+                    fileResultsPromiseArray.append(contentsOf: fileResultsPromise3)
+                    all(
+                        fileResultsPromiseArray
+                    ).then{ _ in
+                        XCTAssertTrue(true)
+                    }.catch{error in
+                        print(error)
+                            
                     }
                 }
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 500))
     }
     
     func testDownloadFailForUnexistFileKey() throws {
