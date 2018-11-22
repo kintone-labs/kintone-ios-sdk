@@ -69,7 +69,7 @@ class BulkRequestTest: XCTestCase {
         }.catch{error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 50))
     }
 
     func testAddRecordSuccessWhenRecordNull() {
@@ -88,7 +88,7 @@ class BulkRequestTest: XCTestCase {
         }.catch{error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testAddRecordsSuccess() {
