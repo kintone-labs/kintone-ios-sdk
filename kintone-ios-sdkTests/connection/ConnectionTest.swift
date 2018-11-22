@@ -12,8 +12,8 @@ import XCTest
 
 class ConnectionTest: XCTestCase {
     
-    private let USERNAME = "hiroyuki-sekiyama"
-    private let PASSWORD = "2`G`ZadF"
+    private let USERNAME = "Phien"
+    private let PASSWORD = "Phien"
     private let PROXY_HOST = "10.224.136.41"
     private let PROXY_PORT = 3128
     private let GUEST_SPACE_ID = 132
@@ -44,7 +44,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -61,7 +61,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -82,7 +82,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -103,7 +103,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -124,7 +124,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -141,7 +141,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -158,7 +158,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -180,7 +180,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -198,7 +198,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -216,7 +216,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(5)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -233,7 +233,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(5)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -255,7 +255,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -278,7 +278,7 @@ class ConnectionTest: XCTestCase {
             let requests: AddRecordRequest = AddRecordRequest(APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -292,7 +292,7 @@ class ConnectionTest: XCTestCase {
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, "")
+            connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, "")
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -319,7 +319,7 @@ class ConnectionTest: XCTestCase {
             let requests: UpdateRecordRequest = UpdateRecordRequest(APP_ID, 1, nil, nil, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -333,7 +333,7 @@ class ConnectionTest: XCTestCase {
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            connection.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, "")
+            connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, "")
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -351,7 +351,7 @@ class ConnectionTest: XCTestCase {
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            connection.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, "")
+            connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, "")
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -378,7 +378,7 @@ class ConnectionTest: XCTestCase {
             let requests: AddRecordRequest = AddRecordRequest(APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
+            connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
                 .then { jsonobject -> Promise<Data> in
                     XCTAssertNotEqual(jsonobject, Data.init())
                     
@@ -387,7 +387,7 @@ class ConnectionTest: XCTestCase {
                     let del_request: DeleteRecordsRequest = DeleteRecordsRequest(self.APP_ID, [id!], nil)
                     let del_body = try self.parser.parseObject(del_request)
                     let del_jsonBody = String(data: del_body, encoding: .utf8)
-                    return connection.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
+                    return connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
                 }.then{ del_jsonobject in
                     XCTAssertNotEqual(del_jsonobject, Data.init())
                 }
@@ -405,7 +405,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(GUEST_SPACE_APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }.catch{error in
                 print(error)
@@ -424,7 +424,7 @@ class ConnectionTest: XCTestCase {
             let requests: GetAppRequest = GetAppRequest(GUEST_SPACE_APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
+            connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
                 .then{jsonObject in
                     XCTFail()
                 }
@@ -451,7 +451,7 @@ class ConnectionTest: XCTestCase {
             let requests: AddRecordRequest = AddRecordRequest(GUEST_SPACE_APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -474,7 +474,7 @@ class ConnectionTest: XCTestCase {
             let requests: UpdateRecordRequest = UpdateRecordRequest(GUEST_SPACE_APP_ID, 1, nil, nil, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            connection.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
+            connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
                 XCTAssertNotEqual(jsonobject, Data.init())
             }
         }
@@ -497,16 +497,15 @@ class ConnectionTest: XCTestCase {
             let requests: AddRecordRequest = AddRecordRequest(GUEST_SPACE_APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
-            let jsonobject = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
-            XCTAssertNotEqual(jsonobject, Data.init())
-            connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
+            connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
                 .then { jsonobject -> Promise<Data> in
+                    XCTAssertNotEqual(jsonobject, Data.init())
                     let res: AddRecordResponse = try self.parser.parseJson(AddRecordResponse.self, jsonobject)
                     let id = res.getId()
                     let del_request: DeleteRecordsRequest = DeleteRecordsRequest(self.GUEST_SPACE_APP_ID, [id!], [nil])
                     let del_body = try self.parser.parseObject(del_request)
                     let del_jsonBody = String(data: del_body, encoding: .utf8)
-                    return connection.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
+                    return connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
                 }.then{ del_jsonobject in
                     XCTAssertNotEqual(del_jsonobject, Data.init())
                 }

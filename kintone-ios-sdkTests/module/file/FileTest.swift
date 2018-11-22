@@ -54,7 +54,7 @@ class FileTest: XCTestCase {
         // exec upload and result check
         let testBundle = Bundle(for: type(of: self))
         if let upload_file_path = testBundle.url(forResource: "test", withExtension: "txt"){
-            self.fileManagement?.uploadAsync(upload_file_path.absoluteString).then{ fileResponse in
+            self.fileManagement?.upload(upload_file_path.absoluteString).then{ fileResponse in
                 // exec add record
                 let fileList = [fileResponse]
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
@@ -95,9 +95,9 @@ class FileTest: XCTestCase {
            return XCTFail()
         }
         all(
-            (self.fileManagement?.uploadAsync(upload_file_path1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3.absoluteString))!
+            (self.fileManagement?.upload(upload_file_path1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3.absoluteString))!
         ).then { fileResponse1, fileResponse2, fileResponse3 -> Promise<AddRecordResponse> in
             // exec add record
             let fileList = [fileResponse1, fileResponse2, fileResponse3]
@@ -139,9 +139,9 @@ class FileTest: XCTestCase {
         }
         
         all(
-            (self.fileManagement?.uploadAsync(upload_file_path1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3.absoluteString))!
+            (self.fileManagement?.upload(upload_file_path1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3.absoluteString))!
         ).then { fileResponse1, fileResponse2, fileResponse3 -> Promise<AddRecordResponse> in
             // exec add record
             let fileList1 = [fileResponse1]
@@ -214,15 +214,15 @@ class FileTest: XCTestCase {
             return XCTFail()
         }
         all(
-            (self.fileManagement?.uploadAsync(upload_file_path1_1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path1_2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path1_3.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2_1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2_2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2_3.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3_1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3_2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3_3.absoluteString))!
+            (self.fileManagement?.upload(upload_file_path1_1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path1_2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path1_3.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2_1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2_2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2_3.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3_1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3_2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3_3.absoluteString))!
          ).then { fileResponses -> Promise<AddRecordResponse> in
             // exec add record
             let fileList1 = [fileResponses[0], fileResponses[1], fileResponses[2]]
@@ -267,7 +267,7 @@ class FileTest: XCTestCase {
     }
     
     func testUploadFailForUnexistFileKey() throws {
-        self.fileManagement?.uploadAsync("xxxxxxxxxxxxxxxxxxxxxxxxx").catch{ error in
+        self.fileManagement?.upload("xxxxxxxxxxxxxxxxxxxxxxxxx").catch{ error in
             XCTAssertNotNil(error)
         }
     }
@@ -282,7 +282,7 @@ class FileTest: XCTestCase {
         guard let upload_file_path = testBundle.url(forResource: "test", withExtension: "txt") else {
             return XCTFail()
         }
-        self.fileManagement?.uploadAsync(upload_file_path.absoluteString).then{ fileResponse -> Promise<AddRecordResponse> in
+        self.fileManagement?.upload(upload_file_path.absoluteString).then{ fileResponse -> Promise<AddRecordResponse> in
             // exec add record
             let fileList = [fileResponse]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
@@ -295,7 +295,7 @@ class FileTest: XCTestCase {
             let fileResult: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
             if let dowloadDir = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first {
                 let pathFileName = dowloadDir.absoluteString + fileResult[0].getName()!
-                self.fileManagement?.downloadAsync((fileResult[0].getFileKey()!), pathFileName).then { _ in
+                self.fileManagement?.download((fileResult[0].getFileKey()!), pathFileName).then { _ in
                     XCTAssertTrue(true)
                 }.catch{ error in
                     XCTFail()
@@ -323,9 +323,9 @@ class FileTest: XCTestCase {
         }
         
         all(
-            (self.fileManagement?.uploadAsync(upload_file_path1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3.absoluteString))!
+            (self.fileManagement?.upload(upload_file_path1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3.absoluteString))!
         ).then { fileResponse1, fileResponse2, fileResponse3 -> Promise<AddRecordResponse> in
             let fileList = [fileResponse1, fileResponse2, fileResponse3]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
@@ -340,7 +340,7 @@ class FileTest: XCTestCase {
                 if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                     let pathFileName = dowloadDir.absoluteString + fileResult.getName()!
                     try self.fileManagement?.download(fileResult.getFileKey()!, pathFileName)
-                    self.fileManagement?.downloadAsync(fileResult.getFileKey()!, pathFileName).then { _ in
+                    self.fileManagement?.download(fileResult.getFileKey()!, pathFileName).then { _ in
                         XCTAssertTrue(true)
                     }.catch{ error in
                         XCTFail()
@@ -370,9 +370,9 @@ class FileTest: XCTestCase {
         }
         
         all(
-            (self.fileManagement?.uploadAsync(upload_file_path1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3.absoluteString))!
+            (self.fileManagement?.upload(upload_file_path1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3.absoluteString))!
         ).then { fileResponse1, fileResponse2, fileResponse3 -> Promise<AddRecordResponse> in
             // exec add record
             let fileList1 = [fileResponse1]
@@ -394,13 +394,13 @@ class FileTest: XCTestCase {
                 let pathFileName1 = dowloadDir.absoluteString + fileResult1[0].getName()!
                 let pathFileName2 = dowloadDir.absoluteString + fileResult2[0].getName()!
                 let pathFileName3 = dowloadDir.absoluteString + fileResult3[0].getName()!
-                self.fileManagement?.downloadAsync(fileResult1[0].getFileKey()!, pathFileName1)
+                self.fileManagement?.download(fileResult1[0].getFileKey()!, pathFileName1)
                     .then { _ -> Promise<Void> in
                         XCTAssertTrue(true)
-                        return (self.fileManagement?.downloadAsync(fileResult2[0].getFileKey()!, pathFileName2))!
+                        return (self.fileManagement?.download(fileResult2[0].getFileKey()!, pathFileName2))!
                     }.then { _ -> Promise<Void> in
                         XCTAssertTrue(true)
-                        return (self.fileManagement?.downloadAsync(fileResult3[0].getFileKey()!, pathFileName3))!
+                        return (self.fileManagement?.download(fileResult3[0].getFileKey()!, pathFileName3))!
                     }.then { resp in
                         XCTAssertTrue(true)
                     }.catch { error in
@@ -446,15 +446,15 @@ class FileTest: XCTestCase {
             return XCTFail()
         }
         all(
-            (self.fileManagement?.uploadAsync(upload_file_path1_1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path1_2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path1_3.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2_1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2_2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path2_3.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3_1.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3_2.absoluteString))!,
-            (self.fileManagement?.uploadAsync(upload_file_path3_3.absoluteString))!
+            (self.fileManagement?.upload(upload_file_path1_1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path1_2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path1_3.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2_1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2_2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path2_3.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3_1.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3_2.absoluteString))!,
+            (self.fileManagement?.upload(upload_file_path3_3.absoluteString))!
             ).then { fileResponses -> Promise<AddRecordResponse> in
                 // exec add record
                 let fileList1 = [fileResponses[0], fileResponses[1], fileResponses[2]]
@@ -477,17 +477,17 @@ class FileTest: XCTestCase {
                     var fileResultsPromiseArray: [Promise<Void>] = [Promise<Void>]()
                         let fileResultsPromise1 = fileResults1.map { (fileResult1) -> Promise<Void> in
                             let pathFileName = dowloadDir.absoluteString + fileResult1.getName()!
-                            return (self.fileManagement?.downloadAsync(fileResult1.getFileKey()!, pathFileName))!
+                            return (self.fileManagement?.download(fileResult1.getFileKey()!, pathFileName))!
                         }
                         fileResultsPromiseArray.append(contentsOf: fileResultsPromise1)
                     let fileResultsPromise2 = fileResults2.map { (fileResult2) -> Promise<Void> in
                         let pathFileName = dowloadDir.absoluteString + fileResult2.getName()!
-                        return (self.fileManagement?.downloadAsync(fileResult2.getFileKey()!, pathFileName))!
+                        return (self.fileManagement?.download(fileResult2.getFileKey()!, pathFileName))!
                     }
                     fileResultsPromiseArray.append(contentsOf: fileResultsPromise2)
                     let fileResultsPromise3 = fileResults3.map { (fileResult3) -> Promise<Void> in
                         let pathFileName = dowloadDir.absoluteString + fileResult3.getName()!
-                        return (self.fileManagement?.downloadAsync(fileResult3.getFileKey()!, pathFileName))!
+                        return (self.fileManagement?.download(fileResult3.getFileKey()!, pathFileName))!
                     }
                     fileResultsPromiseArray.append(contentsOf: fileResultsPromise3)
                     all(
@@ -505,7 +505,7 @@ class FileTest: XCTestCase {
     
     func testDownloadFailForUnexistFileKey() throws {
         if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            self.fileManagement?.downloadAsync("12345678890", dowloadDir.absoluteString + "test.xtx").catch{ error in
+            self.fileManagement?.download("12345678890", dowloadDir.absoluteString + "test.xtx").catch{ error in
                 XCTAssertNotNil(error)
             }
         }

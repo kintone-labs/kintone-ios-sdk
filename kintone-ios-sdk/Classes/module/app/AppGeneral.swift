@@ -31,7 +31,7 @@ public extension AppGeneral where Self: App {
                 let body = try self.parser.parseObject(getGeneralSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = (isPreview! ? ConnectionConstants.APP_SETTINGS_PREVIEW : ConnectionConstants.APP_SETTINGS)
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
                     let generalSettings = try self.parser.parseJson(GeneralSettings.self, response)
                     fulfill(generalSettings)
                     }.catch{ error in
@@ -51,7 +51,7 @@ public extension AppGeneral where Self: App {
                 updateGeneralSettingsRequest.setRevision(revision)
                 let body = try self.parser.parseObject(updateGeneralSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_SETTINGS_PREVIEW, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_SETTINGS_PREVIEW, jsonBody).then{ response in
                     let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
                     fulfill(basicResponse)
                     }.catch{ error in

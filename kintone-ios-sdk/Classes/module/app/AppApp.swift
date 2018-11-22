@@ -93,7 +93,7 @@ public extension AppApp where Self: App {
             do {
                 let body = try self.parser.parseObject(getAppsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APPS, jsonBody).then { response in
+                self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APPS, jsonBody).then { response in
                     let apps = try self.parser.parseJson(GetAppsResponse.self, response)
                         fulfill(apps.getApps()!)
                     }.catch{ error in
@@ -111,7 +111,7 @@ public extension AppApp where Self: App {
             do {
                 let body = try self.parser.parseObject(getAppRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-            self.connection?.requestAsync(ConnectionConstants.GET_REQUEST,ConnectionConstants.APP,jsonBody).then { response in
+            self.connection?.request(ConnectionConstants.GET_REQUEST,ConnectionConstants.APP,jsonBody).then { response in
                     let apps = try self.parser.parseJson(AppModel.self, response)
                     fulfill(apps)
                 }.catch{ error in
@@ -179,7 +179,7 @@ public extension AppApp where Self: App {
             do {
                 let body = try self.parser.parseObject(addPreviewAppRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_PREVIEW, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_PREVIEW, jsonBody).then{ response in
                     let app = try self.parser.parseJson(AddPreviewAppResponse.self, response)
                         fulfill(app)
                     }.catch{ error in
@@ -199,7 +199,7 @@ public extension AppApp where Self: App {
             do {
                 let body = try self.parser.parseObject(deployAppSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody).then{_ in
+                self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody).then{_ in
                       fulfill(true)
                     }
                     .catch{ error in
@@ -217,7 +217,7 @@ public extension AppApp where Self: App {
             do {
                 let body = try self.parser.parseObject(deployStatusRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody).then{ response in
                     let status = try self.parser.parseJson(GetAppDeployStatusResponse.self, response)
                     fulfill(status)
                     }.catch{ error in
