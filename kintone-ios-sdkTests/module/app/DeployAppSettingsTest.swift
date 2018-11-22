@@ -37,8 +37,8 @@ class DeployAppSettingsTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let appPreview: AddPreviewAppResponse? = AddPreviewAppResponse(self.APP_ID, self.REVISION)
-        self.app?.deployAppSettings([appPreview!]).then{ respone in
-            XCTAssertEqual(true, respone)
+        self.app?.deployAppSettings([appPreview!]).then{_ in
+            XCTAssertTrue(true)
         }.catch{ error in
             XCTFail(self.getErrorMessage(error))
         }

@@ -54,19 +54,16 @@ class GetAppsByIDsTest: XCTestCase {
         
         self.app?.getAppsByIDs(self.APP_IDs, self.OFFSET, self.LIMIT).then{appsResponse in
             XCTAssertEqual(1, appsResponse.count)
-        
-            var appModel: AppModel = AppModel()
-            XCTAssertNoThrow(appModel = (appsResponse.first)!)
-        
-            XCTAssertEqual(Int(expectedAppModel["appId"]!), appModel.getAppId()!)
-            XCTAssertEqual(expectedAppModel["code"], appModel.getCode()!)
-            XCTAssertEqual(expectedAppModel["name"], appModel.getName()!)
-            XCTAssertEqual(expectedAppModel["description"], appModel.getDescription()!)
-            XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appModel.getSpaceId()!)
-            XCTAssertEqual(Int(expectedAppModel["threadId"]!), appModel.getThreadId()!)
-        
-            XCTAssertNotNil(appModel.getCreator())
-            XCTAssertNotNil(appModel.getModifier())
+            
+            XCTAssertEqual(Int(expectedAppModel["appId"]!), appsResponse[0].getAppId()!)
+            XCTAssertEqual(expectedAppModel["code"], appsResponse[0].getCode()!)
+            XCTAssertEqual(expectedAppModel["name"], appsResponse[0].getName()!)
+            XCTAssertEqual(expectedAppModel["description"], appsResponse[0].getDescription()!)
+            XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appsResponse[0].getSpaceId()!)
+            XCTAssertEqual(Int(expectedAppModel["threadId"]!), appsResponse[0].getThreadId()!)
+            
+            XCTAssertNotNil(appsResponse[0].getCreator())
+            XCTAssertNotNil(appsResponse[0].getModifier())
         }.catch{ error in
             XCTFail(self.getErrorMessage(error))
         }
