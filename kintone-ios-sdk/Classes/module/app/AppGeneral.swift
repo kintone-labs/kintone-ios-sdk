@@ -20,7 +20,7 @@ public protocol AppGeneral {
     ///   - revision: Int | Specify the revision number of the settings that will be deployed.
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?, _ revision: Int?) -> Promise<BasicResponse>
+    func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?) -> Promise<BasicResponse>
 }
 
 public extension AppGeneral where Self: App {
@@ -43,14 +43,15 @@ public extension AppGeneral where Self: App {
         }
     }
     
-    func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?, _ revision: Int? = -1) -> Promise<BasicResponse> {
+    func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?) -> Promise<BasicResponse> {
         return Promise { fulfill, reject in
             do {
                 let updateGeneralSettingsRequest = UpdateGeneralSettingsRequest(generalSettings)
                 updateGeneralSettingsRequest.setApp(app)
-                updateGeneralSettingsRequest.setRevision(revision)
                 let body = try self.parser.parseObject(updateGeneralSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
+                print("-----------------")
+                print(jsonBody)
                 self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_SETTINGS_PREVIEW, jsonBody).then{ response in
                     let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
                     fulfill(basicResponse)
