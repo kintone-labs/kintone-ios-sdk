@@ -75,7 +75,7 @@ public extension AppForm where Self: App {
                 let body = try self.parser.parseObject(getFormFieldsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = (isPreview! ? ConnectionConstants.APP_FIELDS_PREVIEW : ConnectionConstants.APP_FIELDS)
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
                     let parsedResponse = try self.parser.parseJson(FormFields.self, response)
                     fulfill(parsedResponse)
                     }.catch{ error in
@@ -95,7 +95,7 @@ public extension AppForm where Self: App {
                 let body = try self.parser.parseObject(addFormFieldsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = ConnectionConstants.APP_FIELDS_PREVIEW
-                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, url, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.POST_REQUEST, url, jsonBody).then{ response in
                     let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
                     fulfill(basicResponse)
                     }.catch{ error in
@@ -115,7 +115,7 @@ public extension AppForm where Self: App {
                 let body = try self.parser.parseObject(updateFormFields)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = ConnectionConstants.APP_FIELDS_PREVIEW
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, url, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, url, jsonBody).then{ response in
                     let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
                     fulfill(basicResponse)
                     }.catch{ error in
@@ -135,7 +135,7 @@ public extension AppForm where Self: App {
                 let body = try self.parser.parseObject(deleteFormFields)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = ConnectionConstants.APP_FIELDS_PREVIEW
-                self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, url, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.DELETE_REQUEST, url, jsonBody).then{ response in
                     let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
                     fulfill(basicResponse)
                     }.catch{ error in
@@ -155,7 +155,7 @@ public extension AppForm where Self: App {
                 let body = try self.parser.parseObject(getFormLayoutRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = (isPreview! ? ConnectionConstants.APP_LAYOUT_PREVIEW : ConnectionConstants.APP_LAYOUT)
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.GET_REQUEST, url, jsonBody).then{ response in
                     let parsedResponse = try self.parser.parseJson(FormLayout.self, response)
                     fulfill(parsedResponse)
                     }.catch{ error in
@@ -174,7 +174,7 @@ public extension AppForm where Self: App {
                 let updateFormLayoutRequest = UpdateFormLayoutRequest(app!, layout!, revision!)
                 let body = try self.parser.parseObject(updateFormLayoutRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody).then{ response in
                     let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
                     fulfill(basicResponse)
                     }.catch{ error in
