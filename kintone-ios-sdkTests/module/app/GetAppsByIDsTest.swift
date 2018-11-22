@@ -67,7 +67,7 @@ class GetAppsByIDsTest: XCTestCase {
         }.catch{ error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
         
     }
     
@@ -81,7 +81,7 @@ class GetAppsByIDsTest: XCTestCase {
             }.catch{ error in
                 XCTAssert(type(of: error) == KintoneAPIException.self)
             }
-            XCTAssert(waitForPromises(timeout: 5))
+            XCTAssert(waitForPromises(timeout: 10))
     }
 
 
