@@ -5,10 +5,8 @@
 //  Created by y001112 on 2018/09/04.
 //  Copyright © 2018年 y001112. All rights reserved.
 //
-
 import XCTest
 @testable import kintone_ios_sdk
-@testable import Promises
 
 class kintone_ios_sdkTests: XCTestCase {
     
@@ -21,12 +19,16 @@ class kintone_ios_sdkTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-
+    
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

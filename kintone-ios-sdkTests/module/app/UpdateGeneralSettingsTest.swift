@@ -7,7 +7,8 @@
 //
 
 import XCTest
-import kintone_ios_sdk
+@testable import kintone_ios_sdk
+@testable import Promises
 
 class UpdateGeneralSettingsTest: XCTestCase {
 
@@ -40,10 +41,19 @@ class UpdateGeneralSettingsTest: XCTestCase {
         let iconModel: Icon = Icon("APP39", Icon.IconType.PRESET)
         appGeneralSetting.setIcon(iconModel)
         appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
-        
-        var basicResponse: BasicResponse? = nil
-        XCTAssertNoThrow(basicResponse = try self.app?.updateGeneralSettings(self.APP_ID, appGeneralSetting))
-        XCTAssertNotNil(basicResponse?.getRevision())
+        self.app?.updateGeneralSettings(self.APP_ID, appGeneralSetting).then{ basicResponse in
+            XCTAssertNotNil(basicResponse.getRevision())
+            }.catch{ error in
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                    
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
+        }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testUpdateAppGeneralSettingsFailWhenAppIDNotExist() {
@@ -58,10 +68,11 @@ class UpdateGeneralSettingsTest: XCTestCase {
         appGeneralSetting.setIcon(iconModel)
         appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
         
-        XCTAssertThrowsError(try self.app?.updateGeneralSettings(appId, appGeneralSetting))
-        {
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        self.app?.updateGeneralSettings(appId, appGeneralSetting).then{response in
+            XCTFail("No errors occurred")
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
-
 }

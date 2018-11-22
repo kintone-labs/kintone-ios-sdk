@@ -1,7 +1,8 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 
 import XCTest
-import kintone_ios_sdk
+@testable import kintone_ios_sdk
+@testable import Promises
 
 class UpdateFormLayoutTest: XCTestCase {
 
@@ -94,9 +95,18 @@ class UpdateFormLayoutTest: XCTestCase {
         itemLayoutRequest?.append(subTableLayout!)
         itemLayoutRequest?.append(groupLayout!)
         
-        var basicResponse: BasicResponse? = nil
-        XCTAssertNoThrow(basicResponse = try self.app?.updateFormLayout(self.APP_ID, itemLayoutRequest))
-        XCTAssertNotNil(basicResponse?.getRevision())
+        self.app?.updateFormLayout(self.APP_ID, itemLayoutRequest).then{ basicResponse in
+            XCTAssertNotNil(basicResponse.getRevision())
+            }.catch{ error in
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
+        }
+        XCTAssert(waitForPromises(timeout: 5))
     }
     
     func testUpdateAppFormLayoutFailWhenAppIdNotExist()
@@ -168,10 +178,11 @@ class UpdateFormLayoutTest: XCTestCase {
         itemLayoutRequest?.append(subTableLayout!)
         itemLayoutRequest?.append(groupLayout!)
         
-        XCTAssertThrowsError(try self.app?.updateFormLayout(appId, itemLayoutRequest))
-        {
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        self.app?.updateFormLayout(appId, itemLayoutRequest).then{ response in
+            XCTFail("No errors occurred")
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
+        XCTAssert(waitForPromises(timeout: 5))
     }
-
 }
