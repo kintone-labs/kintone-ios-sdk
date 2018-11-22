@@ -50,8 +50,6 @@ public extension AppGeneral where Self: App {
                 updateGeneralSettingsRequest.setApp(app)
                 let body = try self.parser.parseObject(updateGeneralSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                print("-----------------")
-                print(jsonBody)
                 self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_SETTINGS_PREVIEW, jsonBody).then{ response in
                     let basicResponse = try self.parser.parseJson(BasicResponse.self, response)
                     fulfill(basicResponse)

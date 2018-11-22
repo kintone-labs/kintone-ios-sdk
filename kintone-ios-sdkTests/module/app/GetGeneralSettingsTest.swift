@@ -43,6 +43,7 @@ class GetGeneralSettingsTest: XCTestCase {
             
             var iconModel: Icon? = nil
             XCTAssertNotNil(iconModel = appGeneralSetting.getIcon())
+            XCTAssertNotNil(appGeneralSetting.getRevision())
             XCTAssertNotNil(iconModel?.getKey())
             XCTAssertEqual("APP39", iconModel?.getKey())
             XCTAssertNotNil(iconModel?.getIconType())
