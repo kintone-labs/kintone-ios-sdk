@@ -41,7 +41,7 @@ class UpdateGeneralSettingsTest: XCTestCase {
         let iconModel: Icon = Icon("APP39", Icon.IconType.PRESET)
         appGeneralSetting.setIcon(iconModel)
         appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
-        appGeneralSetting.setRevision(nil)
+        appGeneralSetting.setRevision(-1)
 
         self.app?.updateGeneralSettings(self.APP_ID, appGeneralSetting).then{ basicResponse in
             XCTAssertNotNil(basicResponse.getRevision())

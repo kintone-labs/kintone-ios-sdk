@@ -1,6 +1,6 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
-open class AddPreviewAppResponse: NSObject, Codable {
+open class PreviewApp: NSObject, Codable {
     private var app: String?
     private var revision: String?
     

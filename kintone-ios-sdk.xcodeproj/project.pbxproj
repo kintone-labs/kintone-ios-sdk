@@ -96,7 +96,7 @@
 		A88FEE1D2159DD8B00A7E838 /* GetAppsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE032159DD8A00A7E838 /* GetAppsResponse.swift */; };
 		A88FEE1E2159DD8B00A7E838 /* BasicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE042159DD8A00A7E838 /* BasicResponse.swift */; };
 		A88FEE1F2159DD8B00A7E838 /* GetViewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE052159DD8A00A7E838 /* GetViewsResponse.swift */; };
-		A88FEE202159DD8B00A7E838 /* AddPreviewAppResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE062159DD8A00A7E838 /* AddPreviewAppResponse.swift */; };
+		A88FEE202159DD8B00A7E838 /* PreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE062159DD8A00A7E838 /* PreviewApp.swift */; };
 		A88FEE212159DD8B00A7E838 /* GetAppDeployStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE072159DD8A00A7E838 /* GetAppDeployStatusResponse.swift */; };
 		A88FEE222159DD8B00A7E838 /* UpdateViewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE092159DD8A00A7E838 /* UpdateViewsRequest.swift */; };
 		A88FEE232159DD8B00A7E838 /* GetAppDeployStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE0A2159DD8A00A7E838 /* GetAppDeployStatusRequest.swift */; };
@@ -301,7 +301,7 @@
 		A88FEE032159DD8A00A7E838 /* GetAppsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAppsResponse.swift; sourceTree = "<group>"; };
 		A88FEE042159DD8A00A7E838 /* BasicResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicResponse.swift; sourceTree = "<group>"; };
 		A88FEE052159DD8A00A7E838 /* GetViewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetViewsResponse.swift; sourceTree = "<group>"; };
-		A88FEE062159DD8A00A7E838 /* AddPreviewAppResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPreviewAppResponse.swift; sourceTree = "<group>"; };
+		A88FEE062159DD8A00A7E838 /* PreviewApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewApp.swift; sourceTree = "<group>"; };
 		A88FEE072159DD8A00A7E838 /* GetAppDeployStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusResponse.swift; sourceTree = "<group>"; };
 		A88FEE092159DD8A00A7E838 /* UpdateViewsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewsRequest.swift; sourceTree = "<group>"; };
 		A88FEE0A2159DD8A00A7E838 /* GetAppDeployStatusRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAppDeployStatusRequest.swift; sourceTree = "<group>"; };
@@ -727,6 +727,7 @@
 		A88FEE002159DD8A00A7E838 /* basic */ = {
 			isa = PBXGroup;
 			children = (
+				A88FEE062159DD8A00A7E838 /* PreviewApp.swift */,
 				A88FEE012159DD8A00A7E838 /* response */,
 				A88FEE082159DD8A00A7E838 /* request */,
 			);
@@ -740,7 +741,6 @@
 				A88FEE032159DD8A00A7E838 /* GetAppsResponse.swift */,
 				A88FEE042159DD8A00A7E838 /* BasicResponse.swift */,
 				A88FEE052159DD8A00A7E838 /* GetViewsResponse.swift */,
-				A88FEE062159DD8A00A7E838 /* AddPreviewAppResponse.swift */,
 				A88FEE072159DD8A00A7E838 /* GetAppDeployStatusResponse.swift */,
 			);
 			path = response;
@@ -1153,7 +1153,7 @@
 				A88FEE8C2159DD9E00A7E838 /* CheckboxField.swift in Sources */,
 				A88FEEB42159DDC300A7E838 /* AppProcessManagement.swift in Sources */,
 				3E1FD7E82148AE5C0056F902 /* RecordUpdateStatusItem.swift in Sources */,
-				A88FEE202159DD8B00A7E838 /* AddPreviewAppResponse.swift in Sources */,
+				A88FEE202159DD8B00A7E838 /* PreviewApp.swift in Sources */,
 				A88FEE722159DD9E00A7E838 /* LayoutType.swift in Sources */,
 				111892B121500F1A0077A87E /* LanguageSetting.swift in Sources */,
 				3E60AFDD215106BD0041B02C /* FieldType.swift in Sources */,
