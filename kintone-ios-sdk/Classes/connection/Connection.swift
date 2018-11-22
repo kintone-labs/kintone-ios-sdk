@@ -238,6 +238,119 @@ open class Connection: NSObject {
         return Data.init()
     }
     
+    /// Async Rest http request.
+    /// This method is execute file download
+    ///
+    /// - Parameter body: String
+    /// - Returns: Data
+    /// - Throws: KintoneAPIException
+    open func downloadFileAsync(_ body: String) -> Promise<Data> {
+        return Promise { fullfill, reject in
+            var urlString: String = ""
+            do {
+                urlString = try self.getURL(ConnectionConstants.FILE, nil)
+            } catch {
+                reject(KintoneAPIException("Invalid URL"))
+            }
+            
+            let url = URL(string: urlString)!
+            var request = URLRequest(url: url)
+            
+            request = self.setHTTPHeaders(request)
+            request.httpMethod = ConnectionConstants.POST_REQUEST
+            
+            request.addValue(self.JSON_CONTENT, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
+            request.addValue(ConnectionConstants.GET_REQUEST, forHTTPHeaderField: ConnectionConstants.METHOD_OVERRIDE_HEADER)
+            
+            request.httpBody = body.data(using: String.Encoding.utf8)
+            
+            let config = self.setURLSessionConfiguration()
+            config.requestCachePolicy = .reloadIgnoringLocalCacheData
+            config.urlCache = nil
+            
+            let session = URLSession(configuration: config)
+            
+            self.executeAsync(session, request).then { (data, response, error) in
+                if (data != nil || response != nil){
+                    do {
+                        try self.checkStatus(response, data, body, nil)
+                        fullfill(data!)
+                    } catch let error as KintoneAPIException {
+                        reject(error)
+                    } catch {
+                        reject(KintoneAPIException("an error occurred while receiving data"))
+                    }
+                }
+            }.catch { error in
+                reject(error)
+            }
+        }
+    }
+    
+    /// Async Rest http request.
+    /// This method is execute file upload.
+    ///
+    /// - Parameters:
+    ///   - fileName: String
+    ///   - binaryData: Data
+    /// - Returns: Data
+    /// - Throws: KintoneAPIException
+    open func uploadFileAsync(_ fileName: String, _ binaryData: Data) -> Promise<Data> {
+        return Promise { fullfill, reject in
+            var urlString = ""
+            do {
+                urlString = try self.getURL(ConnectionConstants.FILE, nil)
+            } catch {
+                reject(KintoneAPIException("Invalid URL"))
+            }
+            
+            let url = URL(string: urlString)!
+            var request = URLRequest(url: url)
+            
+            request = self.setHTTPHeaders(request)
+            request.httpMethod = ConnectionConstants.POST_REQUEST
+            
+            request.addValue(self.MULTIPART_CONTENT + ConnectionConstants.BOUNDARY, forHTTPHeaderField: ConnectionConstants.CONTENT_TYPE_HEADER)
+            
+            var body = Data()
+            var bodyText = ""
+            
+            bodyText += "--\(ConnectionConstants.BOUNDARY)\r\n"
+            bodyText += "Content-Disposition: form-data; name=\"file\"; filename=\"\(fileName)\"\r\n"
+            bodyText += "\(ConnectionConstants.CONTENT_TYPE_HEADER): \(ConnectionConstants.DEFAULT_CONTENT_TYPE)\r\n\r\n"
+            
+            body.append(bodyText.data(using: String.Encoding.utf8)!)
+            body.append(binaryData)
+            
+            var footerText = ""
+            footerText += "\r\n"
+            footerText += "\r\n--\(ConnectionConstants.BOUNDARY)--\r\n"
+            
+            body.append(footerText.data(using: String.Encoding.utf8)!)
+            
+            request.httpBody = body
+            
+            let session = URLSession(configuration: self.setURLSessionConfiguration())
+            
+            self.executeAsync(session, request).then { (data, response, error) in
+                if (data != nil || response != nil){
+                    do {
+                        try self.checkStatus(response, data, nil, nil)
+                        let jsonobject = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                        let dataParse = try JSONSerialization.data(withJSONObject: jsonobject, options: [])
+                        fullfill(dataParse)
+                    } catch let error as KintoneAPIException {
+                        reject(error)
+                    } catch {
+                        reject(KintoneAPIException("an error occurred while receiving data"))
+                    }
+                }
+            }.catch { error in
+                reject(error)
+            }
+        }
+    }
+    
     /// Synchronous HTTP communication execution processing
     ///
     /// - Parameters:
