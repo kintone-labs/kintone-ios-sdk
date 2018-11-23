@@ -11,10 +11,6 @@ import XCTest
 @testable import Promises
 
 class RecordTest: XCTestCase {
-    
-    private let API_TOKEN = "vXpZuik6FwetdecNVUzEfQCR3F1cu2qoJZMFXyOe"
-    private let APP_ID = 9
-    
     private let testUser1 = Member("user1", "user1")
     private let testUser2 = Member("user2", "user2")
     private let testOrg1 = Member("test", "テスト組織")
@@ -22,7 +18,6 @@ class RecordTest: XCTestCase {
     private let testGroup1 = Member("TeamA", "チームA")
     private let testGroup2 = Member("TeamB", "チームB")
     private let testAdmin = Member("cybozu", "cybozu")
-    
     private var recordManagement: Record?
     
     override func setUp() {
@@ -30,9 +25,9 @@ class RecordTest: XCTestCase {
         
         // set auth
         var auth = Auth()
-        auth = auth.setPasswordAuth(self.testAdmin.getName()!, "cybozu")
-        let conn = Connection( "phienphamf1811-1.cybozu-dev.com", auth )
-        conn.setProxy("dc-ty3-squid-1.cb.local", 3128)
+        auth = auth.setPasswordAuth(TestsConstants.ADMIN_USERNAME, TestsConstants.ADMIN_PASSWORD)
+        let conn = Connection( TestsConstants.DOMAIN, auth )
+        conn.setProxy( TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         // instance of Record class
         self.recordManagement = Record(conn)
@@ -57,9 +52,9 @@ class RecordTest: XCTestCase {
         var testData: Dictionary<String, FieldValue> = createAddData()
         testData = addData(testData, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecordSuccess")
         
-        self.recordManagement?.addRecord(self.APP_ID, testData).then{addResponse -> Promise<GetRecordResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, testData).then{addResponse -> Promise<GetRecordResponse> in
             let recNum = addResponse.getId()
-            return (self.recordManagement?.getRecord(self.APP_ID, recNum!))!
+            return (self.recordManagement?.getRecord(RecordTestConstants.APP_ID, recNum!))!
         }.then{ getResponse in
             let resultData: Dictionary<String, FieldValue> = getResponse.getRecord()!
             // check result
@@ -87,7 +82,7 @@ class RecordTest: XCTestCase {
         testData3 = addData(testData3, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecords3")
         var testDatas = [testData1, testData2, testData3]
         
-        self.recordManagement?.addRecords(self.APP_ID, testDatas).then{addResponse -> Promise<GetRecordsResponse> in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, testDatas).then{addResponse -> Promise<GetRecordsResponse> in
             let recIds = addResponse.getIDs()
             var idsString = "("
             for id in recIds! {
@@ -98,9 +93,9 @@ class RecordTest: XCTestCase {
                     idsString += "," + String(id)
                 }
             }
-            let query = "$id in " + idsString + ")"
+            let query = "$id in " + idsString + ")" +  " order by $id asc"
             print(query)
-            return (self.recordManagement?.getRecords(self.APP_ID, query, nil, true))!
+            return (self.recordManagement?.getRecords(RecordTestConstants.APP_ID, query, nil, true))!
         }.then{ getResponse in
             let resultData = getResponse.getRecords()!
             // check result
@@ -125,7 +120,7 @@ class RecordTest: XCTestCase {
         }.catch{ error in
             XCTAssertTrue(true)
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRecordsWithQuery() throws {
@@ -138,10 +133,10 @@ class RecordTest: XCTestCase {
         testData3 = addData(testData3, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecordsWithQuery3")
         var testDatas = [testData1, testData2, testData3]
         
-        self.recordManagement?.addRecords(self.APP_ID, testDatas).then{ addResponse -> Promise<GetRecordsResponse> in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, testDatas).then{ addResponse -> Promise<GetRecordsResponse> in
             let recIds = addResponse.getIDs()
-            let query = "$id >= " + recIds![0].description
-            return (self.recordManagement?.getRecords(self.APP_ID, query, nil, true))!
+            let query = "$id >= " + recIds![0].description +  " order by $id asc"
+            return (self.recordManagement?.getRecords(RecordTestConstants.APP_ID, query, nil, true))!
         }.then{response in
             let resultData = response.getRecords()
             // check result
@@ -156,7 +151,7 @@ class RecordTest: XCTestCase {
         }.catch{ error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetRecordsWithFields() throws {
@@ -171,26 +166,26 @@ class RecordTest: XCTestCase {
         testData3 = addData(testData3, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecordsWithFields3")
         var testDatas = [testData1, testData2, testData3]
         
-        try self.recordManagement?.addRecords(self.APP_ID, testDatas).then{addResponse in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, testDatas).then{addResponse -> Promise<GetRecordsResponse> in
             let recIds = addResponse.getIDs()
-            let query = "NUMBER >= 2000 and レコード番号 >= " + recIds![0].description + " order by レコード番号 asc"
-            try self.recordManagement?.getRecords(self.APP_ID, query, fields, true).then{response in
-                let resultData = response.getRecords()
-                // check result
-                for (i, dval) in (resultData?.enumerated())! {
-                    XCTAssertEqual(2, dval.count)
-                    for (code, value) in dval {
-                        let resultFieldType = value.getType()
-                        let resultFieldValue = value.getValue()
-                        let testDataValue = testDatas[i][code]?.getValue()
-                        self.checkResult(resultFieldType!, resultFieldValue as Any, testDataValue as Any)
-                    }
+            let query = "NUMBER >= 5 and Record_number >= " + recIds![0].description + " order by Record_number asc"
+            return (self.recordManagement?.getRecords(RecordTestConstants.APP_ID, query, fields, true))!
+        }.then{response in
+            let resultData = response.getRecords()
+            // check result
+            for (i, dval) in (resultData?.enumerated())! {
+                XCTAssertEqual(2, dval.count)
+                for (code, value) in dval {
+                    let resultFieldType = value.getType()
+                    let resultFieldValue = value.getValue()
+                    let testDataValue = testDatas[i][code]?.getValue()
+                    self.checkResult(resultFieldType!, resultFieldValue as Any, testDataValue as Any)
                 }
             }
         }.catch{ error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testGetRecordsWithoutTotal() throws {
@@ -203,10 +198,12 @@ class RecordTest: XCTestCase {
         testData3 = addData(testData3, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecordsWithoutTotal3")
         var testDatas = [testData1, testData2, testData3]
         
-        try self.recordManagement?.addRecords(self.APP_ID, testDatas).then{addResponse in
-            let recIds = addResponse.getIDs()
-            let query = "レコード番号 >= " + recIds![0].description + " order by レコード番号 asc"
-            try self.recordManagement?.getRecords(self.APP_ID, query, nil, nil).then{response in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, testDatas)
+            .then{addResponse -> Promise<GetRecordsResponse> in
+                let recIds = addResponse.getIDs()
+                let query = "Record_number >= " + recIds![0].description + " order by Record_number asc"
+                return (self.recordManagement?.getRecords(RecordTestConstants.APP_ID, query, nil, nil))!
+            }.then{response in
                 let resultData = response.getRecords()
                 
                 // check result
@@ -219,11 +216,10 @@ class RecordTest: XCTestCase {
                         self.checkResult(resultFieldType!, resultFieldValue as Any, testDataValue as Any)
                     }
                 }
-            }
         }.catch{ error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 20))
     }
     
     func testAddRecord() throws {
@@ -231,7 +227,7 @@ class RecordTest: XCTestCase {
         var testData: Dictionary<String, FieldValue> = createAddData()
         testData = addData(testData, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testAddRecord")
         
-        try self.recordManagement?.addRecord(self.APP_ID, testData).then{response in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, testData).then{response in
             XCTAssertNotNil(response.getId())
             XCTAssertNotNil(response.getRevision())
         }.catch {error in
@@ -241,7 +237,7 @@ class RecordTest: XCTestCase {
     }
     
     func testAddRecordWithoutRecord() throws {
-        try self.recordManagement?.addRecord(self.APP_ID, nil).then{response in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, nil).then{response in
             XCTAssertNotNil(response.getId())
             XCTAssertNotNil(response.getRevision())
         }.catch{error in
@@ -258,7 +254,7 @@ class RecordTest: XCTestCase {
         testData2 = addData(testData2, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testAddRecords2")
         let testDataList = [testData1, testData2]
         
-        try self.recordManagement?.addRecords(self.APP_ID, testDataList).then{response in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, testDataList).then{response in
             XCTAssertEqual(2, response.getIDs()?.count)
             XCTAssertEqual(2, response.getRevisions()?.count)
             XCTAssertNotNil(response.getIDs()![0])
@@ -274,11 +270,11 @@ class RecordTest: XCTestCase {
     func testUpdateRecordById() throws {
         // create test data for update
         var updRecord = createAddData()
-        try self.recordManagement?.addRecord(self.APP_ID, updRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updRecord).then{addResponse in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             updRecord = self.addData(updRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testUpdateRecordById")
-            try self.recordManagement?.updateRecordByID(self.APP_ID, updRecNum!, updRecord, updRevision).then{response in
+            self.recordManagement?.updateRecordByID(RecordTestConstants.APP_ID, updRecNum!, updRecord, updRevision).then{response in
                 XCTAssertEqual(updRevision!+1, response.getRevision())
             }
         }.catch{error in
@@ -290,11 +286,11 @@ class RecordTest: XCTestCase {
     func testUpdateRecordByIdWithoutRevision() throws {
         // create test data for update
         var updRecord = createAddData()
-        try self.recordManagement?.addRecord(self.APP_ID, updRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updRecord).then{addResponse in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             updRecord = self.addData(updRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordByIdWithoutRevision")
-            try self.recordManagement?.updateRecordByID(self.APP_ID, updRecNum!, updRecord, nil).then{response in
+            self.recordManagement?.updateRecordByID(RecordTestConstants.APP_ID, updRecNum!, updRecord, nil).then{response in
                 XCTAssertEqual(updRevision!+1, response.getRevision())
             }
         }.catch{error in
@@ -306,11 +302,11 @@ class RecordTest: XCTestCase {
     func testUpdateRecordByIdWithoutRecord() throws {
         // create test data for update
         var updRecord = createAddData()
-        try self.recordManagement?.addRecord(self.APP_ID, updRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updRecord).then{addResponse in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             updRecord = self.addData(updRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordByIdWithoutRecord")
-            try self.recordManagement?.updateRecordByID(self.APP_ID, updRecNum!, nil, nil).then{response in
+            self.recordManagement?.updateRecordByID(RecordTestConstants.APP_ID, updRecNum!, nil, nil).then{response in
                 XCTAssertEqual(updRevision!+1, response.getRevision())
             }
         }.catch{error in
@@ -329,12 +325,12 @@ class RecordTest: XCTestCase {
         // create test data for update
         var addRecord = createAddData()
         addRecord = addData(addRecord, "UPDATE_KEY", FieldType.SINGLE_LINE_TEXT, uniquekey)
-        try self.recordManagement?.addRecord(self.APP_ID, addRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, addRecord).then{addResponse in
             let updRevision = addResponse.getRevision()
             let updKey: RecordUpdateKey = RecordUpdateKey("UPDATE_KEY", uniquekey)
             var updRecord: Dictionary<String, FieldValue> = [:]
             updRecord = self.addData(updRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordByUpdateKey")
-            try self.recordManagement?.updateRecordByUpdateKey(self.APP_ID, updKey, updRecord, nil).then{response in
+            self.recordManagement?.updateRecordByUpdateKey(RecordTestConstants.APP_ID, updKey, updRecord, nil).then{response in
                 XCTAssertEqual(updRevision!+1, response.getRevision())
             }
         }.catch{error in
@@ -354,10 +350,10 @@ class RecordTest: XCTestCase {
         var addRecord = createAddData()
         addRecord = addData(addRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordByUpdateKeyWithoutRecord")
         addRecord = addData(addRecord, "UPDATE_KEY", FieldType.SINGLE_LINE_TEXT, uniquekey)
-        try self.recordManagement?.addRecord(self.APP_ID, addRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, addRecord).then{addResponse in
             let updRevision = addResponse.getRevision()
             let updKey: RecordUpdateKey = RecordUpdateKey("UPDATE_KEY", uniquekey)
-            try self.recordManagement?.updateRecordByUpdateKey(self.APP_ID, updKey, nil, nil).then{response in
+            self.recordManagement?.updateRecordByUpdateKey(RecordTestConstants.APP_ID, updKey, nil, nil).then{response in
                 XCTAssertEqual(updRevision!+1, response.getRevision())
             }
         }.catch{error in
@@ -371,7 +367,7 @@ class RecordTest: XCTestCase {
         var addRecord1 = createAddData()
         var addRecord2 = createAddData()
         let addRecordList = [addRecord1, addRecord2]
-        try self.recordManagement?.addRecords(self.APP_ID, addRecordList).then{addResponse in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, addRecordList).then{addResponse in
             // update data
             addRecord1 = self.addData(addRecord1, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testUpdateRecords1")
             addRecord2 = self.addData(addRecord2, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testUpdateRecords2")
@@ -379,7 +375,7 @@ class RecordTest: XCTestCase {
             let updItem2: RecordUpdateItem = RecordUpdateItem(addResponse.getIDs()?[1], nil, nil, addRecord2)
             let updItemList = [updItem1, updItem2]
             
-            try self.recordManagement?.updateRecords(self.APP_ID, updItemList).then{response in
+            self.recordManagement?.updateRecords(RecordTestConstants.APP_ID, updItemList).then{response in
                 XCTAssertEqual(2, response.getRecords()?.count)
                 XCTAssertEqual((response.getRecords()![0]).getID(), addResponse.getIDs()![0])
                 XCTAssertEqual((response.getRecords()![1]).getID(), addResponse.getIDs()![1])
@@ -397,9 +393,9 @@ class RecordTest: XCTestCase {
         let delRecord1 = createAddData()
         let delRecord2 = createAddData()
         let delRecordList = [delRecord1, delRecord2]
-        self.recordManagement?.addRecords(self.APP_ID, delRecordList).then{addResponse -> Promise<Bool> in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, delRecordList).then{addResponse -> Promise<Bool> in
             let delId = [addResponse.getIDs()![0], addResponse.getIDs()![1]]
-            return (self.recordManagement?.deleteRecords(self.APP_ID, delId))!
+            return (self.recordManagement?.deleteRecords(RecordTestConstants.APP_ID, delId))!
         }.then{ deleteResponse in
             XCTAssertTrue(deleteResponse)
         }.catch{error in
@@ -413,13 +409,13 @@ class RecordTest: XCTestCase {
         let delRecord1 = createAddData()
         let delRecord2 = createAddData()
         let delRecordList = [delRecord1, delRecord2]
-        self.recordManagement?.addRecords(self.APP_ID, delRecordList).then{addResponse in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, delRecordList).then{addResponse in
             var delIdAndRevision: Dictionary<Int, Int> = [:]
             delIdAndRevision[addResponse.getIDs()![0]] = addResponse.getRevisions()![0]
             delIdAndRevision[addResponse.getIDs()![1]] = addResponse.getRevisions()![1]
-            return (self.recordManagement?.deleteRecordsWithRevision(self.APP_ID, delIdAndRevision))!
-        }.then{deleteResponse in
-            XCTAssertTrue(deleteResponse)
+            return (self.recordManagement?.deleteRecordsWithRevision(RecordTestConstants.APP_ID, delIdAndRevision))!
+        }.then{
+            XCTAssertTrue(true)
         }.catch{error in
             XCTFail(self.getErrorMessage(error))
         }
@@ -433,29 +429,29 @@ class RecordTest: XCTestCase {
         delRecord1 = addData(delRecord1, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testDeleteRecordsWithRevisionWithoutRevision1")
         delRecord2 = addData(delRecord2, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testDeleteRecordsWithRevisionWithoutRevision2")
         let delRecordList = [delRecord1, delRecord2]
-        self.recordManagement?.addRecords(self.APP_ID, delRecordList).then{addResponse -> Promise<Bool> in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, delRecordList).then{addResponse -> Promise<Void> in
             var delIdAndRevision: Dictionary<Int, Int> = [:]
-            delIdAndRevision[addResponse.getIDs()![0]] = nil
-            delIdAndRevision[addResponse.getIDs()![1]] = nil
-            return (self.recordManagement?.deleteRecordsWithRevision(self.APP_ID, delIdAndRevision))!
-        }.then {deleteResponse in
-            XCTAssertTrue(!deleteResponse)
-        }.catch{error in
+            delIdAndRevision[(addResponse.getIDs()![0])] = -1
+            delIdAndRevision[addResponse.getIDs()![1]] = -1
+            return (self.recordManagement?.deleteRecordsWithRevision(RecordTestConstants.APP_ID, delIdAndRevision))!
+        }.then {
             XCTAssertTrue(true)
+        }.catch{error in
+            XCTFail()
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testUpdateRecordAssignees() throws {
         // create test data for update assignees
         var updAssigneesRecord = createAddData()
         updAssigneesRecord = addData(updAssigneesRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordAssignees")
-        self.recordManagement?.addRecord(self.APP_ID, updAssigneesRecord).then{addResponse -> Promise<UpdateRecordResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updAssigneesRecord).then{addResponse -> Promise<UpdateRecordResponse> in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             let assignees: Array<String> = [self.testUser1.code!]
             
-            return (self.recordManagement?.updateRecordAssignees(self.APP_ID, updRecNum!, assignees, updRevision).then{response in
+            return (self.recordManagement?.updateRecordAssignees(RecordTestConstants.APP_ID, updRecNum!, assignees, updRevision).then{response in
                 XCTAssertEqual(updRevision!+1, response.getRevision())
                 })!
         }.catch{error in
@@ -469,12 +465,12 @@ class RecordTest: XCTestCase {
         var updAssigneesRecord = createAddData()
         updAssigneesRecord = addData(updAssigneesRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordAssigneesWithoutRevision")
         
-        self.recordManagement?.addRecord(self.APP_ID, updAssigneesRecord).then{addResponse -> Promise<UpdateRecordResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updAssigneesRecord).then{addResponse -> Promise<UpdateRecordResponse> in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             let assignees: Array<String> = [self.testUser1.code!]
             
-            return (self.recordManagement?.updateRecordAssignees(self.APP_ID, updRecNum!, assignees, nil).then{response in
+            return (self.recordManagement?.updateRecordAssignees(RecordTestConstants.APP_ID, updRecNum!, assignees, nil).then{response in
                 XCTAssertEqual(updRevision!+1, response.getRevision())
                 })!
         }.catch{error in
@@ -488,13 +484,13 @@ class RecordTest: XCTestCase {
         var updStatusRecord = createAddData()
         updStatusRecord = addData(updStatusRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordStatus")
         
-        self.recordManagement?.addRecord(self.APP_ID, updStatusRecord).then{addResponse -> Promise<UpdateRecordResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updStatusRecord).then{addResponse -> Promise<UpdateRecordResponse> in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             let assignee = self.testUser1.code
             let status = "処理開始"
             
-            return (self.recordManagement?.updateRecordStatus(self.APP_ID, updRecNum!, status, assignee, updRevision).then{response in
+            return (self.recordManagement?.updateRecordStatus(RecordTestConstants.APP_ID, updRecNum!, status, assignee, updRevision).then{response in
                 XCTAssertEqual(updRevision!+2, response.getRevision())
                 })!
         }.catch{error in
@@ -507,12 +503,12 @@ class RecordTest: XCTestCase {
         // create test data for update status
         var updStatusRecord = createAddData()
         updStatusRecord = addData(updStatusRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordStatusWithoutRevision")
-        self.recordManagement?.addRecord(self.APP_ID, updStatusRecord).then{addResponse -> Promise<UpdateRecordResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updStatusRecord).then{addResponse -> Promise<UpdateRecordResponse> in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             let assignee = self.testUser2.code
             let status = "処理開始"
-            return (self.recordManagement?.updateRecordStatus(self.APP_ID, updRecNum!, status, assignee, nil).then{response in
+            return (self.recordManagement?.updateRecordStatus(RecordTestConstants.APP_ID, updRecNum!, status, assignee, nil).then{response in
                 XCTAssertEqual(updRevision!+2, response.getRevision())
                 })!
         }.catch{error in
@@ -525,11 +521,11 @@ class RecordTest: XCTestCase {
         // create test data for update status
         var updStatusRecord = createAddData()
         updStatusRecord = addData(updStatusRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordStatusWithoutAssignee")
-        self.recordManagement?.addRecord(self.APP_ID, updStatusRecord).then{addResponse -> Promise<UpdateRecordResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, updStatusRecord).then{addResponse -> Promise<UpdateRecordResponse> in
             let updRecNum = addResponse.getId()
             let updRevision = addResponse.getRevision()
             let status = "処理開始"
-            return (self.recordManagement?.updateRecordStatus(self.APP_ID, updRecNum!, status, nil, updRevision))!
+            return (self.recordManagement?.updateRecordStatus(RecordTestConstants.APP_ID, updRecNum!, status, nil, updRevision))!
         }.then{_ in
             XCTFail(self.getErrorMessage("Can Add Record Without Assignee"))
         }.catch{error in
@@ -546,7 +542,7 @@ class RecordTest: XCTestCase {
         updStatusRecord2 = addData(updStatusRecord2, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordsStatus2")
         
         let updsStatus = [updStatusRecord1, updStatusRecord2]
-        self.recordManagement?.addRecords(self.APP_ID, updsStatus).then{addResponse -> Promise<UpdateRecordsResponse> in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, updsStatus).then{addResponse -> Promise<UpdateRecordsResponse> in
             let id1 = addResponse.getIDs()![0]
             let id2 = addResponse.getIDs()![1]
             let revision1 = addResponse.getRevisions()![0]
@@ -554,7 +550,7 @@ class RecordTest: XCTestCase {
             let item1: RecordUpdateStatusItem = RecordUpdateStatusItem("処理開始", self.testUser1.code, id1, revision1)
             let item2: RecordUpdateStatusItem = RecordUpdateStatusItem("処理開始", self.testUser2.code, id2, revision2)
             let itemList = [item1, item2]
-            return (self.recordManagement?.updateRecordsStatus(self.APP_ID, itemList).then{response in
+            return (self.recordManagement?.updateRecordsStatus(RecordTestConstants.APP_ID, itemList).then{response in
                 XCTAssertEqual(2, response.getRecords()?.count)
                 XCTAssertEqual((response.getRecords()![0]).getID(), addResponse.getIDs()![0])
                 XCTAssertEqual((response.getRecords()![1]).getID(), addResponse.getIDs()![1])
@@ -575,14 +571,14 @@ class RecordTest: XCTestCase {
         updStatusRecord2 = addData(updStatusRecord2, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testUpdateRecordsStatusWithoutReivision2")
         
         let updsStatus = [updStatusRecord1, updStatusRecord2]
-        self.recordManagement?.addRecords(self.APP_ID, updsStatus).then{addResponse -> Promise<UpdateRecordsResponse> in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, updsStatus).then{addResponse -> Promise<UpdateRecordsResponse> in
             let id1 = addResponse.getIDs()![0]
             let id2 = addResponse.getIDs()![1]
             let item1: RecordUpdateStatusItem = RecordUpdateStatusItem("処理開始", self.testUser1.code, id1, nil)
             let item2: RecordUpdateStatusItem = RecordUpdateStatusItem("処理開始", self.testUser2.code, id2, nil)
             let itemList = [item1, item2]
             
-            return (self.recordManagement?.updateRecordsStatus(self.APP_ID, itemList).then{response in
+            return (self.recordManagement?.updateRecordsStatus(RecordTestConstants.APP_ID, itemList).then{response in
                 XCTAssertEqual(2, response.getRecords()?.count)
                 XCTAssertEqual((response.getRecords()![0]).getID(), addResponse.getIDs()![0])
                 XCTAssertEqual((response.getRecords()![1]).getID(), addResponse.getIDs()![1])
@@ -599,7 +595,7 @@ class RecordTest: XCTestCase {
         // create test data for add comment
         var addCommentRecord = createAddData()
         addCommentRecord = addData(addCommentRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testAddComment")
-        self.recordManagement?.addRecord(self.APP_ID, addCommentRecord).then{addResponse -> Promise<AddCommentResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, addCommentRecord).then{addResponse -> Promise<AddCommentResponse> in
             let updRecNum = addResponse.getId()
             let mention = CommentMention()
             let comment = CommentContent()
@@ -608,7 +604,7 @@ class RecordTest: XCTestCase {
             let mentionList = [mention]
             comment.setText("add comment test")
             comment.setMentions(mentionList)
-            return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+            return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
         }.then{response in
             XCTAssertNotNil(response.getId())
         }.catch{error in
@@ -621,11 +617,11 @@ class RecordTest: XCTestCase {
         // create test data for add comment
         var addCommentRecord = createAddData()
         addCommentRecord = addData(addCommentRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testAddCommentWithoutMention")
-        self.recordManagement?.addRecord(self.APP_ID, addCommentRecord).then{addResponse -> Promise<AddCommentResponse> in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, addCommentRecord).then{addResponse -> Promise<AddCommentResponse> in
             let updRecNum = addResponse.getId()
             let comment = CommentContent()
             comment.setText("add comment without mention test")
-            return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+            return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
         }.then{response in
             XCTAssertNotNil(response.getId())
         }.catch{error in
@@ -638,7 +634,7 @@ class RecordTest: XCTestCase {
         // create test data for get comments
         var addCommentRecord = createAddData()
         addCommentRecord = addData(addCommentRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testGetComments")
-        self.recordManagement?.addRecord(self.APP_ID, addCommentRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, addCommentRecord).then{addResponse in
             let updRecNum = addResponse.getId()
             let mention = CommentMention()
             let comment = CommentContent()
@@ -647,17 +643,17 @@ class RecordTest: XCTestCase {
             let mentionList = [mention]
             comment.setText("add comment test1")
             comment.setMentions(mentionList)
-            self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment).then{_ -> Promise<AddCommentResponse> in
+            self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment).then{_ -> Promise<AddCommentResponse> in
                 comment.setText("add comment test2")
-                return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+                return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
             }.then{_ -> Promise<AddCommentResponse> in
                 comment.setText("add comment test3")
-                return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+                return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
             }.then{_ -> Promise<AddCommentResponse> in
                 comment.setText("add comment test4")
-                return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+                return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
             }.then { _ in
-                return self.recordManagement?.getComments(self.APP_ID, updRecNum!, "asc", 1, 2).then{response in
+                return self.recordManagement?.getComments(RecordTestConstants.APP_ID, updRecNum!, "asc", 1, 2).then{response in
                     XCTAssertEqual(2, response.getComments()?.count)
                     XCTAssertNotNil(response.getComments()![0].getId())
                     XCTAssertNotNil(response.getComments()![1].getId())
@@ -683,7 +679,7 @@ class RecordTest: XCTestCase {
         // create test data for get comments
         var addCommentRecord = createAddData()
         addCommentRecord = addData(addCommentRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testGetCommentsWithoutOption")
-        self.recordManagement?.addRecord(self.APP_ID, addCommentRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, addCommentRecord).then{addResponse in
             let updRecNum = addResponse.getId()
             let mention = CommentMention()
             let comment = CommentContent()
@@ -692,17 +688,17 @@ class RecordTest: XCTestCase {
             let mentionList = [mention]
             comment.setText("add comment test1")
             comment.setMentions(mentionList)
-            self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment).then{_ -> Promise<AddCommentResponse> in
+            self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment).then{_ -> Promise<AddCommentResponse> in
                 comment.setText("add comment test2")
-                return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+                return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
             }.then{_ -> Promise<AddCommentResponse> in
                 comment.setText("add comment test3")
-                return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+                return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
             }.then{_ -> Promise<AddCommentResponse> in
                 comment.setText("add comment test4")
-                return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment))!
+                return (self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment))!
             }.then { _ in
-                return self.recordManagement?.getComments(self.APP_ID, updRecNum!, nil, nil, nil).then{response in
+                return self.recordManagement?.getComments(RecordTestConstants.APP_ID, updRecNum!, nil, nil, nil).then{response in
                     XCTAssertEqual(4, response.getComments()?.count)
                     XCTAssertNotNil(response.getComments()![0].getId())
                     XCTAssertNotNil(response.getComments()![0].getCreatedAt())
@@ -721,7 +717,7 @@ class RecordTest: XCTestCase {
         // create test data for delete comment
         var delCommentRecord = createAddData()
         delCommentRecord = addData(delCommentRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, " testDeleteComment")
-        self.recordManagement?.addRecord(self.APP_ID, delCommentRecord).then{addResponse in
+        self.recordManagement?.addRecord(RecordTestConstants.APP_ID, delCommentRecord).then{addResponse in
             let updRecNum = addResponse.getId()
             let mention = CommentMention()
             let comment = CommentContent()
@@ -730,11 +726,12 @@ class RecordTest: XCTestCase {
             let mentionList = [mention]
             comment.setText("delete comment test")
             comment.setMentions(mentionList)
-            return (self.recordManagement?.addComment(self.APP_ID, updRecNum!, comment).then{addComResponse -> Promise<Bool> in
-                return (self.recordManagement?.deleteComment(self.APP_ID, updRecNum!, addComResponse.getId()!))!
-                })!
-        }.then{deleteResponse in
-            XCTAssertTrue(deleteResponse)
+            return ((self.recordManagement?.addComment(RecordTestConstants.APP_ID, updRecNum!, comment)
+            .then{addComResponse -> Promise<Void> in
+                    return (self.recordManagement?.deleteComment(RecordTestConstants.APP_ID, updRecNum!, addComResponse.getId()!))!
+            })!)
+        }.then{
+            XCTAssertTrue(true)
         }.catch{error in
             XCTFail(self.getErrorMessage(error))
         }

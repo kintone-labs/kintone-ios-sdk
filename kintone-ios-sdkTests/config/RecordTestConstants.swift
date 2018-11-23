@@ -1,9 +1,6 @@
-//
-//  RecordTestConstants.swift
-//  kintone-ios-sdkTests
-//
-//  Created by Pham Anh Quoc Phien on 11/23/18.
-//  Copyright © 2018 Cybozu. All rights reserved.
-//
+//  Copyright © 2018年 Cybozu. All rights reserved.
 
-import Foundation
+public class RecordTestConstants {
+    public static let API_TOKEN = "vXpZuik6FwetdecNVUzEfQCR3F1cu2qoJZMFXyOe"
+    public static let APP_ID = 9
+}

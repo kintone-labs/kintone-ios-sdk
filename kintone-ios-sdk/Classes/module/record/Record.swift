@@ -243,8 +243,8 @@ open class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - idsWithRevision: the map of revision number to record ID
     /// - Throws: KintoneAPIException
-    open func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])  -> Promise<Bool> {
-        return Promise<Bool> {fulfill, reject in
+    open func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])  -> Promise<Void> {
+        return Promise<Void> {fulfill, reject in
             do {
                 // split idsWithRevision into key list and value list
                 var ids = [Int]()
@@ -258,7 +258,7 @@ open class Record: NSObject {
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
                 self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{response in
-                    fulfill(true)
+                    fulfill(())
                 }.catch {error in
                     reject(error)
                 }
@@ -415,15 +415,15 @@ open class Record: NSObject {
     ///   - record: the ID of record
     ///   - comment: the ID of comment on the record
     /// - Throws: KintoneAPIException
-    open func deleteComment(_ app: Int, _ record: Int, _ comment: Int) -> Promise<Bool> {
-        return Promise<Bool> { fulfill,reject in
+    open func deleteComment(_ app: Int, _ record: Int, _ comment: Int) -> Promise<Void> {
+        return Promise<Void> { fulfill,reject in
             do {
                 // execute DELETE RRECORD_COMMENT API
                 let recordRequest = DeleteCommentRecordRequest(app, record, comment)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
                 self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody).then{response in
-                    fulfill(true)
+                    fulfill(())
                 }.catch { error in
                     reject(error)
                 }
