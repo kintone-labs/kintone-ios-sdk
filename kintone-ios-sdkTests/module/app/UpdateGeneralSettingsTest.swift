@@ -12,9 +12,9 @@ import XCTest
 
 class UpdateGeneralSettingsTest: XCTestCase {
 
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_ID = 1686
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_ID = AppTestConstants.UPDATE_GENERAL_SETTINGS_APP_ID
     private let LANG = LanguageSetting.EN
     
     private var app: App? = nil

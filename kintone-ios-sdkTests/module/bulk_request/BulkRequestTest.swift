@@ -12,10 +12,10 @@ import XCTest
 
 class BulkRequestTest: XCTestCase {
 
-    private let USERNAME = "cybozu"
-    private let PASSWORD = "cybozu"
-    private let DOMAIN = "https://phienphamf1811-1.cybozu-dev.com"
-    private let APP_ID = 10
+    private let USERNAME = BulkRequestTestConstants.USERNAME
+    private let PASSWORD = BulkRequestTestConstants.PASSWORD
+    private let DOMAIN = BulkRequestTestConstants.DOMAIN
+    private let APP_ID = BulkRequestTestConstants.APP_ID
     
     private var bulkRequest: BulkRequest? = nil
     private var connection: Connection? = nil
