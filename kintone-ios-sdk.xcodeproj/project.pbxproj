@@ -46,6 +46,10 @@
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
 		129CB2AE215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */; };
+		12DB97D121A7DF810070C5C4 /* AppTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D021A7DF810070C5C4 /* AppTestConstants.swift */; };
+		12DB97D321A7DF910070C5C4 /* RecordTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D221A7DF910070C5C4 /* RecordTestConstants.swift */; };
+		12DB97D521A7DF9E0070C5C4 /* FileTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */; };
+		12DB97D721A7DFB80070C5C4 /* BulkRequestTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -249,6 +253,10 @@
 		129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutRequest.swift; sourceTree = "<group>"; };
 		129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateFormFieldsRequest.swift; sourceTree = "<group>"; };
 		129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsRequest.swift; sourceTree = "<group>"; };
+		12DB97D021A7DF810070C5C4 /* AppTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTestConstants.swift; sourceTree = "<group>"; };
+		12DB97D221A7DF910070C5C4 /* RecordTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTestConstants.swift; sourceTree = "<group>"; };
+		12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTestConstants.swift; sourceTree = "<group>"; };
+		12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestTestConstants.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -501,6 +509,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		12DB97CF21A7DF630070C5C4 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				12DB97D021A7DF810070C5C4 /* AppTestConstants.swift */,
+				12DB97D221A7DF910070C5C4 /* RecordTestConstants.swift */,
+				12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */,
+				12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
 		3E17EA07213E427F002D9BC0 = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +553,7 @@
 		3E17EA1E213E427F002D9BC0 /* kintone-ios-sdkTests */ = {
 			isa = PBXGroup;
 			children = (
+				12DB97CF21A7DF630070C5C4 /* config */,
 				ABE02359216F4634002C47EC /* resouces */,
 				110578F2216756A900F6E8C0 /* connection */,
 				110578E521620B9300F6E8C0 /* module */,
@@ -1267,17 +1287,21 @@
 				122F1DDE216B7B3D00160A27 /* GetFormFieldsTest.swift in Sources */,
 				122F1DD8216B7AE300160A27 /* GetAppTest.swift in Sources */,
 				122F1DE2216B7B5A00160A27 /* GetGeneralSettingsTest.swift in Sources */,
+				12DB97D321A7DF910070C5C4 /* RecordTestConstants.swift in Sources */,
 				122F1DEA216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift in Sources */,
 				122F1DE0216B7B4800160A27 /* GetFormLayoutTest.swift in Sources */,
+				12DB97D521A7DF9E0070C5C4 /* FileTestConstants.swift in Sources */,
 				122F1DEE216B7BC400160A27 /* GetAppsByCodesTest.swift in Sources */,
 				122F1DE8216B7B7B00160A27 /* UpdateFormLayoutTest.swift in Sources */,
 				122F1DF2216B7BE100160A27 /* GetAppsByNameTest.swift in Sources */,
 				122F1DD0216B7A8C00160A27 /* AddFormFieldsTest.swift in Sources */,
+				12DB97D721A7DFB80070C5C4 /* BulkRequestTestConstants.swift in Sources */,
 				122F1DE4216B7B6500160A27 /* GetViewsTest.swift in Sources */,
 				122F1DF0216B7BD200160A27 /* GetAppsByIDsTest.swift in Sources */,
 				122F1DD6216B7AD600160A27 /* DeployAppSettingsTest.swift in Sources */,
 				122F1DE6216B7B7000160A27 /* UpdateFormFieldsTest.swift in Sources */,
 				122F1DEC216B7BB700160A27 /* UpdateViewsTest.swift in Sources */,
+				12DB97D121A7DF810070C5C4 /* AppTestConstants.swift in Sources */,
 				AB4D643521670A22005807C1 /* RecordTest.swift in Sources */,
 				110578F4216756A900F6E8C0 /* ConnectionTest.swift in Sources */,
 			);

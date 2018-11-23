@@ -32,7 +32,7 @@ public extension AppView where Self: App {
                 let body = try self.parser.parseObject(getViewsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let apiName = isPreview ?? false ? ConnectionConstants.APP_VIEWS : ConnectionConstants.APP_VIEWS_PREVIEW
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, apiName, jsonBody)
+                self.connection?.request(ConnectionConstants.GET_REQUEST, apiName, jsonBody)
                     .then { response in
                         // return response as GetRecordResponse class
                         let parseResponse = try self.parser.parseJson(GetViewsResponse.self, response)
@@ -53,7 +53,7 @@ public extension AppView where Self: App {
                 let updateViewsRequest = UpdateViewsRequest(app!, views, revision ?? -1)
                 let body = try self.parser.parseObject(updateViewsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_VIEWS_PREVIEW, jsonBody)
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_VIEWS_PREVIEW, jsonBody)
                     .then { response in
                         // return response as GetRecordResponse class
                         let parseResponse = try self.parser.parseJson(UpdateViewsResponse.self, response)
