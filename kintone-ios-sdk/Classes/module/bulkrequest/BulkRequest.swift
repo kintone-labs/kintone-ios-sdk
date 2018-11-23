@@ -263,7 +263,7 @@ open class BulkRequest: NSObject {
                 
                 let body = try parser.parseObject(self.bulkRequests)
                 let jsonBody = String(data: body, encoding: .utf8)
-                self.connection.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.BULK_REQUEST, jsonBody!).then{response in
+                self.connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.BULK_REQUEST, jsonBody!).then{response in
                     
                     let jsonobject = try JSONSerialization.jsonObject(with: response, options: .allowFragments)
                     let jsonArray = (jsonobject as! NSDictionary)["results"] as! NSArray

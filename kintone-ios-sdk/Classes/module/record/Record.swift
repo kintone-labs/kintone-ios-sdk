@@ -34,7 +34,7 @@ open class Record: NSObject {
             do {
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                    self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                    self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
                         // return response as GetRecordResponse class
                         let parseResponse = try self.parser.parseJson(GetRecordResponse.self, response)
                         fulfill(parseResponse)
@@ -62,7 +62,7 @@ open class Record: NSObject {
             do {
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
                     // return response as GetRecordResponse class
                     let parseResponseToJson = try self.parser.parseJson(AddRecordResponse.self, response)
                         fulfill(parseResponseToJson)
@@ -92,7 +92,7 @@ open class Record: NSObject {
             do {
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
                     // return response as GetRecordResponse class
                     let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
                     fulfill(parseResponseToJson)
@@ -118,7 +118,7 @@ open class Record: NSObject {
                 let recordRequest = DeleteRecordsRequest(app, ids, nil)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{response in
+                self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{response in
                     fulfill(true)
                 }
             } catch {
@@ -143,7 +143,7 @@ open class Record: NSObject {
                 let recordsRequest = GetRecordsRequest(fields, app, query, totalCount)
                 let body = try self.parser.parseObject(recordsRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
                     let parseResponse = try self.parser.parseJson(GetRecordsResponse.self, response)
                     fulfill(parseResponse)
                 }.catch{ error in
@@ -169,7 +169,7 @@ open class Record: NSObject {
                 let recordRequest = AddRecordsRequest(app, records)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
                     let parseResponseToJson = try self.parser.parseJson(AddRecordsResponse.self, response)
                     fulfill(parseResponseToJson)
                 }.catch{ error in
@@ -197,7 +197,7 @@ open class Record: NSObject {
                 let recordRequest = UpdateRecordRequest(app, nil, updateKey, revision, record)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody).then{ response in
                     // return response as UpdateRecordResponse class
                     let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
                     fulfill(parseResponseToJson)
@@ -224,7 +224,7 @@ open class Record: NSObject {
                 let recordRequest = UpdateRecordsRequest(app, records)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{ response in
                     // return response as UpdateRecordsResponse class
                     let parseResponseToJson = try self.parser.parseJson(UpdateRecordsResponse.self, response)
                     fulfill(parseResponseToJson)
@@ -257,7 +257,7 @@ open class Record: NSObject {
                 let recordRequest = DeleteRecordsRequest(app, ids, revisions)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{response in
+                self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{response in
                     fulfill(true)
                 }.catch {error in
                     reject(error)
@@ -284,7 +284,7 @@ open class Record: NSObject {
                 let recordRequest = UpdateRecordAssigneesRequest(app, id, assignees, revision)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_ASSIGNEES, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_ASSIGNEES, jsonBody).then{ response in
                     let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
                     fulfill(parseResponseToJson)
                 }.catch{ error in
@@ -313,7 +313,7 @@ open class Record: NSObject {
                 let recordRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_STATUS, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD_STATUS, jsonBody).then{ response in
                     // return response as UpdateRecordsResponse class
                     let parseResponseToJson = try self.parser.parseJson(UpdateRecordResponse.self, response)
                     fulfill(parseResponseToJson)
@@ -340,7 +340,7 @@ open class Record: NSObject {
                 let recordRequest = UpdateRecordsStatusRequest(app, records)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS_STATUS, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORDS_STATUS, jsonBody).then{ response in
                     let parseResponseToJson = try self.parser.parseJson(UpdateRecordsResponse.self, response)
                     fulfill(parseResponseToJson)
                 }.catch{ error in
@@ -369,7 +369,7 @@ open class Record: NSObject {
                 let recordRequest = GetCommentsRecordRequest(app, record, order, offset, limit)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD_COMMENTS, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.RECORD_COMMENTS, jsonBody).then{ response in
                     let parseResponse = try self.parser.parseJson(GetCommentsResponse.self, response)
                     fulfill(parseResponse)
                 }.catch{ error in
@@ -396,7 +396,7 @@ open class Record: NSObject {
                 let recordRequest = AddCommentRecordRequest(app, record, comment)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody).then{ response in
+                self.connection?.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody).then{ response in
                     let parseResponse = try self.parser.parseJson(AddCommentResponse.self, response)
                     fulfill(parseResponse)
                 }.catch{ error in
@@ -422,7 +422,7 @@ open class Record: NSObject {
                 let recordRequest = DeleteCommentRecordRequest(app, record, comment)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
-                self.connection?.requestAsync(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody).then{response in
+                self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORD_COMMENT, jsonBody).then{response in
                     fulfill(true)
                 }.catch { error in
                     reject(error)
