@@ -150,7 +150,7 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestWithTokenAuthenticationShouldFail() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setApiToken("UZVlLDkvO20252Lbzx1qbzI9V4dtiAMuMNBxnuDU")
+        auth = auth.setApiToken(ConnectionTestConstants.API_TOKEN)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
@@ -189,7 +189,7 @@ class ConnectionTest: XCTestCase {
     
     func testInvalidPassAuthenticationShouldFailWhenTokenAuthenticationAllow() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setApiToken("11ZkR2UsPjONME2eQL7durBe48TURXR5eVWl1ecg")
+        auth = auth.setApiToken(ConnectionTestConstants.API_TOKEN)
         auth = auth.setPasswordAuth("WrongUsername", ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
@@ -207,9 +207,9 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestWithBasicAuthenticationShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setBasicAuth("cybozu", "cybozu")
-        auth = auth.setPasswordAuth("basic", "basic")
-        let connection: Connection = Connection("https://ios-sdk-test.cybozu.com", auth)
+        auth = auth.setBasicAuth(ConnectionTestConstants.BASIC_USERNAME, ConnectionTestConstants.BASIC_USERNAME)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
+        let connection: Connection = Connection(ConnectionTestConstants.BASIC_DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
@@ -225,8 +225,8 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestWithPasswordAuthenticationShouldFailWithBasicAuthenticationSite() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setBasicAuth("cybozu", "cybozu")
-        let connection: Connection = Connection("https://ios-sdk-test.cybozu.com", auth)
+        auth = auth.setBasicAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
+        let connection: Connection = Connection(ConnectionTestConstants.BASIC_DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
@@ -246,7 +246,7 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestWithPasswordAuthenticationShouldSuccessWhenGivenBasicAuthentication() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setBasicAuth("cybozu", "cybozu")
+        auth = auth.setBasicAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
