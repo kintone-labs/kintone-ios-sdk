@@ -5,12 +5,12 @@ import kintone_ios_sdk
 @testable import Promises
 
 class AddPreviewAppTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_NAME: String = "AddPreviewApp_Test"
-    private let SPACE_ID: Int = 130
-    private let THREAD_ID: Int = 151
-    private let REVISION: Int = -1
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_NAME: String = AppTestConstants.ADD_PREVIEW_APP_APP_NAME
+    private let SPACE_ID: Int = AppTestConstants.ADD_PREVIEW_APP_SPACE_ID
+    private let THREAD_ID: Int = AppTestConstants.ADD_PREVIEW_APP_THREAD_ID
+    private let REVISION: Int = AppTestConstants.ADD_PREVIEW_APP_REVISION
     private var app: App? = nil
     private var connection: Connection? = nil
 

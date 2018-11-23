@@ -5,11 +5,11 @@ import kintone_ios_sdk
 @testable import Promises
 
 class GetAppsBySpaceIDsTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let SPACE_IDS: [Int] = [130]
-    private let OFFSET = 6
-    private let LIMIT = 1
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let SPACE_IDS: [Int] = AppTestConstants.GET_APPS_BY_SPACE_IDS_SPACE_IDS
+    private let OFFSET = AppTestConstants.GET_APPS_BY_SPACE_IDS_OFFSET
+    private let LIMIT = AppTestConstants.GET_APPS_BY_SPACE_IDS_LIMMIT
     private let LANG = LanguageSetting.EN
     private var app: App? = nil
     private var connection: Connection? = nil

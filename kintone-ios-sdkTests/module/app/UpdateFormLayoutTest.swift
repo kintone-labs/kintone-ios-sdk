@@ -6,9 +6,9 @@ import XCTest
 
 class UpdateFormLayoutTest: XCTestCase {
 
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_ID = 1687
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_ID = AppTestConstants.UPDATE_FORM_LAYOUT_APP_ID
     private let LANG = LanguageSetting.EN
     
     private var app: App? = nil

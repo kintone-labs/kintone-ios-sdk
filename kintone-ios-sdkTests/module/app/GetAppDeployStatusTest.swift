@@ -5,10 +5,10 @@ import kintone_ios_sdk
 @testable import Promises
 
 class GetAppDeployStatusTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_IDS: [Int] = [1693, 1691]
-    private let APP_STATUS: [String] = ["PROCESSING", "SUCCESS", "FAIL", "CANCEL"]
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_IDS: [Int] = AppTestConstants.GET_APP_DEPLOY_STATUS_APP_IDS
+    private let APP_STATUS: [String] = AppTestConstants.GET_APP_DEPLOY_STATUS_APP_STATUS
     private var app: App? = nil
     private var connection: Connection? = nil
 
