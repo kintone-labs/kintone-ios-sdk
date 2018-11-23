@@ -12,9 +12,6 @@ import XCTest
 
 class FileTest: XCTestCase {
     
-    private let API_TOKEN = "ZH7DTY4uURdMBvobSGDp9qTpxIPwAuBzHhO23J2h"
-    private let APP_ID = 1692
-    
     private var fileManagement: File?
     private var recordManagement: Record?
     private var connectionManagement: Connection?
@@ -33,7 +30,7 @@ class FileTest: XCTestCase {
         
         // set auth
         let auth = Auth()
-        auth.setApiToken(self.API_TOKEN)
+        auth.setApiToken(FileTestConstants.API_TOKEN)
         connectionManagement = Connection(TestsConstants.DOMAIN, auth)
         
         // instance of Record and file class
@@ -58,10 +55,10 @@ class FileTest: XCTestCase {
                 // exec add record
                 let fileList = [fileResponse]
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-                self.recordManagement?.addRecord(self.APP_ID, fileTestRecord)
+                self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord)
                     .then{ addResponse -> Promise<GetRecordResponse> in
                         let recId = addResponse.getId()
-                        return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+                        return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId!))!
                     }.then { getResponse in
                         // result check
                         let fileResult: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -102,11 +99,11 @@ class FileTest: XCTestCase {
             // exec add record
             let fileList = [fileResponse1, fileResponse2, fileResponse3]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord))!
         }.then{ addResponse -> Promise<GetRecordResponse> in
             // exec get record
             let recId = addResponse.getId()!
-            return (self.recordManagement?.getRecord(self.APP_ID, recId))!
+            return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId))!
         }.then { getResponse in
             // result check
             let fileResults: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -150,11 +147,11 @@ class FileTest: XCTestCase {
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             // exec get record
             let recId = addResponse.getId()
-            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId!))!
         }.then{ getResponse in
             // result check
             let fileResult1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -231,10 +228,10 @@ class FileTest: XCTestCase {
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId!))!
         }.then { getResponse in
             // result check
             let fileResults1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -286,10 +283,10 @@ class FileTest: XCTestCase {
             // exec add record
             let fileList = [fileResponse]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId!))!
         }.then { getResponse in
             // exec download file and result check
             let fileResult: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -329,17 +326,16 @@ class FileTest: XCTestCase {
         ).then { fileResponse1, fileResponse2, fileResponse3 -> Promise<AddRecordResponse> in
             let fileList = [fileResponse1, fileResponse2, fileResponse3]
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList)
-            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId!))!
         }.then { getResponse in
             // exec download file and result check
             let fileResults: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
             for fileResult in fileResults {
                 if let dowloadDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
                     let pathFileName = dowloadDir.absoluteString + fileResult.getName()!
-                    try self.fileManagement?.download(fileResult.getFileKey()!, pathFileName)
                     self.fileManagement?.download(fileResult.getFileKey()!, pathFileName).then { _ in
                         XCTAssertTrue(true)
                     }.catch{ error in
@@ -381,10 +377,10 @@ class FileTest: XCTestCase {
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
             fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-            return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+            return (self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord))!
         }.then { addResponse -> Promise<GetRecordResponse> in
             let recId = addResponse.getId()
-            return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+            return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId!))!
         }.then { getResponse in
             // exec download file and result check
             let fileResult1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -408,7 +404,7 @@ class FileTest: XCTestCase {
                     }
             }
         }
-        XCTAssert(waitForPromises(timeout: 500))
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testDownloadSuccessForMultiFileToMultiField() throws {
@@ -463,10 +459,10 @@ class FileTest: XCTestCase {
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_1", FieldType.FILE, fileList1)
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_2", FieldType.FILE, fileList2)
                 fileTestRecord = self.addData(fileTestRecord, "ATTACH_FILE_3", FieldType.FILE, fileList3)
-                return (self.recordManagement?.addRecord(self.APP_ID, fileTestRecord))!
+                return (self.recordManagement?.addRecord(FileTestConstants.APP_ID, fileTestRecord))!
             }.then { addResponse -> Promise<GetRecordResponse> in
                 let recId = addResponse.getId()
-                return (self.recordManagement?.getRecord(self.APP_ID, recId!))!
+                return (self.recordManagement?.getRecord(FileTestConstants.APP_ID, recId!))!
             }.then { getResponse in
                 // exec file download and result check
                 let fileResults1: [FileModel] = getResponse.getRecord()!["ATTACH_FILE_1"]!.getValue() as! [FileModel]
@@ -500,7 +496,7 @@ class FileTest: XCTestCase {
                     }
                 }
         }
-        XCTAssert(waitForPromises(timeout: 500))
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testDownloadFailForUnexistFileKey() throws {
