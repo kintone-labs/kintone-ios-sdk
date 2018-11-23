@@ -11,9 +11,9 @@ import XCTest
 @testable import Promises
 
 class GetGeneralSettingsTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_ID = 1686
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_ID = AppTestConstants.GET_GENERAL_SETTINGS_APP_ID
     private let LANG = LanguageSetting.EN
     private var app: App? = nil
     private var connection: Connection? = nil

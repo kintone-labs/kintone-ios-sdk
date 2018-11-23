@@ -11,11 +11,11 @@ import kintone_ios_sdk
 @testable import Promises
 
 class GetAppsByNameTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_NAME: String = "GetApp_Test"
-    private let OFFSET = 0
-    private let LIMIT = 100
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_NAME: String = AppTestConstants.GET_APPS_BY_NAME_APP_NAME
+    private let OFFSET = AppTestConstants.GET_APPS_BY_NAME_OFFSET
+    private let LIMIT = AppTestConstants.GET_APPS_BY_NAME_LIMMIT
     private let LANG = LanguageSetting.EN
     private var app: App? = nil
     private var connection: Connection? = nil

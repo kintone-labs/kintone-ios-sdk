@@ -5,14 +5,14 @@ import XCTest
 @testable import Promises
 
 class DeleteFormFieldsTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_ID = 1698
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_ID = AppTestConstants.DELETE_FORM_FIELDS_APP_ID
     private let LANG = LanguageSetting.EN
-    private let REVISIONs = -1
+    private let REVISIONs = AppTestConstants.DELETE_FORM_FIELDS_REVISION
     private var app: App? = nil
     private var connection: Connection? = nil
-    private let fieldCodeTest: String = "Delete_Text"
+    private let fieldCodeTest: String = AppTestConstants.DELETE_FORM_FIELDS_FIELDCODE
     
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

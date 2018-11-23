@@ -7,8 +7,8 @@ import kintone_ios_sdk
 class DeployAppSettingsTest: XCTestCase {
     private let USERNAME = "Phien"
     private let PASSWORD = "Phien"
-    private let APP_ID: Int = 1693
-    private let REVISION: Int = -1
+    private let APP_ID: Int = AppTestConstants.DEPLOY_APP_SETTINGS_APP_ID
+    private let REVISION: Int = AppTestConstants.DEPLOY_APP_SETTINGS_REVISION
     private var app: App? = nil
     private var connection: Connection? = nil
     
