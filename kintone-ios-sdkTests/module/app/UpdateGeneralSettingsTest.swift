@@ -7,13 +7,14 @@
 //
 
 import XCTest
-import kintone_ios_sdk
+@testable import kintone_ios_sdk
+@testable import Promises
 
 class UpdateGeneralSettingsTest: XCTestCase {
 
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_ID = 1686
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_ID = AppTestConstants.UPDATE_GENERAL_SETTINGS_APP_ID
     private let LANG = LanguageSetting.EN
     
     private var app: App? = nil
@@ -40,10 +41,20 @@ class UpdateGeneralSettingsTest: XCTestCase {
         let iconModel: Icon = Icon("APP39", Icon.IconType.PRESET)
         appGeneralSetting.setIcon(iconModel)
         appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
-        
-        var basicResponse: BasicResponse? = nil
-        XCTAssertNoThrow(basicResponse = try self.app?.updateGeneralSettings(self.APP_ID, appGeneralSetting))
-        XCTAssertNotNil(basicResponse?.getRevision())
+        appGeneralSetting.setRevision(-1)
+
+        self.app?.updateGeneralSettings(self.APP_ID, appGeneralSetting).then{ basicResponse in
+            XCTAssertNotNil(basicResponse.getRevision())
+            }.catch{ error in
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
+        }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testUpdateAppGeneralSettingsFailWhenAppIDNotExist() {
@@ -58,10 +69,11 @@ class UpdateGeneralSettingsTest: XCTestCase {
         appGeneralSetting.setIcon(iconModel)
         appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
         
-        XCTAssertThrowsError(try self.app?.updateGeneralSettings(appId, appGeneralSetting))
-        {
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        self.app?.updateGeneralSettings(appId, appGeneralSetting).then{response in
+            XCTFail("No errors occurred")
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
-
 }

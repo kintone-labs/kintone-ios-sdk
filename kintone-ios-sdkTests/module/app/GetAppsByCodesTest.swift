@@ -2,13 +2,14 @@
 
 import XCTest
 import kintone_ios_sdk
+@testable import Promises
 
 class GetAppsByCodesTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_CODES = ["GetAppTest"]
-    private let OFFSET = 0
-    private let LIMIT = 100
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_CODES = AppTestConstants.GET_APPS_BY_CODES_APP_CODES
+    private let OFFSET = AppTestConstants.GET_APPS_BY_CODES_OFFSET
+    private let LIMIT = AppTestConstants.GET_APPS_BY_CODES_LIMIT
     private let LANG = LanguageSetting.EN
     private var app: App? = nil
     private var connection: Connection? = nil
@@ -24,6 +25,15 @@ class GetAppsByCodesTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func getErrorMessage(_ error: Any) -> String {
+        if error is KintoneAPIException {
+            return (error as! KintoneAPIException).toString()!
+        }
+        else {
+            return (error as! Error).localizedDescription
+        }
+    }
 
     func testGetAppsByCodesSuccess() {
         // This is an example of a functional test case.
@@ -36,22 +46,26 @@ class GetAppsByCodesTest: XCTestCase {
         expectedAppModel["spaceId"] = "130"
         expectedAppModel["threadId"] = "151"
         
-        var appsResponse: [AppModel]? = [AppModel]()
-        XCTAssertNoThrow(appsResponse = try self.app?.getAppsByCodes(self.APP_CODES, self.OFFSET, self.LIMIT))
-        XCTAssertEqual(1, appsResponse?.count)
+        self.app?.getAppsByCodes(self.APP_CODES, self.OFFSET, self.LIMIT).then{appsResponse in
+            XCTAssertEqual(1, appsResponse.count)
         
-        var appModel: AppModel = AppModel()
-        XCTAssertNoThrow(appModel = (appsResponse?.first)!)
+            var appModel: AppModel = AppModel()
+            XCTAssertNoThrow(appModel = (appsResponse.first)!)
         
-        XCTAssertEqual(Int(expectedAppModel["appId"]!), appModel.getAppId()!)
-        XCTAssertEqual(expectedAppModel["code"], appModel.getCode()!)
-        XCTAssertEqual(expectedAppModel["name"], appModel.getName()!)
-        XCTAssertEqual(expectedAppModel["description"], appModel.getDescription()!)
-        XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appModel.getSpaceId()!)
-        XCTAssertEqual(Int(expectedAppModel["threadId"]!), appModel.getThreadId()!)
+            XCTAssertEqual(Int(expectedAppModel["appId"]!), appModel.getAppId()!)
+            XCTAssertEqual(expectedAppModel["code"], appModel.getCode()!)
+            XCTAssertEqual(expectedAppModel["name"], appModel.getName()!)
+            XCTAssertEqual(expectedAppModel["description"], appModel.getDescription()!)
+            XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appModel.getSpaceId()!)
+            XCTAssertEqual(Int(expectedAppModel["threadId"]!), appModel.getThreadId()!)
         
-        XCTAssertNotNil(appModel.getCreator())
-        XCTAssertNotNil(appModel.getModifier())
+            XCTAssertNotNil(appModel.getCreator())
+            XCTAssertNotNil(appModel.getModifier())
+            
+        }.catch{ error in
+                XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 5))
         
     }
     
@@ -60,9 +74,12 @@ class GetAppsByCodesTest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let limit: Int = 2147483648
         
-        XCTAssertThrowsError(try self.app?.getAppsByCodes(self.APP_CODES, self.OFFSET, limit)){
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
-        }
+        self.app?.getAppsByCodes(self.APP_CODES, self.OFFSET, limit).then{_ in
+            XCTFail(self.getErrorMessage("CAN GET UNEXIST APP"))
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
+            }
+            XCTAssert(waitForPromises(timeout: 5))
     }
 
 }

@@ -8,13 +8,14 @@
 
 import XCTest
 import kintone_ios_sdk
+@testable import Promises
 
 class GetAppsByIDsTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_IDs: [Int] = [1691]
-    private let OFFSET = 0
-    private let LIMIT = 100
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_IDs: [Int] = AppTestConstants.GET_APPS_BY_IDs_APP_IDs
+    private let OFFSET = AppTestConstants.GET_APPS_BY_IDs_OFFSET
+    private let LIMIT = AppTestConstants.GET_APPS_BY_IDs_LIMMIT
     private let LANG = LanguageSetting.EN
     private var app: App? = nil
     private var connection: Connection? = nil
@@ -30,6 +31,15 @@ class GetAppsByIDsTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func getErrorMessage(_ error: Any) -> String {
+        if error is KintoneAPIException {
+            return (error as! KintoneAPIException).toString()!
+        }
+        else {
+            return (error as! Error).localizedDescription
+        }
+    }
 
     func testGetAppsByIDsSuccess() {
         // This is an example of a functional test case.
@@ -42,22 +52,22 @@ class GetAppsByIDsTest: XCTestCase {
         expectedAppModel["spaceId"] = "130"
         expectedAppModel["threadId"] = "151"
         
-        var appsResponse: [AppModel]? = [AppModel]()
-        XCTAssertNoThrow(appsResponse = try self.app?.getAppsByIDs(self.APP_IDs, self.OFFSET, self.LIMIT))
-        XCTAssertEqual(1, appsResponse?.count)
-        
-        var appModel: AppModel = AppModel()
-        XCTAssertNoThrow(appModel = (appsResponse?.first)!)
-        
-        XCTAssertEqual(Int(expectedAppModel["appId"]!), appModel.getAppId()!)
-        XCTAssertEqual(expectedAppModel["code"], appModel.getCode()!)
-        XCTAssertEqual(expectedAppModel["name"], appModel.getName()!)
-        XCTAssertEqual(expectedAppModel["description"], appModel.getDescription()!)
-        XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appModel.getSpaceId()!)
-        XCTAssertEqual(Int(expectedAppModel["threadId"]!), appModel.getThreadId()!)
-        
-        XCTAssertNotNil(appModel.getCreator())
-        XCTAssertNotNil(appModel.getModifier())
+        self.app?.getAppsByIDs(self.APP_IDs, self.OFFSET, self.LIMIT).then{appsResponse in
+            XCTAssertEqual(1, appsResponse.count)
+            
+            XCTAssertEqual(Int(expectedAppModel["appId"]!), appsResponse[0].getAppId()!)
+            XCTAssertEqual(expectedAppModel["code"], appsResponse[0].getCode()!)
+            XCTAssertEqual(expectedAppModel["name"], appsResponse[0].getName()!)
+            XCTAssertEqual(expectedAppModel["description"], appsResponse[0].getDescription()!)
+            XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appsResponse[0].getSpaceId()!)
+            XCTAssertEqual(Int(expectedAppModel["threadId"]!), appsResponse[0].getThreadId()!)
+            
+            XCTAssertNotNil(appsResponse[0].getCreator())
+            XCTAssertNotNil(appsResponse[0].getModifier())
+        }.catch{ error in
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 10))
         
     }
     
@@ -66,9 +76,12 @@ class GetAppsByIDsTest: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let limit: Int = 2147483648
         
-        XCTAssertThrowsError(try self.app?.getAppsByIDs(self.APP_IDs, self.OFFSET, limit)){
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
-        }
+        self.app?.getAppsByIDs(self.APP_IDs, self.OFFSET, limit).then{_ in
+            XCTFail(self.getErrorMessage("CAN GET UNEXIST APP"))
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
+            }
+            XCTAssert(waitForPromises(timeout: 10))
     }
 
 
