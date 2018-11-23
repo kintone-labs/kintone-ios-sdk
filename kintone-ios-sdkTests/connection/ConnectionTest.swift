@@ -12,16 +12,16 @@ import XCTest
 
 class ConnectionTest: XCTestCase {
     
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
+    private let USERNAME = "xxxxx"
+    private let PASSWORD = "xxxxx"
     private let PROXY_HOST = "10.224.136.41"
     private let PROXY_PORT = 3128
-    private let GUEST_SPACE_ID = 132
-    private let APP_ID = 1685
-    private let GUEST_SPACE_APP_ID = 1688
+    private let GUEST_SPACE_ID = 23
+    private let APP_ID = 23
+    private let GUEST_SPACE_APP_ID = 32
     
-    private let VIEW_API_TOKEN = "dme4HafnqbQrBxhoh0UhvWRejIPoAGiWjHiKE6pV"
-    private let POST_API_TOKEN = "1VJbqYijhfayTbXhhD1R6R7cSQBlnR8WGZU4YZM8"
+    private let VIEW_API_TOKEN = "xxxxxxxxxxxxxxxxxx"
+    private let POST_API_TOKEN = "xxxxxxxxxxxxxxxxxx"
     private let parser = RecordParser()
     
     override func setUp() {
