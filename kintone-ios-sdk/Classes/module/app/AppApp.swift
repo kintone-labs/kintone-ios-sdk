@@ -67,7 +67,7 @@ public protocol AppApp {
     ///   - thread: Int | The Thread ID of the thread in the Space where the App will be created.
     /// - Returns: AddPreviewAppResponse Model
     /// - Throws: throws KintoneAPIException
-    func addPreviewApp(_ name: String?, _ space: Int?, _ thread: Int?) -> Promise<AddPreviewAppResponse>
+    func addPreviewApp(_ name: String?, _ space: Int?, _ thread: Int?) -> Promise<PreviewApp>
     
     /// Updates the settings of a pre-live App to the live App.
     ///
@@ -76,7 +76,7 @@ public protocol AppApp {
     ///   - revert: Bool | The pre-live settings will be reverted back to the current settings of the live app.
     /// - Returns: none
     /// - Throws: throws KintoneAPIException
-    func deployAppSettings(_ apps: Array<AddPreviewAppResponse>?, _ revert: Bool?) -> Promise<Bool>
+    func deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool?) -> Promise<Void>
     
     /// Gets the deployment status of the App settings for multiple Apps.
     ///
@@ -173,14 +173,14 @@ public extension AppApp where Self: App {
         }
     }
     
-    func addPreviewApp(_ name: String?, _ space: Int? = nil, _ thread: Int? = nil) -> Promise<AddPreviewAppResponse> {
+    func addPreviewApp(_ name: String?, _ space: Int? = nil, _ thread: Int? = nil) -> Promise<PreviewApp> {
             return Promise { fulfill, reject in
                 let addPreviewAppRequest = AddPreviewAppRequest(name: name, space: space, thread: thread)
             do {
                 let body = try self.parser.parseObject(addPreviewAppRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_PREVIEW, jsonBody).then{ response in
-                    let app = try self.parser.parseJson(AddPreviewAppResponse.self, response)
+                    let app = try self.parser.parseJson(PreviewApp.self, response)
                         fulfill(app)
                     }.catch{ error in
                         reject(error)
@@ -193,14 +193,14 @@ public extension AppApp where Self: App {
         }
     }
     
-    func deployAppSettings(_ apps: Array<AddPreviewAppResponse>?, _ revert: Bool? = nil) -> Promise<Bool>{
+    func deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool? = nil) -> Promise<Void>{
         return Promise { fulfill, reject in
             let deployAppSettingsRequest = DeployAppSettingsRequest(apps)
             do {
                 let body = try self.parser.parseObject(deployAppSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 self.connection?.requestAsync(ConnectionConstants.POST_REQUEST, ConnectionConstants.APP_DEPLOY_PREVIEW, jsonBody).then{_ in
-                      fulfill(true)
+                      fulfill(())
                     }
                     .catch{ error in
                     reject(error)

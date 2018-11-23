@@ -5,6 +5,7 @@ open class GeneralSettings: NSObject, Codable {
     private var generalDescription: String?
     private var icon: Icon?
     private var theme: IconTheme?
+    private var revision = "-1"
     
     public enum IconTheme: String, Codable {
         case WHITE
@@ -21,6 +22,7 @@ open class GeneralSettings: NSObject, Codable {
         case generalDescription = "description"
         case icon
         case theme
+        case revision
     }
     
     open func getName() -> String? {
@@ -46,5 +48,13 @@ open class GeneralSettings: NSObject, Codable {
     }
     open func setTheme(_ theme: IconTheme?) {
         self.theme = theme
+    }
+    open func getRevision() -> Int? {
+        return Int(self.revision)
+    }
+    open func setRevision(_ revision: Int? = -1 ) {
+        if revision != nil {
+            self.revision = "\(String(describing: revision!))"
+        }
     }
 }

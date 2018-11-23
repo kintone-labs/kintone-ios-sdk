@@ -41,13 +41,14 @@ class UpdateGeneralSettingsTest: XCTestCase {
         let iconModel: Icon = Icon("APP39", Icon.IconType.PRESET)
         appGeneralSetting.setIcon(iconModel)
         appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
+        appGeneralSetting.setRevision(-1)
+
         self.app?.updateGeneralSettings(self.APP_ID, appGeneralSetting).then{ basicResponse in
             XCTAssertNotNil(basicResponse.getRevision())
             }.catch{ error in
                 var errorString = ""
                 if (type(of: error) == KintoneAPIException.self) {
                     errorString = (error as! KintoneAPIException).toString()!
-                    
                 } else {
                     errorString = error.localizedDescription
                 }
