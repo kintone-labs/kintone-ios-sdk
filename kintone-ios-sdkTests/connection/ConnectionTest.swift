@@ -36,12 +36,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
@@ -53,12 +53,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestShouldFailWhenGivenWrongDomain() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection("https://error.kintone.com", auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
@@ -74,12 +74,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestShouldFailWhenGivenWrongUsername() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth("WrongUsername", self.PASSWORD)
+        auth = auth.setPasswordAuth("WrongUsername", ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
@@ -95,12 +95,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestShouldFailWhenGivenWrongPassword() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, "WrongPassword")
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, "WrongPassword")
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
@@ -116,12 +116,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestWithPasswordAuthenticationShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
@@ -133,12 +133,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestWithTokenAuthenticationShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setApiToken(self.VIEW_API_TOKEN)
+        auth = auth.setApiToken(ConnectionTestConstants.VIEW_API_TOKEN)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
@@ -155,7 +155,7 @@ class ConnectionTest: XCTestCase {
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
@@ -171,13 +171,13 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestWithPassAuthenticationShouldSuccessWhenTokenAuthenticationNotAllow() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setApiToken(self.POST_API_TOKEN)
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setApiToken(ConnectionTestConstants.POST_API_TOKEN)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
@@ -190,12 +190,12 @@ class ConnectionTest: XCTestCase {
     func testInvalidPassAuthenticationShouldFailWhenTokenAuthenticationAllow() throws {
         var auth: Auth = Auth.init()
         auth = auth.setApiToken("11ZkR2UsPjONME2eQL7durBe48TURXR5eVWl1ecg")
-        auth = auth.setPasswordAuth("WrongUsername", self.PASSWORD)
+        auth = auth.setPasswordAuth("WrongUsername", ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
@@ -247,12 +247,12 @@ class ConnectionTest: XCTestCase {
     func testGetRequestWithPasswordAuthenticationShouldSuccessWhenGivenBasicAuthentication() throws {
         var auth: Auth = Auth.init()
         auth = auth.setBasicAuth("cybozu", "cybozu")
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
@@ -264,7 +264,7 @@ class ConnectionTest: XCTestCase {
     
     func testPostRequestShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
@@ -275,7 +275,7 @@ class ConnectionTest: XCTestCase {
             fv.setValue("text")
             record["text"] = fv
             
-            let requests: AddRecordRequest = AddRecordRequest(APP_ID, record)
+            let requests: AddRecordRequest = AddRecordRequest(ConnectionTestConstants.APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
@@ -287,7 +287,7 @@ class ConnectionTest: XCTestCase {
     
     func testPostRequestShouldFailWhenGivenWrongBody() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
@@ -305,7 +305,7 @@ class ConnectionTest: XCTestCase {
     
     func testPutRequestShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
@@ -316,7 +316,7 @@ class ConnectionTest: XCTestCase {
             fv.setValue("test put")
             record["text"] = fv
             
-            let requests: UpdateRecordRequest = UpdateRecordRequest(APP_ID, 1, nil, nil, record)
+            let requests: UpdateRecordRequest = UpdateRecordRequest(ConnectionTestConstants.APP_ID, 1, nil, nil, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
@@ -328,7 +328,7 @@ class ConnectionTest: XCTestCase {
     
     func testPutRequestShouldFailWhenGivenWrongBody() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
@@ -346,7 +346,7 @@ class ConnectionTest: XCTestCase {
     
     func testDeleteRequestShouldFailWhenGivenWrongBody() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
@@ -364,7 +364,7 @@ class ConnectionTest: XCTestCase {
     
     func testDeleteRequestShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
@@ -375,7 +375,7 @@ class ConnectionTest: XCTestCase {
             fv.setValue("text")
             record["text"] = fv
             
-            let requests: AddRecordRequest = AddRecordRequest(APP_ID, record)
+            let requests: AddRecordRequest = AddRecordRequest(ConnectionTestConstants.APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
@@ -384,7 +384,7 @@ class ConnectionTest: XCTestCase {
                     
                     let res: AddRecordResponse = try self.parser.parseJson(AddRecordResponse.self, jsonobject)
                     let id = res.getId()
-                    let del_request: DeleteRecordsRequest = DeleteRecordsRequest(self.APP_ID, [id!], nil)
+                    let del_request: DeleteRecordsRequest = DeleteRecordsRequest(ConnectionTestConstants.APP_ID, [id!], nil)
                     let del_body = try self.parser.parseObject(del_request)
                     let del_jsonBody = String(data: del_body, encoding: .utf8)
                     return connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
@@ -397,12 +397,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestInGuestSpaceShouldSuccessWithPasswordAuthentication() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
-        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, self.GUEST_SPACE_ID)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME ,ConnectionTestConstants.AUTH_PASSWORD)
+        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, ConnectionTestConstants.GUEST_SPACE_ID)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(GUEST_SPACE_APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.GUEST_SPACE_APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!).then { jsonobject in
@@ -416,12 +416,12 @@ class ConnectionTest: XCTestCase {
     
     func testGetRequestInGuestSpaceShouldFailWhenGivenInvalidSpaceId() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
         let connection: Connection = Connection(TestsConstants.DOMAIN, auth, 1)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
-            let requests: GetAppRequest = GetAppRequest(GUEST_SPACE_APP_ID)
+            let requests: GetAppRequest = GetAppRequest(ConnectionTestConstants.GUEST_SPACE_APP_ID)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.GET_REQUEST, ConnectionConstants.APP, jsonBody!)
@@ -437,8 +437,8 @@ class ConnectionTest: XCTestCase {
     
     func testPostRequestInGuestSpaceShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
-        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, self.GUEST_SPACE_ID)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
+        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, ConnectionTestConstants.GUEST_SPACE_ID)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
@@ -448,7 +448,7 @@ class ConnectionTest: XCTestCase {
             fv.setValue("text")
             record["text"] = fv
             
-            let requests: AddRecordRequest = AddRecordRequest(GUEST_SPACE_APP_ID, record)
+            let requests: AddRecordRequest = AddRecordRequest(ConnectionTestConstants.GUEST_SPACE_APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
@@ -460,8 +460,8 @@ class ConnectionTest: XCTestCase {
     
     func testPutRequestInGuestSpaceShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
-        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, self.GUEST_SPACE_ID)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
+        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, ConnectionTestConstants.GUEST_SPACE_ID)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
@@ -471,7 +471,7 @@ class ConnectionTest: XCTestCase {
             fv.setValue("test put")
             record["text"] = fv
             
-            let requests: UpdateRecordRequest = UpdateRecordRequest(GUEST_SPACE_APP_ID, 1, nil, nil, record)
+            let requests: UpdateRecordRequest = UpdateRecordRequest(ConnectionTestConstants.GUEST_SPACE_APP_ID, 1, nil, nil, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.RECORD, jsonBody!).then { jsonobject in
@@ -483,8 +483,8 @@ class ConnectionTest: XCTestCase {
     
     func testDeleteRequestInGuestSpaceShouldSuccess() throws {
         var auth: Auth = Auth.init()
-        auth = auth.setPasswordAuth(self.USERNAME, self.PASSWORD)
-        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, self.GUEST_SPACE_ID)
+        auth = auth.setPasswordAuth(ConnectionTestConstants.AUTH_USERNAME, ConnectionTestConstants.AUTH_PASSWORD)
+        let connection: Connection = Connection(TestsConstants.DOMAIN, auth, ConnectionTestConstants.GUEST_SPACE_ID)
         connection.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         do {
@@ -494,7 +494,7 @@ class ConnectionTest: XCTestCase {
             fv.setValue("text")
             record["text"] = fv
             
-            let requests: AddRecordRequest = AddRecordRequest(GUEST_SPACE_APP_ID, record)
+            let requests: AddRecordRequest = AddRecordRequest(ConnectionTestConstants.GUEST_SPACE_APP_ID, record)
             let body = try parser.parseObject(requests)
             let jsonBody = String(data: body, encoding: .utf8)
             connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.RECORD, jsonBody!)
@@ -502,7 +502,7 @@ class ConnectionTest: XCTestCase {
                     XCTAssertNotEqual(jsonobject, Data.init())
                     let res: AddRecordResponse = try self.parser.parseJson(AddRecordResponse.self, jsonobject)
                     let id = res.getId()
-                    let del_request: DeleteRecordsRequest = DeleteRecordsRequest(self.GUEST_SPACE_APP_ID, [id!], [nil])
+                    let del_request: DeleteRecordsRequest = DeleteRecordsRequest(ConnectionTestConstants.GUEST_SPACE_APP_ID, [id!], [nil])
                     let del_body = try self.parser.parseObject(del_request)
                     let del_jsonBody = String(data: del_body, encoding: .utf8)
                     return connection.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, del_jsonBody!)
