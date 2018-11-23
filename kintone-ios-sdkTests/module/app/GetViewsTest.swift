@@ -2,12 +2,13 @@
 //  Copyright © 2018 Cybozu. All rights reserved.
 
 import XCTest
-import kintone_ios_sdk
+@testable import kintone_ios_sdk
+@testable import Promises
 
 class GetViewsTest: XCTestCase {
-    private let USERNAME = "Phien"
-    private let PASSWORD = "Phien"
-    private let APP_ID = 1686
+    private let USERNAME = TestsConstants.ADMIN_USERNAME
+    private let PASSWORD = TestsConstants.ADMIN_PASSWORD
+    private let APP_ID = AppTestConstants.GET_VIEWS_APP_ID
     private let LANG = LanguageSetting.EN
     
     private var app: App? = nil
@@ -29,27 +30,34 @@ class GetViewsTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let isPreview: Bool = true
-        var appViewResponse: GetViewsResponse? = nil
-        
-        XCTAssertNoThrow(appViewResponse = try self.app?.getViews(self.APP_ID, self.LANG, isPreview))
-        
-        let results: [String:ViewModel]? = appViewResponse?.getViews()!
-        
-        XCTAssertNotNil(results)
-        XCTAssertEqual(2, results?.count)
-        
-        var viewEntry: ViewModel? = nil
-        XCTAssertNotNil(viewEntry = results!["ViewTest"])
-        XCTAssertEqual("ViewTest", viewEntry?.getName()!)
-        XCTAssertEqual("Record_number desc", viewEntry?.getSort()!)
-        XCTAssertEqual("Created_datetime = LAST_WEEK()", viewEntry?.getFilterCond()!)
-        XCTAssertNotNil(viewEntry?.getId())
-        XCTAssertEqual(ViewModel.ViewType.LIST, viewEntry?.getType()!)
-        
-        XCTAssertEqual(3, viewEntry?.getFields()!.count)
-        
-        let fieldsViewsExpected: [String] = ["Text", "Text_Area", "Created_datetime"]
-        XCTAssertEqual(fieldsViewsExpected, viewEntry?.getFields()!)
+        self.app?.getViews(self.APP_ID, self.LANG, isPreview).then{ appViewResponse in
+            let results: [String:ViewModel]? = appViewResponse.getViews()!
+            XCTAssertNotNil(results)
+            XCTAssertEqual(2, results?.count)
+            
+            var viewEntry: ViewModel? = nil
+            XCTAssertNotNil(viewEntry = results!["ViewTest"])
+            XCTAssertEqual("ViewTest", viewEntry?.getName()!)
+            XCTAssertEqual("Record_number desc", viewEntry?.getSort()!)
+            XCTAssertEqual("Created_datetime = LAST_WEEK()", viewEntry?.getFilterCond()!)
+            XCTAssertNotNil(viewEntry?.getId())
+            XCTAssertEqual(ViewModel.ViewType.LIST, viewEntry?.getType()!)
+            XCTAssertEqual(3, viewEntry?.getFields()!.count)
+            
+            let fieldsViewsExpected: [String] = ["Text", "Text_Area", "Created_datetime"]
+            XCTAssertEqual(fieldsViewsExpected, viewEntry?.getFields()!)
+            
+            }.catch{ error in
+                var errorString = ""
+                if (type(of: error) == KintoneAPIException.self) {
+                    errorString = (error as! KintoneAPIException).toString()!
+                    
+                } else {
+                    errorString = error.localizedDescription
+                }
+                XCTFail(errorString)
+        }
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testGetPreLiveAppViewsFailWhenAppIDNotExist() {
@@ -58,9 +66,12 @@ class GetViewsTest: XCTestCase {
         let appId: Int = 99999
         let isPreview: Bool = true
         
-        XCTAssertThrowsError(try self.app!.getViews(appId, self.LANG, isPreview))
-        {
-            error in XCTAssert(type(of: error) == KintoneAPIException.self)
+        self.app!.getViews(appId, self.LANG, isPreview).then
+        { response in
+            XCTFail("No errors occurred")
+            }.catch { error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
+        XCTAssert(waitForPromises(timeout: 10))
     }
 }

@@ -6,6 +6,8 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 
+import Promises
+
 open class BulkRequest: NSObject {
     //private static let BulkRequestParser parser = new BulkRequestParser();
     private var connection: Connection
@@ -252,76 +254,77 @@ open class BulkRequest: NSObject {
     ///
     /// - Returns: BulkRequestResponse
     /// - Throws: KintoneAPIExcdeption
-    open func execute() throws -> BulkRequestResponse {
-        let parser = BulkRequestParser()
-        let responses = BulkRequestResponse();
-        do {
-            let requests = self.bulkRequests.getRequests()!
-    
-            let body = try parser.parseObject(self.bulkRequests)
-            let jsonBody = String(data: body, encoding: .utf8)
-        
-            let response = try connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.BULK_REQUEST, jsonBody!)
-            let jsonobject = try JSONSerialization.jsonObject(with: response, options: .allowFragments)
-            
-            let jsonArray = (jsonobject as! NSDictionary)["results"] as! NSArray
-            
-            var count: Int = 0
-            for request in requests {
-                let jsonResponse = try JSONSerialization.data(withJSONObject: jsonArray[count], options: [])
+    open func execute() -> Promise<BulkRequestResponse> {
+        return Promise<BulkRequestResponse> { fulfill, reject in
+            let parser = BulkRequestParser()
+            let responses = BulkRequestResponse();
+            do {
+                let requests = self.bulkRequests.getRequests()!
                 
-                var apiName = request.getApi()! as NSString
-                let regex = try NSRegularExpression(pattern: "/v1/(.*).json", options: NSRegularExpression.Options())
-                if let regex_result = regex.firstMatch(in: apiName as String, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, apiName.length)){
+                let body = try parser.parseObject(self.bulkRequests)
+                let jsonBody = String(data: body, encoding: .utf8)
+                self.connection.request(ConnectionConstants.POST_REQUEST, ConnectionConstants.BULK_REQUEST, jsonBody!).then{response in
                     
-                    apiName = "\(apiName.substring(with: regex_result.range(at: 1)))" as NSString
-                } else {
-                    throw KintoneAPIException("Missing search target character string")
+                    let jsonobject = try JSONSerialization.jsonObject(with: response, options: .allowFragments)
+                    let jsonArray = (jsonobject as! NSDictionary)["results"] as! NSArray
+                    var count: Int = 0
+                    for request in requests {
+                        let jsonResponse = try JSONSerialization.data(withJSONObject: jsonArray[count], options: [])
+                        
+                        var apiName = request.getApi()! as NSString
+                        let regex = try NSRegularExpression(pattern: "/v1/(.*).json", options: NSRegularExpression.Options())
+                        if let regex_result = regex.firstMatch(in: apiName as String, options: NSRegularExpression.MatchingOptions(), range: NSMakeRange(0, apiName.length)){
+                            
+                            apiName = "\(apiName.substring(with: regex_result.range(at: 1)))" as NSString
+                        } else {
+                            reject(KintoneAPIException("Missing search target character string"))
+                        }
+                        
+                        switch (apiName as String) + ":" + request.getMethod()! {
+                        case "\(ConnectionConstants.RECORD):\(ConnectionConstants.POST_REQUEST)":
+                            let res: AddRecordResponse = try parser.parseJson(AddRecordResponse.self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.POST_REQUEST)":
+                            let res: AddRecordsResponse = try parser.parseJson(AddRecordsResponse.self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        case "\(ConnectionConstants.RECORD):\(ConnectionConstants.PUT_REQUEST)":
+                            let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.PUT_REQUEST)":
+                            let res: UpdateRecordsResponse = try parser.parseJson(UpdateRecordsResponse.self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.DELETE_REQUEST)":
+                            let res: [String: String] = try parser.parseJson([String: String].self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        case "\(ConnectionConstants.RECORD_STATUS):\(ConnectionConstants.PUT_REQUEST)":
+                            let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        case "\(ConnectionConstants.RECORDS_STATUS):\(ConnectionConstants.PUT_REQUEST)":
+                            let res: UpdateRecordsResponse = try parser.parseJson(UpdateRecordsResponse.self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        case "\(ConnectionConstants.RECORD_ASSIGNEES):\(ConnectionConstants.PUT_REQUEST)":
+                            let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
+                            responses.addResponse(res)
+                            break
+                        default:
+                            reject(KintoneAPIException("Invalid Request Command"))
+                        }
+                        count += 1
+                    }
+                    fulfill(responses)
+                }.catch { error in
+                    reject(error)
                 }
-                
-                switch (apiName as String) + ":" + request.getMethod()! {
-                    case "\(ConnectionConstants.RECORD):\(ConnectionConstants.POST_REQUEST)":
-                        let res: AddRecordResponse = try parser.parseJson(AddRecordResponse.self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.POST_REQUEST)":
-                        let res: AddRecordsResponse = try parser.parseJson(AddRecordsResponse.self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    case "\(ConnectionConstants.RECORD):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordsResponse = try parser.parseJson(UpdateRecordsResponse.self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    case "\(ConnectionConstants.RECORDS):\(ConnectionConstants.DELETE_REQUEST)":
-                        let res: [String: String] = try parser.parseJson([String: String].self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    case "\(ConnectionConstants.RECORD_STATUS):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    case "\(ConnectionConstants.RECORDS_STATUS):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordsResponse = try parser.parseJson(UpdateRecordsResponse.self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    case "\(ConnectionConstants.RECORD_ASSIGNEES):\(ConnectionConstants.PUT_REQUEST)":
-                        let res: UpdateRecordResponse = try parser.parseJson(UpdateRecordResponse.self, jsonResponse)
-                        responses.addResponse(res)
-                        break
-                    default:
-                        throw KintoneAPIException("Invalid Request Command");
-                }
-                count += 1
+            } catch {
+                reject(error)
             }
-        } catch let error as KintoneAPIException {
-            throw error
-        } catch {
-            throw KintoneAPIException(error.localizedDescription)
         }
-        return responses
     }
 }
