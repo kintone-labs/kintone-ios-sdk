@@ -8,8 +8,8 @@
 
 import Foundation
 public class BulkRequestTestConstants {
-    public static let DOMAIN = "https://phienphamf1811-1.cybozu-dev.com"
+    public static let DOMAIN = "https://domain.com"
     public static let APP_ID = 10
-    public static let USERNAME = "cybozu"
-    public static let PASSWORD = "cybozu"
+    public static let USERNAME = "xxxxxxxxxxxxxxxxxx"
+    public static let PASSWORD = "xxxxxxxxxxxxxxxxxx"
 }
