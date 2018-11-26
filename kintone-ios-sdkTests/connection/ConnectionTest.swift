@@ -11,17 +11,6 @@ import XCTest
 @testable import Promises
 
 class ConnectionTest: XCTestCase {
-    
-    private let USERNAME = "xxxxx"
-    private let PASSWORD = "xxxxx"
-    private let PROXY_HOST = "10.224.136.41"
-    private let PROXY_PORT = 3128
-    private let GUEST_SPACE_ID = 23
-    private let APP_ID = 23
-    private let GUEST_SPACE_APP_ID = 32
-    
-    private let VIEW_API_TOKEN = "xxxxxxxxxxxxxxxxxx"
-    private let POST_API_TOKEN = "xxxxxxxxxxxxxxxxxx"
     private let parser = RecordParser()
     
     override func setUp() {
