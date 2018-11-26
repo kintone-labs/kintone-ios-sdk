@@ -14,9 +14,19 @@ Swift-taylored experience to integrate your app with Kintone. Including:
 
 **NOTE:** This SDK is currently in Beta and may be unstable at times. 
 
-## Installation Dependencies for kintone iOS SDK
-### Overview
+## Overview
 - Kintone iOS SDK is using [google promises](https://github.com/google/promises) as dependencies frameworks
+
+### Installation
+- Install [CocoaPods](https://cocoapods.org) or [Carthage](https://github.com/carthage/carthage)
+
+### Preparation
+- Install homebrew
+```bash
+/usr/bin/ruby -e '$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)'
+```
+- Set up Command Lines Tool in XCode > Preferencs
+![Command Line Tool](images/command-line-tool.png)
 
 ### CocoaPods
 
