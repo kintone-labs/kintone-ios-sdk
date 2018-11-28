@@ -32,11 +32,11 @@ open class File: NSObject{
                 self.connection.uploadFile(targetFilePath.lastPathComponent, fileData).then{ response in
                     let parseResponse = try self.parser.parseJson(FileModel.self, response)
                     fulfill(parseResponse)
+                }.catch{ error in
+                    reject(error)
                 }
-            } catch let error as KintoneAPIException {
-                reject(error)
             } catch {
-                reject(KintoneAPIException(error.localizedDescription))
+                reject(error)
             }
         }
     }
@@ -60,10 +60,8 @@ open class File: NSObject{
                 }.catch{ error in
                     reject(error)
                 }
-            } catch let error as KintoneAPIException {
-                reject(error)
             } catch {
-                reject(KintoneAPIException(error.localizedDescription))
+                reject(error)
             }
         }
     }
