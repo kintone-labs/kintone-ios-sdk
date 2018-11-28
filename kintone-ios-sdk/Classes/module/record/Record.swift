@@ -147,7 +147,7 @@ open class Record: NSObject {
                     let parseResponse = try self.parser.parseJson(GetRecordsResponse.self, response)
                     fulfill(parseResponse)
                 }.catch{ error in
-                    reject(KintoneAPIException(error.localizedDescription))
+                    reject(error)
                 }
             } catch {
                 reject(error)
