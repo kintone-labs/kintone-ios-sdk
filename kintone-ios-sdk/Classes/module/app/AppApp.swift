@@ -184,11 +184,9 @@ public extension AppApp where Self: App {
                         fulfill(app)
                     }.catch{ error in
                         reject(error)
-                }
-            } catch let error as KintoneAPIException {
-                throw error
+                    }
             } catch {
-                throw KintoneAPIException(error.localizedDescription)
+                reject(error)
             }
         }
     }
