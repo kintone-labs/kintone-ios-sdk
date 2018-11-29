@@ -40,7 +40,7 @@ public extension AppView where Self: App {
                     }
                     .catch { error in
                         reject(error)
-                    }
+                }
             } catch {
                 reject(error)
             }
