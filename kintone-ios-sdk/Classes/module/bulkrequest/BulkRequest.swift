@@ -122,7 +122,7 @@ open class BulkRequest: NSObject {
         let updateRecordsRequest = UpdateRecordsRequest(app, records)
         do {
             let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS), updateRecordsRequest)
-                self.bulkRequests.addRequest(bulkRequestItem)
+            self.bulkRequests.addRequest(bulkRequestItem)
             return self
         } catch let error as KintoneAPIException {
             throw error
@@ -159,10 +159,10 @@ open class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     open func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int: Int?]) throws -> BulkRequest {
-    
+        
         var ids: Array<Int> = []
         var revisions: Array<Int?> = []
-    
+        
         for entry in idsWithRevision {
             ids.append(entry.key)
             revisions.append(entry.value)
@@ -191,7 +191,7 @@ open class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     open func updateRecordAssignees(_ app: Int, _ record: Int, _ assignees: Array<String>, _ revision: Int?) throws -> BulkRequest {
-    
+        
         let updateRecordAssigneesRequest = UpdateRecordAssigneesRequest(app, record, assignees, revision)
         do {
             let bulkRequestItem = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORD_ASSIGNEES), updateRecordAssigneesRequest)
@@ -215,7 +215,7 @@ open class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     open func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> BulkRequest {
-    
+        
         let updateRecordStatusRequest = UpdateRecordStatusRequest(action, app, assignee, id, revision)
         
         do {
@@ -237,7 +237,7 @@ open class BulkRequest: NSObject {
     /// - Returns: BulkRequest
     /// - Throws: KintoneAPIException
     open func updateRecordsStatus(_ app: Int, _ records: Array<RecordUpdateStatusItem>) throws -> BulkRequest {
-    
+        
         let updateRecordsStatusRequest = UpdateRecordsStatusRequest(app, records)
         do {
             let bulkRequestItem  = try BulkRequestItem(ConnectionConstants.PUT_REQUEST, connection.getPathURI(ConnectionConstants.RECORDS_STATUS), updateRecordsStatusRequest)
@@ -319,8 +319,8 @@ open class BulkRequest: NSObject {
                         count += 1
                     }
                     fulfill(responses)
-                }.catch { error in
-                    reject(error)
+                    }.catch { error in
+                        reject(error)
                 }
             } catch {
                 reject(error)

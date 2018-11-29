@@ -32,8 +32,8 @@ open class File: NSObject{
                 self.connection.uploadFile(targetFilePath.lastPathComponent, fileData).then{ response in
                     let parseResponse = try self.parser.parseJson(FileModel.self, response)
                     fulfill(parseResponse)
-                }.catch{ error in
-                    reject(error)
+                    }.catch{ error in
+                        reject(error)
                 }
             } catch {
                 reject(error)
@@ -57,8 +57,8 @@ open class File: NSObject{
                 self.connection.downloadFile(jsonBody!).then{ fileData in
                     try fileData.write(to: URL(string: outPutFilePath)!, options: .atomic)
                     fulfill(())
-                }.catch{ error in
-                    reject(error)
+                    }.catch{ error in
+                        reject(error)
                 }
             } catch {
                 reject(error)
