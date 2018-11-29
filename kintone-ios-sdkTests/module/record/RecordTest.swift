@@ -393,15 +393,15 @@ class RecordTest: XCTestCase {
         let delRecord1 = createAddData()
         let delRecord2 = createAddData()
         let delRecordList = [delRecord1, delRecord2]
-        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, delRecordList).then{addResponse -> Promise<Bool> in
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, delRecordList).then{addResponse -> Promise<Void> in
             let delId = [addResponse.getIDs()![0], addResponse.getIDs()![1]]
             return (self.recordManagement?.deleteRecords(RecordTestConstants.APP_ID, delId))!
-        }.then{ deleteResponse in
-            XCTAssertTrue(deleteResponse)
+        }.then{
+            XCTAssertTrue(true)
         }.catch{error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 50))
     }
     
     func testDeleteRecordsWithRevision() throws {
