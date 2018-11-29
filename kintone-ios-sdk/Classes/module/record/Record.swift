@@ -111,15 +111,17 @@ open class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - ids: the array of record IDs
     /// - Throws: KintoneAPIException
-    open func deleteRecords(_ app: Int, _ ids: [Int])  -> Promise<Bool> {
+    open func deleteRecords(_ app: Int, _ ids: [Int])  -> Promise<Void> {
         // execute DELETE RECORDS API
-        return Promise<Bool> { fulfill, reject in
+        return Promise<Void> { fulfill, reject in
             do {
                 let recordRequest = DeleteRecordsRequest(app, ids, nil)
                 let body = try self.parser.parseObject(recordRequest)
                 let jsonBody = String(data: body, encoding: .utf8)!
                 self.connection?.request(ConnectionConstants.DELETE_REQUEST, ConnectionConstants.RECORDS, jsonBody).then{response in
-                    fulfill(true)
+                    fulfill(())
+                }.catch { error in
+                    reject(error)
                 }
             } catch {
                 reject(error)
