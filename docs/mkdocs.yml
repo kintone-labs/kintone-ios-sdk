@@ -1,0 +1,42 @@
+site_name: kintone ios SDK
+site_description: The SDK of kintone REST API client on ios
+site_favicon: favicon.ico
+
+repo_url: https://github.com/kintone/kintone-ios-sdk
+theme:
+  name: 'material'
+  favicon: favicon.ico
+  palette:
+    primary: 'Light Blue'
+    accent: 'Light Blue'
+  logo:
+   icon: 'cloud'
+extra_javascript:
+  - 'asset/js/extra.js'
+extra_css:
+  - 'asset/style/extra.css'
+markdown_extensions:
+  - admonition
+
+pages:
+- Home: index.md
+- Getting Started:
+  - Quickstart: getting-started/quickstart.md
+- Reference:
+  - Authentication: reference/authentication.md
+  - Connection: reference/connection.md
+  - Record: reference/record.md
+  - Bulk Request: reference/bulk-request.md
+  - App: reference/app.md
+  - Kintone APIException: reference/kintone-api-exception.md
+  - File: reference/file.md
+  - Model:
+      - App: 
+        - App: reference/model/app/app/app-model.md
+      - Record:
+        - Record: reference/model/record/record-model.md
+        - Field: reference/model/record/record-field-model.md
+      - File: reference/model/file/file-model.md
+      - Bulk Request: reference/model/bulk-request/bulk-request-model.md
+      - Member: reference/model/member/member.md
+
