@@ -1,0 +1,624 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
+		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
+		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E25BF89213F646C00ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF88213F646C00ABBB13 /* .gitkeep */; };
+		3E25BF8B213F648900ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF8A213F648900ABBB13 /* .gitkeep */; };
+		3E25BF8D213F64A400ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF8C213F64A400ABBB13 /* .gitkeep */; };
+		3E25BF8F213F652D00ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF8E213F652D00ABBB13 /* .gitkeep */; };
+		3E25BF91213F654000ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF90213F654000ABBB13 /* .gitkeep */; };
+		3E25BF93213F654D00ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF92213F654D00ABBB13 /* .gitkeep */; };
+		3E25BF95213F656200ABBB13 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 3E25BF94213F656200ABBB13 /* .gitkeep */; };
+		3E25BF9B213F7BB000ABBB13 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BF9A213F7BB000ABBB13 /* test.swift */; };
+		3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */; };
+		3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA4213F953D00ABBB13 /* FieldValue.swift */; };
+		3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA6213F956400ABBB13 /* FieldType.swift */; };
+		3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */; };
+		3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */; };
+		3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81252141109A00A1499F /* RecordUpdateItem.swift */; };
+		3EFD81282141117500A1499F /* RecordUpdateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81272141117500A1499F /* RecordUpdateKey.swift */; };
+		3EFD812A2141125E00A1499F /* UpdataRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81292141125E00A1499F /* UpdataRecordRequest.swift */; };
+		3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD812B21411B6100A1499F /* AddRecordRequest.swift */; };
+		3EFD812F21420FC900A1499F /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD812E21420FC900A1499F /* Member.swift */; };
+		3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFD81302146060200A1499F /* SubTableValueItem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3E17EA1C213E427F002D9BC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E17EA08213E427F002D9BC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E17EA10213E427F002D9BC0;
+			remoteInfo = "kintone-ios-sdk";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
+		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E17EA1A213E427F002D9BC0 /* kintone-ios-sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kintone-ios-sdkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kintone_ios_sdkTests.swift; sourceTree = "<group>"; };
+		3E17EA21213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E25BF88213F646C00ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF8A213F648900ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF8C213F64A400ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF8E213F652D00ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF90213F654000ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF92213F654D00ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF94213F656200ABBB13 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		3E25BF9A213F7BB000ABBB13 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordResponse.swift; sourceTree = "<group>"; };
+		3E25BFA4213F953D00ABBB13 /* FieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValue.swift; sourceTree = "<group>"; };
+		3E25BFA6213F956400ABBB13 /* FieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldType.swift; sourceTree = "<group>"; };
+		3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordRequest.swift; sourceTree = "<group>"; };
+		3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordsRequest.swift; sourceTree = "<group>"; };
+		3EFD81252141109A00A1499F /* RecordUpdateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateItem.swift; sourceTree = "<group>"; };
+		3EFD81272141117500A1499F /* RecordUpdateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordUpdateKey.swift; sourceTree = "<group>"; };
+		3EFD81292141125E00A1499F /* UpdataRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdataRecordRequest.swift; sourceTree = "<group>"; };
+		3EFD812B21411B6100A1499F /* AddRecordRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordRequest.swift; sourceTree = "<group>"; };
+		3EFD812E21420FC900A1499F /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		3EFD81302146060200A1499F /* SubTableValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableValueItem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E17EA0D213E427F002D9BC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E17EA17213E427F002D9BC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E17EA07213E427F002D9BC0 = {
+			isa = PBXGroup;
+			children = (
+				3E17EA13213E427F002D9BC0 /* kintone-ios-sdk */,
+				3E17EA1E213E427F002D9BC0 /* kintone-ios-sdkTests */,
+				3E17EA12213E427F002D9BC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3E17EA12213E427F002D9BC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */,
+				3E17EA1A213E427F002D9BC0 /* kintone-ios-sdkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E17EA13213E427F002D9BC0 /* kintone-ios-sdk */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF7E213F615F00ABBB13 /* Classes */,
+				3E25BF87213F642900ABBB13 /* Resources */,
+				3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */,
+				3E17EA15213E427F002D9BC0 /* Info.plist */,
+			);
+			path = "kintone-ios-sdk";
+			sourceTree = "<group>";
+		};
+		3E17EA1E213E427F002D9BC0 /* kintone-ios-sdkTests */ = {
+			isa = PBXGroup;
+			children = (
+				3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */,
+				3E17EA21213E427F002D9BC0 /* Info.plist */,
+			);
+			path = "kintone-ios-sdkTests";
+			sourceTree = "<group>";
+		};
+		3E25BF7E213F615F00ABBB13 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF81213F634800ABBB13 /* authentication */,
+				3E25BF82213F637200ABBB13 /* connection */,
+				3E25BF83213F638100ABBB13 /* constant */,
+				3E25BF84213F638F00ABBB13 /* exception */,
+				3E25BF85213F639A00ABBB13 /* model */,
+				3E25BF86213F63AC00ABBB13 /* module */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3E25BF81213F634800ABBB13 /* authentication */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF94213F656200ABBB13 /* .gitkeep */,
+			);
+			path = authentication;
+			sourceTree = "<group>";
+		};
+		3E25BF82213F637200ABBB13 /* connection */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF92213F654D00ABBB13 /* .gitkeep */,
+			);
+			path = connection;
+			sourceTree = "<group>";
+		};
+		3E25BF83213F638100ABBB13 /* constant */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF90213F654000ABBB13 /* .gitkeep */,
+				3E25BF9A213F7BB000ABBB13 /* test.swift */,
+				3E25BFA6213F956400ABBB13 /* FieldType.swift */,
+			);
+			path = constant;
+			sourceTree = "<group>";
+		};
+		3E25BF84213F638F00ABBB13 /* exception */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF8E213F652D00ABBB13 /* .gitkeep */,
+			);
+			path = exception;
+			sourceTree = "<group>";
+		};
+		3E25BF85213F639A00ABBB13 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3EFD812D21420FA300A1499F /* member */,
+				3E25BFA0213F948F00ABBB13 /* record */,
+				3E25BF8C213F64A400ABBB13 /* .gitkeep */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		3E25BF86213F63AC00ABBB13 /* module */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF8A213F648900ABBB13 /* .gitkeep */,
+			);
+			path = module;
+			sourceTree = "<group>";
+		};
+		3E25BF87213F642900ABBB13 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BF88213F646C00ABBB13 /* .gitkeep */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3E25BFA0213F948F00ABBB13 /* record */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BFA1213F94D800ABBB13 /* field */,
+				3E25BFA2213F951300ABBB13 /* GetRecordResponse.swift */,
+				3E25BFA8213FBDEE00ABBB13 /* GetRecordRequest.swift */,
+				3EFD81232140FC0100A1499F /* GetRecordsRequest.swift */,
+				3EFD81252141109A00A1499F /* RecordUpdateItem.swift */,
+				3EFD81272141117500A1499F /* RecordUpdateKey.swift */,
+				3EFD81292141125E00A1499F /* UpdataRecordRequest.swift */,
+				3EFD812B21411B6100A1499F /* AddRecordRequest.swift */,
+				3EFD81302146060200A1499F /* SubTableValueItem.swift */,
+			);
+			path = record;
+			sourceTree = "<group>";
+		};
+		3E25BFA1213F94D800ABBB13 /* field */ = {
+			isa = PBXGroup;
+			children = (
+				3E25BFA4213F953D00ABBB13 /* FieldValue.swift */,
+			);
+			path = field;
+			sourceTree = "<group>";
+		};
+		3EFD812D21420FA300A1499F /* member */ = {
+			isa = PBXGroup;
+			children = (
+				3EFD812E21420FC900A1499F /* Member.swift */,
+			);
+			path = member;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3E17EA0E213E427F002D9BC0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3E17EA10213E427F002D9BC0 /* kintone-ios-sdk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E17EA25213E427F002D9BC0 /* Build configuration list for PBXNativeTarget "kintone-ios-sdk" */;
+			buildPhases = (
+				3E17EA0C213E427F002D9BC0 /* Sources */,
+				3E17EA0D213E427F002D9BC0 /* Frameworks */,
+				3E17EA0E213E427F002D9BC0 /* Headers */,
+				3E17EA0F213E427F002D9BC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "kintone-ios-sdk";
+			productName = "kintone-ios-sdk";
+			productReference = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3E17EA19213E427F002D9BC0 /* kintone-ios-sdkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E17EA28213E427F002D9BC0 /* Build configuration list for PBXNativeTarget "kintone-ios-sdkTests" */;
+			buildPhases = (
+				3E17EA16213E427F002D9BC0 /* Sources */,
+				3E17EA17213E427F002D9BC0 /* Frameworks */,
+				3E17EA18213E427F002D9BC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E17EA1D213E427F002D9BC0 /* PBXTargetDependency */,
+			);
+			name = "kintone-ios-sdkTests";
+			productName = "kintone-ios-sdkTests";
+			productReference = 3E17EA1A213E427F002D9BC0 /* kintone-ios-sdkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E17EA08213E427F002D9BC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = Cybozu;
+				TargetAttributes = {
+					3E17EA10213E427F002D9BC0 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
+					};
+					3E17EA19213E427F002D9BC0 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 3E17EA0B213E427F002D9BC0 /* Build configuration list for PBXProject "kintone-ios-sdk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3E17EA07213E427F002D9BC0;
+			productRefGroup = 3E17EA12213E427F002D9BC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E17EA10213E427F002D9BC0 /* kintone-ios-sdk */,
+				3E17EA19213E427F002D9BC0 /* kintone-ios-sdkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E17EA0F213E427F002D9BC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E25BF8D213F64A400ABBB13 /* .gitkeep in Resources */,
+				3E25BF89213F646C00ABBB13 /* .gitkeep in Resources */,
+				3E25BF91213F654000ABBB13 /* .gitkeep in Resources */,
+				3E25BF93213F654D00ABBB13 /* .gitkeep in Resources */,
+				3E25BF8B213F648900ABBB13 /* .gitkeep in Resources */,
+				3E25BF8F213F652D00ABBB13 /* .gitkeep in Resources */,
+				3E25BF95213F656200ABBB13 /* .gitkeep in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E17EA18213E427F002D9BC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E17EA0C213E427F002D9BC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3EFD812C21411B6100A1499F /* AddRecordRequest.swift in Sources */,
+				3E25BFA7213F956400ABBB13 /* FieldType.swift in Sources */,
+				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
+				3E25BFA3213F951300ABBB13 /* GetRecordResponse.swift in Sources */,
+				3EFD81282141117500A1499F /* RecordUpdateKey.swift in Sources */,
+				3E25BF9B213F7BB000ABBB13 /* test.swift in Sources */,
+				3EFD812A2141125E00A1499F /* UpdataRecordRequest.swift in Sources */,
+				3E25BFA9213FBDEE00ABBB13 /* GetRecordRequest.swift in Sources */,
+				3EFD81312146060200A1499F /* SubTableValueItem.swift in Sources */,
+				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
+				3E25BFA5213F953D00ABBB13 /* FieldValue.swift in Sources */,
+				3EFD812F21420FC900A1499F /* Member.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E17EA16213E427F002D9BC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E17EA1D213E427F002D9BC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E17EA10213E427F002D9BC0 /* kintone-ios-sdk */;
+			targetProxy = 3E17EA1C213E427F002D9BC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3E17EA23213E427F002D9BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3E17EA24213E427F002D9BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3E17EA26213E427F002D9BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "kintone-ios-sdk/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kintone-ios-sdk.kintone-ios-sdk";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E17EA27213E427F002D9BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "kintone-ios-sdk/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kintone-ios-sdk.kintone-ios-sdk";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3E17EA29213E427F002D9BC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "kintone-ios-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kintone-ios-sdk.kintone-ios-sdkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E17EA2A213E427F002D9BC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "kintone-ios-sdkTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "kintone-ios-sdk.kintone-ios-sdkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E17EA0B213E427F002D9BC0 /* Build configuration list for PBXProject "kintone-ios-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E17EA23213E427F002D9BC0 /* Debug */,
+				3E17EA24213E427F002D9BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E17EA25213E427F002D9BC0 /* Build configuration list for PBXNativeTarget "kintone-ios-sdk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E17EA26213E427F002D9BC0 /* Debug */,
+				3E17EA27213E427F002D9BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E17EA28213E427F002D9BC0 /* Build configuration list for PBXNativeTarget "kintone-ios-sdkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E17EA29213E427F002D9BC0 /* Debug */,
+				3E17EA2A213E427F002D9BC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E17EA08213E427F002D9BC0 /* Project object */;
+}
