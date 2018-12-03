@@ -35,16 +35,31 @@ open class Connection: NSObject {
     private var proxyHost: String? = nil
     private var proxyPort: Int? = nil
     
+    /// Connection with cert file or not
+    private var withCert = false
+    private var certPath = ""
+    private var password = ""
+    private var useCertData = false
+    private var certData: Data?
+    
     /// Constructor for init a connection object to connect to guest space.
     ///
     /// - Parameters:
     ///   - domain: Kintone domain url
     ///   - auth: Credential information
     ///   - guestSpaceID: guestSpaceId Guest space number in kintone domain.
-    public init(_ domain: String?, _ auth: Auth, _ guestSpaceID: Int) {
+    public init(_ domain: String?, _ auth: Auth, _ guestSpaceID: Int, _ withCert: Bool?, _ certPath: String?, _ password: String?, _ useCertData: Bool?, _ certData: Data?) {
         self.domain = domain
         self.auth = auth
         self.guestSpaceID = guestSpaceID
+        self.withCert = withCert ?? false
+        self.certPath = certPath ?? ""
+        self.password = password ?? ""
+        self.useCertData = useCertData!
+        
+        if self.useCertData {
+            self.certData = certData!
+        }
         
         if let version = Bundle(for: type(of: self)).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             self.userAgent += "/" + version
@@ -57,7 +72,7 @@ open class Connection: NSObject {
     ///   - domain: Kintone domain url
     ///   - auth: Credential information
     public convenience init(_ domain: String, _ auth: Auth) {
-        self.init(domain, auth, -1)
+        self.init(domain, auth, -1, false, "", "", false, nil)
     }
     
     /// Asynchronous Rest http request.
@@ -213,8 +228,14 @@ open class Connection: NSObject {
             }
             
             request.httpBody = body.data(using: String.Encoding.utf8)
-            
-            let session = URLSession(configuration: self.setURLSessionConfiguration())
+            var session = URLSession()
+            if self.withCert {
+                let delegateForCert = URLSessionPinningDelegate(self.domain, self.certPath, self.password, self.useCertData, self.certData)
+                session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
+            }
+            else {
+                session = URLSession(configuration: self.setURLSessionConfiguration())
+            }
             
             self.execute(session, request).then { (data, response, error) in
                 if (data != nil || response != nil){
@@ -242,6 +263,7 @@ open class Connection: NSObject {
     ///   - request: request
     /// - Returns: Data?, URLResponse?, NSError?
     private func execute(_ session: URLSession, _ request: URLRequest) -> Promise<(Data?, URLResponse?, NSError?)> {
+        
         return Promise<(Data?, URLResponse?, NSError?)> { fulfill, reject in
             session.dataTask(with: request) { (data, response, error) -> Void in
                 if error != nil {
