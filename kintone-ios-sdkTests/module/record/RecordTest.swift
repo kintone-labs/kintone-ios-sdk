@@ -26,8 +26,16 @@ class RecordTest: XCTestCase {
         // set auth
         var auth = Auth()
         auth = auth.setPasswordAuth(TestsConstants.ADMIN_USERNAME, TestsConstants.ADMIN_PASSWORD)
-        let conn = Connection( TestsConstants.DOMAIN, auth )
-        conn.setProxy( TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
+        
+        let certPath = "dinhnhat"
+        let certPassword = "pb6ft2cs"
+        
+        let testBundle = Bundle(for: type(of: self))
+        let certData = try! Data(contentsOf: testBundle.url(forResource: "dinhnhat", withExtension: "pfx")!)
+        
+        let conn = Connection(TestsConstants.DOMAIN, auth, -1, true, certPath, certPassword, true, certData)
+        
+        //conn.setProxy( TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         // instance of Record class
         self.recordManagement = Record(conn)
@@ -223,6 +231,7 @@ class RecordTest: XCTestCase {
     }
     
     func testAddRecord() throws {
+        
         // create test data for add
         var testData: Dictionary<String, FieldValue> = createAddData()
         testData = addData(testData, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testAddRecord")
@@ -233,7 +242,7 @@ class RecordTest: XCTestCase {
         }.catch {error in
             XCTFail(self.getErrorMessage(error))
         }
-        XCTAssert(waitForPromises(timeout: 5))
+        XCTAssert(waitForPromises(timeout: 10))
     }
     
     func testAddRecordWithoutRecord() throws {
