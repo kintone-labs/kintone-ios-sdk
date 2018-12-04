@@ -25,13 +25,13 @@ public protocol AppView {
 }
 
 public extension AppView where Self: App {
-    func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) -> Promise<GetViewsResponse> {
+    func getViews(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool? = false) -> Promise<GetViewsResponse> {
         return Promise { fulfill, reject in
             do {
-                let getViewsRequest = GetViewsRequest(app!, lang!)
+                let getViewsRequest = GetViewsRequest(app, lang ?? LanguageSetting.DEFAULT)
                 let body = try self.parser.parseObject(getViewsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                let apiName = isPreview ?? false ? ConnectionConstants.APP_VIEWS : ConnectionConstants.APP_VIEWS_PREVIEW
+                let apiName = isPreview ?? false ? ConnectionConstants.APP_VIEWS_PREVIEW : ConnectionConstants.APP_VIEWS
                 self.connection?.request(ConnectionConstants.GET_REQUEST, apiName, jsonBody)
                     .then { response in
                         // return response as GetRecordResponse class
@@ -47,10 +47,10 @@ public extension AppView where Self: App {
         }
     }
     
-    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int? = -1) -> Promise<UpdateViewsResponse> {
+    func updateViews(_ app: Int, _ views: [String: ViewModel],_ revision: Int? = -1) -> Promise<UpdateViewsResponse> {
         return Promise { fulfill, reject in
             do {
-                let updateViewsRequest = UpdateViewsRequest(app!, views, revision ?? -1)
+                let updateViewsRequest = UpdateViewsRequest(app, views, revision ?? -1)
                 let body = try self.parser.parseObject(updateViewsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_VIEWS_PREVIEW, jsonBody)
