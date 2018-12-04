@@ -11,7 +11,7 @@ public protocol AppView {
     ///   - isPreview: Bool
     /// - Returns: GetViewsResponse Model
     /// - Throws: throws KintoneAPIException
-    func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) -> Promise<GetViewsResponse>
+    func getViews(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?) -> Promise<GetViewsResponse>
     
     /// <#Description#>
     ///
@@ -21,7 +21,7 @@ public protocol AppView {
     ///   - revision: Bool
     /// - Returns: GetViewsResponse
     /// - Throws: throws KintoneAPIException
-    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?) -> Promise<UpdateViewsResponse>
+    func updateViews(_ app: Int, _ views: [String: ViewModel],_ revision: Int?) -> Promise<UpdateViewsResponse>
 }
 
 public extension AppView where Self: App {
