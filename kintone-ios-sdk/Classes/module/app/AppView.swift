@@ -47,10 +47,10 @@ public extension AppView where Self: App {
         }
     }
     
-    func updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int? = -1) -> Promise<UpdateViewsResponse> {
+    func updateViews(_ app: Int, _ views: [String: ViewModel],_ revision: Int? = -1) -> Promise<UpdateViewsResponse> {
         return Promise { fulfill, reject in
             do {
-                let updateViewsRequest = UpdateViewsRequest(app!, views, revision ?? -1)
+                let updateViewsRequest = UpdateViewsRequest(app, views, revision ?? -1)
                 let body = try self.parser.parseObject(updateViewsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_VIEWS_PREVIEW, jsonBody)
