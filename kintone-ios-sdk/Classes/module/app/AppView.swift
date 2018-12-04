@@ -25,10 +25,10 @@ public protocol AppView {
 }
 
 public extension AppView where Self: App {
-    func getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) -> Promise<GetViewsResponse> {
+    func getViews(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool? = false) -> Promise<GetViewsResponse> {
         return Promise { fulfill, reject in
             do {
-                let getViewsRequest = GetViewsRequest(app!, lang!)
+                let getViewsRequest = GetViewsRequest(app, lang ?? LanguageSetting.DEFAULT)
                 let body = try self.parser.parseObject(getViewsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let apiName = isPreview ?? false ? ConnectionConstants.APP_VIEWS_PREVIEW : ConnectionConstants.APP_VIEWS
