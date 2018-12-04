@@ -31,11 +31,13 @@ String
 <details class="tab-container" open>
 <Summary>get Revision</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String revision = layout.getRevision();
-```
+<pre class="inline-code">
+
+    String revision = layout.getRevision();
+
+</pre>
 
 </details>
 
@@ -56,11 +58,13 @@ List<[ItemLayout](#itemlayout)\>
 <details class="tab-container" open>
 <Summary>get Layout</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-List<ItemLayout> itemLayoutList = layout.getLayout();
-```
+<pre class="inline-code">
+
+    List<ItemLayout> itemLayoutList = layout.getLayout();
+
+</pre>
 
 </details>
 
@@ -85,11 +89,13 @@ String
 <details class="tab-container" open>
 <Summary>get Type</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String type = fieldLayout.getType();
-```
+<pre class="inline-code">
+
+    String type = fieldLayout.getType();
+
+</pre>
 
 </details>
 
@@ -110,11 +116,13 @@ String
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String code = fieldLayout.getCode();
-```
+<pre class="inline-code">
+
+    String code = fieldLayout.getCode();
+
+</pre>
 
 </details>
 
@@ -135,11 +143,13 @@ String
 <details class="tab-container" open>
 <Summary>get Element Id</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String elementId = fieldLayout.getElementId();
-```
+<pre class="inline-code">
+
+    String elementId = fieldLayout.getElementId();
+
+</pre>
 
 </details>
 
@@ -160,11 +170,13 @@ String
 <details class="tab-container" open>
 <Summary>get Label</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String label = fieldLayout.getLabel();
-```
+<pre class="inline-code">
+
+    String label = fieldLayout.getLabel();
+
+</pre>
 
 </details>
 
@@ -185,11 +197,13 @@ String label = fieldLayout.getLabel();
 <details class="tab-container" open>
 <Summary>get Size</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-FieldSize size = fieldLayout.getSize();
-```
+<pre class="inline-code">
+
+    FieldSize size = fieldLayout.getSize();
+
+</pre>
 
 </details>
 
@@ -214,11 +228,13 @@ String
 <details class="tab-container" open>
 <Summary>get Width</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String width = fieldSize.getWidth();
-```
+<pre class="inline-code">
+
+    String width = fieldSize.getWidth();
+
+</pre>
 
 </details>
 
@@ -239,11 +255,13 @@ String
 <details class="tab-container" open>
 <Summary>get Height</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String height = fieldSize.getHeight();
-```
+<pre class="inline-code">
+
+    String height = fieldSize.getHeight();
+
+</pre>
 
 </details>
 
@@ -264,11 +282,13 @@ String
 <details class="tab-container" open>
 <Summary>get Inner Height</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String innerHeight = fieldSize.getInnerHeight();
-```
+<pre class="inline-code">
+
+    String innerHeight = fieldSize.getInnerHeight();
+
+</pre>
 
 </details>
 
@@ -296,11 +316,13 @@ String
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String code = groupLayout.getCode();
-```
+<pre class="inline-code">
+
+    String code = groupLayout.getCode();
+
+</pre>
 
 </details>
 
@@ -321,11 +343,13 @@ List<[RowLayout](#rowlayout)>
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-List<RowLayout> layout = groupLayout.getLayout();
-```
+<pre class="inline-code">
+
+    List<RowLayout> layout = groupLayout.getLayout();
+
+</pre>
 
 </details>
 
@@ -353,11 +377,13 @@ List<[FieldLayout](#fieldlayout)>
 <details class="tab-container" open>
 <Summary>get Fields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String fields = rowLayout.getFields();
-```
+<pre class="inline-code">
+
+    String fields = rowLayout.getFields();
+
+</pre>
 
 </details>
 
@@ -385,11 +411,13 @@ String
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String code = subTableLayout.getCode();
-```
+<pre class="inline-code">
+
+    String code = subTableLayout.getCode();
+    
+</pre>
 
 </details>
 

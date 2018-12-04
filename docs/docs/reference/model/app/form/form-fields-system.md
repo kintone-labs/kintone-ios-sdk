@@ -39,11 +39,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get Enabled</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean enabled = categoryField.getEnabled();
-```
+<pre class="inline-code">
+
+    Boolean enabled = categoryField.getEnabled();
+    
+</pre>
 
 </details>
 

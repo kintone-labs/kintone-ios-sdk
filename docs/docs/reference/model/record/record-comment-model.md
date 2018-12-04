@@ -29,22 +29,24 @@ Integer
 <details class="tab-container" open>
 <Summary>get the Comment ID.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, offsset);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-ArrayList<Comment> resultComments = response.getComments();
-Comment comment = resultComments.get(0);
-Integer commentID = comment.getId();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, offsset);
+
+    ArrayList<Comment> resultComments = response.getComments();
+    Comment comment = resultComments.get(0);
+    Integer commentID = comment.getId();
+
+</pre>
 
 </details>
 
@@ -65,22 +67,24 @@ String
 <details class="tab-container" open>
 <Summary>get the comment including the line feed codes.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-ArrayList<Comment> resultComments = response.getComments();
-Comment comment = resultComments.get(0);
-String commentText = comment.getText();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    ArrayList<Comment> resultComments = response.getComments();
+    Comment comment = resultComments.get(0);
+    String commentText = comment.getText();
+
+</pre>
 
 </details>
 
@@ -101,22 +105,24 @@ Date
 <details class="tab-container" open>
 <Summary>get the created date and time of the comment.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-ArrayList<Comment> resultComments = response.getComments();
-Comment comment = resultComments.get(0);
-Date commentCreatedAt = comment.getCreatedAt();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    ArrayList<Comment> resultComments = response.getComments();
+    Comment comment = resultComments.get(0);
+    Date commentCreatedAt = comment.getCreatedAt();
+
+</pre>
 
 </details>
 
@@ -137,22 +143,24 @@ Date commentCreatedAt = comment.getCreatedAt();
 <details class="tab-container" open>
 <Summary>get an object including information of the comment creator.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-ArrayList<Comment> resultComments = response.getComments();
-Comment comment = resultComments.get(0);
-Member commentCreator = comment.getCreator();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    ArrayList<Comment> resultComments = response.getComments();
+    Comment comment = resultComments.get(0);
+    Member commentCreator = comment.getCreator();
+
+</pre>
 
 </details>
 
@@ -173,22 +181,24 @@ List<[CommentMention](#commentmention)\>
 <details class="tab-container" open>
 <Summary>get an array including information of mentioned users.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-ArrayList<Comment> resultComments = response.getComments();
-Comment comment = resultComments.get(0);
-List<CommentMention> commentMentions = comment.getMentions();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    ArrayList<Comment> resultComments = response.getComments();
+    Comment comment = resultComments.get(0);
+    List<CommentMention> commentMentions = comment.getMentions();
+
+</pre>
 
 </details>
 
@@ -221,22 +231,24 @@ List<CommentMention> commentMentions = comment.getMentions();
 <details class="tab-container" open>
 <Summary>set the comment including the line feed codes.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute ADD RECORD_COMMENT  API
-Integer app = 1;
-Integer record = 1;
-CommentContent comment = new CommentContent();
-ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
-CommentMention mention = new CommentMention();
-mention.setCode("sample_user");
-mention.setType("USER");
-mentionList.add(mention);
-comment.setText("test comment");
-comment.setMentions(mentionList);
-AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
-```
+<pre class="inline-code">
+
+    // execute ADD RECORD_COMMENT  API
+    Integer app = 1;
+    Integer record = 1;
+    CommentContent comment = new CommentContent();
+    ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
+    CommentMention mention = new CommentMention();
+    mention.setCode("sample_user");
+    mention.setType("USER");
+    mentionList.add(mention);
+    comment.setText("test comment");
+    comment.setMentions(mentionList);
+    AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
+
+</pre>
 
 </details>
 
@@ -259,22 +271,24 @@ AddCommentResponse response = kintoneRecordManager.addComment(app, record, comme
 <details class="tab-container" open>
 <Summary>get an array including information of mentioned users.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute ADD RECORD_COMMENT  API
-Integer app = 1;
-Integer record = 1;
-CommentContent comment = new CommentContent();
-ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
-CommentMention mention = new CommentMention();
-mention.setCode("sample_user");
-mention.setType("USER");
-mentionList.add(mention);
-comment.setText("test comment");
-comment.setMentions(mentionList);
-AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
-```
+<pre class="inline-code">
+
+    // execute ADD RECORD_COMMENT  API
+    Integer app = 1;
+    Integer record = 1;
+    CommentContent comment = new CommentContent();
+    ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
+    CommentMention mention = new CommentMention();
+    mention.setCode("sample_user");
+    mention.setType("USER");
+    mentionList.add(mention);
+    comment.setText("test comment");
+    comment.setMentions(mentionList);
+    AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
+
+</pre>
 
 </details>
 
@@ -305,24 +319,26 @@ String
 <details class="tab-container" open>
 <Summary>get the code of the mentioned user, group or organization.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-ArrayList<Comment> resultComments = response.getComments();
-Comment comment = resultComments.get(0);
-List<CommentMention> commentMentions = comment.getMentions();
-CommentMention mention = commentMentions.get(0);
-String mentionUserCode = mention.getCode();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    ArrayList<Comment> resultComments = response.getComments();
+    Comment comment = resultComments.get(0);
+    List<CommentMention> commentMentions = comment.getMentions();
+    CommentMention mention = commentMentions.get(0);
+    String mentionUserCode = mention.getCode();
+
+</pre>
 
 </details>
 
@@ -345,22 +361,24 @@ String mentionUserCode = mention.getCode();
 <details class="tab-container" open>
 <Summary>set the comment including the line feed codes.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute ADD RECORD_COMMENT  API
-Integer app = 1;
-Integer record = 1;
-CommentContent comment = new CommentContent();
-ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
-CommentMention mention = new CommentMention();
-mention.setCode("sample_user");
-mention.setType("USER");
-mentionList.add(mention);
-comment.setText("test comment");
-comment.setMentions(mentionList);
-AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
-```
+<pre class="inline-code">
+
+    // execute ADD RECORD_COMMENT  API
+    Integer app = 1;
+    Integer record = 1;
+    CommentContent comment = new CommentContent();
+    ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
+    CommentMention mention = new CommentMention();
+    mention.setCode("sample_user");
+    mention.setType("USER");
+    mentionList.add(mention);
+    comment.setText("test comment");
+    comment.setMentions(mentionList);
+    AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
+
+</pre>
 
 </details>
 
@@ -381,24 +399,26 @@ String
 <details class="tab-container" open>
 <Summary>get the type of the mentioned user, group or organization.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
-v
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, offsset);
+<pre class="inline-code">
 
-ArrayList<Comment> resultComments = response.getComments();
-Comment comment = resultComments.get(0);
-List<CommentMention> commentMentions = comment.getMentions();
-CommentMention mention = commentMentions.get(0);
-String mentionUserType= mention.getType();
-```
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
+    v
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, offsset);
+
+    ArrayList<Comment> resultComments = response.getComments();
+    Comment comment = resultComments.get(0);
+    List<CommentMention> commentMentions = comment.getMentions();
+    CommentMention mention = commentMentions.get(0);
+    String mentionUserType= mention.getType();
+
+</pre>
 
 </details>
 
@@ -421,22 +441,24 @@ String mentionUserType= mention.getType();
 <details class="tab-container" open>
 <Summary>get an array including information of mentioned users.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute ADD RECORD_COMMENT  API
-Integer app = 1;
-Integer record = 1;
-CommentContent comment = new CommentContent();
-ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
-CommentMention mention = new CommentMention();
-mention.setCode("sample_user");
-mention.setType("USER");
-mentionList.add(mention);
-comment.setText("test comment");
-comment.setMentions(mentionList);
-AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
-```
+<pre class="inline-code">
+
+    // execute ADD RECORD_COMMENT  API
+    Integer app = 1;
+    Integer record = 1;
+    CommentContent comment = new CommentContent();
+    ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
+    CommentMention mention = new CommentMention();
+    mention.setCode("sample_user");
+    mention.setType("USER");
+    mentionList.add(mention);
+    comment.setText("test comment");
+    comment.setMentions(mentionList);
+    AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
+
+</pre>
 
 </details>
 
@@ -467,20 +489,22 @@ ArrayList<[Comment](#comment)\>
 <details class="tab-container" open>
 <Summary>get the comments List on a record.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-ArrayList<Comment> resultComments = response.getComments();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    ArrayList<Comment> resultComments = response.getComments();
+
+</pre>
 
 </details>
 
@@ -501,20 +525,22 @@ Boolean
 <details class="tab-container" open>
 <Summary>get information of older comments.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
- Boolean resultOlderFlg = response.getOlder();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    Boolean resultOlderFlg = response.getOlder();
+
+</pre>
 
 </details>
 
@@ -535,20 +561,22 @@ Boolean
 <details class="tab-container" open>
 <Summary>get information of newer comments.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute GET RECORD_COMMENTS  API
-Integer appID = 1;
-Integer recordID = 1;
-String order = "asc";
-Integer offsset = 1;
-Integer limit = 2;
+<pre class="inline-code">
 
-GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+    // execute GET RECORD_COMMENTS  API
+    Integer appID = 1;
+    Integer recordID = 1;
+    String order = "asc";
+    Integer offsset = 1;
+    Integer limit = 2;
 
-Boolean resultNewerFlg = response.getNewer();
-```
+    GetCommentsResponse response = kintoneRecordManager.getComments(appID, recordID, order, offsset, limit);
+
+    Boolean resultNewerFlg = response.getNewer();
+
+</pre>
 
 </details>
 
@@ -579,23 +607,25 @@ Integer
 <details class="tab-container" open>
 <Summary>get the ID of comment which have just created.</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute ADD RECORD_COMMENT  API
-Integer app = 1;
-Integer record = 1;
-CommentContent comment = new CommentContent();
-ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
-CommentMention mention = new CommentMention();
-mention.setCode("sample_user");
-mention.setType("USER");
-mentionList.add(mention);
-comment.setText("test comment");
-comment.setMentions(mentionList);
-AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
+<pre class="inline-code">
 
-Integer resultId = response.getId();
-```
+    // execute ADD RECORD_COMMENT  API
+    Integer app = 1;
+    Integer record = 1;
+    CommentContent comment = new CommentContent();
+    ArrayList<CommentMention> mentionList = new ArrayList<CommentMention>();
+    CommentMention mention = new CommentMention();
+    mention.setCode("sample_user");
+    mention.setType("USER");
+    mentionList.add(mention);
+    comment.setText("test comment");
+    comment.setMentions(mentionList);
+    AddCommentResponse response = kintoneRecordManager.addComment(app, record, comment);
+
+    Integer resultId = response.getId();
+    
+</pre>
 
 </details>

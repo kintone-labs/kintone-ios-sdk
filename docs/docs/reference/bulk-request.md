@@ -24,24 +24,25 @@ The Bulk Request API allows multiple API requests to run on multiple kintone app
 <details class="tab-container" open>
 <Summary>Init bulk request module</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
+<pre class="inline-code">
 
-let username = "your_username"
-let password = "your_password"
-let domain = "your_domain"
- 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
- 
-// Init Connection without "guest space ID"
-let connection = Connection(domain, auth)
- 
-// Init Bulk request
-var bulkRequest = BulkRequest(connection);
-```
+    let username = "your_username"
+    let password = "your_password"
+    let domain = "your_domain"
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+    
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+    
+    // Init Bulk request
+    var bulkRequest = BulkRequest(connection);
+
+</pre>
 
 </details>
 
@@ -64,18 +65,20 @@ See at [Record - addRecord](./record#addrecord_-app-int-_-record-stringfieldvalu
 <details class="tab-container" open>
 <Summary>add Record</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-var record: [String: FieldValue] = [:]
-         
-let fv = FieldValue()
-fv.setType(FieldType.SINGLE_LINE_TEXT)
-fv.setValue("test_AddRecord")
- 
-record["Your_Field_Code"] = fv
-bulkRequest = try bulkRequest?.addRecord(1, record)
-```
+<pre class="inline-code">
+
+    var record: [String: FieldValue] = [:]
+            
+    let fv = FieldValue()
+    fv.setType(FieldType.SINGLE_LINE_TEXT)
+    fv.setValue("test_AddRecord")
+    
+    record["Your_Field_Code"] = fv
+    bulkRequest = try bulkRequest?.addRecord(1, record)
+
+</pre>
 
 </details>
 
@@ -94,27 +97,29 @@ See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldv
 <details class="tab-container" open>
 <Summary>add multiple Records</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// create add data
-var addData1: Dictionary<String, FieldValue> = [:]
-var addData2: Dictionary<String, FieldValue> = [:]
-var field1 = FieldValue()
-var field2 = FieldValue()
-field1.setType(FieldType.SINGLE_LINE_TEXT)
-field1.setValue("Test Value1")
-field2.setType(FieldType.SINGLE_LINE_TEXT)
-field2.setValue("Test Value2")
-addData1[{your_field_code}] = field1
-addData2[{your_field_code}] = field2
-var  = [addData1, addData2]
- 
-// execute add records API
-let appID = 311
+<pre class="inline-code">
 
-bulkRequest = try bulkRequest?.addRecords(appID, addDataList);
-```
+    // create add data
+    var addData1: Dictionary<String, FieldValue> = [:]
+    var addData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Value1")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Value2")
+    addData1[{your_field_code}] = field1
+    addData2[{your_field_code}] = field2
+    var  = [addData1, addData2]
+    
+    // execute add records API
+    let appID = 311
+
+    bulkRequest = try bulkRequest?.addRecords(appID, addDataList);
+
+</pre>
 
 </details>
 
@@ -133,22 +138,24 @@ See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_
 <details class="tab-container" open>
 <Summary>update Record By ID</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// create add data
-var updateData:Dictionary<String, FieldValue> = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue("Test Value Update")
-updateData[{your_field_code}] = field
-         
-// execute update record API
-let appID = {your_app_id}
-let updRecID = {your_record_id}
+<pre class="inline-code">
 
-bulkRequest = try bulkRequest?.updateRecordByID(appID, updRecID, updateData, nil);
-```
+    // create add data
+    var updateData:Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update")
+    updateData[{your_field_code}] = field
+            
+    // execute update record API
+    let appID = {your_app_id}
+    let updRecID = {your_record_id}
+
+    bulkRequest = try bulkRequest?.updateRecordByID(appID, updRecID, updateData, nil);
+
+</pre>
 
 </details>
 
@@ -167,24 +174,26 @@ See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-
 <details class="tab-container" open>
 <Summary>update Record By UpdateKey</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// create update data
-var updateData: Dictionary<String, FieldValue> = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue("Test Value Update For Key")
-updateData[{your_field_code}] = field
-         
-// create update key
-let updKey = RecordUpdateKey("{your_field_code}", "update key value")
-         
-// execute update record API
-let appID = {your_app_id}
+<pre class="inline-code">
 
-bulkRequest = try bulkRequest?.updateRecordByUpdateKey(appID, updKey, updateData, nil);
-```
+    // create update data
+    var updateData: Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    updateData[{your_field_code}] = field
+            
+    // create update key
+    let updKey = RecordUpdateKey("{your_field_code}", "update key value")
+            
+    // execute update record API
+    let appID = {your_app_id}
+
+    bulkRequest = try bulkRequest?.updateRecordByUpdateKey(appID, updKey, updateData, nil);
+
+</pre>
 
 </details>
 
@@ -203,31 +212,33 @@ See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-record
 <details class="tab-container" open>
 <Summary>update multiple Records</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// create update data
-var recId1 = {your_record_id}
-var recId2 = {your_record_id}
-var updateData1: Dictionary<String, FieldValue> = [:]
-var updateData2: Dictionary<String, FieldValue> = [:]
-var field1 = FieldValue()
-var field2 = FieldValue()
-field1.setType(FieldType.SINGLE_LINE_TEXT)
-field1.setValue("Test Update Value1 ")
-field2.setType(FieldType.SINGLE_LINE_TEXT)
-field2.setValue("Test Update Value2")
-updateData1[{your_field_code}] = field1
-updateData2[{your_field_code}] = field2
-var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
-var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
-let updateItemList = [updateDataItem1 , updateDataItem2]
-         
-// execute update records API
-let appID = {your_app_id}
+<pre class="inline-code">
 
-bulkRequest = try bulkRequest?.updateRecords(appID, updateItemList);
-```
+    // create update data
+    var recId1 = {your_record_id}
+    var recId2 = {your_record_id}
+    var updateData1: Dictionary<String, FieldValue> = [:]
+    var updateData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Update Value1 ")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Update Value2")
+    updateData1[{your_field_code}] = field1
+    updateData2[{your_field_code}] = field2
+    var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
+    var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
+    let updateItemList = [updateDataItem1 , updateDataItem2]
+            
+    // execute update records API
+    let appID = {your_app_id}
+
+    bulkRequest = try bulkRequest?.updateRecords(appID, updateItemList);
+
+</pre>
 
 </details>
 
@@ -246,18 +257,19 @@ See at [Record - deleteRecords](./record#deleterecords_-app-int-_-ids-int)
 <details class="tab-container" open>
 <Summary>Bulk Delete Records</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
+<pre class="inline-code">
 
-// execute delete record API
-let appID = {your_app_id}
-let delRecordID1 = {your_record_id1}
-let delRecordID2 = {your_record_id2}
-let delIdList = [delRecordID1, delRecordID2]
+    // execute delete record API
+    let appID = {your_app_id}
+    let delRecordID1 = {your_record_id1}
+    let delRecordID2 = {your_record_id2}
+    let delIdList = [delRecordID1, delRecordID2]
 
-bulkRequest = try bulkRequest?.deleteRecords(appID, delIdList);
-```
+    bulkRequest = try bulkRequest?.deleteRecords(appID, delIdList);
+
+</pre>
 
 </details>
 
@@ -276,17 +288,18 @@ See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-
 <details class="tab-container" open>
 <Summary>delete Records With Revision</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute delete record API
-let appID = {your_app_id}
-var delIdAndRevision: Dictionary<Int, Int> = [:]
-delIdAndRevision[{your_record_id}] = {your_revision_id}
-delIdAndRevision[{your_record_id}] = {your_revision_id}
+<pre class="inline-code">
 
-bulkRequest = try bulkRequest?.deleteRecordsWithRevision(appID, delIdAndRevision);
-```
+    // execute delete record API
+    let appID = {your_app_id}
+    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    delIdAndRevision[{your_record_id}] = {your_revision_id}
+    delIdAndRevision[{your_record_id}] = {your_revision_id}
+
+    bulkRequest = try bulkRequest?.deleteRecordsWithRevision(appID, delIdAndRevision);
+</pre>
 
 </details>
 
@@ -305,16 +318,18 @@ See at [Record - updateRecordAssignees](./record#updaterecordassignees_-app-int-
 <details class="tab-container" open>
 <Summary>Update the Assignees for the record</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute update assignees API
-let appID = {your_app_od}
-let updRecID = {your_record_id}
-let assignees = ["{your_user_code}"]
+<pre class="inline-code">
 
-bulkRequest = try bulkRequest?.updateRecordAssignees(appID, updRecID, assignees, nil);
-```
+    // execute update assignees API
+    let appID = {your_app_od}
+    let updRecID = {your_record_id}
+    let assignees = ["{your_user_code}"]
+
+    bulkRequest = try bulkRequest?.updateRecordAssignees(appID, updRecID, assignees, nil);
+
+</pre>
 
 </details>
 
@@ -333,16 +348,18 @@ See at [Record - updateRecordStatus](./record#updaterecordstatus_-app-int-_-id-i
 <details class="tab-container" open>
 <Summary>Update the status of a single record</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute update status API
-let appID = {your_app_id}
-let updRecID = {your_record_id}
-let assignees = "{your_user_code}"
-let status = "{your_status}"
-bulkRequest = try bulkRequest?.updateRecordStatus(appID, updRecID, status, assignees, nil);
-```
+<pre class="inline-code">
+
+    // execute update status API
+    let appID = {your_app_id}
+    let updRecID = {your_record_id}
+    let assignees = "{your_user_code}"
+    let status = "{your_status}"
+    bulkRequest = try bulkRequest?.updateRecordStatus(appID, updRecID, status, assignees, nil);
+
+</pre>
 
 </details>
 
@@ -361,22 +378,24 @@ See at [Record - updateRecordsStatus](./record#updaterecordsstatus_-app-int-_-re
 <details class="tab-container" open>
 <Summary>Update the status of multiple records in bulk</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute update status API
-let appID = {your_app_id}
-let updRecID1 = {your_record_id1}
-let updRecID2 = {your_record_id2}
-let assignees1 = [{your_login_code1}]
-let assignees2 = [{your_login_code2}]
-let status1 = {your_update_status1}
-let status2 = {your_update_status2}
-let item1 = RecordUpdateStatusItem(status1, assignees1, updRecID1, nil)
-let item2 = RecordUpdateStatusItem(status2, assignees2, updRecID2, nil)
-let itemList = [item1, item2]
-bulkRequest = try bulkRequest?.updateRecordsStatus(appID, itemList);
-```
+<pre class="inline-code">
+
+    // execute update status API
+    let appID = {your_app_id}
+    let updRecID1 = {your_record_id1}
+    let updRecID2 = {your_record_id2}
+    let assignees1 = [{your_login_code1}]
+    let assignees2 = [{your_login_code2}]
+    let status1 = {your_update_status1}
+    let status2 = {your_update_status2}
+    let item1 = RecordUpdateStatusItem(status1, assignees1, updRecID1, nil)
+    let item2 = RecordUpdateStatusItem(status2, assignees2, updRecID2, nil)
+    let itemList = [item1, item2]
+    bulkRequest = try bulkRequest?.updateRecordsStatus(appID, itemList);
+
+</pre>
 
 </details>
 
@@ -396,20 +415,22 @@ BulkRequestResponse
 <details class="tab-container" open>
 <Summary>Execute bulk request</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-bulkRequest?.execute().then{responses in
-    print(responses)
-}.catch{error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    bulkRequest?.execute().then{responses in
+        print(responses)
+    }.catch{error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription))
+        }
     }
-    else {
-        print((error as! Error).localizedDescription))
-    }
-}
-```
+    
+</pre>
 
 </details>
 

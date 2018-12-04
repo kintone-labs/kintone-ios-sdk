@@ -16,10 +16,10 @@
 - [KintoneAPIException](./reference/kintone-api-exception)
 - [File](./reference/file)
 - Model
-    - [App]:(./reference/record)
-    - [Record]:(./reference/model/record)
-    - [File]:(./reference/record)
-    - [Bulk Request]:(./reference/record)
+    - [App](./reference/record)
+    - [Record](./reference/model/record)
+    - [File](./reference/record)
+    - [Bulk Request](./reference/record)
 
 ## License
 

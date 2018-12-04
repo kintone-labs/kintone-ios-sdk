@@ -27,11 +27,13 @@ Integer
 <details class="tab-container" open>
 <Summary>get App</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Integer app = formfields.getApp();
-```
+<pre class="inline-code">
+
+    Integer app = formfields.getApp();
+
+</pre>
 
 </details>
 
@@ -52,11 +54,13 @@ Integer
 <details class="tab-container" open>
 <Summary>get Revision</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Integer revision = formfields.getRevision();
-```
+<pre class="inline-code">
+
+    Integer revision = formfields.getRevision();
+
+</pre>
 
 </details>
 
@@ -77,11 +81,13 @@ Integer revision = formfields.getRevision();
 <details class="tab-container" open>
 <Summary>get Properties</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Map<String, Field> properties = formfields.getProperties();
-```
+<pre class="inline-code">
+
+    Map<String, Field> properties = formfields.getProperties();
+
+</pre>
 
 </details>
 
@@ -109,11 +115,13 @@ String
 <details class="tab-container" open>
 <Summary>get Label</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String label = fieldGroup.getLabel();
-```
+<pre class="inline-code">
+
+    String label = fieldGroup.getLabel();
+
+</pre>
 
 </details>
 
@@ -134,11 +142,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get NoLabel</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean noLabel = fieldGroup.getNoLabel();
-```
+<pre class="inline-code">
+
+    Boolean noLabel = fieldGroup.getNoLabel();
+
+</pre>
 
 </details>
 
@@ -159,11 +169,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get OpenGroup</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean openGroup = fieldGroup.getOpenGroup();
-```
+<pre class="inline-code">
+
+    Boolean openGroup = fieldGroup.getOpenGroup();
+
+</pre>
 
 </details>
 
@@ -188,11 +200,13 @@ String
 <details class="tab-container" open>
 <Summary>get Field</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String field = fieldMapping.getField();
-```
+<pre class="inline-code">
+
+    String field = fieldMapping.getField();
+
+</pre>
 
 </details>
 
@@ -213,11 +227,13 @@ String
 <details class="tab-container" open>
 <Summary>get Related Fields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String relatedFields = fieldMapping.getRelatedFields();
-```
+<pre class="inline-code">
+
+    String relatedFields = fieldMapping.getRelatedFields();
+
+</pre>
 
 </details>
 
@@ -247,11 +263,13 @@ String relatedFields = fieldMapping.getRelatedFields();
 <details class="tab-container" open>
 <Summary>get Fields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
- Map<String, AbstractInputField> fields = subTableField.getFields();
-```
+<pre class="inline-code">
+
+    Map<String, AbstractInputField> fields = subTableField.getFields();
+    
+</pre>
 
 </details>
 

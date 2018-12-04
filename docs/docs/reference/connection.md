@@ -17,41 +17,41 @@
 <details class="tab-container" open>
 <Summary>Init Connection module</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
+<pre class="inline-code">
 
-// Define Authentication object
-// Init Authentication
-let loginName = 'your_user_login_name'
-let loginPassword = 'your_password'
-let domain = 'your_kintone_domain'
- 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
- 
-// Init connection
-let connection = Connection(domain, auth)
+    // Define Authentication object
+    // Init Authentication
+    let loginName = 'your_user_login_name'
+    let loginPassword = 'your_password'
+    let domain = 'your_kintone_domain'
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+    
+    // Init connection
+    let connection = Connection(domain, auth)
 
-// Define connection that included guest space
+    // Define connection that included guest space
 
-// Init Authentication
-let loginName = 'your_user_login_name'
-let loginPassword = 'your_password'
-let domain = 'your_kintone_domain'
- 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+    // Init Authentication
+    let loginName = 'your_user_login_name'
+    let loginPassword = 'your_password'
+    let domain = 'your_kintone_domain'
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
 
-// Init Guest space
-let guestSpaceID = 3
+    // Init Guest space
+    let guestSpaceID = 3
 
-// Init connection
-let connection = Connection(domain, auth, guestSpaceID)
+    // Init connection
+    let connection = Connection(domain, auth, guestSpaceID)
 
-```
+</pre>
 
 </details>
 
@@ -77,25 +77,27 @@ let connection = Connection(domain, auth, guestSpaceID)
 <details class="tab-container" open>
 <Summary>Set header of the Connection</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// Define Authentication object
-// Init Authentication
-let loginName = 'your_user_name'
-let loginPassword = 'your_password'
-let domain = 'your_kintone_domain'
-let key = "X-HTTP-Method-Override";
-let value = "GET";
- 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
- 
-// Init connection
-let connection = Connection(domain, auth)
-connection.setHeader(key, value);
-```
+<pre class="inline-code">
+
+    // Define Authentication object
+    // Init Authentication
+    let loginName = 'your_user_name'
+    let loginPassword = 'your_password'
+    let domain = 'your_kintone_domain'
+    let key = "X-HTTP-Method-Override";
+    let value = "GET";
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+    
+    // Init connection
+    let connection = Connection(domain, auth)
+    connection.setHeader(key, value);
+
+</pre>
 
 </details>
 
@@ -119,23 +121,25 @@ connection.setHeader(key, value);
 <details class="tab-container" open>
 <Summary>Set the proxy of the request</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let proxyHost = "xxxx";
-let proxyPort: Int? = {your_proxy_port};
-  
-let loginName = 'your_user_login_name'
-let loginPassword = 'your_password'
-let domain = 'your_kintone_domain'
- 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
- 
-// Init connection
-let connection = Connection(domain, auth)
-connection.setProxy(proxyHost, proxyPort);
-```
+<pre class="inline-code">
+
+    let proxyHost = "xxxx";
+    let proxyPort: Int? = {your_proxy_port};
+    
+    let loginName = 'your_user_login_name'
+    let loginPassword = 'your_password'
+    let domain = 'your_kintone_domain'
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+    
+    // Init connection
+    let connection = Connection(domain, auth)
+    connection.setProxy(proxyHost, proxyPort);
+    
+</pre>
 
 </details>

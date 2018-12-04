@@ -27,11 +27,13 @@ Get a list of fields and their settings.
 <details class="tab-container" open>
 <Summary>get App</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String app = relatedApp.getApp();
-```
+<pre class="inline-code">
+
+    String app = relatedApp.getApp();
+
+</pre>
 
 </details>
 
@@ -52,11 +54,13 @@ String
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String app = relatedApp.getCode();
-```
+<pre class="inline-code">
+
+    String app = relatedApp.getCode();
+
+</pre>
 
 </details>
 
@@ -81,11 +85,13 @@ String app = relatedApp.getCode();
 <details class="tab-container" open>
 <Summary>get Condition</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-FieldMapping condition = referenceTable.getCondition();
-```
+<pre class="inline-code">
+
+    FieldMapping condition = referenceTable.getCondition();
+
+</pre>
 
 </details>
 
@@ -106,11 +112,13 @@ FieldMapping condition = referenceTable.getCondition();
 <details class="tab-container" open>
 <Summary>get FilterCond</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String filterCond = referenceTable.getFilterCond();
-```
+<pre class="inline-code">
+
+    String filterCond = referenceTable.getFilterCond();
+
+</pre>
 
 </details>
 
@@ -131,11 +139,13 @@ String filterCond = referenceTable.getFilterCond();
 <details class="tab-container" open>
 <Summary>get Related App</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-RelatedApp relatedApp = referenceTable.getRelatedApp();
-```
+<pre class="inline-code">
+
+    RelatedApp relatedApp = referenceTable.getRelatedApp();
+
+</pre>
 
 </details>
 
@@ -156,11 +166,13 @@ RelatedApp relatedApp = referenceTable.getRelatedApp();
 <details class="tab-container" open>
 <Summary>get Size</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Integer size = referenceTable.getSize();
-```
+<pre class="inline-code">
+
+    Integer size = referenceTable.getSize();
+
+</pre>
 
 </details>
 
@@ -181,11 +193,13 @@ Integer size = referenceTable.getSize();
 <details class="tab-container" open>
 <Summary>get Display Fields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-List<String> displayFields = referenceTable.getDisplayFields();
-```
+<pre class="inline-code">
+
+    List<String> displayFields = referenceTable.getDisplayFields();
+
+</pre>
 
 </details>
 
@@ -206,11 +220,13 @@ String
 <details class="tab-container" open>
 <Summary>get Sort</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String sort = referenceTable.getSort();
-```
+<pre class="inline-code">
+
+    String sort = referenceTable.getSort();
+
+</pre>
 
 </details>
 
@@ -238,11 +254,13 @@ String
 <details class="tab-container" open>
 <Summary>get Label</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String label = relatedRecordsField.getLabel();
-```
+<pre class="inline-code">
+
+    String label = relatedRecordsField.getLabel();
+
+</pre>
 
 </details>
 
@@ -263,11 +281,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get NoLabel</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean noLabel = relatedRecordsField.getNoLabel();
-```
+<pre class="inline-code">
+
+    Boolean noLabel = relatedRecordsField.getNoLabel();
+
+</pre>
 
 </details>
 
@@ -288,11 +308,13 @@ Boolean noLabel = relatedRecordsField.getNoLabel();
 <details class="tab-container" open>
 <Summary>get Reference Table</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-ReferenceTable referenceTable = relatedRecordsField.getReferenceTable();
-```
+<pre class="inline-code">
+
+    ReferenceTable referenceTable = relatedRecordsField.getReferenceTable();
+    
+</pre>
 
 </details>
 

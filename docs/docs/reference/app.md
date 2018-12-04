@@ -25,19 +25,21 @@ Gets general information of an App, including the name, description, related Spa
 <details class="tab-container" open>
 <Summary>Init app module</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// Init authentication
-var kintoneAuth = Auth()
- 
-// Password Authentication
-let username = "your_usernamr"
-let password = "your_password"
-kintoneAuth = kintoneAuth.setPasswordAuth(username, password)
-let connection = Connection( "your_domain", kintoneAuth )
-let app = App(connection)
-```
+<pre class="inline-code">
+
+    // Init authentication
+    var kintoneAuth = Auth()
+    
+    // Password Authentication
+    let username = "your_usernamr"
+    let password = "your_password"
+    kintoneAuth = kintoneAuth.setPasswordAuth(username, password)
+    let connection = Connection( "your_domain", kintoneAuth )
+    let app = App(connection)
+
+</pre>
 
 </details>
 
@@ -62,26 +64,28 @@ AppModel
 <details class="tab-container" open>
 <Summary>get App</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id}
-app.getApp(appId).then{response in
-    print("appId : \(response.getAppId()!)")
-    print("spaceId : \(response.getSpaceId())" )
-    print("threadId : \(response.getThreadId())" )
-    print("name : \(response.getName()!)")
-    print("description : \(response.getDescription()!)")
-    print("----------------")
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id}
+    app.getApp(appId).then{response in
+        print("appId : \(response.getAppId()!)")
+        print("spaceId : \(response.getSpaceId())" )
+        print("threadId : \(response.getThreadId())" )
+        print("name : \(response.getName()!)")
+        print("description : \(response.getDescription()!)")
+        print("----------------")
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -105,30 +109,32 @@ List<AppModel>
 <details class="tab-container" open>
 <Summary>Get Apps</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-app.getApps().then{appsResponse in
-    var count = 1
-    for appInfo in appsResponse {
-        print("App[\(count)] : ");
-        print("appId : \(appInfo.getAppId()!)")
-        print("spaceId : \(appInfo.getSpaceId())" )
-        print("threadId : \(appInfo.getThreadId())" )
-        print("name : \(appInfo.getName()!)")
-        print("description : \(appInfo.getDescription()!)")
-        print("----------------")
-        count = count + 1
+<pre class="inline-code">
+
+    app.getApps().then{appsResponse in
+        var count = 1
+        for appInfo in appsResponse {
+            print("App[\(count)] : ");
+            print("appId : \(appInfo.getAppId()!)")
+            print("spaceId : \(appInfo.getSpaceId())" )
+            print("threadId : \(appInfo.getThreadId())" )
+            print("name : \(appInfo.getName()!)")
+            print("description : \(appInfo.getDescription()!)")
+            print("----------------")
+            count = count + 1
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -153,35 +159,36 @@ List<AppModel>
 <details class="tab-container" open>
 <Summary>get Apps By IDs</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
+<pre class="inline-code">
 
-var appIds: [Int] = [{your_app_id}, {your_app_id}]
-let limit: Int = {your_limit}
-let offset : Int = {your_offset}
- 
-app.getAppsByIDs(appIds, limit, offset).then{appsResponse in
-    var count = 1
-   for appInfo in appsResponse {
-      print("App[\(count)] : ");
-      print("appId : \(appInfo.getAppId()!)")
-      print("spaceId : \(appInfo.getSpaceId())" )
-      print("threadId : \(appInfo.getThreadId())" )
-      print("name : \(appInfo.getName()!)")
-      print("description : \(appInfo.getDescription()!)")
-      print("----------------")
-      count = count + 1
-   }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+    var appIds: [Int] = [{your_app_id}, {your_app_id}]
+    let limit: Int = {your_limit}
+    let offset : Int = {your_offset}
+    
+    app.getAppsByIDs(appIds, limit, offset).then{appsResponse in
+        var count = 1
+    for appInfo in appsResponse {
+        print("App[\(count)] : ");
+        print("appId : \(appInfo.getAppId()!)")
+        print("spaceId : \(appInfo.getSpaceId())" )
+        print("threadId : \(appInfo.getThreadId())" )
+        print("name : \(appInfo.getName()!)")
+        print("description : \(appInfo.getDescription()!)")
+        print("----------------")
+        count = count + 1
     }
-    else {
-        print((error as! Error).localizedDescription)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}
-```
+
+</pre>
 
 </details>
 
@@ -206,35 +213,37 @@ List<AppModel>
 <details class="tab-container" open>
 <Summary>get Apps By Codes</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-var appCode: [String] = [{your_app_code}, {your_app_code}]
-let limit: Int = {your_limit}
-let offset: Int = {your_offset}
- 
-app.getAppsByCodes(appCode, limit, offset).then{appsResponse in
-   var count = 1
-   for appInfo in appsResponse {
-      print("App[\(count)] : ");
-      print("appId : \(appInfo.getAppId()!)")
-      print("appCode : \(appInfo.getCode()!)")
-      print("spaceId : \(appInfo.getSpaceId())" )
-      print("threadId : \(appInfo.getThreadId())" )
-      print("name : \(appInfo.getName()!)")
-      print("description : \(appInfo.getDescription()!)")
-      print("----------------")
-      count = count + 1
-   }
-}.catch{ error in
-   if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    var appCode: [String] = [{your_app_code}, {your_app_code}]
+    let limit: Int = {your_limit}
+    let offset: Int = {your_offset}
+    
+    app.getAppsByCodes(appCode, limit, offset).then{appsResponse in
+    var count = 1
+    for appInfo in appsResponse {
+        print("App[\(count)] : ");
+        print("appId : \(appInfo.getAppId()!)")
+        print("appCode : \(appInfo.getCode()!)")
+        print("spaceId : \(appInfo.getSpaceId())" )
+        print("threadId : \(appInfo.getThreadId())" )
+        print("name : \(appInfo.getName()!)")
+        print("description : \(appInfo.getDescription()!)")
+        print("----------------")
+        count = count + 1
     }
-    else {
-        print((error as! Error).localizedDescription)
+    }.catch{ error in
+    if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}
-```
+
+</pre>
 
 </details>
 
@@ -259,35 +268,37 @@ List<AppModel>
 <details class="tab-container" open>
 <Summary>get Apps By Name</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appName: String = {your_app_name}
-let limit: Int = {your_limit}
-let offset: Int = {your_offset}
-  
-app.getAppsByName(appName, limit, offset).then{appsResponse in
-   var count = 1
-   for appInfo in appsResponse {
-      print("App[\(count)] : ");
-      print("appId : \(appInfo.getAppId()!)")
-      print("appCode : \(appInfo.getCode()!)")
-      print("spaceId : \(appInfo.getSpaceId())" )
-      print("threadId : \(appInfo.getThreadId())" )
-      print("name : \(appInfo.getName()!)")
-      print("description : \(appInfo.getDescription()!)")
-      print("----------------")
-      count = count + 1
-   }
-}.catch{ error in
-  if error is KintoneAPIException {
-      print((error as! KintoneAPIException).toString()!)
-  }
-  else {
-      print((error as! Error).localizedDescription)
-  }
-}
-```
+<pre class="inline-code">
+
+    let appName: String = {your_app_name}
+    let limit: Int = {your_limit}
+    let offset: Int = {your_offset}
+    
+    app.getAppsByName(appName, limit, offset).then{appsResponse in
+        var count = 1
+        for appInfo in appsResponse {
+            print("App[\(count)] : ");
+            print("appId : \(appInfo.getAppId()!)")
+            print("appCode : \(appInfo.getCode()!)")
+            print("spaceId : \(appInfo.getSpaceId())" )
+            print("threadId : \(appInfo.getThreadId())" )
+            print("name : \(appInfo.getName()!)")
+            print("description : \(appInfo.getDescription()!)")
+            print("----------------")
+            count = count + 1
+        }
+        }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
+
+</pre>
 
 </details>
 
@@ -312,34 +323,36 @@ List<AppModel>
 <details class="tab-container" open>
 <Summary>get Apps By SpaceIDs</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let spaceIds: [Int] = [{your_space_id}, {your_space_id}]
-let limit = {your_litmit}
-let offset = {your_offset}
-  
-app.getAppsBySpaceIDs(spaceIds, offset, limit).then{appsResponse in
-   var count = 1
-   for appInfo in appsResponse {
-      print("App[\(count)] : ");
-      print("appId : \(appInfo.getAppId()!)")
-      print("spaceId : \(appInfo.getSpaceId())" )
-      print("threadId : \(appInfo.getThreadId())" )
-      print("name : \(appInfo.getName()!)")
-      print("description : \(appInfo.getDescription()!)")
-      print("----------------")
-      count = count + 1
-   }
-}.catch{ error in
-   if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let spaceIds: [Int] = [{your_space_id}, {your_space_id}]
+    let limit = {your_litmit}
+    let offset = {your_offset}
+    
+    app.getAppsBySpaceIDs(spaceIds, offset, limit).then{appsResponse in
+        var count = 1
+        for appInfo in appsResponse {
+            print("App[\(count)] : ");
+            print("appId : \(appInfo.getAppId()!)")
+            print("spaceId : \(appInfo.getSpaceId())" )
+            print("threadId : \(appInfo.getThreadId())" )
+            print("name : \(appInfo.getName()!)")
+            print("description : \(appInfo.getDescription()!)")
+            print("----------------")
+            count = count + 1
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -364,24 +377,26 @@ PreviewApp
 <details class="tab-container" open>
 <Summary>add PreviewApp</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let spaceId = {your_space_id} // Space will add this app
-let threadId = {your_thread_id} // Thread will add this app
-  
-app.addPreviewApp(appName, spaceId, threadId).then{ addPreviewRespones in
-   print(addPreviewRespones?.getApp())
-   print(addPreviewRespones?.getRevision())
-}.catch{ error in
-   if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let spaceId = {your_space_id} // Space will add this app
+    let threadId = {your_thread_id} // Thread will add this app
+    
+    app.addPreviewApp(appName, spaceId, threadId).then{ addPreviewRespones in
+        print(addPreviewRespones?.getApp())
+        print(addPreviewRespones?.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -406,22 +421,24 @@ None
 <details class="tab-container" open>
 <Summary>deploy AppSettings</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id}
-let revision: Int = {your_revision} // Revision of application to deploy
-let appPreview: PreviewApp? = PreviewApp(appId, revision)
-  
-app.deployAppSettings([appPreview!]).catch{ error in
-   if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id}
+    let revision: Int = {your_revision} // Revision of application to deploy
+    let appPreview: PreviewApp? = PreviewApp(appId, revision)
+    
+    app.deployAppSettings([appPreview!]).catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -444,26 +461,28 @@ GetAppDeployStatusResponse
 <details class="tab-container" open>
 <Summary>get App DeployStatus</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appIds: [Int] = [{your_app_id}, {your_app_id}]
- 
-app.getAppDeployStatus(appIds).then{deployStatusReponse in
-    let listAppsDeployStatus = deployStatusReponse?.getApps()
-    for appDeployStatus in listAppsDeployStatus! {
-        print(appDeployStatus.getApp())
-        print(appDeployStatus.getStatus())
+<pre class="inline-code">
+
+    let appIds: [Int] = [{your_app_id}, {your_app_id}]
+    
+    app.getAppDeployStatus(appIds).then{deployStatusReponse in
+        let listAppsDeployStatus = deployStatusReponse?.getApps()
+        for appDeployStatus in listAppsDeployStatus! {
+            print(appDeployStatus.getApp())
+            print(appDeployStatus.getStatus())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}.catch{ error in
-  if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -489,39 +508,41 @@ FormFields
 <details class="tab-container" open>
 <Summary>get FormFields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id} // Integer
-let lang: LanguageSetting = {language_code} // LanguageSetting .Ex: LanguageSetting.JA
-  
-app.getFormFields(appId, lang).then{ formFieldsResponse in
-    print(formFieldsResponse)
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id} // Integer
+    let lang: LanguageSetting = {language_code} // LanguageSetting .Ex: LanguageSetting.JA
+    
+    app.getFormFields(appId, lang).then{ formFieldsResponse in
+        print(formFieldsResponse)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
+    
+    // Get a pre-live (preview) form fields
+    let appId: Int = {your_app_id} // Integer
+    let lang: LanguageSetting = {language_code} // LanguageSetting .Ex: LanguageSetting.JA
+    let isPreview: Bool = true
+    
+    self.app?.getFormFields(appId, lang, isPreview).then{ formFieldsResponse in
+        print(formFieldsResponse) // FormFields Object
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}
-  
-// Get a pre-live (preview) form fields
-let appId: Int = {your_app_id} // Integer
-let lang: LanguageSetting = {language_code} // LanguageSetting .Ex: LanguageSetting.JA
-let isPreview: Bool = true
- 
-self.app?.getFormFields(appId, lang, isPreview).then{ formFieldsResponse in
-    print(formFieldsResponse) // FormFields Object
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -546,41 +567,43 @@ BasicResponse
 <details class="tab-container" open>
 <Summary>add FormFields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id} // App Id
-let fieldCode: String = {field_code_string} // Field code of new Field. It must be not as same as any fields in Pre-Live App Setttings
-let revision: Int = {latest_revision_of_the_settings} // Integer
-  
-// Create Radio field instance and set properties
-let addNewField = RadioButtonField(fieldCode)
-var optionArray = [String: OptionData]()
-optionArray["1"] = OptionData("1","1")
-optionArray["2"] = OptionData("2","2")
-optionArray["3"] = OptionData("3","3")
-addNewField.setOptions(optionArray)
-addNewField.setNoLabel(false)
-addNewField.setRequired(true)
-addNewField.setLabel("Label Radio")
-addNewField.setAlign(AlignLayout.VERTICAL)
-  
-// Add Field object into dictionary with key is Field Code
-var properties = [String: Field]()
-properties[fieldCode] = addNewField
-// Another add field here
-  
-app.addFormFields(self.APP_ID, properties, revision).then{ basicResponse in
-    print(basicResponse)
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id} // App Id
+    let fieldCode: String = {field_code_string} // Field code of new Field. It must be not as same as any fields in Pre-Live App Setttings
+    let revision: Int = {latest_revision_of_the_settings} // Integer
+    
+    // Create Radio field instance and set properties
+    let addNewField = RadioButtonField(fieldCode)
+    var optionArray = [String: OptionData]()
+    optionArray["1"] = OptionData("1","1")
+    optionArray["2"] = OptionData("2","2")
+    optionArray["3"] = OptionData("3","3")
+    addNewField.setOptions(optionArray)
+    addNewField.setNoLabel(false)
+    addNewField.setRequired(true)
+    addNewField.setLabel("Label Radio")
+    addNewField.setAlign(AlignLayout.VERTICAL)
+    
+    // Add Field object into dictionary with key is Field Code
+    var properties = [String: Field]()
+    properties[fieldCode] = addNewField
+    // Another add field here
+    
+    app.addFormFields(self.APP_ID, properties, revision).then{ basicResponse in
+        print(basicResponse)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -605,33 +628,35 @@ BasicResponse
 <details class="tab-container" open>
 <Summary>update FormFields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id} // Integer
-let fieldCode: String = {field_code_string} // String | fieldCode of exist fields in Pre-Live App Setttings
-let revision: Int = {latest_revision_of_the_settings} // Integer
-  
-// Create Field Object to Update
-let updateField = SingleLineTextField(fieldCode)
-updateField.setDefaultValue("Hello Kintone")
-updateField.setRequired(true)
-  
-// Add Update Field object into dictionary with key is Field Code
-var properties = [String: Field]()
-properties[fieldCode] = updateField
-  
-app.updateFormFields(appId, properties, revision).then{ basicResponse in
-    print(basicResponse) // BasicResponse { revision : <String> }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id} // Integer
+    let fieldCode: String = {field_code_string} // String | fieldCode of exist fields in Pre-Live App Setttings
+    let revision: Int = {latest_revision_of_the_settings} // Integer
+    
+    // Create Field Object to Update
+    let updateField = SingleLineTextField(fieldCode)
+    updateField.setDefaultValue("Hello Kintone")
+    updateField.setRequired(true)
+    
+    // Add Update Field object into dictionary with key is Field Code
+    var properties = [String: Field]()
+    properties[fieldCode] = updateField
+    
+    app.updateFormFields(appId, properties, revision).then{ basicResponse in
+        print(basicResponse) // BasicResponse { revision : <String> }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -656,24 +681,26 @@ BasicResponse
 <details class="tab-container" open>
 <Summary>delete FormFields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id} // Integer
-let fieldCodeArray: [String] = [{field_code_string}] // Array<String> | Array of fieldCodes of exist fields in Pre-Live App Setttings
-let revision: Int = {latest_revision_of_the_settings} // Integer
-  
-app.deleteFormFields(appId, fieldCodeArray, revision).then{ basicResponse in
-    print(basicResponse) // BasicResponse { revision : <String> }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id} // Integer
+    let fieldCodeArray: [String] = [{field_code_string}] // Array<String> | Array of fieldCodes of exist fields in Pre-Live App Setttings
+    let revision: Int = {latest_revision_of_the_settings} // Integer
+    
+    app.deleteFormFields(appId, fieldCodeArray, revision).then{ basicResponse in
+        print(basicResponse) // BasicResponse { revision : <String> }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -697,37 +724,39 @@ FormLayout
 <details class="tab-container" open>
 <Summary>get FormLayout</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id} // Integer
- 
-app.getFormLayout(appId).then{ formLayoutResponse in
-    print(response_layout.getLayout()!)
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id} // Integer
+    
+    app.getFormLayout(appId).then{ formLayoutResponse in
+        print(response_layout.getLayout()!)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
+    
+    // Get a pre-live (preview) form fields
+    let appId: Int = {your_app_id} // Integer
+    let isPreview: Bool = true
+    
+    app.getFormLayout(appId, isPreview).then{ formLayoutResponse in
+        print(response_layout.getLayout()!)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}
-  
-// Get a pre-live (preview) form fields
-let appId: Int = {your_app_id} // Integer
-let isPreview: Bool = true
-  
-app.getFormLayout(appId, isPreview).then{ formLayoutResponse in
-    print(response_layout.getLayout()!)
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -752,87 +781,89 @@ BasicResponse
 <details class="tab-container" open>
 <Summary>update FormLayout</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id} // Integer
-var itemLayoutRequest: [ItemLayout]? = [ItemLayout]()
-      
-// Row Layout
-let rowLayout1: RowLayout? = RowLayout()
-var fieldsRowLayout1: [FieldLayout]? = [FieldLayout]()
- 
-let singleFieldRowLayout1: FieldLayout? = FieldLayout()
-singleFieldRowLayout1?.setCode("Text")
-singleFieldRowLayout1?.setType(FieldType.SINGLE_LINE_TEXT.rawValue)
-let singleFieldSizeRowLayout1: FieldSize? = FieldSize()
-singleFieldSizeRowLayout1?.setWidth("193")
-singleFieldRowLayout1?.setSize(singleFieldSizeRowLayout1)
-fieldsRowLayout1?.append(singleFieldRowLayout1!)
- 
-let richTextFieldRowLayout1: FieldLayout? = FieldLayout()
-richTextFieldRowLayout1?.setCode("Rich_text")
-richTextFieldRowLayout1?.setType(FieldType.RICH_TEXT.rawValue)
-let richTextFieldSizeRowLayout1: FieldSize? = FieldSize()
-richTextFieldSizeRowLayout1?.setWidth("315")
-richTextFieldSizeRowLayout1?.setInnerHeight("125")
-richTextFieldRowLayout1?.setSize(richTextFieldSizeRowLayout1)
-fieldsRowLayout1?.append(richTextFieldRowLayout1!)
- 
-rowLayout1?.setFields(fieldsRowLayout1)
- 
-// Subtable Layout
-let subTableLayout: SubTableLayout? = SubTableLayout()
-var fieldSubTableLayout: [FieldLayout]? = [FieldLayout]()
- 
-let singleFieldSubTableLayout1: FieldLayout? = FieldLayout()
-singleFieldSubTableLayout1?.setCode("Text_0")
-singleFieldSubTableLayout1?.setType(FieldType.SINGLE_LINE_TEXT.rawValue)
-let singleFieldSizeSubTableLayout1: FieldSize? = FieldSize()
-singleFieldSizeSubTableLayout1?.setWidth("193")
-singleFieldSubTableLayout1?.setSize(singleFieldSizeSubTableLayout1)
- 
-fieldSubTableLayout?.append(singleFieldSubTableLayout1!)
-subTableLayout?.setFields(fieldSubTableLayout)
-subTableLayout?.setCode("Table")
- 
-// GROUP Layout
-let groupLayout: GroupLayout? = GroupLayout()
-var rowLayoutInGroup: [RowLayout]? = [RowLayout]()
-// Row Layout
-let firstRowLayoutInGroup: RowLayout? = RowLayout()
-var fieldsInRowLayoutInGroup: [FieldLayout]? = [FieldLayout]()
-// Numeric Field Layout
-let numericFieldInRowLayoutInGroup: FieldLayout? = FieldLayout()
-numericFieldInRowLayoutInGroup?.setCode("Number")
-numericFieldInRowLayoutInGroup?.setType(FieldType.NUMBER.rawValue)
-// field size
-let numericFieldSizeInRowLayoutInGroup: FieldSize? = FieldSize()
-numericFieldSizeInRowLayoutInGroup?.setWidth("200")
-numericFieldInRowLayoutInGroup?.setSize(numericFieldSizeInRowLayoutInGroup)
- 
-fieldsInRowLayoutInGroup?.append(numericFieldInRowLayoutInGroup!)
-firstRowLayoutInGroup?.setFields(fieldsInRowLayoutInGroup)
-rowLayoutInGroup?.append(firstRowLayoutInGroup!)
-groupLayout?.setLayout(rowLayoutInGroup)
-groupLayout?.setCode("Field_group")
- 
-// Append layout
-itemLayoutRequest?.append(rowLayout1!)
-itemLayoutRequest?.append(subTableLayout!)
-itemLayoutRequest?.append(groupLayout!)
- 
-app.updateFormLayout(appId, itemLayoutRequest).then{ basicResponse in
-    print(basicResponse.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id} // Integer
+    var itemLayoutRequest: [ItemLayout]? = [ItemLayout]()
+        
+    // Row Layout
+    let rowLayout1: RowLayout? = RowLayout()
+    var fieldsRowLayout1: [FieldLayout]? = [FieldLayout]()
+    
+    let singleFieldRowLayout1: FieldLayout? = FieldLayout()
+    singleFieldRowLayout1?.setCode("Text")
+    singleFieldRowLayout1?.setType(FieldType.SINGLE_LINE_TEXT.rawValue)
+    let singleFieldSizeRowLayout1: FieldSize? = FieldSize()
+    singleFieldSizeRowLayout1?.setWidth("193")
+    singleFieldRowLayout1?.setSize(singleFieldSizeRowLayout1)
+    fieldsRowLayout1?.append(singleFieldRowLayout1!)
+    
+    let richTextFieldRowLayout1: FieldLayout? = FieldLayout()
+    richTextFieldRowLayout1?.setCode("Rich_text")
+    richTextFieldRowLayout1?.setType(FieldType.RICH_TEXT.rawValue)
+    let richTextFieldSizeRowLayout1: FieldSize? = FieldSize()
+    richTextFieldSizeRowLayout1?.setWidth("315")
+    richTextFieldSizeRowLayout1?.setInnerHeight("125")
+    richTextFieldRowLayout1?.setSize(richTextFieldSizeRowLayout1)
+    fieldsRowLayout1?.append(richTextFieldRowLayout1!)
+    
+    rowLayout1?.setFields(fieldsRowLayout1)
+    
+    // Subtable Layout
+    let subTableLayout: SubTableLayout? = SubTableLayout()
+    var fieldSubTableLayout: [FieldLayout]? = [FieldLayout]()
+    
+    let singleFieldSubTableLayout1: FieldLayout? = FieldLayout()
+    singleFieldSubTableLayout1?.setCode("Text_0")
+    singleFieldSubTableLayout1?.setType(FieldType.SINGLE_LINE_TEXT.rawValue)
+    let singleFieldSizeSubTableLayout1: FieldSize? = FieldSize()
+    singleFieldSizeSubTableLayout1?.setWidth("193")
+    singleFieldSubTableLayout1?.setSize(singleFieldSizeSubTableLayout1)
+    
+    fieldSubTableLayout?.append(singleFieldSubTableLayout1!)
+    subTableLayout?.setFields(fieldSubTableLayout)
+    subTableLayout?.setCode("Table")
+    
+    // GROUP Layout
+    let groupLayout: GroupLayout? = GroupLayout()
+    var rowLayoutInGroup: [RowLayout]? = [RowLayout]()
+    // Row Layout
+    let firstRowLayoutInGroup: RowLayout? = RowLayout()
+    var fieldsInRowLayoutInGroup: [FieldLayout]? = [FieldLayout]()
+    // Numeric Field Layout
+    let numericFieldInRowLayoutInGroup: FieldLayout? = FieldLayout()
+    numericFieldInRowLayoutInGroup?.setCode("Number")
+    numericFieldInRowLayoutInGroup?.setType(FieldType.NUMBER.rawValue)
+    // field size
+    let numericFieldSizeInRowLayoutInGroup: FieldSize? = FieldSize()
+    numericFieldSizeInRowLayoutInGroup?.setWidth("200")
+    numericFieldInRowLayoutInGroup?.setSize(numericFieldSizeInRowLayoutInGroup)
+    
+    fieldsInRowLayoutInGroup?.append(numericFieldInRowLayoutInGroup!)
+    firstRowLayoutInGroup?.setFields(fieldsInRowLayoutInGroup)
+    rowLayoutInGroup?.append(firstRowLayoutInGroup!)
+    groupLayout?.setLayout(rowLayoutInGroup)
+    groupLayout?.setCode("Field_group")
+    
+    // Append layout
+    itemLayoutRequest?.append(rowLayout1!)
+    itemLayoutRequest?.append(subTableLayout!)
+    itemLayoutRequest?.append(groupLayout!)
+    
+    app.updateFormLayout(appId, itemLayoutRequest).then{ basicResponse in
+        print(basicResponse.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -857,42 +888,44 @@ GeneralSettings
 <details class="tab-container" open>
 <Summary>get GeneralSettings</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId = {your_app_id}
- 
-app.getGeneralSettings(self.APP_ID).then{appGeneralSetting in
-    print(appGeneralSetting.getName())
-    print(appGeneralSetting.getIcon())
-    print(appGeneralSetting.getKey())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId = {your_app_id}
+    
+    app.getGeneralSettings(self.APP_ID).then{appGeneralSetting in
+        print(appGeneralSetting.getName())
+        print(appGeneralSetting.getIcon())
+        print(appGeneralSetting.getKey())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
+    
+    // Get a pre-live (preview) general settings
+    let appId = {your_app_id}
+    let lang = {your_language_code} // LanguageSetting( EN | JA | ZH ). Ex: LanguageSetting.JA
+    let isPreview = true
+    
+    app.getGeneralSettings(self.APP_ID, self.LANG, isPreview).then{appGeneralSetting in
+        print(appGeneralSetting.getName())
+        print(appGeneralSetting.getIcon())
+        print(appGeneralSetting.getKey())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}
-  
-// Get a pre-live (preview) general settings
-let appId = {your_app_id}
-let lang = {your_language_code} // LanguageSetting( EN | JA | ZH ). Ex: LanguageSetting.JA
-let isPreview = true
- 
-app.getGeneralSettings(self.APP_ID, self.LANG, isPreview).then{appGeneralSetting in
-    print(appGeneralSetting.getName())
-    print(appGeneralSetting.getIcon())
-    print(appGeneralSetting.getKey())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -916,29 +949,31 @@ BasicResponse
 <details class="tab-container" open>
 <Summary>update general settings</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId: Int = {your_app_id}
- 
-let appGeneralSetting: GeneralSettings = GeneralSettings()
-appGeneralSetting.setName("GetViewsApp_Test")
-appGeneralSetting.setDescription("<div>A list of great places to go!</div>")
-let iconModel: Icon = Icon("APP39", Icon.IconType.PRESET)
-appGeneralSetting.setIcon(iconModel)
-appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
-  
-app.updateGeneralSettings(appId, appGeneralSetting).then{ basicResponse in
-    print(basicResponse.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId: Int = {your_app_id}
+    
+    let appGeneralSetting: GeneralSettings = GeneralSettings()
+    appGeneralSetting.setName("GetViewsApp_Test")
+    appGeneralSetting.setDescription("<div>A list of great places to go!</div>")
+    let iconModel: Icon = Icon("APP39", Icon.IconType.PRESET)
+    appGeneralSetting.setIcon(iconModel)
+    appGeneralSetting.setTheme(GeneralSettings.IconTheme.WHITE)
+    
+    app.updateGeneralSettings(appId, appGeneralSetting).then{ basicResponse in
+        print(basicResponse.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -963,38 +998,40 @@ GetViewsResponse
 <details class="tab-container" open>
 <Summary>get Views</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId = {your_app_id}
-let lang = LanguageSetting.EN // LanguageSetting( EN | JA | ZH ). Ex: LanguageSetting.JA
-   
-app.getViews(appId, lang).then{ appViewResponse in
-    print(appViewResponse)
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId = {your_app_id}
+    let lang = LanguageSetting.EN // LanguageSetting( EN | JA | ZH ). Ex: LanguageSetting.JA
+    
+    app.getViews(appId, lang).then{ appViewResponse in
+        print(appViewResponse)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
+    
+    // Get a pre-live (preview) general settings
+    let appId = 2 // your app Id
+    let lang = LanguageSetting.EN // LanguageSetting( EN | JA | ZH )
+    let isPreview = true
+    app.getViews(appId, lang, isPreview).then{ appViewResponse in
+        print(appViewResponse)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}
-   
-// Get a pre-live (preview) general settings
-let appId = 2 // your app Id
-let lang = LanguageSetting.EN // LanguageSetting( EN | JA | ZH )
-let isPreview = true
-app.getViews(appId, lang, isPreview).then{ appViewResponse in
-    print(appViewResponse)
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -1020,45 +1057,47 @@ UpdateViewsResponse
 <details class="tab-container" open>
 <Summary>update Views</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId = {your_app_id)}
-let revision = {your_lastest_revision} //default: revision = -1
- 
-var viewEntry: [String: ViewModel] = [String: ViewModel]()
-let updateViewModel: ViewModel = ViewModel()
-updateViewModel.setName("ViewTest")
-updateViewModel.setSort("Record_number desc")
-updateViewModel.setType(ViewModel.ViewType.LIST)
-updateViewModel.setFilterCond("Created_datetime = LAST_WEEK()")
-updateViewModel.setIndex(1)
-let fieldsViews: [String] = ["Text", "Text_Area", "Created_datetime"]
-updateViewModel.setFields(fieldsViews)
-viewEntry["ViewTest"] = updateViewModel
- 
-let updateViewModel2: ViewModel = ViewModel()
-updateViewModel2.setName("ViewTest2")
-updateViewModel2.setSort("Record_number asc")
-updateViewModel2.setType(ViewModel.ViewType.LIST)
-updateViewModel2.setFilterCond("Created_datetime > LAST_WEEK()")
-updateViewModel2.setIndex(0)
- 
-let fieldsInViews2: [String] = ["Text_Area", "Created_datetime"]
-updateViewModel2.setFields(fieldsInViews2)
- 
-viewEntry["ViewTest2"] = updateViewModel2
-app.updateViews(appId, viewEntry, revision).then{ updateViewResponse in
-    print(updateViewResponse.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId = {your_app_id)}
+    let revision = {your_lastest_revision} //default: revision = -1
+    
+    var viewEntry: [String: ViewModel] = [String: ViewModel]()
+    let updateViewModel: ViewModel = ViewModel()
+    updateViewModel.setName("ViewTest")
+    updateViewModel.setSort("Record_number desc")
+    updateViewModel.setType(ViewModel.ViewType.LIST)
+    updateViewModel.setFilterCond("Created_datetime = LAST_WEEK()")
+    updateViewModel.setIndex(1)
+    let fieldsViews: [String] = ["Text", "Text_Area", "Created_datetime"]
+    updateViewModel.setFields(fieldsViews)
+    viewEntry["ViewTest"] = updateViewModel
+    
+    let updateViewModel2: ViewModel = ViewModel()
+    updateViewModel2.setName("ViewTest2")
+    updateViewModel2.setSort("Record_number asc")
+    updateViewModel2.setType(ViewModel.ViewType.LIST)
+    updateViewModel2.setFilterCond("Created_datetime > LAST_WEEK()")
+    updateViewModel2.setIndex(0)
+    
+    let fieldsInViews2: [String] = ["Text_Area", "Created_datetime"]
+    updateViewModel2.setFields(fieldsInViews2)
+    
+    viewEntry["ViewTest2"] = updateViewModel2
+    app.updateViews(appId, viewEntry, revision).then{ updateViewResponse in
+        print(updateViewResponse.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+    
+</pre>
 
 </details>
 

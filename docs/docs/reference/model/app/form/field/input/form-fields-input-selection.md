@@ -30,11 +30,13 @@ AlignLayout
 <details class="tab-container" open>
 <Summary>get Align</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-AlignLayout align = checkboxField.getAlign();
-```
+<pre class="inline-code">
+
+    AlignLayout align = checkboxField.getAlign();
+
+</pre>
 
 </details>
 
@@ -55,11 +57,13 @@ List<String\>
 <details class="tab-container" open>
 <Summary>get Default Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-List<String> defaultValue = checkboxField.getDefaultValue();
-```
+<pre class="inline-code">
+
+    List<String> defaultValue = checkboxField.getDefaultValue();
+
+</pre>
 
 </details>
 
@@ -87,11 +91,13 @@ String
 <details class="tab-container" open>
 <Summary>get Default Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String defaultValue = dropDownField.getDefaultValue();
-```
+<pre class="inline-code">
+
+    String defaultValue = dropDownField.getDefaultValue();
+
+</pre>
 
 </details>
 
@@ -119,11 +125,13 @@ List<String\>
 <details class="tab-container" open>
 <Summary>get Default Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-List<String> defaultValue = multipleSelectField.getDefaultValue();
-```
+<pre class="inline-code">
+
+    List<String> defaultValue = multipleSelectField.getDefaultValue();
+
+</pre>
 
 </details>
 
@@ -148,11 +156,13 @@ Integer
 <details class="tab-container" open>
 <Summary>get Index</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Integer index = optionData.getIndex();
-```
+<pre class="inline-code">
+
+    Integer index = optionData.getIndex();
+
+</pre>
 
 </details>
 
@@ -173,11 +183,13 @@ String
 <details class="tab-container" open>
 <Summary>get Label</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String label = optionData.getLabel();
-```
+<pre class="inline-code">
+
+    String label = optionData.getLabel();
+
+</pre>
 
 </details>
 
@@ -205,11 +217,13 @@ AlignLayout
 <details class="tab-container" open>
 <Summary>get Align</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-AlignLayout align = radioButtonField.getAlign();
-```
+<pre class="inline-code">
+
+    AlignLayout align = radioButtonField.getAlign();
+
+</pre>
 
 </details>
 
@@ -230,11 +244,13 @@ String
 <details class="tab-container" open>
 <Summary>get Default Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String defaultValue = radioButtonField.getDefaultValue();
-```
+<pre class="inline-code">
+
+    String defaultValue = radioButtonField.getDefaultValue();
+    
+</pre>
 
 </details>
 

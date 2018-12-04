@@ -45,11 +45,13 @@ String
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String code = memberSelectEntity.getCode();
-```
+<pre class="inline-code">
+
+    String code = memberSelectEntity.getCode();
+
+</pre>
 
 </details>
 
@@ -70,11 +72,13 @@ MemberSelectEntityType
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-MemberSelectEntityType type = memberSelectEntity.getType();
-```
+<pre class="inline-code">
+
+    MemberSelectEntityType type = memberSelectEntity.getType();
+    
+</pre>
 
 </details>
 

@@ -19,19 +19,20 @@ int
 <details class="tab-container" open>
 <Summary>Get http error code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let recordManagement = Record(connection)
-recordManagement.getRecord(-1, 1).then{response in
-    print(response)  
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).getHttpErrorCode()!)
+<pre class="inline-code">
+
+    let recordManagement = Record(connection)
+    recordManagement.getRecord(-1, 1).then{response in
+        print(response)  
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).getHttpErrorCode()!)
+        }
     }
-}
 
-```
+</pre>
 
 </details>
 
@@ -50,21 +51,22 @@ recordManagement.getRecord(-1, 1).then{response in
 <details class="tab-container" open>
 <Summary>Get apps with error response</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let recordManagement = Record(connection)
-recordManagement.getRecord(-1, 1).then{response in
-    print(response)  
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).getErrorResponse().getId()!)
-		print((error as! KintoneAPIException).getErrorResponse().getMessage()!)
-		print((error as! KintoneAPIException).getErrorResponse().getCode()!)
+<pre class="inline-code">
+
+    let recordManagement = Record(connection)
+    recordManagement.getRecord(-1, 1).then{response in
+        print(response)  
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).getErrorResponse().getId()!)
+            print((error as! KintoneAPIException).getErrorResponse().getMessage()!)
+            print((error as! KintoneAPIException).getErrorResponse().getCode()!)
+        }
     }
-}
 
-```
+</pre>
 
 </details>
 
@@ -83,30 +85,30 @@ ArrayList&lt;[ErrorResponse](https://developer.kintone.io/hc/en-us/articles/2124
 <details class="tab-container" open>
 <Summary>Get apps with error responses</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
+<pre class="inline-code">
 
-// Init Bulk request
-var bulkRequest = BulkRequest(connection);
- 
-var record: [String: FieldValue] = [:]
-         
-let fv = FieldValue()
-fv.setType(FieldType.SINGLE_LINE_TEXT)
-fv.setValue("test_AddRecord")
- 
-record["Your_Field_Code"] = fv
-bulkRequest = try bulkRequest?.addRecord(-1, record)
-bulkRequest?.execute().catch{error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).getErrorResponses().toString()!)
+    // Init Bulk request
+    var bulkRequest = BulkRequest(connection);
+    
+    var record: [String: FieldValue] = [:]
+            
+    let fv = FieldValue()
+    fv.setType(FieldType.SINGLE_LINE_TEXT)
+    fv.setValue("test_AddRecord")
+    
+    record["Your_Field_Code"] = fv
+    bulkRequest = try bulkRequest?.addRecord(-1, record)
+    bulkRequest?.execute().catch{error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).getErrorResponses().toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription))
+        }
     }
-    else {
-        print((error as! Error).localizedDescription))
-    }
-}
 
-```
+</pre>
 
 </details>

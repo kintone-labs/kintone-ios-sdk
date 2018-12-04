@@ -18,11 +18,13 @@ This module allow we authenticate with kintone app by password authenticator or 
 <details class="tab-container" open>
 <Summary>Init authentication module</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```javascript
-let kintoneAuth = Auth()
-```
+<pre class="inline-code">
+
+    let kintoneAuth = Auth()
+
+</pre>
 
 </details>
 
@@ -48,13 +50,15 @@ let kintoneAuth = Auth()
 <details class="tab-container" open>
 <Summary>Set password authentication</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```Java
-let username: String? = "cybozu";
-let password: String? = "cybozu";
-kintoneAuth.setPasswordAuth(username, password);
-```
+<pre class="inline-code">
+
+    let username: String? = "cybozu";
+    let password: String? = "cybozu";
+    kintoneAuth.setPasswordAuth(username, password);
+
+</pre>
 
 </details>
 
@@ -77,12 +81,14 @@ kintoneAuth.setPasswordAuth(username, password);
 <details class="tab-container" open>
 <Summary>Set APIToken authentication</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```Java
-let apiToken: String? = "123456789abcdefghijklmnopqrstuvwxyz";
-kintoneAuth.setApiToken(apiToken);
-```
+<pre class="inline-code">
+
+    let apiToken: String? = "123456789abcdefghijklmnopqrstuvwxyz";
+    kintoneAuth.setApiToken(apiToken);
+
+</pre>
 
 </details>
 
@@ -107,13 +113,15 @@ kintoneAuth.setApiToken(apiToken);
 <details class="tab-container" open>
 <Summary>Set basic authentication</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```Java
-let username: String?  = "cybozu";
-let password: String? = "cybozu";
-kintoneAuth.setBasicAuth(username, password);
-```
+<pre class="inline-code">
+
+    let username: String?  = "cybozu";
+    let password: String? = "cybozu";
+    kintoneAuth.setBasicAuth(username, password);
+
+</pre>
 
 </details>
 
@@ -135,27 +143,29 @@ Array&lt;HTTPHeader&gt;
 <details class="tab-container" open>
 <Summary>Provide the list of HTTP Headers which use to authentication in</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```Java
-let loginName: String? = "your_user_login_name"
-let loginPassword: String? = "your_password"
-let basicLoginName: String? = "your_basic_login_name"
-let basicLoginPassword: String? = "your_basic_password"
-let apiToken: String? = "906C7BuWHL7dDgHkjavajg1akxLOWorqJ2TKXvOS"
-         
-let auth = Auth()
-auth.setBasicAuth(basicLoginName, basicLoginPassword)
-auth.setPasswordAuth(loginName, loginPassword)
-auth.setApiToken(apiToken)
- 
-let headers: [HTTPHeader?] = auth.createHeaderCredentials()
-var count = 0
-for header in headers {
-    print("Key[" + count.description + "]: " + (header?.getKey())!)
-    print("Value[" + count.description + "]: " + (header?.getValue())!)
-    count += 1
-}
-```
+<pre class="inline-code">
+
+    let loginName: String? = "your_user_login_name"
+    let loginPassword: String? = "your_password"
+    let basicLoginName: String? = "your_basic_login_name"
+    let basicLoginPassword: String? = "your_basic_password"
+    let apiToken: String? = "906C7BuWHL7dDgHkjavajg1akxLOWorqJ2TKXvOS"
+            
+    let auth = Auth()
+    auth.setBasicAuth(basicLoginName, basicLoginPassword)
+    auth.setPasswordAuth(loginName, loginPassword)
+    auth.setApiToken(apiToken)
+    
+    let headers: [HTTPHeader?] = auth.createHeaderCredentials()
+    var count = 0
+    for header in headers {
+        print("Key[" + count.description + "]: " + (header?.getKey())!)
+        print("Value[" + count.description + "]: " + (header?.getValue())!)
+        count += 1
+    }
+    
+</pre>
 
 </details>

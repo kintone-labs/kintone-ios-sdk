@@ -30,11 +30,13 @@ Get a list of fields and their settings.
 <details class="tab-container" open>
 <Summary>get Lookup</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-LookupItem lookup = lookupField.getLookup();
-```
+<pre class="inline-code">
+
+    LookupItem lookup = lookupField.getLookup();
+
+</pre>
 
 </details>
 
@@ -59,11 +61,13 @@ List<[FieldMapping](../form-fields/#fieldmapping)\>
 <details class="tab-container" open>
 <Summary>get Field Mapping</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-List<FieldMapping> fieldMapping = lookupItem.getFieldMapping();
-```
+<pre class="inline-code">
+
+    List<FieldMapping> fieldMapping = lookupItem.getFieldMapping();
+
+</pre>
 
 </details>
 
@@ -84,11 +88,13 @@ String
 <details class="tab-container" open>
 <Summary>get Filter Cond</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String filterCond = lookupItem.getFilterCond();
-```
+<pre class="inline-code">
+
+    String filterCond = lookupItem.getFilterCond();
+
+</pre>
 
 </details>
 
@@ -109,11 +115,13 @@ List<String\>
 <details class="tab-container" open>
 <Summary>get Lookup Picker Fields</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-List<String> lookupPickerFields = lookupItem.getLookupPickerFields();
-```
+<pre class="inline-code">
+
+    List<String> lookupPickerFields = lookupItem.getLookupPickerFields();
+
+</pre>
 
 </details>
 
@@ -134,11 +142,13 @@ List<String> lookupPickerFields = lookupItem.getLookupPickerFields();
 <details class="tab-container" open>
 <Summary>get Related App</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-RelatedApp relatedApp = lookupItem.getRelatedApp();
-```
+<pre class="inline-code">
+
+    RelatedApp relatedApp = lookupItem.getRelatedApp();
+
+</pre>
 
 </details>
 
@@ -159,11 +169,13 @@ String
 <details class="tab-container" open>
 <Summary>get Related App</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String relatedKeyField = lookupItem.getRelatedKeyField();
-```
+<pre class="inline-code">
+
+    String relatedKeyField = lookupItem.getRelatedKeyField();
+
+</pre>
 
 </details>
 
@@ -184,11 +196,13 @@ String
 <details class="tab-container" open>
 <Summary>get Sort</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String sort = lookupItem.getSort();
-```
+<pre class="inline-code">
+
+    String sort = lookupItem.getSort();
+    
+</pre>
 
 </details>
 

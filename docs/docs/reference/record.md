@@ -20,23 +20,25 @@ Provide manipulate functions on records: get, update, delete, update the record 
 <details class="tab-container" open>
 <Summary>Init record module</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let username = {your_user_name}
-let password = {your_user_password}
-let domain = {your_domain}
-  
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
-         
-// Init Connection without "guest space ID"
-let connection = Connection(domain, auth)
-         
-// Init Record Module
-let recordManagement = Record(connection)
-```
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+</pre>
 
 </details>
 
@@ -63,31 +65,33 @@ GetRecordResponse
 <details class="tab-container" open>
 <Summary>Get record</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-// execute get record API
-let appID = {your_app_id}
-let recordID = {your_record_id}
- 
-recordManagement.getRecord(appID, recordID).then{response in
-             
-    let resultData: Dictionary<String, FieldValue> = response.getRecord()!
-    print(resultData["$id"]?.getValue())
-             
-    for (code, value) in resultData {
-        print(value.getType()!)
-        print(value.getValue())
+<pre class="inline-code">
+
+    // execute get record API
+    let appID = {your_app_id}
+    let recordID = {your_record_id}
+    
+    recordManagement.getRecord(appID, recordID).then{response in
+                
+        let resultData: Dictionary<String, FieldValue> = response.getRecord()!
+        print(resultData["$id"]?.getValue())
+                
+        for (code, value) in resultData {
+            print(value.getType()!)
+            print(value.getValue())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -113,30 +117,32 @@ GetRecordsResponse
 <details class="tab-container" open>
 <Summary>Get records</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appID = {your_app_id}
-let query = "レコード番号 >= 2 order by レコード番号 asc"
- 
-recordManagement.getRecords(appID, query, nil, true).then{response in
-    let records = response?.getRecords()
-             
-    for (i, dval) in (records?.enumerated())! {
-        for (code, value) in dval {
-            print(value.getType())
-            print(value.getValue())
+<pre class="inline-code">
+
+    let appID = {your_app_id}
+    let query = "レコード番号 >= 2 order by レコード番号 asc"
+    
+    recordManagement.getRecords(appID, query, nil, true).then{response in
+        let records = response?.getRecords()
+                
+        for (i, dval) in (records?.enumerated())! {
+            for (code, value) in dval {
+                print(value.getType())
+                print(value.getValue())
+            }
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
         }
     }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -160,29 +166,31 @@ AddRecordResponse
 <details class="tab-container" open>
 <Summary>Add record</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-var addData: Dictionary<String, FieldValue> = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue("Test Value")
-addData[{your_field_code}] = field
-         
-// execute add record API
-let appID = {your_app_id}
-recordManagement.addRecord(appID, addData).then{response in
-    print(response.getId())
-    print(response.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    var addData: Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value")
+    addData[{your_field_code}] = field
+            
+    // execute add record API
+    let appID = {your_app_id}
+    recordManagement.addRecord(appID, addData).then{response in
+        print(response.getId())
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -206,35 +214,37 @@ AddRecordsResponse
 <details class="tab-container" open>
 <Summary>Add multi records</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-var addData1: Dictionary<String, FieldValue> = [:]
-var addData2: Dictionary<String, FieldValue> = [:]
-var field1 = FieldValue()
-var field2 = FieldValue()
-field1.setType(FieldType.SINGLE_LINE_TEXT)
-field1.setValue("Test Value1")
-field2.setType(FieldType.SINGLE_LINE_TEXT)
-field2.setValue("Test Value2")
-addData1[{your_field_code}] = field1
-addData2[{your_field_code}] = field2
-var addDataList = [addData1, addData2]
- 
-// execute add records API
-let appID = 311
-recordManagement.addRecords(appID, addDataList).then{response in
-    print(response!.getIDs())
-    print(response!.getRevisions())   
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    var addData1: Dictionary<String, FieldValue> = [:]
+    var addData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Value1")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Value2")
+    addData1[{your_field_code}] = field1
+    addData2[{your_field_code}] = field2
+    var addDataList = [addData1, addData2]
+    
+    // execute add records API
+    let appID = 311
+    recordManagement.addRecords(appID, addDataList).then{response in
+        print(response!.getIDs())
+        print(response!.getRevisions())   
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -260,29 +270,31 @@ UpdateRecordResponse
 <details class="tab-container" open>
 <Summary>Update record by ID</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-var updateData:Dictionary<String, FieldValue> = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue("Test Value Update")
-updateData[{your_field_code}] = field
-         
-// execute update record API
-let appID = {your_app_id}
-let updRecID = {your_record_id}
-recordManagement.updateRecordByID(appID, updRecID, updateData , nil).then{response in
-    print(response.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    var updateData:Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update")
+    updateData[{your_field_code}] = field
+            
+    // execute update record API
+    let appID = {your_app_id}
+    let updRecID = {your_record_id}
+    recordManagement.updateRecordByID(appID, updRecID, updateData , nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -308,31 +320,33 @@ UpdateRecordResponse
 <details class="tab-container" open>
 <Summary>Update record by UpdateKey</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-var updateData: Dictionary<String, FieldValue> = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue("Test Value Update For Key")
-updateData[{your_field_code}] = field
-         
-// create update key
-let updKey = RecordUpdateKey("{your_field_code}", "update key value")
-         
-// execute update record API
-let appID = {your_app_id}
-recordManagement.updateRecordByUpdateKey(appID, updKey, updateData, nil).then{response in
-    print(response.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    var updateData: Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    updateData[{your_field_code}] = field
+            
+    // create update key
+    let updKey = RecordUpdateKey("{your_field_code}", "update key value")
+            
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.updateRecordByUpdateKey(appID, updKey, updateData, nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -356,41 +370,43 @@ UpdateRecordsResponse
 <details class="tab-container" open>
 <Summary>Update multi records</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-var recId1 = {your_record_id}
-var recId2 = {your_record_id}
-var updateData1: Dictionary<String, FieldValue> = [:]
-var updateData2: Dictionary<String, FieldValue> = [:]
-var field1 = FieldValue()
-var field2 = FieldValue()
-field1.setType(FieldType.SINGLE_LINE_TEXT)
-field1.setValue("Test Update Value1 ")
-field2.setType(FieldType.SINGLE_LINE_TEXT)
-field2.setValue("Test Update Value2")
-updateData1[{your_field_code}] = field1
-updateData2[{your_field_code}] = field2
-var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
-var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
-let updateItemList = [updateDataItem1 , updateDataItem2]
-         
-// execute update records API
-let appID = {your_app_id}
-recordManagement.updateRecords(appID, updateItemList).then{response in
-    for value in (response!.getRecords())! {
-        print(value.getID())
-        print(value.getRevision())
+<pre class="inline-code">
+
+    var recId1 = {your_record_id}
+    var recId2 = {your_record_id}
+    var updateData1: Dictionary<String, FieldValue> = [:]
+    var updateData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Update Value1 ")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Update Value2")
+    updateData1[{your_field_code}] = field1
+    updateData2[{your_field_code}] = field2
+    var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
+    var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
+    let updateItemList = [updateDataItem1 , updateDataItem2]
+            
+    // execute update records API
+    let appID = {your_app_id}
+    recordManagement.updateRecords(appID, updateItemList).then{response in
+        for value in (response!.getRecords())! {
+            print(value.getID())
+            print(value.getRevision())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -414,24 +430,26 @@ recordManagement.updateRecords(appID, updateItemList).then{response in
 <details class="tab-container" open>
 <Summary>Delete multi record</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appID = {your_app_id}
-let delRecordID1 = {your_record_id1}
-let delRecordID2 = {your_record_id2}
-let delIdList = [delRecordID1, delRecordID2]
- 
-recordManagement.deleteRecords(appID, delIdList)
-.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appID = {your_app_id}
+    let delRecordID1 = {your_record_id1}
+    let delRecordID2 = {your_record_id2}
+    let delIdList = [delRecordID1, delRecordID2]
+    
+    recordManagement.deleteRecords(appID, delIdList)
+    .catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -455,24 +473,26 @@ recordManagement.deleteRecords(appID, delIdList)
 <details class="tab-container" open>
 <Summary>Delete record with revision</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appID = {your_app_id}
-var delIdAndRevision: Dictionary<Int, Int> = [:]
-delIdAndRevision[{your_record_id}] = {your_revision_id}
-delIdAndRevision[{your_record_id}] = {your_revision_id}
-         
-recordManagement.deleteRecordsWithRevision(appID, delIdAndRevision)
-.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appID = {your_app_id}
+    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    delIdAndRevision[{your_record_id}] = {your_revision_id}
+    delIdAndRevision[{your_record_id}] = {your_revision_id}
+            
+    recordManagement.deleteRecordsWithRevision(appID, delIdAndRevision)
+    .catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -498,38 +518,40 @@ UpdateRecordResponse
 <details class="tab-container" open>
 <Summary>update record Assignees</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let username = {your_user_name}
-let password = {your_user_password}
-let domain = {your_domain}
-  
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
- 
-// Init Connection without "guest space ID"
-let connection = Connection(domain, auth)
-  
-// Init Record Module
-let recordManagement = Record(connection)
- 
-// execute update assignees API
-let appID = {your_app_od}
-let updRecID = {your_record_id}
-let assignees = ["{your_user_code}"]
-recordManagement.updateRecordAssignees(appID, updRecID, assignees, nil).then{response in
-    print(response.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+    
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+    
+    // Init Record Module
+    let recordManagement = Record(connection)
+    
+    // execute update assignees API
+    let appID = {your_app_od}
+    let updRecID = {your_record_id}
+    let assignees = ["{your_user_code}"]
+    recordManagement.updateRecordAssignees(appID, updRecID, assignees, nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -556,24 +578,26 @@ UpdateRecordResponse
 <details class="tab-container" open>
 <Summary>Update record status</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appID = {your_app_id}
-let updRecID = {your_record_id}
-let assignees = "{your_user_code}"
-let status = "{your_status}"
-recordManagement.updateRecordStatus(appID, updRecID, status, assignees, nil).then{response in
-    print(response.getRevision())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appID = {your_app_id}
+    let updRecID = {your_record_id}
+    let assignees = "{your_user_code}"
+    let status = "{your_status}"
+    recordManagement.updateRecordStatus(appID, updRecID, status, assignees, nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -597,34 +621,36 @@ UpdateRecordsResponse
 <details class="tab-container" open>
 <Summary>Update multi record status</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appID = {your_app_id}
-let updRecID1 = {your_record_id1}
-let updRecID2 = {your_record_id2}
-let assignees1 = [{your_login_code1}]
-let assignees2 = [{your_login_code2}]
-let status1 = {your_update_status1}
-let status2 = {your_update_status2}
-let item1 = RecordUpdateStatusItem(status1, assignees1, updRecID1, nil)
-let item2 = RecordUpdateStatusItem(status2, assignees2, updRecID2, nil)
-let itemList = [item1, item2]
-         
-recordManagement.updateRecordsStatus(appID, itemList).then{response in
-    for value in (response!.getRecords())! {
-        print(value.getID())
-        print(value.getRevision())
+<pre class="inline-code">
+
+    let appID = {your_app_id}
+    let updRecID1 = {your_record_id1}
+    let updRecID2 = {your_record_id2}
+    let assignees1 = [{your_login_code1}]
+    let assignees2 = [{your_login_code2}]
+    let status1 = {your_update_status1}
+    let status2 = {your_update_status2}
+    let item1 = RecordUpdateStatusItem(status1, assignees1, updRecID1, nil)
+    let item2 = RecordUpdateStatusItem(status2, assignees2, updRecID2, nil)
+    let itemList = [item1, item2]
+            
+    recordManagement.updateRecordsStatus(appID, itemList).then{response in
+        for value in (response!.getRecords())! {
+            print(value.getID())
+            print(value.getRevision())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -649,30 +675,32 @@ GetCommentsResponse
 <details class="tab-container" open>
 <Summary>Get comments</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appID = {your_app_id}
-let recordID = {your_record_id}
-var response: GetCommentsResponse? = nil
- 
-recordManagement.getComments(appID, recordID, nil, nil, nil).then{response in
-    for value in (response.getComments())! {
-        print(value.getId())
-        print(value.getCreatedAt())
-        print(value.getText())
-        print(value.getCreator()?.code)
-        print(value.getMentions())
+<pre class="inline-code">
+
+    let appID = {your_app_id}
+    let recordID = {your_record_id}
+    var response: GetCommentsResponse? = nil
+    
+    recordManagement.getComments(appID, recordID, nil, nil, nil).then{response in
+        for value in (response.getComments())! {
+            print(value.getId())
+            print(value.getCreatedAt())
+            print(value.getText())
+            print(value.getCreator()?.code)
+            print(value.getMentions())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
-    }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -695,31 +723,33 @@ AddCommentResponse
 <details class="tab-container" open>
 <Summary>Add comment</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let mention = CommentMention()
-let comment = CommentContent()
-mention.setCode("cybozu")
-mention.setType("USER")
-let mentionList = [mention]
-comment.setText("add comment")
-comment.setMentions(mentionList)
-             
-// execute get comments API
-let appID = {your_app_id}
-let recordID = {your_record_id}
-recordManagement.addComment(appID, recordID, comment).then{response in
-    print(response.getId())
-}.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let mention = CommentMention()
+    let comment = CommentContent()
+    mention.setCode("cybozu")
+    mention.setType("USER")
+    let mentionList = [mention]
+    comment.setText("add comment")
+    comment.setMentions(mentionList)
+                
+    // execute get comments API
+    let appID = {your_app_id}
+    let recordID = {your_record_id}
+    recordManagement.addComment(appID, recordID, comment).then{response in
+        print(response.getId())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+
+</pre>
 
 </details>
 
@@ -742,23 +772,25 @@ recordManagement.addComment(appID, recordID, comment).then{response in
 <details class="tab-container" open>
 <Summary>Delete comment</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-let appId = {your_app_id}
-let recordId = {your_record_id}
-let commentId = {your_comment_Id}
- 
-recordManagement.deleteComment(appId, recordId, commentId)
-.catch{ error in
-    if error is KintoneAPIException {
-        print((error as! KintoneAPIException).toString()!)
+<pre class="inline-code">
+
+    let appId = {your_app_id}
+    let recordId = {your_record_id}
+    let commentId = {your_comment_Id}
+    
+    recordManagement.deleteComment(appId, recordId, commentId)
+    .catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-    else {
-        print((error as! Error).localizedDescription)
-    }
-}
-```
+    
+</pre>
 
 </details>
 

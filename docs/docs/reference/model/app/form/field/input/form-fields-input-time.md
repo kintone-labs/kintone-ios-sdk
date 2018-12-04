@@ -30,11 +30,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get Unique</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean unique = dateField.getUnique();
-```
+<pre class="inline-code">
+
+    Boolean unique = dateField.getUnique();
+
+</pre>
 
 </details>
 
@@ -55,11 +57,13 @@ String
 <details class="tab-container" open>
 <Summary>get Default Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String defaultValue = dateField.getDefaultValue();
-```
+<pre class="inline-code">
+
+    String defaultValue = dateField.getDefaultValue();
+
+</pre>
 
 </details>
 
@@ -80,11 +84,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get Default Now Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean defaultNowValue = dateField.getDefaultNowValue();
-```
+<pre class="inline-code">
+
+    Boolean defaultNowValue = dateField.getDefaultNowValue();
+
+</pre>
 
 </details>
 
@@ -112,11 +118,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get Unique</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean unique = dateTimeField.getUnique();
-```
+<pre class="inline-code">
+
+    Boolean unique = dateTimeField.getUnique();
+
+</pre>
 
 </details>
 
@@ -137,11 +145,13 @@ String
 <details class="tab-container" open>
 <Summary>get Default Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String defaultValue = dateTimeField.getDefaultValue();
-```
+<pre class="inline-code">
+
+    String defaultValue = dateTimeField.getDefaultValue();
+
+</pre>
 
 </details>
 
@@ -162,11 +172,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get Default Now Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean defaultNowValue = dateTimeField.getDefaultNowValue();
-```
+<pre class="inline-code">
+
+    Boolean defaultNowValue = dateTimeField.getDefaultNowValue();
+
+</pre>
 
 </details>
 
@@ -194,11 +206,13 @@ String
 <details class="tab-container" open>
 <Summary>get Default Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String defaultValue = timeField.getDefaultValue();
-```
+<pre class="inline-code">
+
+    String defaultValue = timeField.getDefaultValue();
+
+</pre>
 
 </details>
 
@@ -219,11 +233,13 @@ Boolean
 <details class="tab-container" open>
 <Summary>get Default Now Value</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Boolean defaultNowValue = timeField.getDefaultNowValue();
-```
+<pre class="inline-code">
+
+    Boolean defaultNowValue = timeField.getDefaultNowValue();
+    
+</pre>
 
 </details>
 

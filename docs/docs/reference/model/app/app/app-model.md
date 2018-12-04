@@ -17,11 +17,13 @@ Gets the basic information about the app.
 <details class="tab-container" open>
 <Summary>Init App Model</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-AppModel appModel = new AppModel();
-```
+<pre class="inline-code">
+
+    AppModel appModel = new AppModel();
+
+</pre>
 
 </details>
 
@@ -44,11 +46,13 @@ Integer
 <details class="tab-container" open>
 <Summary>get App Id</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Integer addId = appModel.getAppId();
-```
+<pre class="inline-code">
+
+    Integer addId = appModel.getAppId();
+
+</pre>
 
 </details>
 
@@ -69,11 +73,13 @@ String
 <details class="tab-container" open>
 <Summary>get Code</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String code = appModel.getCode();
-```
+<pre class="inline-code">
+
+    String code = appModel.getCode();
+
+</pre>
 
 </details>
 
@@ -94,11 +100,13 @@ String
 <details class="tab-container" open>
 <Summary>get Name</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String name = appModel.getName();
-```
+<pre class="inline-code">
+
+    String name = appModel.getName();
+
+</pre>
 
 </details>
 
@@ -119,11 +127,13 @@ String
 <details class="tab-container" open>
 <Summary>get Description</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-String description = appModel.getDescription();
-```
+<pre class="inline-code">
+
+    String description = appModel.getDescription();
+
+</pre>
 
 </details>
 
@@ -144,11 +154,13 @@ Integer
 <details class="tab-container" open>
 <Summary>get Space Id</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Integer spaceId = appModel.getSpaceId();
-```
+<pre class="inline-code">
+
+    Integer spaceId = appModel.getSpaceId();
+
+</pre>
 
 </details>
 
@@ -169,11 +181,13 @@ Integer
 <details class="tab-container" open>
 <Summary>get Thread Id</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Integer threadId = appModel.getThreadId();
-```
+<pre class="inline-code">
+
+    Integer threadId = appModel.getThreadId();
+
+</pre>
 
 </details>
 
@@ -194,11 +208,13 @@ Integer threadId = appModel.getThreadId();
 <details class="tab-container" open>
 <Summary>get Creator</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Member member = appModel.getCreator();
-```
+<pre class="inline-code">
+
+    Member member = appModel.getCreator();
+
+</pre>
 
 </details>
 
@@ -219,11 +235,13 @@ Member member = appModel.getCreator();
 <details class="tab-container" open>
 <Summary>get Modifier</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Member member = appModel.getModifier();
-```
+<pre class="inline-code">
+
+    Member member = appModel.getModifier();
+
+</pre>
 
 </details>
 
@@ -244,11 +262,13 @@ Date
 <details class="tab-container" open>
 <Summary>get Create Date</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Date date = appModel.getCreatedAt();
-```
+<pre class="inline-code">
+
+    Date date = appModel.getCreatedAt();
+
+</pre>
 
 </details>
 
@@ -269,11 +289,13 @@ Date
 <details class="tab-container" open>
 <Summary>get Modified Date</Summary>
 
-** Source code **
+<strong class="tab-name">Source code</strong>
 
-```java
-Date date = appModel.getModifiedAt();
-```
+<pre class="inline-code">
+
+    Date date = appModel.getModifiedAt();
+    
+</pre>
 
 </details>
 
