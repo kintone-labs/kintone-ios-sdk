@@ -31,7 +31,7 @@ public extension AppView where Self: App {
                 let getViewsRequest = GetViewsRequest(app!, lang!)
                 let body = try self.parser.parseObject(getViewsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
-                let apiName = isPreview ?? false ? ConnectionConstants.APP_VIEWS : ConnectionConstants.APP_VIEWS_PREVIEW
+                let apiName = isPreview ?? false ? ConnectionConstants.APP_VIEWS_PREVIEW : ConnectionConstants.APP_VIEWS
                 self.connection?.request(ConnectionConstants.GET_REQUEST, apiName, jsonBody)
                     .then { response in
                         // return response as GetRecordResponse class
