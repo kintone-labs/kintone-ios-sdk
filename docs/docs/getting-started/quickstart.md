@@ -64,7 +64,7 @@
             print("domain \(txtDomain.text!)")
             app = App(conn)
 
-            self.app?.getApp(1037).then{ response in
+            self.app?.getApp(Int(txtAppID.text!)).then{ response in
                 let htmlString = "<html>" +
                     "<head></head>" +
                     "<body><h1>App Infor</h1>" +
@@ -124,7 +124,7 @@
                     conn = Connection(txtDomain.text!, auth)
                     app = App(conn)
                     
-                    self.app?.getApp(1037).then{ response in
+                    self.app?.getApp(Int(txtAppID.text!)).then{ response in
                         let htmlString = "<html>" +
                             "<head></head>" +
                             "<body><h1>App Infor</h1>" +
