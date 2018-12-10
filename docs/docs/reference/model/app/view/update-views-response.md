@@ -1,4 +1,4 @@
-# GetViewsResponse
+# UpdateViewsResponse
 The views of an apps.
 
 ## Constructor

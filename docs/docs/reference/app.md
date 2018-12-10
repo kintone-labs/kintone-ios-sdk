@@ -559,7 +559,7 @@ None
 
 **Return**
 
-BasicResponse
+[BasicResponse](../model/app/basic-response)
 
 **Sample code**
 
@@ -620,7 +620,7 @@ BasicResponse
 
 **Return**
 
-BasicResponse
+[BasicResponse](../model/app/basic-response)
 
 **Sample code**
 
@@ -673,7 +673,7 @@ BasicResponse
 
 **Return**
 
-BasicResponse
+[BasicResponse](../model/app/basic-response)
 
 **Sample code**
 
@@ -773,7 +773,7 @@ BasicResponse
 
 **Return**
 
-BasicResponse
+[BasicResponse](../model/app/basic-response)
 
 **Sample code**
 
@@ -880,7 +880,7 @@ BasicResponse
 
 **Return**
 
-GeneralSettings
+[GeneralSettings](../model/app/general/general-settings)
 
 **Sample code**
 
@@ -941,7 +941,7 @@ GeneralSettings
 
 **Return**
 
-BasicResponse
+[BasicResponse](../model/app/basic-response)
 
 **Sample code**
 
@@ -990,7 +990,7 @@ BasicResponse
 
 **Return**
 
-GetViewsResponse
+[GetViewsResponse](../model/app/view/update-views-response)
 
 **Sample code**
 
@@ -1049,7 +1049,7 @@ GetViewsResponse
 
 **Return**
 
-UpdateViewsResponse
+[UpdateViewsResponse](../model/app/view/update-views-response)
 
 **Sample code**
 

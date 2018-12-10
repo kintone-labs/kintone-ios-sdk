@@ -1,48 +1,12 @@
-# ViewModel
+# GeneralSettings
 
-General information of the member(user/group/organization) on the kintone application
-
-
-## Constructor
-
-**Parameter**
-
-| Name| Type| Description |
-| --- | --- | --- |
-| code | String | The user/group/organization code.
-| name | String | The user/group/organization name.
+The general settings of app
 
 ## Methods
 
-### getCode()
-
-> Get the code of the user/group/organization
-
-**Parameter**
-
-(none)
-
-**Return**
-
-String
-
-### setCode()
-
-> Set the code of the user/group/organization
-
-**Parameter**
-
-| Name| Type| Description |
-| --- | --- | --- |
-| code | String | The user/group/organization code.
-
-**Return**
-
-(none)
-
 ### getName()
 
-> Get the name of the user/group/organization
+> The name of the app.
 
 **Parameter**
 
@@ -52,16 +16,64 @@ String
 
 String
 
-### setName()
+### getDescription()
 
-> Set the name of the user/group/organization
+> The description of an app
 
 **Parameter**
 
-| Name| Type| Description |
-| --- | --- | --- |
-| name | String | The user/group/organization name.
+(none)
 
 **Return**
 
+String
+
+### getIcon()
+
+> Get the Icon of an app.
+
+**Parameter**
+
 (none)
+
+**Return**
+
+[Icon](../icon-model)
+
+### getTheme()
+
+> Get the theme of an app.
+
+**Parameter**
+
+(none)
+
+**Return**
+
+[IconTheme](#IconTheme)
+
+### getRevision()
+
+> Get the revision of an app.
+
+**Parameter**
+
+(none)
+
+**Return**
+
+Integer
+
+
+## Enum
+
+### IconTheme
+
+| Name | Type | Value 
+| --- | --- | --- |
+| WHITE | String | WHITE 
+| RED | String | RED 
+| BLUE | String | BLUE 
+ GREEN | String | GREEN 
+| YELLOW | String | YELLOW 
+| BLACK | String | BLACK
