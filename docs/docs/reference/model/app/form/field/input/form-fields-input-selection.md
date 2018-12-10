@@ -25,21 +25,6 @@ Get a list of fields and their settings.
 
 AlignLayout
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Align</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    AlignLayout align = checkboxField.getAlign();
-
-</pre>
-
-</details>
-
 #### getDefaultValue()
 
 > Get the defaultValue
@@ -51,21 +36,6 @@ AlignLayout
 **Return**
 
 List<String\>
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    List<String> defaultValue = checkboxField.getDefaultValue();
-
-</pre>
-
-</details>
 
 ## DropDownField
 
@@ -86,21 +56,6 @@ List<String\>
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = dropDownField.getDefaultValue();
-
-</pre>
-
-</details>
-
 ## MultipleSelectField
 
 !!! warning
@@ -120,21 +75,6 @@ String
 
 List<String\>
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    List<String> defaultValue = multipleSelectField.getDefaultValue();
-
-</pre>
-
-</details>
-
 ## OptionData
 
 ### Methods
@@ -151,21 +91,6 @@ List<String\>
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Index</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer index = optionData.getIndex();
-
-</pre>
-
-</details>
-
 #### getLabel()
 
 > Get the label
@@ -177,21 +102,6 @@ Integer
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Label</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String label = optionData.getLabel();
-
-</pre>
-
-</details>
 
 ## RadioButtonField
 
@@ -212,21 +122,6 @@ String
 
 AlignLayout
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Align</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    AlignLayout align = radioButtonField.getAlign();
-
-</pre>
-
-</details>
-
 #### getDefaultValue()
 
 > Get the defaultValue
@@ -238,21 +133,6 @@ AlignLayout
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = radioButtonField.getDefaultValue();
-    
-</pre>
-
-</details>
 
 ## AbstractSelectionField
 

@@ -32,7 +32,20 @@ pages:
   - File: reference/file.md
   - Model:
       - App: 
-        - App: reference/model/app/app/app-model.md
+        - App: 
+          - App: reference/model/app/app/app-model.md
+          - AppDeployStatus: reference/model/app/app/app-deploy-status.md
+        - Form:
+          - Field:
+            - Input:
+              - Input: reference/model/app/form/field/input/form-fields-input.md
+              - Lookup: reference/model/app/form/field/input/form-fields-input-lookup.md
+              - Member: reference/model/app/form/field/input/form-fields-input-member.md
+              - Selection: reference/model/app/form/field/input/form-fields-input-selection.md
+              - Time: reference/model/app/form/field/input/form-fields-input-time.md
+          - Layout: reference/model/app/form/layout/form-layout.md
+        - General: reference/model/app/general/general-settings.md
+        - View: reference/model/app/view/view-model.md
       - Record:
         - Record: reference/model/record/record-model.md
         - Field: reference/model/record/record-field-model.md

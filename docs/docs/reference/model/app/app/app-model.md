@@ -12,21 +12,6 @@ Gets the basic information about the app.
 
 (none)
 
-### **Sample code**
-
-<details class="tab-container" open>
-<Summary>Init App Model</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    AppModel appModel = new AppModel();
-
-</pre>
-
-</details>
-
 ## Methods
 
 ### getAppId()
@@ -41,21 +26,6 @@ Gets the basic information about the app.
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get App Id</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer addId = appModel.getAppId();
-
-</pre>
-
-</details>
-
 ### getCode()
 
 > Get the code
@@ -67,21 +37,6 @@ Integer
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Code</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String code = appModel.getCode();
-
-</pre>
-
-</details>
 
 ### getName()
 
@@ -95,21 +50,6 @@ String
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Name</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String name = appModel.getName();
-
-</pre>
-
-</details>
-
 ### getDescription()
 
 > Get the description
@@ -121,21 +61,6 @@ String
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Description</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String description = appModel.getDescription();
-
-</pre>
-
-</details>
 
 ### getSpaceId()
 
@@ -149,21 +74,6 @@ String
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Space Id</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer spaceId = appModel.getSpaceId();
-
-</pre>
-
-</details>
-
 ### getThreadId()
 
 > Get the threadId
@@ -175,21 +85,6 @@ Integer
 **Return**
 
 Integer
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Thread Id</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer threadId = appModel.getThreadId();
-
-</pre>
-
-</details>
 
 ### getCreator()
 
@@ -203,21 +98,6 @@ Integer
 
 [Member](../member)
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Creator</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Member member = appModel.getCreator();
-
-</pre>
-
-</details>
-
 ### getModifier()
 
 > Get the modifier
@@ -229,21 +109,6 @@ Integer
 **Return**
 
 [Member](../member)
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Modifier</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Member member = appModel.getModifier();
-
-</pre>
-
-</details>
 
 ### getCreatedAt()
 
@@ -257,21 +122,6 @@ Integer
 
 Date
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Create Date</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Date date = appModel.getCreatedAt();
-
-</pre>
-
-</details>
-
 ### getModifiedAt()
 
 > Get the modifiedAt
@@ -283,21 +133,6 @@ Date
 **Return**
 
 Date
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Modified Date</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Date date = appModel.getModifiedAt();
-    
-</pre>
-
-</details>
 
 ## Reference
 

@@ -40,21 +40,6 @@ Get a list of fields and their settings.
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Code</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String code = memberSelectEntity.getCode();
-
-</pre>
-
-</details>
-
 #### getType()
 
 > Get the type
@@ -66,21 +51,6 @@ String
 **Return**
 
 MemberSelectEntityType
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Code</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    MemberSelectEntityType type = memberSelectEntity.getType();
-    
-</pre>
-
-</details>
 
 ## UserSelectionField
 

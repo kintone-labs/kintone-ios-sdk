@@ -25,21 +25,6 @@ Get a list of fields and their settings.
 
 [LookupItem](#lookupitem)
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Lookup</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    LookupItem lookup = lookupField.getLookup();
-
-</pre>
-
-</details>
-
 ## LookupItem
 
 ### Methods
@@ -56,21 +41,6 @@ Get a list of fields and their settings.
 
 List<[FieldMapping](../form-fields/#fieldmapping)\>
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Field Mapping</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    List<FieldMapping> fieldMapping = lookupItem.getFieldMapping();
-
-</pre>
-
-</details>
-
 #### getFilterCond()
 
 > Get the filterCond
@@ -82,21 +52,6 @@ List<[FieldMapping](../form-fields/#fieldmapping)\>
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Filter Cond</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String filterCond = lookupItem.getFilterCond();
-
-</pre>
-
-</details>
 
 #### getLookupPickerFields()
 
@@ -110,21 +65,6 @@ String
 
 List<String\>
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Lookup Picker Fields</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    List<String> lookupPickerFields = lookupItem.getLookupPickerFields();
-
-</pre>
-
-</details>
-
 #### getRelatedApp()
 
 > Get the relatedApp
@@ -136,21 +76,6 @@ List<String\>
 **Return**
 
 [RelatedApp](../form-fields-related_record/#relatedapp)
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Related App</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    RelatedApp relatedApp = lookupItem.getRelatedApp();
-
-</pre>
-
-</details>
 
 #### getRelatedKeyField()
 
@@ -164,21 +89,6 @@ List<String\>
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Related App</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String relatedKeyField = lookupItem.getRelatedKeyField();
-
-</pre>
-
-</details>
-
 #### getSort()
 
 > Get the sort
@@ -190,21 +100,6 @@ String
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Sort</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String sort = lookupItem.getSort();
-    
-</pre>
-
-</details>
 
 ## Reference
 

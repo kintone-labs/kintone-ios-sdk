@@ -25,21 +25,6 @@ Get a list of fields and their settings.
 
 Boolean
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unique</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean unique = dateField.getUnique();
-
-</pre>
-
-</details>
-
 #### getDefaultValue()
 
 > Get the defaultValue
@@ -52,21 +37,6 @@ Boolean
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = dateField.getDefaultValue();
-
-</pre>
-
-</details>
-
 #### getDefaultNowValue()
 
 > Get the defaultNowValue
@@ -78,21 +48,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Now Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean defaultNowValue = dateField.getDefaultNowValue();
-
-</pre>
-
-</details>
 
 ## DateTimeField
 
@@ -113,21 +68,6 @@ Boolean
 
 Boolean
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unique</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean unique = dateTimeField.getUnique();
-
-</pre>
-
-</details>
-
 #### getDefaultValue()
 
 > Get the defaultValue
@@ -140,21 +80,6 @@ Boolean
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = dateTimeField.getDefaultValue();
-
-</pre>
-
-</details>
-
 #### getDefaultNowValue()
 
 > Get the defaultNowValue
@@ -166,21 +91,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Now Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean defaultNowValue = dateTimeField.getDefaultNowValue();
-
-</pre>
-
-</details>
 
 ## TimeField
 
@@ -201,21 +111,6 @@ Boolean
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = timeField.getDefaultValue();
-
-</pre>
-
-</details>
-
 #### getDefaultNowValue()
 
 > Get the defaultNowValue
@@ -227,32 +122,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Now Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean defaultNowValue = timeField.getDefaultNowValue();
-    
-</pre>
-
-</details>
-
-
-
-
-
-
-
-
-
-
-
 
 ## Reference
 

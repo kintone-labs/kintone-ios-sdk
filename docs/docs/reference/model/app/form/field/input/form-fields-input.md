@@ -25,21 +25,6 @@ Get a list of fields and their settings.
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Thumbnail Size</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer thumbnailSize = attachmentField.getThumbnailSize();
-
-</pre>
-
-</details>
-
 ## CalculatedField
 
 
@@ -60,21 +45,6 @@ Integer
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Expression</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String expression = calculatedField.getExpression();
-
-</pre>
-
-</details>
-
 #### getHideExpression()
 
 > Get the hideExpression
@@ -86,21 +56,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Hide Expression</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean hideExpression = calculatedField.getHideExpression();
-
-</pre>
-
-</details>
 
 #### getDisplayScale()
 
@@ -114,21 +69,6 @@ Boolean
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Display Scale</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer displayScale = calculatedField.getDisplayScale();
-
-</pre>
-
-</details>
-
 #### getUnit()
 
 > Get the unit
@@ -140,21 +80,6 @@ Integer
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unit</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String unit = calculatedField.getUnit();
-
-</pre>
-
-</details>
 
 #### getUnitPosition()
 
@@ -168,21 +93,6 @@ String
 
 UnitPosition
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unit Position</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    UnitPosition unitPosition = calculatedField.getUnitPosition();
-
-</pre>
-
-</details>
-
 #### getFormat()
 
 > Get the format
@@ -194,21 +104,6 @@ UnitPosition
 **Return**
 
 NumberFormat
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Format</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    NumberFormat format = calculatedField.getFormat();
-
-</pre>
-
-</details>
 
 ## LinkField
 
@@ -230,21 +125,6 @@ NumberFormat
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = linkField.getDefaultValue();
-
-</pre>
-
-</details>
-
 #### getUnique()
 
 > Get the unique
@@ -256,21 +136,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unique</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean unique = linkField.getUnique();
-
-</pre>
-
-</details>
 
 #### getMaxLength()
 
@@ -284,21 +149,6 @@ Boolean
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Max Length</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer maxLength = linkField.getMaxLength();
-
-</pre>
-
-</details>
-
 #### getMinLength()
 
 > Get the minLength
@@ -311,21 +161,6 @@ Integer
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Min Length</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer minLength = linkField.getMinLength();
-
-</pre>
-
-</details>
-
 #### getProtocol()
 
 > Get the protocol
@@ -337,21 +172,6 @@ Integer
 **Return**
 
 LinkProtocol
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Protocol</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    LinkProtocol protocol = linkField.getProtocol();
-
-</pre>
-
-</details>
 
 ## MultiLineTextField
 
@@ -373,21 +193,6 @@ LinkProtocol
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = multiLineTextField.getDefaultValue();
-
-</pre>
-
-</details>
-
 ## NumberField
 
 
@@ -408,21 +213,6 @@ String
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Display Scale</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer displayScale = numberField.getDisplayScale();
-
-</pre>
-
-</details>
-
 #### getUnit()
 
 > Get the unit
@@ -434,21 +224,6 @@ Integer
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unit</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String unit = numberField.getUnit();
-
-</pre>
-
-</details>
 
 #### getUnitPosition()
 
@@ -462,21 +237,6 @@ String
 
 UnitPosition
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unit Position</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    UnitPosition unitPosition = numberField.getUnitPosition();
-
-</pre>
-
-</details>
-
 #### getDigit()
 
 > Get the digit
@@ -488,21 +248,6 @@ UnitPosition
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Digit</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean digit = numberField.getDigit();
-
-</pre>
-
-</details>
 
 #### getMaxValue()
 
@@ -516,21 +261,6 @@ Boolean
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Max Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer maxValue = numberField.getMaxValue();
-
-</pre>
-
-</details>
-
 #### getMinValue()
 
 > Get the minValue
@@ -542,21 +272,6 @@ Integer
 **Return**
 
 Integer
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Min Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer minValue = numberField.getMinValue();
-
-</pre>
-
-</details>
 
 #### getDefaultValue()
 
@@ -570,21 +285,6 @@ Integer
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = numberField.getDefaultValue();
-
-</pre>
-
-</details>
-
 #### getUnique()
 
 > Get the unique
@@ -596,21 +296,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unique</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean unique = numberField.getUnique();
-
-</pre>
-
-</details>
 
 ## RichTextField
 
@@ -630,21 +315,6 @@ Boolean
 **Return**
 
 String
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = richTextField.getDefaultValue();
-
-</pre>
-
-</details>
 
 ## SingleLineTextField
 
@@ -666,21 +336,6 @@ String
 
 Integer
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Min Length</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer minLength = singleLineTextField.getMinLength();
-
-</pre>
-
-</details>
-
 #### getMaxLength()
 
 > Get the maxLength
@@ -692,21 +347,6 @@ Integer
 **Return**
 
 Integer
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Max Length</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Integer maxLength = singleLineTextField.getMaxLength();
-
-</pre>
-
-</details>
 
 #### getExpression()
 
@@ -720,21 +360,6 @@ Integer
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Expression</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String expression = singleLineTextField.getExpression();
-
-</pre>
-
-</details>
-
 #### getHideExpression()
 
 > Get the hideExpression
@@ -746,21 +371,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Hide Expression</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean hideExpression = singleLineTextField.getHideExpression();
-
-</pre>
-
-</details>
 
 #### getDefaultValue()
 
@@ -774,21 +384,6 @@ Boolean
 
 String
 
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Default Value</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    String defaultValue = singleLineTextField.getDefaultValue();
-
-</pre>
-
-</details>
-
 #### getUnique()
 
 > Get the unique
@@ -800,21 +395,6 @@ String
 **Return**
 
 Boolean
-
-**Sample code**
-
-<details class="tab-container" open>
-<Summary>get Unique</Summary>
-
-<strong class="tab-name">Source code</strong>
-
-<pre class="inline-code">
-
-    Boolean unique = singleLineTextField.getUnique();
-    
-</pre>
-
-</details>
 
 ## AbstractInputField
 
