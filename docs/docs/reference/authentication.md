@@ -1,11 +1,11 @@
 # Authentication
 
 Authentication module will be used by [Connection](../connection).
-This module allow we authenticate with kintone app by password authenticator or API token authenticator. This module is also support basic authenticator.
+This module allows authenticating with the Kintone app by password authenticator or API token authenticator. This module is also supported the basic authenticator.
 
 !!! warning
 
-    - If both the Token and Password Authentication are specified, the Token Authentication will be ignored and the Password authentication will be used.
+    - If both the Token and the Password Authentication are specified, the Token Authentication will be ignored and the Password authentication will be used.
 
 ## Constructor
 
@@ -32,14 +32,14 @@ This module allow we authenticate with kintone app by password authenticator or 
 
 ### setPasswordAuth(username, password)
 
-> Set password authentication for Authentication module.
+> Set password authentication for the Authentication module.
 
 **Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| username | String | yes | The username that is able to authenticate on kintone app
-| password | String | yes | The password that is able to authenticate on kintone app
+| username | String | yes | The username that is able to authenticate on the kintone app
+| password | String | yes | The password that is able to authenticate on the kintone app
 
 **Return**
 
@@ -65,7 +65,7 @@ This module allow we authenticate with kintone app by password authenticator or 
 
 ### setApiToken(apiTokenString)
 
-> Set Api Token for Authentication module.
+> Set Api Token for the Authentication module.
 
 **Parameter**
 
@@ -95,14 +95,14 @@ This module allow we authenticate with kintone app by password authenticator or 
 
 ### setBasicAuth(username, password)
 
-> Set Basic authentication for Authentication module.
+> Set Basic authentication for the Authentication module.
 
 **Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| username | String | yes | The username that is able to authenticate on kintone app
-| password | String | yes | The password that is able to authenticate on kintone app
+| username | String | yes | The username that is able to authenticate on the kintone app
+| password | String | yes | The password that is able to authenticate on the kintone app
 
 **Return**
 

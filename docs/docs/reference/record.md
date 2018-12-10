@@ -3,7 +3,7 @@
 Provide manipulate functions on records: get, update, delete, update the record status & assignees in the kintone app
 
 !!! warning
-    Use must set the promises to global to use module:
+    The user must set the promises to global to use the module:
 
             DispatchQueue.promise = global()
 
@@ -258,7 +258,7 @@ AddRecordsResponse
 | --- | --- | --- | --- |
 | app | Integer | yes | The kintone app ID
 | id | Integer | yes | The record ID on kintone app
-| record | Dictionary<String, FieldValue\> | yes | The record data to be update in  kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| record | Dictionary<String, FieldValue\> | yes | The record data to be updated in the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
 | revision | Integer | (optional) | The revision number of record
 
 **Return**
@@ -300,7 +300,7 @@ UpdateRecordResponse
 
 ### updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)
 
-Updates details of 1 record in an app by unique key.
+Updates details of 1 record in an app by the unique key.
 
 **Parameter**
 
@@ -308,7 +308,7 @@ Updates details of 1 record in an app by unique key.
 | --- | --- | --- | --- |
 | app | Integer | yes | The kintone app ID
 | updateKey | RecordUpdateKey | yes | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| record | Dictionary<String, FieldValue\>  | yes | The record data will be added to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| record | Dictionary<String, FieldValue\>  | yes | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
 | revision | Integer | (optional) | The revision number of record
 
 **Return**
@@ -564,9 +564,9 @@ UpdateRecordResponse
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | app | Integer | yes | The kintone app ID.
-| id | Integer | yes | The record ID on kintone app.
+| id | Integer | yes | The record ID on the kintone app.
 | action | String | yes | The Action name will be run.
-| assignee | String | (Conditionally required) | The next Assignee. Specify the Assignee's log in name.</br>Required, if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action", and a selectable assignee exists.
+| assignee | String | (Conditionally required) | The next Assignee. Specify the Assignee's login name.</br>Required if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action", and a selectable assignee exists.
 | revision | Integer | (optional) | The revision of record
 
 **Return**
@@ -796,12 +796,12 @@ AddCommentResponse
 
 ## Reference
 
-- [Get Record](https://developer.kintone.io/hc/en-us/articles/213149287/) `on developer network`
-- [Add Record](https://developer.kintone.io/hc/en-us/articles/212494628/)`on developer network`
-- [Update Record](https://developer.kintone.io/hc/en-us/articles/213149027/)`on developer network`
-- [Delete Record](https://developer.kintone.io/hc/en-us/articles/212494558/)`on developer network`
-- [Get Comments](https://developer.kintone.io/hc/en-us/articles/219105188)`on developer network`
-- [Add Comment](https://developer.kintone.io/hc/en-us/articles/219501367)`on developer network`
-- [Delete Comment](https://developer.kintone.io/hc/en-us/articles/219562607)`on developer network`
-- [Update Record Status](https://developer.kintone.io/hc/en-us/articles/213149747)`on developer network`
-- [Update Record Assignees](https://developer.kintone.io/hc/en-us/articles/219563427)`on developer network`
+- [Get Record](https://developer.kintone.io/hc/en-us/articles/213149287/) 
+- [Add Record](https://developer.kintone.io/hc/en-us/articles/212494628/)
+- [Update Record](https://developer.kintone.io/hc/en-us/articles/213149027/)
+- [Delete Record](https://developer.kintone.io/hc/en-us/articles/212494558/)
+- [Get Comments](https://developer.kintone.io/hc/en-us/articles/219105188)
+- [Add Comment](https://developer.kintone.io/hc/en-us/articles/219501367)
+- [Delete Comment](https://developer.kintone.io/hc/en-us/articles/219562607)
+- [Update Record Status](https://developer.kintone.io/hc/en-us/articles/213149747)
+- [Update Record Assignees](https://developer.kintone.io/hc/en-us/articles/219563427)

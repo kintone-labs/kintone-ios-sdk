@@ -6,7 +6,6 @@ The fields you set on the table and their order,
 Put fields in the Group field and their layout,
 label, space, and border settings.
 
->
 - Permissions to view the App is needed.
 - API Tokens cannot be used with this API.
 
@@ -232,7 +231,7 @@ LayoutType
 
 ## Reference
 
-- [Get App](https://developer.kintone.io/hc/en-us/articles/212494888)`on developer network`
-- [Get Apps](https://developer.kintone.io/hc/en-us/articles/115005336727)`on developer network`
-- [Get Form fields](https://developer.kintone.io/hc/en-us/articles/115005509288)`on developer network`
-- [Get Form Layout](https://developer.kintone.io/hc/en-us/articles/115005509068)`on developer network`
+- [Get App](https://developer.kintone.io/hc/en-us/articles/212494888)
+- [Get Apps](https://developer.kintone.io/hc/en-us/articles/115005336727)
+- [Get Form fields](https://developer.kintone.io/hc/en-us/articles/115005509288)
+- [Get Form Layout](https://developer.kintone.io/hc/en-us/articles/115005509068)

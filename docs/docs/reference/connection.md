@@ -1,6 +1,6 @@
 # Connection
 
-[Connection](#) module will used as a connector to connect to kintone Rest API
+[Connection](#) module will be used as a connector to connect to the kintone Rest API
 
 ## Constructor
 
@@ -34,7 +34,7 @@
     // Init connection
     let connection = Connection(domain, auth)
 
-    // Define connection that included guest space
+    // Define the connection that included guest space
 
     // Init Authentication
     let loginName = 'your_user_login_name'

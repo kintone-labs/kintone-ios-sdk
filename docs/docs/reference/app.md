@@ -1,14 +1,13 @@
 # App
 
-Gets general information of an App, including the name, description, related Space, creator and updater information.
+Gets general information of an App, including the name, description, related Space, creator, and updater information.
 
 !!! warning
-    Use must set the promises to global to use module:
+    The user must set the promises to global to use the module:
 
             DispatchQueue.promise = global()
 
 
->
 - Permissions to view the App is needed.
 - API Tokens cannot be used with this API.
 
@@ -47,7 +46,7 @@ Gets general information of an App, including the name, description, related Spa
 
 ### getApp(_ appId: Int?)
 
-> Get single app
+> Get the single app
 
 **Parameter**
 
@@ -57,7 +56,7 @@ Gets general information of an App, including the name, description, related Spa
 
 **Return**
 
-AppModel
+[AppModel](../model/app/app/app-model)
 
 **Sample code**
 
@@ -102,7 +101,7 @@ AppModel
 
 **Return**
 
-List<AppModel>
+List<[AppModel](../model/app/app/app-model)>
 
 **Sample code**
 
@@ -140,7 +139,7 @@ List<AppModel>
 
 ### getAppsByIDs(_ ids: [Int]?, _ offset: Int?, _ limit: Int?)
 
-> Get multiple apps by list of ids
+> Get multiple apps by the list of ids
 
 **Parameter **
 
@@ -152,7 +151,7 @@ List<AppModel>
 
 **Return**
 
-List<AppModel>
+List<[AppModel](../model/app/app/app-model)>
 
 **Sample code**
 
@@ -206,7 +205,7 @@ List<AppModel>
 
 **Return**
 
-List<AppModel>
+List<[AppModel](../model/app/app/app-model)>
 
 **Sample code**
 
@@ -261,7 +260,7 @@ List<AppModel>
 
 **Return**
 
-List<AppModel>
+List<[AppModel](../model/app/app/app-model)>
 
 **Sample code**
 
@@ -316,7 +315,7 @@ List<AppModel>
 
 **Return**
 
-List<AppModel>
+List<[AppModel](../model/app/app/app-model)>
 
 **Sample code**
 
@@ -358,7 +357,7 @@ List<AppModel>
 
 ### addPreviewApp(_ name: String?, _ space: Int? = nil, _ thread: Int? = nil)
 
-> Creates a preview App. 
+> Creates a preview App.
 
 **Parameter **
 
@@ -370,7 +369,7 @@ List<AppModel>
 
 **Return**
 
-PreviewApp
+[PreviewApp](../model/app/app/preview-app)
 
 **Sample code**
 
@@ -401,7 +400,7 @@ PreviewApp
 </details>
 
 
-### deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool?) 
+### deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool?)
 
 > Updates the settings of a pre-live App to the live App.
 
@@ -454,7 +453,7 @@ None
 
 **Return**
 
-GetAppDeployStatusResponse
+[GetAppDeployStatusResponse](../model/app/app/get-app-deploy-status-response)
 
 **Sample code**
 
@@ -489,7 +488,7 @@ GetAppDeployStatusResponse
 
 ### getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?)
 
-> Get field of form in kintone app
+> Get field of the form in the kintone app
 
 **Parameter **
 
@@ -501,7 +500,7 @@ GetAppDeployStatusResponse
 
 **Return**
 
-FormFields
+[FormFields](../model/app/form/field/form-fields)
 
 **Sample code**
 
@@ -548,7 +547,7 @@ FormFields
 
 ### addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?)
 
-> Adds fields to a form of an App. 
+> Adds fields to a form of an App.
 
 **Parameter **
 
@@ -706,7 +705,7 @@ BasicResponse
 
 ### getFormLayout(_ app: Int?, _ isPreview: Bool?)
 
-> Get layout of form in kintone app
+> Get the layout of form in kintone app
 
 **Parameter **
 
@@ -717,7 +716,7 @@ BasicResponse
 
 **Return**
 
-FormLayout
+[FormLayout](../model/app/form/layout/form-layout)
 
 **Sample code**
 
@@ -762,13 +761,13 @@ FormLayout
 
 ### updateFormLayout( _ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?)
 
-> Updates the field layout info of a form in an App. 
+> Updates the field layout info of a form in an App.
 
 **Parameter **
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
-| app | Integer |  | The kintone app id
+| app | Integer | | The kintone app id
 | layout | Array<ItemLayout\> | yes | A list of field layouts for each row.
 | revision | Integer | (optional) | Specify the revision number of the settings that will be deployed.<br>The request will fail if the revision number is not the latest revision.<br>The revision will not be checked if this parameter is ignored, or -1 is specified.
 
@@ -979,7 +978,7 @@ BasicResponse
 
 ### getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?)
 
-> Gets the View settings of a an App.
+> Gets the View settings of an App.
 
 **Parameter **
 
@@ -1035,7 +1034,7 @@ GetViewsResponse
 
 </details>
 
-### updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?) 
+### updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?)
 
 > Updates the View settings of an App.
 
@@ -1103,17 +1102,17 @@ UpdateViewsResponse
 
 ## Reference
 
-- [Get App](https://developer.kintone.io/hc/en-us/articles/212494888)`on developer network`
-- [Get Apps](https://developer.kintone.io/hc/en-us/articles/115005336727)`on developer network`
-- [Get Form fields](https://developer.kintone.io/hc/en-us/articles/115005509288)`on developer network`
-- [Get Form Layout](https://developer.kintone.io/hc/en-us/articles/115005509068)`on developer network`
+- [Get App](https://developer.kintone.io/hc/en-us/articles/212494888)
+- [Get Apps](https://developer.kintone.io/hc/en-us/articles/115005336727)
+- [Get Form fields](https://developer.kintone.io/hc/en-us/articles/115005509288)
+- [Get Form Layout](https://developer.kintone.io/hc/en-us/articles/115005509068)
 
-- [Add Preview App](https://developer.kintone.io/hc/en-us/articles/115004712547)`on developer network`
-- [Deploy App Settings](https://developer.kintone.io/hc/en-us/articles/115004881348)`on developer network`
-- [Get App Deploy Status](https://developer.kintone.io/hc/en-us/articles/115004890947)`on developer network`
-- [Get Views](https://developer.kintone.io/hc/en-us/articles/115004401787)`on developer network`
+- [Add Preview App](https://developer.kintone.io/hc/en-us/articles/115004712547)
+- [Deploy App Settings](https://developer.kintone.io/hc/en-us/articles/115004881348)
+- [Get App Deploy Status](https://developer.kintone.io/hc/en-us/articles/115004890947)
+- [Get Views](https://developer.kintone.io/hc/en-us/articles/115004401787)
 
-- [Update Views](https://developer.kintone.io/hc/en-us/articles/115004880588)`on developer network`
+- [Update Views](https://developer.kintone.io/hc/en-us/articles/115004880588)
 
-- [Get General Settings](https://developer.kintone.io/hc/en-us/articles/115004811668)`on developer network`
-- [Update General Settings](https://developer.kintone.io/hc/en-us/articles/115004868628)`on developer network`
+- [Get General Settings](https://developer.kintone.io/hc/en-us/articles/115004811668)
+- [Update General Settings](https://developer.kintone.io/hc/en-us/articles/115004868628)

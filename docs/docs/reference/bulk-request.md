@@ -48,7 +48,7 @@ The Bulk Request API allows multiple API requests to run on multiple kintone app
 
 ## Methods
 
-> All below methods (excluded `execute()` method) will add request to queue, you must execute the `execute()` function to get result of BulkRequest.
+> All below methods (excluded `execute()` method) will add the request to the queue, you must execute the `execute()` function to get the result of BulkRequest.
 
 ### addRecord(_ app: Int?, _ record: [String:FieldValue]?) 
 
@@ -76,7 +76,7 @@ See at [Record - addRecord](./record#addrecord_-app-int-_-record-stringfieldvalu
     fv.setValue("test_AddRecord")
     
     record["Your_Field_Code"] = fv
-    bulkRequest = try bulkRequest?.addRecord(1, record)
+    bulkRequest = try! bulkRequest?.addRecord(1, record)
 
 </pre>
 
@@ -117,7 +117,7 @@ See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldv
     // execute add records API
     let appID = 311
 
-    bulkRequest = try bulkRequest?.addRecords(appID, addDataList);
+    bulkRequest = try! bulkRequest?.addRecords(appID, addDataList);
 
 </pre>
 
@@ -153,7 +153,7 @@ See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_
     let appID = {your_app_id}
     let updRecID = {your_record_id}
 
-    bulkRequest = try bulkRequest?.updateRecordByID(appID, updRecID, updateData, nil);
+    bulkRequest = try! bulkRequest?.updateRecordByID(appID, updRecID, updateData, nil);
 
 </pre>
 
@@ -191,7 +191,7 @@ See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-
     // execute update record API
     let appID = {your_app_id}
 
-    bulkRequest = try bulkRequest?.updateRecordByUpdateKey(appID, updKey, updateData, nil);
+    bulkRequest = try! bulkRequest?.updateRecordByUpdateKey(appID, updKey, updateData, nil);
 
 </pre>
 
@@ -236,7 +236,7 @@ See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-record
     // execute update records API
     let appID = {your_app_id}
 
-    bulkRequest = try bulkRequest?.updateRecords(appID, updateItemList);
+    bulkRequest = try! bulkRequest?.updateRecords(appID, updateItemList);
 
 </pre>
 
@@ -267,7 +267,7 @@ See at [Record - deleteRecords](./record#deleterecords_-app-int-_-ids-int)
     let delRecordID2 = {your_record_id2}
     let delIdList = [delRecordID1, delRecordID2]
 
-    bulkRequest = try bulkRequest?.deleteRecords(appID, delIdList);
+    bulkRequest = try! bulkRequest?.deleteRecords(appID, delIdList);
 
 </pre>
 
@@ -298,7 +298,7 @@ See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-
     delIdAndRevision[{your_record_id}] = {your_revision_id}
     delIdAndRevision[{your_record_id}] = {your_revision_id}
 
-    bulkRequest = try bulkRequest?.deleteRecordsWithRevision(appID, delIdAndRevision);
+    bulkRequest = try! bulkRequest?.deleteRecordsWithRevision(appID, delIdAndRevision);
 </pre>
 
 </details>
@@ -327,7 +327,7 @@ See at [Record - updateRecordAssignees](./record#updaterecordassignees_-app-int-
     let updRecID = {your_record_id}
     let assignees = ["{your_user_code}"]
 
-    bulkRequest = try bulkRequest?.updateRecordAssignees(appID, updRecID, assignees, nil);
+    bulkRequest = try! bulkRequest?.updateRecordAssignees(appID, updRecID, assignees, nil);
 
 </pre>
 
@@ -357,7 +357,7 @@ See at [Record - updateRecordStatus](./record#updaterecordstatus_-app-int-_-id-i
     let updRecID = {your_record_id}
     let assignees = "{your_user_code}"
     let status = "{your_status}"
-    bulkRequest = try bulkRequest?.updateRecordStatus(appID, updRecID, status, assignees, nil);
+    bulkRequest = try! bulkRequest?.updateRecordStatus(appID, updRecID, status, assignees, nil);
 
 </pre>
 
@@ -393,7 +393,7 @@ See at [Record - updateRecordsStatus](./record#updaterecordsstatus_-app-int-_-re
     let item1 = RecordUpdateStatusItem(status1, assignees1, updRecID1, nil)
     let item2 = RecordUpdateStatusItem(status2, assignees2, updRecID2, nil)
     let itemList = [item1, item2]
-    bulkRequest = try bulkRequest?.updateRecordsStatus(appID, itemList);
+    bulkRequest = try! bulkRequest?.updateRecordsStatus(appID, itemList);
 
 </pre>
 
@@ -436,4 +436,4 @@ BulkRequestResponse
 
 ## Reference
 
-- [Bulk Request](https://developer.kintone.io/hc/en-us/articles/213148977/) `on developer network`
+- [Bulk Request](https://developer.kintone.io/hc/en-us/articles/213148977/)

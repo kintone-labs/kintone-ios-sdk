@@ -3,7 +3,7 @@
 Provide manipulate functions on file: file download & file upload in the kintone app.
 
 !!! warning
-    Use must set the promises to global to use module:
+    The user must set the promises to global to use the module:
 
             DispatchQueue.promise = global()
 

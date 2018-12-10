@@ -1,6 +1,6 @@
 # kintoneAPIException
 
-Handle error responses from kintone Rest API
+Handle error responses from the Kintone Rest API
 
 ## Methods
 

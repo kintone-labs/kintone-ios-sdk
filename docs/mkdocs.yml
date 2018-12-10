@@ -35,6 +35,8 @@ pages:
         - App: 
           - App: reference/model/app/app/app-model.md
           - AppDeployStatus: reference/model/app/app/app-deploy-status.md
+          - PreviewApp: reference/model/app/app/preview-app.md
+          - GetAppDeployStatusResponse: reference/model/app/app/get-app-deploy-status-response.md
         - Form:
           - Field:
             - Input:
@@ -50,6 +52,6 @@ pages:
         - Record: reference/model/record/record-model.md
         - Field: reference/model/record/record-field-model.md
       - File: reference/model/file/file-model.md
-      - Bulk Request: reference/model/bulk-request/bulk-request-model.md
+      - BulkRequest: reference/model/bulk-request/bulk-request-model.md
       - Member: reference/model/member/member.md
 
