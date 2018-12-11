@@ -371,14 +371,6 @@ open class Connection: NSObject {
         let statusCode = http_response?.statusCode
         let decoder: JSONDecoder = JSONDecoder()
         
-        if (statusCode == 404) {
-            if let unWrapResponse = self.getErrorResponse(data) {
-                throw KintoneAPIException(statusCode, unWrapResponse)
-            } else {
-                throw KintoneAPIException("not found")
-            }
-        }
-        
         if (statusCode == 401) {
             throw KintoneAPIException("401 Unauthorized")
         }
@@ -387,7 +379,6 @@ open class Connection: NSObject {
             if (apiName == ConnectionConstants.BULK_REQUEST){
                 do {
                     if let unWrapResponses: Array<ErrorResponse> = self.getErrorResponses(data) {
-                        
                         if let jsonBody = body?.data(using: String.Encoding.utf8) {
                             let jsonobject = try JSONSerialization.jsonObject(with: jsonBody, options: JSONSerialization.ReadingOptions.allowFragments)
                             
@@ -448,7 +439,6 @@ open class Connection: NSObject {
         if let unwrapData = data {
             do {
                 let parsedData = try JSONSerialization.jsonObject(with: unwrapData, options: .allowFragments)
-                
                 if let unwrapJsonArray = (parsedData as! NSDictionary)["results"] {
                     let jsonArray = unwrapJsonArray as! NSArray
                     let target = try JSONSerialization.data(withJSONObject: jsonArray, options: [])
