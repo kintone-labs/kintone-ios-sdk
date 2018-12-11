@@ -32,7 +32,7 @@
 * Connect the UI elements
 ![](../img/connectUI.gif)
 
-* Set promises to global in the AppDelegate.swift 
+* Set the promises of dispatch queue to global in the AppDelegate.swift. (Reference: [Default dispatch queue](https://github.com/google/promises/blob/master/g3doc/index.md#default-dispatch-queue) )
 ![](../img/globalPromise.png)
 
 * Open the ViewController.swift
