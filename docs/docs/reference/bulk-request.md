@@ -408,7 +408,8 @@ Execute the bulk request and get data response
 (none)
 
 **Return**
-BulkRequestResponse
+
+[BulkRequestResponse](../model/bulk-request/bulk-request-response)
 
 **Sample code**
 

@@ -50,8 +50,12 @@ pages:
         - View: reference/model/app/view/view-model.md
       - Record:
         - Record: reference/model/record/record-model.md
+        - Comment: reference/model/record/record-comment-model.md
         - Field: reference/model/record/record-field-model.md
       - File: reference/model/file/file-model.md
-      - BulkRequest: reference/model/bulk-request/bulk-request-model.md
+      - BulkRequest:
+        - BulkRequestModel: reference/model/bulk-request/bulk-request-model.md
+        - BulkRequestItem: reference/model/bulk-request/bulk-request-item.md
+        - BulkRequestResponse: reference/model/bulk-request/bulk-request-response.md
       - Member: reference/model/member/member.md
 
