@@ -12,7 +12,7 @@ Get a list of fields and their settings.
 
 #### getApp()
 
-> Get the app
+Get the app
 
 **Parameter**
 
@@ -39,7 +39,7 @@ Get a list of fields and their settings.
 
 #### getCode()
 
-> Get the code
+Get the code
 
 **Parameter**
 
@@ -70,7 +70,7 @@ String
 
 #### getCondition()
 
-> Get the condition
+Get the condition
 
 **Parameter**
 
@@ -97,7 +97,7 @@ String
 
 #### getFilterCond()
 
-> Get the filterCond
+Get the filterCond
 
 **Parameter**
 
@@ -124,7 +124,7 @@ String
 
 #### getRelatedApp()
 
-> Get the relatedApp
+Get the relatedApp
 
 **Parameter**
 
@@ -151,7 +151,7 @@ String
 
 #### getSize()
 
-> Get the size
+Get the size
 
 **Parameter**
 
@@ -178,7 +178,7 @@ String
 
 #### getDisplayFields()
 
-> Get the displayFields
+Get the displayFields
 
 **Parameter**
 
@@ -205,7 +205,7 @@ String
 
 #### getSort()
 
-> Get the sort
+Get the sort
 
 **Parameter**
 
@@ -239,7 +239,7 @@ String
 
 #### getLabel()
 
-> Get the label
+Get the label
 
 **Parameter**
 
@@ -266,7 +266,7 @@ String
 
 #### getNoLabel()
 
-> Get the noLabel
+Get the noLabel
 
 **Parameter**
 
@@ -293,7 +293,7 @@ Boolean
 
 #### getReferenceTable()
 
-> Get the referenceTable
+Get the referenceTable
 
 **Parameter**
 

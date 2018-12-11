@@ -14,7 +14,7 @@ Get a list of fields and their settings.
 
 #### getLookup()
 
-> Get the lookup
+Get the lookup
 
 **Parameter**
 
@@ -30,7 +30,7 @@ Get a list of fields and their settings.
 
 #### getFieldMapping()
 
-> Get the fieldMapping
+Get the fieldMapping
 
 **Parameter**
 
@@ -42,7 +42,7 @@ List<[FieldMapping](../form-fields/#fieldmapping)\>
 
 #### getFilterCond()
 
-> Get the filterCond
+Get the filterCond
 
 **Parameter**
 
@@ -54,7 +54,7 @@ String
 
 #### getLookupPickerFields()
 
-> Get the lookupPickerFields
+Get the lookupPickerFields
 
 **Parameter**
 
@@ -66,7 +66,7 @@ List<String\>
 
 #### getRelatedApp()
 
-> Get the relatedApp
+Get the relatedApp
 
 **Parameter**
 
@@ -78,7 +78,7 @@ List<String\>
 
 #### getRelatedKeyField()
 
-> Get the relatedKeyField
+Get the relatedKeyField
 
 **Parameter**
 
@@ -90,7 +90,7 @@ String
 
 #### getSort()
 
-> Get the sort
+Get the sort
 
 **Parameter**
 

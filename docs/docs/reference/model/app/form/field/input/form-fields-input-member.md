@@ -29,7 +29,7 @@ Get a list of fields and their settings.
 
 #### getCode()
 
-> Get the code
+Get the code
 
 **Parameter**
 
@@ -41,7 +41,7 @@ String
 
 #### getType()
 
-> Get the type
+Get the type
 
 **Parameter**
 
@@ -70,7 +70,7 @@ MemberSelectEntityType
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -82,7 +82,7 @@ List<[MemberSelectEntity](#memberselectentity)\>
 
 #### getEntites()
 
-> Get the entites
+Get the entites
 
 **Parameter**
 

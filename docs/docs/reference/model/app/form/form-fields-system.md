@@ -24,7 +24,7 @@ Get a list of fields and their settings.
 
 #### getEnabled()
 
-> Get the enabled
+Get the enabled
 
 **Parameter**
 
@@ -113,7 +113,7 @@ Boolean
 
 #### getLabel()
 
-> Get the label
+Get the label
 
 **Parameter**
 
@@ -133,7 +133,7 @@ String
 
 #### getEnabled()
 
-> Get the enabled
+Get the enabled
 
 **Parameter**
 
@@ -153,7 +153,7 @@ Boolean
 
 #### getNoLabel()
 
-> Get the noLabel
+Get the noLabel
 
 **Parameter**
 

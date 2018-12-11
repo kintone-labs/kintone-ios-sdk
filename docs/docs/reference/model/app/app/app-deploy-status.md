@@ -1,6 +1,6 @@
 # AppDeployStatus
 
-View settings of an App
+Get information about the deploy status of an app
 
 ## Constructor
 
@@ -16,7 +16,7 @@ View settings of an App
 
 ### getApp()
 
-> Get the appId
+Get the appId
 
 **Parameter**
 
@@ -28,7 +28,7 @@ Integer
 
 ### getStatus()
 
-> The status of the deployment of App settings.
+The status of the deployment of App settings.
 
 **Parameter **
 

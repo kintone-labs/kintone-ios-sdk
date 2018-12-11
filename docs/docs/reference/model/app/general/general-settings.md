@@ -30,7 +30,7 @@ String
 
 ### getIcon()
 
-> Get the Icon of an app.
+Get the Icon of an app.
 
 **Parameter**
 
@@ -42,7 +42,7 @@ String
 
 ### getTheme()
 
-> Get the theme of an app.
+Get the theme of an app.
 
 **Parameter**
 
@@ -54,7 +54,7 @@ String
 
 ### getRevision()
 
-> Get the revision of an app.
+Get the revision of an app.
 
 **Parameter**
 

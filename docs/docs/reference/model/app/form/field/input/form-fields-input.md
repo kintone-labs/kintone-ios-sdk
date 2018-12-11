@@ -14,7 +14,7 @@ Get a list of fields and their settings.
 
 #### getThumbnailSize()
 
-> Get the thumbnailSize
+Get the thumbnailSize
 
 **Parameter**
 
@@ -34,7 +34,7 @@ Integer
 
 #### getExpression()
 
-> Get the expression
+Get the expression
 
 **Parameter**
 
@@ -46,7 +46,7 @@ String
 
 #### getHideExpression()
 
-> Get the hideExpression
+Get the hideExpression
 
 **Parameter**
 
@@ -58,7 +58,7 @@ Boolean
 
 #### getDisplayScale()
 
-> Get the displayScale
+Get the displayScale
 
 **Parameter**
 
@@ -70,7 +70,7 @@ Integer
 
 #### getUnit()
 
-> Get the unit
+Get the unit
 
 **Parameter**
 
@@ -82,7 +82,7 @@ String
 
 #### getUnitPosition()
 
-> Get the unitPosition
+Get the unitPosition
 
 **Parameter**
 
@@ -94,7 +94,7 @@ UnitPosition
 
 #### getFormat()
 
-> Get the format
+Get the format
 
 **Parameter**
 
@@ -114,7 +114,7 @@ NumberFormat
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -126,7 +126,7 @@ String
 
 #### getUnique()
 
-> Get the unique
+Get the unique
 
 **Parameter**
 
@@ -138,7 +138,7 @@ Boolean
 
 #### getMaxLength()
 
-> Get the maxLength
+Get the maxLength
 
 **Parameter**
 
@@ -150,7 +150,7 @@ Integer
 
 #### getMinLength()
 
-> Get the minLength
+Get the minLength
 
 **Parameter**
 
@@ -162,7 +162,7 @@ Integer
 
 #### getProtocol()
 
-> Get the protocol
+Get the protocol
 
 **Parameter**
 
@@ -182,7 +182,7 @@ LinkProtocol
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -202,7 +202,7 @@ String
 
 #### getDisplayScale()
 
-> Get the displayScale
+Get the displayScale
 
 **Parameter**
 
@@ -214,7 +214,7 @@ Integer
 
 #### getUnit()
 
-> Get the unit
+Get the unit
 
 **Parameter**
 
@@ -226,7 +226,7 @@ String
 
 #### getUnitPosition()
 
-> Get the unitPosition
+Get the unitPosition
 
 **Parameter**
 
@@ -238,7 +238,7 @@ UnitPosition
 
 #### getDigit()
 
-> Get the digit
+Get the digit
 
 **Parameter**
 
@@ -250,7 +250,7 @@ Boolean
 
 #### getMaxValue()
 
-> Get the maxValue
+Get the maxValue
 
 **Parameter**
 
@@ -262,7 +262,7 @@ Integer
 
 #### getMinValue()
 
-> Get the minValue
+Get the minValue
 
 **Parameter**
 
@@ -274,7 +274,7 @@ Integer
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -286,7 +286,7 @@ String
 
 #### getUnique()
 
-> Get the unique
+Get the unique
 
 **Parameter**
 
@@ -305,7 +305,7 @@ Boolean
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -325,7 +325,7 @@ String
 
 #### getMinLength()
 
-> Get the minLength
+Get the minLength
 
 **Parameter**
 
@@ -337,7 +337,7 @@ Integer
 
 #### getMaxLength()
 
-> Get the maxLength
+Get the maxLength
 
 **Parameter**
 
@@ -349,7 +349,7 @@ Integer
 
 #### getExpression()
 
-> Get the expression
+Get the expression
 
 **Parameter**
 
@@ -361,7 +361,7 @@ String
 
 #### getHideExpression()
 
-> Get the hideExpression
+Get the hideExpression
 
 **Parameter**
 
@@ -373,7 +373,7 @@ Boolean
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -385,7 +385,7 @@ String
 
 #### getUnique()
 
-> Get the unique
+Get the unique
 
 **Parameter**
 
@@ -405,7 +405,7 @@ Boolean
 
 #### getLabel()
 
-> Get the label
+Get the label
 
 **Parameter**
 
@@ -417,7 +417,7 @@ String
 
 #### getNoLabel()
 
-> Get the noLabel
+Get the noLabel
 
 **Parameter**
 
@@ -429,7 +429,7 @@ Boolean
 
 #### getRequired()
 
-> Get the required
+Get the required
 
 **Parameter**
 

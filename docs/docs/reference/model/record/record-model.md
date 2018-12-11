@@ -8,7 +8,7 @@ Methods
 
 ### getRecord()
 
-> get the Record data response.
+Get the Record data response.
 
 **Parameter**
 
@@ -24,7 +24,7 @@ Methods
 
 ### getRecords()
 
-> get the Records data response.
+Get the Records data response.
 
 **Parameter**
 
@@ -36,7 +36,7 @@ ArrayList<HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>\>
 
 ### getTotalCount()
 
-> get the number of records response.
+Get the number of records response.
 
 **Parameter**
 
@@ -52,7 +52,7 @@ Methods
 
 ### getID()
 
-> get the the ID of record added.
+Get the the ID of record added.
 
 **Parameter**
 
@@ -64,7 +64,7 @@ Integer
 
 ### getRevision()
 
-> get the revision number of record added.
+Get the revision number of record added.
 
 **Parameter**
 
@@ -80,7 +80,7 @@ Methods
 
 ### getIDs()
 
-> get the array of added records ID.
+Get the array of added records ID.
 
 **Parameter**
 
@@ -92,7 +92,7 @@ ArrayList<Integer\>
 
 ### getRevisions()
 
-> get the array of added records revision number.
+Get the array of added records revision number.
 
 **Parameter**
 
@@ -108,7 +108,7 @@ Methods
 
 ### getRevision()
 
-> get the revision number of record updated.
+Get the revision number of record updated.
 
 **Parameter**
 
@@ -124,7 +124,7 @@ Methods
 
 ### getRecords()
 
-> get the array of added records ID with revision.
+Get the array of added records ID with revision.
 
 **Parameter**
 
@@ -140,7 +140,7 @@ Methods
 
 ### getID()
 
-> get the the ID of record updated.
+Get the the ID of record updated.
 
 **Parameter**
 
@@ -152,7 +152,7 @@ Integer
 
 ### getRevision()
 
-> get the revision number of record updated.
+Get the revision number of record updated.
 
 **Parameter**
 

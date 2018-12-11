@@ -46,7 +46,7 @@ Provide manipulate functions on records: get, update, delete, update the record 
 
 ### getRecord(_ app: Int, _ id: Int)
 
-> Retrieves details of 1 record from an app.
+Retrieves details of 1 record from an app.
 
 **Parameter**
 
@@ -97,7 +97,7 @@ GetRecordResponse
 
 ### getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
 
-> Retrieves details of multiple records from an app using a query string.
+Retrieves details of multiple records from an app using a query string.
 
 **Parameter**
 
@@ -196,7 +196,7 @@ AddRecordResponse
 
 ### addRecords(_ app: Int?, _ records: [[String:FieldValue]])
 
->Add multiple records to an app.
+Add multiple records to an app.
 
 **Parameter**
 
@@ -250,7 +250,7 @@ AddRecordsResponse
 
 ### updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
 
-> Updates details of 1 record in an app by specifying its record number.
+Updates details of 1 record in an app by specifying its record number.
 
 **Parameter**
 
@@ -352,7 +352,7 @@ UpdateRecordResponse
 
 ### updateRecords(_ app: Int?, _ records: [RecordUpdateItem])
 
-> Updates details of multiple records in an app, by specifying their record number, or a different unique key.
+Updates details of multiple records in an app, by specifying their record number, or a different unique key.
 
 **Parameter**
 
@@ -412,7 +412,7 @@ UpdateRecordsResponse
 
 ### deleteRecords(_ app: Int?, _ ids: [Int])
 
-> Deletes multiple records in an app.
+Deletes multiple records in an app.
 
 **Parameter**
 
@@ -455,7 +455,7 @@ UpdateRecordsResponse
 
 ### deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int>])
 
-> Deletes multiple records in an app with revision.
+Deletes multiple records in an app with revision.
 
 **Parameter**
 
@@ -498,7 +498,7 @@ UpdateRecordsResponse
 
 ### updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) 
 
-> Update assignees of a record.
+Update assignees of a record.
 
 **Parameter**
 
@@ -557,7 +557,7 @@ UpdateRecordResponse
 
 ### updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)
 
-> Updates the Status of a record of an app.
+Updates the Status of a record of an app.
 
 **Parameter**
 
@@ -603,7 +603,7 @@ UpdateRecordResponse
 
 ### updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])
 
-> Updates the Status of multiple records of an app.
+Updates the Status of multiple records of an app.
 
 **Parameter**
 

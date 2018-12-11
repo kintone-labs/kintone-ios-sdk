@@ -11,7 +11,7 @@ Get a list of fields and their settings.
 
 #### getApp()
 
-> Get the app
+Get the app
 
 **Parameter**
 
@@ -38,7 +38,7 @@ Integer
 
 #### getRevision()
 
-> Get the revision
+Get the revision
 
 **Parameter **
 
@@ -65,7 +65,7 @@ Integer
 
 #### getProperties()
 
-> Get the properties
+Get the properties
 
 **Parameter **
 
@@ -99,7 +99,7 @@ Integer
 
 #### getLabel()
 
-> Get the label
+Get the label
 
 **Parameter**
 
@@ -126,7 +126,7 @@ String
 
 #### getNoLabel()
 
-> Get the noLabel
+Get the noLabel
 
 **Parameter**
 
@@ -153,7 +153,7 @@ Boolean
 
 #### getOpenGroup()
 
-> Get the openGroup
+Get the openGroup
 
 **Parameter**
 
@@ -184,7 +184,7 @@ Boolean
 
 #### getField()
 
-> Get the field
+Get the field
 
 **Parameter**
 
@@ -211,7 +211,7 @@ String
 
 #### getRelatedFields()
 
-> Get the relatedFields
+Get the relatedFields
 
 **Parameter**
 
@@ -247,7 +247,7 @@ String
 
 #### getFields()
 
-> Get the fields
+Get the fields
 
 **Parameter**
 
@@ -281,7 +281,7 @@ String
 
 #### getCode()
 
-> Get the code
+Get the code
 
 **Parameter**
 
@@ -293,7 +293,7 @@ String
 
 #### getType()
 
-> Get the type
+Get the type
 
 **Parameter**
 

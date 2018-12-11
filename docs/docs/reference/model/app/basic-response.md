@@ -14,7 +14,7 @@ The  basic response
 
 ### getRevision()
 
-> The revision of the app.
+The revision of the app.
 
 **Parameter **
 

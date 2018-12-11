@@ -6,7 +6,7 @@ Holds file information obtained from kintone.
 
 ### getContentType()
 
-> Get the content type of the file.
+Get the content type of the file.
 
 **Parameter**
 
@@ -18,7 +18,7 @@ String
 
 ### getFileKey()
 
-> Get the file key of the uploaded file.
+Get the file key of the uploaded file.
 
 **Parameter**
 
@@ -30,7 +30,7 @@ String
 
 ### getName()
 
-> Get the name of the uploaded file.
+Get the name of the uploaded file.
 
 **Parameter**
 
@@ -42,7 +42,7 @@ String
 
 ### getSize()
 
-> Get the size of the file.
+Get the size of the file.
 
 **Parameter**
 

@@ -128,7 +128,7 @@ This module allows authenticating with the Kintone app by password authenticator
 
 ### createHeaderCredentials()
 
-> Provide the list of HTTP Headers which use to authentication in.
+Provide the list of HTTP Headers which use to authentication in.
 
 **Parameter**
 

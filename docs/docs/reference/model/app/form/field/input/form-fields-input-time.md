@@ -14,7 +14,7 @@ Get a list of fields and their settings.
 
 #### getUnique()
 
-> Get the unique
+Get the unique
 
 **Parameter**
 
@@ -26,7 +26,7 @@ Boolean
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -38,7 +38,7 @@ String
 
 #### getDefaultNowValue()
 
-> Get the defaultNowValue
+Get the defaultNowValue
 
 **Parameter**
 
@@ -57,7 +57,7 @@ Boolean
 
 #### getUnique()
 
-> Get the unique
+Get the unique
 
 **Parameter**
 
@@ -69,7 +69,7 @@ Boolean
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -81,7 +81,7 @@ String
 
 #### getDefaultNowValue()
 
-> Get the defaultNowValue
+Get the defaultNowValue
 
 **Parameter**
 
@@ -100,7 +100,7 @@ Boolean
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -112,7 +112,7 @@ String
 
 #### getDefaultNowValue()
 
-> Get the defaultNowValue
+Get the defaultNowValue
 
 **Parameter**
 

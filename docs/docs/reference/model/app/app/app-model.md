@@ -15,7 +15,7 @@ Gets the basic information about the app.
 
 ### getAppId()
 
-> Get the appId
+Get the appId
 
 **Parameter**
 
@@ -27,7 +27,7 @@ Integer
 
 ### getCode()
 
-> Get the code
+Get the code
 
 **Parameter **
 
@@ -39,7 +39,7 @@ String
 
 ### getName()
 
-> Get the name
+Get the name
 
 **Parameter **
 
@@ -51,7 +51,7 @@ String
 
 ### getDescription()
 
-> Get the description
+Get the description
 
 **Parameter **
 
@@ -63,7 +63,7 @@ String
 
 ### getSpaceId()
 
-> Get the spaceId
+Get the spaceId
 
 **Parameter **
 
@@ -75,7 +75,7 @@ Integer
 
 ### getThreadId()
 
-> Get the threadId
+Get the threadId
 
 **Parameter **
 
@@ -87,7 +87,7 @@ Integer
 
 ### getCreator()
 
-> Get the creator
+Get the creator
 
 **Parameter **
 
@@ -99,7 +99,7 @@ Integer
 
 ### getModifier()
 
-> Get the modifier
+Get the modifier
 
 **Parameter **
 
@@ -111,7 +111,7 @@ Integer
 
 ### getCreatedAt()
 
-> Get the createdAt
+Get the createdAt
 
 **Parameter **
 
@@ -123,7 +123,7 @@ Date
 
 ### getModifiedAt()
 
-> Get the modifiedAt
+Get the modifiedAt
 
 **Parameter **
 

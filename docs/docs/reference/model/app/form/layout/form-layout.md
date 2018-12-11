@@ -15,7 +15,7 @@ label, space, and border settings.
 
 #### getRevision()
 
-> Get the revision
+Get the revision
 
 **Parameter**
 
@@ -27,7 +27,7 @@ String
 
 #### getLayout()
 
-> Get the layout
+Get the layout
 
 **Parameter **
 
@@ -43,7 +43,7 @@ List<[ItemLayout](#itemlayout)\>
 
 #### getType()
 
-> Get the type
+Get the type
 
 **Parameter**
 
@@ -55,7 +55,7 @@ String
 
 #### getCode()
 
-> Get the code
+Get the code
 
 **Parameter**
 
@@ -67,7 +67,7 @@ String
 
 #### getElementId()
 
-> Get the elementId
+Get the elementId
 
 **Parameter**
 
@@ -79,7 +79,7 @@ String
 
 #### getLabel()
 
-> Get the label
+Get the label
 
 **Parameter**
 
@@ -91,7 +91,7 @@ String
 
 #### getSize()
 
-> Get the size
+Get the size
 
 **Parameter**
 
@@ -107,7 +107,7 @@ String
 
 #### getWidth()
 
-> Get the width
+Get the width
 
 **Parameter**
 
@@ -119,7 +119,7 @@ String
 
 #### getHeight()
 
-> Get the height
+Get the height
 
 **Parameter**
 
@@ -131,7 +131,7 @@ String
 
 #### getInnerHeight()
 
-> Get the innerHeight
+Get the innerHeight
 
 **Parameter**
 
@@ -150,7 +150,7 @@ String
 
 #### getCode()
 
-> Get the code
+Get the code
 
 **Parameter**
 
@@ -162,7 +162,7 @@ String
 
 #### getLayout()
 
-> Get the layout
+Get the layout
 
 **Parameter**
 
@@ -181,7 +181,7 @@ List<[RowLayout](#rowlayout)>
 
 #### getFields()
 
-> Get the fields
+Get the fields
 
 **Parameter**
 
@@ -200,7 +200,7 @@ List<[FieldLayout](#fieldlayout)>
 
 #### getCode()
 
-> Get the code
+Get the code
 
 **Parameter**
 
@@ -219,7 +219,7 @@ String
 
 #### getType()
 
-> Get the type
+Get the type
 
 **Parameter**
 

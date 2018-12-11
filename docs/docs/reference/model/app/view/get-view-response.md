@@ -15,7 +15,7 @@ The views of an apps.
 
 ### getViews()
 
-> Get the views of an app.
+Get the views of an app.
 
 **Parameter**
 
@@ -27,7 +27,7 @@ The views of an apps.
 
 ### getRevision()
 
-> The revision of the preview app.
+The revision of the preview app.
 
 **Parameter **
 

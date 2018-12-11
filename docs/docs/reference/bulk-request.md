@@ -48,7 +48,7 @@ The Bulk Request API allows multiple API requests to run on multiple kintone app
 
 ## Methods
 
-> All below methods (excluded `execute()` method) will add the request to the queue, you must execute the `execute()` function to get the result of BulkRequest.
+All below methods (excluded `execute()` method) will add the request to the queue, you must execute the `execute()` function to get the result of BulkRequest.
 
 ### addRecord(_ app: Int?, _ record: [String:FieldValue]?) 
 
@@ -114,7 +114,7 @@ See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldv
     addData2[{your_field_code}] = field2
     var  = [addData1, addData2]
     
-    // execute add records API
+    // create addRecords bulk request
     let appID = 311
 
     bulkRequest = try! bulkRequest?.addRecords(appID, addDataList);
@@ -149,7 +149,7 @@ See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_
     field.setValue("Test Value Update")
     updateData[{your_field_code}] = field
             
-    // execute update record API
+    // create updateRecordByID bulk request
     let appID = {your_app_id}
     let updRecID = {your_record_id}
 
@@ -188,9 +188,9 @@ See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-
     // create update key
     let updKey = RecordUpdateKey("{your_field_code}", "update key value")
             
-    // execute update record API
     let appID = {your_app_id}
 
+    // create updateRecordByUpdateKey bulk request
     bulkRequest = try! bulkRequest?.updateRecordByUpdateKey(appID, updKey, updateData, nil);
 
 </pre>
@@ -233,7 +233,7 @@ See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-record
     var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
     let updateItemList = [updateDataItem1 , updateDataItem2]
             
-    // execute update records API
+    // create updateRecords bulk request
     let appID = {your_app_id}
 
     bulkRequest = try! bulkRequest?.updateRecords(appID, updateItemList);
@@ -261,7 +261,7 @@ See at [Record - deleteRecords](./record#deleterecords_-app-int-_-ids-int)
 
 <pre class="inline-code">
 
-    // execute delete record API
+    // create deleteRecords bulk request
     let appID = {your_app_id}
     let delRecordID1 = {your_record_id1}
     let delRecordID2 = {your_record_id2}
@@ -292,7 +292,7 @@ See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-
 
 <pre class="inline-code">
 
-    // execute delete record API
+    // create deleteRecordsWithRevision bulk request
     let appID = {your_app_id}
     var delIdAndRevision: Dictionary<Int, Int> = [:]
     delIdAndRevision[{your_record_id}] = {your_revision_id}
@@ -322,7 +322,7 @@ See at [Record - updateRecordAssignees](./record#updaterecordassignees_-app-int-
 
 <pre class="inline-code">
 
-    // execute update assignees API
+    // create updateRecordAssignees bulk request
     let appID = {your_app_od}
     let updRecID = {your_record_id}
     let assignees = ["{your_user_code}"]
@@ -352,7 +352,7 @@ See at [Record - updateRecordStatus](./record#updaterecordstatus_-app-int-_-id-i
 
 <pre class="inline-code">
 
-    // execute update status API
+    // create updateRecordStatus bulk request
     let appID = {your_app_id}
     let updRecID = {your_record_id}
     let assignees = "{your_user_code}"
@@ -382,7 +382,7 @@ See at [Record - updateRecordsStatus](./record#updaterecordsstatus_-app-int-_-re
 
 <pre class="inline-code">
 
-    // execute update status API
+    // create updateRecordsStatus bulk request
     let appID = {your_app_id}
     let updRecID1 = {your_record_id1}
     let updRecID2 = {your_record_id2}
@@ -401,7 +401,7 @@ See at [Record - updateRecordsStatus](./record#updaterecordsstatus_-app-int-_-re
 
 ### execute()
 
-> Execute the bulk request and get data response
+Execute the bulk request and get data response
 
 **Parameter**
 

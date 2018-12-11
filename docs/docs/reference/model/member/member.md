@@ -16,7 +16,7 @@ General information of the member(user/group/organization) on the kintone applic
 
 ### getCode()
 
-> Get the code of the user/group/organization
+Get the code of the user/group/organization
 
 **Parameter**
 
@@ -25,24 +25,10 @@ General information of the member(user/group/organization) on the kintone applic
 **Return**
 
 String
-
-### setCode()
-
-> Set the code of the user/group/organization
-
-**Parameter**
-
-| Name| Type| Description |
-| --- | --- | --- |
-| code | String | The user/group/organization code.
-
-**Return**
-
-(none)
 
 ### getName()
 
-> Get the name of the user/group/organization
+Get the name of the user/group/organization
 
 **Parameter**
 
@@ -51,17 +37,3 @@ String
 **Return**
 
 String
-
-### setName()
-
-> Set the name of the user/group/organization
-
-**Parameter**
-
-| Name| Type| Description |
-| --- | --- | --- |
-| name | String | The user/group/organization name.
-
-**Return**
-
-(none)

@@ -14,7 +14,7 @@ Get a list of fields and their settings.
 
 #### getAlign()
 
-> Get the align
+Get the align
 
 **Parameter**
 
@@ -26,7 +26,7 @@ AlignLayout
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -45,7 +45,7 @@ List<String\>
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -64,7 +64,7 @@ String
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -80,7 +80,7 @@ List<String\>
 
 #### getIndex()
 
-> Get the index
+Get the index
 
 **Parameter**
 
@@ -92,7 +92,7 @@ Integer
 
 #### getLabel()
 
-> Get the label
+Get the label
 
 **Parameter**
 
@@ -111,7 +111,7 @@ String
 
 #### getAlign()
 
-> Get the align
+Get the align
 
 **Parameter**
 
@@ -123,7 +123,7 @@ AlignLayout
 
 #### getDefaultValue()
 
-> Get the defaultValue
+Get the defaultValue
 
 **Parameter**
 
@@ -143,7 +143,7 @@ String
 
 #### getOptions()
 
-> Get the options
+Get the options
 
 **Parameter**
 

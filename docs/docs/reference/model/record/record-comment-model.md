@@ -14,7 +14,7 @@ General comment structure of the record on kintone restAPI
 
 #### getId()
 
-> get the Comment ID.
+Get the Comment ID.
 
 **Parameter**
 
@@ -52,7 +52,7 @@ Integer
 
 #### getText()
 
-> get the comment including the line feed codes.
+Get the comment including the line feed codes.
 
 **Parameter**
 
@@ -90,7 +90,7 @@ String
 
 #### getCreatedAt()
 
-> get the created date and time of the comment.
+Get the created date and time of the comment.
 
 **Parameter**
 
@@ -128,7 +128,7 @@ Date
 
 #### getCreator()
 
-> get an object including information of the comment creator.
+Get an object including information of the comment creator.
 
 **Parameter**
 
@@ -166,7 +166,7 @@ Date
 
 #### getMentions()
 
-> get an array including information of mentioned users.
+Get an array including information of mentioned users.
 
 **Parameter**
 
@@ -254,7 +254,7 @@ List<[CommentMention](#commentmention)\>
 
 #### setMentions(List<[CommentMention](#commentmention)\> mentions)
 
-> get an array including information of mentioned users.
+Get an array including information of mentioned users.
 
 **Parameter**
 
@@ -304,7 +304,7 @@ List<[CommentMention](#commentmention)\>
 
 #### getCode()
 
-> get the code of the mentioned user, group or organization.
+Get the code of the mentioned user, group or organization.
 
 **Parameter**
 
@@ -384,7 +384,7 @@ String
 
 #### getType()
 
-> get the type of the mentioned user, group or organization.
+Get the type of the mentioned user, group or organization.
 
 **Parameter**
 
@@ -424,7 +424,7 @@ String
 
 #### setType(String type)
 
-> get an array including information of mentioned users.
+Get an array including information of mentioned users.
 
 **Parameter**
 
@@ -474,7 +474,7 @@ String
 
 #### getComments()
 
-> get the comments List on a record.
+Get the comments List on a record.
 
 **Parameter**
 
@@ -510,7 +510,7 @@ ArrayList<[Comment](#comment)\>
 
 #### getOlder()
 
-> get information of older comments.
+Get information of older comments.
 
 **Parameter**
 
@@ -546,7 +546,7 @@ Boolean
 
 #### getNewer()
 
-> get information of newer comments.
+Get information of newer comments.
 
 **Parameter**
 
@@ -592,7 +592,7 @@ Boolean
 
 #### getId()
 
-> get the ID of comment which have just created.
+Get the ID of comment which have just created.
 
 **Parameter**
 

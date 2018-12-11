@@ -6,7 +6,7 @@ General information of the member(user/group/organization) on the kintone applic
 
 ### getBuiltinType()
 
-> Get the code of the user/group/organization
+Get the code of the user/group/organization
 
 **Parameter**
 
@@ -18,7 +18,7 @@ General information of the member(user/group/organization) on the kintone applic
 
 ### setCode()
 
-> The [BuiltinType](#BuiltinType) of the built-in View.
+The [BuiltinType](#BuiltinType) of the built-in View.
 
 **Parameter**
 
@@ -30,7 +30,7 @@ None
 
 ### getDate()
 
-> The field code set for the Date Field. Responded for Calendar Views.
+The field code set for the Date Field. Responded for Calendar Views.
 
 **Return**
 
@@ -38,7 +38,7 @@ String
 
 ### getFields()
 
-> The list of field codes for the fields displayed in the View.
+The list of field codes for the fields displayed in the View.
 > Responded for List Views.
 
 **Parameter**
@@ -50,7 +50,7 @@ None
 
 ### getFilterCond()
 
-> The filter condition as a query.
+The filter condition as a query.
 
 **Return**
 
@@ -58,7 +58,7 @@ String
 
 ### getHtml()
 
-> The HTML code set for the View. 
+The HTML code set for the View. 
 > Responded for Custom Views.
 
 **Parameter**
@@ -70,7 +70,7 @@ String
 
 ### getId()
 
-> The View ID.
+The View ID.
 
 **Parameter**
 
@@ -82,7 +82,7 @@ Integer
 
 ### getIndex()
 
-> The display order (ascending) of the View, when listed with other views.
+The display order (ascending) of the View, when listed with other views.
 
 **Parameter**
 
@@ -94,7 +94,7 @@ Integer
 
 ### getName()
 
-> The name of the View.
+The name of the View.
 
 **Parameter**
 
@@ -106,7 +106,7 @@ String
 
 ### getPager()
 
-> The pagination settings. 
+The pagination settings. 
 Responded for Custom Views.
 
 **Parameter**
@@ -118,7 +118,7 @@ Boolean
 
 ### getSort()
 
-> The sort order as a query.
+The sort order as a query.
 
 **Parameter**
 
@@ -129,7 +129,7 @@ String
 
 ### getTitle()
 
-> The field code set for the Title Field. 
+The field code set for the Title Field. 
 Responded for Calendar Views.
 
 **Parameter**
@@ -141,7 +141,7 @@ String
 
 ### getType()
 
-> The type of View in [Type](#type)
+The type of View in [Type](#type)
 
 **Parameter**
 

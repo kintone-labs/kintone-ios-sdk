@@ -14,7 +14,7 @@ General Field's value of the kintone app
 
 #### getType()
 
-> get the type of field.
+Get the type of field.
 
 **Parameter**
 
@@ -26,7 +26,7 @@ FieldType
 
 #### setType(FieldType type)
 
-> set the type of field.
+Set the type of field.
 
 **Parameter**
 
@@ -40,7 +40,7 @@ FieldType
 
 #### getValue()
 
-> get the value of field in the record.
+Get the value of field in the record.
 
 **Parameter**
 
@@ -52,7 +52,7 @@ Object
 
 #### setValue(Object value)
 
-> set the value of field in the record.
+Set the value of field in the record.
 
 **Parameter**
 
@@ -77,7 +77,7 @@ Object
 
 #### getID()
 
-> get the ID of item in table.
+Get the ID of item in table.
 
 **Parameter**
 
@@ -90,7 +90,7 @@ Integer
 
 #### setID(Integer id)
 
-> set the ID of table.
+Set the ID of table.
 
 **Parameter**
 
@@ -104,7 +104,7 @@ Integer
 
 #### getValue()
 
-> get the value of field in the record.
+Get the value of field in the record.
 
 **Parameter**
 
@@ -116,7 +116,7 @@ HashMap<String, [FieldValue](#fieldvalue)\>
 
 #### setValue(HashMap<String, [FieldValue](#fieldvalue)\> value) 
 
-> set the value of field in the record.
+set the value of field in the record.
 
 **Parameter**
 

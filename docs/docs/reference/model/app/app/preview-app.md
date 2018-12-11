@@ -15,7 +15,7 @@ The preview app.
 
 ### getApp()
 
-> Get the appId
+Get the appId
 
 **Parameter**
 
@@ -27,7 +27,7 @@ Integer
 
 ### getRevision()
 
-> The revision of the preview app.
+The revision of the preview app.
 
 **Parameter **
 

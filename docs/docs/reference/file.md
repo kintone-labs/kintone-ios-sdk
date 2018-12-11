@@ -36,7 +36,7 @@ Provide manipulate functions on file: file download & file upload in the kintone
 
 ### upload(filePath)
 
-> Upload file kintone via Rest API
+Upload file kintone via Rest API
 
 **Parameter**
 
@@ -117,7 +117,7 @@ FileModel
 
 ### download(fileKey, outPutFilePath)
 
-> Download file kintone via Rest API
+Download file kintone via Rest API
 
 **Parameter**
 

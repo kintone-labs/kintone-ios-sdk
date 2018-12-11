@@ -5,7 +5,7 @@ The response of the app deploy status.
 
 ### getApps()
 
-> Get information of the deploy status of an app
+Get information of the deploy statuses of multiple app
 
 **Parameter**
 

@@ -16,7 +16,7 @@ The Icom of an apps.
 
 ### getFile()
 
-> The file of the Icon
+The file of the Icon
 
 **Parameter**
 
@@ -28,7 +28,7 @@ The Icom of an apps.
 
 ### getKey()
 
-> The key of the Icon
+The key of the Icon
 
 **Parameter **
 
@@ -40,7 +40,7 @@ String
 
 ### getIconType()
 
-> The icon type of the Icon
+The icon type of the Icon
 
 **Parameter **
 

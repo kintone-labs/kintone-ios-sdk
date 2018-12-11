@@ -59,7 +59,7 @@
 
 ### setHeader(key, value)
 
-> Set new header of the [Connection](../connection)
+Set new header of the [Connection](../connection)
 
 **Parameter**
 
@@ -103,7 +103,7 @@
 
 ### setProxy(proxyHost, proxyPort)
 
-> Set the proxy of the request
+Set the proxy of the request
 
 **Parameter**
 
