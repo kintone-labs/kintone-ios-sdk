@@ -37,9 +37,7 @@ open class Connection: NSObject {
     
     /// Connection with cert file or not
     private var withCert = false
-    private var certPath = ""
     private var password = ""
-    private var useCertData = false
     private var certData: Data?
     
     /// Constructor for init a connection object to connect to guest space.
@@ -48,18 +46,10 @@ open class Connection: NSObject {
     ///   - domain: Kintone domain url
     ///   - auth: Credential information
     ///   - guestSpaceID: guestSpaceId Guest space number in kintone domain.
-    public init(_ domain: String?, _ auth: Auth, _ guestSpaceID: Int, _ withCert: Bool?, _ certPath: String?, _ password: String?, _ useCertData: Bool?, _ certData: Data?) {
+    public init(_ domain: String?, _ auth: Auth, _ guestSpaceID: Int) {
         self.domain = domain
         self.auth = auth
         self.guestSpaceID = guestSpaceID
-        self.withCert = withCert ?? false
-        self.certPath = certPath ?? ""
-        self.password = password ?? ""
-        self.useCertData = useCertData!
-        
-        if self.useCertData {
-            self.certData = certData!
-        }
         
         if let version = Bundle(for: type(of: self)).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String {
             self.userAgent += "/" + version
@@ -72,7 +62,13 @@ open class Connection: NSObject {
     ///   - domain: Kintone domain url
     ///   - auth: Credential information
     public convenience init(_ domain: String, _ auth: Auth) {
-        self.init(domain, auth, -1, false, "", "", false, nil)
+        self.init(domain, auth, -1)
+    }
+    
+    open func setCertificate(_ certData: Data?, _ password: String?) {
+        self.withCert = true
+        self.password = password ?? ""
+        self.certData = certData!
     }
     
     /// Asynchronous Rest http request.
@@ -230,7 +226,7 @@ open class Connection: NSObject {
             request.httpBody = body.data(using: String.Encoding.utf8)
             var session = URLSession()
             if self.withCert {
-                let delegateForCert = URLSessionPinningDelegate(self.domain, self.certPath, self.password, self.useCertData, self.certData)
+                let delegateForCert = URLSessionPinningDelegate(self.domain, self.certData, self.password)
                 session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {

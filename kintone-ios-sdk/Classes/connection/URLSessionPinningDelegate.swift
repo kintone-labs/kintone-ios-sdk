@@ -12,16 +12,12 @@ import Security
 class URLSessionPinningDelegate: NSObject, URLSessionDelegate
 {
     private var domain: String?
-    private var certPath: String?
     private var password: String?
     private var certData: Data?
-    private var useCertData = false
     
-    public init(_ domain: String?, _ certPath: String?, _ password: String?, _ useCertData: Bool?, _ certData: Data?) {
+    public init(_ domain: String?, _ certData: Data?, _ password: String?) {
         self.domain = domain
-        self.certPath = certPath
         self.password = password
-        self.useCertData = useCertData!
         self.certData = certData!
     }
     
@@ -41,12 +37,7 @@ class URLSessionPinningDelegate: NSObject, URLSessionDelegate
         // We handle the client identity authentication challenge (`NSURLAuthenticationMethodClientCertificate`)
         // to give the server our `Frankie.p12` client identity.
         var identity: SecIdentity
-        if self.useCertData {
-            identity = Bundle.main.identityData(certData: self.certData!, password: self.password!)
-        }
-        else {
-            identity = Bundle.main.identity(named: self.certPath!, password: self.password!)
-        }
+        identity = Bundle.main.identityData(certData: self.certData!, password: self.password!)
         completionHandler(.useCredential, URLCredential(identity: identity, certificates: nil, persistence: .forSession))
     }
     
