@@ -27,13 +27,14 @@ class RecordTest: XCTestCase {
         var auth = Auth()
         auth = auth.setPasswordAuth(TestsConstants.ADMIN_USERNAME, TestsConstants.ADMIN_PASSWORD)
         
-        let certPath = "dinhnhat"
         let certPassword = "pb6ft2cs"
         
         let testBundle = Bundle(for: type(of: self))
         let certData = try! Data(contentsOf: testBundle.url(forResource: "dinhnhat", withExtension: "pfx")!)
         
-        let conn = Connection(TestsConstants.DOMAIN, auth, -1, true, certPath, certPassword, true, certData)
+        let conn = Connection(TestsConstants.DOMAIN, auth, -1)
+        
+        conn.setCertificate(certData, certPassword)
         
         //conn.setProxy( TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
