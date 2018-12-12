@@ -35,11 +35,6 @@ open class Connection: NSObject {
     private var proxyHost: String? = nil
     private var proxyPort: Int? = nil
     
-    /// Connection with cert file or not
-    private var withCert = false
-    private var password = ""
-    private var certData: Data?
-    
     /// Constructor for init a connection object to connect to guest space.
     ///
     /// - Parameters:
@@ -63,12 +58,6 @@ open class Connection: NSObject {
     ///   - auth: Credential information
     public convenience init(_ domain: String, _ auth: Auth) {
         self.init(domain, auth, -1)
-    }
-    
-    open func setCertificate(_ certData: Data?, _ password: String?) {
-        self.withCert = true
-        self.password = password ?? ""
-        self.certData = certData!
     }
     
     /// Asynchronous Rest http request.
@@ -101,7 +90,14 @@ open class Connection: NSObject {
             config.requestCachePolicy = .reloadIgnoringLocalCacheData
             config.urlCache = nil
             
-            let session = URLSession(configuration: config)
+            var session = URLSession()
+            if self.auth.withCert {
+                let delegateForCert = URLSessionPinningDelegate(self.domain, self.auth.certData, self.auth.password)
+                session = URLSession(configuration: config, delegate: delegateForCert, delegateQueue: OperationQueue.main)
+            }
+            else {
+                session = URLSession(configuration: config)
+            }
             
             self.execute(session, request).then { (data, response, error) in
                 if (data != nil || response != nil){
@@ -163,7 +159,14 @@ open class Connection: NSObject {
             
             request.httpBody = body
             
-            let session = URLSession(configuration: self.setURLSessionConfiguration())
+            var session = URLSession()
+            if self.auth.withCert {
+                let delegateForCert = URLSessionPinningDelegate(self.domain, self.auth.certData, self.auth.password)
+                session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
+            }
+            else {
+                session = URLSession(configuration: self.setURLSessionConfiguration())
+            }
             
             self.execute(session, request).then { (data, response, error) in
                 if (data != nil || response != nil){
@@ -225,8 +228,8 @@ open class Connection: NSObject {
             
             request.httpBody = body.data(using: String.Encoding.utf8)
             var session = URLSession()
-            if self.withCert {
-                let delegateForCert = URLSessionPinningDelegate(self.domain, self.certData, self.password)
+            if self.auth.withCert {
+                let delegateForCert = URLSessionPinningDelegate(self.domain, self.auth.certData, self.auth.password)
                 session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {
