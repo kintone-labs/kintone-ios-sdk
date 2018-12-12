@@ -27,7 +27,7 @@ public extension AppGeneral where Self: App {
     func getGeneralSettings(_ app: Int?, _ lang: LanguageSetting? = nil, _ isPreview: Bool? = false) -> Promise<GeneralSettings> {
         return Promise { fulfill, reject in
             do {
-                let getGeneralSettingsRequest = GetGeneralSettingsRequest(app)
+                let getGeneralSettingsRequest = GetGeneralSettingsRequest(app, lang ?? LanguageSetting.DEFAULT)
                 let body = try self.parser.parseObject(getGeneralSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = (isPreview! ? ConnectionConstants.APP_SETTINGS_PREVIEW : ConnectionConstants.APP_SETTINGS)

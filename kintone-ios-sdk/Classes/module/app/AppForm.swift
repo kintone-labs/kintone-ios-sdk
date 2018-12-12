@@ -71,7 +71,7 @@ public extension AppForm where Self: App {
     {
         return Promise{ fulfill, reject in
             do {
-                let getFormFieldsRequest = GetFormFieldsRequest(app!, lang!)
+                let getFormFieldsRequest = GetFormFieldsRequest(app!, lang ?? LanguageSetting.DEFAULT)
                 let body = try self.parser.parseObject(getFormFieldsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = (isPreview! ? ConnectionConstants.APP_FIELDS_PREVIEW : ConnectionConstants.APP_FIELDS)
