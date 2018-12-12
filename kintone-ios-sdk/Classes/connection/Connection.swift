@@ -145,7 +145,6 @@ open class Connection: NSObject {
             body.append(binaryData)
             
             var footerText = ""
-            footerText += "\r\n"
             footerText += "\r\n--\(ConnectionConstants.BOUNDARY)--\r\n"
             
             body.append(footerText.data(using: String.Encoding.utf8)!)
