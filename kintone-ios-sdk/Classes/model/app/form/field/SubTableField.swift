@@ -1,7 +1,7 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
 open class SubTableField: Field {
-    internal var fields: [String: AbstractInputField] = [String: AbstractInputField]();
+    internal var fields: [String: AbstractInputField] = [String: AbstractInputField]()
    
     enum SubTableFieldCodingKeys: CodingKey {
         case fields
@@ -24,13 +24,13 @@ open class SubTableField: Field {
     
     public override init() {
         super.init()
-        self.type = FieldType.SUBTABLE;
+        self.type = FieldType.SUBTABLE
     }
     
-    public init(_ code: String?) {
+    public init(_ code: String) {
         super.init()
-        self.code = code!;
-        self.type = FieldType.SUBTABLE;
+        self.code = code
+        self.type = FieldType.SUBTABLE
     }
     override open func encode(to encoder: Encoder) throws {
         do {
@@ -144,24 +144,24 @@ open class SubTableField: Field {
     }
     
     open func getFields() -> [String: AbstractInputField] {
-        return self.fields;
+        return self.fields
     }
     
     open func setFields(_ fields: [String: AbstractInputField]) {
-        self.fields = fields;
+        self.fields = fields
     }
     
     open func addField(_ field: AbstractInputField?) {
         if (field == nil || field!.getCode() == "" || field!.getCode().count == 0) {
-            return;
+            return
         }
-        fields[field!.getCode()] = field!;
+        fields[field!.getCode()] = field!
     }
     
     open func removeField(_ field: AbstractInputField?) {
         if (field == nil || field!.getCode() == "" || field!.getCode().count == 0) {
-            return;
+            return
         }
-        fields[field!.getCode()] = nil;
+        fields[field!.getCode()] = nil
     }
 }

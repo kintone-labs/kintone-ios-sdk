@@ -34,9 +34,9 @@ open class FormFields: NSObject, Codable {
     
     public init(_ app: String?, _ properties: [String: Field]?, _ revision: String?) {
         super.init()
-        self.app = app;
-        self.revision = revision;
-        self.properties = properties;
+        self.app = app
+        self.revision = revision
+        self.properties = properties
     }
     
     open func getApp() -> Int? {

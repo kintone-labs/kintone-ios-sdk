@@ -90,7 +90,7 @@ open class NumberField: AbstractInputField {
     }
     
     open func setUnitPosition(_ unitPosition: UnitPosition?) {
-        self.unitPosition = unitPosition;
+        self.unitPosition = unitPosition
     }
     
 

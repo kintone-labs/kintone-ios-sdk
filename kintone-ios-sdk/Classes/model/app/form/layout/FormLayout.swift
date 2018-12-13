@@ -6,7 +6,7 @@ open class FormLayout: NSObject, Codable {
     
     public override init() {
         super.init()
-        self.layout = [ItemLayout]();
+        self.layout = [ItemLayout]()
     }
   
     open func getRevision() -> String? {

@@ -33,7 +33,7 @@ open class LookupField: AbstractInputField {
     }
     
     open func getLookup() -> LookupItem? {
-        return self.lookup;
+        return self.lookup
     }
     
     open func setLookup(_ lookup: LookupItem?) {

@@ -80,7 +80,7 @@ open class LookupItem: NSObject, Codable {
     }
     
     open func getLookupPickerFields() -> [String] {
-        return self.lookupPickerFields;
+        return self.lookupPickerFields
     }
     
     open func setLookupPickerFields(_ lookupPickerFields: [String]) {
@@ -113,10 +113,10 @@ open class LookupItem: NSObject, Codable {
     
     open func equals(_ obj: Any?) -> Bool {
         if (obj == nil) {
-            return false;
+            return false
         }
         if (!(obj is LookupItem)) {
-            return false;
+            return false
         }
         let other =  obj as! LookupItem
         if (self.fieldMappings.isEmpty) {

@@ -20,7 +20,7 @@ open class CategoryField: AbstractSystemField {
     }
     
     open func getEnabled() -> Bool? {
-        return self.enabled;
+        return self.enabled
     }
     
     open func setEnabled(_ enabled: Bool?) {

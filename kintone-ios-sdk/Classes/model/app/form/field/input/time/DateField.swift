@@ -45,7 +45,7 @@ open class DateField: AbstractInputField {
     }
    
     open func getUnique() -> Bool? {
-        return unique;
+        return unique
     }
    
     open func setUnique(_ unique: Bool?) {
