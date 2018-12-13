@@ -13,7 +13,7 @@ open class BulkRequestResponse: NSObject {
     ///
     /// - Returns: results
     open func getResults() -> Array<Any>? {
-        return results;
+        return results
     }
     
     

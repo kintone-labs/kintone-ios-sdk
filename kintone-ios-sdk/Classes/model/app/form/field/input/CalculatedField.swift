@@ -99,14 +99,14 @@ open class CalculatedField: AbstractInputField {
     }
    
     open func setUnitPosition(_ unitPosition: UnitPosition?) {
-        self.unitPosition = unitPosition;
+        self.unitPosition = unitPosition
     }
   
     open func getFormat() -> NumberFormat? {
-        return self.format;
+        return self.format
     }
     
     open func setFormat(_ format: NumberFormat?) {
-        self.format = format;
+        self.format = format
     }
 }

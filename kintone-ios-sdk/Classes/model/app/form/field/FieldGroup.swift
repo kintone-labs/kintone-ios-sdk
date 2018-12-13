@@ -13,13 +13,13 @@ open class FieldGroup: Field {
  
     public override init() {
         super.init()
-        self.type = FieldType.GROUP;
+        self.type = FieldType.GROUP
     }
     
-    public init(_ code: String?) {
+    public init(_ code: String) {
         super.init()
-        self.code = code!;
-        self.type = FieldType.GROUP;
+        self.code = code
+        self.type = FieldType.GROUP
     }
     
     required public init(from decoder: Decoder) throws {
@@ -53,26 +53,26 @@ open class FieldGroup: Field {
     }
     
     open func getLabel() -> String? {
-        return self.label;
+        return self.label
     }
     
     open func setLabel(_ label: String?) {
-        self.label = label;
+        self.label = label
     }
     
     open func getNoLabel() -> Bool? {
-        return self.noLabel;
+        return self.noLabel
     }
     
     open func setNoLabel(_ noLabel: Bool?) {
-        self.noLabel = noLabel;
+        self.noLabel = noLabel
     }
     
     open func getOpenGroup() -> Bool? {
-        return self.openGroup;
+        return self.openGroup
     }
     
     open func setOpenGroup(_ openGroup: Bool?) {
-        self.openGroup = openGroup;
+        self.openGroup = openGroup
     }
 }

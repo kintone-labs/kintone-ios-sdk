@@ -30,7 +30,7 @@ open class AppModel: NSObject, Codable {
         return Int(self.appId != nil ? self.appId! : "")
     }
     open func setAppId(_ appId: Int?) {
-        self.appId = spaceId != nil ? "\(String(describing: appId!))" : nil
+        self.appId = appId != nil ? "\(String(describing: appId!))" : nil
     }
     open func getCode() -> String? {
         return self.code

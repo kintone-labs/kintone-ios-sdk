@@ -36,7 +36,7 @@ open class FieldLayout: NSObject, Codable {
     }
     
     open func getLabel() -> String? {
-        return self.label;
+        return self.label
     }
     
     open func setLabel(_ label: String?) {
