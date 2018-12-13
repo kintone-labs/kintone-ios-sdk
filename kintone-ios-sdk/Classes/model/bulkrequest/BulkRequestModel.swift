@@ -18,7 +18,7 @@ open class BulkRequestModel: NSObject, Codable {
     }
     
     public override init() {
-        self.requests = Array<BulkRequestItem>();
+        self.requests = Array<BulkRequestItem>()
         super.init()
     }
 }

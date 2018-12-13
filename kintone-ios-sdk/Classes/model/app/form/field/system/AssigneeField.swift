@@ -5,7 +5,7 @@ open class AssigneeField: AbstractProcessManagementField {
     public init(_ code: String) {
         super.init()
         self.code = code
-        self.type = FieldType.STATUS_ASSIGNEE;
+        self.type = FieldType.STATUS_ASSIGNEE
     }
     
     public required init(from decoder: Decoder) throws {

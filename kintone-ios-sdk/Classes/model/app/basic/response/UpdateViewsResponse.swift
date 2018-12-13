@@ -5,10 +5,10 @@ open class UpdateViewsResponse: NSObject, Codable {
     private var views: [String: ViewModel]?
     
     open func getRevision() -> Int? {
-        return Int(self.revision!)
+        return Int(self.revision != nil ? self.revision! : "")
     }
     open func setRevision(_ revision: Int?) {
-        self.revision = "\(String(describing: revision!))"
+        self.revision = revision != nil ? "\(String(describing: revision!))" : nil
     }
     
     open func getViews() -> [String: ViewModel]? {
