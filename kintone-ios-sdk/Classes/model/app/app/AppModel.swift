@@ -59,7 +59,7 @@ open class AppModel: NSObject, Codable {
     open func getThreadId() -> Int? {
         return Int(self.threadId != nil ? self.threadId! : "")
     }
-    open func setThreadId(_ threadId: String?) {
+    open func setThreadId(_ threadId: Int?) {
         self.threadId = threadId != nil ? "\(String(describing: threadId!))" : nil
     }
     open func getCreadtedAt() -> String? {
