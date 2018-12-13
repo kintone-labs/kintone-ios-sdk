@@ -10,20 +10,22 @@ open class UpdateGeneralSettingsRequest: GeneralSettings {
     open func getApp() -> Int? {
         return Int(self.app!)
     }
-    open func setApp(_ app: Int?) {
-        self.app = "\(String(describing: app!))"
+    open func setApp(_ app: Int) {
+        self.app = "\(String(describing: app))"
     }
     
-    public init(_ generalSettings: GeneralSettings?) {
+    public init(_ generalSettings: GeneralSettings? = nil) {
         super.init()
-        self.setName(generalSettings!.getName())
-        self.setDescription(generalSettings!.getDescription())
-        self.setIcon(generalSettings!.getIcon()!)
-        self.setTheme(generalSettings!.getTheme())
-        self.setRevision(generalSettings!.getRevision())
+        if(generalSettings != nil) {
+            self.setName(generalSettings!.getName())
+            self.setDescription(generalSettings!.getDescription())
+            self.setIcon(generalSettings!.getIcon()!)
+            self.setTheme(generalSettings!.getTheme())
+            self.setRevision(generalSettings!.getRevision())
+        }
     }
     
-    public init(_ app: Int?) {
+    public init(_ app: Int) {
         super.init()
         self.setApp(app)
     }

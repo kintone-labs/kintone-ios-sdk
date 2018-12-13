@@ -24,7 +24,7 @@ open class GetGeneralSettingsRequest: NSObject, Codable {
         self.isPreview = isPreview
     }
     
-    init(_ app: Int?, lang: LanguageSetting? = nil, isPreview: Bool? = nil) {
+    init(_ app: Int?, _ lang: LanguageSetting? = nil, _ isPreview: Bool? = nil) {
         self.app = app
         self.lang = lang
         self.isPreview = isPreview

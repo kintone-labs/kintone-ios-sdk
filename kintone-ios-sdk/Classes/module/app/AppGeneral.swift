@@ -20,7 +20,7 @@ public protocol AppGeneral {
     ///   - revision: Int | Specify the revision number of the settings that will be deployed.
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?) -> Promise<BasicResponse>
+    func updateGeneralSettings(_ app: Int, _ generalSettings: GeneralSettings?) -> Promise<BasicResponse>
 }
 
 public extension AppGeneral where Self: App {
@@ -43,7 +43,7 @@ public extension AppGeneral where Self: App {
         }
     }
     
-    func updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?) -> Promise<BasicResponse> {
+    func updateGeneralSettings(_ app: Int, _ generalSettings: GeneralSettings? = nil) -> Promise<BasicResponse> {
         return Promise { fulfill, reject in
             do {
                 let updateGeneralSettingsRequest = UpdateGeneralSettingsRequest(generalSettings)
