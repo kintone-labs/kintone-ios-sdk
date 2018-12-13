@@ -8,7 +8,7 @@ open class UpdateGeneralSettingsRequest: GeneralSettings {
     }
     
     open func getApp() -> Int? {
-        return Int(self.app!)
+        return Int(self.app != nil ? self.app! : "")
     }
     open func setApp(_ app: Int) {
         self.app = "\(String(describing: app))"

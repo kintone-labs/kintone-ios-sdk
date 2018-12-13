@@ -36,11 +36,11 @@ open class AbstractMemberSelectField: AbstractInputField {
     }
 
     open func getDefaultValue() -> [MemberSelectEntity] {
-        return self.defaultValue;
+        return self.defaultValue
     }
     
     open func setDefaultValue(_ defaultValue: [MemberSelectEntity]) {
-        self.defaultValue = defaultValue;
+        self.defaultValue = defaultValue
     }
     
     open func getEntites() -> [MemberSelectEntity] {
@@ -48,6 +48,6 @@ open class AbstractMemberSelectField: AbstractInputField {
     }
     
     open func setEntites(_ entities: [MemberSelectEntity]) {
-        self.entities = entities;
+        self.entities = entities
     }
 }

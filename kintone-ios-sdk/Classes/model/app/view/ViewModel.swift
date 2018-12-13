@@ -65,19 +65,19 @@ open class ViewModel: NSObject, Codable {
     }
     
     open func getId() -> Int? {
-        return Int(self.id!)
+        return Int(self.id != nil ? self.id! : "")
     }
     
     open func setId(_ id: Int?) {
-        self.id = "\(String(describing: id!))"
+        self.id = id != nil ? "\(String(describing: id!))" : nil
     }
     
     open func getIndex() -> Int? {
-        return Int(self.index!)
+        return Int(self.index != nil ? self.index! : "")
     }
     
     open func setIndex(_ index: Int?) {
-        self.index = "\(String(describing: index!))"
+        self.index = index != nil ? "\(String(describing: index!))" : nil
     }
     
     open func getName() -> String? {

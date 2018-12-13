@@ -14,7 +14,7 @@ open class FieldMapping: NSObject, Codable {
     }
     
     open func getField() -> String? {
-        return self.field;
+        return self.field
     }
   
     open func setField(_ field: String?) {
