@@ -15,11 +15,11 @@ open class RelatedApp: NSObject, Codable {
     }
     
     open func getApp() -> Int? {
-        return Int(self.app!)
+        return Int(self.app != nil ? self.app! : "")
     }
     
-    open func setApp(_ app: String?) {
-        self.app = app
+    open func setApp(_ app: Int?) {
+        self.app = app != nil ? "\(String(describing: app!))" : nil
     }
     
     open func getCode() -> String {
