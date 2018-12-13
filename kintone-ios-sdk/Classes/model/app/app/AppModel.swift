@@ -27,10 +27,10 @@ open class AppModel: NSObject, Codable {
     }
     
     open func getAppId() -> Int? {
-        return Int(self.appId!)
+        return Int(self.appId != nil ? self.appId! : "")
     }
     open func setAppId(_ appId: Int?) {
-        self.appId = "\(String(describing: appId!))"
+        self.appId = spaceId != nil ? "\(String(describing: appId!))" : nil
     }
     open func getCode() -> String? {
         return self.code
@@ -54,13 +54,13 @@ open class AppModel: NSObject, Codable {
         return Int(self.spaceId != nil ? self.spaceId! : "")
     }
     open func setSpaceId(_ spaceId: Int?) {
-        self.spaceId = "\(String(describing: spaceId!))"
+        self.spaceId = spaceId != nil ? "\(String(describing: spaceId!))" : nil
     }
     open func getThreadId() -> Int? {
         return Int(self.threadId != nil ? self.threadId! : "")
     }
     open func setThreadId(_ threadId: String?) {
-        self.threadId = "\(String(describing: threadId!))"
+        self.threadId = threadId != nil ? "\(String(describing: threadId!))" : nil
     }
     open func getCreadtedAt() -> String? {
         return self.createdAt
