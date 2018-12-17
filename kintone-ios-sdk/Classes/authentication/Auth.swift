@@ -16,11 +16,19 @@ open class Auth: NSObject {
     var withCert = false
     var password = ""
     var certData: Data?
+    var certPath: String?
+    var useCertPath = false
     
     open func setCertificate(_ certData: Data?, _ password: String?) {
         self.withCert = true
         self.password = password ?? ""
         self.certData = certData!
+    }
+    
+    open func setCertificateByPath(_ certPath: String?, _ password: String?) {
+        self.useCertPath = true
+        self.certPath = certPath
+        self.password = password ?? ""
     }
 
     /// set basic authentication

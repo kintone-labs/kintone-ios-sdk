@@ -14,11 +14,23 @@ class URLSessionPinningDelegate: NSObject, URLSessionDelegate
     private var domain: String?
     private var password: String?
     private var certData: Data?
+    private var usePath: Bool?
+    private var certPath: String?
     
-    public init(_ domain: String?, _ certData: Data?, _ password: String?) {
+    public init(_ domain: String?) {
         self.domain = domain
+    }
+    
+    public func setCertByData( _ certData: Data?, _ password: String?) {
         self.password = password
         self.certData = certData!
+        self.usePath = false
+    }
+    
+    public func setCertByPath(_ certPath: String?, _ password: String?) {
+        self.password = password
+        self.certPath = certPath!
+        self.usePath = true
     }
     
     func didReceive(serverTrustChallenge challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {

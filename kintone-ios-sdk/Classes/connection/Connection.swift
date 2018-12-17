@@ -92,7 +92,14 @@ open class Connection: NSObject {
             
             var session = URLSession()
             if self.auth.withCert {
-                let delegateForCert = URLSessionPinningDelegate(self.domain, self.auth.certData, self.auth.password)
+                let delegateForCert = URLSessionPinningDelegate(self.domain)
+                if (self.auth.useCertPath) {
+                    delegateForCert.setCertByPath(self.auth.certPath, self.auth.password)
+                }
+                else {
+                    delegateForCert.setCertByData(self.auth.certData, self.auth.password)
+                }
+                
                 session = URLSession(configuration: config, delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {
@@ -161,7 +168,14 @@ open class Connection: NSObject {
             
             var session = URLSession()
             if self.auth.withCert {
-                let delegateForCert = URLSessionPinningDelegate(self.domain, self.auth.certData, self.auth.password)
+                let delegateForCert = URLSessionPinningDelegate(self.domain)
+                if (self.auth.useCertPath) {
+                    delegateForCert.setCertByPath(self.auth.certPath, self.auth.password)
+                }
+                else {
+                    delegateForCert.setCertByData(self.auth.certData, self.auth.password)
+                }
+                
                 session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {
@@ -229,7 +243,14 @@ open class Connection: NSObject {
             request.httpBody = body.data(using: String.Encoding.utf8)
             var session = URLSession()
             if self.auth.withCert {
-                let delegateForCert = URLSessionPinningDelegate(self.domain, self.auth.certData, self.auth.password)
+                let delegateForCert = URLSessionPinningDelegate(self.domain)
+                if (self.auth.useCertPath) {
+                    delegateForCert.setCertByPath(self.auth.certPath, self.auth.password)
+                }
+                else {
+                    delegateForCert.setCertByData(self.auth.certData, self.auth.password)
+                }
+                
                 session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {
