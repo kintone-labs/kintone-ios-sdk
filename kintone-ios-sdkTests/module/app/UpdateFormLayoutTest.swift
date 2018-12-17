@@ -29,7 +29,7 @@ class UpdateFormLayoutTest: XCTestCase {
     
     func testUpdateAppFormLayoutSuccess()
     {
-        var itemLayoutRequest: [ItemLayout]? = [ItemLayout]()
+        var itemLayoutRequest: [ItemLayout] = [ItemLayout]()
      
         // Row Layout
         let rowLayout1: RowLayout? = RowLayout()
@@ -91,9 +91,9 @@ class UpdateFormLayoutTest: XCTestCase {
         groupLayout?.setCode("Field_group")
         
         // Append layout
-        itemLayoutRequest?.append(rowLayout1!)
-        itemLayoutRequest?.append(subTableLayout!)
-        itemLayoutRequest?.append(groupLayout!)
+        itemLayoutRequest.append(rowLayout1!)
+        itemLayoutRequest.append(subTableLayout!)
+        itemLayoutRequest.append(groupLayout!)
         
         self.app?.updateFormLayout(self.APP_ID, itemLayoutRequest).then{ basicResponse in
             XCTAssertNotNil(basicResponse.getRevision())
@@ -112,7 +112,7 @@ class UpdateFormLayoutTest: XCTestCase {
     func testUpdateAppFormLayoutFailWhenAppIdNotExist()
     {
         let appId = 99999
-        var itemLayoutRequest: [ItemLayout]? = [ItemLayout]()
+        var itemLayoutRequest: [ItemLayout] = [ItemLayout]()
         
         // Row Layout
         let rowLayout1: RowLayout? = RowLayout()
@@ -174,9 +174,9 @@ class UpdateFormLayoutTest: XCTestCase {
         groupLayout?.setCode("Field_group")
         
         // Append layout
-        itemLayoutRequest?.append(rowLayout1!)
-        itemLayoutRequest?.append(subTableLayout!)
-        itemLayoutRequest?.append(groupLayout!)
+        itemLayoutRequest.append(rowLayout1!)
+        itemLayoutRequest.append(subTableLayout!)
+        itemLayoutRequest.append(groupLayout!)
         
         self.app?.updateFormLayout(appId, itemLayoutRequest).then{ response in
             XCTFail("No errors occurred")

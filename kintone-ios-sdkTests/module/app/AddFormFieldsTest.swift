@@ -24,8 +24,8 @@ class AddFormFieldsTest: XCTestCase {
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        var fieldWillDelete: [String]? = [String]()
-        fieldWillDelete?.append(fieldCode)
+        var fieldWillDelete: [String] = [String]()
+        fieldWillDelete.append(fieldCode)
         _ = self.app?.deleteFormFields(self.APP_ID, fieldWillDelete)
         _ = waitForPromises(timeout: 5)
     }
