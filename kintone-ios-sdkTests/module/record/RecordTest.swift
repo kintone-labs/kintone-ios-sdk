@@ -32,9 +32,9 @@ class RecordTest: XCTestCase {
         let testBundle = Bundle(for: type(of: self))
         let certData = try! Data(contentsOf: testBundle.url(forResource: "dinhnhat", withExtension: "pfx")!)
         
-        let conn = Connection(TestsConstants.DOMAIN, auth, -1)
+        auth.setCertificate(certData, certPassword)
         
-        conn.setCertificate(certData, certPassword)
+        let conn = Connection(TestsConstants.DOMAIN, auth, -1)
         
         //conn.setProxy( TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
