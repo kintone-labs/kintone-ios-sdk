@@ -49,7 +49,12 @@ class URLSessionPinningDelegate: NSObject, URLSessionDelegate
         // We handle the client identity authentication challenge (`NSURLAuthenticationMethodClientCertificate`)
         // to give the server our `Frankie.p12` client identity.
         var identity: SecIdentity
-        identity = Bundle.main.identityData(certData: self.certData!, password: self.password!)
+        if self.usePath ?? false {
+            identity = Bundle.main.identity(filepath: self.certPath!, password: self.password!)
+        }
+        else {
+            identity = Bundle.main.identityData(certData: self.certData!, password: self.password!)
+        }
         completionHandler(.useCredential, URLCredential(identity: identity, certificates: nil, persistence: .forSession))
     }
     
