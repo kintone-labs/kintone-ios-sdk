@@ -30,12 +30,8 @@ extension Bundle {
     }
     
     func identity(filepath: String, password: String) -> SecIdentity {
-        let path : NSString = filepath as NSString
-        let thePath = path.expandingTildeInPath
-        let url = NSURL.fileURL(withPath: thePath)
-        let CFUrl = url as CFURL
-        
-        let p12Data = try! Data(contentsOf: CFUrl as URL)
+        let url = URL(string: filepath)
+        let p12Data = try! Data(contentsOf: url!)
         
         var importedCF: CFArray? = nil
         let options = [kSecImportExportPassphrase as String: password]
@@ -46,21 +42,6 @@ extension Bundle {
         
         return (imported[0][kSecImportItemIdentity as String]!) as! SecIdentity
     }
-    
-    /* func identity(named name: String, password: String) -> SecIdentity {
-        
-        let p12URL = self.url(forResource: name, withExtension: "pfx")!
-        let p12Data = try! Data(contentsOf: p12URL)
-        
-        var importedCF: CFArray? = nil
-        let options = [kSecImportExportPassphrase as String: password]
-        let err = SecPKCS12Import(p12Data as CFData, options as CFDictionary, &importedCF)
-        precondition(err == errSecSuccess)
-        let imported = importedCF! as Array as! [[String:AnyObject]]
-        precondition(imported.count == 1)
-        
-        return (imported[0][kSecImportItemIdentity as String]!) as! SecIdentity
-    } */
 }
 
 extension SecTrust {

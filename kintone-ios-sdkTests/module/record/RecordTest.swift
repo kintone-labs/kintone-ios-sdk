@@ -30,9 +30,13 @@ class RecordTest: XCTestCase {
         let certPassword = "pb6ft2cs"
         
         let testBundle = Bundle(for: type(of: self))
-        let certData = try! Data(contentsOf: testBundle.url(forResource: "dinhnhat", withExtension: "pfx")!)
+        //let certData = try! Data(contentsOf: testBundle.url(forResource: "dinhnhat", withExtension: "pfx")!)
         
-        auth.setCertificate(certData, certPassword)
+        //auth.setCertificate(certData, certPassword)
+        
+        let pathURLString = testBundle.url(forResource: "dinhnhat", withExtension: "pfx")
+        
+        auth.setCertificateByPath(pathURLString!.absoluteString, certPassword)
         
         let conn = Connection(TestsConstants.DOMAIN, auth, -1)
         

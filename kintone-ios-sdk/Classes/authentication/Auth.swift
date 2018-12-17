@@ -26,6 +26,7 @@ open class Auth: NSObject {
     }
     
     open func setCertificateByPath(_ certPath: String?, _ password: String?) {
+        self.withCert = true
         self.useCertPath = true
         self.certPath = certPath
         self.password = password ?? ""
