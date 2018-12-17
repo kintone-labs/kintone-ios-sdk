@@ -10,7 +10,7 @@ public protocol AppForm {
     ///   - isPreview: isPreview
     /// - Returns: FormFields Model
     /// - Throws: throws KintoneAPIException
-    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?) -> Promise<FormFields>
+    func getFormFields(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?) -> Promise<FormFields>
     
     /// Adds fields to a form of an App.
     /// This API updates the pre-live settings.
@@ -21,7 +21,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> Promise<BasicResponse>
+    func addFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?) -> Promise<BasicResponse>
     
     /// Updates the field settings of fields in a form of an App.
     /// This API updates the pre-live settings.
@@ -32,7 +32,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?) -> Promise<BasicResponse>
+    func updateFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?) -> Promise<BasicResponse>
     
     /// Deletes fields from a form of an App.
     /// This API updates the pre-live settings.
@@ -43,7 +43,7 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int?) -> Promise<BasicResponse>
+    func deleteFormFields(_ app: Int, _ fields: [String],_ revision: Int?) -> Promise<BasicResponse>
     
     /// Gets the field layout info of a form in an App.
     ///
@@ -52,7 +52,7 @@ public protocol AppForm {
     ///   - isPreview: isPreview description
     /// - Returns: FormLayout Model
     /// - Throws: throws KintoneAPIException
-    func getFormLayout(_ app: Int?, _ isPreview: Bool?) -> Promise<FormLayout>
+    func getFormLayout(_ app: Int, _ isPreview: Bool?) -> Promise<FormLayout>
     
     /// Updates the field layout info of a form in an App.
     /// This API updates the pre-live settings.
@@ -63,15 +63,15 @@ public protocol AppForm {
     ///   - revision: Int | The revision number of the settings that will be deployed
     /// - Returns: BasicResponse Model
     /// - Throws: throws KintoneAPIException
-    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?) -> Promise<BasicResponse>
+    func updateFormLayout(_ app: Int, _ layout: [ItemLayout],_ revision: Int?) -> Promise<BasicResponse>
 }
 
 public extension AppForm where Self: App {
-    func getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool? = false) -> Promise<FormFields>
+    func getFormFields(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool? = false) -> Promise<FormFields>
     {
         return Promise{ fulfill, reject in
             do {
-                let getFormFieldsRequest = GetFormFieldsRequest(app!, lang ?? LanguageSetting.DEFAULT)
+                let getFormFieldsRequest = GetFormFieldsRequest(app, lang ?? LanguageSetting.DEFAULT)
                 let body = try self.parser.parseObject(getFormFieldsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = (isPreview! ? ConnectionConstants.APP_FIELDS_PREVIEW : ConnectionConstants.APP_FIELDS)
@@ -87,7 +87,7 @@ public extension AppForm where Self: App {
         }
     }
     
-    func addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int? = -1) -> Promise<BasicResponse>
+    func addFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int? = -1) -> Promise<BasicResponse>
     {
         return Promise{ fulfill, reject in
             do {
@@ -107,7 +107,7 @@ public extension AppForm where Self: App {
         }
     }
     
-    func updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int? = -1) -> Promise<BasicResponse>
+    func updateFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int? = -1) -> Promise<BasicResponse>
     {
         return Promise{ fulfill, reject in
             do {
@@ -127,7 +127,7 @@ public extension AppForm where Self: App {
         }
     }
     
-    func deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int? = -1) -> Promise<BasicResponse>
+    func deleteFormFields(_ app: Int, _ fields: [String],_ revision: Int? = -1) -> Promise<BasicResponse>
     {
         return Promise{ fulfill, reject in
             do {
@@ -147,11 +147,11 @@ public extension AppForm where Self: App {
         }
     }
     
-    func getFormLayout(_ app: Int?, _ isPreview: Bool? = false) -> Promise<FormLayout>
+    func getFormLayout(_ app: Int, _ isPreview: Bool? = false) -> Promise<FormLayout>
     {
         return Promise{ fulfill, reject in
             do {
-                let getFormLayoutRequest = GetFormLayoutRequest(app!)
+                let getFormLayoutRequest = GetFormLayoutRequest(app)
                 let body = try self.parser.parseObject(getFormLayoutRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 let url = (isPreview! ? ConnectionConstants.APP_LAYOUT_PREVIEW : ConnectionConstants.APP_LAYOUT)
@@ -167,11 +167,11 @@ public extension AppForm where Self: App {
         }
     }
     
-    func updateFormLayout(_ app: Int?, _ layout: [ItemLayout]?,  _ revision: Int? = -1) -> Promise<BasicResponse>
+    func updateFormLayout(_ app: Int, _ layout: [ItemLayout],  _ revision: Int? = -1) -> Promise<BasicResponse>
     {
         return Promise{ fulfill, reject in
             do {
-                let updateFormLayoutRequest = UpdateFormLayoutRequest(app!, layout!, revision!)
+                let updateFormLayoutRequest = UpdateFormLayoutRequest(app, layout, revision!)
                 let body = try self.parser.parseObject(updateFormLayoutRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
                 self.connection?.request(ConnectionConstants.PUT_REQUEST, ConnectionConstants.APP_LAYOUT_PREVIEW, jsonBody).then{ response in
