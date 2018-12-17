@@ -10,7 +10,7 @@ public protocol AppGeneral {
     ///   - isPreview: isPreview description
     /// - Returns: GeneralSettings Model
     /// - Throws: throws KintoneAPIException
-    func getGeneralSettings(_ app: Int?, _ lang: LanguageSetting?, _ isPreview: Bool?) -> Promise<GeneralSettings>
+    func getGeneralSettings(_ app: Int, _ lang: LanguageSetting?, _ isPreview: Bool?) -> Promise<GeneralSettings>
     
     /// Updates the description, name, icon, revision and color theme of an App.
     ///
@@ -24,7 +24,7 @@ public protocol AppGeneral {
 }
 
 public extension AppGeneral where Self: App {
-    func getGeneralSettings(_ app: Int?, _ lang: LanguageSetting? = nil, _ isPreview: Bool? = false) -> Promise<GeneralSettings> {
+    func getGeneralSettings(_ app: Int, _ lang: LanguageSetting? = nil, _ isPreview: Bool? = false) -> Promise<GeneralSettings> {
         return Promise { fulfill, reject in
             do {
                 let getGeneralSettingsRequest = GetGeneralSettingsRequest(app, lang ?? LanguageSetting.DEFAULT)

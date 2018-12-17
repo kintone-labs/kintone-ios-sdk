@@ -36,8 +36,8 @@ class DeployAppSettingsTest: XCTestCase {
     func testDeployAppSettingsSuccess() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let appPreview: PreviewApp? = PreviewApp(self.APP_ID, self.REVISION)
-        self.app?.deployAppSettings([appPreview!]).then{_ in
+        let appPreview: PreviewApp = PreviewApp(self.APP_ID, self.REVISION)
+        self.app?.deployAppSettings([appPreview]).then{_ in
             XCTAssertTrue(true)
         }.catch{ error in
             XCTFail(self.getErrorMessage(error))
@@ -49,8 +49,8 @@ class DeployAppSettingsTest: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let appID: Int = 99999
-        let appPreview: PreviewApp? = PreviewApp(appID, self.REVISION)
-        self.app?.deployAppSettings([appPreview!]).then{_ in
+        let appPreview: PreviewApp = PreviewApp(appID, self.REVISION)
+        self.app?.deployAppSettings([appPreview]).then{_ in
             XCTFail(self.getErrorMessage("CAN GET UNEXIST APP"))
             }.catch{ error in
                 XCTAssert(type(of: error) == KintoneAPIException.self)
