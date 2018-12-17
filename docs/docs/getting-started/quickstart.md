@@ -23,8 +23,12 @@
 
         carthage update
 
-* Add Script
-![](../img/addPath.gif)
+* On your application targets’ General settings tab, in the Embedded Binaries section, add Item
+```
+FBLPromises.framework
+Promises.framework
+kintone_ios_sdk.framework
+```
 
 * Build the UI elements
 ![](../img/createUI.gif)
