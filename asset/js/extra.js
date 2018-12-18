@@ -35,7 +35,7 @@
     }
 
     function showTabLayout(containerEl) {
-        var headerEls = containerEl.getElementsByTagName('strong');
+        var headerEls = containerEl.getElementsByClassName('tab-name');
         var tabNavEl = createTabNavEl(headerEls);
         containerEl.appendChild(tabNavEl);
 

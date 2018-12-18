@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="The SDK of kintone REST API client on Java">
+        <meta name="description" content="The SDK of kintone REST API client on ios">
       
       
       
@@ -34,17 +34,17 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
     
     
       
-        <title>Record - kintone Java SDK</title>
+        <title>Record - kintone ios SDK</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -53,16 +53,17 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../asset/style/extra.css">
     
@@ -111,7 +112,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="kintone Java SDK" class="md-header-nav__button md-logo">
+        <a href="../.." title="kintone ios SDK" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -125,7 +126,7 @@
           
             
               <span class="md-header-nav__topic">
-                kintone Java SDK
+                kintone ios SDK
               </span>
               <span class="md-header-nav__topic">
                 Record
@@ -173,7 +174,7 @@
   
 
 
-  <a href="https://github.dev.cybozu.co.jp/SC/kintone-java-sdk" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -182,7 +183,7 @@
       </div>
     
     <div class="md-source__repository">
-      Github
+      GitHub
     </div>
   </a>
 
@@ -207,12 +208,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="../.." title="kintone ios SDK" class="md-nav__button md-logo">
       
         <i class="md-icon">cloud</i>
       
-    </span>
-    kintone Java SDK
+    </a>
+    kintone ios SDK
   </label>
   
     <div class="md-nav__source">
@@ -222,7 +223,7 @@
   
 
 
-  <a href="https://github.dev.cybozu.co.jp/SC/kintone-java-sdk" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -231,7 +232,7 @@
       </div>
     
     <div class="md-source__repository">
-      Github
+      GitHub
     </div>
   </a>
 
@@ -339,27 +340,6 @@
   
 
 
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3" checked>
-    
-    <label class="md-nav__link" for="nav-3-3">
-      Record
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
-        Record
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-  
-
-
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -401,106 +381,106 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getrecordapp-id" title="getRecord(app, id)" class="md-nav__link">
-    getRecord(app, id)
+  <a href="#getrecord_-app-int-_-id-int" title="getRecord(_ app: Int, _ id: Int)" class="md-nav__link">
+    getRecord(_ app: Int, _ id: Int)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getrecordsapp-query-fields-totalcount" title="getRecords(app, query, fields, totalCount)" class="md-nav__link">
-    getRecords(app, query, fields, totalCount)
+  <a href="#getrecords_-app-int-_-query-string-_fields-string-_totalcount-bool" title="getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)" class="md-nav__link">
+    getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#addrecordapp-record" title="addRecord(app, record)" class="md-nav__link">
-    addRecord(app, record)
+  <a href="#addrecord_-app-int-_-record-stringfieldvalue" title="addRecord(_ app: Int?, _ record: [String:FieldValue]?)" class="md-nav__link">
+    addRecord(_ app: Int?, _ record: [String:FieldValue]?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#addrecordsapp-records" title="addRecords(app, records)" class="md-nav__link">
-    addRecords(app, records)
+  <a href="#addrecords_-app-int-_-records-stringfieldvalue" title="addRecords(_ app: Int?, _ records: [[String:FieldValue]])" class="md-nav__link">
+    addRecords(_ app: Int?, _ records: [[String:FieldValue]])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordbyidapp-id-record-revision" title="updateRecordByID(app, id, record, revision)" class="md-nav__link">
-    updateRecordByID(app, id, record, revision)
+  <a href="#updaterecordbyid_-app-int-_-id-int-_-record-stringfieldvalue-_-revision-int" title="updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)" class="md-nav__link">
+    updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordbyupdatekeyapp-updatekey-record-revision" title="updateRecordByUpdateKey(app, updateKey, record, revision)" class="md-nav__link">
-    updateRecordByUpdateKey(app, updateKey, record, revision)
+  <a href="#updaterecordbyupdatekey_-app-int-_-updatekey-recordupdatekey-_-record-stringfieldvalue-_-revision-int" title="updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)" class="md-nav__link">
+    updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordsapp-records" title="updateRecords(app, records)" class="md-nav__link">
-    updateRecords(app, records)
+  <a href="#updaterecords_-app-int-_-records-recordupdateitem" title="updateRecords(_ app: Int?, _ records: [RecordUpdateItem])" class="md-nav__link">
+    updateRecords(_ app: Int?, _ records: [RecordUpdateItem])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deleterecordsapp-ids" title="deleteRecords(app, ids)" class="md-nav__link">
-    deleteRecords(app, ids)
+  <a href="#deleterecords_-app-int-_-ids-int" title="deleteRecords(_ app: Int?, _ ids: [Int])" class="md-nav__link">
+    deleteRecords(_ app: Int?, _ ids: [Int])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deleterecordswithrevisionapp-idswithrevision" title="deleteRecordsWithRevision(app, idsWithRevision)" class="md-nav__link">
-    deleteRecordsWithRevision(app, idsWithRevision)
+  <a href="#deleterecordswithrevision_-app-int-_-idwithrevision-intint" title="deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int&gt;])" class="md-nav__link">
+    deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int&gt;])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordassigneesapp-id-assignees-revision" title="updateRecordAssignees(app, id, assignees, revision)" class="md-nav__link">
-    updateRecordAssignees(app, id, assignees, revision)
+  <a href="#updaterecordassignees_-app-int-_-id-int-_-assignees-string-_-revision-int" title="updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?)" class="md-nav__link">
+    updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordstatusapp-id-action-assignee-revision" title="updateRecordStatus(app, id, action, assignee, revision)" class="md-nav__link">
-    updateRecordStatus(app, id, action, assignee, revision)
+  <a href="#updaterecordstatus_-app-int-_-id-int-_-action-string-_-assignee-string-_-revision-int" title="updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)" class="md-nav__link">
+    updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordsstatusapp-records" title="updateRecordsStatus(app, records)" class="md-nav__link">
-    updateRecordsStatus(app, records)
+  <a href="#updaterecordsstatus_-app-int-_-records-recordupdatestatusitem" title="updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])" class="md-nav__link">
+    updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getcommentsapp-record-order-offset-limit" title="getComments(app, record, order, offset, limit)" class="md-nav__link">
-    getComments(app, record, order, offset, limit)
+  <a href="#getcomments_-app-int-_-record-int-_-order-string-_-offset-int-_-limit-int" title="getComments(_ app: Int?, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)" class="md-nav__link">
+    getComments(_ app: Int?, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#addcommentapp-record-comment" title="addComment(app, record, comment)" class="md-nav__link">
-    addComment(app, record, comment)
+  <a href="#addcomment_-app-int-_-record-int-_-comment-commentcontent" title="addComment(_ app: Int?, _ record: Int, _ comment: CommentContent)" class="md-nav__link">
+    addComment(_ app: Int?, _ record: Int, _ comment: CommentContent)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deletecommentapp-record-comment" title="deleteComment(app, record, comment)" class="md-nav__link">
-    deleteComment(app, record, comment)
+  <a href="#deletecomment_-app-int-_-record-int-_-comment-int" title="deleteComment(_ app: Int?, _ record: Int, _ comment: Int)" class="md-nav__link">
+    deleteComment(_ app: Int?, _ record: Int, _ comment: Int)
   </a>
   
 </li>
@@ -534,66 +514,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../record-model/" title="Record Model" class="md-nav__link">
-      Record Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../record-field-model/" title="Field Model" class="md-nav__link">
-      Field Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../record-comment-model/" title="Comment Model" class="md-nav__link">
-      Comment Model
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Bulk Request
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        Bulk Request
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../bulk-request/" title="Bulk Request" class="md-nav__link">
       Bulk Request
     </a>
@@ -606,314 +526,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../bulk-request-model/" title="Bulk Request Model" class="md-nav__link">
-      Bulk Request Model
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
-    
-    <label class="md-nav__link" for="nav-3-5">
-      App
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
-        App
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../app/" title="App" class="md-nav__link">
       App
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../app-model/" title="App Model" class="md-nav__link">
-      App Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-3" type="checkbox" id="nav-3-5-3">
-    
-    <label class="md-nav__link" for="nav-3-5-3">
-      Basic
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-3">
-        Basic
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../app-response/" title="Response" class="md-nav__link">
-      Response
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4" type="checkbox" id="nav-3-5-4">
-    
-    <label class="md-nav__link" for="nav-3-5-4">
-      Form
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-4">
-        Form
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../app-form/" title="Form" class="md-nav__link">
-      Form
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4-2" type="checkbox" id="nav-3-5-4-2">
-    
-    <label class="md-nav__link" for="nav-3-5-4-2">
-      Form fields
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-3-5-4-2">
-        Form fields
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields/" title="Form fields" class="md-nav__link">
-      Form fields
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4-2-2" type="checkbox" id="nav-3-5-4-2-2">
-    
-    <label class="md-nav__link" for="nav-3-5-4-2-2">
-      Input
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
-      <label class="md-nav__title" for="nav-3-5-4-2-2">
-        Input
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields-input/" title="Input" class="md-nav__link">
-      Input
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields-input-lookup/" title="Lookup" class="md-nav__link">
-      Lookup
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields-input-member/" title="Member" class="md-nav__link">
-      Member
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields-input-selection/" title="Selection" class="md-nav__link">
-      Selection
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields-input-time/" title="Time" class="md-nav__link">
-      Time
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields-related_record/" title="Related_record" class="md-nav__link">
-      Related_record
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-fields-system/" title="System" class="md-nav__link">
-      System
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../form-layout/" title="Form Layout" class="md-nav__link">
-      Form Layout
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../app-general/" title="General" class="md-nav__link">
-      General
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../app-view/" title="View" class="md-nav__link">
-      View
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -934,25 +549,6 @@
           
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
-    
-    <label class="md-nav__link" for="nav-3-7">
-      File
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-7">
-        File
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
     <a href="../file/" title="File" class="md-nav__link">
       File
@@ -965,9 +561,246 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        Model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1" type="checkbox" id="nav-3-8-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1">
+      App
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-8-1">
+        App
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-1" type="checkbox" id="nav-3-8-1-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1-1">
+      App
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-3-8-1-1">
+        App
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../file-model/" title="FileModel" class="md-nav__link">
-      FileModel
+    <a href="../model/app/app/app-model/" title="App" class="md-nav__link">
+      App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/app/app-deploy-status/" title="AppDeployStatus" class="md-nav__link">
+      AppDeployStatus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/app/preview-app/" title="PreviewApp" class="md-nav__link">
+      PreviewApp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/app/get-app-deploy-status-response/" title="GetAppDeployStatusResponse" class="md-nav__link">
+      GetAppDeployStatusResponse
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-2" type="checkbox" id="nav-3-8-1-2">
+    
+    <label class="md-nav__link" for="nav-3-8-1-2">
+      Form
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-3-8-1-2">
+        Form
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-2-1" type="checkbox" id="nav-3-8-1-2-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1-2-1">
+      Field
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-3-8-1-2-1">
+        Field
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-2-1-1" type="checkbox" id="nav-3-8-1-2-1-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1-2-1-1">
+      Input
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="6">
+      <label class="md-nav__title" for="nav-3-8-1-2-1-1">
+        Input
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/form/field/input/form-fields-input/" title="Input" class="md-nav__link">
+      Input
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/form/field/input/form-fields-input-lookup/" title="Lookup" class="md-nav__link">
+      Lookup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/form/field/input/form-fields-input-member/" title="Member" class="md-nav__link">
+      Member
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/form/field/input/form-fields-input-selection/" title="Selection" class="md-nav__link">
+      Selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/form/field/input/form-fields-input-time/" title="Time" class="md-nav__link">
+      Time
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/form/layout/form-layout/" title="Layout" class="md-nav__link">
+      Layout
     </a>
   </li>
 
@@ -983,9 +816,175 @@
 
 
   <li class="md-nav__item">
-    <a href="../member/" title="Member" class="md-nav__link">
+    <a href="../model/app/general/general-settings/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/app/view/view-model/" title="View" class="md-nav__link">
+      View
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-2" type="checkbox" id="nav-3-8-2">
+    
+    <label class="md-nav__link" for="nav-3-8-2">
+      Record
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-8-2">
+        Record
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/record/record-model/" title="Record" class="md-nav__link">
+      Record
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/record/record-comment-model/" title="Comment" class="md-nav__link">
+      Comment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/record/record-field-model/" title="Field" class="md-nav__link">
+      Field
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/file/file-model/" title="File" class="md-nav__link">
+      File
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-4" type="checkbox" id="nav-3-8-4">
+    
+    <label class="md-nav__link" for="nav-3-8-4">
+      BulkRequest
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-8-4">
+        BulkRequest
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/bulk-request/bulk-request-model/" title="BulkRequestModel" class="md-nav__link">
+      BulkRequestModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/bulk-request/bulk-request-item/" title="BulkRequestItem" class="md-nav__link">
+      BulkRequestItem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/bulk-request/bulk-request-response/" title="BulkRequestResponse" class="md-nav__link">
+      BulkRequestResponse
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../model/member/member/" title="Member" class="md-nav__link">
       Member
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -1030,106 +1029,106 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getrecordapp-id" title="getRecord(app, id)" class="md-nav__link">
-    getRecord(app, id)
+  <a href="#getrecord_-app-int-_-id-int" title="getRecord(_ app: Int, _ id: Int)" class="md-nav__link">
+    getRecord(_ app: Int, _ id: Int)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getrecordsapp-query-fields-totalcount" title="getRecords(app, query, fields, totalCount)" class="md-nav__link">
-    getRecords(app, query, fields, totalCount)
+  <a href="#getrecords_-app-int-_-query-string-_fields-string-_totalcount-bool" title="getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)" class="md-nav__link">
+    getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#addrecordapp-record" title="addRecord(app, record)" class="md-nav__link">
-    addRecord(app, record)
+  <a href="#addrecord_-app-int-_-record-stringfieldvalue" title="addRecord(_ app: Int?, _ record: [String:FieldValue]?)" class="md-nav__link">
+    addRecord(_ app: Int?, _ record: [String:FieldValue]?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#addrecordsapp-records" title="addRecords(app, records)" class="md-nav__link">
-    addRecords(app, records)
+  <a href="#addrecords_-app-int-_-records-stringfieldvalue" title="addRecords(_ app: Int?, _ records: [[String:FieldValue]])" class="md-nav__link">
+    addRecords(_ app: Int?, _ records: [[String:FieldValue]])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordbyidapp-id-record-revision" title="updateRecordByID(app, id, record, revision)" class="md-nav__link">
-    updateRecordByID(app, id, record, revision)
+  <a href="#updaterecordbyid_-app-int-_-id-int-_-record-stringfieldvalue-_-revision-int" title="updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)" class="md-nav__link">
+    updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordbyupdatekeyapp-updatekey-record-revision" title="updateRecordByUpdateKey(app, updateKey, record, revision)" class="md-nav__link">
-    updateRecordByUpdateKey(app, updateKey, record, revision)
+  <a href="#updaterecordbyupdatekey_-app-int-_-updatekey-recordupdatekey-_-record-stringfieldvalue-_-revision-int" title="updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)" class="md-nav__link">
+    updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordsapp-records" title="updateRecords(app, records)" class="md-nav__link">
-    updateRecords(app, records)
+  <a href="#updaterecords_-app-int-_-records-recordupdateitem" title="updateRecords(_ app: Int?, _ records: [RecordUpdateItem])" class="md-nav__link">
+    updateRecords(_ app: Int?, _ records: [RecordUpdateItem])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deleterecordsapp-ids" title="deleteRecords(app, ids)" class="md-nav__link">
-    deleteRecords(app, ids)
+  <a href="#deleterecords_-app-int-_-ids-int" title="deleteRecords(_ app: Int?, _ ids: [Int])" class="md-nav__link">
+    deleteRecords(_ app: Int?, _ ids: [Int])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deleterecordswithrevisionapp-idswithrevision" title="deleteRecordsWithRevision(app, idsWithRevision)" class="md-nav__link">
-    deleteRecordsWithRevision(app, idsWithRevision)
+  <a href="#deleterecordswithrevision_-app-int-_-idwithrevision-intint" title="deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int&gt;])" class="md-nav__link">
+    deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int&gt;])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordassigneesapp-id-assignees-revision" title="updateRecordAssignees(app, id, assignees, revision)" class="md-nav__link">
-    updateRecordAssignees(app, id, assignees, revision)
+  <a href="#updaterecordassignees_-app-int-_-id-int-_-assignees-string-_-revision-int" title="updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?)" class="md-nav__link">
+    updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordstatusapp-id-action-assignee-revision" title="updateRecordStatus(app, id, action, assignee, revision)" class="md-nav__link">
-    updateRecordStatus(app, id, action, assignee, revision)
+  <a href="#updaterecordstatus_-app-int-_-id-int-_-action-string-_-assignee-string-_-revision-int" title="updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)" class="md-nav__link">
+    updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#updaterecordsstatusapp-records" title="updateRecordsStatus(app, records)" class="md-nav__link">
-    updateRecordsStatus(app, records)
+  <a href="#updaterecordsstatus_-app-int-_-records-recordupdatestatusitem" title="updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])" class="md-nav__link">
+    updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getcommentsapp-record-order-offset-limit" title="getComments(app, record, order, offset, limit)" class="md-nav__link">
-    getComments(app, record, order, offset, limit)
+  <a href="#getcomments_-app-int-_-record-int-_-order-string-_-offset-int-_-limit-int" title="getComments(_ app: Int?, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)" class="md-nav__link">
+    getComments(_ app: Int?, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#addcommentapp-record-comment" title="addComment(app, record, comment)" class="md-nav__link">
-    addComment(app, record, comment)
+  <a href="#addcomment_-app-int-_-record-int-_-comment-commentcontent" title="addComment(_ app: Int?, _ record: Int, _ comment: CommentContent)" class="md-nav__link">
+    addComment(_ app: Int?, _ record: Int, _ comment: CommentContent)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deletecommentapp-record-comment" title="deleteComment(app, record, comment)" class="md-nav__link">
-    deleteComment(app, record, comment)
+  <a href="#deletecomment_-app-int-_-record-int-_-comment-int" title="deleteComment(_ app: Int?, _ record: Int, _ comment: Int)" class="md-nav__link">
+    deleteComment(_ app: Int?, _ record: Int, _ comment: Int)
   </a>
   
 </li>
@@ -1162,9 +1161,17 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/kintone/kintone-ios-sdk/edit/master/docs/reference/record.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
                 
                 <h1 id="record">Record</h1>
 <p>Provide manipulate functions on records: get, update, delete, update the record status &amp; assignees in the kintone app</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The user must set the promises to global to use the module:</p>
+<pre><code>    DispatchQueue.promise = global()
+</code></pre>
+</div>
 <h2 id="constructor">Constructor</h2>
 <p><strong>Parameter</strong></p>
 <table>
@@ -1186,28 +1193,34 @@
 </tbody>
 </table>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Init record module</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">// Define Authentication object
-let username: String = {your_user_name}
-let password: String = {your_user_password}
-let kintoneAuth = Auth()
-kintoneAuth.setPasswordAuth(username, password)
+<details class="tab-container" open>
+<Summary>Init record module</Summary>
 
-let myDomainName: String = &quot;sample.cybozu.com&quot;
-let connection = Connection(myDomainName, kintoneAuth)
+<strong class="tab-name">Source code</strong>
 
-// Init Record Module
-let kintoneRecordManager = Record(connection);
-</code></pre>
+<pre class="inline-code">
 
-<p></details></p>
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+</pre>
+
+</details>
+
 <h2 id="methods">Methods</h2>
-<h3 id="getrecordapp-id">getRecord(app, id)</h3>
-<blockquote>
+<h3 id="getrecord_-app-int-_-id-int">getRecord(_ app: Int, _ id: Int)</h3>
 <p>Retrieves details of 1 record from an app.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1221,60 +1234,56 @@ let kintoneRecordManager = Record(connection);
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The record ID in kintone app</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#getrecordresponse">GetRecordResponse</a></p>
+<p>GetRecordResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Get record</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">// Define Authentication object
-let username: String = {your_user_name}
-let password: String = {your_user_password}
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<details class="tab-container" open>
+<Summary>Get record</Summary>
 
-let myDomainName: String = {your_domain}
-let connection = Connection(myDomainName, auth)
+<strong class="tab-name">Source code</strong>
 
-// Init Record Module
-let recordManagement = Record(connection)
+<pre class="inline-code">
 
-// execute get record API
-let appID: Int = {your_app_id}
-let recordID: Int = {your_record_id}
-var response: GetRecordResponse? = nil
-do {
-    response = try recordManagement.getRecord(appID, recordID)
+    // execute get record API
+    let appID = {your_app_id}
+    let recordID = {your_record_id}
 
-    let resultData = response!.getRecord()!
-    print(resultData[&quot;$id&quot;]?.getValue())
+    recordManagement.getRecord(appID, recordID).then{response in
 
-    for (code, value) in resultData {
-        print(value.getType()!)
-        print(value.getValue())
+        let resultData: Dictionary<String, FieldValue> = response.getRecord()!
+        print(resultData["$id"]?.getValue())
+
+        for (code, value) in resultData {
+            print(value.getType()!)
+            print(value.getValue())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-} catch {
-    // error handle
-}
-</code></pre>
 
-<p></details></p>
-<h3 id="getrecordsapp-query-fields-totalcount">getRecords(app, query, fields, totalCount)</h3>
-<blockquote>
+</pre>
+
+</details>
+
+<h3 id="getrecords_-app-int-_-query-string-_fields-string-_totalcount-bool">getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)</h3>
 <p>Retrieves details of multiple records from an app using a query string.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1288,7 +1297,7 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
@@ -1313,46 +1322,41 @@ do {
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#getrecordsresponse">GetRecordsResponse</a></p>
+<p>GetRecordsResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Get records</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Get records</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let appID = {your_app_id}
+    let query = "レコード番号 >= 2 order by レコード番号 asc"
 
-// execute get records API
-let appID: Int = {your_app_id}
-let query: String? = &quot;レコード番号 &gt;= 2 order by レコード番号 asc&quot;
-var response: GetRecordsResponse? = nil
-do {
-    response = try recordManagement.getRecords(appID, query, nil, true)
-    let records = response?.getRecords()
+    recordManagement.getRecords(appID, query, nil, true).then{response in
+        let records = response?.getRecords()
 
-    for (i, dval) in (records?.enumerated())! {
-        for (code, value) in dval {
-            print(value.getType())
-            print(value.getValue())
+        for (i, dval) in (records?.enumerated())! {
+            for (code, value) in dval {
+                print(value.getType())
+                print(value.getValue())
+            }
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
         }
     }
-} catch {
-    // error handle
-}
-</code></pre>
 
-<p></details></p>
-<h3 id="addrecordapp-record">addRecord(app, record)</h3>
+</pre>
+
+</details>
+
+<h3 id="addrecord_-app-int-_-record-stringfieldvalue">addRecord(_ app: Int?, _ record: [String:FieldValue]?)</h3>
 <blockquote>
 <p>Add one record to an app.</p>
 </blockquote>
@@ -1369,62 +1373,54 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>record</td>
-<td>Dictionary&lt;String, <a href="../record-field-model#fieldvalue">FieldValue</a>></td>
+<td>Dictionary&lt;String, FieldValue></td>
 <td>(optional)</td>
 <td>The record data to be add to kintone app. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#addrecordresponse">AddRecordResponse</a></p>
+<p>AddRecordResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Add record</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Add record</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    var addData: Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value")
+    addData[{your_field_code}] = field
 
-// create add data
-var addData: Dictionary&lt;String, FieldValue&gt; = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue(&quot;Test Value&quot;)
-addData[{your_field_code}] = field
+    // execute add record API
+    let appID = {your_app_id}
+    recordManagement.addRecord(appID, addData).then{response in
+        print(response.getId())
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-// execute add record API
-let appID: Int = {your_app_id}
-var response: AddRecordResponse? = nil
-do {
-    response = try recordManagement.addRecord(appID, addData)
-    print(response?.getId())
-    print(response?.getRevision())
-} catch {
-    // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
-<h3 id="addrecordsapp-records">addRecords(app, records)</h3>
-<blockquote>
+</details>
+
+<h3 id="addrecords_-app-int-_-records-stringfieldvalue">addRecords(_ app: Int?, _ records: [[String:FieldValue]])</h3>
 <p>Add multiple records to an app.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1438,68 +1434,60 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>records</td>
-<td>Array&lt;Dictionary&lt;String, <a href="../record-field-model#fieldvalue">FieldValue</a>>></td>
+<td>ArrayList&lt;Dictionary&lt;String, FieldValue>></td>
 <td>yes</td>
 <td>List of records data to be add to kintone app. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#addrecordsresponse">AddRecordsResponse</a></p>
+<p>AddRecordsResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Add multi records</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Add multi records</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    var addData1: Dictionary<String, FieldValue> = [:]
+    var addData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Value1")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Value2")
+    addData1[{your_field_code}] = field1
+    addData2[{your_field_code}] = field2
+    var addDataList = [addData1, addData2]
 
-// create add data
-var addData1: Dictionary&lt;String, FieldValue&gt; = [:]
-var addData2: Dictionary&lt;String, FieldValue&gt; = [:]
-var field1 = FieldValue()
-var field2 = FieldValue()
-field1.setType(FieldType.SINGLE_LINE_TEXT)
-field1.setValue(&quot;Test Value1&quot;)
-field2.setType(FieldType.SINGLE_LINE_TEXT)
-field2.setValue(&quot;Test Value2&quot;)
-addData1[{your_field_code}] = field1
-addData2[{your_field_code}] = field2
-var addDataList = [addData1, addData2]
+    // execute add records API
+    let appID = 311
+    recordManagement.addRecords(appID, addDataList).then{response in
+        print(response!.getIDs())
+        print(response!.getRevisions())   
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-// execute add records API
-let appID: Int = 311
-var response: AddRecordsResponse? = nil
-do {
-    response = try recordManagement.addRecords(appID, addDataList)
-    print(response!.getIDs())
-    print(response!.getRevisions())
-} catch {
-    // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
-<h3 id="updaterecordbyidapp-id-record-revision">updateRecordByID(app, id, record, revision)</h3>
-<blockquote>
+</details>
+
+<h3 id="updaterecordbyid_-app-int-_-id-int-_-record-stringfieldvalue-_-revision-int">updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)</h3>
 <p>Updates details of 1 record in an app by specifying its record number.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1513,72 +1501,66 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The record ID on kintone app</td>
 </tr>
 <tr>
 <td>record</td>
-<td>Dictionary&lt;String, <a href="../record-field-model#fieldvalue">FieldValue</a>></td>
+<td>Dictionary&lt;String, FieldValue></td>
 <td>yes</td>
-<td>The record data to be update in  kintone app. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
+<td>The record data to be updated in the kintone app. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
 </tr>
 <tr>
 <td>revision</td>
-<td>Int</td>
+<td>Integer</td>
 <td>(optional)</td>
 <td>The revision number of record</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#updaterecordresponse">UpdateRecordResponse</a></p>
+<p>UpdateRecordResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Update record by ID</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Update record by ID</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    var updateData:Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update")
+    updateData[{your_field_code}] = field
 
-// create add data
-var updateData:Dictionary&lt;String, FieldValue&gt; = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue(&quot;Test Value Update&quot;)
-updateData[{your_field_code}] = field
+    // execute update record API
+    let appID = {your_app_id}
+    let updRecID = {your_record_id}
+    recordManagement.updateRecordByID(appID, updRecID, updateData , nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-// execute update record API
-let appID: Int = {your_app_id}
-let updRecID: Int = {your_record_id}
-var response: UpdateRecordResponse? = nil
-do {
-    response = try recordManagement.updateRecordByID(appID, updRecID, updateData , nil)
-    print(response?.getRevision())
-} catch {
-    // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
-<h3 id="updaterecordbyupdatekeyapp-updatekey-record-revision">updateRecordByUpdateKey(app, updateKey, record, revision)</h3>
-<p>Updates details of 1 record in an app by unique key.</p>
+</details>
+
+<h3 id="updaterecordbyupdatekey_-app-int-_-updatekey-recordupdatekey-_-record-stringfieldvalue-_-revision-int">updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)</h3>
+<p>Updates details of 1 record in an app by the unique key.</p>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1592,76 +1574,68 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>updateKey</td>
-<td><a href="../record-model/#recordupdatekey">RecordUpdateKey</a></td>
+<td>RecordUpdateKey</td>
 <td>yes</td>
 <td>The unique key of the record to be updated. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
 </tr>
 <tr>
 <td>record</td>
-<td>Dictionary&lt;String, <a href="../record-field-model#fieldvalue">FieldValue</a>></td>
+<td>Dictionary&lt;String, FieldValue></td>
 <td>yes</td>
-<td>The record data will be added to kintone app. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
+<td>The record data will be added to the kintone app. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
 </tr>
 <tr>
 <td>revision</td>
-<td>Int</td>
+<td>Integer</td>
 <td>(optional)</td>
 <td>The revision number of record</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#updaterecordresponse">UpdateRecordResponse</a></p>
+<p>UpdateRecordResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Update record by UpdateKey</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Update record by UpdateKey</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    var updateData: Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    updateData[{your_field_code}] = field
 
-// create update data
-var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
-var field = FieldValue()
-field.setType(FieldType.SINGLE_LINE_TEXT)
-field.setValue(&quot;Test Value Update For Key&quot;)
-updateData[{your_field_code}] = field
+    // create update key
+    let updKey = RecordUpdateKey("{your_field_code}", "update key value")
 
-// create update key
-let updKey = RecordUpdateKey(&quot;{your_field_code}&quot;, &quot;update key value&quot;)
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.updateRecordByUpdateKey(appID, updKey, updateData, nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-// execute update record API
-let appID: Int = {your_app_id}
-var response: UpdateRecordResponse? = nil
-do {
-    response = try recordManagement.updateRecordByUpdateKey(appID, updKey, updateData, nil)
-    print(response?.getRevision())
-} catch {
-    // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
-<h3 id="updaterecordsapp-records">updateRecords(app, records)</h3>
-<blockquote>
+</details>
+
+<h3 id="updaterecords_-app-int-_-records-recordupdateitem">updateRecords(_ app: Int?, _ records: [RecordUpdateItem])</h3>
 <p>Updates details of multiple records in an app, by specifying their record number, or a different unique key.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1675,74 +1649,66 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>records</td>
-<td>Array&lt;<a href="../record-model/#recordupdateitem">RecordUpdateItem</a>></td>
+<td>ArrayList&lt;RecordUpdateItem></td>
 <td>yes</td>
 <td>The record data will be added to kintone app. About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#updaterecordsresponse">UpdateRecordsResponse</a></p>
+<p>UpdateRecordsResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Update multi records</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Update multi records</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    var recId1 = {your_record_id}
+    var recId2 = {your_record_id}
+    var updateData1: Dictionary<String, FieldValue> = [:]
+    var updateData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Update Value1 ")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Update Value2")
+    updateData1[{your_field_code}] = field1
+    updateData2[{your_field_code}] = field2
+    var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
+    var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
+    let updateItemList = [updateDataItem1 , updateDataItem2]
 
-// create update data
-var recId1: Int = {your_record_id}
-var recId2: Int = {your_record_id}
-var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
-var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
-var field1 = FieldValue()
-var field2 = FieldValue()
-field1.setType(FieldType.SINGLE_LINE_TEXT)
-field1.setValue(&quot;Test Update Value1 &quot;)
-field2.setType(FieldType.SINGLE_LINE_TEXT)
-field2.setValue(&quot;Test Update Value2&quot;)
-updateData1[{your_field_code}] = field1
-updateData2[{your_field_code}] = field2
-var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
-var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
-let updateItemList = [updateDataItem1 , updateDataItem2]
-
-// execute update records API
-let appID: Int = {your_app_id}
-var response: UpdateRecordsResponse? = nil
-do {
-    response = try recordManagement.updateRecords(appID, updateItemList)
-    for value in (response!.getRecords())! {
-        print(value.getID())
-        print(value.getRevision())
+    // execute update records API
+    let appID = {your_app_id}
+    recordManagement.updateRecords(appID, updateItemList).then{response in
+        for value in (response!.getRecords())! {
+            print(value.getID())
+            print(value.getRevision())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-} catch {
-    // error handle
-}
-</code></pre>
 
-<p></details></p>
-<h3 id="deleterecordsapp-ids">deleteRecords(app, ids)</h3>
-<blockquote>
+</pre>
+
+</details>
+
+<h3 id="deleterecords_-app-int-_-ids-int">deleteRecords(_ app: Int?, _ ids: [Int])</h3>
 <p>Deletes multiple records in an app.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1756,13 +1722,13 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>ids</td>
-<td>Array&lt;Int></td>
+<td>ArrayList&lt;Integer></td>
 <td>yes</td>
 <td>The list ids of record will be delete.</td>
 </tr>
@@ -1771,41 +1737,34 @@ do {
 <p><strong>Return</strong></p>
 <p>(none)</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Delete multi record</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Delete multi record</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let appID = {your_app_id}
+    let delRecordID1 = {your_record_id1}
+    let delRecordID2 = {your_record_id2}
+    let delIdList = [delRecordID1, delRecordID2]
 
-// execute delete record API
-let appID: Int = {your_app_id}
-let delRecordID1: Int = {your_record_id1}
-let delRecordID2: Int = {your_record_id2}
-let delIdList = [delRecordID1, delRecordID2]
+    recordManagement.deleteRecords(appID, delIdList)
+    .catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-do {
-    try recordManagement.deleteRecords(appID, delIdList)
-} catch {
-    // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
-<h3 id="deleterecordswithrevisionapp-idswithrevision">deleteRecordsWithRevision(app, idsWithRevision)</h3>
-<blockquote>
+</details>
+
+<h3 id="deleterecordswithrevision_-app-int-_-idwithrevision-intint">deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int&gt;])</h3>
 <p>Deletes multiple records in an app with revision.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1819,13 +1778,13 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>idsWithRevision</td>
-<td>Dictionary&lt;Int, Int></td>
+<td>Dictionary&lt;Integer, Integer></td>
 <td>yes</td>
 <td>(<strong>key</strong>: <code>The Id of record</code>, <strong>value</strong>: <code>The Revision of record.</code>)</td>
 </tr>
@@ -1834,41 +1793,34 @@ do {
 <p><strong>Return</strong></p>
 <p>(none)</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Delete record with revision</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Delete record with revision</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let appID = {your_app_id}
+    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    delIdAndRevision[{your_record_id}] = {your_revision_id}
+    delIdAndRevision[{your_record_id}] = {your_revision_id}
 
-// execute delete record API
-let appID: Int = {your_app_id}
-var delIdAndRevision: Dictionary&lt;Int, Int&gt; = [:]
-delIdAndRevision[{your_record_id}] = {your_revision_id}
-delIdAndRevision[{your_record_id}] = {your_revision_id}
+    recordManagement.deleteRecordsWithRevision(appID, delIdAndRevision)
+    .catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-do {
-    try recordManagement.deleteRecordsWithRevision(appID, delIdAndRevision)
-} catch {
-   // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
-<h3 id="updaterecordassigneesapp-id-assignees-revision">updateRecordAssignees(app, id, assignees, revision)</h3>
-<blockquote>
+</details>
+
+<h3 id="updaterecordassignees_-app-int-_-id-int-_-assignees-string-_-revision-int">updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?)</h3>
 <p>Update assignees of a record.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1882,13 +1834,13 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The record ID of kintone app</td>
 </tr>
@@ -1900,50 +1852,57 @@ do {
 </tr>
 <tr>
 <td>revision</td>
-<td>Int</td>
+<td>Integer</td>
 <td>(option)</td>
 <td>The revision number of record</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#updaterecordresponse">UpdateRecordResponse</a></p>
+<p>UpdateRecordResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>update record Assignees</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>update record Assignees</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
 
-// execute update assignees API
-let appID: Int = {your_app_od}
-let updRecID: Int = {your_record_id}
-let assignees: [String] = [&quot;{your_user_code}&quot;]
-var response: UpdateRecordResponse? = nil
-do {
-    response = try recordManagement.updateRecordAssignees(appID, updRecID, assignees, nil)
-    print(response!.getRevision())
-} catch {
-    // error handle
-}
-</code></pre>
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
 
-<p></details></p>
-<h3 id="updaterecordstatusapp-id-action-assignee-revision">updateRecordStatus(app, id, action, assignee, revision)</h3>
-<blockquote>
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+    // execute update assignees API
+    let appID = {your_app_od}
+    let updRecID = {your_record_id}
+    let assignees = ["{your_user_code}"]
+    recordManagement.updateRecordAssignees(appID, updRecID, assignees, nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
+
+</pre>
+
+</details>
+
+<h3 id="updaterecordstatus_-app-int-_-id-int-_-action-string-_-assignee-string-_-revision-int">updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)</h3>
 <p>Updates the Status of a record of an app.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -1957,15 +1916,15 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID.</td>
 </tr>
 <tr>
 <td>id</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
-<td>The record ID on kintone app.</td>
+<td>The record ID on the kintone app.</td>
 </tr>
 <tr>
 <td>action</td>
@@ -1977,55 +1936,47 @@ do {
 <td>assignee</td>
 <td>String</td>
 <td>(Conditionally required)</td>
-<td>The next Assignee. Specify the Assignee's log in name.</br>Required, if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action", and a selectable assignee exists.</td>
+<td>The next Assignee. Specify the Assignee's login name.</br>Required if the "Assignee List" of the current status is set to "User chooses one assignee from the list to take action", and a selectable assignee exists.</td>
 </tr>
 <tr>
 <td>revision</td>
-<td>Int</td>
+<td>Integer</td>
 <td>(optional)</td>
 <td>The revision of record</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#updaterecordresponse">UpdateRecordResponse</a></p>
+<p>UpdateRecordResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Update record status</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Update record status</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let appID = {your_app_id}
+    let updRecID = {your_record_id}
+    let assignees = "{your_user_code}"
+    let status = "{your_status}"
+    recordManagement.updateRecordStatus(appID, updRecID, status, assignees, nil).then{response in
+        print(response.getRevision())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-// execute update status API
-let appID: Int = {your_app_id}
-let updRecID: Int = {your_record_id}
-let assignee: String? = &quot;{your_user_code}&quot;
-let status: String = &quot;{your_status}&quot;
-var response: UpdateRecordResponse? = nil
-do {
-    response = try recordManagement.updateRecordStatus(appID, updRecID, status, assignee, nil)
-    print(response?.getRevision())
-} catch {
-    // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
-<h3 id="updaterecordsstatusapp-records">updateRecordsStatus(app, records)</h3>
-<blockquote>
+</details>
+
+<h3 id="updaterecordsstatus_-app-int-_-records-recordupdatestatusitem">updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])</h3>
 <p>Updates the Status of multiple records of an app.</p>
-</blockquote>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -2039,64 +1990,58 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>records</td>
-<td>Array&lt;<a href="../record-model/#recordupdatestatusitem">RecordUpdateStatusItem</a>></td>
+<td>ArrayList&lt;RecordUpdateStatusItem></td>
 <td>yes</td>
 <td>The recod status data. See belowsample codee or <a href="#reference">reference</a> at the end of this page to know format.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-model/#updaterecordsresponse">UpdateRecordsResponse</a></p>
+<p>UpdateRecordsResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Update multi record status</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Update multi record status</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let appID = {your_app_id}
+    let updRecID1 = {your_record_id1}
+    let updRecID2 = {your_record_id2}
+    let assignees1 = [{your_login_code1}]
+    let assignees2 = [{your_login_code2}]
+    let status1 = {your_update_status1}
+    let status2 = {your_update_status2}
+    let item1 = RecordUpdateStatusItem(status1, assignees1, updRecID1, nil)
+    let item2 = RecordUpdateStatusItem(status2, assignees2, updRecID2, nil)
+    let itemList = [item1, item2]
 
-// execute update status API
-let appID: Int = {your_app_id}
-let updRecID1: Int = {your_record_id1}
-let updRecID2: Int = {your_record_id2}
-let assignees1: String? = {your_login_code1}
-let assignees2: String? = {your_login_code2}
-let status1: String? = {your_update_status1}
-let status2: String? = {your_update_status2}
-let item1 = RecordUpdateStatusItem(status1, assignees1, updRecID1, nil)
-let item2 = RecordUpdateStatusItem(status2, assignees2, updRecID2, nil)
-let itemList = [item1, item2]
-
-var response: UpdateRecordsResponse? = nil
-do {
-    response = try recordManagement.updateRecordsStatus(appID, itemList)
-    for value in (response!.getRecords())! {
-        print(value.getID())
-        print(value.getRevision())
+    recordManagement.updateRecordsStatus(appID, itemList).then{response in
+        for value in (response!.getRecords())! {
+            print(value.getID())
+            print(value.getRevision())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-} catch {
-    // error handle
-}
-</code></pre>
 
-<p></details></p>
-<h3 id="getcommentsapp-record-order-offset-limit">getComments(app, record, order, offset, limit)</h3>
+</pre>
+
+</details>
+
+<h3 id="getcomments_-app-int-_-record-int-_-order-string-_-offset-int-_-limit-int">getComments(_ app: Int?, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)</h3>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -2110,13 +2055,13 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>record</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
@@ -2128,60 +2073,54 @@ do {
 </tr>
 <tr>
 <td>offset</td>
-<td>Int</td>
+<td>Integer</td>
 <td>(optional)</td>
 <td>The number of first comments will be ignored.</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>Int</td>
+<td>Integer</td>
 <td>(optional)</td>
 <td>The number of records to retrieve.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-comment-model/#getcommentsresponse">GetCommentsResponse</a></p>
+<p>GetCommentsResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Get comments</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Get comments</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let appID = {your_app_id}
+    let recordID = {your_record_id}
+    var response: GetCommentsResponse? = nil
 
-// execute get comments API
-let appID: Int = {your_app_id}
-let recordID: Int = {your_record_id}
-var response: GetCommentsResponse? = nil
-do {
-    response = try recordManagement.getComments(appID, recordID, nil, nil, nil)
-
-    // data Response of the get request
-    for value in (response?.getComments())! {
-        print(value.getId())
-        print(value.getCreatedAt())
-        print(value.getText())
-        print(value.getCreator()?.code)
-        print(value.getMentions())
+    recordManagement.getComments(appID, recordID, nil, nil, nil).then{response in
+        for value in (response.getComments())! {
+            print(value.getId())
+            print(value.getCreatedAt())
+            print(value.getText())
+            print(value.getCreator()?.code)
+            print(value.getMentions())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
     }
-} catch {
-    // error handle
-}
-</code></pre>
 
-<p></details></p>
-<h3 id="addcommentapp-record-comment">addComment(app, record, comment)</h3>
+</pre>
+
+</details>
+
+<h3 id="addcomment_-app-int-_-record-int-_-comment-commentcontent">addComment(_ app: Int?, _ record: Int, _ comment: CommentContent)</h3>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -2195,69 +2134,61 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>record</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>comment</td>
-<td><a href="../record-comment-model/#commentcontent">CommentContent</a></td>
+<td>CommentContent</td>
 <td>yes</td>
 <td>About the format, please look the sample below or <a href="#reference">reference</a> at the end of this page.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p><a href="../record-comment-model/#addcommentresponse">AddCommentResponse</a></p>
+<p>AddCommentResponse</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Add comment</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Add comment</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let mention = CommentMention()
+    let comment = CommentContent()
+    mention.setCode("cybozu")
+    mention.setType("USER")
+    let mentionList = [mention]
+    comment.setText("add comment")
+    comment.setMentions(mentionList)
 
-// create add comment data
-let mention = CommentMention()
-let comment = CommentContent()
-mention.setCode(&quot;cybozu&quot;)
-mention.setType(&quot;USER&quot;)
-let mentionList = [mention]
-comment.setText(&quot;add comment&quot;)
-comment.setMentions(mentionList)
+    // execute get comments API
+    let appID = {your_app_id}
+    let recordID = {your_record_id}
+    recordManagement.addComment(appID, recordID, comment).then{response in
+        print(response.getId())
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-// execute get comments API
-let appID: Int = {your_app_id}
-let recordID: Int = {your_record_id}
-var response: AddCommentResponse? = nil
-do {
-    response = try recordManagement.addComment(appID, recordID, comment)
+</pre>
 
-    // data Response of the get request
-    print(response?.getId())
-} catch {
-    // error handle
-}
-</code></pre>
+</details>
 
-<p></details></p>
-<h3 id="deletecommentapp-record-comment">deleteComment(app, record, comment)</h3>
+<h3 id="deletecomment_-app-int-_-record-int-_-comment-int">deleteComment(_ app: Int?, _ record: Int, _ comment: Int)</h3>
 <p><strong>Parameter</strong></p>
 <table>
 <thead>
@@ -2271,19 +2202,19 @@ do {
 <tbody>
 <tr>
 <td>app</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The kintone app ID</td>
 </tr>
 <tr>
 <td>record</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The record ID on kintone app</td>
 </tr>
 <tr>
 <td>comment</td>
-<td>Int</td>
+<td>Integer</td>
 <td>yes</td>
 <td>The comment ID on kintone record</td>
 </tr>
@@ -2292,47 +2223,42 @@ do {
 <p><strong>Return</strong></p>
 <p>(none)</p>
 <p><strong>Sample code</strong></p>
-<p><details class="tab-container" open>
-<Summary>Delete comment</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="swift">let username: String = {your_user_name}
-let password: String = {your_user_password}
-let domain: String = {your_domain}
+<details class="tab-container" open>
+<Summary>Delete comment</Summary>
 
-// Init authenticationAuth
-let auth = Auth()
-auth.setPasswordAuth(username, password)
+<strong class="tab-name">Source code</strong>
 
-// Init Connection without &quot;guest space ID&quot;
-let connection = Connection(domain, auth)
+<pre class="inline-code">
 
-// Init Record Module
-let recordManagement = Record(connection)
+    let appId = {your_app_id}
+    let recordId = {your_record_id}
+    let commentId = {your_comment_Id}
 
-// execute get comments API
-let appId: Int = {your_app_id}
-let recordId: Int = {your_record_id}
-let commentId: Int = {your_comment_Id}
+    recordManagement.deleteComment(appId, recordId, commentId)
+    .catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
 
-do {
-    try recordManagement.deleteComment(appId, recordId, commentId)
-} catch {
-    // error handle
-}
-</code></pre>
+</pre>
 
-<p></details></p>
+</details>
+
 <h2 id="reference">Reference</h2>
 <ul>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/213149287/">Get Record</a> <code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/212494628/">Add Record</a><code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/213149027/">Update Record</a><code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/212494558/">Delete Record</a><code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/219105188">Get Comments</a><code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/219501367">Add Comment</a><code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/219562607">Delete Comment</a><code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/213149747">Update Record Status</a><code>on developer network</code></li>
-<li><a href="https://developer.kintone.io/hc/en-us/articles/219563427">Update Record Assignees</a><code>on developer network</code></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/213149287/">Get Record</a> </li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/212494628/">Add Record</a></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/213149027/">Update Record</a></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/212494558/">Delete Record</a></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/219105188">Get Comments</a></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/219501367">Add Comment</a></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/219562607">Delete Comment</a></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/213149747">Update Record Status</a></li>
+<li><a href="https://developer.kintone.io/hc/en-us/articles/219563427">Update Record Assignees</a></li>
 </ul>
                 
                   
@@ -2369,13 +2295,13 @@ do {
           </a>
         
         
-          <a href="../record-model/" title="Record Model" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../bulk-request/" title="Bulk Request" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Record Model
+                Bulk Request
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -2405,9 +2331,9 @@ do {
       
     </div>
     
-      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
       
-      <script>app.initialize({version:"0.17.5",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
         <script src="../../asset/js/extra.js"></script>
       

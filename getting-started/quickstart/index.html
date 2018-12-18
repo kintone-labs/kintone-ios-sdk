@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="The SDK of kintone REST API client on Java">
+        <meta name="description" content="The SDK of kintone REST API client on ios">
       
       
       
@@ -34,17 +34,17 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
     
     
       
-        <title>Quickstart - kintone Java SDK</title>
+        <title>Quickstart - kintone ios SDK</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -53,16 +53,17 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../asset/style/extra.css">
     
@@ -111,7 +112,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="kintone Java SDK" class="md-header-nav__button md-logo">
+        <a href="../.." title="kintone ios SDK" class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
@@ -125,7 +126,7 @@
           
             
               <span class="md-header-nav__topic">
-                kintone Java SDK
+                kintone ios SDK
               </span>
               <span class="md-header-nav__topic">
                 Quickstart
@@ -173,7 +174,7 @@
   
 
 
-  <a href="https://github.dev.cybozu.co.jp/SC/kintone-java-sdk" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -182,7 +183,7 @@
       </div>
     
     <div class="md-source__repository">
-      Github
+      GitHub
     </div>
   </a>
 
@@ -207,12 +208,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="../.." title="kintone ios SDK" class="md-nav__button md-logo">
       
         <i class="md-icon">cloud</i>
       
-    </span>
-    kintone Java SDK
+    </a>
+    kintone ios SDK
   </label>
   
     <div class="md-nav__source">
@@ -222,7 +223,7 @@
   
 
 
-  <a href="https://github.dev.cybozu.co.jp/SC/kintone-java-sdk" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -231,7 +232,7 @@
       </div>
     
     <div class="md-source__repository">
-      Github
+      GitHub
     </div>
   </a>
 
@@ -312,8 +313,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-example" title="Code example" class="md-nav__link">
-    Code example
+  <a href="#following-below-steps" title="Following below steps" class="md-nav__link">
+    Following below steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-app" title="Run The App" class="md-nav__link">
+    Run The App
   </a>
   
 </li>
@@ -382,91 +390,12 @@
           
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
-    
-    <label class="md-nav__link" for="nav-3-3">
-      Record
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
-        Record
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
     <a href="../../reference/record/" title="Record" class="md-nav__link">
       Record
     </a>
   </li>
 
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/record-model/" title="Record Model" class="md-nav__link">
-      Record Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/record-field-model/" title="Field Model" class="md-nav__link">
-      Field Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/record-comment-model/" title="Comment Model" class="md-nav__link">
-      Comment Model
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
-    
-    <label class="md-nav__link" for="nav-3-4">
-      Bulk Request
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        Bulk Request
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
         
           
           
@@ -486,314 +415,9 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/bulk-request-model/" title="Bulk Request Model" class="md-nav__link">
-      Bulk Request Model
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
-    
-    <label class="md-nav__link" for="nav-3-5">
-      App
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
-        App
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../reference/app/" title="App" class="md-nav__link">
       App
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/app-model/" title="App Model" class="md-nav__link">
-      App Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-3" type="checkbox" id="nav-3-5-3">
-    
-    <label class="md-nav__link" for="nav-3-5-3">
-      Basic
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-3">
-        Basic
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/app-response/" title="Response" class="md-nav__link">
-      Response
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4" type="checkbox" id="nav-3-5-4">
-    
-    <label class="md-nav__link" for="nav-3-5-4">
-      Form
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-5-4">
-        Form
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/app-form/" title="Form" class="md-nav__link">
-      Form
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4-2" type="checkbox" id="nav-3-5-4-2">
-    
-    <label class="md-nav__link" for="nav-3-5-4-2">
-      Form fields
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
-      <label class="md-nav__title" for="nav-3-5-4-2">
-        Form fields
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields/" title="Form fields" class="md-nav__link">
-      Form fields
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5-4-2-2" type="checkbox" id="nav-3-5-4-2-2">
-    
-    <label class="md-nav__link" for="nav-3-5-4-2-2">
-      Input
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
-      <label class="md-nav__title" for="nav-3-5-4-2-2">
-        Input
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields-input/" title="Input" class="md-nav__link">
-      Input
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields-input-lookup/" title="Lookup" class="md-nav__link">
-      Lookup
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields-input-member/" title="Member" class="md-nav__link">
-      Member
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields-input-selection/" title="Selection" class="md-nav__link">
-      Selection
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields-input-time/" title="Time" class="md-nav__link">
-      Time
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields-related_record/" title="Related_record" class="md-nav__link">
-      Related_record
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-fields-system/" title="System" class="md-nav__link">
-      System
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/form-layout/" title="Form Layout" class="md-nav__link">
-      Form Layout
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/app-general/" title="General" class="md-nav__link">
-      General
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/app-view/" title="View" class="md-nav__link">
-      View
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -814,25 +438,6 @@
           
 
 
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
-    
-    <label class="md-nav__link" for="nav-3-7">
-      File
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-7">
-        File
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
   <li class="md-nav__item">
     <a href="../../reference/file/" title="File" class="md-nav__link">
       File
@@ -845,9 +450,246 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Model
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        Model
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1" type="checkbox" id="nav-3-8-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1">
+      App
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-8-1">
+        App
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-1" type="checkbox" id="nav-3-8-1-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1-1">
+      App
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-3-8-1-1">
+        App
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../reference/file-model/" title="FileModel" class="md-nav__link">
-      FileModel
+    <a href="../../reference/model/app/app/app-model/" title="App" class="md-nav__link">
+      App
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/app/app-deploy-status/" title="AppDeployStatus" class="md-nav__link">
+      AppDeployStatus
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/app/preview-app/" title="PreviewApp" class="md-nav__link">
+      PreviewApp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/app/get-app-deploy-status-response/" title="GetAppDeployStatusResponse" class="md-nav__link">
+      GetAppDeployStatusResponse
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-2" type="checkbox" id="nav-3-8-1-2">
+    
+    <label class="md-nav__link" for="nav-3-8-1-2">
+      Form
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-3-8-1-2">
+        Form
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-2-1" type="checkbox" id="nav-3-8-1-2-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1-2-1">
+      Field
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="5">
+      <label class="md-nav__title" for="nav-3-8-1-2-1">
+        Field
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-1-2-1-1" type="checkbox" id="nav-3-8-1-2-1-1">
+    
+    <label class="md-nav__link" for="nav-3-8-1-2-1-1">
+      Input
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="6">
+      <label class="md-nav__title" for="nav-3-8-1-2-1-1">
+        Input
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/form/field/input/form-fields-input/" title="Input" class="md-nav__link">
+      Input
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/form/field/input/form-fields-input-lookup/" title="Lookup" class="md-nav__link">
+      Lookup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/form/field/input/form-fields-input-member/" title="Member" class="md-nav__link">
+      Member
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/form/field/input/form-fields-input-selection/" title="Selection" class="md-nav__link">
+      Selection
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/form/field/input/form-fields-input-time/" title="Time" class="md-nav__link">
+      Time
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/form/layout/form-layout/" title="Layout" class="md-nav__link">
+      Layout
     </a>
   </li>
 
@@ -863,9 +705,175 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/member/" title="Member" class="md-nav__link">
+    <a href="../../reference/model/app/general/general-settings/" title="General" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/app/view/view-model/" title="View" class="md-nav__link">
+      View
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-2" type="checkbox" id="nav-3-8-2">
+    
+    <label class="md-nav__link" for="nav-3-8-2">
+      Record
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-8-2">
+        Record
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/record/record-model/" title="Record" class="md-nav__link">
+      Record
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/record/record-comment-model/" title="Comment" class="md-nav__link">
+      Comment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/record/record-field-model/" title="Field" class="md-nav__link">
+      Field
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/file/file-model/" title="File" class="md-nav__link">
+      File
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8-4" type="checkbox" id="nav-3-8-4">
+    
+    <label class="md-nav__link" for="nav-3-8-4">
+      BulkRequest
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-8-4">
+        BulkRequest
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/bulk-request/bulk-request-model/" title="BulkRequestModel" class="md-nav__link">
+      BulkRequestModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/bulk-request/bulk-request-item/" title="BulkRequestItem" class="md-nav__link">
+      BulkRequestItem
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/bulk-request/bulk-request-response/" title="BulkRequestResponse" class="md-nav__link">
+      BulkRequestResponse
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/model/member/member/" title="Member" class="md-nav__link">
       Member
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -902,8 +910,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-example" title="Code example" class="md-nav__link">
-    Code example
+  <a href="#following-below-steps" title="Following below steps" class="md-nav__link">
+    Following below steps
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-app" title="Run The App" class="md-nav__link">
+    Run The App
   </a>
   
 </li>
@@ -924,151 +939,207 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/kintone/kintone-ios-sdk/edit/master/docs/getting-started/quickstart.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
                 
                 <h1 id="quickstart">Quickstart</h1>
 <h2 id="requirement">Requirement</h2>
 <ul>
-<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">Java SE</a> (Version 8 or later)</li>
-<li><a href="https://maven.apache.org/download.cgi">maven</a> (Version 3.5.4 or later)</li>
-<li><a href="https://github.dev.cybozu.co.jp/SC/kintone-java-sdk">kintone-java-sdk</a></li>
+<li><a href="https://github.com/kintone/kintone-ios-sdk">kintone-ios-sdk</a></li>
+<li><a href="https://github.com/google/promises">promises</a></li>
 </ul>
-<h2 id="code-example">Code example</h2>
-<p><details class="tab-container" open>
-<Summary>Get record sample</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="Java">import com.cybozu.kintone.client.authentication.*;
-import com.cybozu.kintone.client.connection.*;
-import com.cybozu.kintone.client.model.record.*;
-import com.cybozu.kintone.client.module.record.*;
-
-String USERNAME = &quot;cybozu&quot;;
-String PASSWORD = &quot;cybozu&quot;;
-
-// Init authenticationAuth
-Auth kintoneAuthWithPassword = new Auth();
-kintoneAuthWithPassword.setPasswordAuth(USERNAME, PASSWORD);
-
-// Init Connection without &quot;guest space ID&quot;
-Connection kintoneOnDemoDomain = new Connection(&quot;sample.domain.dot&quot;, kintoneAuthWithPassword);
-
-// Init Record Module
-Record kintoneRecordManager = new Record(kintoneOnDemoDomain);
-
-// execute GET RECORD API
-Integer appID = 1;
-Integer recordID = 1;
-
-try {
-  GetRecordResponse response = kintoneRecordManager.getRecord(appID, recordID);
-} catch (Exception e) {
-  System.out.println(e.getMessage());
-}
+<h2 id="following-below-steps">Following below steps</h2>
+<ul>
+<li>
+<p>Create a new project
+<img alt="" src="../../img/createApp.gif" /></p>
+</li>
+<li>
+<p>Get Carthage by running the bellow command or choose <a href="https://github.com/Carthage/Carthage#installing-carthage">another installation method</a></p>
+<pre><code>brew install carthage
+</code></pre>
+</li>
+<li>
+<p>Create <a href="https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile">Cartfile</a> into the ./testSDK folder </p>
+<pre><code>github "google/promises"
+github "kintone/kintone-ios-sdk"
+</code></pre>
+</li>
+<li>
+<p>Run</p>
+<pre><code>carthage update
+</code></pre>
+</li>
+<li>
+<p>On your application targets’ General settings tab, in the Embedded Binaries section, add Item</p>
+</li>
+</ul>
+<pre><code>FBLPromises.framework
+Promises.framework
+kintone_ios_sdk.framework
 </code></pre>
 
-<p><strong> Response success</strong></p>
-<pre><code class="Java">{
-    &quot;record&quot;:{
-        // record data should be here
+<ul>
+<li>
+<p>Build the UI elements
+<img alt="" src="../../img/createUI.gif" /></p>
+</li>
+<li>
+<p>Connect the UI elements
+<img alt="" src="../../img/connectUI.gif" /></p>
+</li>
+<li>
+<p>Set the promises of dispatch queue to global in the AppDelegate.swift. (Reference: <a href="https://github.com/google/promises/blob/master/g3doc/index.md#default-dispatch-queue">Default dispatch queue</a> )
+<img alt="" src="../../img/globalPromise.png" /></p>
+</li>
+<li>
+<p>Open the ViewController.swift</p>
+<ul>
+<li>
+<p>Declare framework</p>
+<pre><code>import UIKit
+import kintone_ios_sdk
+import Promises
+</code></pre>
+</li>
+<li>
+<p>Init SDK module</p>
+<pre><code>let auth:Auth = Auth()
+var conn:Connection? = nil
+var app:App? = nil
+</code></pre>
+</li>
+<li>
+<p>Get attribute string</p>
+<pre><code>func getAttributedString(_ htmlString: String) -&gt; NSAttributedString {
+    let htmlData = NSString(string: htmlString).data(using: String.Encoding.unicode.rawValue)
+    let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+    let attributedString = try! NSAttributedString(data: htmlData!, options: options, documentAttributes: nil)
+    return attributedString
+}
+</code></pre>
+</li>
+<li>
+<p>Implement <em>getApp</em> function</p>
+<pre><code>auth.setPasswordAuth(txtUserName.text!, txtPassword.text!)
+conn = Connection(txtDomain.text!, auth)
+print("domain \(txtDomain.text!)")
+app = App(conn)
+
+self.app?.getApp(Int(txtAppID.text!)).then{ response in
+    let htmlString = "&lt;html&gt;" +
+        "&lt;head&gt;&lt;/head&gt;" +
+        "&lt;body&gt;&lt;h1&gt;App Infor&lt;/h1&gt;" +
+        "&lt;b&gt;App ID: \(response.getAppId()!)&lt;/b&gt;&lt;/br&gt;" +
+        "&lt;b&gt;App Name: \(response.getName()!)&lt;/b&gt;&lt;/br&gt;" +
+        "&lt;b&gt;Creared At: \(response.getCreadtedAt()!)&lt;/b&gt;&lt;/br&gt;" +
+        "&lt;b&gt;Creared By: \(response.getCreator()!.getName()!)&lt;/b&gt;&lt;/br&gt;" +
+        "&lt;/body&gt;&lt;/head&gt;&lt;/html&gt;"
+
+    DispatchQueue.main.async {
+        self.txtResult.attributedText = self.getAttributedString(htmlString)
+    }
+}.catch { error in
+    var htmlString = "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Error occur&lt;/h1&gt;"
+
+    if type(of: error) == KintoneAPIException.self
+    {
+        let err = error as! KintoneAPIException
+        htmlString += "&lt;b&gt;Status code: \(err.getHttpErrorCode()!)&lt;/b&gt;" +
+                        "&lt;p&gt;&lt;b&gt;Message: \(err.getErrorResponse()!.getMessage()!)&lt;/b&gt;&lt;/p&gt;"
+    } else {
+        htmlString += "&lt;p&gt;&lt;b&gt;Message: \(error.localizedDescription)&lt;/b&gt;&lt;/p&gt;"
+    }
+
+    htmlString += "&lt;/body&gt;&lt;/head&gt;&lt;/html&gt;"
+
+    DispatchQueue.main.async {
+        self.txtResult.attributedText = self.getAttributedString(htmlString)
     }
 }
 </code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>FullCode</p>
+<ul>
+<li>ViewController Class<pre><code>import UIKit
+import kintone_ios_sdk
+import Promises
+class ViewController: UIViewController {
 
-<p><strong> Response error</strong></p>
-<pre><code class="Java">{
-    id: '{ID}',
-    code: '{CODE}',
-    message: '{Message string}',
-}
-</code></pre>
+    @IBOutlet weak var txtDomain: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtUserName: UITextField!
+    @IBOutlet weak var txtAppID: UITextField!
+    @IBOutlet weak var txtResult: UITextView!
 
-<p></details></p>
-<p><details class="tab-container" open>
-<Summary>Bulk request sample</Summary></p>
-<p><strong> Source code </strong></p>
-<pre><code class="Java">import java.util.*;
-import com.cybozu.kintone.client.authentication.*;
-import com.cybozu.kintone.client.connection.*;
-import com.cybozu.kintone.client.constant.*;
-import com.cybozu.kintone.client.model.record.*;
-import com.cybozu.kintone.client.model.record.field.*;
-import com.cybozu.kintone.client.module.record.*;
-import com.cybozu.kintone.client.model.bulkrequest.*;
-import com.cybozu.kintone.client.module.bulkrequest.*;
+    let auth:Auth = Auth.init()
+    var conn:Connection? = nil
+    var app:App? = nil
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
 
-String USERNAME = &quot;cybozu&quot;;
-String PASSWORD = &quot;cybozu&quot;;
-
-// Init authenticationAuth
-Auth kintoneAuthWithPassword = new Auth();
-kintoneAuthWithPassword.setPasswordAuth(USERNAME, PASSWORD);
-
-// Init Connection without &quot;guest space ID&quot;
-Connection kintoneOnDemoDomain = new Connection(&quot;sample.domain.dot&quot;, kintoneAuthWithPassword);
-
-// Init BulkRequest Module
-BulkRequest bulkRequestManager = new BulkRequest(kintoneOnDemoDomain);
-
-// update record &amp; delete records with bulk request
-HashMap&lt;String, FieldValue&gt; record1 = new HashMap&lt;String, FieldValue&gt;();
-ArrayList&lt;RecordUpdateItem&gt; dataUpdate = new ArrayList&lt;RecordUpdateItem&gt;();
-
-Integer recordID = 1;
-Integer revision = 1;
-
-FieldValue fv1 = new FieldValue();
-fv1.setType(FieldType.NUMBER);
-fv1.setValue(&quot;2222&quot;);
-record1.put(&quot;FieldCode1&quot;, fv1);
-dataUpdate.add(new RecordUpdateItem(recordID, revision, null, record1));
-
-ArrayList&lt;Integer&gt; recordIDsDelete = new ArrayList&lt;Integer&gt;();
-recordIDsDelete.add(1);
-recordIDsDelete.add(2);
-recordIDsDelete.add(3);
-
-Integer appID = 1;
-
-bulkRequest.deleteRecords(appID, recordIDsDelete);
-bulkRequest.updateRecords(appID, dataUpdate);
-
-// execute BulkRequest
-try {
-  BulkRequestResponse responses = bulkRequestManager.execute();
-
-  // get results
-  ArrayList&lt;Object&gt; results = responses.getResults();
-  HashMap result1 = (HashMap)results.get(0);
-  UpdateRecordsResponse result2 = (UpdateRecordsResponse)results.get(1);
-
-  // data Response of the delete request
-  System.out.println(&quot;delete request: &quot; + result1.toString());
-
-  // data Response of the update request
-  ArrayList&lt;RecordUpdateResponseItem&gt; result21 = result2.getRecords();
-  System.out.println(&quot;update request ID: &quot; + result21.get(0).getID());
-  System.out.println(&quot;update request Revison: &quot; + result21.get(0).getRevision());
-} catch (Exception e) {
-  System.out.println(e.getMessage());
-}
-</code></pre>
-
-<p><strong> Response success</strong></p>
-<pre><code class="Java">{
-    &quot;record&quot;:{
-        // record data should be here
     }
+
+    @IBAction func getApp(_ sender: Any) {
+        auth.setPasswordAuth(txtUserName.text!, txtPassword.text!)
+        conn = Connection(txtDomain.text!, auth)
+        app = App(conn)
+
+        self.app?.getApp(Int(txtAppID.text!)).then{ response in
+            let htmlString = "&lt;html&gt;" +
+                "&lt;head&gt;&lt;/head&gt;" +
+                "&lt;body&gt;&lt;h1&gt;App Infor&lt;/h1&gt;" +
+                "&lt;b&gt;App ID: \(response.getAppId()!)&lt;/b&gt;&lt;/br&gt;" +
+                "&lt;b&gt;App Name: \(response.getName()!)&lt;/b&gt;&lt;/br&gt;" +
+                "&lt;b&gt;Creared At: \(response.getCreadtedAt()!)&lt;/b&gt;&lt;/br&gt;" +
+                "&lt;b&gt;Creared By: \(response.getCreator()!.getName()!)&lt;/b&gt;&lt;/br&gt;" +
+                "&lt;/body&gt;&lt;/head&gt;&lt;/html&gt;"
+
+            DispatchQueue.main.async {
+                self.txtResult.attributedText = self.getAttributedString(htmlString)
+            }
+        }.catch { error in
+            var htmlString = "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Error occur&lt;/h1&gt;"
+
+            if type(of: error) == KintoneAPIException.self
+            {
+                let err = error as! KintoneAPIException
+                htmlString += "&lt;b&gt;Status code: \(err.getHttpErrorCode()!)&lt;/b&gt;" +
+                            "&lt;p&gt;&lt;b&gt;Message: \(err.getErrorResponse()!.getMessage()!)&lt;/b&gt;&lt;/p&gt;"
+            } else {
+                htmlString += "&lt;p&gt;&lt;b&gt;Message: \(error.localizedDescription)&lt;/b&gt;&lt;/p&gt;"
+            }
+
+            htmlString += "&lt;/body&gt;&lt;/head&gt;&lt;/html&gt;"
+
+            DispatchQueue.main.async {
+                self.txtResult.attributedText = self.getAttributedString(htmlString)
+            }
+        }
+    }
+
+    func getAttributedString(_ htmlString: String) -&gt; NSAttributedString {
+        let htmlData = NSString(string: htmlString).data(using: String.Encoding.unicode.rawValue)
+        let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+        let attributedString = try! NSAttributedString(data: htmlData!, options: options, documentAttributes: nil)
+        return attributedString
+    }
+
 }
 </code></pre>
-
-<p><strong> Response error</strong></p>
-<pre><code class="Java">{
-    id: '{ID}',
-    code: '{CODE}',
-    message: '{Message string}',
-}
-</code></pre>
-
-<p></details></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="run-the-app">Run The App</h2>
+<p>Build and run the iOS App.</p>
+<p>After inserting the domain data, credentials and the target Kintone App ID, click on the Get App button.</p>
+<p>The iOS App should retrieve the infomation of the specified Kintone App, and display it in the text view.</p>
+<p><img alt="" src="../../img/result.png" /></p>
                 
                   
                 
@@ -1140,9 +1211,9 @@ try {
       
     </div>
     
-      <script src="../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
       
-      <script>app.initialize({version:"0.17.5",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
         <script src="../../asset/js/extra.js"></script>
       
