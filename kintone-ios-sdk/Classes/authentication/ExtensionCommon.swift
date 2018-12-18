@@ -51,7 +51,6 @@ extension SecTrust {
     }
     
     func evaluateAllowing(rootCertificates: [SecCertificate]) -> Bool {
-        
         // Apply our custom root to the trust object.
         var err = SecTrustSetAnchorCertificates(self, rootCertificates as CFArray)
         guard err == errSecSuccess else { return false }
