@@ -27,14 +27,14 @@ class RecordTest: XCTestCase {
         var auth = Auth()
         auth = auth.setPasswordAuth(TestsConstants.ADMIN_USERNAME, TestsConstants.ADMIN_PASSWORD)
         
-        let certPassword = "pb6ft2cs"
+        let certPassword = TestsConstants.CERT_PASSWORD
         
         let testBundle = Bundle(for: type(of: self))
-        //let certData = try! Data(contentsOf: testBundle.url(forResource: "dinhnhat", withExtension: "pfx")!)
+        //let certData = try! Data(contentsOf: testBundle.url(forResource: TestsConstants.CERT_NAME, withExtension: TestsConstants.CERT_EXTENSION)!)
         
         //auth.setClientCert(certData, certPassword)
         
-        let pathURLString = testBundle.url(forResource: "dinhnhat", withExtension: "pfx")
+        let pathURLString = testBundle.url(forResource: TestsConstants.CERT_NAME, withExtension: TestsConstants.CERT_EXTENSION)
         
         auth.setClientCertByPath(pathURLString!.absoluteString, certPassword)
         
