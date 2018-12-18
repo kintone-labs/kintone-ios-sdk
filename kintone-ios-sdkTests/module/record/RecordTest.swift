@@ -26,21 +26,11 @@ class RecordTest: XCTestCase {
         // set auth
         var auth = Auth()
         auth = auth.setPasswordAuth(TestsConstants.ADMIN_USERNAME, TestsConstants.ADMIN_PASSWORD)
-        
         let certPassword = TestsConstants.CERT_PASSWORD
-        
         let testBundle = Bundle(for: type(of: self))
-        //let certData = try! Data(contentsOf: testBundle.url(forResource: TestsConstants.CERT_NAME, withExtension: TestsConstants.CERT_EXTENSION)!)
-        
-        //auth.setClientCert(certData, certPassword)
-        
         let pathURLString = testBundle.url(forResource: TestsConstants.CERT_NAME, withExtension: TestsConstants.CERT_EXTENSION)
-        
         auth.setClientCertByPath(pathURLString!.absoluteString, certPassword)
-        
         let conn = Connection(TestsConstants.DOMAIN, auth, -1)
-        
-        //conn.setProxy( TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT)
         
         // instance of Record class
         self.recordManagement = Record(conn)
@@ -85,7 +75,6 @@ class RecordTest: XCTestCase {
     }
     
     func testGetRecords() throws {
-        
         // create test data for get record
         var testData1: Dictionary<String, FieldValue> = createAddData()
         var testData2: Dictionary<String, FieldValue> = createAddData()
@@ -236,7 +225,6 @@ class RecordTest: XCTestCase {
     }
     
     func testAddRecord() throws {
-        
         // create test data for add
         var testData: Dictionary<String, FieldValue> = createAddData()
         testData = addData(testData, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testAddRecord")
