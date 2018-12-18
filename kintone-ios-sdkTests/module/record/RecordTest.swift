@@ -32,11 +32,11 @@ class RecordTest: XCTestCase {
         let testBundle = Bundle(for: type(of: self))
         //let certData = try! Data(contentsOf: testBundle.url(forResource: "dinhnhat", withExtension: "pfx")!)
         
-        //auth.setCertificate(certData, certPassword)
+        //auth.setClientCert(certData, certPassword)
         
         let pathURLString = testBundle.url(forResource: "dinhnhat", withExtension: "pfx")
         
-        auth.setCertificateByPath(pathURLString!.absoluteString, certPassword)
+        auth.setClientCertByPath(pathURLString!.absoluteString, certPassword)
         
         let conn = Connection(TestsConstants.DOMAIN, auth, -1)
         
