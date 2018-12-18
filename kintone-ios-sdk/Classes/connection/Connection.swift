@@ -99,7 +99,6 @@ open class Connection: NSObject {
                 else {
                     delegateForCert.setCertByData(self.auth.certData, self.auth.password)
                 }
-                
                 session = URLSession(configuration: config, delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {
@@ -175,7 +174,6 @@ open class Connection: NSObject {
                 else {
                     delegateForCert.setCertByData(self.auth.certData, self.auth.password)
                 }
-                
                 session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {
@@ -250,7 +248,6 @@ open class Connection: NSObject {
                 else {
                     delegateForCert.setCertByData(self.auth.certData, self.auth.password)
                 }
-                
                 session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.main)
             }
             else {
