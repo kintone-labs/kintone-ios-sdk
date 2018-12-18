@@ -2,7 +2,6 @@
 //  ExtensionCommon.swift
 //  kintone-ios-sdk
 //
-//  Created by Nguyen Phong Nhat on 11/30/18.
 //  Copyright © 2018 Cybozu. All rights reserved.
 //
 
