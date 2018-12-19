@@ -5,7 +5,7 @@ Provide manipulate functions on file: file download & file upload in the kintone
 !!! warning
     The user must set the promises to global to use the module:
 
-            DispatchQueue.promise = global()
+            DispatchQueue.promise = .global()
 
 
 ## Constructor

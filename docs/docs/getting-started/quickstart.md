@@ -24,20 +24,16 @@
         carthage update
 
 * On your application targets’ General settings tab, in the Embedded Binaries section, add Item
-```
-FBLPromises.framework
-Promises.framework
-kintone_ios_sdk.framework
-```
+
+        FBLPromises.framework
+        Promises.framework
+        kintone_ios_sdk.framework
 
 * Build the UI elements
 ![](../img/createUI.gif)
 
 * Connect the UI elements
 ![](../img/connectUI.gif)
-
-* Set the promises of dispatch queue to global in the AppDelegate.swift. (Reference: [Default dispatch queue](https://github.com/google/promises/blob/master/g3doc/index.md#default-dispatch-queue) )
-![](../img/globalPromise.png)
 
 * Open the ViewController.swift
     * Declare framework
@@ -68,7 +64,7 @@ kintone_ios_sdk.framework
             print("domain \(txtDomain.text!)")
             app = App(conn)
 
-            self.app?.getApp(Int(txtAppID.text!)).then{ response in
+            self.app?.getApp(Int(txtAppID.text!)!).then{ response in
                 let htmlString = "<html>" +
                     "<head></head>" +
                     "<body><h1>App Infor</h1>" +
@@ -100,6 +96,9 @@ kintone_ios_sdk.framework
                 }
             }
 
+* Set the promises of dispatch queue to global in the AppDelegate.swift. (Reference: [Default dispatch queue](https://github.com/google/promises/blob/master/g3doc/index.md#default-dispatch-queue) )
+![](../img/globalPromise.png)
+
 * FullCode
     * ViewController Class
 
@@ -128,7 +127,7 @@ kintone_ios_sdk.framework
                     conn = Connection(txtDomain.text!, auth)
                     app = App(conn)
                     
-                    self.app?.getApp(Int(txtAppID.text!)).then{ response in
+                    self.app?.getApp(Int(txtAppID.text!)!).then{ response in
                         let htmlString = "<html>" +
                             "<head></head>" +
                             "<body><h1>App Infor</h1>" +

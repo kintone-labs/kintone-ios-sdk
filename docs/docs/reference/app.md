@@ -5,7 +5,7 @@ Gets general information of an App, including the name, description, related Spa
 !!! warning
     The user must set the promises to global to use the module:
 
-            DispatchQueue.promise = global()
+            DispatchQueue.promise = .global()
 
 
 - Permissions to view the App is needed.
