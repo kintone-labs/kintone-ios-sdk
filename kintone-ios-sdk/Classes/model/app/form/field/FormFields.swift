@@ -1,7 +1,7 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
 open class FormFields: NSObject, Codable {
-    private var app: String?
+    private var app: Int?
     private var revision: String?
     private var properties: [String: Field]?
     
@@ -32,7 +32,7 @@ open class FormFields: NSObject, Codable {
         }
     }
     
-    public init(_ app: String?, _ properties: [String: Field]?, _ revision: String?) {
+    public init(_ app: Int?, _ properties: [String: Field]?, _ revision: String?) {
         super.init()
         self.app = app
         self.revision = revision
@@ -40,11 +40,11 @@ open class FormFields: NSObject, Codable {
     }
     
     open func getApp() -> Int? {
-        return Int(self.app != nil ? self.app! : "")
+        return self.app
     }
    
     open func setApp(_ app: Int?) {
-        return self.app = app != nil ? "\(String(describing: app!))" : nil
+        return self.app = app
     }
     
     open func getRevision() -> Int? {
@@ -67,8 +67,8 @@ open class FormFields: NSObject, Codable {
         super.init()
         do {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.setApp(try container.decodeIfPresent(Int.self, forKey: .app))
-            self.setRevision(try container.decodeIfPresent(Int.self, forKey: .revision))
+            self.app = try container.decodeIfPresent(Int.self, forKey: .app)
+            self.revision = try container.decodeIfPresent(String.self, forKey: .revision)
             var properties = [String: Field]()
             
             let fields = try container.decode([String: Field].self, forKey: .properties)
