@@ -429,15 +429,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#uploadfilepath" title="upload(filePath)" class="md-nav__link">
-    upload(filePath)
+  <a href="#upload_-filepath-string" title="upload(_ filePath: String)" class="md-nav__link">
+    upload(_ filePath: String)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#downloadfilekey-outputfilepath" title="download(fileKey, outPutFilePath)" class="md-nav__link">
-    download(fileKey, outPutFilePath)
+  <a href="#download_-filekey-string-_-outputfilepath-string" title="download(_ fileKey: String, _ outPutFilePath: String)" class="md-nav__link">
+    download(_ fileKey: String, _ outPutFilePath: String)
   </a>
   
 </li>
@@ -931,15 +931,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#uploadfilepath" title="upload(filePath)" class="md-nav__link">
-    upload(filePath)
+  <a href="#upload_-filepath-string" title="upload(_ filePath: String)" class="md-nav__link">
+    upload(_ filePath: String)
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#downloadfilekey-outputfilepath" title="download(fileKey, outPutFilePath)" class="md-nav__link">
-    download(fileKey, outPutFilePath)
+  <a href="#download_-filekey-string-_-outputfilepath-string" title="download(_ fileKey: String, _ outPutFilePath: String)" class="md-nav__link">
+    download(_ fileKey: String, _ outPutFilePath: String)
   </a>
   
 </li>
@@ -1012,7 +1012,7 @@
 </details>
 
 <h2 id="methods">Methods</h2>
-<h3 id="uploadfilepath">upload(filePath)</h3>
+<h3 id="upload_-filepath-string">upload(_ filePath: String)</h3>
 <p>Upload file kintone via Rest API</p>
 <p><strong>Parameter</strong></p>
 <table>
@@ -1034,7 +1034,7 @@
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p>FileModel</p>
+<p>Promise&lt;FileModel></p>
 <p><strong>Sample code</strong></p>
 <details class="tab-container" open>
 <Summary>Get app sample</Summary>
@@ -1101,7 +1101,7 @@
 
 </details>
 
-<h3 id="downloadfilekey-outputfilepath">download(fileKey, outPutFilePath)</h3>
+<h3 id="download_-filekey-string-_-outputfilepath-string">download(_ fileKey: String, _ outPutFilePath: String)</h3>
 <p>Download file kintone via Rest API</p>
 <p><strong>Parameter</strong></p>
 <table>
@@ -1129,7 +1129,7 @@
 </tbody>
 </table>
 <p><strong>Return</strong></p>
-<p>(none)</p>
+<p>Promise&lt;Void></p>
 <p><strong>Sample code</strong></p>
 <details class="tab-container" open>
 <Summary>Get apps sample</Summary>
