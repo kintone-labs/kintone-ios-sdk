@@ -23,13 +23,15 @@ open class Auth: NSObject {
         self.withCert = true
         self.password = password 
         self.certData = certData
+        return self
     }
     
     open func setClientCertByPath(_ certPath: String, _ password: String) {
         self.withCert = true
         self.useCertPath = true
         self.certPath = certPath
-        self.password = password 
+        self.password = password
+        return self
     }
 
     /// set basic authentication
