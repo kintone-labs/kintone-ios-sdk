@@ -169,3 +169,75 @@ Array&lt;HTTPHeader&gt;
 </pre>
 
 </details>
+
+### setClientCert(certData, certPassword)
+
+Set certificate by certificate data
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| certData | Data | yes | Data read from certificate file received from kintone
+| password | String | yes | The password from kintone to decode the cert file
+
+**Return**
+
+[Auth](../authentication)
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Set certificate by certificate data</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let certPassword = "YOUR_CERT_PASSWORD"
+    let testBundle = Bundle(for: type(of: self))
+    
+    let certData = try! Data(contentsOf: testBundle.url(forResource: "YOUR_CERT_NAME", withExtension: "YOUR_CERT_EXTENSION")!)
+    auth.setClientCert(certData, certPassword)
+    
+    let conn = Connection(TestsConstants.DOMAIN, auth, -1)
+
+</pre>
+
+</details>
+
+### setClientCertByPath(certData, certPassword)
+
+Set certificate by path
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| certPath | String | yes | Path to kintone certificate file
+| password | String | yes | The password from kintone to decode the cert file
+
+**Return**
+
+[Auth](../authentication)
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Set certificate by path</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let certPassword = "YOUR_CERT_PASSWORD"
+    let testBundle = Bundle(for: type(of: self))
+    
+    let certData = try! Data(contentsOf: testBundle.url(forResource: "YOUR_CERT_NAME", withExtension: "YOUR_CERT_EXTENSION")!)
+    auth.setClientCert(certData, certPassword)
+    
+    let conn = Connection(TestsConstants.DOMAIN, auth, -1)
+
+</pre>
+
+</details>
