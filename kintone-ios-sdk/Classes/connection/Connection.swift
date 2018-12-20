@@ -304,7 +304,7 @@ open class Connection: NSObject {
             }
         }
         
-        request.addValue(ConnectionConstants.USER_AGENT_KEY, forHTTPHeaderField: self.userAgent)
+        request.addValue(self.userAgent, forHTTPHeaderField: ConnectionConstants.USER_AGENT_KEY)
         for header in self.headers {
             if let unwrap_getvalue = header.getValue() {
                 if let unwrap_getKey = header.getKey() {
