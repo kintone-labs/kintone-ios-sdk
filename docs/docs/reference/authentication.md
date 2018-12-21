@@ -151,7 +151,7 @@ Array&lt;HTTPHeader&gt;
     let loginPassword: String? = "your_password"
     let basicLoginName: String? = "your_basic_login_name"
     let basicLoginPassword: String? = "your_basic_password"
-    let apiToken: String? = "906C7BuWHL7dDgHkjavajg1akxLOWorqJ2TKXvOS"
+    let apiToken: String? = "your_api_token"
             
     let auth = Auth()
     auth.setBasicAuth(basicLoginName, basicLoginPassword)
