@@ -200,7 +200,7 @@ Set certificate by certificate data
     let certData = try! Data(contentsOf: testBundle.url(forResource: "YOUR_CERT_NAME", withExtension: "YOUR_CERT_EXTENSION")!)
     auth.setClientCert(certData, certPassword)
     
-    let conn = Connection(TestsConstants.DOMAIN, auth, -1)
+    let conn = Connection("YOUR_DOMAIN", auth, -1)
 
 </pre>
 
@@ -236,7 +236,7 @@ Set certificate by path
     let certData = try! Data(contentsOf: testBundle.url(forResource: "YOUR_CERT_NAME", withExtension: "YOUR_CERT_EXTENSION")!)
     auth.setClientCert(certData, certPassword)
     
-    let conn = Connection(TestsConstants.DOMAIN, auth, -1)
+    let conn = Connection("YOUR_DOMAIN", auth, -1)
 
 </pre>
 
