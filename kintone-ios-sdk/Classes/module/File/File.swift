@@ -6,6 +6,7 @@
 //  Copyright © 2018年 Cybozu. All rights reserved.
 //
 import Promises
+import UIKit
 
 open class File: NSObject{
     private var connection: Connection
@@ -27,8 +28,15 @@ open class File: NSObject{
     open func upload(_ filePath: String) -> Promise<FileModel> {
         return Promise { fulfill, reject in
             do {
+                var fileData = Data()
                 let targetFilePath = URL(string: filePath)!
-                let fileData = try Data(contentsOf: targetFilePath)
+                if targetFilePath.pathExtension == "png"  {
+                    if let pngImage = UIImage(contentsOfFile: targetFilePath.path) {
+                        fileData = try UIImagePNGRepresentation(pngImage) ?? Data(contentsOf: targetFilePath)
+                    }
+                } else {
+                    fileData = try Data(contentsOf: targetFilePath)
+                }
                 self.connection.uploadFile(targetFilePath.lastPathComponent, fileData).then{ response in
                     let parseResponse = try self.parser.parseJson(FileModel.self, response)
                     fulfill(parseResponse)
@@ -40,7 +48,6 @@ open class File: NSObject{
             }
         }
     }
-    
     /// Download Async file on kintone
     ///
     /// - Parameters:
