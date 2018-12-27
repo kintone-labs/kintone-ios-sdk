@@ -1,0 +1,62 @@
+//
+//  ConnectionConstants.swift
+//  kintone-ios-sdk
+//
+//  Created by h001218 on 2018/08/31.
+//  Copyright © 2018年 h001218. All rights reserved.
+//
+
+open class ConnectionConstants: NSObject {
+    public static let BASE_URL = "/k/v1/{API_NAME}.json"
+    public static let BASE_GUEST_URL = "/k/guest/{GUEST_SPACE_ID}/v1/{API_NAME}.json"
+    public static let GET_REQUEST = "GET"
+    public static let POST_REQUEST = "POST"
+    public static let PUT_REQUEST = "PUT"
+    public static let DELETE_REQUEST = "DELETE"
+    public static let HTTPS_PREFIX = "https://"
+    public static let USER_AGENT_KEY = "User-Agent"
+    public static let USER_AGENT_VALUE = "kintone-ios-sdk"
+    public static let CONTENT_TYPE_HEADER = "Content-Type"
+    public static let METHOD_OVERRIDE_HEADER = "X-HTTP-Method-Override"
+    public static let DEFAULT_CONTENT_TYPE = "application/octet-stream"
+    public static let BOUNDARY = "boundary_aj8gksdnsdfakj342fs3dt3stk8g6j32"
+    
+    public static let APP = "app"
+    public static let APP_CUSTOMIZE = "app/customize"
+    public static let APP_CUSTOMIZE_PREVIEW = "preview/app/customize"
+    public static let APP_DEPLOY = "review/app/deploy"
+    public static let APP_DEPLOY_PREVIEW = "preview/app/deploy"
+    public static let APP_FIELDS = "app/form/fields"
+    public static let APP_FIELDS_PREVIEW = "preview/app/form/fields"
+    public static let APP_LAYOUT = "app/form/layout"
+    public static let APP_LAYOUT_PREVIEW = "preview/app/form/layout"
+    public static let APP_PERMISSION = "app/acl"
+    public static let APP_PERMISSION_PREVIEW = "preview/app/acl"
+    public static let APP_PREVIEW = "preview/app"
+    public static let APP_SETTINGS = "app/settings"
+    public static let APP_SETTINGS_PREVIEW = "preview/app/settings"
+    public static let APP_STATUS = "app/status"
+    public static let APP_STATUS_PREVIEW = "preview/app/status"
+    public static let APP_VIEWS = "app/views"
+    public static let APP_VIEWS_PREVIEW = "preview/app/views"
+    public static let APPS = "apps"
+    public static let BULK_REQUEST = "bulkRequest"
+    public static let FIELD_PERMISSION = "field/acl"
+    public static let FILE = "file"
+    public static let GUESTS = "guests"
+    public static let RECORD = "record"
+    public static let RECORD_ASSIGNEES = "record/assignees"
+    public static let RECORD_COMMENT = "record/comment"
+    public static let RECORD_COMMENTS = "record/comments"
+    public static let RECORD_PERMISSION = "record/acl"
+    public static let RECORD_STATUS = "record/status"
+    public static let RECORDS = "records"
+    public static let RECORDS_STATUS = "records/status"
+    public static let SPACE = "space"
+    public static let SPACE_BODY = "space/body"
+    public static let SPACE_GUEST = "space/guests"
+    public static let SPACE_MEMBER = "space/members"
+    public static let SPACE_TEMPLATE = "template/space"
+    public static let SPACE_THREAD = "space/thread"
+    public static let SPACE_THREAD_COMMENT = "space/thread/comment"
+}
