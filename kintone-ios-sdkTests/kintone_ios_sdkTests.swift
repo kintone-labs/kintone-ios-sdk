@@ -5,7 +5,6 @@
 //  Created by y001112 on 2018/09/04.
 //  Copyright © 2018年 y001112. All rights reserved.
 //
-
 import XCTest
 @testable import kintone_ios_sdk
 
@@ -32,5 +31,4 @@ class kintone_ios_sdkTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }
