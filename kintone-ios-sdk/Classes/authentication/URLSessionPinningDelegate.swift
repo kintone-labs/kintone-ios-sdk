@@ -54,8 +54,12 @@ class URLSessionPinningDelegate: NSObject, URLSessionDelegate
     }
     
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        var domainString = self.domain!
+        if !domainString.hasPrefix("https://") {
+            domainString = "https://" + domainString
+        }
         switch (challenge.protectionSpace.authenticationMethod, "https://" + challenge.protectionSpace.host) {
-        case (NSURLAuthenticationMethodClientCertificate, self.domain!):
+        case (NSURLAuthenticationMethodClientCertificate, domainString):
             self.didReceive(clientIdentityChallenge: challenge, completionHandler: completionHandler)
         default:
             completionHandler(.performDefaultHandling, nil)
