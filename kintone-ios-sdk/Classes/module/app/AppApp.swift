@@ -193,7 +193,7 @@ public extension AppApp where Self: App {
     
     func deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool? = nil) -> Promise<Void>{
         return Promise { fulfill, reject in
-            let deployAppSettingsRequest = DeployAppSettingsRequest(apps)
+            let deployAppSettingsRequest = DeployAppSettingsRequest(apps, revert)
             do {
                 let body = try self.parser.parseObject(deployAppSettingsRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!
