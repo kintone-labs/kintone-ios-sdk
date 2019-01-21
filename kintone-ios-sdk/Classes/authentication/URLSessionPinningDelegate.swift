@@ -43,14 +43,19 @@ class URLSessionPinningDelegate: NSObject, URLSessionDelegate
     }
     
     func didReceive(clientIdentityChallenge challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-        var identity: SecIdentity
+        var identity: (status: OSStatus, data:SecIdentity?)
         if self.usePath ?? false {
             identity = Bundle.main.identity(filepath: self.certPath!, password: self.password!)
         }
         else {
             identity = Bundle.main.identityData(certData: self.certData!, password: self.password!)
         }
-        completionHandler(.useCredential, URLCredential(identity: identity, certificates: nil, persistence: .forSession))
+        if (identity.status == errSecAuthFailed) {
+            completionHandler(.performDefaultHandling, nil)
+        }
+        else {
+            completionHandler(.useCredential, URLCredential(identity: identity.data!, certificates: nil, persistence: .forSession))
+        }
     }
     
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
