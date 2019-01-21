@@ -198,6 +198,19 @@ open class Connection: NSObject {
         }
     }
     
+    /// Check for valid URL
+    func verifyUrl (urlString: String?) -> Bool {
+        //Check for nil
+        if let urlString = urlString {
+            // create NSURL instance
+            if let url = URL(string: urlString) {
+                // check if your application can open the NSURL instance
+                return UIApplication.shared.canOpenURL(url)
+            }
+        }
+        return false
+    }
+    
     /// Asynchornous rest http request.
     /// This method is low level api, use the correspondence methods in module package instead.
     ///
@@ -220,6 +233,13 @@ open class Connection: NSObject {
                 urlString = try self.getURL(apiName, nil)
             } catch {
                 reject(KintoneAPIException("Invalid URL"))
+            }
+            
+            let urlIsValid = self.verifyUrl(urlString: urlString)
+            
+            if !urlIsValid {
+                reject(KintoneAPIException("Invalid URL"))
+                return
             }
             
             let url = URL(string: urlString)!
