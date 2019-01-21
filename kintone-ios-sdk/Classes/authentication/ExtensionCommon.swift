@@ -17,26 +17,32 @@ extension Bundle {
         return cer
     }
     
-    func identityData(certData: Data, password: String) -> SecIdentity {
+    func identityData(certData: Data, password: String) -> (status: OSStatus, data:SecIdentity?) {
         var importedCF: CFArray? = nil
         let options = [kSecImportExportPassphrase as String: password]
         let err = SecPKCS12Import(certData as CFData, options as CFDictionary, &importedCF)
+        if err == errSecAuthFailed {
+            return(status: err, data: nil)
+        }
         precondition(err == errSecSuccess)
         let imported = importedCF! as Array as! [[String:AnyObject]]
         precondition(imported.count == 1)
-        return (imported[0][kSecImportItemIdentity as String]!) as! SecIdentity
+        return(status: err, data: ((imported[0][kSecImportItemIdentity as String]!) as! SecIdentity))
     }
     
-    func identity(filepath: String, password: String) -> SecIdentity {
+    func identity(filepath: String, password: String) -> (status: OSStatus, data:SecIdentity?) {
         let url = URL(string: filepath)
         let p12Data = try! Data(contentsOf: url!)
         var importedCF: CFArray? = nil
         let options = [kSecImportExportPassphrase as String: password]
         let err = SecPKCS12Import(p12Data as CFData, options as CFDictionary, &importedCF)
+        if err == errSecAuthFailed {
+            return(status: err, data: nil)
+        }
         precondition(err == errSecSuccess)
         let imported = importedCF! as Array as! [[String:AnyObject]]
         precondition(imported.count == 1)
-        return (imported[0][kSecImportItemIdentity as String]!) as! SecIdentity
+        return(status: err, data:((imported[0][kSecImportItemIdentity as String]!) as! SecIdentity))
     }
 }
 
