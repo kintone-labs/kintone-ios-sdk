@@ -29,7 +29,7 @@ Swift-taylored experience to integrate your app with Kintone. Including:
 ```
 - Set up Command Line Tools in Xcode > Preferences > Locations
 
-![Command Line Tool](./images/command-line-tools.png)
+![Command Line Tool](https://raw.githubusercontent.com/kintone/kintone-ios-sdk/master/images/command-line-tools.png)
 
 ### CocoaPods
 
