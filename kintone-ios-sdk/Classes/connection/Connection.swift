@@ -203,9 +203,8 @@ open class Connection: NSObject {
         //Check for nil
         if let urlString = urlString {
             // create NSURL instance
-            if let url = URL(string: urlString) {
-                // check if your application can open the NSURL instance
-                return UIApplication.shared.canOpenURL(url)
+            if URL(string: urlString) != nil {
+                return true
             }
         }
         return false
