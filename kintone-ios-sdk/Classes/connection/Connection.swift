@@ -302,7 +302,7 @@ open class Connection: NSObject {
         return Promise<(Data?, URLResponse?, NSError?)> { fulfill, reject in
             session.dataTask(with: request) { (data, response, error) -> Void in
                 if error != nil {
-                    reject(error!)
+                    reject(KintoneAPIException(error!.localizedDescription))
                 }
                 fulfill((data, response, error as NSError?))
             }.resume()
