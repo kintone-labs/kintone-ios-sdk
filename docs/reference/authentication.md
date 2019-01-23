@@ -170,7 +170,7 @@ Array&lt;HTTPHeader&gt;
 
 </details>
 
-### setClientCert(certData, certPassword)
+### setClientCert(certData, password)
 
 Set certificate by certificate data
 
@@ -206,7 +206,7 @@ Set certificate by certificate data
 
 </details>
 
-### setClientCertByPath(certData, certPassword)
+### setClientCertByPath(certPath, password)
 
 Set certificate by path
 
@@ -233,8 +233,8 @@ Set certificate by path
     let certPassword = "YOUR_CERT_PASSWORD"
     let testBundle = Bundle(for: type(of: self))
     
-    let certData = try! Data(contentsOf: testBundle.url(forResource: "YOUR_CERT_NAME", withExtension: "YOUR_CERT_EXTENSION")!)
-    auth.setClientCert(certData, certPassword)
+    let pathURLString = testBundle.url(forResource: "YOUR_CERT_NAME", withExtension: "YOUR_CERT_EXTENSION")
+    auth.setClientCertByPath(pathURLString!.absoluteString, certPassword)
     
     let conn = Connection("YOUR_DOMAIN", auth, -1)
 
