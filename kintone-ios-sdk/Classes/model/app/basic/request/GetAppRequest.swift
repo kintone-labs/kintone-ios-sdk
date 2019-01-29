@@ -1,16 +1,16 @@
 // Copyright (c) 2018 Cybozu, Inc.
 
 open class GetAppRequest: NSObject, Codable {
-    private var id: Int?
+    private var id: Int
     
-    open func getId() -> Int? {
+    open func getId() -> Int {
         return self.id
     }
     open func setId(id: Int) {
         self.id = id
     }
     
-    public init(_ id: Int?) {
+    public init(_ id: Int) {
         self.id = id
     }
 }

@@ -8,7 +8,7 @@ public protocol AppApp {
     /// - Parameter appId: Int | The App ID.
     /// - Returns: AppModel Model
     /// - Throws: throws KintoneAPIException
-    func getApp(_ appId: Int?) -> Promise<AppModel>
+    func getApp(_ appId: Int) -> Promise<AppModel>
     
     /// Gets general information of multiple Apps
     ///
@@ -67,7 +67,7 @@ public protocol AppApp {
     ///   - thread: Int | The Thread ID of the thread in the Space where the App will be created.
     /// - Returns: AddPreviewAppResponse Model
     /// - Throws: throws KintoneAPIException
-    func addPreviewApp(_ name: String?, _ space: Int?, _ thread: Int?) -> Promise<PreviewApp>
+    func addPreviewApp(_ name: String, _ space: Int?, _ thread: Int?) -> Promise<PreviewApp>
     
     /// Updates the settings of a pre-live App to the live App.
     ///
@@ -76,14 +76,14 @@ public protocol AppApp {
     ///   - revert: Bool | The pre-live settings will be reverted back to the current settings of the live app.
     /// - Returns: none
     /// - Throws: throws KintoneAPIException
-    func deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool?) -> Promise<Void>
+    func deployAppSettings(_ apps: Array<PreviewApp>, _ revert: Bool?) -> Promise<Void>
     
     /// Gets the deployment status of the App settings for multiple Apps.
     ///
     /// - Parameter apps: [Int] | The list of Apps
     /// - Returns: GetAppDeployStatusResponse Model
     /// - Throws: throws KintoneAPIException
-    func getAppDeployStatus(_ apps: [Int]?) -> Promise<GetAppDeployStatusResponse>
+    func getAppDeployStatus(_ apps: [Int]) -> Promise<GetAppDeployStatusResponse>
 }
 
 public extension AppApp where Self: App {
@@ -105,7 +105,7 @@ public extension AppApp where Self: App {
         }
     }
     
-    func getApp(_ appId: Int?) -> Promise<AppModel> {
+    func getApp(_ appId: Int) -> Promise<AppModel> {
         return Promise { fulfill, reject in
             let getAppRequest = GetAppRequest(appId)
             do {
@@ -173,7 +173,7 @@ public extension AppApp where Self: App {
         }
     }
     
-    func addPreviewApp(_ name: String?, _ space: Int? = nil, _ thread: Int? = nil) -> Promise<PreviewApp> {
+    func addPreviewApp(_ name: String, _ space: Int? = nil, _ thread: Int? = nil) -> Promise<PreviewApp> {
             return Promise { fulfill, reject in
                 let addPreviewAppRequest = AddPreviewAppRequest(name: name, space: space, thread: thread)
             do {
@@ -191,7 +191,7 @@ public extension AppApp where Self: App {
         }
     }
     
-    func deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool? = nil) -> Promise<Void>{
+    func deployAppSettings(_ apps: Array<PreviewApp>, _ revert: Bool? = nil) -> Promise<Void>{
         return Promise { fulfill, reject in
             let deployAppSettingsRequest = DeployAppSettingsRequest(apps, revert)
             do {
@@ -209,7 +209,7 @@ public extension AppApp where Self: App {
         }
     }
     
-    func getAppDeployStatus(_ apps: [Int]?) -> Promise<GetAppDeployStatusResponse> {
+    func getAppDeployStatus(_ apps: [Int]) -> Promise<GetAppDeployStatusResponse> {
         return Promise { fulfill, reject in
             let deployStatusRequest = GetAppDeployStatusRequest(apps)
             do {
