@@ -133,34 +133,34 @@
     
             func isFieldsValid() -> (Bool, String) {
         
-            var errorString: String = ""
-            var isValid: Bool = true
-            if(txtDomain.text!.isEmpty)
-            {
-                isValid = false
-                errorString = "Please input domain field"
-                return (isValid, errorString)
+                var errorString: String = ""
+                var isValid: Bool = true
+                if(txtDomain.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input domain field"
+                    return (isValid, errorString)
+                }
+                if(txtUserName.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input username field"
+                    return (isValid, errorString)
+                }
+                if(txtPassword.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input Password field"
+                    return (isValid, errorString)
+                }
+                if(txtAppID.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input app ID field"
+                    return (isValid, errorString)
+                }
+                return (isValid, "")
             }
-            if(txtUserName.text!.isEmpty)
-            {
-                isValid = false
-                errorString = "Please input username field"
-                return (isValid, errorString)
-            }
-            if(txtPassword.text!.isEmpty)
-            {
-                isValid = false
-                errorString = "Please input Password field"
-                return (isValid, errorString)
-            }
-            if(txtAppID.text!.isEmpty)
-            {
-                isValid = false
-                errorString = "Please input app ID field"
-                return (isValid, errorString)
-            }
-            return (isValid, "")
-    }
     
     
 * Set the promises of dispatch queue to global in the AppDelegate.swift. (Reference: [Default dispatch queue](https://github.com/google/promises/blob/master/g3doc/index.md#default-dispatch-queue) )
