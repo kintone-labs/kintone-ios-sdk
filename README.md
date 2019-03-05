@@ -57,7 +57,7 @@ pod repo update
 Add the following lines to your Podfile:
 
 ```ruby
-pod 'PromisesSwift'
+pod 'PromisesSwift', '~> 1.2.6'
 pod 'kintone-ios-sdk'
 ```
 
