@@ -7,9 +7,11 @@
 
 ## Following below steps
 
-* Create a new project
+### Create a new project
 ![](../img/createApp.gif)
 
+### Install kintone iOS SDK packages
+#### Install SDK by Carthage
 * Get Carthage by running the bellow command or choose [another installation method](https://github.com/Carthage/Carthage#installing-carthage)
 
         brew install carthage
@@ -28,6 +30,36 @@
         FBLPromises.framework
         Promises.framework
         kintone_ios_sdk.framework
+
+#### Install SDK by Cocoapods
+* Get Cocoapods by running the bellow command or choose [another installation method](https://guides.cocoapods.org/using/getting-started.html#getting-started)
+
+        sudo gem install cocoapods
+
+* Create [Podfile](https://guides.cocoapods.org/syntax/podfile.html) by command line in sample application folder
+
+        pod init
+
+* Add depedency packages into Podfile
+        
+        vi Podfile
+
+* Modify Podfile
+
+        target 'testSDK' do
+            use_frameworks!
+            pod 'PromisesSwift'
+            pod 'kintone-ios-sdk'
+        # Pods for testSDK
+        end
+
+* Run
+
+        pod install
+
+* On your ./testSDK folder, double click on *testSDK.xcworkspace* file to start implementing
+
+### Implement sample application using kintone iOS SDK
 
 * Build the UI elements
 ![](../img/createUI.gif)
@@ -96,6 +128,41 @@
                 }
             }
 
+    * Validate input value from user
+
+    
+            func isFieldsValid() -> (Bool, String) {
+        
+                var errorString: String = ""
+                var isValid: Bool = true
+                if(txtDomain.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input domain field"
+                    return (isValid, errorString)
+                }
+                if(txtUserName.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input username field"
+                    return (isValid, errorString)
+                }
+                if(txtPassword.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input Password field"
+                    return (isValid, errorString)
+                }
+                if(txtAppID.text!.isEmpty)
+                {
+                    isValid = false
+                    errorString = "Please input app ID field"
+                    return (isValid, errorString)
+                }
+                return (isValid, "")
+            }
+    
+    
 * Set the promises of dispatch queue to global in the AppDelegate.swift. (Reference: [Default dispatch queue](https://github.com/google/promises/blob/master/g3doc/index.md#default-dispatch-queue) )
 ![](../img/globalPromise.png)
 
@@ -123,6 +190,16 @@
                 }
 
                 @IBAction func getApp(_ sender: Any) {
+                    let (isValid, errorString) = self.isFieldsValid()
+                    if(!isValid){
+                        DispatchQueue.main.async {
+                            var htmlString = "<html><head></head><body><h1>Error occur</h1>"
+                            htmlString += "<p><b>Message: \(errorString)</b></p>"
+                            htmlString += "</body></head></html>"
+                            self.txtResult.attributedText = self.getAttributedString(htmlString)
+                        }
+                        return
+                    }
                     auth.setPasswordAuth(txtUserName.text!, txtPassword.text!)
                     conn = Connection(txtDomain.text!, auth)
                     app = App(conn)
