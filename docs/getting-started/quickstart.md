@@ -46,18 +46,18 @@
 
 * Modify Podfile
 
-        target 'QuickStartApp' do
+        target 'testSDK' do
             use_frameworks!
             pod 'PromisesSwift'
             pod 'kintone-ios-sdk'
-        # Pods for QuickStartApp
+        # Pods for testSDK
         end
 
 * Run
 
         pod install
 
-* On your application folder, click on *QuickStartApp.xcworkspace* file to start implementing sample
+* On your ./testSDK folder, double click on *testSDK.xcworkspace* file to start implementing
 
 ### Implement sample application using kintone iOS SDK
 
