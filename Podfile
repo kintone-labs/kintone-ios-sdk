@@ -6,12 +6,12 @@ target 'kintone-ios-sdk' do
   use_frameworks!
 
   # Pods for kintone-ios-sdk
-  pod 'PromisesSwift', '~> 1.2.4'
+  pod 'PromisesSwift', '~> 1.2.6'
 
   target 'kintone-ios-sdkTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'PromisesSwift', '~> 1.2.4'
+    pod 'PromisesSwift', '~> 1.2.6'
   end
 
 end
