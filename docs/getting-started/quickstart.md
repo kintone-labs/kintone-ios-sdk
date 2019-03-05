@@ -193,7 +193,10 @@
                     let (isValid, errorString) = self.isFieldsValid()
                     if(!isValid){
                         DispatchQueue.main.async {
-                            self.txtResult.attributedText = self.getAttributedString(errorString)
+                            var htmlString = "<html><head></head><body><h1>Error occur</h1>"
+                            htmlString += "<p><b>Message: \(errorString)</b></p>"
+                            htmlString += "</body></head></html>"
+                            self.txtResult.attributedText = self.getAttributedString(htmlString)
                         }
                         return
                     }
