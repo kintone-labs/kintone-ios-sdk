@@ -57,7 +57,7 @@
 
         pod install
 
-* On your application folder, open QuickStartKintone.xcworkspace
+* On your application folder, click on *QuickStartApp.xcworkspace* file to start implementing sample
 
 ### Implement sample application using kintone iOS SDK
 
