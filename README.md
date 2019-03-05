@@ -1,8 +1,7 @@
 # Kintone iOS SDK in Swift (Beta)
 
 [![Swift Version](https://img.shields.io/badge/Swift-4.0.x-orange.svg)](https://swift.org)
-[![Platforms](https://img.shields.io/cocoapods/p/FacebookCore.svg)](https://cocoapods.org/pods/FacebookCore)
-[![Build Status](https://travis-ci.org/facebook/facebook-sdk-swift.svg?branch=master)](https://travis-ci.org/facebook/facebook-sdk-swift)
+[![Platforms](https://img.shields.io/cocoapods/p/FacebookCore.svg)](https://cocoapods.org/pods/kintone-ios-sdk)
 
 
 Swift-taylored experience to integrate your app with Kintone. Including:
