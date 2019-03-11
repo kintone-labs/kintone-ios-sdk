@@ -162,7 +162,20 @@
                 return (isValid, "")
             }
     
-    
+    * Add these validation snippet codes in *getApp* function
+
+            let (isValid, errorString) = self.isFieldsValid()
+            if(!isValid){
+                DispatchQueue.main.async {
+                    var htmlString = "<html><head></head><body><h1>Error occur</h1>"
+                    htmlString += "<p><b>Message: \(errorString)</b></p>"
+                    htmlString += "</body></head></html>"
+                    self.txtResult.attributedText = self.getAttributedString(htmlString)
+                }
+                return
+            }
+
+
 * Set the promises of dispatch queue to global in the AppDelegate.swift. (Reference: [Default dispatch queue](https://github.com/google/promises/blob/master/g3doc/index.md#default-dispatch-queue) )
 ![](../img/globalPromise.png)
 
@@ -235,6 +248,37 @@
                             self.txtResult.attributedText = self.getAttributedString(htmlString)
                         }
                     }
+                }
+
+                func isFieldsValid() -> (Bool, String) {
+        
+                    var errorString: String = ""
+                    var isValid: Bool = true
+                    if(txtDomain.text!.isEmpty)
+                    {
+                        isValid = false
+                        errorString = "Please input domain field"
+                        return (isValid, errorString)
+                    }
+                    if(txtUserName.text!.isEmpty)
+                    {
+                        isValid = false
+                        errorString = "Please input username field"
+                        return (isValid, errorString)
+                    }
+                    if(txtPassword.text!.isEmpty)
+                    {
+                        isValid = false
+                        errorString = "Please input Password field"
+                        return (isValid, errorString)
+                    }
+                    if(txtAppID.text!.isEmpty)
+                    {
+                        isValid = false
+                        errorString = "Please input app ID field"
+                        return (isValid, errorString)
+                    }
+                    return (isValid, "")
                 }
                 
                 func getAttributedString(_ htmlString: String) -> NSAttributedString {
