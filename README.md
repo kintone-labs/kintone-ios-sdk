@@ -1,4 +1,4 @@
-# Kintone iOS SDK in Swift (Beta)
+# Kintone iOS SDK in Swift
 
 [![Swift Version](https://img.shields.io/badge/Swift-4.0.x-orange.svg)](https://swift.org)
 [![Platforms](https://img.shields.io/cocoapods/p/FacebookCore.svg)](https://cocoapods.org/pods/kintone-ios-sdk)
