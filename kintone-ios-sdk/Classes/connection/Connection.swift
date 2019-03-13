@@ -90,7 +90,20 @@ open class Connection: NSObject {
             config.requestCachePolicy = .reloadIgnoringLocalCacheData
             config.urlCache = nil
             
-            let session = URLSession(configuration: config)
+            var session = URLSession()
+            if self.auth.withCert {
+                let delegateForCert = URLSessionPinningDelegate(self.domain)
+                if (self.auth.useCertPath) {
+                    delegateForCert.setCertByPath(self.auth.certPath, self.auth.password)
+                }
+                else {
+                    delegateForCert.setCertByData(self.auth.certData, self.auth.password)
+                }
+                session = URLSession(configuration: config, delegate: delegateForCert, delegateQueue: OperationQueue.current)
+            }
+            else {
+                session = URLSession(configuration: config)
+            }
             
             self.execute(session, request).then { (data, response, error) in
                 if (data != nil || response != nil){
@@ -151,7 +164,20 @@ open class Connection: NSObject {
             
             request.httpBody = body
             
-            let session = URLSession(configuration: self.setURLSessionConfiguration())
+            var session = URLSession()
+            if self.auth.withCert {
+                let delegateForCert = URLSessionPinningDelegate(self.domain)
+                if (self.auth.useCertPath) {
+                    delegateForCert.setCertByPath(self.auth.certPath, self.auth.password)
+                }
+                else {
+                    delegateForCert.setCertByData(self.auth.certData, self.auth.password)
+                }
+                session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.current)
+            }
+            else {
+                session = URLSession(configuration: self.setURLSessionConfiguration())
+            }
             
             self.execute(session, request).then { (data, response, error) in
                 if (data != nil || response != nil){
@@ -170,6 +196,18 @@ open class Connection: NSObject {
                 reject(error)
             }
         }
+    }
+    
+    /// Check for valid URL
+    func verifyUrl (urlString: String?) -> Bool {
+        //Check for nil
+        if let urlString = urlString {
+            // create NSURL instance
+            if URL(string: urlString) != nil {
+                return true
+            }
+        }
+        return false
     }
     
     /// Asynchornous rest http request.
@@ -196,6 +234,13 @@ open class Connection: NSObject {
                 reject(KintoneAPIException("Invalid URL"))
             }
             
+            let urlIsValid = self.verifyUrl(urlString: urlString)
+            
+            if !urlIsValid {
+                reject(KintoneAPIException("Invalid URL"))
+                return
+            }
+            
             let url = URL(string: urlString)!
             var request = URLRequest(url: url)
             
@@ -212,8 +257,20 @@ open class Connection: NSObject {
             }
             
             request.httpBody = body.data(using: String.Encoding.utf8)
-            
-            let session = URLSession(configuration: self.setURLSessionConfiguration())
+            var session = URLSession()
+            if self.auth.withCert {
+                let delegateForCert = URLSessionPinningDelegate(self.domain)
+                if (self.auth.useCertPath) {
+                    delegateForCert.setCertByPath(self.auth.certPath, self.auth.password)
+                }
+                else {
+                    delegateForCert.setCertByData(self.auth.certData, self.auth.password)
+                }
+                session = URLSession(configuration: self.setURLSessionConfiguration(), delegate: delegateForCert, delegateQueue: OperationQueue.current)
+            }
+            else {
+                session = URLSession(configuration: self.setURLSessionConfiguration())
+            }
             
             self.execute(session, request).then { (data, response, error) in
                 if (data != nil || response != nil){
@@ -241,10 +298,11 @@ open class Connection: NSObject {
     ///   - request: request
     /// - Returns: Data?, URLResponse?, NSError?
     private func execute(_ session: URLSession, _ request: URLRequest) -> Promise<(Data?, URLResponse?, NSError?)> {
+        
         return Promise<(Data?, URLResponse?, NSError?)> { fulfill, reject in
             session.dataTask(with: request) { (data, response, error) -> Void in
                 if error != nil {
-                    reject(error!)
+                    reject(KintoneAPIException(error!.localizedDescription))
                 }
                 fulfill((data, response, error as NSError?))
             }.resume()

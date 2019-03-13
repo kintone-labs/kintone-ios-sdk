@@ -1,25 +1,11 @@
-# Kintone iOS SDK in Swift (Beta)
+# Set up Development for kintone iOS SDK
 
-[![Swift Version](https://img.shields.io/badge/Swift-4.0.x-orange.svg)](https://swift.org)
-[![Platforms](https://img.shields.io/cocoapods/p/FacebookCore.svg)](https://cocoapods.org/pods/kintone-ios-sdk)
-
-
-Swift-taylored experience to integrate your app with Kintone. Including:
-
-- [Application](https://developer.kintone.io/hc/en-us/articles/360008719854) - Support REST API to manage applications to kintone.
-- [Record](https://developer.kintone.io/hc/en-us/articles/360008719854) - Support REST API to Get/Add/Update/Delete with records from a kintone application.
-- [File](https://developer.kintone.io/hc/en-us/articles/360008719854) - Support REST API to upload/download file to kintone.
-- [Bulk Request](https://developer.kintone.io/hc/en-us/articles/360008719854) - Support REST API to send bulk request to kintone.
-
-**NOTE:** This SDK is currently in Beta and may be unstable at times. 
 
 ## Overview
 - Kintone iOS SDK is using [google promises](https://github.com/google/promises) as dependencies frameworks
 
 ### System Requirements
 - Install [CocoaPods](https://cocoapods.org) or [Carthage](https://github.com/carthage/carthage)
-- Swift 4.2
-- Minimum iOS Deployment Target 11.4
 
 ## How to install
 ### Preparation for install Cocoapods or Carthage
@@ -56,8 +42,7 @@ pod repo update
 Add the following lines to your Podfile:
 
 ```ruby
-pod 'PromisesSwift', '~> 1.2.6'
-pod 'kintone-ios-sdk'
+pod 'PromisesSwift'
 ```
 
 Run `pod install` and you're all set!
@@ -79,7 +64,6 @@ Add the following line to your Cartfile:
 
 ```bash
 github "google/promises"
-github "kintone/kintone-ios-sdk"
 ```
 
 Run `carthage update`.
@@ -92,7 +76,6 @@ At a minimum, you'll need to drag & drop the following frameworks from `Carthage
 
 - `FBLPromises.framework`
 - `Promises.framework`
-- `kintone_ios_sdk.framework`
 
 
 ### Optional
@@ -111,9 +94,8 @@ On your application targets' `Build Phases` tab:
 ```bash
 $(SRCROOT)/Carthage/Build/iOS/FBLPromises.framework
 $(SRCROOT)/Carthage/Build/iOS/Promises.framework
-$(SRCROOT)/Carthage/Build/iOS/kintone_ios_sdk.framework
 ```
 
-## Contribute
+## Issues
 
-All of Kintone iOS SDK for Swift development happens on GitHub. 
+We use GitHub issues to track public bugs. Please ensure your description is clear and has sufficient instructions to be able to reproduce the issue

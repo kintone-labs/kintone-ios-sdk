@@ -17,7 +17,7 @@ open class PreviewApp: NSObject, Codable {
         self.revision = revision != nil ? "\(String(describing: revision!))" : nil
     }
     
-    public init(_ app: Int?, _ revision: Int?) {
+    public init(_ app: Int?, _ revision: Int? = nil) {
         super.init()
         self.setApp(app)
         self.setRevision(revision)

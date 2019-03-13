@@ -31,4 +31,7 @@ public enum FieldType: String, Codable {
     case CATEGORY
     case __ID__
     case __REVISION__
+    case LABEL
+    case SPACER
+    case HR
 }
