@@ -11,7 +11,6 @@ Swift-taylored experience to integrate your app with Kintone. Including:
 - [File](https://developer.kintone.io/hc/en-us/articles/360008719854) - Support REST API to upload/download file to kintone.
 - [Bulk Request](https://developer.kintone.io/hc/en-us/articles/360008719854) - Support REST API to send bulk request to kintone.
 
-**NOTE:** This SDK is currently in Beta and may be unstable at times. 
 
 ## Overview
 - Kintone iOS SDK is using [google promises](https://github.com/google/promises) as dependencies frameworks
@@ -53,16 +52,18 @@ pod repo update
 
 **Note:** This step is optional, if you updated the specs repo recently.
 
-Add the following lines to your Podfile:
+Navigate to the directory that contains your project and create a new file called Podfile. You can do this either with `pod init` command, or open an existing Podfile, and then add the following lines to your Podfile:
 
 ```ruby
-pod 'PromisesSwift', '~> 1.2.6'
-pod 'kintone-ios-sdk'
+use_frameworks!
+
+target '<YOUR_PROJECT_NAME>' do
+  pod 'PromisesSwift', '~> 1.2.6'
+  pod 'kintone-ios-sdk'
+end
 ```
 
 Run `pod install` and you're all set!
-
-You may also exclude any of these dependencies, if you do not need the features of those parts of the SDK.
 
 ### Carthage
 
