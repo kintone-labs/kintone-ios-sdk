@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -12,6 +12,8 @@
       
         <meta name="description" content="The SDK of kintone REST API client on ios">
       
+      
+        <link rel="canonical" href="https://kintone.github.io/kintone-ios-sdk/getting-started/quickstart/">
       
       
       
@@ -34,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
     
     
       
@@ -42,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
       
       
         
@@ -53,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
     
     
       
@@ -66,6 +68,9 @@
     
     
       <link rel="stylesheet" href="../../asset/style/extra.css">
+    
+    
+      
     
     
   </head>
@@ -108,38 +113,65 @@
       </a>
     
     
-      <header class="md-header" data-md-component="header">
+      <!--
+  Copyright (c) 2016-2019 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
+
+      <!-- Link to home -->
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="kintone ios SDK" class="md-header-nav__button md-logo">
+        <a href="https://kintone.github.io/kintone-ios-sdk/"
+            title="kintone ios SDK"
+            class="md-header-nav__button md-logo">
           
             <i class="md-icon">cloud</i>
           
         </a>
       </div>
+
+      <!-- Button to toggle drawer -->
       <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
       </div>
+
+      <!-- Header title -->
       <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            
-              <span class="md-header-nav__topic">
-                kintone ios SDK
-              </span>
-              <span class="md-header-nav__topic">
-                Quickstart
-              </span>
-            
-          
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+            <a href="https://kintone.github.io/kintone-ios-sdk/">kintone ios SDK</a>&nbsp;<a style="text-decoration: underline;" href="https://kintone.github.io/kintone-ios-sdk//latest/versions">v0.2.0</a>
         </div>
       </div>
+
+      <!-- Button to open search dialogue -->
       <div class="md-flex__cell md-flex__cell--shrink">
         
+          <label class="md-icon md-icon--search md-header-nav__button"
+              for="__search"></label>
+
+          <!-- Search interface -->
           
-            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-            
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
@@ -162,9 +194,10 @@
     </div>
   </div>
 </div>
-          
         
       </div>
+
+      <!-- Repository containing source -->
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
@@ -173,20 +206,18 @@
 
   
 
-
-  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      GitHub
+<a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
           </div>
         </div>
       
@@ -208,7 +239,7 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="kintone ios SDK" class="md-nav__button md-logo">
+    <a href="https://kintone.github.io/kintone-ios-sdk/" title="kintone ios SDK" class="md-nav__button md-logo">
       
         <i class="md-icon">cloud</i>
       
@@ -222,20 +253,18 @@
 
   
 
-
-  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
-    
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#__github" width="24" height="24"></use>
-        </svg>
-      </div>
-    
-    <div class="md-source__repository">
-      GitHub
+<a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
     </div>
-  </a>
-
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -316,6 +345,53 @@
   <a href="#following-below-steps" title="Following below steps" class="md-nav__link">
     Following below steps
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-project" title="Create a new project" class="md-nav__link">
+    Create a new project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-kintone-ios-sdk-packages" title="Install kintone iOS SDK packages" class="md-nav__link">
+    Install kintone iOS SDK packages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-sdk-by-carthage" title="Install SDK by Carthage" class="md-nav__link">
+    Install SDK by Carthage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-sdk-by-cocoapods" title="Install SDK by Cocoapods" class="md-nav__link">
+    Install SDK by Cocoapods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-sample-application-using-kintone-ios-sdk" title="Implement sample application using kintone iOS SDK" class="md-nav__link">
+    Implement sample application using kintone iOS SDK
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -914,6 +990,53 @@
     Following below steps
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-project" title="Create a new project" class="md-nav__link">
+    Create a new project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-kintone-ios-sdk-packages" title="Install kintone iOS SDK packages" class="md-nav__link">
+    Install kintone iOS SDK packages
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-sdk-by-carthage" title="Install SDK by Carthage" class="md-nav__link">
+    Install SDK by Carthage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-sdk-by-cocoapods" title="Install SDK by Cocoapods" class="md-nav__link">
+    Install SDK by Cocoapods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implement-sample-application-using-kintone-ios-sdk" title="Implement sample application using kintone iOS SDK" class="md-nav__link">
+    Implement sample application using kintone iOS SDK
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -949,11 +1072,11 @@
 <li><a href="https://github.com/google/promises">promises</a></li>
 </ul>
 <h2 id="following-below-steps">Following below steps</h2>
+<h3 id="create-a-new-project">Create a new project</h3>
+<p><img alt="" src="../../img/createApp.gif" /></p>
+<h3 id="install-kintone-ios-sdk-packages">Install kintone iOS SDK packages</h3>
+<h4 id="install-sdk-by-carthage">Install SDK by Carthage</h4>
 <ul>
-<li>
-<p>Create a new project
-<img alt="" src="../../img/createApp.gif" /></p>
-</li>
 <li>
 <p>Get Carthage by running the bellow command or choose <a href="https://github.com/Carthage/Carthage#installing-carthage">another installation method</a></p>
 <pre><code>brew install carthage
@@ -977,6 +1100,45 @@ Promises.framework
 kintone_ios_sdk.framework
 </code></pre>
 </li>
+</ul>
+<h4 id="install-sdk-by-cocoapods">Install SDK by Cocoapods</h4>
+<ul>
+<li>
+<p>Get Cocoapods by running the bellow command or choose <a href="https://guides.cocoapods.org/using/getting-started.html#getting-started">another installation method</a></p>
+<pre><code>sudo gem install cocoapods
+</code></pre>
+</li>
+<li>
+<p>Create <a href="https://guides.cocoapods.org/syntax/podfile.html">Podfile</a> by command line in sample application folder</p>
+<pre><code>pod init
+</code></pre>
+</li>
+<li>
+<p>Add depedency packages into Podfile</p>
+<pre><code>vi Podfile
+</code></pre>
+</li>
+<li>
+<p>Modify Podfile</p>
+<pre><code>target 'testSDK' do
+    use_frameworks!
+    pod 'PromisesSwift'
+    pod 'kintone-ios-sdk'
+# Pods for testSDK
+end
+</code></pre>
+</li>
+<li>
+<p>Run</p>
+<pre><code>pod install
+</code></pre>
+</li>
+<li>
+<p>On your ./testSDK folder, double click on <em>testSDK.xcworkspace</em> file to start implementing</p>
+</li>
+</ul>
+<h3 id="implement-sample-application-using-kintone-ios-sdk">Implement sample application using kintone iOS SDK</h3>
+<ul>
 <li>
 <p>Build the UI elements
 <img alt="" src="../../img/createUI.gif" /></p>
@@ -1052,6 +1214,54 @@ self.app?.getApp(Int(txtAppID.text!)!).then{ response in
 }
 </code></pre>
 </li>
+<li>
+<p>Validate input value from user</p>
+<pre><code>func isFieldsValid() -&gt; (Bool, String) {
+
+    var errorString: String = ""
+    var isValid: Bool = true
+    if(txtDomain.text!.isEmpty)
+    {
+        isValid = false
+        errorString = "Please input domain field"
+        return (isValid, errorString)
+    }
+    if(txtUserName.text!.isEmpty)
+    {
+        isValid = false
+        errorString = "Please input username field"
+        return (isValid, errorString)
+    }
+    if(txtPassword.text!.isEmpty)
+    {
+        isValid = false
+        errorString = "Please input Password field"
+        return (isValid, errorString)
+    }
+    if(txtAppID.text!.isEmpty)
+    {
+        isValid = false
+        errorString = "Please input app ID field"
+        return (isValid, errorString)
+    }
+    return (isValid, "")
+}
+</code></pre>
+</li>
+<li>
+<p>Add these validation snippet codes in <em>getApp</em> function</p>
+<pre><code>let (isValid, errorString) = self.isFieldsValid()
+if(!isValid){
+    DispatchQueue.main.async {
+        var htmlString = "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Error occur&lt;/h1&gt;"
+        htmlString += "&lt;p&gt;&lt;b&gt;Message: \(errorString)&lt;/b&gt;&lt;/p&gt;"
+        htmlString += "&lt;/body&gt;&lt;/head&gt;&lt;/html&gt;"
+        self.txtResult.attributedText = self.getAttributedString(htmlString)
+    }
+    return
+}
+</code></pre>
+</li>
 </ul>
 </li>
 <li>
@@ -1082,6 +1292,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func getApp(_ sender: Any) {
+        let (isValid, errorString) = self.isFieldsValid()
+        if(!isValid){
+            DispatchQueue.main.async {
+                var htmlString = "&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Error occur&lt;/h1&gt;"
+                htmlString += "&lt;p&gt;&lt;b&gt;Message: \(errorString)&lt;/b&gt;&lt;/p&gt;"
+                htmlString += "&lt;/body&gt;&lt;/head&gt;&lt;/html&gt;"
+                self.txtResult.attributedText = self.getAttributedString(htmlString)
+            }
+            return
+        }
         auth.setPasswordAuth(txtUserName.text!, txtPassword.text!)
         conn = Connection(txtDomain.text!, auth)
         app = App(conn)
@@ -1117,6 +1337,37 @@ class ViewController: UIViewController {
                 self.txtResult.attributedText = self.getAttributedString(htmlString)
             }
         }
+    }
+
+    func isFieldsValid() -&gt; (Bool, String) {
+
+        var errorString: String = ""
+        var isValid: Bool = true
+        if(txtDomain.text!.isEmpty)
+        {
+            isValid = false
+            errorString = "Please input domain field"
+            return (isValid, errorString)
+        }
+        if(txtUserName.text!.isEmpty)
+        {
+            isValid = false
+            errorString = "Please input username field"
+            return (isValid, errorString)
+        }
+        if(txtPassword.text!.isEmpty)
+        {
+            isValid = false
+            errorString = "Please input Password field"
+            return (isValid, errorString)
+        }
+        if(txtAppID.text!.isEmpty)
+        {
+            isValid = false
+            errorString = "Please input app ID field"
+            return (isValid, errorString)
+        }
+        return (isValid, "")
     }
 
     func getAttributedString(_ htmlString: String) -&gt; NSAttributedString {
@@ -1200,22 +1451,17 @@ class ViewController: UIViewController {
           Material for MkDocs</a>
       </div>
       
-        
-      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../../assets/javascripts/application.d9aa80ab.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
         <script src="../../asset/js/extra.js"></script>
-      
-    
-    
       
     
   </body>
