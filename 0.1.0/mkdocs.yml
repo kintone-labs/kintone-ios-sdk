@@ -1,0 +1,61 @@
+site_name: kintone ios SDK
+site_description: The SDK of kintone REST API client on ios
+site_favicon: favicon.ico
+
+repo_url: https://github.com/kintone/kintone-ios-sdk
+theme:
+  name: 'material'
+  favicon: favicon.ico
+  palette:
+    primary: 'Light Blue'
+    accent: 'Light Blue'
+  logo:
+   icon: 'cloud'
+extra_javascript:
+  - 'asset/js/extra.js'
+extra_css:
+  - 'asset/style/extra.css'
+markdown_extensions:
+  - admonition
+
+pages:
+- Home: index.md
+- Getting Started:
+  - Quickstart: getting-started/quickstart.md
+- Reference:
+  - Authentication: reference/authentication.md
+  - Connection: reference/connection.md
+  - Record: reference/record.md
+  - Bulk Request: reference/bulk-request.md
+  - App: reference/app.md
+  - Kintone APIException: reference/kintone-api-exception.md
+  - File: reference/file.md
+  - Model:
+      - App: 
+        - App: 
+          - App: reference/model/app/app/app-model.md
+          - AppDeployStatus: reference/model/app/app/app-deploy-status.md
+          - PreviewApp: reference/model/app/app/preview-app.md
+          - GetAppDeployStatusResponse: reference/model/app/app/get-app-deploy-status-response.md
+        - Form:
+          - Field:
+            - Input:
+              - Input: reference/model/app/form/field/input/form-fields-input.md
+              - Lookup: reference/model/app/form/field/input/form-fields-input-lookup.md
+              - Member: reference/model/app/form/field/input/form-fields-input-member.md
+              - Selection: reference/model/app/form/field/input/form-fields-input-selection.md
+              - Time: reference/model/app/form/field/input/form-fields-input-time.md
+          - Layout: reference/model/app/form/layout/form-layout.md
+        - General: reference/model/app/general/general-settings.md
+        - View: reference/model/app/view/view-model.md
+      - Record:
+        - Record: reference/model/record/record-model.md
+        - Comment: reference/model/record/record-comment-model.md
+        - Field: reference/model/record/record-field-model.md
+      - File: reference/model/file/file-model.md
+      - BulkRequest:
+        - BulkRequestModel: reference/model/bulk-request/bulk-request-model.md
+        - BulkRequestItem: reference/model/bulk-request/bulk-request-item.md
+        - BulkRequestResponse: reference/model/bulk-request/bulk-request-response.md
+      - Member: reference/model/member/member.md
+
