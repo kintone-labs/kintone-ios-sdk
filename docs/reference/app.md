@@ -56,7 +56,7 @@ Get the single app
 
 **Return**
 
-[AppModel](../model/app/app/app-model)
+Promise<[AppModel](../model/app/app/app-model)>
 
 **Sample code**
 
@@ -101,7 +101,7 @@ Get multiple apps
 
 **Return**
 
-List<[AppModel](../model/app/app/app-model)>
+Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 **Sample code**
 
@@ -151,7 +151,7 @@ Get multiple apps by the list of ids
 
 **Return**
 
-List<[AppModel](../model/app/app/app-model)>
+Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 **Sample code**
 
@@ -205,7 +205,7 @@ Get multiple apps by a list of codes
 
 **Return**
 
-List<[AppModel](../model/app/app/app-model)>
+Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 **Sample code**
 
@@ -246,7 +246,7 @@ List<[AppModel](../model/app/app/app-model)>
 
 </details>
 
-### getAppsByName(_ spaceIds: [Int]?, _ offset: Int?, _ limit: Int?)
+### getAppsByName(_ name: String?, _ offset: Int?, _ limit: Int?)
 
 Get multiple apps by name
 
@@ -260,7 +260,7 @@ Get multiple apps by name
 
 **Return**
 
-List<[AppModel](../model/app/app/app-model)>
+Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 **Sample code**
 
@@ -301,7 +301,7 @@ List<[AppModel](../model/app/app/app-model)>
 
 </details>
 
-### getAppsBySpaceIDs(_ spaceIds: [Int]?, _ offset: Int?, _ limit: Int?)
+### getAppsBySpaceIDs(_ spaceIds: [Int]?, _ offset: Int? = 0, _ limit: Int? = 100)
 
 Get multiple apps by space id
 
@@ -315,7 +315,7 @@ Get multiple apps by space id
 
 **Return**
 
-List<[AppModel](../model/app/app/app-model)>
+Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 **Sample code**
 
@@ -355,7 +355,7 @@ List<[AppModel](../model/app/app/app-model)>
 
 </details>
 
-### addPreviewApp(_ name: String?, _ space: Int? = nil, _ thread: Int? = nil)
+### addPreviewApp(_ name: String, _ space: Int?, _ thread: Int?)
 
 Creates a preview App.
 
@@ -369,7 +369,7 @@ Creates a preview App.
 
 **Return**
 
-[PreviewApp](../model/app/app/preview-app)
+Promise<[PreviewApp](../model/app/app/preview-app)>
 
 **Sample code**
 
@@ -400,7 +400,7 @@ Creates a preview App.
 </details>
 
 
-### deployAppSettings(_ apps: Array<PreviewApp>?, _ revert: Bool?)
+### deployAppSettings(_ apps: Array<PreviewApp>, _ revert: Bool?)
 
 Updates the settings of a pre-live App to the live App.
 
@@ -413,7 +413,7 @@ Updates the settings of a pre-live App to the live App.
 
 **Return**
 
-None
+Promise <Void\>
 
 **Sample code**
 
@@ -441,7 +441,7 @@ None
 
 </details>
 
-### getAppDeployStatus(_ apps: [Int]?)
+### getAppDeployStatus(_ apps: [Int]) 
 
 Updates the settings of a pre-live App to the live App.
 
@@ -453,7 +453,7 @@ Updates the settings of a pre-live App to the live App.
 
 **Return**
 
-[GetAppDeployStatusResponse](../model/app/app/get-app-deploy-status-response)
+Promise<[GetAppDeployStatusResponse](../model/app/app/get-app-deploy-status-response)>
 
 **Sample code**
 
@@ -486,7 +486,7 @@ Updates the settings of a pre-live App to the live App.
 </details>
 
 
-### getFormFields(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?)
+### getFormFields(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?)
 
 Get field of the form in the kintone app
 
@@ -500,7 +500,7 @@ Get field of the form in the kintone app
 
 **Return**
 
-[FormFields](../model/app/form/field/form-fields)
+Promise<[FormFields](../model/app/form/field/form-fields)>
 
 **Sample code**
 
@@ -545,7 +545,7 @@ Get field of the form in the kintone app
 
 </details>
 
-### addFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?)
+### addFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?) 
 
 Adds fields to a form of an App.
 
@@ -559,7 +559,7 @@ Adds fields to a form of an App.
 
 **Return**
 
-[BasicResponse](../model/app/basic-response)
+Promise<[BasicResponse](../model/app/basic-response)>
 
 **Sample code**
 
@@ -606,7 +606,7 @@ Adds fields to a form of an App.
 
 </details>
 
-### updateFormFields(_ app: Int?, _ fields: [String: Field]?,_ revision: Int?)
+### updateFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?
 
 Updates the field settings of fields in a form of an App.
 
@@ -620,7 +620,7 @@ Updates the field settings of fields in a form of an App.
 
 **Return**
 
-[BasicResponse](../model/app/basic-response)
+Promise<[BasicResponse](../model/app/basic-response)>
 
 **Sample code**
 
@@ -659,7 +659,7 @@ Updates the field settings of fields in a form of an App.
 
 </details>
 
-### deleteFormFields(_ app: Int?, _ fields: [String]?,_ revision: Int?)
+### deleteFormFields(_ app: Int, _ fields: [String],_ revision: Int?) 
 
 > Deletes fields from a form of an App.
 
@@ -673,7 +673,7 @@ Updates the field settings of fields in a form of an App.
 
 **Return**
 
-[BasicResponse](../model/app/basic-response)
+Promise<[BasicResponse](../model/app/basic-response)>
 
 **Sample code**
 
@@ -703,7 +703,7 @@ Updates the field settings of fields in a form of an App.
 
 </details>
 
-### getFormLayout(_ app: Int?, _ isPreview: Bool?)
+### getFormLayout(_ app: Int, _ isPreview: Bool?)
 
 Get the layout of form in kintone app
 
@@ -716,7 +716,7 @@ Get the layout of form in kintone app
 
 **Return**
 
-[FormLayout](../model/app/form/layout/form-layout)
+Promise<[FormLayout](../model/app/form/layout/form-layout)>
 
 **Sample code**
 
@@ -759,7 +759,7 @@ Get the layout of form in kintone app
 
 </details>
 
-### updateFormLayout( _ app: Int?, _ layout: [ItemLayout]?,_ revision: Int?)
+### updateFormLayout(_ app: Int, _ layout: [ItemLayout],_ revision: Int?)
 
 Updates the field layout info of a form in an App.
 
@@ -773,7 +773,7 @@ Updates the field layout info of a form in an App.
 
 **Return**
 
-[BasicResponse](../model/app/basic-response)
+Promise<[BasicResponse](../model/app/basic-response)>
 
 **Sample code**
 
@@ -866,7 +866,7 @@ Updates the field layout info of a form in an App.
 
 </details>
 
-### getGeneralSettings(_ app: Int?, _ lang: LanguageSetting?, _ isPreview: Bool?)
+### getGeneralSettings(_ app: Int, _ lang: LanguageSetting?, _ isPreview: Bool?)
 
 Gets the description, name, icon, revision and color theme of an App.
 
@@ -880,7 +880,7 @@ Gets the description, name, icon, revision and color theme of an App.
 
 **Return**
 
-[GeneralSettings](../model/app/general/general-settings)
+Promise<[GeneralSettings](../model/app/general/general-settings)>
 
 **Sample code**
 
@@ -928,7 +928,7 @@ Gets the description, name, icon, revision and color theme of an App.
 
 </details>
 
-### updateGeneralSettings(_ app: Int?, _ generalSettings: GeneralSettings?)
+### updateGeneralSettings(_ app: Int, _ generalSettings: GeneralSettings?)
 
 Updates the description, name, icon, revision and color theme of an App.
 
@@ -941,7 +941,7 @@ Updates the description, name, icon, revision and color theme of an App.
 
 **Return**
 
-[BasicResponse](../model/app/basic-response)
+Promise<[BasicResponse](../model/app/basic-response)>
 
 **Sample code**
 
@@ -976,7 +976,7 @@ Updates the description, name, icon, revision and color theme of an App.
 
 </details>
 
-### getViews(_ app: Int?, _ lang: LanguageSetting?,_ isPreview: Bool?)
+### getViews(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?)
 
 Gets the View settings of an App.
 
@@ -990,7 +990,7 @@ Gets the View settings of an App.
 
 **Return**
 
-[GetViewsResponse](../model/app/view/update-views-response)
+Promise<[GetViewsResponse](../model/app/view/update-views-response)>
 
 **Sample code**
 
@@ -1034,7 +1034,7 @@ Gets the View settings of an App.
 
 </details>
 
-### updateViews(_ app: Int?, _ views: [String: ViewModel],_ revision: Int?)
+### updateViews(_ app: Int, _ views: [String: ViewModel],_ revision: Int?)
 
 Updates the View settings of an App.
 
@@ -1049,7 +1049,7 @@ Updates the View settings of an App.
 
 **Return**
 
-[UpdateViewsResponse](../model/app/view/update-views-response)
+Promise<[UpdateViewsResponse](../model/app/view/update-views-response)>
 
 **Sample code**
 

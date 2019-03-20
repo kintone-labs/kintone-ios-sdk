@@ -15,25 +15,6 @@ The kintone API SDK for ios includes various features that are useful for callin
 - [App](./reference/app)
 - [KintoneAPIException](./reference/kintone-api-exception)
 - [File](./reference/file)
-- Model
-    - App
-        - App
-            - [App](./reference/model/app/app/app-model.md)
-            - [AppDeployStatus](./reference/model/app/app/app-deploy-status.md)
-        - Form
-            - Field
-                - Input
-                    - [Lookup](./reference/model/app/form/field/input/form-fields-input-lookup.md)
-                    - [Input](./reference/model/app/form/field/input/form-fields-input.md)
-                    - [Member](./reference/model/app/form/field/input/form-fields-input-member.md)
-                    - [Selection](./reference/model/app/form/field/input/form-fields-input-selection.md)
-                    - [Time](./reference/model/app/form/field/input/form-fields-input-time.md)
-            - [Layout](./reference/model/app/form/layout/form-layout.md)
-        - [General](./reference/model/app/general/general-settings.md)
-        - [View](./reference/model/app/view/view-model.md)
-    - [Record](./reference/model/record/record-model.md)
-    - [File](./reference/model/file/file-model.md)
-    - [Bulk Request](./reference/model/bulk-request/bulk-request-model.md)
 
 ## License
 

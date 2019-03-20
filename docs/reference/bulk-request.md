@@ -409,7 +409,7 @@ Execute the bulk request and get data response
 
 **Return**
 
-[BulkRequestResponse](../model/bulk-request/bulk-request-response)
+Promise<[BulkRequestResponse](../model/bulk-request/bulk-request-response)>
 
 **Sample code**
 

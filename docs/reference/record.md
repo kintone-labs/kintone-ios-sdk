@@ -58,7 +58,7 @@ Retrieves details of 1 record from an app.
 
 **Return**
 
-GetRecordResponse
+Promise<GetRecordResponse\>
 
 **Sample code**
 
@@ -110,7 +110,7 @@ Retrieves details of multiple records from an app using a query string.
 
 **Return**
 
-GetRecordsResponse
+Promise<GetRecordsResponse\>
 
 **Sample code**
 
@@ -146,7 +146,7 @@ GetRecordsResponse
 
 </details>
 
-### addRecord(_ app: Int?, _ record: [String:FieldValue]?)
+### addRecord(_ app: Int, _ record: [String:FieldValue]?)
 
 >Add one record to an app.
 
@@ -159,7 +159,7 @@ GetRecordsResponse
 
 **Return**
 
-AddRecordResponse
+Promise<AddRecordResponse\>
 
 **Sample code**
 
@@ -194,7 +194,7 @@ AddRecordResponse
 
 </details>
 
-### addRecords(_ app: Int?, _ records: [[String:FieldValue]])
+### addRecords(_ app: Int, _ records: [[String:FieldValue]])
 
 Add multiple records to an app.
 
@@ -207,7 +207,7 @@ Add multiple records to an app.
 
 **Return**
 
-AddRecordsResponse
+Promise<AddRecordsResponse\>
 
 **Sample code**
 
@@ -263,7 +263,7 @@ Updates details of 1 record in an app by specifying its record number.
 
 **Return**
 
-UpdateRecordResponse
+Promise<UpdateRecordResponse\>
 
 **Sample code**
 
@@ -313,7 +313,7 @@ Updates details of 1 record in an app by the unique key.
 
 **Return**
 
-UpdateRecordResponse
+Promise<UpdateRecordResponse\>
 
 **Sample code**
 
@@ -350,7 +350,7 @@ UpdateRecordResponse
 
 </details>
 
-### updateRecords(_ app: Int?, _ records: [RecordUpdateItem])
+### updateRecords(_ app: Int, _ records: [RecordUpdateItem])
 
 Updates details of multiple records in an app, by specifying their record number, or a different unique key.
 
@@ -363,7 +363,7 @@ Updates details of multiple records in an app, by specifying their record number
 
 **Return**
 
-UpdateRecordsResponse
+Promise<UpdateRecordsResponse\>
 
 **Sample code**
 
@@ -410,7 +410,7 @@ UpdateRecordsResponse
 
 </details>
 
-### deleteRecords(_ app: Int?, _ ids: [Int])
+### deleteRecords(_ app: Int, _ ids: [Int])
 
 Deletes multiple records in an app.
 
@@ -423,7 +423,7 @@ Deletes multiple records in an app.
 
 **Return**
 
-(none)
+Promise<Void\>
 
 **Sample code**
 
@@ -453,7 +453,7 @@ Deletes multiple records in an app.
 
 </details>
 
-### deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int>])
+### deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])
 
 Deletes multiple records in an app with revision.
 
@@ -466,7 +466,7 @@ Deletes multiple records in an app with revision.
 
 **Return**
 
-(none)
+Promise<Void\>
 
 **Sample code**
 
@@ -511,7 +511,7 @@ Update assignees of a record.
 
 **Return**
 
-UpdateRecordResponse
+Promise<UpdateRecordResponse\>
 
 **Sample code**
 
@@ -571,7 +571,7 @@ Updates the Status of a record of an app.
 
 **Return**
 
-UpdateRecordResponse
+Promise<UpdateRecordResponse\>
 
 **Sample code**
 
@@ -614,7 +614,7 @@ Updates the Status of multiple records of an app.
 
 **Return**
 
-UpdateRecordsResponse
+Promise<UpdateRecordsResponse\>
 
 **Sample code**
 
@@ -654,7 +654,7 @@ UpdateRecordsResponse
 
 </details>
 
-### getComments(_ app: Int?, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)
+### getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)
 
 **Parameter**
 
@@ -668,7 +668,7 @@ UpdateRecordsResponse
 
 **Return**
 
-GetCommentsResponse
+Promise<GetCommentsResponse\>
 
 **Sample code**
 
@@ -704,7 +704,7 @@ GetCommentsResponse
 
 </details>
 
-### addComment(_ app: Int?, _ record: Int, _ comment: CommentContent)
+### addComment(_ app: Int, _ record: Int, _ comment: CommentContent)
 
 **Parameter**
 
@@ -716,7 +716,7 @@ GetCommentsResponse
 
 **Return**
 
-AddCommentResponse
+Promise<AddCommentResponse\>
 
 **Sample code**
 
@@ -753,7 +753,7 @@ AddCommentResponse
 
 </details>
 
-### deleteComment(_ app: Int?, _ record: Int, _ comment: Int)
+### deleteComment(_ app: Int, _ record: Int, _ comment: Int)
 
 **Parameter**
 
@@ -765,7 +765,7 @@ AddCommentResponse
 
 **Return**
 
-(none)
+Promise<Void\>
 
 **Sample code**
 
