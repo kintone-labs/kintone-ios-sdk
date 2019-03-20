@@ -3,8 +3,10 @@ site_description: The SDK of kintone REST API client on ios
 site_favicon: favicon.ico
 
 repo_url: https://github.com/kintone/kintone-ios-sdk
+site_url: https://kintone.github.io/kintone-ios-sdk/
 theme:
   name: 'material'
+  custom_dir: 'custom_theme'
   favicon: favicon.ico
   palette:
     primary: 'Light Blue'
@@ -15,10 +17,12 @@ extra_javascript:
   - 'asset/js/extra.js'
 extra_css:
   - 'asset/style/extra.css'
+extra:
+    version: 0.1.0
 markdown_extensions:
   - admonition
 
-pages:
+nav:
 - Home: index.md
 - Getting Started:
   - Quickstart: getting-started/quickstart.md
@@ -58,4 +62,5 @@ pages:
         - BulkRequestItem: reference/model/bulk-request/bulk-request-item.md
         - BulkRequestResponse: reference/model/bulk-request/bulk-request-response.md
       - Member: reference/model/member/member.md
+
 
