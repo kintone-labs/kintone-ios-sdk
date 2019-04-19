@@ -19,7 +19,7 @@ class GetAppTest: XCTestCase {
         self.connection = Connection(TestsConstants.DOMAIN, auth)
         self.app = App(self.connection!)
     }
-
+    
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
@@ -49,11 +49,11 @@ class GetAppTest: XCTestCase {
             XCTAssertEqual(expectedAppModel["code"], appResponse.getCode()!)
             XCTAssertEqual(expectedAppModel["name"], appResponse.getName()!)
             XCTAssertEqual(expectedAppModel["description"], appResponse.getDescription()!)
-            XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appResponse.getSpaceId()!)
-            XCTAssertEqual(Int(expectedAppModel["threadId"]!), appResponse.getThreadId()!)
+            XCTAssertEqual(Int(expectedAppModel["spaceId"]!), appResponse.getSpaceId())
+            XCTAssertEqual(Int(expectedAppModel["threadId"]!), appResponse.getThreadId())
             XCTAssertNotNil(appResponse.getCreator())
             XCTAssertNotNil(appResponse.getModifier())
-        }.catch{ error in
+            }.catch{ error in
                 XCTFail(self.getErrorMessage(error))
         }
         XCTAssert(waitForPromises(timeout: 10))
@@ -72,11 +72,11 @@ class GetAppTest: XCTestCase {
         expectedAppModel["description"] = "<div>A list of great places to go!</div>"
         expectedAppModel["spaceId"] = "130"
         expectedAppModel["threadId"] = "151"
-
+        
         self.app?.getApp(appId).then{_ in
             XCTFail(self.getErrorMessage("CAN GET UNEXIST APP"))
-        }.catch{ error in
-            XCTAssert(type(of: error) == KintoneAPIException.self)
+            }.catch{ error in
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
         XCTAssert(waitForPromises(timeout: 5))
     }
