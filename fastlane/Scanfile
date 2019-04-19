@@ -3,6 +3,5 @@ devices ["iPhone X"]
 only_testing ["kintone-ios-sdkTests/QuickDemo"]
 output_types("html")
 buildlog_path("./fastlane/build_log")
-suppress_xcode_output(true)
 clean(true)
 slack_url("https://hooks.slack.com/services/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")
