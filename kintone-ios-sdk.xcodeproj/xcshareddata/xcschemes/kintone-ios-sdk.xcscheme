@@ -20,6 +20,20 @@
                ReferencedContainer = "container:kintone-ios-sdk.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3E17EA19213E427F002D9BC0"
+               BuildableName = "kintone-ios-sdkTests.xctest"
+               BlueprintName = "kintone-ios-sdkTests"
+               ReferencedContainer = "container:kintone-ios-sdk.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

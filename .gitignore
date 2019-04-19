@@ -67,3 +67,4 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 kintone-ios-sdkTests/config/*.swift
+fastlane/build_log
