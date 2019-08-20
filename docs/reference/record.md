@@ -146,6 +146,71 @@ Promise<GetRecordsResponse\>
 
 </details>
 
+### getAllRecordsByCursor(app: Int,query: String,fields: [String])
+
+Retrieves details of multiple records from an app using a query string.
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | ArrayList<String\>| (optional) | List of field codes you want in the response.
+
+**Return**
+
+Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Get all record by cursor</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    let auth = Auth()
+    auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+            
+    // execute get records API
+    let appID = {your_app_id}
+    let query = "レコード番号 >= 2 order by レコード番号 asc"
+    
+    recordManagement.getAllRecordsByCursor(appID, query, nil).then{response in
+        let records = response?.getRecords()
+                
+        for (_, dval) in (records?.enumerated())! {
+            for (_, value) in dval {
+                print(value.getType() as Any)
+                print(value.getValue() as Any)
+            }
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
+
+</pre>
+
+</details>
+
 ### addRecord(_ app: Int, _ record: [String:FieldValue]?)
 
 >Add one record to an app.
