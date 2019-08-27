@@ -46,11 +46,6 @@
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
 		129CB2AE215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */; };
-		12DB97D121A7DF810070C5C4 /* AppTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D021A7DF810070C5C4 /* AppTestConstants.swift */; };
-		12DB97D321A7DF910070C5C4 /* RecordTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D221A7DF910070C5C4 /* RecordTestConstants.swift */; };
-		12DB97D521A7DF9E0070C5C4 /* FileTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */; };
-		12DB97D721A7DFB80070C5C4 /* BulkRequestTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */; };
-		12F41DC721A80AEF00C0F1A7 /* ConnectionTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -211,7 +206,6 @@
 		E7F6CE9323053F8000F444DE /* FileTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F6CE8E23053F8000F444DE /* FileTestConstants.swift */; };
 		E7F6CE9423053F8000F444DE /* ConnectionTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F6CE8F23053F8000F444DE /* ConnectionTestConstants.swift */; };
 		E7F6CE9523053F8000F444DE /* AppTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F6CE9023053F8000F444DE /* AppTestConstants.swift */; };
-		E7F79B0C230538CD007BB304 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F79B0B230538CD007BB304 /* Promises.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,11 +267,6 @@
 		129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutRequest.swift; sourceTree = "<group>"; };
 		129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateFormFieldsRequest.swift; sourceTree = "<group>"; };
 		129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsRequest.swift; sourceTree = "<group>"; };
-		12DB97D021A7DF810070C5C4 /* AppTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTestConstants.swift; sourceTree = "<group>"; };
-		12DB97D221A7DF910070C5C4 /* RecordTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTestConstants.swift; sourceTree = "<group>"; };
-		12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTestConstants.swift; sourceTree = "<group>"; };
-		12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestTestConstants.swift; sourceTree = "<group>"; };
-		12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTestConstants.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -572,7 +561,6 @@
 				3E17EA1E213E427F002D9BC0 /* kintone-ios-sdkTests */,
 				3E17EA12213E427F002D9BC0 /* Products */,
 				1283E3DC219E6C9B00D8E282 /* Frameworks */,
-				9DA7122F9045630E31C010AD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1145,12 +1133,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E17EA25213E427F002D9BC0 /* Build configuration list for PBXNativeTarget "kintone-ios-sdk" */;
 			buildPhases = (
-				F74AFCFBF8940CC49DA0E1A3 /* [CP] Check Pods Manifest.lock */,
 				3E17EA0C213E427F002D9BC0 /* Sources */,
 				3E17EA0E213E427F002D9BC0 /* Headers */,
 				3E17EA0F213E427F002D9BC0 /* Resources */,
 				1283E3ED219E9C7900D8E282 /* Frameworks */,
-				E73D63A82305171F00408F09 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1281,47 +1267,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-kintone-ios-sdkTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E73D63A82305171F00408F09 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/FBLPromises.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Promises.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-		F74AFCFBF8940CC49DA0E1A3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-kintone-ios-sdk-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
