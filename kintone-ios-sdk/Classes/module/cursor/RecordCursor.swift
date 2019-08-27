@@ -79,7 +79,7 @@ public extension RecordCursor where Self: Cursor {
                     next = records.getNext()
                     allRecords += records.getRecords()
                 } catch {
-                    reject(error)
+                    return reject(error)
                 }
             }
             let getRecordsRsp = GetRecordsResponse();
