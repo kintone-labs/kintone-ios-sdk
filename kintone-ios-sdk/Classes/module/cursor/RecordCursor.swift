@@ -23,10 +23,9 @@ public extension RecordCursor where Self: Cursor {
     ///   - fields: The field codes that you want in the response
     /// - Returns: Promise<CreateRecordCursorResponse>
     /// - Throws: KintoneAPIException
-    func createCursor(_ app: Int, _ fields: [String]? = nil, _ query: String? = nil, _ size: Int?) -> Promise<CreateRecordCursorResponse> {
-        let defaultSize = 100
+    func createCursor(_ app: Int, _ fields: [String]? = nil, _ query: String? = nil, _ size: Int? = 100) -> Promise<CreateRecordCursorResponse> {
         return Promise { fulfill, reject in
-            let createCursorRequest = CreateRecordCursorRequest(app, fields, query, size ?? defaultSize)
+            let createCursorRequest = CreateRecordCursorRequest(app, fields, query, size)
             do {
                 let body = try self.parser.parseObject(createCursorRequest)
                 let jsonBody = String(data: body, encoding: String.Encoding.utf8)!

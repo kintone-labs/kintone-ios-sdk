@@ -11,7 +11,7 @@ import XCTest
 @testable import Promises
 
 class CreateCursorTest: XCTestCase {
-    private var recordCursor: RecordCursor?
+    private var recordCursor: Cursor?
     
     override func setUp() {
         super.setUp()
@@ -40,7 +40,7 @@ class CreateCursorTest: XCTestCase {
     }
     
     func testCreateCursorSuccess() {
-        self.recordCursor?.createCursor(RecordTestConstants.APP_ID, nil, nil, nil).then{ rsp in
+        self.recordCursor?.createCursor(RecordTestConstants.APP_ID).then{ rsp in
             XCTAssert(type(of: rsp.getId()) == String.self)
             XCTAssert(type(of: rsp.getTotalCount()) == Int.self)
         }.catch{ error in
