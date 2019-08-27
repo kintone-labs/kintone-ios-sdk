@@ -36,12 +36,6 @@
 		122F1DF0216B7BD200160A27 /* GetAppsByIDsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DEF216B7BD200160A27 /* GetAppsByIDsTest.swift */; };
 		122F1DF2216B7BE100160A27 /* GetAppsByNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DF1216B7BE100160A27 /* GetAppsByNameTest.swift */; };
 		122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F1DF3216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift */; };
-		1283E3EF219E9C8500D8E282 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; };
-		1283E3F1219E9D9000D8E282 /* Promises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; };
-		1283E3F4219E9F2900D8E282 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; };
-		1283E3F5219E9F9100D8E282 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; };
-		1283E3F7219ECCC100D8E282 /* FBLPromises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		1283E3F8219ECCC100D8E282 /* Promises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
@@ -225,8 +219,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1283E3F7219ECCC100D8E282 /* FBLPromises.framework in CopyFiles */,
-				1283E3F8219ECCC100D8E282 /* Promises.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,8 +254,6 @@
 		122F1DEF216B7BD200160A27 /* GetAppsByIDsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsByIDsTest.swift; sourceTree = "<group>"; };
 		122F1DF1216B7BE100160A27 /* GetAppsByNameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsByNameTest.swift; sourceTree = "<group>"; };
 		122F1DF3216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppsBySpaceIDsTest.swift; sourceTree = "<group>"; };
-		1283E3EE219E9C8500D8E282 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promises.framework; path = Carthage/Build/iOS/Promises.framework; sourceTree = "<group>"; };
-		1283E3F3219E9F2900D8E282 /* FBLPromises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBLPromises.framework; path = Carthage/Build/iOS/FBLPromises.framework; sourceTree = "<group>"; };
 		129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateFormLayoutRequest.swift; sourceTree = "<group>"; };
 		129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUpdateFormFieldsRequest.swift; sourceTree = "<group>"; };
 		129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFormFieldsRequest.swift; sourceTree = "<group>"; };
@@ -317,7 +307,6 @@
 		3EFD81302146060200A1499F /* SubTableValueItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTableValueItem.swift; sourceTree = "<group>"; };
 		4CBE647E21CCCC43006375D9 /* URLSessionPinningDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionPinningDelegate.swift; sourceTree = "<group>"; };
 		4CBE647F21CCCC44006375D9 /* ExtensionCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionCommon.swift; sourceTree = "<group>"; };
-		95F8FF4D5E1598D4FDCD1C61 /* Pods-kintone-ios-sdk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kintone-ios-sdk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kintone-ios-sdk/Pods-kintone-ios-sdk.debug.xcconfig"; sourceTree = "<group>"; };
 		A88FEE022159DD8A00A7E838 /* UpdateViewsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateViewsResponse.swift; sourceTree = "<group>"; };
 		A88FEE032159DD8A00A7E838 /* GetAppsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAppsResponse.swift; sourceTree = "<group>"; };
 		A88FEE042159DD8A00A7E838 /* BasicResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicResponse.swift; sourceTree = "<group>"; };
@@ -414,10 +403,8 @@
 		ABE0235A216F4651002C47EC /* test.pptx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pptx; sourceTree = "<group>"; };
 		ABE0235B216F4652002C47EC /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		ABE0235C216F4652002C47EC /* test.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.xlsx; sourceTree = "<group>"; };
-		D6F5EDA1256EC82C3F30568E /* Pods-kintone-ios-sdkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kintone-ios-sdkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kintone-ios-sdkTests/Pods-kintone-ios-sdkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
-		E6CCADF6B99825F9A61A7869 /* Pods-kintone-ios-sdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kintone-ios-sdkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-kintone-ios-sdkTests/Pods-kintone-ios-sdkTests.release.xcconfig"; sourceTree = "<group>"; };
 		E70BC39323068CC200DA98C7 /* DeleteCursorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCursorTest.swift; sourceTree = "<group>"; };
 		E70BC3952306A05600DA98C7 /* GetAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllRecordsTest.swift; sourceTree = "<group>"; };
 		E763B1A223054CDE005D4A73 /* Cursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
@@ -435,7 +422,6 @@
 		E7F6CE8F23053F8000F444DE /* ConnectionTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTestConstants.swift; sourceTree = "<group>"; };
 		E7F6CE9023053F8000F444DE /* AppTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTestConstants.swift; sourceTree = "<group>"; };
 		E7F79B0B230538CD007BB304 /* Promises.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Promises.framework; sourceTree = "<group>"; };
-		EB061E54E72A5A475A76E6D3 /* Pods-kintone-ios-sdk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kintone-ios-sdk.release.xcconfig"; path = "Pods/Target Support Files/Pods-kintone-ios-sdk/Pods-kintone-ios-sdk.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,8 +429,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1283E3F4219E9F2900D8E282 /* FBLPromises.framework in Frameworks */,
-				1283E3EF219E9C8500D8E282 /* Promises.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,8 +436,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1283E3F5219E9F9100D8E282 /* FBLPromises.framework in Frameworks */,
-				1283E3F1219E9D9000D8E282 /* Promises.framework in Frameworks */,
 				3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -781,17 +763,6 @@
 				3EFD812E21420FC900A1499F /* Member.swift */,
 			);
 			path = member;
-			sourceTree = "<group>";
-		};
-		9DA7122F9045630E31C010AD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				95F8FF4D5E1598D4FDCD1C61 /* Pods-kintone-ios-sdk.debug.xcconfig */,
-				EB061E54E72A5A475A76E6D3 /* Pods-kintone-ios-sdk.release.xcconfig */,
-				D6F5EDA1256EC82C3F30568E /* Pods-kintone-ios-sdkTests.debug.xcconfig */,
-				E6CCADF6B99825F9A61A7869 /* Pods-kintone-ios-sdkTests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		A88FEE002159DD8A00A7E838 /* basic */ = {
@@ -1610,7 +1581,6 @@
 		};
 		3E17EA26213E427F002D9BC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95F8FF4D5E1598D4FDCD1C61 /* Pods-kintone-ios-sdk.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1644,7 +1614,6 @@
 		};
 		3E17EA27213E427F002D9BC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB061E54E72A5A475A76E6D3 /* Pods-kintone-ios-sdk.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_MODULES = YES;
@@ -1677,7 +1646,6 @@
 		};
 		3E17EA29213E427F002D9BC0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6F5EDA1256EC82C3F30568E /* Pods-kintone-ios-sdkTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1701,7 +1669,6 @@
 		};
 		3E17EA2A213E427F002D9BC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6CCADF6B99825F9A61A7869 /* Pods-kintone-ios-sdkTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
