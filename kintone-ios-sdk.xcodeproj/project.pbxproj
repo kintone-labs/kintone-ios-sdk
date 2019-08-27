@@ -1128,12 +1128,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E17EA28213E427F002D9BC0 /* Build configuration list for PBXNativeTarget "kintone-ios-sdkTests" */;
 			buildPhases = (
-				452E1B23090C48060845CF51 /* [CP] Check Pods Manifest.lock */,
 				3E17EA16213E427F002D9BC0 /* Sources */,
 				3E17EA17213E427F002D9BC0 /* Frameworks */,
 				3E17EA18213E427F002D9BC0 /* Resources */,
 				1283E3F6219ECCB600D8E282 /* CopyFiles */,
-				399AEF57B1BE5BC175CA3E80 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1202,55 +1200,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		399AEF57B1BE5BC175CA3E80 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-kintone-ios-sdkTests/Pods-kintone-ios-sdkTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
-				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kintone-ios-sdkTests/Pods-kintone-ios-sdkTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		452E1B23090C48060845CF51 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-kintone-ios-sdkTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3E17EA0C213E427F002D9BC0 /* Sources */ = {
