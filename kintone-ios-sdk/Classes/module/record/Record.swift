@@ -11,14 +11,14 @@ open class Record: NSObject {
     
     private var connection: Connection?
     private let parser = RecordParser()
-    private let cursor: Cursor?
+    private let recordCursor: RecordCursor?
     
     /// Constructor
     ///
     /// - Parameter connection: connection
     public init(_ connection: Connection) {
         self.connection = connection
-        self.cursor = Cursor(connection)
+        self.recordCursor = RecordCursor(connection)
     }
     
     /// Get the record from kintone app
@@ -59,9 +59,9 @@ open class Record: NSObject {
     open func getAllRecordsByCursor(_ app: Int,_  query: String?,_ fields: [String]?)  -> Promise<GetRecordsResponse> {
         let recordLimitSize = 500
         // execute GET RECORDS API
-        return (self.cursor?.createCursor(app, fields, query, recordLimitSize)
+        return (self.recordCursor?.createCursor(app, fields, query, recordLimitSize)
             .then{createCursorRespone ->  Promise<GetRecordsResponse> in
-                return (self.cursor?.getAllRecords(createCursorRespone.getId()))!
+                return (self.recordCursor?.getAllRecords(createCursorRespone.getId()))!
             })!
     }
     

@@ -22,7 +22,7 @@ class DeleteCursorTest: XCTestCase {
         let conn = Connection(TestsConstants.DOMAIN, auth, -1)
         
         // instance of Record class
-        self.recordCursor = Cursor(conn)
+        self.recordCursor = RecordCursor(conn)
     }
     
     override func tearDown() {
@@ -40,7 +40,7 @@ class DeleteCursorTest: XCTestCase {
     }
     
     func testDeleteCursorSuccess() {
-        self.recordCursor?.createCursor(RecordTestConstants.APP_ID, nil, nil, nil).then{ rsp in
+        self.recordCursor?.createCursor(RecordTestConstants.APP_ID).then{ rsp in
             return self.recordCursor?.deleteCursor(rsp.getId())
         }.then{_ in
             XCTAssert(true)
