@@ -38,7 +38,7 @@ Currently there's only cursor for records.
     let connection = Connection(domain, auth)
             
     // Init Record Module
-    let recordCursor = Cursor(connection)
+    let recordCursor = RecordCursor(connection)
 
 </pre>
 
