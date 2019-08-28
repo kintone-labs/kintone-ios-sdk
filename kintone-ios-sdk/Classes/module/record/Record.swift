@@ -434,4 +434,41 @@ open class Record: NSObject {
             }
         }
     }
+    
+    open func fetchRecords(_ app: Int, _ query: String, _ fields: [String], _ totalCount: Bool,
+                           _ offset: Int, _ records: [[String: FieldValue]]) throws -> GetRecordsResponse {
+        var vaildQuery: String
+        var interRecord = records
+        var interOffset = offset
+        var fetchBlock: GetRecordsResponse!
+        if query.count != 0 {
+            vaildQuery = "\(query) limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
+        } else {
+            vaildQuery = "limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
+        }
+        do {
+            let response = try await(self.getRecords(app, vaildQuery, fields, totalCount))
+            fetchBlock = response
+            interRecord.append(contentsOf: fetchBlock.getRecords()!)
+            interOffset = offset + RecordConstants.LIMIT_GET_RECORD
+            if interRecord.count < RecordConstants.LIMIT_GET_RECORD {
+                fetchBlock.setRecords(interRecord)
+                return fetchBlock
+            }
+        } catch let error as KintoneAPIException {
+            throw error
+        }
+        return try self.fetchRecords(app, query, fields, totalCount, interOffset, interRecord)
+    }
+    
+    open func getAllRecordsByQuery(_ app: Int, _ query: String? = "", _ fields: [String]? = [], _ totalCount: Bool? = false) -> Promise<GetRecordsResponse> {
+        return Promise<GetRecordsResponse>(on: .global(), { fulfill,reject in
+            do {
+                let response = try self.fetchRecords(app, query!, fields!, totalCount!, 0, [[String: FieldValue]]())
+                fulfill(response)
+            } catch {
+                reject(error)
+            }
+        })
+    }
 }
