@@ -11,7 +11,7 @@ import XCTest
 @testable import Promises
 
 class CreateCursorTest: XCTestCase {
-    private var recordCursor: Cursor?
+    private var recordCursor: RecordCursor?
     
     override func setUp() {
         super.setUp()
@@ -22,7 +22,7 @@ class CreateCursorTest: XCTestCase {
         let conn = Connection(TestsConstants.DOMAIN, auth, -1)
         
         // instance of Cursor class
-        self.recordCursor = Cursor(conn)
+        self.recordCursor = RecordCursor(conn)
     }
     
     override func tearDown() {

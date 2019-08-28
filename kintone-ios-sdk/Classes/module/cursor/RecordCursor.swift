@@ -8,14 +8,8 @@
 
 import Promises
 
-public protocol RecordCursor {
-    func createCursor(_ app: Int, _ fields: [String]?, _ query: String?, _ size: Int?) -> Promise<CreateRecordCursorResponse>
-    func getRecords(_ cursorID: String) -> Promise<GetRecordCursorResponse>
-    func getAllRecords(_ cursorID: String) -> Promise<GetRecordsResponse>
-    func deleteCursor(_ cursorID: String) -> Promise<Void>
-}
-
-public extension RecordCursor where Self: Cursor {
+public class RecordCursor : Cursor {
+    var parser = CursorParser()
     /// Create cursor to get Records kintone
     /// - Parameters:
     ///   - app: The ID of kintone app

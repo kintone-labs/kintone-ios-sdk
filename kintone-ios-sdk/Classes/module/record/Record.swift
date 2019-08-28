@@ -11,14 +11,14 @@ open class Record: NSObject {
     
     private var connection: Connection?
     private let parser = RecordParser()
-    private let cursor: Cursor?
+    private let cursor: RecordCursor?
     
     /// Constructor
     ///
     /// - Parameter connection: connection
     public init(_ connection: Connection) {
         self.connection = connection
-        self.cursor = Cursor(connection)
+        self.cursor = RecordCursor(connection)
     }
     
     /// Get the record from kintone app
