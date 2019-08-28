@@ -449,7 +449,7 @@ open class Record: NSObject {
             do {
                 let updateKeyField = updateKey.getField()!
                 let updateKeyValue = updateKey.getValue()!
-                let query = "\(updateKeyField) = \"\(updateKeyValue)\"";
+                let query = "\(updateKeyField) = \"\(updateKeyValue)\""
                 self.getRecords(app, query, [updateKeyField], false).then{ response in
                     let numberOfRecords: Int = response.getRecords()!.count
                     if updateKeyValue.isEmpty || numberOfRecords < 1 {
