@@ -188,7 +188,6 @@
 		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
 		E70BC39423068CC200DA98C7 /* DeleteCursorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BC39323068CC200DA98C7 /* DeleteCursorTest.swift */; };
 		E70BC3962306A05600DA98C7 /* GetAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BC3952306A05600DA98C7 /* GetAllRecordsTest.swift */; };
-		E763B1A323054CDE005D4A73 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1A223054CDE005D4A73 /* Cursor.swift */; };
 		E763B1A523054CEA005D4A73 /* RecordCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1A423054CEA005D4A73 /* RecordCursor.swift */; };
 		E763B1A723054DC5005D4A73 /* CursorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1A623054DC5005D4A73 /* CursorParser.swift */; };
 		E763B1AC23054FBA005D4A73 /* CreateCursorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1AB23054FBA005D4A73 /* CreateCursorTest.swift */; };
@@ -1229,7 +1228,6 @@
 				A88FEE882159DD9E00A7E838 /* AbstractSelectionField.swift in Sources */,
 				A88FEE912159DD9E00A7E838 /* GroupLayout.swift in Sources */,
 				A88FEE1F2159DD8B00A7E838 /* GetViewsResponse.swift in Sources */,
-				E763B1A323054CDE005D4A73 /* Cursor.swift in Sources */,
 				A88FEE752159DD9E00A7E838 /* MultiLineTextField.swift in Sources */,
 				11B14EFF215DE07800894E37 /* ErrorResponseParser.swift in Sources */,
 				3EFD81242140FC0100A1499F /* GetRecordsRequest.swift in Sources */,
