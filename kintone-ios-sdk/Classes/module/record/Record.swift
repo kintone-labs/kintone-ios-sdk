@@ -434,4 +434,37 @@ open class Record: NSObject {
             }
         }
     }
+    
+    /// Upsert the record on kintone app by UpdateKey
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - updateKey: the unique key of the record to be updated
+    ///   - record: the record data which will update
+    ///   - revision: the number of revision
+    /// - Returns: AddRecordResponse or UpdateRecordResponse
+    /// - Throws: KintoneAPIException
+    open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) -> Promise<Any> {
+        return Promise { fulfill, reject in
+            do {
+                let updateKeyField = updateKey.getField()!
+                let updateKeyValue = updateKey.getValue()!
+                let query = "\(updateKeyField) = \"\(updateKeyValue)\"";
+                self.getRecords(app, query, [updateKeyField], false).then{ response in
+                    let numberOfRecords: Int = response.getRecords()!.count
+                    if updateKeyValue.isEmpty || numberOfRecords < 1 {
+                        record![updateKeyField]!.setValue(updateKeyValue)
+                        let addRecordResponse = self.addRecord(app, record)
+                        fulfill(addRecordResponse)
+                    } else if numberOfRecords == 1 {
+                        let updateRecordResponse = self.updateRecordByUpdateKey(app, updateKey, record, revision)
+                        fulfill(updateRecordResponse)
+                    }
+                    reject(KintoneAPIException("\(updateKeyField) is not unique field"))
+                }.catch { error in
+                    reject(error)
+                }
+            }
+        }
+    }
 }
