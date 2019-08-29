@@ -5,7 +5,6 @@
 //  Created by Ho Kim Cuc on 8/29/19.
 //  Copyright © 2019 Cybozu. All rights reserved.
 //
-
 import Foundation
 open class BulksException: Error {
     private var results: [Any] = [];
