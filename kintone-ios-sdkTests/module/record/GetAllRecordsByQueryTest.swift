@@ -7,7 +7,7 @@ class GetAllRecordsByQueryTest: XCTestCase {
     var connection: Connection?
     var app: App?
     var recordManagement: Record?
-    var APP_ID_ERROR: Int
+    var APP_ID_ERROR: Int = 0
     override func setUp() {
         super.setUp()
         
