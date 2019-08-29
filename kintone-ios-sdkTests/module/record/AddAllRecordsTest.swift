@@ -49,7 +49,6 @@ class AddAllRecordsTest: XCTestCase {
             if (numberRecordToAdd % limitNumBulkPerRequest > 0) {
                 numRequest += 1
             }
-            print(addResponse.getResults()?.count ?? 0)
             XCTAssert(addResponse.getResults()?.count == numBulkRequest)
             for items in addResponse.getResults()! {
                 let addRecordsResponse = items as! [AddRecordsResponse]
@@ -66,7 +65,6 @@ class AddAllRecordsTest: XCTestCase {
                 var errorString = ""
                 if (type(of: error) == BulksException.self) {
                     errorString = (error as! KintoneAPIException).toString()!
-                    print(errorString)
                 } else {
                     errorString = error.localizedDescription
                 }
