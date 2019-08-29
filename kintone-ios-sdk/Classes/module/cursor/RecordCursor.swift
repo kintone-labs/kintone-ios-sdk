@@ -23,7 +23,7 @@ open class RecordCursor: NSObject {
     ///   - fields: The field codes that you want in the response
     /// - Returns: Promise<CreateRecordCursorResponse>
     /// - Throws: KintoneAPIException
-    func createCursor(_ app: Int, _ fields: [String]? = nil, _ query: String? = nil, _ size: Int? = 100) -> Promise<CreateRecordCursorResponse> {
+    open func createCursor(_ app: Int, _ fields: [String]? = nil, _ query: String? = nil, _ size: Int? = 100) -> Promise<CreateRecordCursorResponse> {
         return Promise { fulfill, reject in
             let createCursorRequest = CreateRecordCursorRequest(app, fields, query, size)
             do {
@@ -46,7 +46,7 @@ open class RecordCursor: NSObject {
     ///   - cursorID: The cursor ID
     /// - Returns: Promise<GetRecordCursorResponse>
     /// - Throws: KintoneAPIException
-    func getRecords(_ cursorID: String) -> Promise<GetRecordCursorResponse> {
+    open func getRecords(_ cursorID: String) -> Promise<GetRecordCursorResponse> {
         return Promise { fulfill, reject in
             let getRecordCursorRequest = CursorModel(cursorID)
             do {
@@ -69,7 +69,7 @@ open class RecordCursor: NSObject {
     ///   - cursorID: The cursor ID
     /// - Returns: Promise<GetRecordsResponse>
     /// - Throws: KintoneAPIException
-    func getAllRecords(_ cursorID: String)  -> Promise<GetRecordsResponse> {
+    open func getAllRecords(_ cursorID: String)  -> Promise<GetRecordsResponse> {
         return Promise<GetRecordsResponse>(on: .global(), { fulfill, reject in
             var next = true
             var allRecords: [[String:FieldValue]] = []
@@ -94,7 +94,7 @@ open class RecordCursor: NSObject {
     ///   - cursorID: The cursor ID
     /// - Returns: Promise<Void>
     /// - Throws: KintoneAPIException
-    func deleteCursor(_ cursorID: String) -> Promise<Void> {
+    open func deleteCursor(_ cursorID: String) -> Promise<Void> {
         return Promise { fulfill, reject in
             let deleteCursor = CursorModel(cursorID)
             do {
