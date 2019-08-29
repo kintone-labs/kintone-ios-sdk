@@ -437,24 +437,23 @@ open class Record: NSObject {
     
     open func fetchRecords(_ app: Int, _ query: String, _ fields: [String], _ totalCount: Bool,
                            _ offset: Int, _ records: [[String: FieldValue]]) throws -> GetRecordsResponse {
-        var vaildQuery: String
-        var interRecord = records
+        var validQuery: String
         var interOffset = offset
-        var fetchBlock: GetRecordsResponse!
+        var interRecord = records
+        
         if query.count != 0 {
-            vaildQuery = "\(query) limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
+            validQuery = "\(query) limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
         } else {
-            vaildQuery = "limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
+            validQuery = "limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
         }
         do {
-            let response = try await(self.getRecords(app, vaildQuery, fields, totalCount))
-            fetchBlock = response
+            let fetchBlock = try await(self.getRecords(app, validQuery, fields, totalCount))
             interRecord.append(contentsOf: fetchBlock.getRecords()!)
-            interOffset = offset + RecordConstants.LIMIT_GET_RECORD
-            if interRecord.count < RecordConstants.LIMIT_GET_RECORD {
+            if fetchBlock.getRecords()!.count < RecordConstants.LIMIT_GET_RECORD {
                 fetchBlock.setRecords(interRecord)
                 return fetchBlock
             }
+            interOffset = offset + RecordConstants.LIMIT_GET_RECORD
         } catch let error as KintoneAPIException {
             throw error
         }
