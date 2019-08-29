@@ -436,7 +436,7 @@ open class Record: NSObject {
     }
     
     private func fetchRecords(_ app: Int, _ query: String, _ fields: [String], _ totalCount: Bool,
-                           _ offset: Int, _ records: [[String: FieldValue]]) throws -> GetRecordsResponse {
+                              _ offset: Int, _ records: [[String: FieldValue]]) throws -> GetRecordsResponse {
         var validQuery: String
         var interOffset = offset
         var interRecord = records
@@ -461,10 +461,76 @@ open class Record: NSObject {
     }
     
     open func getAllRecordsByQuery(_ app: Int, _ query: String? = "", _ fields: [String]? = [], _ totalCount: Bool? = false) -> Promise<GetRecordsResponse> {
-        return Promise<GetRecordsResponse>(on: .global(), { fulfill,reject in
+        return Promise<GetRecordsResponse>(on: .global(), { fulfill, reject in
             do {
                 let response = try self.fetchRecords(app, query!, fields!, totalCount!, 0, [[String: FieldValue]]())
                 fulfill(response)
+            } catch {
+                reject(error)
+            }
+        })
+    }
+    private func deleteBulkRecord(_ app: Int, _ ids: [Int]) throws -> BulkRequestResponse {
+        do {
+            let bulkRequest = BulkRequest(self.connection!)
+            let length:Int = ids.count
+            var loopTimes:Int = length / RecordConstants.LIMIT_DELETE_RECORD
+            if (length % RecordConstants.LIMIT_DELETE_RECORD) > 0 {
+                loopTimes+=1
+            }
+            if (length > 0 && length < RecordConstants.LIMIT_DELETE_RECORD) {
+                loopTimes = 1
+            }
+            for i in 0..<loopTimes {
+                let begin:Int = i * RecordConstants.LIMIT_DELETE_RECORD
+                let end:Int = (length - begin) < RecordConstants.LIMIT_DELETE_RECORD ? length : (begin + RecordConstants.LIMIT_DELETE_RECORD)
+                let idsPerRequest = ids[begin..<end]
+                try bulkRequest.deleteRecords(app, Array(idsPerRequest))
+            }
+            return try await(bulkRequest.execute())
+        } catch let error as KintoneAPIException {
+            throw error
+        }
+    }
+    
+    open func deleteAllRecordsByQuery(_ app: Int, _ query: String? = "") -> Promise<BulkRequestResponse> {
+        return Promise<BulkRequestResponse>(on: .global(), { fulfill, reject in
+            do {
+                let requestResponse = BulkRequestResponse()
+                var fields = [String]()
+                fields.append("$id")
+                let getRecordsRequest: GetRecordsResponse = try await(self.getAllRecordsByQuery(app, query, fields, true))
+                let recordsArray = getRecordsRequest.getRecords()
+                let totalRecords:Int = getRecordsRequest.getTotalCount()!
+                let numRecordsPerBulk:Int = RecordConstants.NUM_BULK_REQUEST * RecordConstants.LIMIT_DELETE_RECORD
+                var numBulkRequest:Int = totalRecords / numRecordsPerBulk
+                if (totalRecords % numRecordsPerBulk) > 0 {
+                    numBulkRequest+=1
+                }
+                if totalRecords > 0 && totalRecords < numRecordsPerBulk {
+                    numBulkRequest = 1
+                }
+                var ids = [Int]()
+                recordsArray?.forEach{ item in
+                    let idText:String = (item["$id"]!).getValue()! as! String
+                    let id:Int = Int(idText)!
+                    ids.append(id)
+                }
+                var offset:Int = 0
+                for _ in 0..<numBulkRequest {
+                    let end:Int = (totalRecords - offset) < numRecordsPerBulk ? totalRecords : (offset + numRecordsPerBulk)
+                    let idPerBulk = ids[offset..<end]
+                    let idPerBulkArray:[Int] = Array(idPerBulk)
+                    do {
+                        let requestResponsePerBulk:BulkRequestResponse = try self.deleteBulkRecord(app, idPerBulkArray)
+                        requestResponse.addResponse(requestResponsePerBulk.getResults()!)
+                    } catch let error as KintoneAPIException {
+                        requestResponse.addResponse(error)
+                        throw BulksException(requestResponse.getResults())
+                    }
+                    offset += numRecordsPerBulk
+                }
+                fulfill(requestResponse)
             } catch {
                 reject(error)
             }
