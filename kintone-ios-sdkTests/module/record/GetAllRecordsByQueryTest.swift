@@ -38,6 +38,7 @@ class GetAllRecordsByQueryTest: XCTestCase {
             .then { resp in
                 let records = resp.getRecords()
                 print(records!)
+                XCTAssertTrue(true)
             }.catch { error in
                 XCTFail(self.getErrorMessage(error))
         }
@@ -49,8 +50,9 @@ class GetAllRecordsByQueryTest: XCTestCase {
             .then { resp in
                 let records = resp.getRecords()
                 print(records!)
+                XCTFail("No errors occurred")
             }.catch { error in
-                XCTFail(self.getErrorMessage(error))
+                XCTAssert(type(of: error) == KintoneAPIException.self)
         }
         XCTAssert(waitForPromises(timeout: 10))
     }
