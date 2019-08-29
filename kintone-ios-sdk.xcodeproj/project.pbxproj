@@ -967,7 +967,6 @@
 			children = (
 				E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */,
 				AB4D643421670A22005807C1 /* RecordTest.swift */,
-				E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */,
 			);
 			path = record;
 			sourceTree = "<group>";
@@ -1300,7 +1299,6 @@
 				122F1DD4216B7ABC00160A27 /* DeleteFormFieldsTest.swift in Sources */,
 				E719D4A623166DEE00E09399 /* UpdateAllRecordsTest.swift in Sources */,
 				122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */,
-				E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
 				122F1DD2216B7AAA00160A27 /* AddPreviewAppTest.swift in Sources */,
 				122F1DDA216B7B1100160A27 /* GetAppDeployStatusTest.swift in Sources */,
