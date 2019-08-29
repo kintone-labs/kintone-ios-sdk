@@ -194,6 +194,7 @@
 		ABE0235E216F4652002C47EC /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = ABE0235B216F4652002C47EC /* test.txt */; };
 		ABE0235F216F4652002C47EC /* test.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = ABE0235C216F4652002C47EC /* test.xlsx */; };
 		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
+		E719D4A623166DEE00E09399 /* UpdateAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */; };
 		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
 		E719D4A823176A3500E09399 /* BulksException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A723176A3500E09399 /* BulksException.swift */; };
 		E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */; };
@@ -409,6 +410,7 @@
 		ABE0235A216F4651002C47EC /* test.pptx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pptx; sourceTree = "<group>"; };
 		ABE0235B216F4652002C47EC /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		ABE0235C216F4652002C47EC /* test.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.xlsx; sourceTree = "<group>"; };
+		E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAllRecordsTest.swift; sourceTree = "<group>"; };
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
 		E719D4A723176A3500E09399 /* BulksException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulksException.swift; sourceTree = "<group>"; };
@@ -965,6 +967,7 @@
 		AB4D6433216709E5005807C1 /* record */ = {
 			isa = PBXGroup;
 			children = (
+				E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */,
 				AB4D643421670A22005807C1 /* RecordTest.swift */,
 				E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */,
 			);
@@ -1297,6 +1300,7 @@
 				122F1DDC216B7B1C00160A27 /* GetAppsTest.swift in Sources */,
 				110578EC2166D11300F6E8C0 /* TestsConstants.swift in Sources */,
 				122F1DD4216B7ABC00160A27 /* DeleteFormFieldsTest.swift in Sources */,
+				E719D4A623166DEE00E09399 /* UpdateAllRecordsTest.swift in Sources */,
 				122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */,
 				E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,

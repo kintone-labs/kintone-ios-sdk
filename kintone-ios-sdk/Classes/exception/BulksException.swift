@@ -24,7 +24,6 @@ open class BulksException: Error {
     }
     
     open func getError() -> String? {
-        print(results.count)
         for item in results {
             if (type(of: item) == KintoneAPIException.self) {
                 let error:KintoneAPIException = item as! KintoneAPIException

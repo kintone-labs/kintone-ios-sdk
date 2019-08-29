@@ -78,6 +78,63 @@ open class Record: NSObject {
         }
     }
     
+    func updateBulkRecord(_ app: Int, _ records: [RecordUpdateItem]) -> Promise<BulkRequestResponse> {
+        let bulkRequest = BulkRequest(self.connection!);
+        let length = records.count;
+        var numRequest =  length / self.LIMIT_RECORD_PER_REQUEST;
+        if ((length % self.LIMIT_RECORD_PER_REQUEST) > 0 || length == 0) {
+            numRequest += 1
+        }
+        for index in 1...numRequest {
+            let begin = (index - 1) * self.LIMIT_RECORD_PER_REQUEST;
+            let end = (length - begin) < self.LIMIT_RECORD_PER_REQUEST ? length : begin + self.LIMIT_RECORD_PER_REQUEST;
+            let recordsPerRequest = Array(records[begin..<end]);
+            do {
+                try _ = bulkRequest.updateRecords(app, recordsPerRequest);
+            } catch {
+              return Promise<BulkRequestResponse> { _,reject in
+                    reject(error)
+                }
+            }
+        }
+        return bulkRequest.execute()
+    }
+    /// Update the record on kintone app by ID
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - records: the records data which will update
+    /// - Returns: BulkRequestResponse
+    /// - Throws: BulksException
+    open func updateAllRecords (_ app: Int, _ records: [RecordUpdateItem]) -> Promise<BulkRequestResponse>{
+        return Promise<BulkRequestResponse>(on: .global(), { fulfill, reject in
+            let numRecordsPerBulk = self.LIMIT_REQUEST_PER_BULK * self.LIMIT_RECORD_PER_REQUEST
+            var numBulkRequest = records.count / numRecordsPerBulk
+            let bulkRequestResponse = BulkRequestResponse()
+            
+            if ((records.count % numRecordsPerBulk) > 0 || records.count == 0)
+            {
+                numBulkRequest += 1
+            }
+            
+            var offset = 0;
+            for _ in 1...numBulkRequest {
+                let length = records.count;
+                let end = (length - offset) < numRecordsPerBulk ? length : offset + numRecordsPerBulk;
+                do {
+                    let recordsPerBulk = Array(records[offset..<end]);
+                    let resultPerBulk = try await(self.updateBulkRecord(app, recordsPerBulk));
+                    bulkRequestResponse.addResponse(resultPerBulk.getResults() as Any);
+                } catch {
+                    bulkRequestResponse.addResponse(error)
+                    return reject(BulksException(bulkRequestResponse.getResults()))
+                }
+                offset += numRecordsPerBulk;
+            }
+            fulfill(bulkRequestResponse)
+        })
+    }
+
     /// Update the record on kintone app by ID
     ///
     /// - Parameters:
