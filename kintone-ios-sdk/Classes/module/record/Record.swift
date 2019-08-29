@@ -435,7 +435,7 @@ open class Record: NSObject {
         }
     }
     
-    open func fetchRecords(_ app: Int, _ query: String, _ fields: [String], _ totalCount: Bool,
+    private func fetchRecords(_ app: Int, _ query: String, _ fields: [String], _ totalCount: Bool,
                            _ offset: Int, _ records: [[String: FieldValue]]) throws -> GetRecordsResponse {
         var validQuery: String
         var interOffset = offset
