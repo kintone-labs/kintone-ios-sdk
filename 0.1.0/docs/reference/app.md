@@ -44,7 +44,7 @@ Gets general information of an App, including the name, description, related Spa
 
 ## Methods
 
-### getApp(_ appId: Int?)
+### getApp( appId: Int)
 
 Get the single app
 
@@ -88,7 +88,7 @@ Promise<[AppModel](../model/app/app/app-model)>
 
 </details>
 
-### getApps(_ offset: Int?, _ limit: Int?)
+### getApps( offset: Int, limit: Int)
 
 Get multiple apps
 
@@ -137,7 +137,7 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsByIDs(_ ids: [Int]?, _ offset: Int?, _ limit: Int?)
+### getAppsByIDs( ids: [Int], offset: Int, limit: Int)
 
 Get multiple apps by the list of ids
 
@@ -191,7 +191,7 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsByCodes(_ codes: [String]?, _ offset: Int?, _ limit: Int?)
+### getAppsByCodes( codes: [String], offset: Int, limit: Int)
 
 Get multiple apps by a list of codes
 
@@ -246,7 +246,7 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsByName(_ name: String?, _ offset: Int?, _ limit: Int?)
+### getAppsByName( name: String, offset: Int, limit: Int)
 
 Get multiple apps by name
 
@@ -301,7 +301,7 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsBySpaceIDs(_ spaceIds: [Int]?, _ offset: Int? = 0, _ limit: Int? = 100)
+### getAppsBySpaceIDs(spaceIds: [Int], offset: Int, limit: Int)
 
 Get multiple apps by space id
 
@@ -355,7 +355,7 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### addPreviewApp(_ name: String, _ space: Int?, _ thread: Int?)
+### addPreviewApp( name: String, space: Int, thread: Int)
 
 Creates a preview App.
 
@@ -400,7 +400,7 @@ Promise<[PreviewApp](../model/app/app/preview-app)>
 </details>
 
 
-### deployAppSettings(_ apps: Array<PreviewApp>, _ revert: Bool?)
+### deployAppSettings( apps: Array<PreviewApp>, revert: Bool)
 
 Updates the settings of a pre-live App to the live App.
 
@@ -441,7 +441,7 @@ Promise <Void\>
 
 </details>
 
-### getAppDeployStatus(_ apps: [Int]) 
+### getAppDeployStatus( apps: [Int]) 
 
 Updates the settings of a pre-live App to the live App.
 
@@ -486,7 +486,7 @@ Promise<[GetAppDeployStatusResponse](../model/app/app/get-app-deploy-status-resp
 </details>
 
 
-### getFormFields(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?)
+### getFormFields( app: Int, lang: LanguageSetting, isPreview: Bool)
 
 Get field of the form in the kintone app
 
@@ -545,7 +545,7 @@ Promise<[FormFields](../model/app/form/field/form-fields)>
 
 </details>
 
-### addFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?) 
+### addFormFields(app: Int, fields: [String: Field], revision: Int) 
 
 Adds fields to a form of an App.
 
@@ -606,7 +606,7 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### updateFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?
+### updateFormFields( app: Int, fields: [String: Field], revision: Int)
 
 Updates the field settings of fields in a form of an App.
 
@@ -659,7 +659,7 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### deleteFormFields(_ app: Int, _ fields: [String],_ revision: Int?) 
+### deleteFormFields( app: Int, fields: [String], revision: Int) 
 
 > Deletes fields from a form of an App.
 
@@ -703,7 +703,7 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### getFormLayout(_ app: Int, _ isPreview: Bool?)
+### getFormLayout( app: Int, isPreview: Bool)
 
 Get the layout of form in kintone app
 
@@ -759,7 +759,7 @@ Promise<[FormLayout](../model/app/form/layout/form-layout)>
 
 </details>
 
-### updateFormLayout(_ app: Int, _ layout: [ItemLayout],_ revision: Int?)
+### updateFormLayout( app: Int, layout: [ItemLayout], revision: Int)
 
 Updates the field layout info of a form in an App.
 
@@ -866,7 +866,7 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### getGeneralSettings(_ app: Int, _ lang: LanguageSetting?, _ isPreview: Bool?)
+### getGeneralSettings( app: Int, lang: LanguageSetting, isPreview: Bool)
 
 Gets the description, name, icon, revision and color theme of an App.
 
@@ -928,7 +928,7 @@ Promise<[GeneralSettings](../model/app/general/general-settings)>
 
 </details>
 
-### updateGeneralSettings(_ app: Int, _ generalSettings: GeneralSettings?)
+### updateGeneralSettings( app: Int, generalSettings: GeneralSettings)
 
 Updates the description, name, icon, revision and color theme of an App.
 
@@ -976,7 +976,7 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### getViews(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?)
+### getViews( app: Int, lang: LanguageSetting, isPreview: Bool)
 
 Gets the View settings of an App.
 
@@ -1034,7 +1034,7 @@ Promise<[GetViewsResponse](../model/app/view/update-views-response)>
 
 </details>
 
-### updateViews(_ app: Int, _ views: [String: ViewModel],_ revision: Int?)
+### updateViews( app: Int, views: [String: ViewModel], revision: Int)
 
 Updates the View settings of an App.
 

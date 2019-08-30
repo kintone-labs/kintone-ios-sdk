@@ -44,7 +44,7 @@ Provide manipulate functions on records: get, update, delete, update the record 
 
 ## Methods
 
-### getRecord(_ app: Int, _ id: Int)
+### getRecord( app: Int, id: Int)
 
 Retrieves details of 1 record from an app.
 
@@ -95,7 +95,7 @@ Promise<GetRecordResponse\>
 
 </details>
 
-### getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
+### getRecords( app: Int, query: String,fields: [String],totalCount: Bool)
 
 Retrieves details of multiple records from an app using a query string.
 
@@ -146,7 +146,7 @@ Promise<GetRecordsResponse\>
 
 </details>
 
-### addRecord(_ app: Int, _ record: [String:FieldValue]?)
+### addRecord( app: Int, record: [String:FieldValue])
 
 >Add one record to an app.
 
@@ -194,7 +194,7 @@ Promise<AddRecordResponse\>
 
 </details>
 
-### addRecords(_ app: Int, _ records: [[String:FieldValue]])
+### addRecords( app: Int, records: [[String:FieldValue]])
 
 Add multiple records to an app.
 
@@ -248,7 +248,7 @@ Promise<AddRecordsResponse\>
 
 </details>
 
-### updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
+### updateRecordByID( app: Int, id: Int, record: [String:FieldValue], revision: Int)
 
 Updates details of 1 record in an app by specifying its record number.
 
@@ -298,7 +298,7 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)
+### updateRecordByUpdateKey( app: Int, updateKey: RecordUpdateKey, record: [String:FieldValue], revision: Int)
 
 Updates details of 1 record in an app by the unique key.
 
@@ -350,7 +350,7 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecords(_ app: Int, _ records: [RecordUpdateItem])
+### updateRecords( app: Int, records: [RecordUpdateItem])
 
 Updates details of multiple records in an app, by specifying their record number, or a different unique key.
 
@@ -410,7 +410,7 @@ Promise<UpdateRecordsResponse\>
 
 </details>
 
-### deleteRecords(_ app: Int, _ ids: [Int])
+### deleteRecords( app: Int, ids: [Int])
 
 Deletes multiple records in an app.
 
@@ -453,7 +453,7 @@ Promise<Void\>
 
 </details>
 
-### deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])
+### deleteRecordsWithRevision( app: Int, idsWithRevision: [Int:Int?])
 
 Deletes multiple records in an app with revision.
 
@@ -496,7 +496,7 @@ Promise<Void\>
 
 </details>
 
-### updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) 
+### updateRecordAssignees( app: Int, id: Int, assignees: [String], revision: Int) 
 
 Update assignees of a record.
 
@@ -555,7 +555,7 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)
+### updateRecordStatus( app: Int, id: Int, action: String, assignee: String, revision: Int)
 
 Updates the Status of a record of an app.
 
@@ -601,7 +601,7 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])
+### updateRecordsStatus( app: Int, records: [RecordUpdateStatusItem])
 
 Updates the Status of multiple records of an app.
 
@@ -654,7 +654,7 @@ Promise<UpdateRecordsResponse\>
 
 </details>
 
-### getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)
+### getComments( app: Int, record: Int, order: String, offset: Int, limit: Int)
 
 **Parameter**
 
@@ -704,7 +704,7 @@ Promise<GetCommentsResponse\>
 
 </details>
 
-### addComment(_ app: Int, _ record: Int, _ comment: CommentContent)
+### addComment( app: Int, record: Int, comment: CommentContent)
 
 **Parameter**
 
@@ -753,7 +753,7 @@ Promise<AddCommentResponse\>
 
 </details>
 
-### deleteComment(_ app: Int, _ record: Int, _ comment: Int)
+### deleteComment( app: Int, record: Int, comment: Int)
 
 **Parameter**
 
