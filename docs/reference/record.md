@@ -794,6 +794,62 @@ Promise<Void\>
 
 </details>
 
+### upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int?)
+
+Insert or update a record to kintone app.
+Insert the record if the updateKey doesn't exists and update the record if the updateKey exists.
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| updateKey | RecordUpdateKey | yes | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| record | Dictionary<String, FieldValue\>  | yes | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| revision | Integer | (optional) | The revision number of record
+
+**Return**
+
+Promise<AddRecordResponse\> or  Promise<UpdateRecordResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Upsert record by UpdateKey</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    var upsertData: Dictionary<String, FieldValue> = [:]
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    upsertData[{your_field_code}] = field
+
+    // create update key
+    let updKey = RecordUpdateKey("{your_field_code}", "update key value")
+
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.upsertRecord(appID, updKey, upsertData, nil).then{response in
+        if let addResponse = response as? AddRecordResponse {
+            print(addResponse.getRevision())
+        } else if let updateResponse = response as? UpdateRecordResponse {
+            print(updateResponse.getRevision())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        } else {
+            print((error as! Error).localizedDescription)
+        }
+    }
+
+</pre>
+
+</details>
+
 ## Reference
 
 - [Get Record](https://developer.kintone.io/hc/en-us/articles/213149287/) 
