@@ -32,7 +32,6 @@ class AddAllRecordsTest: XCTestCase {
     
     func testAddAllRecordsSuccess()
     {
-        let limitNumBulkPerRequest = 100
         let numberRecordToAdd = 2500;
         let numBulkRequest = 2;
         var recordsToAdd: [[String:FieldValue]] = []
@@ -45,10 +44,6 @@ class AddAllRecordsTest: XCTestCase {
         }
         
         self.record?.addAllRecords(APP_ID, recordsToAdd).then{ addResponse in
-            var numRequest = numberRecordToAdd / limitNumBulkPerRequest
-            if (numberRecordToAdd % limitNumBulkPerRequest > 0) {
-                numRequest += 1
-            }
             XCTAssert(addResponse.getResults()?.count == numBulkRequest)
             for items in addResponse.getResults()! {
                 let addRecordsResponse = items as! [AddRecordsResponse]
