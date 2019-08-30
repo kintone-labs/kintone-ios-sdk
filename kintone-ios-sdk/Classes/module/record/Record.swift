@@ -502,7 +502,7 @@ open class Record: NSObject {
                         let recordUpdateItem = RecordUpdateItem(nil, nil, recordUpdateKey, record)
                         recordsToUpdate.append(recordUpdateItem)
                     } else {
-                        record[recordUpdateKeyField]!.setValue(recordUpdateKeyValue)
+                        record[recordUpdateKeyField]?.setValue(recordUpdateKeyValue)
                         recordsToAdd.append(record)
                     }
                 }
@@ -519,8 +519,12 @@ open class Record: NSObject {
     private func _executeUpsertBulkRequest(_ app: Int,_ recordsToUpdate: [RecordUpdateItem]?,_ recordsToAdd: [[String:FieldValue]]?) -> Promise<BulkRequestResponse> {
         do {
             var bulkRequest = BulkRequest(self.connection!)
-            bulkRequest = try self._getBulkRequestForAddRecords(app, bulkRequest, recordsToAdd!)
-            bulkRequest = try self._getBulkRequestForUpdateRecords(app, bulkRequest, recordsToUpdate!)
+            if recordsToAdd!.count > 0 {
+                bulkRequest = try self._getBulkRequestForAddRecords(app, bulkRequest, recordsToAdd!)
+            }
+            if recordsToUpdate!.count > 0 {
+                bulkRequest = try self._getBulkRequestForUpdateRecords(app, bulkRequest, recordsToUpdate!)
+            }
             return bulkRequest.execute()
         } catch {
             return Promise<BulkRequestResponse> { _, reject in
