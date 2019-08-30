@@ -32,29 +32,29 @@ class UpdateAllRecordsTest: XCTestCase {
     
     func testUpdateAllRecordsSuccess()
     {
-        let numberRecordToUpdate = 2500;
+        let numberRecordToUpdate = 2500
         var recordsToUpdate: [[String:FieldValue]] = []
         var recordsToAdd: [[String:FieldValue]] = []
-        var i = 0;
+        var i = 0
         while (i < numberRecordToUpdate) {
-            var record1 = createAddData();
-            var record2 = createAddData();
+            var record1 = createAddData()
+            var record2 = createAddData()
             record1 = addData(record1, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "add record")
-            recordsToAdd.append(record1);
+            recordsToAdd.append(record1)
           record2 = addData(record2, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testUpdateRecords1")
-            recordsToUpdate.append(record2);
+            recordsToUpdate.append(record2)
             i += 1
         }
         
-        self.record?.addAllRecords(APP_ID, recordsToAdd).then{ buklsAddRecordRsp -> Promise<BulkRequestResponse> in
-            var updateItems: [RecordUpdateItem] = [];
-            i = 0;
+        self.addAllRecords(APP_ID, recordsToAdd).then{ buklsAddRecordRsp -> Promise<BulkRequestResponse> in
+            var updateItems: [RecordUpdateItem] = []
+            i = 0
             for result in buklsAddRecordRsp.getResults()! {
                 let addRecordsResponse = result as! [AddRecordsResponse]
                 for item in addRecordsResponse {
                     for id in item.getIDs()! {
-                        let item = RecordUpdateItem(id, nil, nil, recordsToUpdate[i]);
-                        updateItems.append(item);
+                        let item = RecordUpdateItem(id, nil, nil, recordsToUpdate[i])
+                        updateItems.append(item)
                     }
                 }
                 i += 1
@@ -68,7 +68,7 @@ class UpdateAllRecordsTest: XCTestCase {
                     for record in item.getRecords()! {
                         XCTAssert(record.getID() ==  expectID)
                         XCTAssert(record.getRevision()! ==  2)
-                        expectID += 1;
+                        expectID += 1
                     }
                 }
             }
@@ -94,6 +94,64 @@ class UpdateAllRecordsTest: XCTestCase {
             XCTAssert(type(of: error) == BulksException.self)
         }
         XCTAssert(waitForPromises(timeout: 5))
+    }
+    
+    private func addBulkRecord (_ app: Int, _ records: [[String:FieldValue]]) -> Promise<BulkRequestResponse>{
+        let bulkRequest = BulkRequest(self.connection!)
+        let length = records.count
+        var numRequest =  length / RecordConstants.LIMIT_ADD_RECORD
+        if ((length % RecordConstants.LIMIT_ADD_RECORD) > 0 || length == 0) {
+            numRequest += 1
+        }
+        for index in 1...numRequest {
+            let begin = (index - 1) * RecordConstants.LIMIT_ADD_RECORD
+            let end = (length - begin) < RecordConstants.LIMIT_ADD_RECORD ? length : begin + RecordConstants.LIMIT_ADD_RECORD
+            let recordsPerRequest = Array(records[begin..<end])
+            do {
+                try _ = bulkRequest.addRecords(app, recordsPerRequest)
+            } catch {
+                return Promise<BulkRequestResponse> { _,reject in
+                    reject(error)
+                }
+            }
+        }
+        return bulkRequest.execute()
+    }
+    
+    /// Add all record to kintone app
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - records: the records data which will add to kintone app
+    /// - Returns: AddRecordResponse
+    /// - Throws: BulksException
+    private func addAllRecords (_ app: Int, _ records: [[String:FieldValue]] ) -> Promise<BulkRequestResponse>{
+        return Promise<BulkRequestResponse>(on: .global(), { fulfill, reject in
+            let numRecordsPerBulk = RecordConstants.NUM_BULK_REQUEST * RecordConstants.LIMIT_ADD_RECORD
+            var numBulkRequest = records.count / numRecordsPerBulk
+            let bulkRequestResponse = BulkRequestResponse()
+            
+            if ((records.count % numRecordsPerBulk) > 0 || records.count == 0)
+            {
+                numBulkRequest += 1
+            }
+            
+            var offset = 0
+            for _ in 1...numBulkRequest {
+                let length = records.count
+                let end = (length - offset) < numRecordsPerBulk ? length : offset + numRecordsPerBulk
+                do {
+                    let recordsPerBulk = Array(records[offset..<end])
+                    let resultPerBulk = try await(self.addBulkRecord(app, recordsPerBulk))
+                    bulkRequestResponse.addResponse(resultPerBulk.getResults() as Any)
+                } catch {
+                    bulkRequestResponse.addResponse(error)
+                    return reject(BulksException(bulkRequestResponse.getResults()))
+                }
+                offset += numRecordsPerBulk
+            }
+            fulfill(bulkRequestResponse)
+        })
     }
     
     private func createAddData() -> Dictionary<String, FieldValue> {

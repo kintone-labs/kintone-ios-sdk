@@ -12,9 +12,6 @@ open class Record: NSObject {
     private var connection: Connection?
     private let parser = RecordParser()
     
-    private let LIMIT_REQUEST_PER_BULK = 20;
-    private let LIMIT_RECORD_PER_REQUEST = 100;
-    
     /// Constructor
     ///
     /// - Parameter connection: connection
@@ -79,18 +76,18 @@ open class Record: NSObject {
     }
     
     func updateBulkRecord(_ app: Int, _ records: [RecordUpdateItem]) -> Promise<BulkRequestResponse> {
-        let bulkRequest = BulkRequest(self.connection!);
-        let length = records.count;
-        var numRequest =  length / self.LIMIT_RECORD_PER_REQUEST;
-        if ((length % self.LIMIT_RECORD_PER_REQUEST) > 0 || length == 0) {
+        let bulkRequest = BulkRequest(self.connection!)
+        let length = records.count
+        var numRequest =  length / RecordConstants.LIMIT_UPDATE_RECORD
+        if ((length % RecordConstants.LIMIT_UPDATE_RECORD) > 0 || length == 0) {
             numRequest += 1
         }
         for index in 1...numRequest {
-            let begin = (index - 1) * self.LIMIT_RECORD_PER_REQUEST;
-            let end = (length - begin) < self.LIMIT_RECORD_PER_REQUEST ? length : begin + self.LIMIT_RECORD_PER_REQUEST;
-            let recordsPerRequest = Array(records[begin..<end]);
+            let begin = (index - 1) * RecordConstants.LIMIT_UPDATE_RECORD
+            let end = (length - begin) < RecordConstants.LIMIT_UPDATE_RECORD ? length : begin + RecordConstants.LIMIT_UPDATE_RECORD
+            let recordsPerRequest = Array(records[begin..<end])
             do {
-                try _ = bulkRequest.updateRecords(app, recordsPerRequest);
+                try _ = bulkRequest.updateRecords(app, recordsPerRequest)
             } catch {
               return Promise<BulkRequestResponse> { _,reject in
                     reject(error)
@@ -108,7 +105,7 @@ open class Record: NSObject {
     /// - Throws: BulksException
     open func updateAllRecords (_ app: Int, _ records: [RecordUpdateItem]) -> Promise<BulkRequestResponse>{
         return Promise<BulkRequestResponse>(on: .global(), { fulfill, reject in
-            let numRecordsPerBulk = self.LIMIT_REQUEST_PER_BULK * self.LIMIT_RECORD_PER_REQUEST
+            let numRecordsPerBulk = RecordConstants.NUM_BULK_REQUEST * RecordConstants.LIMIT_UPDATE_RECORD
             var numBulkRequest = records.count / numRecordsPerBulk
             let bulkRequestResponse = BulkRequestResponse()
             
@@ -117,19 +114,19 @@ open class Record: NSObject {
                 numBulkRequest += 1
             }
             
-            var offset = 0;
+            var offset = 0
             for _ in 1...numBulkRequest {
-                let length = records.count;
-                let end = (length - offset) < numRecordsPerBulk ? length : offset + numRecordsPerBulk;
+                let length = records.count
+                let end = (length - offset) < numRecordsPerBulk ? length : offset + numRecordsPerBulk
                 do {
-                    let recordsPerBulk = Array(records[offset..<end]);
-                    let resultPerBulk = try await(self.updateBulkRecord(app, recordsPerBulk));
-                    bulkRequestResponse.addResponse(resultPerBulk.getResults() as Any);
+                    let recordsPerBulk = Array(records[offset..<end])
+                    let resultPerBulk = try await(self.updateBulkRecord(app, recordsPerBulk))
+                    bulkRequestResponse.addResponse(resultPerBulk.getResults() as Any)
                 } catch {
                     bulkRequestResponse.addResponse(error)
                     return reject(BulksException(bulkRequestResponse.getResults()))
                 }
-                offset += numRecordsPerBulk;
+                offset += numRecordsPerBulk
             }
             fulfill(bulkRequestResponse)
         })
