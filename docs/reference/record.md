@@ -248,6 +248,66 @@ Promise<AddRecordsResponse\>
 
 </details>
 
+### addAllRecords(app: Int, records: [[String:FieldValue]])
+
+Add all records to an app.
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| records | [[String, FieldValue]] | yes | List of records data to be add to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise<BulkRequestResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Add multi records</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    var addData1: Dictionary<String, FieldValue> = [:]
+    var addData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Value1")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Value2")
+    addData1[{your_field_code}] = field1
+    addData2[{your_field_code}] = field2
+    var addDataList = [addData1, addData2]
+    
+    // execute add records API
+    let appID = 311
+    recordManagement.addAllRecords(appID, addDataList).then{response in
+        for items in addResponse.getResults()! {
+            let addRecordsResponse = items as! [AddRecordsResponse]
+            for item in addRecordsResponse {
+            print(response!.getIDs())
+            print(response!.getRevisions())  
+            }
+        }
+    }.catch{ error in
+        var errorString = ""
+        if (type(of: error) == BulksException.self) {
+        errorString = (error as! BulksException).getError()!
+        } else {
+        errorString = error.localizedDescription
+        }
+        print(errorString)
+    }
+
+</pre>
+
+</details>
+
 ### updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
 
 Updates details of 1 record in an app by specifying its record number.
