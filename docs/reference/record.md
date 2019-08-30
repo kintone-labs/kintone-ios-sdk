@@ -410,6 +410,72 @@ Promise<UpdateRecordsResponse\>
 
 </details>
 
+### updateAllRecord(app: Int, records: [RecordUpdateItem])
+
+Updates details of all records in an app, by specifying their record number, or a different unique key.
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| records | ArrayList<RecordUpdateItem\> | yes | The record data will be added to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise<BulkRequestResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Update multi records</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    var recId1 = {your_record_id}
+    var recId2 = {your_record_id}
+    var updateData1: Dictionary<String, FieldValue> = [:]
+    var updateData2: Dictionary<String, FieldValue> = [:]
+    var field1 = FieldValue()
+    var field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Update Value1 ")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Update Value2")
+    updateData1[{your_field_code}] = field1
+    updateData2[{your_field_code}] = field2
+    var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
+    var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
+    let updateItemList = [updateDataItem1 , updateDataItem2]
+            
+    // execute update records API
+    let appID = {your_app_id}
+    recordManagement.updateRecords(appID, updateItemList).then{response in
+        for result in updateRecordRsp.getResults()! {
+            let updateRecordsResponse = result as! [UpdateRecordsResponse]
+            for item in updateRecordsResponse {
+                for record in item.getRecords()! {
+                    print(record.getID())
+                    print(record.getRevision())
+                }
+            }
+        }
+    }.catch{ error in
+        var errorString = ""
+        if (type(of: error) == BulksException.self) {
+            errorString = (error as! BulksException).getError()!
+        } else {
+            errorString = error.localizedDescription
+        }
+        print(errorString)
+    }
+
+</pre>
+
+</details>
+
 ### deleteRecords(_ app: Int, _ ids: [Int])
 
 Deletes multiple records in an app.
