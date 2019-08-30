@@ -62,7 +62,7 @@ class UpsertRecordsTest: XCTestCase {
                         var expectID: Int = item.getIDs()?[0] ?? 0
                         for id in item.getIDs()! {
                             XCTAssert(id ==  expectID)
-                            expectID += 1;
+                            expectID += 1
                         }
                     }
                     
@@ -88,7 +88,7 @@ class UpsertRecordsTest: XCTestCase {
                                 for record in item.getRecords()! {
                                     XCTAssert(record.getID() ==  expectID)
                                     XCTAssert(record.getRevision()! ==  2)
-                                    expectID += 1;
+                                    expectID += 1
                                 }
                             }
                         }
