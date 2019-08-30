@@ -51,8 +51,7 @@
 		12DB97D521A7DF9E0070C5C4 /* FileTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */; };
 		12DB97D721A7DFB80070C5C4 /* BulkRequestTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */; };
 		12F41DC721A80AEF00C0F1A7 /* ConnectionTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */; };
-		3A06D2902316322800AF4CE0 /* RecordConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D28F2316322800AF4CE0 /* RecordConstants.swift */; };
-		3A06D2922316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */; };
+		3A28DB562318B0160044F8C1 /* RecordConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB552318B0160044F8C1 /* RecordConstants.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -197,6 +196,7 @@
 		ABE0235F216F4652002C47EC /* test.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = ABE0235C216F4652002C47EC /* test.xlsx */; };
 		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
 		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
+		E719D4A823176A3500E09399 /* BulksException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A723176A3500E09399 /* BulksException.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,8 +263,7 @@
 		12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTestConstants.swift; sourceTree = "<group>"; };
 		12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestTestConstants.swift; sourceTree = "<group>"; };
 		12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTestConstants.swift; sourceTree = "<group>"; };
-		3A06D28F2316322800AF4CE0 /* RecordConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordConstants.swift; sourceTree = "<group>"; };
-		3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllRecordsByQueryTest.swift; sourceTree = "<group>"; };
+		3A28DB552318B0160044F8C1 /* RecordConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordConstants.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -413,6 +412,7 @@
 		ABE0235C216F4652002C47EC /* test.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.xlsx; sourceTree = "<group>"; };
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
+		E719D4A723176A3500E09399 /* BulksException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulksException.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -612,6 +612,7 @@
 			children = (
 				3E60AFCA214A017F0041B02C /* ErrorResponse.swift */,
 				3E60AFC9214A017F0041B02C /* KintoneAPIException.swift */,
+				E719D4A723176A3500E09399 /* BulksException.swift */,
 			);
 			path = exception;
 			sourceTree = "<group>";
@@ -708,7 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				3E60AFD5215093AC0041B02C /* Record.swift */,
-				3A06D28F2316322800AF4CE0 /* RecordConstants.swift */,
+				3A28DB552318B0160044F8C1 /* RecordConstants.swift */,
 			);
 			path = record;
 			sourceTree = "<group>";
@@ -966,7 +967,6 @@
 			isa = PBXGroup;
 			children = (
 				AB4D643421670A22005807C1 /* RecordTest.swift */,
-				3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */,
 			);
 			path = record;
 			sourceTree = "<group>";
@@ -1159,6 +1159,7 @@
 				A88FEE232159DD8B00A7E838 /* GetAppDeployStatusRequest.swift in Sources */,
 				3E1FD7DE2148ADA60056F902 /* AddRecordResponse.swift in Sources */,
 				A88FEE982159DD9E00A7E838 /* Field.swift in Sources */,
+				3A28DB562318B0160044F8C1 /* RecordConstants.swift in Sources */,
 				A88FEE882159DD9E00A7E838 /* AbstractSelectionField.swift in Sources */,
 				A88FEE912159DD9E00A7E838 /* GroupLayout.swift in Sources */,
 				A88FEE1F2159DD8B00A7E838 /* GetViewsResponse.swift in Sources */,
@@ -1234,7 +1235,6 @@
 				A88FEE262159DD8B00A7E838 /* GetFormLayoutRequest.swift in Sources */,
 				A88FEE272159DD8B00A7E838 /* GetFormFieldsRequest.swift in Sources */,
 				3E60AFE42151E09D0041B02C /* Comment.swift in Sources */,
-				3A06D2902316322800AF4CE0 /* RecordConstants.swift in Sources */,
 				A88FEE7B2159DD9E00A7E838 /* DepartmentSelectionField.swift in Sources */,
 				A88FEE942159DD9E00A7E838 /* RowLayout.swift in Sources */,
 				A88FEE312159DD8B00A7E838 /* ViewModel.swift in Sources */,
@@ -1266,6 +1266,7 @@
 				A88FEE2C2159DD8B00A7E838 /* Icon.swift in Sources */,
 				A88FEE872159DD9E00A7E838 /* MultipleSelectField.swift in Sources */,
 				3E60AFE22151E07D0041B02C /* AddCommentResponse.swift in Sources */,
+				E719D4A823176A3500E09399 /* BulksException.swift in Sources */,
 				A88FEE282159DD8B00A7E838 /* GetAppRequest.swift in Sources */,
 				A88FEEB62159DDC300A7E838 /* AppForm.swift in Sources */,
 				A88FEE802159DD9E00A7E838 /* LookupItem.swift in Sources */,
@@ -1304,7 +1305,6 @@
 				ABE0234A216F3A0F002C47EC /* BulkRequestTest.swift in Sources */,
 				122F1DDE216B7B3D00160A27 /* GetFormFieldsTest.swift in Sources */,
 				122F1DD8216B7AE300160A27 /* GetAppTest.swift in Sources */,
-				3A06D2922316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift in Sources */,
 				122F1DE2216B7B5A00160A27 /* GetGeneralSettingsTest.swift in Sources */,
 				12DB97D321A7DF910070C5C4 /* RecordTestConstants.swift in Sources */,
 				122F1DEA216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift in Sources */,
