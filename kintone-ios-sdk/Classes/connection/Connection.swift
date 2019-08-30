@@ -34,6 +34,8 @@ open class Connection: NSObject {
     /// Contains information for bypass proxy.
     private var proxyHost: String? = nil
     private var proxyPort: Int? = nil
+    private var proxyUsername: String? = nil
+    private var proxyPassword: String? = nil
     
     /// Constructor for init a connection object to connect to guest space.
     ///
@@ -524,8 +526,17 @@ open class Connection: NSObject {
             config.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = self.proxyPort
             config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
             config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
+            if (self.proxyUsername != nil || self.proxyUsername != ""
+                || self.proxyPassword != nil || self.proxyPassword != "") {
+                let proxyAuth: String = "\(self.proxyUsername!):\(self.proxyPassword!)"
+                config.httpAdditionalHeaders = ["Proxy-Authorization":  "Basic " + getBase64EncodedCredential(proxyAuth)]
+            }
         }
         return config
+    }
+    
+    private func getBase64EncodedCredential(_ proxyAuth: String) -> String {
+        return (proxyAuth.data(using: .utf8, allowLossyConversion: false)?.base64EncodedString())!
     }
     
     /// Sets the proxy host.
@@ -533,9 +544,13 @@ open class Connection: NSObject {
     /// - Parameters:
     ///   - host: proxy host
     ///   - port: proxy port
-    open func setProxy(_ host: String, _ port: Int) {
+    ///   - username: proxy username
+    ///   - password: proxy password
+    open func setProxy(_ host: String, _ port: Int, _ username: String = "", _ password: String = "") {
         self.proxyHost = host
         self.proxyPort = port
+        self.proxyUsername = username
+        self.proxyPassword = password
     }
     
     /// Get uri string from api name.
