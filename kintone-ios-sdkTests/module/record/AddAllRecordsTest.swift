@@ -36,11 +36,11 @@ class AddAllRecordsTest: XCTestCase {
         let numberRecordToAdd = 2500;
         let numBulkRequest = 2;
         var recordsToAdd: [[String:FieldValue]] = []
-        var i = 0;
+        var i = 0
         while (i < numberRecordToAdd) {
-            var record = createAddData();
+            var record = createAddData()
             record = addData(record, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "add record")
-            recordsToAdd.append(record);
+            recordsToAdd.append(record)
             i += 1
         }
         
@@ -56,7 +56,7 @@ class AddAllRecordsTest: XCTestCase {
                     var expectID: Int = item.getIDs()?[0] ?? 0
                     for id in item.getIDs()! {
                         XCTAssert(id ==  expectID)
-                        expectID += 1;
+                        expectID += 1
                     }
                 }
                 
@@ -64,7 +64,7 @@ class AddAllRecordsTest: XCTestCase {
         }.catch{ error in
                 var errorString = ""
                 if (type(of: error) == BulksException.self) {
-                    errorString = (error as! KintoneAPIException).toString()!
+                    errorString = (error as! BulksException).getError()!
                 } else {
                     errorString = error.localizedDescription
                 }
