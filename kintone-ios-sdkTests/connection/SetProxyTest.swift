@@ -31,7 +31,7 @@ class SetProxyTest: XCTestCase {
     func testSetProxySuccess() throws {
         self.connection?.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT, TestsConstants.PROXY_USERNAME, TestsConstants.PROXY_PASSWORD)
         let app = App(self.connection)
-        app.getApp(2).then {resp in
+        app.getApp(AppTestConstants.COMMON_APP_ID).then {resp in
             print(resp.getName())
             XCTAssertTrue(true)
             }.catch { error in
@@ -43,7 +43,7 @@ class SetProxyTest: XCTestCase {
     func testSetProxyFail() throws {
         self.connection?.setProxy(TestsConstants.PROXY_HOST, TestsConstants.PROXY_PORT, "WRONG_PROXY_USERNAME", "WRONG_PROXY_PASSWORD")
         let app = App(self.connection)
-        app.getApp(2).then {resp in
+        app.getApp(APP_ID_ERROR).then {resp in
             XCTFail("Wrong proxy information")
             }.catch { error in
                 XCTAssert(type(of: error) == KintoneAPIException.self)
