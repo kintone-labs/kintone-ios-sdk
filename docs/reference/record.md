@@ -466,7 +466,7 @@ Delete all records by indicating query. Can delete over 2000 records, but can't 
 
 **Return**
 
-Promise<Void\>
+Promise<BulkRequestResponse\>
 
 **Sample code**
 
