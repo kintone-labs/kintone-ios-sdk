@@ -452,7 +452,7 @@ Promise<BulkRequestResponse\>
             
     // execute update records API
     let appID = {your_app_id}
-    recordManagement.updateRecords(appID, updateItemList).then{response in
+    recordManagement.updateAllRecords(appID, updateItemList).then{response in
         for result in updateRecordRsp.getResults()! {
             let updateRecordsResponse = result as! [UpdateRecordsResponse]
             for item in updateRecordsResponse {
