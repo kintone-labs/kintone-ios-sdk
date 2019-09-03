@@ -453,6 +453,48 @@ Promise<Void\>
 
 </details>
 
+### deleteAllRecordsByQuery(_ app: Int, _ query: String?)
+
+Delete all records by indicating query. Can delete over 2000 records, but can't do rollback.
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded. If nothing is specified, fields will be returned from all accessible records. The query detail can't indicate limit and offset.
+
+**Return**
+
+Promise<Void\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Delete multi records by query</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let appID = {YOUR_APP_ID}
+    let query = "{YOUR_QUERY}"
+  
+    recordManagement.deleteRecords(appID, query).then { resp in
+        let results = resp.getResults()
+        print(results!)
+        }.catch{ error in
+            if error is KintoneAPIException {
+                print((error as! KintoneAPIException).toString()!)
+            }
+            else {
+                print((error as! Error).localizedDescription)
+            }
+        }
+</pre>
+
+</details>
+
 ### deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])
 
 Deletes multiple records in an app with revision.
