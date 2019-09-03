@@ -453,7 +453,7 @@ Promise<Void\>
 
 </details>
 
-### deleteAllRecordsByQuery(_ app: Int, _ query: String?)
+### deleteAllRecordsByQuery(app, query)
 
 Delete all records by indicating query. Can delete over 2000 records, but can't do rollback.
 
@@ -471,7 +471,7 @@ Promise<Void\>
 **Sample code**
 
 <details class="tab-container" open>
-<Summary>Delete multi records by query</Summary>
+<Summary>Delete all records by query</Summary>
 
 <strong class="tab-name">Source code</strong>
 
