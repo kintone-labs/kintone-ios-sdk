@@ -211,7 +211,7 @@ Methods
 
 (none)
 
-## RecordUpsetItem
+## RecordUpsertItem
 
 ### Constructor
 
