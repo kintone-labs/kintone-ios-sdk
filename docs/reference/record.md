@@ -146,9 +146,9 @@ Promise<GetRecordsResponse\>
 
 </details>
 
-### getAllRecordsByQuery(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
+### getAllRecordsByQuery(appId, query, fields, totalCount)
 
-Retrieves details of multiple records from an app using a query string.
+Get all records from an app by using a query string.
 
 **Parameter**
 
@@ -166,7 +166,7 @@ Promise<GetRecordsResponse\>
 **Sample code**
 
 <details class="tab-container" open>
-<Summary>Get records by query</Summary>
+<Summary>Get all records by query</Summary>
 
 <strong class="tab-name">Source code</strong>
 
