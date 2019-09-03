@@ -480,7 +480,7 @@ Promise<Void\>
     let appID = {YOUR_APP_ID}
     let query = "{YOUR_QUERY}"
   
-    recordManagement.deleteRecords(appID, query).then { resp in
+    recordManagement.deleteAllRecordsByQuery(appID, query).then { resp in
         let results = resp.getResults()
         print(results!)
         }.catch{ error in
