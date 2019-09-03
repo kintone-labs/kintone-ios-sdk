@@ -146,6 +146,55 @@ Promise<GetRecordsResponse\>
 
 </details>
 
+### getAllRecordsByQuery(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
+
+Retrieves details of multiple records from an app using a query string.
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | ArrayList<String\>| (optional) | List of field codes you want in the response.
+| totalCount | Boolean | (optional) | If "true", the request will retrieve total count of records match with query conditions.
+
+**Return**
+
+Promise<GetRecordsResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Get records</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let appID = {YOUR_APP_ID}
+    let query = "{YOUR_QUERY}"
+    
+    recordManagement!.getAllRecordsByQuery(appID, query, nil, true).then {response in
+        let records = response.getRecords()
+        for (_, dval) in (records?.enumerated())! {
+            for (_, value) in dval {
+                print(value.getType() as Any)
+                print(value.getValue() as Any)
+            }
+        }
+        }.catch{ error in
+            if error is KintoneAPIException {
+                print((error as! KintoneAPIException).toString()!)
+            }
+            else {
+                print((error).localizedDescription)
+            }
+        }
+</pre>
+
+</details>
+
 ### addRecord(_ app: Int, _ record: [String:FieldValue]?)
 
 >Add one record to an app.
