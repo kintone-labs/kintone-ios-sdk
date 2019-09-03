@@ -526,8 +526,7 @@ open class Connection: NSObject {
             config.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = self.proxyPort
             config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
             config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
-            if (self.proxyUsername != nil || self.proxyUsername != ""
-                || self.proxyPassword != nil || self.proxyPassword != "") {
+            if (self.proxyUsername != nil && self.proxyPassword != nil) {
                 let proxyAuth: String = "\(self.proxyUsername!):\(self.proxyPassword!)"
                 config.httpAdditionalHeaders = ["Proxy-Authorization":  "Basic " + getBase64EncodedCredential(proxyAuth)]
             }
@@ -546,7 +545,7 @@ open class Connection: NSObject {
     ///   - port: proxy port
     ///   - username: proxy username
     ///   - password: proxy password
-    open func setProxy(_ host: String, _ port: Int, _ username: String = "", _ password: String = "") {
+    open func setProxy(_ host: String, _ port: Int, _ username: String? = nil, _ password: String? = nil) {
         self.proxyHost = host
         self.proxyPort = port
         self.proxyUsername = username
