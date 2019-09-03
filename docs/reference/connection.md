@@ -86,8 +86,8 @@ Set new header of the [Connection](../connection)
     let loginName = 'your_user_name'
     let loginPassword = 'your_password'
     let domain = 'your_kintone_domain'
-    let key = "X-HTTP-Method-Override";
-    let value = "GET";
+    let key = "X-HTTP-Method-Override"
+    let value = "GET"
     
     // Init authenticationAuth
     let auth = Auth()
@@ -95,13 +95,13 @@ Set new header of the [Connection](../connection)
     
     // Init connection
     let connection = Connection(domain, auth)
-    connection.setHeader(key, value);
+    connection.setHeader(key, value)
 
 </pre>
 
 </details>
 
-### setProxy(proxyHost, proxyPort)
+### setProxy(proxyHost, proxyPort, proxyUsername, proxyPassword)
 
 Set the proxy of the request
 
@@ -111,6 +111,8 @@ Set the proxy of the request
 | --- | --- | --- | --- |
 | proxyHost | String | yes | The proxy host name
 | proxyPort | Integer | yes | The proxy port number
+| proxyUsername | String | (optional) | User name of the proxy
+| proxyPassword | String | (optional) | Password of the proxy
 
 **Return**
 
@@ -125,12 +127,15 @@ Set the proxy of the request
 
 <pre class="inline-code">
 
-    let proxyHost = "xxxx";
-    let proxyPort: Int? = {your_proxy_port};
+    let proxyHost = "{YOUR_PROXY_HOST}"
+    let proxyPort: Int? = {YOUR_PROXY_PORT}
+    // Set proxy with auth
+    let proxyUsername = "{YOUR_PROXY_USERNAME}"
+    let proxyPassword = "{YOUR_PROXY_PASSWORD}"
     
-    let loginName = 'your_user_login_name'
-    let loginPassword = 'your_password'
-    let domain = 'your_kintone_domain'
+    let username = "{YOUR_USERNAME}"
+    let password = "{YOUR_PASSWORD}"
+    let domain = "{YOUR_DOMAIN}"
     
     // Init authenticationAuth
     let auth = Auth()
@@ -138,8 +143,10 @@ Set the proxy of the request
     
     // Init connection
     let connection = Connection(domain, auth)
-    connection.setProxy(proxyHost, proxyPort);
-    
+    // Set proxy without auth
+    connection.setProxy(proxyHost, proxyPort)
+    // Set proxy with auth
+    connection.setProxy(proxyHost, proxyPort, proxyUsername, proxyPassword)
 </pre>
 
 </details>
