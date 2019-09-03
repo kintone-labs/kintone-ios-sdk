@@ -166,7 +166,7 @@ Promise<GetRecordsResponse\>
 **Sample code**
 
 <details class="tab-container" open>
-<Summary>Get records</Summary>
+<Summary>Get records by query</Summary>
 
 <strong class="tab-name">Source code</strong>
 
