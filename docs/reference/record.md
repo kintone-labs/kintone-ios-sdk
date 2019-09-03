@@ -146,7 +146,7 @@ Promise<GetRecordsResponse\>
 
 </details>
 
-### getAllRecordsByQuery(appId, query, fields, totalCount)
+### getAllRecordsByQuery(app, query, fields, totalCount)
 
 Get all records from an app by using a query string.
 
