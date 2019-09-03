@@ -794,6 +794,74 @@ Promise<Void\>
 
 </details>
 
+### upsertRecords(_ app: Int, _ records: [RecordUpsertItem])
+
+Insert or update up to 1500 records to kintone app.
+If the records are over 1500, It is thrown Error.
+Insert the records if the updateKey doesn't exists and update the records if the updateKey exists.
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| records | ArrayList<UpsertRecordItem\> | yes | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise<BulkRequestResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Upsert records by UpdateKey</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    // create update key
+    let updKey1 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey2 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey3 = RecordUpdateKey("{your_field_code}", "update key value")
+
+    var field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    
+    var record1: Dictionary<String, FieldValue> = [:]
+    var record2: Dictionary<String, FieldValue> = [:]
+    var record3: Dictionary<String, FieldValue> = [:]
+    record1[{your_field_code}] = field
+    record2[{your_field_code}] = field
+    record3[{your_field_code}] = field
+
+    let recordUpsertItem1 = RecordUpsertItem(updKey1, record1)
+    let recordUpsertItem2 = RecordUpsertItem(updKey2, record2)
+    let recordUpsertItem3 = RecordUpsertItem(updKey3, record3)
+
+    let upsertRecords: [RecordUpsertItem] = []
+    upsertRecords.append(recordUpsertItem1)
+    upsertRecords.append(recordUpsertItem2)
+    upsertRecords.append(recordUpsertItem3)
+            
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.upsertRecords(appID, upsertRecords).then{response in
+        print(response)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print((error as! Error).localizedDescription)
+        }
+    }
+
+</pre>
+
+</details>
+
 ## Reference
 
 - [Get Record](https://developer.kintone.io/hc/en-us/articles/213149287/) 

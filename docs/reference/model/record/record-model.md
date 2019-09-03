@@ -210,3 +210,82 @@ Methods
 Methods
 
 (none)
+
+## RecordUpsetItem
+
+### Constructor
+
+**Parameter**
+
+| Name| type| Description |
+| --- | ---  | --- |
+| updateKey | [RecordUpdateKey](#recordupdatekey)  |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+| record | HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>  | The data to update record.
+
+Methods
+
+### getRecord()
+
+Get the Record data response.
+
+**Parameter**
+
+(none)
+
+**Return**
+
+HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>
+
+### getRecord(_ updateKey: RecordUpdateKey?)
+
+Get the Record data response by UpdateKey.
+
+**Parameter**
+
+| Name| type| Description |
+| --- | ---  | --- |
+| updateKey | [RecordUpdateKey](#recordupdatekey)  |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+
+**Return**
+
+HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>
+
+### getUpdateKey()
+
+Get the unique key of record.
+
+**Parameter**
+
+(none)
+
+**Return**
+
+[RecordUpdateKey](#recordupdatekey)
+
+### setRecord(_ record: [String:FieldValue]?)
+
+Set the Record data response.
+
+**Parameter**
+
+| Name| type| Description |
+| --- | ---  | --- |
+| record | HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>  | The data to update record.
+
+**Return**
+
+(none)
+
+### setUpdateKey(_ updateKey: RecordUpdateKey?)
+
+Set the unique key of record.
+
+**Parameter**
+
+| Name| type| Description |
+| --- | ---  | --- |
+| updateKey | [RecordUpdateKey](#recordupdatekey)  |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+
+**Return**
+
+(none)
