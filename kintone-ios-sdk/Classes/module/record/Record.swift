@@ -496,10 +496,16 @@ open class Record: NSObject {
     open func deleteAllRecordsByQuery(_ app: Int, _ query: String? = "") -> Promise<BulkRequestResponse> {
         return Promise<BulkRequestResponse>(on: .global(), { fulfill, reject in
             do {
+                var innerQuery: String
+                if (query == nil) {
+                    innerQuery = ""
+                } else {
+                    innerQuery = query!
+                }
                 let requestResponse = BulkRequestResponse()
                 var fields = [String]()
                 fields.append("$id")
-                let getRecordsRequest: GetRecordsResponse = try await(self.getAllRecordsByQuery(app, query, fields, true))
+                let getRecordsRequest: GetRecordsResponse = try await(self.getAllRecordsByQuery(app, innerQuery, fields, true))
                 let recordsArray = getRecordsRequest.getRecords()
                 let totalRecords:Int = getRecordsRequest.getTotalCount()!
                 let numRecordsPerBulk:Int = RecordConstants.NUM_BULK_REQUEST * RecordConstants.LIMIT_DELETE_RECORD
