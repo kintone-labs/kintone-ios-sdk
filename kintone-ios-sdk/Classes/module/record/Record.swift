@@ -56,7 +56,7 @@ open class Record: NSObject {
     ///   - fields: The field codes that you want in the response
     /// - Returns: Promise<GetRecordsResponse>
     /// - Throws: KintoneAPIException
-    open func getAllRecordsByCursor(_ app: Int,_  query: String?,_ fields: [String]?)  -> Promise<GetRecordsResponse> {
+    open func getAllRecordsByCursor(_ app: Int,_  query: String? = nil,_ fields: [String]? = nil)  -> Promise<GetRecordsResponse> {
         let recordLimitSize = 500
         // execute GET RECORDS API
         return (self.recordCursor?.createCursor(app, fields, query, recordLimitSize)
