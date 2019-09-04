@@ -54,7 +54,7 @@ class UpsertRecordsTest: XCTestCase {
                 updateKey = RecordUpdateKey("UPDATE_KEY", uniqueKey)
                 var updateRecord: Dictionary<String, FieldValue> = [:]
                 updateRecord = self.addData(updateRecord, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "test upsert record -> update")
-                self.recordManagement?.upsertRecord(RecordTestConstants.APP_ID, updateKey, updateRecord, nil).then{subResponse in
+                self.recordManagement?.upsertRecord(RecordTestConstants.APP_ID, updateKey, updateRecord).then{subResponse in
                     if let updateResponse = subResponse as? UpdateRecordResponse {
                         XCTAssertEqual(revision! + 1, updateResponse.getRevision())
                     }

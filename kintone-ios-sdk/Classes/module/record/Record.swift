@@ -441,10 +441,10 @@ open class Record: NSObject {
     ///   - app: the ID of kintone app
     ///   - updateKey: the unique key of the record to be updated
     ///   - record: the record data which will update
-    ///   - revision: the number of revision
+    ///   - revision: the number of revision. Default value is -1.
     /// - Returns: AddRecordResponse or UpdateRecordResponse
     /// - Throws: KintoneAPIException
-    open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int?) -> Promise<AnyObject> {
+    open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise<AnyObject> {
         return Promise<AnyObject>(on: .global(), { fulfill, reject in
             do {
                 let response = try self._getResponseToUpsertRecord(app, updateKey, record, revision)
