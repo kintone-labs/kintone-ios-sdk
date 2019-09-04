@@ -806,7 +806,7 @@ Insert the record if the updateKey doesn't exists and update the record if the u
 | app | Integer | yes | The kintone app ID
 | updateKey | RecordUpdateKey | yes | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
 | record | Dictionary<String, FieldValue\>  | yes | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| revision | Integer | (optional) | The revision number of record
+| revision | Integer | (optional) | The expected revision number. If the value does not match, an error will occur and the record will not be updated. If the value is not specified or is -1, the revision number will not be checked.
 
 **Return**
 
