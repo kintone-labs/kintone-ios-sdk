@@ -460,7 +460,7 @@ open class Record: NSObject {
         return try self.fetchRecords(app, query, fields, totalCount, interOffset, interRecord)
     }
     
-    open func getAllRecordsByQuery(_ app: Int, _ query: String? = "", _ fields: [String]? = [], _ totalCount: Bool? = false) -> Promise<GetRecordsResponse> {
+    open func getAllRecordsByQuery(_ app: Int, _ query: String? = "", _ fields: [String]? = [], _ totalCount: Bool = false) -> Promise<GetRecordsResponse> {
         return Promise<GetRecordsResponse>(on: .global(), { fulfill,reject in
             do {
                 var innerQuery: String
@@ -469,7 +469,7 @@ open class Record: NSObject {
                 } else {
                     innerQuery = query!
                 }
-                let response = try self.fetchRecords(app, innerQuery, fields, totalCount!, 0, [[String: FieldValue]]())
+                let response = try self.fetchRecords(app, innerQuery, fields, totalCount, 0, [[String: FieldValue]]())
                 fulfill(response)
             } catch {
                 reject(error)
