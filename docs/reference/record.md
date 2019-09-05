@@ -821,8 +821,8 @@ Promise<AddRecordResponse\> or  Promise<UpdateRecordResponse\>
 
 <pre class="inline-code">
 
-    var upsertData: Dictionary<String, FieldValue> = [:]
-    var field = FieldValue()
+    var upsertData: Dictionary<String, FieldValue\> = [:]
+    let field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
     upsertData[{your_field_code}] = field
