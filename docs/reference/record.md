@@ -797,7 +797,7 @@ Promise<Void\>
 ### upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int?)
 
 Insert or update a record to kintone app.
-Insert the record if the updateKey doesn't exists and update the record if the updateKey exists.
+Insert the record if the updateKey doesn't exist and update the record if the updateKey exists.
 
 **Parameter**
 
