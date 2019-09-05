@@ -798,7 +798,7 @@ Promise<Void\>
 
 Insert or update up to 1500 records to kintone app.
 If the records are over 1500, It is thrown Error.
-Insert the records if the updateKey doesn't exists and update the records if the updateKey exists.
+Insert the records if the updateKey doesn't exist and update the records if the updateKey exists.
 
 **Parameter**
 
@@ -825,13 +825,13 @@ Promise<BulkRequestResponse\>
     let updKey2 = RecordUpdateKey("{your_field_code}", "update key value")
     let updKey3 = RecordUpdateKey("{your_field_code}", "update key value")
 
-    var field = FieldValue()
+    let field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
     
-    var record1: Dictionary<String, FieldValue> = [:]
-    var record2: Dictionary<String, FieldValue> = [:]
-    var record3: Dictionary<String, FieldValue> = [:]
+    var record1: Dictionary<String, FieldValue\> = [:]
+    var record2: Dictionary<String, FieldValue\> = [:]
+    var record3: Dictionary<String, FieldValue\> = [:]
     record1[{your_field_code}] = field
     record2[{your_field_code}] = field
     record3[{your_field_code}] = field
