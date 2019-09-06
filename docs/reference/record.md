@@ -794,22 +794,26 @@ Promise<Void\>
 
 </details>
 
-### upsertRecords(_ app: Int, _ records: [RecordUpsertItem])
+### upsertRecords
 
-Insert or update up to 1500 records to kintone app.
-If the records are over 1500, It is thrown Error.
+Insert or update up to 1500 records to kintone app.<br>
+If the records are over 1500, It is thrown Error.<br>
 Insert the records if the updateKey doesn't exist and update the records if the updateKey exists.
+
+<pre class="inline-code">
+func upsertRecords(_ app: Int,_ records: [RecordUpsertItem]) -> Promise&lt;BulkRequestResponse&gt;
+</pre>
 
 **Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
 | app | Integer | yes | The kintone app ID
-| records | ArrayList<UpsertRecordItem\> | yes | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| records | ArrayList&lt;UpsertRecordItem&gt; | yes | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
 
 **Return**
 
-Promise<BulkRequestResponse\>
+Promise&lt;BulkRequestResponse&gt;
 
 **Sample code**
 
@@ -829,9 +833,9 @@ Promise<BulkRequestResponse\>
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
     
-    var record1: Dictionary<String, FieldValue\> = [:]
-    var record2: Dictionary<String, FieldValue\> = [:]
-    var record3: Dictionary<String, FieldValue\> = [:]
+    var record1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record2: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record3: Dictionary&lt;String, FieldValue&gt; = [:]
     record1[{your_field_code}] = field
     record2[{your_field_code}] = field
     record3[{your_field_code}] = field
