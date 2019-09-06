@@ -150,13 +150,17 @@ Promise<GetRecordsResponse\>
 
 Retrieves details of multiple records from an app using a query string.
 
+**Declaration**
+
+    func createCursor(_ app: Int, _ fields: [String]? = nil, _ query: String? = nil, _ size: Int? = 100) -> Promise<CreateRecordCursorResponse>
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| app | Integer | yes | The kintone app ID
-| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
-| fields | ArrayList<String\>| (optional) | List of field codes you want in the response.
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | List of field codes you want in the response.
 
 **Return**
 
@@ -176,8 +180,8 @@ Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
     let domain = {your_domain}
     
     // Init authenticationAuth
-    let auth = Auth()
-    auth.setPasswordAuth(username, password)
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
             
     // Init Connection without "guest space ID"
     let connection = Connection(domain, auth)
@@ -190,7 +194,7 @@ Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
     let query = "レコード番号 >= 2 order by レコード番号 asc"
     
     recordManagement.getAllRecordsByCursor(appID, query, nil).then{response in
-        let records = response?.getRecords()
+        let records = response.getRecords()
                 
         for (_, dval) in (records?.enumerated())! {
             for (_, value) in dval {
@@ -203,7 +207,7 @@ Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
             print((error as! KintoneAPIException).toString()!)
         }
         else {
-            print((error as! Error).localizedDescription)
+            print(error.localizedDescription)
         }
     }
 
