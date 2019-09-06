@@ -434,7 +434,7 @@ open class Record: NSObject {
             }
         }
     }
-    
+
     private func fetchRecords(_ app: Int, _ query: String, _ fields: [String]?, _ totalCount: Bool,
                            _ offset: Int, _ records: [[String: FieldValue]]) throws -> GetRecordsResponse {
         var validQuery: String
@@ -475,5 +475,125 @@ open class Record: NSObject {
                 reject(error)
             }
         })
+    }
+    
+    /// Upsert the records on kintone app
+    ///
+    /// - Parameters:
+    ///   - app: the ID of kintone app
+    ///   - records: the records data which will update
+    /// - Returns: BulkRequestResponse
+    /// - Throws: BulksException or KintoneAPIException
+    open func upsertRecords(_ app: Int, _ records: [RecordUpsertItem]) -> Promise<BulkRequestResponse> {
+        return Promise<BulkRequestResponse>(on: .global(), {fulfill, reject in
+            if records.count > RecordConstants.LIMIT_UPSERT_RECORD {
+                 return reject(KintoneAPIException("upsertRecords can't handle over \(RecordConstants.LIMIT_UPSERT_RECORD) records."))
+            }
+            
+            let bulkRequestResponse = BulkRequestResponse()
+            
+            do {
+                let allRecordsResponse = try await(self.getAllRecordsByQuery(app))
+                let allRecords = allRecordsResponse.getRecords()
+                var recordsToUpdate: [RecordUpdateItem] = []
+                var recordsToAdd: [[String:FieldValue]] = []
+                
+                for recordUpsertItem in records {
+                    let recordUpdateKey = recordUpsertItem.getUpdateKey()!
+                    let recordUpdateKeyValue = recordUpdateKey.getValue()!
+                    let recordUpdateKeyField = recordUpdateKey.getField()!
+                    let record = recordUpsertItem.getRecord()!
+                    
+                    if self._doesExistSameFieldValue(allRecords, recordUpsertItem) {
+                        let recordUpdateItem = RecordUpdateItem(nil, nil, recordUpdateKey, record)
+                        recordsToUpdate.append(recordUpdateItem)
+                    } else {
+                        record[recordUpdateKeyField]?.setValue(recordUpdateKeyValue)
+                        recordsToAdd.append(record)
+                    }
+                }
+                let upsertBulkRequest = try await(self._executeUpsertBulkRequest(app, recordsToUpdate, recordsToAdd))
+                bulkRequestResponse.addResponse(upsertBulkRequest.getResults()!)
+            } catch {
+                bulkRequestResponse.addResponse(error)
+                return reject(BulksException(bulkRequestResponse.getResults()))
+            }
+            fulfill(bulkRequestResponse)
+        })
+    }
+    
+    private func _executeUpsertBulkRequest(_ app: Int,_ recordsToUpdate: [RecordUpdateItem]?,_ recordsToAdd: [[String:FieldValue]]?) -> Promise<BulkRequestResponse> {
+        do {
+            var bulkRequest = BulkRequest(self.connection!)
+            if recordsToAdd!.count > 0 {
+                bulkRequest = try self._getBulkRequestForAddRecords(app, bulkRequest, recordsToAdd!)
+            }
+            if recordsToUpdate!.count > 0 {
+                bulkRequest = try self._getBulkRequestForUpdateRecords(app, bulkRequest, recordsToUpdate!)
+            }
+            return bulkRequest.execute()
+        } catch {
+            return Promise<BulkRequestResponse> { _, reject in
+                reject(error)
+            }
+        }
+    }
+
+    private func _getBulkRequestForAddRecords(_ app: Int,_ bulkRequest: BulkRequest, _ records: [[String:FieldValue]]) throws -> BulkRequest{
+        let recordLimit = RecordConstants.LIMIT_ADD_RECORD
+        let length = records.count;
+        var numRequest =  length / recordLimit;
+        if ((length % recordLimit) > 0 || length == 0) {
+            numRequest += 1
+        }
+        for index in 1...numRequest {
+            let begin = (index - 1) * recordLimit;
+            let end = (length - begin) < recordLimit ? length : begin + recordLimit;
+            let recordsPerRequest = Array(records[begin..<end]);
+            do {
+                try _ = bulkRequest.addRecords(app, recordsPerRequest);
+            } catch let error as KintoneAPIException {
+                throw error
+            }
+        }
+        return bulkRequest
+    }
+    
+    private func _getBulkRequestForUpdateRecords(_ app: Int,_ bulkRequest: BulkRequest, _ records: [RecordUpdateItem]) throws -> BulkRequest{
+        let recordLimit = RecordConstants.LIMIT_UPDATE_RECORD
+        let length = records.count;
+        var numRequest =  length / recordLimit;
+        if ((length % recordLimit) > 0 || length == 0) {
+            numRequest += 1
+        }
+        for index in 1...numRequest {
+            let begin = (index - 1) * recordLimit;
+            let end = (length - begin) < recordLimit ? length : begin + recordLimit;
+            let recordsPerRequest = Array(records[begin..<end]);
+            do {
+                try _ = bulkRequest.updateRecords(app, recordsPerRequest);
+            } catch let error as KintoneAPIException {
+                throw error
+            }
+        }
+        return bulkRequest
+    }
+    
+    private func _doesExistSameFieldValue(_ records: [[String:FieldValue]]?,_ compareRecord: RecordUpsertItem) -> Bool {
+        let compareRecordUpdateKey = compareRecord.getUpdateKey()!
+        let compareRecordUpdateKeyValue = compareRecordUpdateKey.getValue()!
+        let compareRecordUpdateKeyField = compareRecordUpdateKey.getField()!
+        
+        if compareRecordUpdateKeyValue.isEmpty {
+            return false
+        }
+        
+        for record in records! {
+            let recordValue = record[compareRecordUpdateKeyField]?.getValue() as? String
+            if recordValue == compareRecordUpdateKeyValue {
+                return true
+            }
+        }
+        return false
     }
 }
