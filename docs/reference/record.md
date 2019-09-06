@@ -794,7 +794,7 @@ Promise<Void\>
 
 </details>
 
-## upsertRecord
+### upsertRecord
 
 Insert or update a record to kintone app.
 Insert the record if the updateKey doesn't exist and update the record if the updateKey exists.
