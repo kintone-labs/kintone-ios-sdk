@@ -435,6 +435,48 @@ open class Record: NSObject {
         }
     }
     
+    private func fetchRecords(_ app: Int, _ query: String, _ fields: [String]?, _ totalCount: Bool,
+                           _ offset: Int, _ records: [[String: FieldValue]]) throws -> GetRecordsResponse {
+        var validQuery: String
+        var interOffset = offset
+        var interRecord = records
+        
+        if query.count != 0 {
+            validQuery = "\(query) limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
+        } else {
+            validQuery = "limit \(RecordConstants.LIMIT_GET_RECORD) offset \(offset)"
+        }
+        do {
+            let fetchBlock = try await(self.getRecords(app, validQuery, fields, totalCount))
+            interRecord.append(contentsOf: fetchBlock.getRecords()!)
+            if fetchBlock.getRecords()!.count < RecordConstants.LIMIT_GET_RECORD {
+                fetchBlock.setRecords(interRecord)
+                return fetchBlock
+            }
+            interOffset = offset + RecordConstants.LIMIT_GET_RECORD
+        } catch let error as KintoneAPIException {
+            throw error
+        }
+        return try self.fetchRecords(app, query, fields, totalCount, interOffset, interRecord)
+    }
+    
+    open func getAllRecordsByQuery(_ app: Int, _ query: String? = "", _ fields: [String]? = [], _ totalCount: Bool = false) -> Promise<GetRecordsResponse> {
+        return Promise<GetRecordsResponse>(on: .global(), { fulfill,reject in
+            do {
+                var innerQuery: String
+                if (query == nil) {
+                    innerQuery = ""
+                } else {
+                    innerQuery = query!
+                }
+                let response = try self.fetchRecords(app, innerQuery, fields, totalCount, 0, [[String: FieldValue]]())
+                fulfill(response)
+            } catch {
+                reject(error)
+            }
+        })
+    }
+  
     /// Upsert the record on kintone app by UpdateKey
     ///
     /// - Parameters:
@@ -454,7 +496,7 @@ open class Record: NSObject {
             }
         })
     }
-    
+
     /// Get response to upsert record.
     ///
     /// - Parameters:
