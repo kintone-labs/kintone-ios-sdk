@@ -414,12 +414,16 @@ Promise<UpdateRecordsResponse\>
 
 Updates details of all records in an app, by specifying their record number, or a different unique key.
 
+**Declaration**
+
+    func updateAllRecords (_ app: Int, _ records: [RecordUpdateItem]) -> Promise<BulkRequestResponse>
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| app | Integer | yes | The kintone app ID
-| records | ArrayList<RecordUpdateItem\> | yes | The record data will be added to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | The record data will be added to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
 
 **Return**
 
@@ -434,31 +438,31 @@ Promise<BulkRequestResponse\>
 
 <pre class="inline-code">
 
-    var recId1 = {your_record_id}
-    var recId2 = {your_record_id}
-    var updateData1: Dictionary<String, FieldValue> = [:]
-    var updateData2: Dictionary<String, FieldValue> = [:]
-    var field1 = FieldValue()
-    var field2 = FieldValue()
+    let recId1 = {your_record_id}
+    let recId2 = {your_record_id}
+    var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
+    let field1 = FieldValue()
+    let field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
     field1.setValue("Test Update Value1 ")
     field2.setType(FieldType.SINGLE_LINE_TEXT)
     field2.setValue("Test Update Value2")
     updateData1[{your_field_code}] = field1
     updateData2[{your_field_code}] = field2
-    var updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
-    var updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
+    let updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
+    let updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
     let updateItemList = [updateDataItem1 , updateDataItem2]
             
     // execute update records API
     let appID = {your_app_id}
     recordManagement.updateAllRecords(appID, updateItemList).then{response in
-        for result in updateRecordRsp.getResults()! {
+        for result in response.getResults()! {
             let updateRecordsResponse = result as! [UpdateRecordsResponse]
             for item in updateRecordsResponse {
                 for record in item.getRecords()! {
-                    print(record.getID())
-                    print(record.getRevision())
+                    print(record.getID() as Any)
+                    print(record.getRevision() as Any)
                 }
             }
         }
