@@ -152,7 +152,7 @@ Retrieves details of multiple records from an app using a query string.
 
 **Declaration**
 
-    func createCursor(_ app: Int, _ fields: [String]? = nil, _ query: String? = nil, _ size: Int? = 100) -> Promise<CreateRecordCursorResponse>
+    func getAllRecordsByCursor(_ app: Int,_  query: String? = nil,_ fields: [String]? = nil)  -> Promise<GetRecordsResponse>
 
 **Parameter**
 
