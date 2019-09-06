@@ -796,7 +796,7 @@ Promise<Void\>
 
 ### upsertRecord
 
-Insert or update a record to kintone app.
+Insert or update a record to kintone app.<br>
 Insert the record if the updateKey doesn't exist and update the record if the updateKey exists.
 
 **Declaration**
@@ -807,18 +807,23 @@ func upsertRecord(_ app: Int,_ updateKey: RecordUpdateKey,_ record: [String:Fiel
 
 **Parameter**
 
-| Name | Description |
-| --- | --- |
-| app | The kintone app ID
-| updateKey | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| record | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| revision | The expected revision number. If the value does not match, an error will occur and the record will not be updated. If the value is not specified or is -1, the revision number will not be checked.
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID
+| updateKey | RecordUpdateKey | yes | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| record | Dictionary&lt;String, FieldValue&gt;  | yes | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| revision | Integer | (optional) | The expected revision number. If the value does not match, an error will occur and the record will not be updated. If the value is not specified or is -1, the revision number will not be checked.
 
 **Return**
 
 Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
 
 **Sample code**
+
+<details class="tab-container" open>
+<Summary>Upsert record by UpdateKey</Summary>
+
+<strong class="tab-name">Source code</strong>
 
 <pre class="inline-code">
 
@@ -848,6 +853,8 @@ Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
     }
 
 </pre>
+
+</details>
 
 ## Reference
 
