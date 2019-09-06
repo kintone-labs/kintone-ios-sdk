@@ -453,16 +453,21 @@ Promise<Void\>
 
 </details>
 
-### deleteAllRecordsByQuery(app, query)
+### deleteAllRecordsByQuery
 
 Delete all records by indicating query. Can delete over 2000 records, but can't do rollback.
 
+**Declaration**
+```
+func deleteAllRecordsByQuery(_ app: Int,_ query: String? = "") -> Promise<BulkRequestResponse>
+```
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| app | Integer | yes | The kintone app ID
-| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded. If nothing is specified, fields will be returned from all accessible records. The query detail can't indicate limit and offset.
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded. If nothing is specified, fields will be returned from all accessible records. The query detail can't indicate limit and offset.
 
 **Return**
 
