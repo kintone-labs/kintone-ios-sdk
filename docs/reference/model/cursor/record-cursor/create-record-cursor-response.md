@@ -4,18 +4,26 @@ The response of the create record cursor.
 
 ## Constructor
 
+**Declaration**
+
+    init(_ connection: Connection?)
+
 ### **Parameter**
 
-| Name| Type| Description |
-| --- | --- | --- |
-| id | String | The cursor ID.
-| totalCount | Integer | The total count of records that match the query conditions.
+| Name| Description |
+| --- |  --- |
+| id | The cursor ID.
+| totalCount | The total count of records that match the query conditions.
 
 ## Methods
 
-### getId()
+### getId
 
 Get the cursor ID.
+
+**Declaration**
+
+    func getId() -> String
 
 **Parameter **
 
@@ -25,23 +33,31 @@ Get the cursor ID.
 
 String
 
-### setId(id: String)
+### setId
 
 Set the cursor ID.
 
+**Declaration**
+
+    func setId(_ id: String?)
+
 **Parameter **
 
-| Name| Type| Description |
-| --- | --- | --- |
-| id | String | The cursor ID.
+| Name| Description |
+| --- |  --- |
+| id | The cursor ID.
 
 **Return**
 
 None
 
-### getTotalCount()
+### getTotalCount
 
 Get the total count of records that match the query conditions.
+
+**Declaration**
+
+    func getTotalCount() -> Int
 
 **Parameter **
 
@@ -55,11 +71,15 @@ Integer
 
 Set the total count of records that match the query conditions.
 
+**Declaration**
+
+    func setTotalCount(_ totalCount: Int?)
+
 **Parameter **
 
-| Name| Type| Description |
-| --- | --- | --- |
-| totalCount | Integer | The total count of records that match the query conditions.
+| Name| Description |
+| --- |  --- |
+| totalCount | The total count of records that match the query conditions.
 
 **Return**
 

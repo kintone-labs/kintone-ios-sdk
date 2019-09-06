@@ -11,10 +11,14 @@ Currently there's only cursor for records.
 
 ## Constructor
 
+### Declaration
+
+    init(_ connection: Connection?)
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
+| Name| Description |
+| ---| --- |
 | connection | [Connection](../connection) | yes | The connection module of this SDK.
 
 **Sample code**
@@ -46,18 +50,22 @@ Currently there's only cursor for records.
 
 ## Methods
 
-### createCursor(app: Int, fields: [String], query: String, size: Int)
+### createCursor
 
 Retrieves details of 1 record from an app.
 
+**Declaration**
+
+    func createCursor(_ app: Int, _ fields: [String]? = nil, _ query: String? = nil, _ size: Int? = 100) -> Promise<CreateRecordCursorResponse>
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| app | Integer | yes | The kintone app ID
-| fields | Array<String\> | (optional) | Fields of record to return
-| query | String | (optional) | Query condition
-| size | Integer | (optional) | Number of records to retrieve per request.<br>Default: 100.<br>Maximum: 500.
+| Name| Description |
+| --- | --- |
+| app |The kintone app ID
+| fields | Fields of record to return
+| query | Query condition
+| size | Number of records to retrieve per request.<br>Default: 100.<br>Maximum: 500.
 
 
 **Return**
@@ -73,10 +81,10 @@ Promise<[CreateRecordCursorResponse](../model/cursor/record-cursor/create-record
 
 <pre class="inline-code">
 
-    var appID = YOUR_APP_ID
-    var fields = ["YOUR_FIELD_CODE"]
-    var query = "YOUR_QUERY"
-    var size = 500
+    let appID = YOUR_APP_ID
+    let fields = ["YOUR_FIELD_CODE"]
+    let query = "YOUR_QUERY"
+    let size = 500
     recordCursor.createCursor(appID, fields, query, size).then{ rsp in
         print(rsp.getId())
         print(rsp.getTotalCount())
@@ -94,15 +102,19 @@ Promise<[CreateRecordCursorResponse](../model/cursor/record-cursor/create-record
 
 </details>
 
-### getRecords(cursorID: String)
+### getRecords
 
 Retrieves records from an app.
 
+**Declaration**
+
+    func getRecords(_ cursorID: String) -> Promise<GetRecordCursorResponse>
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| cursorID | String | yes | The cursor ID
+| Name| Description |
+| ---| --- |
+| cursorID| The cursor ID
 
 **Return**
 
@@ -117,13 +129,13 @@ Promise<[GetRecordCursorResponse](../model/cursor/record-cursor/get-record-curso
 
 <pre class="inline-code">
 
-    var appID = YOUR_APP_ID
-    var fields = ["YOUR_FIELD_CODE"]
-    var query = "YOUR_QUERY"
-    var size = 500
+    let appID = YOUR_APP_ID
+    let fields = ["YOUR_FIELD_CODE"]
+    let query = "YOUR_QUERY"
+    let size = 500
     
     recordCursor.createCursor(appID, fields, query, size).then{createCursorRespone in
-    return (recordCursor.getRecords(createCursorRespone.getId()))!
+    return (recordCursor.getRecords(createCursorRespone.getId()))
     }.then{ getRecordsRespone in
         let records = getRecordsRespone.getRecords()
         for (_, dval) in (records.enumerated()) {
@@ -146,15 +158,19 @@ Promise<[GetRecordCursorResponse](../model/cursor/record-cursor/get-record-curso
 
 </details>
 
-### getAllRecords(cursorID: String)
+### getAllRecords
 
 Retrieves all records from an app.
 
+**Declaration**
+
+    func getAllRecords(_ cursorID: String)  -> Promise<GetRecordsResponse>
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| cursorID | String | yes | The cursor ID
+| Name| Description |
+| ---| --- |
+| cursorID| The cursor ID
 
 **Return**
 
@@ -169,10 +185,10 @@ Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
 
 <pre class="inline-code">
 
-    var appID = YOUR_APP_ID
-    var fields = ["YOUR_FIELD_CODE"]
-    var query = "YOUR_QUERY"
-    var size = 500
+    let appID = YOUR_APP_ID
+    let fields = ["YOUR_FIELD_CODE"]
+    let query = "YOUR_QUERY"
+    let size = 500
     
     recordCursor.createCursor(appID, fields, query, size).then{createCursorRespone in
     return recordCursor.getAllRecords(createCursorRespone.getId())
@@ -198,15 +214,20 @@ Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
 
 </details>
 
-### deleteCursor(cursorID: String)
+### deleteCursor
 
 Delete cursor in the app
 
+**Declaration**
+
+    func deleteCursor(_ cursorID: String) -> Promise<Void>
+
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| cursorID | String | yes | The cursor ID
+| Name| Description |
+| ---| --- |
+| cursorID| The cursor ID
 
 **Return**
 
@@ -221,10 +242,10 @@ Promise<Void\>
 
 <pre class="inline-code">
 
-    var appID = YOUR_APP_ID
-    var fields = ["YOUR_FIELD_CODE"]
-    var query = "YOUR_QUERY"
-    var size = 500
+    let appID = YOUR_APP_ID
+    let fields = ["YOUR_FIELD_CODE"]
+    let query = "YOUR_QUERY"
+    let size = 500
     
     recordCursor.createCursor(appID, fields, query, size).then{createCursorRespone in
         return recordCursor.deleteCursor(createCursorRespone.getId())

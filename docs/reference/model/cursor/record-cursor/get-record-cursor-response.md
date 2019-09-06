@@ -4,6 +4,10 @@ The response of the get records by cursor
 
 ## Constructor
 
+**Declaration**
+
+    init(_ records: [[String:FieldValue]]?, _ next: Bool?)
+
 ### **Parameter**
 
 | Name| Type| Description |
@@ -13,9 +17,13 @@ The response of the get records by cursor
 
 ## Methods
 
-### getRecords()
+### getRecords
 
 Get the records data.
+
+**Declaration**
+
+    func getRecords()->  [[String:FieldValue]] 
 
 **Parameter **
 
@@ -25,9 +33,13 @@ Get the records data.
 
 [[String:FieldValue]]
 
-### setRecords(records: [[String:FieldValue]])
+### setRecords
 
 Set the records data.
+
+**Declaration**
+
+    func setRecords(_ records: [[String:[FieldValue]]?)
 
 **Parameter **
 
@@ -39,9 +51,13 @@ Set the records data.
 
 None
 
-### getNext()
+### getNext
 
 Show if there's more records to get from kintone for cursor.
+
+**Declaration**
+
+    func getNext()-> Bool
 
 **Parameter **
 
@@ -51,9 +67,13 @@ Show if there's more records to get from kintone for cursor.
 
 Bool
 
-### setNext( next: Bool)
+### setNext
 
 Set the next param
+
+**Declaration**
+
+    func setNext(_ next: Bool?)
 
 **Parameter **
 
