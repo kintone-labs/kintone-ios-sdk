@@ -252,12 +252,17 @@ Promise<AddRecordsResponse\>
 
 Add all records to an app.
 
+**Declaration**
+
+     func addAllRecords (_ app: Int, _ records: [[String:FieldValue]] ) -> Promise<BulkRequestResponse>
+
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| app | Integer | yes | The kintone app ID
-| records | [[String, FieldValue]] | yes | List of records data to be add to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | List of records data to be add to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
 
 **Return**
 
@@ -272,26 +277,25 @@ Promise<BulkRequestResponse\>
 
 <pre class="inline-code">
 
-    var addData1: Dictionary<String, FieldValue> = [:]
-    var addData2: Dictionary<String, FieldValue> = [:]
-    var field1 = FieldValue()
-    var field2 = FieldValue()
+    var addData1: Dictionary&ltString, FieldValue&gt = [:]
+    var addData2: Dictionary&ltString, FieldValue&gt = [:]
+    let field1 = FieldValue()
+    let field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
     field1.setValue("Test Value1")
     field2.setType(FieldType.SINGLE_LINE_TEXT)
     field2.setValue("Test Value2")
     addData1[{your_field_code}] = field1
     addData2[{your_field_code}] = field2
-    var addDataList = [addData1, addData2]
+    let addDataList = [addData1, addData2]
     
     // execute add records API
     let appID = 311
     recordManagement.addAllRecords(appID, addDataList).then{response in
-        for items in addResponse.getResults()! {
+        for items in response.getResults()! {
             let addRecordsResponse = items as! [AddRecordsResponse]
-            for item in addRecordsResponse {
-            print(response!.getIDs())
-            print(response!.getRevisions())  
+            for _ in addRecordsResponse {
+                print(response.getResults()!)
             }
         }
     }.catch{ error in
