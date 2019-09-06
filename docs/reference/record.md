@@ -800,27 +800,24 @@ Insert or update up to 1500 records to kintone app.<br>
 If the records are over 1500, It is thrown Error.<br>
 Insert the records if the updateKey doesn't exist and update the records if the updateKey exists.
 
+**Declaration**
+
 <pre class="inline-code">
 func upsertRecords(_ app: Int,_ records: [RecordUpsertItem]) -> Promise&lt;BulkRequestResponse&gt;
 </pre>
 
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| app | Integer | yes | The kintone app ID
-| records | ArrayList&lt;UpsertRecordItem&gt; | yes | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
 
 **Return**
 
 Promise&lt;BulkRequestResponse&gt;
 
 **Sample code**
-
-<details class="tab-container" open>
-<Summary>Upsert records by UpdateKey</Summary>
-
-<strong class="tab-name">Source code</strong>
 
 <pre class="inline-code">
 
@@ -863,8 +860,6 @@ Promise&lt;BulkRequestResponse&gt;
     }
 
 </pre>
-
-</details>
 
 ## Reference
 

@@ -215,18 +215,30 @@ Methods
 
 ### Constructor
 
+**Declaration**
+
+<pre class="inline-code">
+public init(_ updateKey: RecordUpdateKey?,_ record: [String:FieldValue]?)
+</pre>
+
 **Parameter**
 
-| Name| type| Description |
-| --- | ---  | --- |
-| updateKey | [RecordUpdateKey](#recordupdatekey)  |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
-| record | HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>  | The data to update record.
+| Name|Description |
+| --- | --- |
+| updateKey |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+| record | The data to update record.
 
 Methods
 
-### getRecord()
+### getRecord
 
 Get the Record data response.
+
+**Declaration**
+
+<pre class="inline-code">
+func getRecord() -> [String:FieldValue]?
+</pre>
 
 **Parameter**
 
@@ -234,25 +246,37 @@ Get the Record data response.
 
 **Return**
 
-HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>
+HashMap&lt;String, [FieldValue](./record-field-model#fieldvalue)&gt;
 
-### getRecord(_ updateKey: RecordUpdateKey?)
+### getRecord
 
 Get the Record data response by UpdateKey.
 
+**Declaration**
+
+<pre class="inline-code">
+func getRecord(_ updateKey: RecordUpdateKey?) -> [String:FieldValue]?
+</pre>
+
 **Parameter**
 
-| Name| type| Description |
-| --- | ---  | --- |
-| updateKey | [RecordUpdateKey](#recordupdatekey)  |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+| Name| Description |
+| --- | --- |
+| updateKey | The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
 
 **Return**
 
-HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>
+HashMap&lt;String, [FieldValue](./record-field-model#fieldvalue)&gt;
 
-### getUpdateKey()
+### getUpdateKey
 
 Get the unique key of record.
+
+**Declaration**
+
+<pre class="inline-code">
+func getUpdateKey() -> RecordUpdateKey?
+</pre>
 
 **Parameter**
 
@@ -262,29 +286,41 @@ Get the unique key of record.
 
 [RecordUpdateKey](#recordupdatekey)
 
-### setRecord(_ record: [String:FieldValue]?)
+### setRecord
 
 Set the Record data response.
 
+**Declaration**
+
+<pre class="inline-code">
+func setRecord(_ record: [String:FieldValue]?)
+</pre>
+
 **Parameter**
 
-| Name| type| Description |
-| --- | ---  | --- |
-| record | HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>  | The data to update record.
+| Name| Description |
+| --- | --- |
+| record | The data to update record.
 
 **Return**
 
 (none)
 
-### setUpdateKey(_ updateKey: RecordUpdateKey?)
+### setUpdateKey
 
 Set the unique key of record.
 
+**Declaration**
+
+<pre class="inline-code">
+func setUpdateKey(_ updateKey: RecordUpdateKey?)
+</pre>
+
 **Parameter**
 
-| Name| type| Description |
-| --- | ---  | --- |
-| updateKey | [RecordUpdateKey](#recordupdatekey)  |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+| Name| Description |
+| --- | --- |
+| updateKey | The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
 
 **Return**
 
