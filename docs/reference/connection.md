@@ -101,18 +101,23 @@ Set new header of the [Connection](../connection)
 
 </details>
 
-### setProxy(proxyHost, proxyPort, proxyUsername, proxyPassword)
+### setProxy
 
 Set the proxy of the request
 
+**Declaration**
+```
+func setProxy(_ host: String,_ port: Int,_ username: String? = nil,_ password: String? = nil)
+```
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| proxyHost | String | yes | The proxy host name
-| proxyPort | Integer | yes | The proxy port number
-| proxyUsername | String | (optional) | User name of the proxy
-| proxyPassword | String | (optional) | Password of the proxy
+| Name| Description |
+| --- |  --- |
+| host | The proxy host name
+| port | The proxy port number
+| username | User name of the proxy
+| password | Password of the proxy
 
 **Return**
 
