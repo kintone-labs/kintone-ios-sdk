@@ -794,34 +794,35 @@ Promise<Void\>
 
 </details>
 
-### upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int?)
+## upsertRecord
 
 Insert or update a record to kintone app.
 Insert the record if the updateKey doesn't exist and update the record if the updateKey exists.
 
+**Declaration**
+
+<pre class="inline-code">
+func upsertRecord(_ app: Int,_ updateKey: RecordUpdateKey,_ record: [String:FieldValue],_ revision: Int?) -> Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
+</pre>
+
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| app | Integer | yes | The kintone app ID
-| updateKey | RecordUpdateKey | yes | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| record | Dictionary<String, FieldValue\>  | yes | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
-| revision | Integer | (optional) | The expected revision number. If the value does not match, an error will occur and the record will not be updated. If the value is not specified or is -1, the revision number will not be checked.
+| Name | Description |
+| --- | --- |
+| app | The kintone app ID
+| updateKey | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| record | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| revision | The expected revision number. If the value does not match, an error will occur and the record will not be updated. If the value is not specified or is -1, the revision number will not be checked.
 
 **Return**
 
-Promise<AddRecordResponse\> or  Promise<UpdateRecordResponse\>
+Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
 
 **Sample code**
 
-<details class="tab-container" open>
-<Summary>Upsert record by UpdateKey</Summary>
-
-<strong class="tab-name">Source code</strong>
-
 <pre class="inline-code">
 
-    var upsertData: Dictionary<String, FieldValue\> = [:]
+    var upsertData: Dictionary&lt;String, FieldValue&gt; = [:]
     let field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
@@ -847,8 +848,6 @@ Promise<AddRecordResponse\> or  Promise<UpdateRecordResponse\>
     }
 
 </pre>
-
-</details>
 
 ## Reference
 
