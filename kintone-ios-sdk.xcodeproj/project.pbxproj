@@ -51,6 +51,7 @@
 		12DB97D521A7DF9E0070C5C4 /* FileTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */; };
 		12DB97D721A7DFB80070C5C4 /* BulkRequestTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */; };
 		12F41DC721A80AEF00C0F1A7 /* ConnectionTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */; };
+		3A06D2922316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */; };
 		3A28DB562318B0160044F8C1 /* RecordConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB552318B0160044F8C1 /* RecordConstants.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
@@ -267,6 +268,7 @@
 		12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTestConstants.swift; sourceTree = "<group>"; };
 		12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestTestConstants.swift; sourceTree = "<group>"; };
 		12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTestConstants.swift; sourceTree = "<group>"; };
+		3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllRecordsByQueryTest.swift; sourceTree = "<group>"; };
 		3A28DB552318B0160044F8C1 /* RecordConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordConstants.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
@@ -979,6 +981,7 @@
 				AE1F9DC02318CB4D0055C3B5 /* UpsertRecordsTest.swift */,
 				AE1F9DBE2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift */,
 				AB4D643421670A22005807C1 /* RecordTest.swift */,
+				3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */,
 			);
 			path = record;
 			sourceTree = "<group>";
@@ -1182,6 +1185,7 @@
 				111892BC215012330077A87E /* BulkRequestItem.swift in Sources */,
 				3E60AFD2214A018E0041B02C /* Credential.swift in Sources */,
 				A88FEE932159DD9E00A7E838 /* FormLayout.swift in Sources */,
+				E719D4A823176A3500E09399 /* BulksException.swift in Sources */,
 				A88FEEA62159DD9E00A7E838 /* SubTableField.swift in Sources */,
 				A88FEEA02159DD9E00A7E838 /* ModifierField.swift in Sources */,
 				A88FEEA72159DD9E00A7E838 /* FieldGroup.swift in Sources */,
@@ -1280,7 +1284,6 @@
 				A88FEE2C2159DD8B00A7E838 /* Icon.swift in Sources */,
 				A88FEE872159DD9E00A7E838 /* MultipleSelectField.swift in Sources */,
 				3E60AFE22151E07D0041B02C /* AddCommentResponse.swift in Sources */,
-				E719D4A823176A3500E09399 /* BulksException.swift in Sources */,
 				A88FEE282159DD8B00A7E838 /* GetAppRequest.swift in Sources */,
 				A88FEEB62159DDC300A7E838 /* AppForm.swift in Sources */,
 				A88FEE802159DD9E00A7E838 /* LookupItem.swift in Sources */,
@@ -1320,6 +1323,7 @@
 				ABE0234A216F3A0F002C47EC /* BulkRequestTest.swift in Sources */,
 				122F1DDE216B7B3D00160A27 /* GetFormFieldsTest.swift in Sources */,
 				122F1DD8216B7AE300160A27 /* GetAppTest.swift in Sources */,
+				3A06D2922316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift in Sources */,
 				122F1DE2216B7B5A00160A27 /* GetGeneralSettingsTest.swift in Sources */,
 				12DB97D321A7DF910070C5C4 /* RecordTestConstants.swift in Sources */,
 				AE1F9DBF2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift in Sources */,
