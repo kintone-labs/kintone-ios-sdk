@@ -2,7 +2,7 @@
 
 
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
       
@@ -66,11 +66,7 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
       <link rel="stylesheet" href="../../asset/style/extra.css">
-    
-    
-      
     
     
   </head>
@@ -108,7 +104,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#record" tabindex="1" class="md-skip">
+      <a href="../../#record" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -160,7 +156,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title"
             data-md-component="title">
-            <a href="https://kintone.github.io/kintone-ios-sdk/">kintone ios SDK</a>&nbsp;<a style="text-decoration: underline;" href="https://kintone.github.io/kintone-ios-sdk/latest/versions">v0.2.0</a>
+            <a href="https://kintone.github.io/kintone-ios-sdk/">kintone ios SDK</a>&nbsp;<a style="text-decoration: underline;" href="https://kintone.github.io/kintone-ios-sdk/latest/versions">v0.3.0</a>
         </div>
       </div>
 
@@ -206,18 +202,20 @@
 
   
 
-<a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
+
+  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
     </div>
-  
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
+  </a>
+
           </div>
         </div>
       
@@ -253,18 +251,20 @@
 
   
 
-<a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
+
+  <a href="https://github.com/kintone/kintone-ios-sdk/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
     </div>
-  
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
+  </a>
+
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -419,6 +419,13 @@
           <li class="md-nav__item">
   <a href="#getrecords_-app-int-_-query-string-_fields-string-_totalcount-bool" title="getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)" class="md-nav__link">
     getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getallrecordsbyquery" title="getAllRecordsByQuery" class="md-nav__link">
+    getAllRecordsByQuery
   </a>
   
 </li>
@@ -1072,6 +1079,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#getallrecordsbyquery" title="getAllRecordsByQuery" class="md-nav__link">
+    getAllRecordsByQuery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#addrecord_-app-int-_-record-stringfieldvalue" title="addRecord(_ app: Int, _ record: [String:FieldValue]?)" class="md-nav__link">
     addRecord(_ app: Int, _ record: [String:FieldValue]?)
   </a>
@@ -1222,11 +1236,9 @@
 </tbody>
 </table>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Init record module</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Init record module</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let username = {your_user_name}
@@ -1245,8 +1257,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h2 id="methods">Methods</h2>
 <h3 id="getrecord_-app-int-_-id-int">getRecord(_ app: Int, _ id: Int)</h3>
 <p>Retrieves details of 1 record from an app.</p>
@@ -1278,11 +1289,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;GetRecordResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Get record</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Get record</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     // execute get record API
@@ -1309,8 +1318,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="getrecords_-app-int-_-query-string-_fields-string-_totalcount-bool">getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)</h3>
 <p>Retrieves details of multiple records from an app using a query string.</p>
 <p><strong>Parameter</strong></p>
@@ -1353,11 +1361,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;GetRecordsResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Get records</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Get records</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let appID = {your_app_id}
@@ -1383,8 +1389,70 @@
 
 </pre>
 
-</details>
+<p></details></p>
+<h3 id="getallrecordsbyquery">getAllRecordsByQuery</h3>
+<p>Get all records from an app by using a query string.</p>
+<p><strong>Declaration</strong></p>
+<pre><code>func getAllRecordsByQuery(_ app: Int,_ query: String? = &quot;&quot;,_ fields: [String]? = [],_ totalCount: Bool = false) -&gt; Promise&lt;GetRecordsResponse&gt;
+</code></pre>
 
+<p><strong>Parameter</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app</td>
+<td>The kintone app ID</td>
+</tr>
+<tr>
+<td>query</td>
+<td><a href="https://developer.kintone.io/hc/en-us/articles/213149287#getrecords">The query string</a> that will specify what records will be responded.</td>
+</tr>
+<tr>
+<td>fields</td>
+<td>List of field codes you want in the response.</td>
+</tr>
+<tr>
+<td>totalCount</td>
+<td>If "true", the request will retrieve total count of records match with query conditions.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Return</strong></p>
+<p>Promise&lt;GetRecordsResponse></p>
+<p><strong>Sample code</strong></p>
+<p><details class="tab-container" open>
+<Summary>Get all records by query</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
+<pre class="inline-code">
+
+    let appID = {YOUR_APP_ID}
+    let query = "{YOUR_QUERY}"
+
+    recordManagement.getAllRecordsByQuery(appID, query, nil, true).then {response in
+        let records = response.getRecords()
+        for (_, dval) in (records?.enumerated())! {
+            for (_, value) in dval {
+                print(value.getType() as Any)
+                print(value.getValue() as Any)
+            }
+        }
+        }.catch{ error in
+            if error is KintoneAPIException {
+                print((error as! KintoneAPIException).toString()!)
+            }
+            else {
+                print((error).localizedDescription)
+            }
+        }
+</pre>
+
+<p></details></p>
 <h3 id="addrecord_-app-int-_-record-stringfieldvalue">addRecord(_ app: Int, _ record: [String:FieldValue]?)</h3>
 <blockquote>
 <p>Add one record to an app.</p>
@@ -1417,11 +1485,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;AddRecordResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Add record</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Add record</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     var addData: Dictionary<String, FieldValue> = [:]
@@ -1446,8 +1512,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="addrecords_-app-int-_-records-stringfieldvalue">addRecords(_ app: Int, _ records: [[String:FieldValue]])</h3>
 <p>Add multiple records to an app.</p>
 <p><strong>Parameter</strong></p>
@@ -1478,11 +1543,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;AddRecordsResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Add multi records</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Add multi records</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     var addData1: Dictionary<String, FieldValue> = [:]
@@ -1513,8 +1576,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="updaterecordbyid_-app-int-_-id-int-_-record-stringfieldvalue-_-revision-int">updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)</h3>
 <p>Updates details of 1 record in an app by specifying its record number.</p>
 <p><strong>Parameter</strong></p>
@@ -1557,11 +1619,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;UpdateRecordResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Update record by ID</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Update record by ID</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     var updateData:Dictionary<String, FieldValue> = [:]
@@ -1586,8 +1646,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="updaterecordbyupdatekey_-app-int-_-updatekey-recordupdatekey-_-record-stringfieldvalue-_-revision-int">updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)</h3>
 <p>Updates details of 1 record in an app by the unique key.</p>
 <p><strong>Parameter</strong></p>
@@ -1630,11 +1689,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;UpdateRecordResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Update record by UpdateKey</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Update record by UpdateKey</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     var updateData: Dictionary<String, FieldValue> = [:]
@@ -1661,8 +1718,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="updaterecords_-app-int-_-records-recordupdateitem">updateRecords(_ app: Int, _ records: [RecordUpdateItem])</h3>
 <p>Updates details of multiple records in an app, by specifying their record number, or a different unique key.</p>
 <p><strong>Parameter</strong></p>
@@ -1693,11 +1749,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;UpdateRecordsResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Update multi records</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Update multi records</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     var recId1 = {your_record_id}
@@ -1734,8 +1788,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="deleterecords_-app-int-_-ids-int">deleteRecords(_ app: Int, _ ids: [Int])</h3>
 <p>Deletes multiple records in an app.</p>
 <p><strong>Parameter</strong></p>
@@ -1766,11 +1819,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;Void></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Delete multi record</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Delete multi record</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let appID = {your_app_id}
@@ -1790,8 +1841,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="deleterecordswithrevision_-app-int-_-idswithrevision-intint">deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])</h3>
 <p>Deletes multiple records in an app with revision.</p>
 <p><strong>Parameter</strong></p>
@@ -1822,11 +1872,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;Void></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Delete record with revision</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Delete record with revision</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let appID = {your_app_id}
@@ -1846,8 +1894,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="updaterecordassignees_-app-int-_-id-int-_-assignees-string-_-revision-int">updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?)</h3>
 <p>Update assignees of a record.</p>
 <p><strong>Parameter</strong></p>
@@ -1890,11 +1937,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;UpdateRecordResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>update record Assignees</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>update record Assignees</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let username = {your_user_name}
@@ -1928,8 +1973,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="updaterecordstatus_-app-int-_-id-int-_-action-string-_-assignee-string-_-revision-int">updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)</h3>
 <p>Updates the Status of a record of an app.</p>
 <p><strong>Parameter</strong></p>
@@ -1978,11 +2022,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;UpdateRecordResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Update record status</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Update record status</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let appID = {your_app_id}
@@ -2002,8 +2044,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="updaterecordsstatus_-app-int-_-records-recordupdatestatusitem">updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])</h3>
 <p>Updates the Status of multiple records of an app.</p>
 <p><strong>Parameter</strong></p>
@@ -2034,11 +2075,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;UpdateRecordsResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Update multi record status</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Update multi record status</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let appID = {your_app_id}
@@ -2068,8 +2107,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="getcomments_-app-int-_-record-int-_-order-string-_-offset-int-_-limit-int">getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)</h3>
 <p><strong>Parameter</strong></p>
 <table>
@@ -2117,11 +2155,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;GetCommentsResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Get comments</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Get comments</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let appID = {your_app_id}
@@ -2147,8 +2183,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="addcomment_-app-int-_-record-int-_-comment-commentcontent">addComment(_ app: Int, _ record: Int, _ comment: CommentContent)</h3>
 <p><strong>Parameter</strong></p>
 <table>
@@ -2184,11 +2219,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;AddCommentResponse></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Add comment</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Add comment</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let mention = CommentMention()
@@ -2215,8 +2248,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h3 id="deletecomment_-app-int-_-record-int-_-comment-int">deleteComment(_ app: Int, _ record: Int, _ comment: Int)</h3>
 <p><strong>Parameter</strong></p>
 <table>
@@ -2252,11 +2284,9 @@
 <p><strong>Return</strong></p>
 <p>Promise&lt;Void></p>
 <p><strong>Sample code</strong></p>
-<details class="tab-container" open>
-<Summary>Delete comment</Summary>
-
-<strong class="tab-name">Source code</strong>
-
+<p><details class="tab-container" open>
+<Summary>Delete comment</Summary></p>
+<p><strong class="tab-name">Source code</strong></p>
 <pre class="inline-code">
 
     let appId = {your_app_id}
@@ -2275,8 +2305,7 @@
 
 </pre>
 
-</details>
-
+<p></details></p>
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://developer.kintone.io/hc/en-us/articles/213149287/">Get Record</a> </li>
@@ -2352,17 +2381,22 @@
           Material for MkDocs</a>
       </div>
       
+        
+      
     </div>
   </div>
 </footer>
       
     </div>
     
-      <script src="../../assets/javascripts/application.d9aa80ab.js"></script>
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
         <script src="../../asset/js/extra.js"></script>
+      
+    
+    
       
     
   </body>
