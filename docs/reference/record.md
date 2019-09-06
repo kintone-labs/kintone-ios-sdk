@@ -146,7 +146,7 @@ Promise<GetRecordsResponse\>
 
 </details>
 
-### getAllRecordsByCursor(app: Int,query: String,fields: [String])
+### getAllRecordsByCursor
 
 Retrieves details of multiple records from an app using a query string.
 
