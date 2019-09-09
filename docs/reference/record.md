@@ -802,7 +802,7 @@ Insert the record if the updateKey doesn't exist and update the record if the up
 **Declaration**
 
 <pre class="inline-code">
-open func upsertRecord(_ app: Int,_ updateKey: RecordUpdateKey,_ record: [String:FieldValue],_ revision: Int? = -1) -> Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
+open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
 </pre>
 
 **Parameter**
@@ -822,6 +822,21 @@ Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
 
 <pre class="inline-code">
 
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+    // Init data
     var upsertData: Dictionary&lt;String, FieldValue&gt; = [:]
     let field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
