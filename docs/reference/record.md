@@ -802,9 +802,9 @@ Insert the records if the updateKey doesn't exist and update the records if the 
 
 **Declaration**
 
-<pre class="inline-code">
-func upsertRecords(_ app: Int, _ records: [RecordUpsertItem]) -> Promise&lt;BulkRequestResponse&gt;
-</pre>
+```
+func upsertRecords(_ app: Int, _ records: [RecordUpsertItem]) -> Promise<BulkRequestResponse>
+```
 
 **Parameter**
 
