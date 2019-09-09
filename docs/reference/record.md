@@ -803,7 +803,7 @@ Insert the records if the updateKey doesn't exist and update the records if the 
 **Declaration**
 
 <pre class="inline-code">
-func upsertRecords(_ app: Int,_ records: [RecordUpsertItem]) -> Promise&lt;BulkRequestResponse&gt;
+func upsertRecords(_ app: Int, _ records: [RecordUpsertItem]) -> Promise&lt;BulkRequestResponse&gt;
 </pre>
 
 **Parameter**
@@ -820,6 +820,20 @@ Promise&lt;BulkRequestResponse&gt;
 **Sample code**
 
 <pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
 
     // create update key
     let updKey1 = RecordUpdateKey("{your_field_code}", "update key value")
@@ -841,7 +855,7 @@ Promise&lt;BulkRequestResponse&gt;
     let recordUpsertItem2 = RecordUpsertItem(updKey2, record2)
     let recordUpsertItem3 = RecordUpsertItem(updKey3, record3)
 
-    let upsertRecords: [RecordUpsertItem] = []
+    var upsertRecords: [RecordUpsertItem] = []
     upsertRecords.append(recordUpsertItem1)
     upsertRecords.append(recordUpsertItem2)
     upsertRecords.append(recordUpsertItem3)
@@ -855,7 +869,7 @@ Promise&lt;BulkRequestResponse&gt;
             print((error as! KintoneAPIException).toString()!)
         }
         else {
-            print((error as! Error).localizedDescription)
+            print(error.localizedDescription)
         }
     }
 
