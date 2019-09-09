@@ -858,7 +858,7 @@ Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
         if error is KintoneAPIException {
             print((error as! KintoneAPIException).toString()!)
         } else {
-            print((error as! Error).localizedDescription)
+            print(error.localizedDescription)
         }
     }
 
