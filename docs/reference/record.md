@@ -801,9 +801,9 @@ Insert the record if the updateKey doesn't exist and update the record if the up
 
 **Declaration**
 
-<pre class="inline-code">
-open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
-</pre>
+```
+open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise<AddRecordResponse> or  Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
