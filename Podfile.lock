@@ -1,0 +1,33 @@
+PODS:
+  - Mockingjay (2.0.1):
+    - Mockingjay/Core (= 2.0.1)
+    - Mockingjay/XCTest (= 2.0.1)
+  - Mockingjay/Core (2.0.1):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.1):
+    - Mockingjay/Core
+  - PromisesObjC (1.2.8)
+  - PromisesSwift (1.2.8):
+    - PromisesObjC (= 1.2.8)
+  - URITemplate (2.0.3)
+
+DEPENDENCIES:
+  - Mockingjay
+  - PromisesSwift (~> 1.2.6)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Mockingjay
+    - PromisesObjC
+    - PromisesSwift
+    - URITemplate
+
+SPEC CHECKSUMS:
+  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
+  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PromisesSwift: 37bad6f4daddb02f7c9c531efe91e8b21c13ee2f
+  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
+
+PODFILE CHECKSUM: 1a050640ae471f7f24225308366a5433bb74d7eb
+
+COCOAPODS: 1.5.3

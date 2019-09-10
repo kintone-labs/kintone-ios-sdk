@@ -7,11 +7,13 @@ target 'kintone-ios-sdk' do
 
   # Pods for kintone-ios-sdk
   pod 'PromisesSwift', '~> 1.2.6'
+  pod 'Mockingjay'
 
   target 'kintone-ios-sdkTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'PromisesSwift', '~> 1.2.6'
+    pod 'Mockingjay'
   end
 
 end
