@@ -34,9 +34,15 @@ Provide manipulate functions on file: file download & file upload in the kintone
 
 ## Methods
 
-###  upload(_ filePath: String)
+###  upload
 
 Upload file kintone via Rest API
+
+**Declaration**
+
+```
+func upload(_ filePath: String) -> Promise<FileModel>
+```
 
 **Parameter**
 
@@ -115,9 +121,15 @@ Promise<FileModel\>
 
 </details>
 
-### download(_ fileKey: String, _ outPutFilePath: String) 
+### download
 
 Download file kintone via Rest API
+
+**Declaration**
+
+```
+func download(_ filekey: String, _ outPutFilePath: String) -> Promise<Void>
+```
 
 **Parameter**
 
