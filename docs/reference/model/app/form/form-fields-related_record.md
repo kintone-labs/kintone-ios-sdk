@@ -10,9 +10,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getApp()
+#### getApp
 
 Get the app
+
+**Declaration**
+
+```
+func getApp() -> Int?
+```
 
 **Parameter**
 
@@ -37,9 +43,15 @@ Get the app
 
 </details>
 
-#### getCode()
+#### getCode
 
 Get the code
+
+**Declaration**
+
+```
+func getCode() -> String
+```
 
 **Parameter**
 
@@ -68,9 +80,15 @@ String
 
 ### Methods
 
-#### getCondition()
+#### getCondition
 
 Get the condition
+
+**Declaration**
+
+```
+func getCondition() -> FieldMapping?
+```
 
 **Parameter**
 
@@ -95,9 +113,15 @@ Get the condition
 
 </details>
 
-#### getFilterCond()
+#### getFilterCond
 
 Get the filterCond
+
+**Declaration**
+
+```
+func getFilterCond() -> String?
+```
 
 **Parameter**
 
@@ -122,9 +146,15 @@ Get the filterCond
 
 </details>
 
-#### getRelatedApp()
+#### getRelatedApp
 
 Get the relatedApp
+
+**Declaration**
+
+```
+func getRelatedApp() -> RelatedApp?
+```
 
 **Parameter**
 
@@ -149,9 +179,15 @@ Get the relatedApp
 
 </details>
 
-#### getSize()
+#### getSize
 
 Get the size
+
+**Declaration**
+
+```
+func getSize() -> Int?
+```
 
 **Parameter**
 
@@ -176,9 +212,15 @@ Get the size
 
 </details>
 
-#### getDisplayFields()
+#### getDisplayFields
 
 Get the displayFields
+
+**Declaration**
+
+```
+func getDisplayFields() -> [String]?
+```
 
 **Parameter**
 
@@ -203,9 +245,15 @@ Get the displayFields
 
 </details>
 
-#### getSort()
+#### getSort
 
 Get the sort
+
+**Declaration**
+
+```
+func getSort() -> String?
+```
 
 **Parameter**
 
@@ -237,9 +285,15 @@ String
 
 ### Methods
 
-#### getLabel()
+#### getLabel
 
 Get the label
+
+**Declaration**
+
+```
+func getLabel() -> String?
+```
 
 **Parameter**
 
@@ -264,9 +318,15 @@ String
 
 </details>
 
-#### getNoLabel()
+#### getNoLabel
 
 Get the noLabel
+
+**Declaration**
+
+```
+func getNoLabel() -> Bool?
+```
 
 **Parameter**
 
@@ -291,9 +351,15 @@ Boolean
 
 </details>
 
-#### getReferenceTable()
+#### getReferenceTable
 
 Get the referenceTable
+
+**Declaration**
+
+```
+func getReferenceTable() -> ReferenceTable?
+```
 
 **Parameter**
 

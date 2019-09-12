@@ -10,7 +10,13 @@ Store a list of requests and responses for a bulk request.
 
 ## Methods
 
-### addRequest(bulkRequestItem)
+### addRequest
+
+**Declaration**
+
+```
+func addRequest(_ bulkRequestItem: BulkRequestItem)
+```
 
 **Parameter**
 

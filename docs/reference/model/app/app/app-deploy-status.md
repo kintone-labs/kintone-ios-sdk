@@ -14,9 +14,15 @@ Get information about the deploy status of an app
 
 ## Methods
 
-### getApp()
+### getApp
 
 Get the appId
+
+**Declaration**
+
+```
+func getApp() -> Int?
+```
 
 **Parameter**
 
@@ -26,9 +32,15 @@ Get the appId
 
 Integer
 
-### getStatus()
+### getStatus
 
 The status of the deployment of App settings.
+
+**Declaration**
+
+```
+func getStatus() -> Status?
+```
 
 **Parameter **
 

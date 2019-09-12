@@ -4,10 +4,16 @@ The general settings of app
 
 ## Methods
 
-### getName()
+### getName
 
 > The name of the app.
 
+**Declaration**
+
+```
+func getName() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -16,10 +22,16 @@ The general settings of app
 
 String
 
-### getDescription()
+### getDescription
 
 > The description of an app
 
+**Declaration**
+
+```
+func getDescription() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -28,9 +40,15 @@ String
 
 String
 
-### getIcon()
+### getIcon
 
 Get the Icon of an app.
+
+**Declaration**
+
+```
+func getIcon() -> Icon?
+```
 
 **Parameter**
 
@@ -40,9 +58,15 @@ Get the Icon of an app.
 
 [Icon](../icon-model)
 
-### getTheme()
+### getTheme
 
 Get the theme of an app.
+
+**Declaration**
+
+```
+func getTheme() -> IconTheme?
+```
 
 **Parameter**
 
@@ -52,9 +76,15 @@ Get the theme of an app.
 
 [IconTheme](#IconTheme)
 
-### getRevision()
+### getRevision
 
 Get the revision of an app.
+
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
 
 **Parameter**
 

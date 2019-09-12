@@ -9,7 +9,13 @@ List response form bulk request
 
 ## Methods
 
-### getResults()
+### getResults
+
+**Declaration**
+
+```
+func getResults() -> Array<Any>?
+```
 
 **Parameter**
 

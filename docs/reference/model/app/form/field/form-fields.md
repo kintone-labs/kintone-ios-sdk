@@ -9,9 +9,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getApp()
+#### getApp
 
 Get the app
+
+**Declaration**
+
+```
+func getApp() -> Int?
+```
 
 **Parameter**
 
@@ -36,11 +42,17 @@ Integer
 
 </details>
 
-#### getRevision()
+#### getRevision
 
 Get the revision
 
-**Parameter **
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
+
+**Parameter**
 
 (none)
 
@@ -63,11 +75,17 @@ Integer
 
 </details>
 
-#### getProperties()
+#### getProperties
 
 Get the properties
 
-**Parameter **
+**Declaration**
+
+```
+func getProperties() -> [String: Field]?
+```
+
+**Parameter**
 
 (none)
 
@@ -97,9 +115,15 @@ Get the properties
 
 ### Methods
 
-#### getLabel()
+#### getLabel
 
 Get the label
+
+**Declaration**
+
+```
+func getLabel() -> String?
+```
 
 **Parameter**
 
@@ -124,9 +148,15 @@ String
 
 </details>
 
-#### getNoLabel()
+#### getNoLabel
 
 Get the noLabel
+
+**Declaration**
+
+```
+func getNoLabel() -> Bool?
+```
 
 **Parameter**
 
@@ -151,9 +181,15 @@ Boolean
 
 </details>
 
-#### getOpenGroup()
+#### getOpenGroup
 
 Get the openGroup
+
+**Declaration**
+
+```
+func getOpenGroup() -> Bool?
+```
 
 **Parameter**
 
@@ -182,9 +218,15 @@ Boolean
 
 ### Methods
 
-#### getField()
+#### getField
 
 Get the field
+
+**Declaration**
+
+```
+func getField() -> String?
+```
 
 **Parameter**
 
@@ -209,9 +251,15 @@ String
 
 </details>
 
-#### getRelatedFields()
+#### getRelatedFields
 
 Get the relatedFields
+
+**Declaration**
+
+```
+func getRelatedFields() -> String?
+```
 
 **Parameter**
 
@@ -245,9 +293,15 @@ String
 
 </details>
 
-#### getFields()
+#### getFields
 
 Get the fields
+
+**Declaration**
+
+```
+func getFields() -> [String: AbstractInputField]
+```
 
 **Parameter**
 
@@ -279,9 +333,15 @@ Get the fields
 
 ### Methods
 
-#### getCode()
+#### getCode
 
 Get the code
+
+**Declaration**
+
+```
+func getCode() -> String
+```
 
 **Parameter**
 
@@ -291,9 +351,15 @@ Get the code
 
 String
 
-#### getType()
+#### getType
 
 Get the type
+
+**Declaration**
+
+```
+func getType() -> FieldType?
+```
 
 **Parameter**
 

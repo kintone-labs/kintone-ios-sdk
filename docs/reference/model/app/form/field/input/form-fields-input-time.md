@@ -12,9 +12,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getUnique()
+#### getUnique
 
 Get the unique
+
+**Declaration**
+
+```
+func getUnique() -> Bool?
+```
 
 **Parameter**
 
@@ -24,9 +30,15 @@ Get the unique
 
 Boolean
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -36,9 +48,15 @@ Get the defaultValue
 
 String
 
-#### getDefaultNowValue()
+#### getDefaultNowValue
 
 Get the defaultNowValue
+
+**Declaration**
+
+```
+func getDefaultNowValue() -> Bool?
+```
 
 **Parameter**
 
@@ -55,9 +73,15 @@ Boolean
 
 ### Methods
 
-#### getUnique()
+#### getUnique
 
 Get the unique
+
+**Declaration**
+
+```
+func getUnique() -> Bool?
+```
 
 **Parameter**
 
@@ -67,9 +91,15 @@ Get the unique
 
 Boolean
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -79,9 +109,15 @@ Get the defaultValue
 
 String
 
-#### getDefaultNowValue()
+#### getDefaultNowValue
 
 Get the defaultNowValue
+
+**Declaration**
+
+```
+func getDefaultNowValue() -> Bool?
+```
 
 **Parameter**
 
@@ -98,9 +134,15 @@ Boolean
 
 ### Methods
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -110,9 +152,15 @@ Get the defaultValue
 
 String
 
-#### getDefaultNowValue()
+#### getDefaultNowValue
 
 Get the defaultNowValue
+
+**Declaration**
+
+```
+func getDefaultNowValue() -> Bool?
+```
 
 **Parameter**
 
