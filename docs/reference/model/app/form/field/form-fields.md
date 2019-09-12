@@ -367,7 +367,7 @@ func getType() -> FieldType?
 
 **Return**
 
-LayoutType
+FieldType
 
 ## Reference
 

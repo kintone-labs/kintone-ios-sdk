@@ -48,7 +48,7 @@ func getStatus() -> Status?
 
 **Return**
 
-String
+Status
 
 ## Enum
 

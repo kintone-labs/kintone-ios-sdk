@@ -173,7 +173,7 @@ func getCreadtedAt() -> String?
 
 **Return**
 
-Date
+String
 
 ### getModifiedAt
 
@@ -191,7 +191,7 @@ func getModifiedAt() -> String?
 
 **Return**
 
-Date
+String
 
 ## Reference
 
