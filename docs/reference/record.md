@@ -918,6 +918,87 @@ Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
 
 </pre>
 
+### upsertRecords
+
+Insert or update up to 1500 records to kintone app.<br>
+If the records are over 1500, It is thrown Error.<br>
+Insert the records if the updateKey doesn't exist and update the records if the updateKey exists.
+
+**Declaration**
+
+```
+func upsertRecords(_ app: Int, _ records: [RecordUpsertItem]) -> Promise<BulkRequestResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise&lt;BulkRequestResponse&gt;
+
+**Sample code**
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+    // create update key
+    let updKey1 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey2 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey3 = RecordUpdateKey("{your_field_code}", "update key value")
+
+    let field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    
+    var record1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record2: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record3: Dictionary&lt;String, FieldValue&gt; = [:]
+    record1[{your_field_code}] = field
+    record2[{your_field_code}] = field
+    record3[{your_field_code}] = field
+
+    let recordUpsertItem1 = RecordUpsertItem(updKey1, record1)
+    let recordUpsertItem2 = RecordUpsertItem(updKey2, record2)
+    let recordUpsertItem3 = RecordUpsertItem(updKey3, record3)
+
+    var upsertRecords: [RecordUpsertItem] = []
+    upsertRecords.append(recordUpsertItem1)
+    upsertRecords.append(recordUpsertItem2)
+    upsertRecords.append(recordUpsertItem3)
+            
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.upsertRecords(appID, upsertRecords).then{response in
+        print(response)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print(error.localizedDescription)
+        }
+    }
+
+</pre>
+
 ## Reference
 
 - [Get Record](https://developer.kintone.io/hc/en-us/articles/213149287/) 
