@@ -195,6 +195,10 @@
 		ABE0235D216F4652002C47EC /* test.pptx in Resources */ = {isa = PBXBuildFile; fileRef = ABE0235A216F4651002C47EC /* test.pptx */; };
 		ABE0235E216F4652002C47EC /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = ABE0235B216F4652002C47EC /* test.txt */; };
 		ABE0235F216F4652002C47EC /* test.xlsx in Resources */ = {isa = PBXBuildFile; fileRef = ABE0235C216F4652002C47EC /* test.xlsx */; };
+		AE1F9DB7231775710055C3B5 /* RecordUpsertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F9DB6231775710055C3B5 /* RecordUpsertItem.swift */; };
+		AE1F9DBD2318C0A70055C3B5 /* BulksException.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F9DBC2318C0A60055C3B5 /* BulksException.swift */; };
+		AE1F9DBF2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F9DBE2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift */; };
+		AE1F9DC12318CB4D0055C3B5 /* UpsertRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F9DC02318CB4D0055C3B5 /* UpsertRecordsTest.swift */; };
 		AE1F9DC32319174E0055C3B5 /* UpsertRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F9DC22319174E0055C3B5 /* UpsertRecordTest.swift */; };
 		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
 		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
@@ -413,6 +417,10 @@
 		ABE0235A216F4651002C47EC /* test.pptx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pptx; sourceTree = "<group>"; };
 		ABE0235B216F4652002C47EC /* test.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		ABE0235C216F4652002C47EC /* test.xlsx */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.xlsx; sourceTree = "<group>"; };
+		AE1F9DB6231775710055C3B5 /* RecordUpsertItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordUpsertItem.swift; sourceTree = "<group>"; };
+		AE1F9DBC2318C0A60055C3B5 /* BulksException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulksException.swift; sourceTree = "<group>"; };
+		AE1F9DBE2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetAllRecordsByQueryTest.swift; sourceTree = "<group>"; };
+		AE1F9DC02318CB4D0055C3B5 /* UpsertRecordsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpsertRecordsTest.swift; sourceTree = "<group>"; };
 		AE1F9DC22319174E0055C3B5 /* UpsertRecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpsertRecordTest.swift; sourceTree = "<group>"; };
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
@@ -614,6 +622,7 @@
 		3E25BF84213F638F00ABBB13 /* exception */ = {
 			isa = PBXGroup;
 			children = (
+				AE1F9DBC2318C0A60055C3B5 /* BulksException.swift */,
 				3E60AFCA214A017F0041B02C /* ErrorResponse.swift */,
 				3E60AFC9214A017F0041B02C /* KintoneAPIException.swift */,
 				E719D4A723176A3500E09399 /* BulksException.swift */,
@@ -659,6 +668,7 @@
 		3E25BFA0213F948F00ABBB13 /* record */ = {
 			isa = PBXGroup;
 			children = (
+				AE1F9DB6231775710055C3B5 /* RecordUpsertItem.swift */,
 				3EFD812B21411B6100A1499F /* AddRecordRequest.swift */,
 				3E1FD7DD2148ADA60056F902 /* AddRecordResponse.swift */,
 				3E1FD7CD2148A5EB0056F902 /* AddRecordsRequest.swift */,
@@ -970,6 +980,8 @@
 		AB4D6433216709E5005807C1 /* record */ = {
 			isa = PBXGroup;
 			children = (
+				AE1F9DC02318CB4D0055C3B5 /* UpsertRecordsTest.swift */,
+				AE1F9DBE2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift */,
 				AB4D643421670A22005807C1 /* RecordTest.swift */,
 				AE1F9DC22319174E0055C3B5 /* UpsertRecordTest.swift */,
 				3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */,
@@ -1252,12 +1264,14 @@
 				A88FEE822159DD9E00A7E838 /* UnitPosition.swift in Sources */,
 				A88FEE302159DD8B00A7E838 /* AppModel.swift in Sources */,
 				3EFD81262141109A00A1499F /* RecordUpdateItem.swift in Sources */,
+				AE1F9DB7231775710055C3B5 /* RecordUpsertItem.swift in Sources */,
 				3E60AFC6214A01590041B02C /* Connection.swift in Sources */,
 				A88FEEA42159DD9E00A7E838 /* RelatedRecordsField.swift in Sources */,
 				3E1FD7E42148ADEE0056F902 /* UpdateRecordsResponse.swift in Sources */,
 				A88FEE842159DD9E00A7E838 /* DateField.swift in Sources */,
 				A88FEE9E2159DD9E00A7E838 /* RecordNumberField.swift in Sources */,
 				A88FEE242159DD8B00A7E838 /* GetViewsRequest.swift in Sources */,
+				AE1F9DBD2318C0A70055C3B5 /* BulksException.swift in Sources */,
 				A88FEE9C2159DD9E00A7E838 /* StatusField.swift in Sources */,
 				A88FEE7C2159DD9E00A7E838 /* GroupSelectionField.swift in Sources */,
 				3E60AFD6215093AC0041B02C /* Record.swift in Sources */,
@@ -1307,6 +1321,7 @@
 				122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
 				122F1DD2216B7AAA00160A27 /* AddPreviewAppTest.swift in Sources */,
+				AE1F9DC12318CB4D0055C3B5 /* UpsertRecordsTest.swift in Sources */,
 				122F1DDA216B7B1100160A27 /* GetAppDeployStatusTest.swift in Sources */,
 				AE1F9DC32319174E0055C3B5 /* UpsertRecordTest.swift in Sources */,
 				ABE0234A216F3A0F002C47EC /* BulkRequestTest.swift in Sources */,
@@ -1315,6 +1330,7 @@
 				3A06D2922316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift in Sources */,
 				122F1DE2216B7B5A00160A27 /* GetGeneralSettingsTest.swift in Sources */,
 				12DB97D321A7DF910070C5C4 /* RecordTestConstants.swift in Sources */,
+				AE1F9DBF2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift in Sources */,
 				122F1DEA216B7BAB00160A27 /* UpdateGeneralSettingsTest.swift in Sources */,
 				122F1DE0216B7B4800160A27 /* GetFormLayoutTest.swift in Sources */,
 				12DB97D521A7DF9E0070C5C4 /* FileTestConstants.swift in Sources */,
