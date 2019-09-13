@@ -156,6 +156,32 @@ class RecordTest: XCTestCase {
         XCTAssert(waitForPromises(timeout: 10))
     }
     
+    func testGetAllRecordsByCursorSuccess() {
+        let fields = ["SINGLE_LINE_TEXT", "DROP_DOWN"]
+        
+        // create test data for get record
+        var testData1: Dictionary<String, FieldValue> = createAddData()
+        var testData2: Dictionary<String, FieldValue> = createAddData()
+        var testData3: Dictionary<String, FieldValue> = createAddData()
+        testData1 = addData(testData1, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecordsWithFields1")
+        testData2 = addData(testData2, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecordsWithFields2")
+        testData3 = addData(testData3, "SINGLE_LINE_TEXT", FieldType.SINGLE_LINE_TEXT, "testGetRecordsWithFields3")
+        let testDatas = [testData1, testData2, testData3]
+        
+        self.recordManagement?.addRecords(RecordTestConstants.APP_ID, testDatas).then{addResponse -> Promise<GetRecordsResponse> in
+            let query = " order by Record_number asc"
+            return (self.recordManagement?.getAllRecordsByCursor(RecordTestConstants.APP_ID, query, fields))!
+        }.then{response in
+            let resultData = response.getRecords()
+                // check result
+            XCTAssert((resultData?.count)! >= 3)
+        }.catch{ error in
+            print(self.getErrorMessage(error))
+            XCTFail(self.getErrorMessage(error))
+        }
+        XCTAssert(waitForPromises(timeout: 50))
+    }
+    
     func testGetRecordsWithFields() throws {
         let fields = ["SINGLE_LINE_TEXT", "DROP_DOWN"]
         

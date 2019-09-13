@@ -11,12 +11,14 @@ open class Record: NSObject {
     
     private var connection: Connection?
     private let parser = RecordParser()
+    private let recordCursor: RecordCursor?
     
     /// Constructor
     ///
     /// - Parameter connection: connection
     public init(_ connection: Connection) {
         self.connection = connection
+        self.recordCursor = RecordCursor(connection)
     }
     
     /// Get the record from kintone app
@@ -45,6 +47,22 @@ open class Record: NSObject {
                 reject(error)
             }
         }
+    }
+    /// Get All records from kintone app
+    ///
+    /// - Parameters:
+    ///   - app: The ID of kintone app
+    ///   - query: Query to get the record
+    ///   - fields: The field codes that you want in the response
+    /// - Returns: Promise<GetRecordsResponse>
+    /// - Throws: KintoneAPIException
+    open func getAllRecordsByCursor(_ app: Int,_  query: String? = nil,_ fields: [String]? = nil)  -> Promise<GetRecordsResponse> {
+        let recordLimitSize = 500
+        // execute GET RECORDS API
+        return (self.recordCursor?.createCursor(app, fields, query, recordLimitSize)
+            .then{createCursorRespone ->  Promise<GetRecordsResponse> in
+                return (self.recordCursor?.getAllRecords(createCursorRespone.getId()))!
+            })!
     }
     
     /// Add a record to kintone app
