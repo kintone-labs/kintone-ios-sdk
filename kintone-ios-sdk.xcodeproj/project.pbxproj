@@ -203,6 +203,7 @@
 		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
 		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
 		E719D4A823176A3500E09399 /* BulksException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A723176A3500E09399 /* BulksException.swift */; };
+		E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -425,6 +426,7 @@
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
 		E719D4A723176A3500E09399 /* BulksException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulksException.swift; sourceTree = "<group>"; };
+		E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAllRecordsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -983,6 +985,7 @@
 				AE1F9DC02318CB4D0055C3B5 /* UpsertRecordsTest.swift */,
 				AE1F9DBE2318CAA80055C3B5 /* GetAllRecordsByQueryTest.swift */,
 				AB4D643421670A22005807C1 /* RecordTest.swift */,
+				E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */,
 				AE1F9DC22319174E0055C3B5 /* UpsertRecordTest.swift */,
 				3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */,
 			);
@@ -1319,6 +1322,7 @@
 				110578EC2166D11300F6E8C0 /* TestsConstants.swift in Sources */,
 				122F1DD4216B7ABC00160A27 /* DeleteFormFieldsTest.swift in Sources */,
 				122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */,
+				E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
 				122F1DD2216B7AAA00160A27 /* AddPreviewAppTest.swift in Sources */,
 				AE1F9DC12318CB4D0055C3B5 /* UpsertRecordsTest.swift in Sources */,
