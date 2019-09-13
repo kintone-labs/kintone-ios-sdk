@@ -215,6 +215,59 @@ Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
 
 </details>
 
+### getAllRecordsByQuery
+
+Get all records from an app by using a query string.
+
+**Declaration**
+
+```
+func getAllRecordsByQuery(_ app: Int,_ query: String? = "",_ fields: [String]? = [],_ totalCount: Bool = false) -> Promise<GetRecordsResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | List of field codes you want in the response.
+| totalCount | If "true", the request will retrieve total count of records match with query conditions.
+
+**Return**
+
+Promise<GetRecordsResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+
+<Summary>Get all records by query</Summary>
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+    let appID = {YOUR_APP_ID}
+    let query = "{YOUR_QUERY}"
+    
+    recordManagement.getAllRecordsByQuery(appID, query, nil, true).then {response in
+        let records = response.getRecords()
+        for (_, dval) in (records?.enumerated())! {
+            for (_, value) in dval {
+                print(value.getType() as Any)
+                print(value.getValue() as Any)
+            }
+        }
+        }.catch{ error in
+            if error is KintoneAPIException {
+                print((error as! KintoneAPIException).toString()!)
+            }
+            else {
+                print((error).localizedDescription)
+            }
+        }
+</pre>
+</details>
+
 ### addRecord(_ app: Int, _ record: [String:FieldValue]?)
 
 >Add one record to an app.
@@ -862,6 +915,157 @@ Promise<Void\>
 </pre>
 
 </details>
+
+### upsertRecord
+
+Insert or update a record to kintone app.<br>
+Insert the record if the updateKey doesn't exist and update the record if the updateKey exists.
+
+**Declaration**
+
+```
+open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise<AddRecordResponse> or  Promise<UpdateRecordResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| updateKey | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| record | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| revision | The expected revision number. If the value does not match, an error will occur and the record will not be updated. If the value is not specified or is -1, the revision number will not be checked.
+
+**Return**
+
+Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
+
+**Sample code**
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+    // Init data
+    var upsertData: Dictionary&lt;String, FieldValue&gt; = [:]
+    let field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    upsertData[{your_field_code}] = field
+
+    // create update key
+    let updKey = RecordUpdateKey("{your_field_code}", "update key value")
+
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.upsertRecord(appID, updKey, upsertData, nil).then{response in
+        if let addResponse = response as? AddRecordResponse {
+            print(addResponse.getRevision())
+        } else if let updateResponse = response as? UpdateRecordResponse {
+            print(updateResponse.getRevision())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        } else {
+            print(error.localizedDescription)
+        }
+    }
+
+</pre>
+
+### upsertRecords
+
+Insert or update up to 1500 records to kintone app.<br>
+If the records are over 1500, It is thrown Error.<br>
+Insert the records if the updateKey doesn't exist and update the records if the updateKey exists.
+
+**Declaration**
+
+```
+func upsertRecords(_ app: Int, _ records: [RecordUpsertItem]) -> Promise<BulkRequestResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise&lt;BulkRequestResponse&gt;
+
+**Sample code**
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+    // create update key
+    let updKey1 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey2 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey3 = RecordUpdateKey("{your_field_code}", "update key value")
+
+    let field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    
+    var record1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record2: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record3: Dictionary&lt;String, FieldValue&gt; = [:]
+    record1[{your_field_code}] = field
+    record2[{your_field_code}] = field
+    record3[{your_field_code}] = field
+
+    let recordUpsertItem1 = RecordUpsertItem(updKey1, record1)
+    let recordUpsertItem2 = RecordUpsertItem(updKey2, record2)
+    let recordUpsertItem3 = RecordUpsertItem(updKey3, record3)
+
+    var upsertRecords: [RecordUpsertItem] = []
+    upsertRecords.append(recordUpsertItem1)
+    upsertRecords.append(recordUpsertItem2)
+    upsertRecords.append(recordUpsertItem3)
+            
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.upsertRecords(appID, upsertRecords).then{response in
+        print(response)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print(error.localizedDescription)
+        }
+    }
+
+</pre>
 
 ## Reference
 
