@@ -114,8 +114,8 @@ See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldv
 <pre class="inline-code">
 
     // create add data
-    var addData1: Dictionary<String, FieldValue> = [:]
-    var addData2: Dictionary<String, FieldValue> = [:]
+    var addData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var addData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -161,7 +161,7 @@ See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_
 <pre class="inline-code">
 
     // create add data
-    var updateData:Dictionary<String, FieldValue> = [:]
+    var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update")
@@ -203,7 +203,7 @@ See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-
 <pre class="inline-code">
 
     // create update data
-    var updateData: Dictionary<String, FieldValue> = [:]
+    var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
@@ -249,8 +249,8 @@ See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-record
     // create update data
     var recId1 = {your_record_id}
     var recId2 = {your_record_id}
-    var updateData1: Dictionary<String, FieldValue> = [:]
-    var updateData2: Dictionary<String, FieldValue> = [:]
+    var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -336,7 +336,7 @@ See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-
 
     // create deleteRecordsWithRevision bulk request
     let appID = {your_app_id}
-    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    var delIdAndRevision: Dictionary&lt;Int, Int&gt; = [:]
     delIdAndRevision[{your_record_id}] = {your_revision_id}
     delIdAndRevision[{your_record_id}] = {your_revision_id}
 
