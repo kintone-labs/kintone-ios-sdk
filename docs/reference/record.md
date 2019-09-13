@@ -146,11 +146,81 @@ Promise<GetRecordsResponse\>
 
 </details>
 
+### getAllRecordsByCursor
+
+Retrieves details of multiple records from an app using a query string.
+
+**Declaration**
+
+    func getAllRecordsByCursor(_ app: Int, _ query: String? = nil, _ fields: [String]? = nil)  -> Promise<GetRecordsResponse>
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | List of field codes you want in the response.
+
+**Return**
+
+Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Get all record by cursor</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+            
+    // execute get records API
+    let appID = {your_app_id}
+    let query = "レコード番号 >= 2 order by レコード番号 asc"
+    
+    recordManagement.getAllRecordsByCursor(appID, query, nil).then{response in
+        let records = response.getRecords()
+                
+        for (_, dval) in (records?.enumerated())! {
+            for (_, value) in dval {
+                print(value.getType() as Any)
+                print(value.getValue() as Any)
+            }
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print(error.localizedDescription)
+        }
+    }
+
+</pre>
+
+</details>
+
 ### getAllRecordsByQuery
 
 Get all records from an app by using a query string.
 
 **Declaration**
+
 ```
 func getAllRecordsByQuery(_ app: Int,_ query: String? = "",_ fields: [String]? = [],_ totalCount: Bool = false) -> Promise<GetRecordsResponse>
 ```
@@ -171,12 +241,11 @@ Promise<GetRecordsResponse\>
 **Sample code**
 
 <details class="tab-container" open>
-<Summary>Get all records by query</Summary>
 
+<Summary>Get all records by query</Summary>
 <strong class="tab-name">Source code</strong>
 
 <pre class="inline-code">
-
     let appID = {YOUR_APP_ID}
     let query = "{YOUR_QUERY}"
     
@@ -197,7 +266,6 @@ Promise<GetRecordsResponse\>
             }
         }
 </pre>
-
 </details>
 
 ### addRecord(_ app: Int, _ record: [String:FieldValue]?)
