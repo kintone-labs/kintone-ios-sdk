@@ -410,9 +410,9 @@ Promise<UpdateRecordsResponse\>
 
 </details>
 
-### updateAllRecords(app: Int, records: [RecordUpdateItem])
+### updateAllRecords
 
-Updates details of all records in an app, by specifying their record number, or a different unique key.
+Updates details of all records in an app.
 
 **Declaration**
 
