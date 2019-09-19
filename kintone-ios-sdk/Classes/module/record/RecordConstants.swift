@@ -4,4 +4,5 @@ open class RecordConstants: NSObject {
     public static let NUM_BULK_REQUEST = 20
     public static let LIMIT_ADD_RECORD = 100
     public static let LIMIT_UPDATE_RECORD = 100
+    public static let LIMIT_UPSERT_RECORD = 1500
 }

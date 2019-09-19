@@ -12,7 +12,7 @@ open class BulksException: Error {
     open func getResults() -> [Any]{
         return self.results
     }
-
+    
     open func getBulkErrorIndex() -> Int? {
         for i in 0..<results.count {
             if (type(of: results[i]) == KintoneAPIException.self) {
