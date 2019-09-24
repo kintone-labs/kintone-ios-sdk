@@ -6,9 +6,15 @@ General record response, using for data response from the kintone app
 
 Methods
 
-### getRecord()
+### getRecord
 
 Get the Record data response.
+
+**Declaration**
+
+```
+func getRecord() -> [String:FieldValue]?
+```
 
 **Parameter**
 
@@ -22,9 +28,15 @@ HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>
 
 Methods
 
-### getRecords()
+### getRecords
 
 Get the Records data response.
+
+**Declaration**
+
+```
+func getRecords() -> [[String:FieldValue]]?
+```
 
 **Parameter**
 
@@ -34,9 +46,15 @@ Get the Records data response.
 
 ArrayList<HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>\>
 
-### getTotalCount()
+### getTotalCount
 
 Get the number of records response.
+
+**Declaration**
+
+```
+func getTotalCount() -> Int?
+```
 
 **Parameter**
 
@@ -50,9 +68,15 @@ Integer
 
 Methods
 
-### getID()
+### getId
 
 Get the the ID of record added.
+
+**Declaration**
+
+```
+func getId() -> Int?
+```
 
 **Parameter**
 
@@ -62,9 +86,15 @@ Get the the ID of record added.
 
 Integer
 
-### getRevision()
+### getRevision
 
 Get the revision number of record added.
+
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
 
 **Parameter**
 
@@ -78,9 +108,15 @@ Integer
 
 Methods
 
-### getIDs()
+### getIDs
 
 Get the array of added records ID.
+
+**Declaration**
+
+```
+func getIDs() -> [Int]?
+```
 
 **Parameter**
 
@@ -90,9 +126,15 @@ Get the array of added records ID.
 
 ArrayList<Integer\>
 
-### getRevisions()
+### getRevisions
 
 Get the array of added records revision number.
+
+**Declaration**
+
+```
+func getRevisions() -> [Int]?
+```
 
 **Parameter**
 
@@ -106,9 +148,15 @@ ArrayList<Integer\>
 
 Methods
 
-### getRevision()
+### getRevision
 
 Get the revision number of record updated.
+
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
 
 **Parameter**
 
@@ -122,9 +170,15 @@ Integer
 
 Methods
 
-### getRecords()
+### getRecords
 
 Get the array of added records ID with revision.
+
+**Declaration**
+
+```
+func getRecords() -> [RecordUpdateResponseItem]? 
+```
 
 **Parameter**
 
@@ -138,9 +192,15 @@ ArrayList<[RecordUpdateResponseItem](#recordupdateresponseitem)\>
 
 Methods
 
-### getID()
+### getID
 
 Get the the ID of record updated.
+
+**Declaration**
+
+```
+func getID() -> Int?
+```
 
 **Parameter**
 
@@ -150,9 +210,15 @@ Get the the ID of record updated.
 
 Integer
 
-### getRevision()
+### getRevision
 
 Get the revision number of record updated.
+
+**Declaration**
+
+```
+func getRevision() -> Int? 
+```
 
 **Parameter**
 

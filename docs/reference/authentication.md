@@ -30,9 +30,15 @@ This module allows authenticating with the Kintone app by password authenticator
 
 ## Methods
 
-### setPasswordAuth(username, password)
+### setPasswordAuth
 
 > Set password authentication for the Authentication module.
+
+**Declaration**
+
+```
+func setPasswordAuth(_ username: String, _ password: String) -> Auth
+```
 
 **Parameter**
 
@@ -63,9 +69,15 @@ This module allows authenticating with the Kintone app by password authenticator
 </details>
 
 
-### setApiToken(apiTokenString)
+### setApiToken
 
 > Set Api Token for the Authentication module.
+
+**Declaration**
+
+```
+func setApiToken(_ apiToken: String) -> Auth
+```
 
 **Parameter**
 
@@ -93,9 +105,15 @@ This module allows authenticating with the Kintone app by password authenticator
 </details>
 
 
-### setBasicAuth(username, password)
+### setBasicAuth
 
 > Set Basic authentication for the Authentication module.
+
+**Declaration**
+
+```
+func setBasicAuth(_ username: String, _ password: String) -> Auth
+```
 
 **Parameter**
 
@@ -126,9 +144,15 @@ This module allows authenticating with the Kintone app by password authenticator
 </details>
 
 
-### createHeaderCredentials()
+### createHeaderCredentials
 
 Provide the list of HTTP Headers which use to authentication in.
+
+**Declaration**
+
+```
+func createHeaderCredentials() -> [HTTPHeader?]
+```
 
 **Parameter**
 
@@ -170,9 +194,15 @@ Array&lt;HTTPHeader&gt;
 
 </details>
 
-### setClientCert(certData, password)
+### setClientCert
 
 Set certificate by certificate data
+
+**Declaration**
+
+```
+func setClientCert(_ certData: Data, _ password: String) -> Auth
+```
 
 **Parameter**
 
@@ -206,9 +236,15 @@ Set certificate by certificate data
 
 </details>
 
-### setClientCertByPath(certPath, password)
+### setClientCertByPath
 
 Set certificate by path
+
+**Declaration**
+
+```
+func setClientCertByPath(_ certPath: String, _ password: String) -> Auth
+```
 
 **Parameter**
 

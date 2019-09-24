@@ -75,7 +75,7 @@ Promise<GetRecordResponse\>
     
     recordManagement.getRecord(appID, recordID).then{response in
                 
-        let resultData: Dictionary<String, FieldValue> = response.getRecord()!
+        let resultData: Dictionary&lt;String, FieldValue&gt; = response.getRecord()!
         print(resultData["$id"]?.getValue())
                 
         for (code, value) in resultData {
@@ -170,7 +170,7 @@ Promise<AddRecordResponse\>
 
 <pre class="inline-code">
 
-    var addData: Dictionary<String, FieldValue> = [:]
+    var addData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value")
@@ -218,8 +218,8 @@ Promise<AddRecordsResponse\>
 
 <pre class="inline-code">
 
-    var addData1: Dictionary<String, FieldValue> = [:]
-    var addData2: Dictionary<String, FieldValue> = [:]
+    var addData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var addData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -274,7 +274,7 @@ Promise<UpdateRecordResponse\>
 
 <pre class="inline-code">
 
-    var updateData:Dictionary<String, FieldValue> = [:]
+    var updateData:Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update")
@@ -324,7 +324,7 @@ Promise<UpdateRecordResponse\>
 
 <pre class="inline-code">
 
-    var updateData: Dictionary<String, FieldValue> = [:]
+    var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
@@ -376,8 +376,8 @@ Promise<UpdateRecordsResponse\>
 
     var recId1 = {your_record_id}
     var recId2 = {your_record_id}
-    var updateData1: Dictionary<String, FieldValue> = [:]
-    var updateData2: Dictionary<String, FieldValue> = [:]
+    var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -478,7 +478,7 @@ Promise<Void\>
 <pre class="inline-code">
 
     let appID = {your_app_id}
-    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    var delIdAndRevision: Dictionary&lt;Int, Int&gt; = [:]
     delIdAndRevision[{your_record_id}] = {your_revision_id}
     delIdAndRevision[{your_record_id}] = {your_revision_id}
             

@@ -27,9 +27,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getCode()
+#### getCode
 
 Get the code
+
+**Declaration**
+
+```
+func getCode() -> String?
+```
 
 **Parameter**
 
@@ -39,9 +45,15 @@ Get the code
 
 String
 
-#### getType()
+#### getType
 
 Get the type
+
+**Declaration**
+
+```
+func getType() -> MemberSelectEntityType?
+```
 
 **Parameter**
 
@@ -68,9 +80,15 @@ MemberSelectEntityType
 
 ### Methods
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> [MemberSelectEntity]
+```
 
 **Parameter**
 
@@ -80,9 +98,15 @@ Get the defaultValue
 
 List<[MemberSelectEntity](#memberselectentity)\>
 
-#### getEntites()
+#### getEntites
 
 Get the entites
+
+**Declaration**
+
+```
+func getEntites() -> [MemberSelectEntity]
+```
 
 **Parameter**
 

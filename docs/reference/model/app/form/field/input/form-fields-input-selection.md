@@ -12,9 +12,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getAlign()
+#### getAlign
 
 Get the align
+
+**Declaration**
+
+```
+func getAlign() -> AlignLayout?
+```
 
 **Parameter**
 
@@ -24,9 +30,15 @@ Get the align
 
 AlignLayout
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> [String]?
+```
 
 **Parameter**
 
@@ -43,9 +55,15 @@ List<String\>
 
 ### Methods
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -62,9 +80,15 @@ String
 
 ### Methods
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> [String]?
+```
 
 **Parameter**
 
@@ -78,9 +102,15 @@ List<String\>
 
 ### Methods
 
-#### getIndex()
+#### getIndex
 
 Get the index
+
+**Declaration**
+
+```
+func getIndex() -> Int
+```
 
 **Parameter**
 
@@ -90,9 +120,15 @@ Get the index
 
 Integer
 
-#### getLabel()
+#### getLabel
 
 Get the label
+
+**Declaration**
+
+```
+func getLabel() -> String
+```
 
 **Parameter**
 
@@ -109,9 +145,15 @@ String
 
 ### Methods
 
-#### getAlign()
+#### getAlign
 
 Get the align
+
+**Declaration**
+
+```
+func getAlign() -> AlignLayout?
+```
 
 **Parameter**
 
@@ -121,9 +163,15 @@ Get the align
 
 AlignLayout
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -141,9 +189,15 @@ String
 
 ### Methods
 
-#### getOptions()
+#### getOptions
 
 Get the options
+
+**Declaration**
+
+```
+func getOptions() -> [String: OptionData]
+```
 
 **Parameter**
 

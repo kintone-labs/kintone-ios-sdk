@@ -44,9 +44,15 @@ Provide manipulate functions on records: get, update, delete, update the record 
 
 ## Methods
 
-### getRecord(_ app: Int, _ id: Int)
+### getRecord
 
 Retrieves details of 1 record from an app.
+
+**Declaration**
+
+```
+func getRecord(_ app: Int,_ id: Int) -> Promise<GetRecordResponse>
+```
 
 **Parameter**
 
@@ -75,7 +81,7 @@ Promise<GetRecordResponse\>
     
     recordManagement.getRecord(appID, recordID).then{response in
                 
-        let resultData: Dictionary<String, FieldValue> = response.getRecord()!
+        let resultData: Dictionary&lt;String, FieldValue&gt; = response.getRecord()!
         print(resultData["$id"]?.getValue())
                 
         for (code, value) in resultData {
@@ -95,9 +101,15 @@ Promise<GetRecordResponse\>
 
 </details>
 
-### getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
+### getRecords
 
 Retrieves details of multiple records from an app using a query string.
+
+**Declaration**
+
+```
+func getRecords(_ app: Int, _ query: String?, _ fields: [String]?, _ totalCount: Bool?) -> Promise<GetRecordsResponse>
+```
 
 **Parameter**
 
@@ -227,12 +239,12 @@ func getAllRecordsByQuery(_ app: Int,_ query: String? = "",_ fields: [String]? =
 
 **Parameter**
 
-| Name| Description |
-| --- | --- |
-| app | The kintone app ID
-| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
-| fields | List of field codes you want in the response.
-| totalCount | If "true", the request will retrieve total count of records match with query conditions.
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID|
+| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | Array<String\> | (optional) | List of field codes you want in the response.
+| totalCount | Boolean | (optional) | If "true", the request will retrieve total count of records match with query conditions.
 
 **Return**
 
@@ -268,9 +280,15 @@ Promise<GetRecordsResponse\>
 </pre>
 </details>
 
-### addRecord(_ app: Int, _ record: [String:FieldValue]?)
+### addRecord
 
 >Add one record to an app.
+
+**Declaration**
+
+```
+func addRecord(_ app: Int, _ record: [String:FieldValue]?) -> Promise<AddRecordResponse>
+```
 
 **Parameter**
 
@@ -292,7 +310,7 @@ Promise<AddRecordResponse\>
 
 <pre class="inline-code">
 
-    var addData: Dictionary<String, FieldValue> = [:]
+    var addData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value")
@@ -316,9 +334,15 @@ Promise<AddRecordResponse\>
 
 </details>
 
-### addRecords(_ app: Int, _ records: [[String:FieldValue]])
+### addRecords
 
 Add multiple records to an app.
+
+**Declaration**
+
+```
+func addRecords(_ app: Int, _ records: [[String:FieldValue]]) -> Promise<AddRecordsResponse>
+```
 
 **Parameter**
 
@@ -340,8 +364,8 @@ Promise<AddRecordsResponse\>
 
 <pre class="inline-code">
 
-    var addData1: Dictionary<String, FieldValue> = [:]
-    var addData2: Dictionary<String, FieldValue> = [:]
+    var addData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var addData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -370,9 +394,15 @@ Promise<AddRecordsResponse\>
 
 </details>
 
-### updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
+### updateRecordByID
 
 Updates details of 1 record in an app by specifying its record number.
+
+**Declaration**
+
+```
+func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -396,7 +426,7 @@ Promise<UpdateRecordResponse\>
 
 <pre class="inline-code">
 
-    var updateData:Dictionary<String, FieldValue> = [:]
+    var updateData:Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update")
@@ -420,9 +450,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)
+### updateRecordByUpdateKey
 
 Updates details of 1 record in an app by the unique key.
+
+**Declaration**
+
+```
+func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -446,7 +482,7 @@ Promise<UpdateRecordResponse\>
 
 <pre class="inline-code">
 
-    var updateData: Dictionary<String, FieldValue> = [:]
+    var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
@@ -472,9 +508,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecords(_ app: Int, _ records: [RecordUpdateItem])
+### updateRecords
 
 Updates details of multiple records in an app, by specifying their record number, or a different unique key.
+
+**Declaration**
+
+```
+func updateRecords(_ app: Int, _ records: [RecordUpdateItem]) -> Promise<UpdateRecordsResponse>
+```
 
 **Parameter**
 
@@ -498,8 +540,8 @@ Promise<UpdateRecordsResponse\>
 
     var recId1 = {your_record_id}
     var recId2 = {your_record_id}
-    var updateData1: Dictionary<String, FieldValue> = [:]
-    var updateData2: Dictionary<String, FieldValue> = [:]
+    var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -531,6 +573,7 @@ Promise<UpdateRecordsResponse\>
 </pre>
 
 </details>
+
 
 ### updateAllRecords
 
@@ -604,7 +647,14 @@ Promise<BulkRequestResponse\>
 
 ### deleteRecords(_ app: Int, _ ids: [Int])
 
+
 Deletes multiple records in an app.
+
+**Declaration**
+
+```
+func deleteRecords(_ app: Int, _ ids: [Int]) -> Promise<Void>
+```
 
 **Parameter**
 
@@ -645,9 +695,15 @@ Promise<Void\>
 
 </details>
 
-### deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])
+### deleteRecordsWithRevision
 
 Deletes multiple records in an app with revision.
+
+**Declaration**
+
+```
+func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?]) -> Promise<Void>
+```
 
 **Parameter**
 
@@ -670,7 +726,7 @@ Promise<Void\>
 <pre class="inline-code">
 
     let appID = {your_app_id}
-    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    var delIdAndRevision: Dictionary&lt;Int, Int&gt; = [:]
     delIdAndRevision[{your_record_id}] = {your_revision_id}
     delIdAndRevision[{your_record_id}] = {your_revision_id}
             
@@ -688,9 +744,15 @@ Promise<Void\>
 
 </details>
 
-### updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) 
+### updateRecordAssignees
 
 Update assignees of a record.
+
+**Declaration**
+
+```
+func updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -747,9 +809,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)
+### updateRecordStatus
 
 Updates the Status of a record of an app.
+
+**Declaration**
+
+```
+func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -793,9 +861,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])
+### updateRecordsStatus
 
 Updates the Status of multiple records of an app.
+
+**Declaration**
+
+```
+func updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem]) -> Promise<UpdateRecordsResponse>
+```
 
 **Parameter**
 
@@ -846,7 +920,13 @@ Promise<UpdateRecordsResponse\>
 
 </details>
 
-### getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)
+### getComments
+
+**Declaration**
+
+```
+func getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?) -> Promise<GetCommentsResponse>
+```
 
 **Parameter**
 
@@ -896,7 +976,13 @@ Promise<GetCommentsResponse\>
 
 </details>
 
-### addComment(_ app: Int, _ record: Int, _ comment: CommentContent)
+### addComment
+
+**Declaration**
+
+```
+func addComment(_ app: Int, _ record: Int, _ comment: CommentContent) -> Promise<AddCommentResponse>
+```
 
 **Parameter**
 
@@ -945,7 +1031,13 @@ Promise<AddCommentResponse\>
 
 </details>
 
-### deleteComment(_ app: Int, _ record: Int, _ comment: Int)
+### deleteComment
+
+**Declaration**
+
+```
+func deleteComment(_ app: Int, _ record: Int, _ comment: Int) -> Promise<Void>
+```
 
 **Parameter**
 
@@ -994,7 +1086,7 @@ Insert the record if the updateKey doesn't exist and update the record if the up
 **Declaration**
 
 ```
-open func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise<AddRecordResponse> or  Promise<UpdateRecordResponse>
+func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise<AddRecordResponse> or  Promise<UpdateRecordResponse>
 ```
 
 **Parameter**

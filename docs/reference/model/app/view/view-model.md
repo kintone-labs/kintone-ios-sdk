@@ -4,9 +4,15 @@ General information of the member(user/group/organization) on the kintone applic
 
 ## Methods
 
-### getBuiltinType()
+### getBuiltinType
 
 Get the code of the user/group/organization
+
+**Declaration**
+
+```
+func getBuiltinType() -> BuiltinType?
+```
 
 **Parameter**
 
@@ -28,126 +34,201 @@ None
 
 [BuiltinType](#BuiltinType)
 
-### getDate()
+### getDate
 
 The field code set for the Date Field. Responded for Calendar Views.
+
+**Declaration**
+
+```
+func getDate() -> String?
+```
 
 **Return**
 
 String
 
-### getFields()
+### getFields
 
 The list of field codes for the fields displayed in the View.
 > Responded for List Views.
 
+**Declaration**
+
+```
+func getFields() -> [String]?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 [String]
 
-### getFilterCond()
+### getFilterCond
 
 The filter condition as a query.
+
+**Declaration**
+
+```
+func getFilterCond() -> String?
+```
 
 **Return**
 
 String
 
-### getHtml()
+### getHtml
 
 The HTML code set for the View. 
 > Responded for Custom Views.
 
+**Declaration**
+
+```
+func getHtml() -> String?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 String
 
-### getId()
+### getId
 
 The View ID.
 
+**Declaration**
+
+```
+func getId() -> Int?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 Integer
 
 
-### getIndex()
+### getIndex
 
 The display order (ascending) of the View, when listed with other views.
 
+**Declaration**
+
+```
+func getIndex() -> Int?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 Integer
 
 
-### getName()
+### getName
 
 The name of the View.
+
+**Declaration**
+
+```
+func getName() -> String?
+```
 
 **Parameter**
 
 None
 
 **Return**
+
 String
 
 
-### getPager()
+### getPager
 
 The pagination settings. 
 Responded for Custom Views.
 
+**Declaration**
+
+```
+func getPager() -> Bool?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 Boolean
 
-### getSort()
+### getSort
 
 The sort order as a query.
 
+**Declaration**
+
+```
+func getSort() -> String?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 String
 
-### getTitle()
+### getTitle
 
 The field code set for the Title Field. 
 Responded for Calendar Views.
 
+**Declaration**
+
+```
+func getTitle() -> String?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 String
 
-### getType()
+### getType
 
 The type of View in [Type](#type)
 
+**Declaration**
+
+```
+func getType() -> ViewType?
+```
+
 **Parameter**
 
 None
 
 **Return**
+
 [Type](#type)
 
 ## Enum
