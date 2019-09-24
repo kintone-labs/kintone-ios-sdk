@@ -13,9 +13,15 @@ Gets the basic information about the app.
 
 ## Methods
 
-### getAppId()
+### getAppId
 
 Get the appId
+
+**Declaration**
+
+```
+func getAppId() -> Int?
+```
 
 **Parameter**
 
@@ -25,10 +31,16 @@ Get the appId
 
 Integer
 
-### getCode()
+### getCode
 
 Get the code
 
+**Declaration**
+
+```
+func getCode() -> String?
+```
+
 **Parameter **
 
 (none)
@@ -37,10 +49,16 @@ Get the code
 
 String
 
-### getName()
+### getName
 
 Get the name
 
+**Declaration**
+
+```
+func getName() -> String?
+```
+
 **Parameter **
 
 (none)
@@ -49,10 +67,16 @@ Get the name
 
 String
 
-### getDescription()
+### getDescription
 
 Get the description
 
+**Declaration**
+
+```
+func getDescription() -> String?
+```
+
 **Parameter **
 
 (none)
@@ -61,10 +85,16 @@ Get the description
 
 String
 
-### getSpaceId()
+### getSpaceId
 
 Get the spaceId
 
+**Declaration**
+
+```
+func getSpaceId() -> Int?
+```
+
 **Parameter **
 
 (none)
@@ -73,11 +103,17 @@ Get the spaceId
 
 Integer
 
-### getThreadId()
+### getThreadId
 
 Get the threadId
 
-**Parameter **
+**Declaration**
+
+```
+func getThreadId() -> Int?
+```
+
+**Parameter**
 
 (none)
 
@@ -85,11 +121,17 @@ Get the threadId
 
 Integer
 
-### getCreator()
+### getCreator
 
 Get the creator
 
-**Parameter **
+**Declaration**
+
+```
+func getCreator() -> Member?
+```
+
+**Parameter**
 
 (none)
 
@@ -97,11 +139,17 @@ Get the creator
 
 [Member](../member)
 
-### getModifier()
+### getModifier
 
 Get the modifier
 
-**Parameter **
+**Declaration**
+
+```
+func getModifier() -> Member?
+```
+
+**Parameter**
 
 (none)
 
@@ -109,29 +157,41 @@ Get the modifier
 
 [Member](../member)
 
-### getCreatedAt()
+### getCreatedAt
 
 Get the createdAt
 
-**Parameter **
+**Declaration**
+
+```
+func getCreadtedAt() -> String?
+```
+
+**Parameter**
 
 (none)
 
 **Return**
 
-Date
+String
 
-### getModifiedAt()
+### getModifiedAt
 
 Get the modifiedAt
 
-**Parameter **
+**Declaration**
+
+```
+func getModifiedAt() -> String?
+```
+
+**Parameter**
 
 (none)
 
 **Return**
 
-Date
+String
 
 ## Reference
 

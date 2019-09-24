@@ -12,9 +12,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getLookup()
+#### getLookup
 
 Get the lookup
+
+**Declaration**
+
+```
+func getLookup() -> LookupItem?
+```
 
 **Parameter**
 
@@ -28,9 +34,15 @@ Get the lookup
 
 ### Methods
 
-#### getFieldMapping()
+#### getFieldMapping
 
 Get the fieldMapping
+
+**Declaration**
+
+```
+func getFieldMapping() -> [FieldMapping]
+```
 
 **Parameter**
 
@@ -40,9 +52,15 @@ Get the fieldMapping
 
 List<[FieldMapping](../form-fields/#fieldmapping)\>
 
-#### getFilterCond()
+#### getFilterCond
 
 Get the filterCond
+
+**Declaration**
+
+```
+func getFilterCond() -> String?
+```
 
 **Parameter**
 
@@ -52,9 +70,15 @@ Get the filterCond
 
 String
 
-#### getLookupPickerFields()
+#### getLookupPickerFields
 
 Get the lookupPickerFields
+
+**Declaration**
+
+```
+func getLookupPickerFields() -> [String]
+```
 
 **Parameter**
 
@@ -64,9 +88,15 @@ Get the lookupPickerFields
 
 List<String\>
 
-#### getRelatedApp()
+#### getRelatedApp
 
 Get the relatedApp
+
+**Declaration**
+
+```
+func getRelatedApp() -> RelatedApp?
+```
 
 **Parameter**
 
@@ -76,9 +106,15 @@ Get the relatedApp
 
 [RelatedApp](../form-fields-related_record/#relatedapp)
 
-#### getRelatedKeyField()
+#### getRelatedKeyField
 
 Get the relatedKeyField
+
+**Declaration**
+
+```
+func getRelatedKeyField() -> String?
+```
 
 **Parameter**
 
@@ -88,9 +124,15 @@ Get the relatedKeyField
 
 String
 
-#### getSort()
+#### getSort
 
 Get the sort
+
+**Declaration**
+
+```
+func getSort() -> String?
+```
 
 **Parameter**
 

@@ -4,10 +4,16 @@ Holds file information obtained from kintone.
 
 ## Methods
 
-### getContentType()
+### getContentType
 
 Get the content type of the file.
 
+**Declaration**
+
+```
+func getContentType() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -16,10 +22,16 @@ Get the content type of the file.
 
 String
 
-### getFileKey()
+### getFileKey
 
 Get the file key of the uploaded file.
 
+**Declaration**
+
+```
+func getFileKey() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -28,10 +40,16 @@ Get the file key of the uploaded file.
 
 String
 
-### getName()
+### getName
 
 Get the name of the uploaded file.
 
+**Declaration**
+
+```
+func getName() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -40,9 +58,15 @@ Get the name of the uploaded file.
 
 String
 
-### getSize()
+### getSize
 
 Get the size of the file.
+
+**Declaration**
+
+```
+func getSize() -> String?
+```
 
 **Parameter**
 

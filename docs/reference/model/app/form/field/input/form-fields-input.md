@@ -12,9 +12,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getThumbnailSize()
+#### getThumbnailSize
 
 Get the thumbnailSize
+
+**Declaration**
+
+```
+func getThumbnailSize() -> Int?
+```
 
 **Parameter**
 
@@ -32,9 +38,15 @@ Integer
 
 ### Methods
 
-#### getExpression()
+#### getExpression
 
 Get the expression
+
+**Declaration**
+
+```
+func getExpression() -> String?
+```
 
 **Parameter**
 
@@ -44,9 +56,15 @@ Get the expression
 
 String
 
-#### getHideExpression()
+#### getHideExpression
 
 Get the hideExpression
+
+**Declaration**
+
+```
+func getHideExpression() -> Bool?
+```
 
 **Parameter**
 
@@ -56,9 +74,15 @@ Get the hideExpression
 
 Boolean
 
-#### getDisplayScale()
+#### getDisplayScale
 
 Get the displayScale
+
+**Declaration**
+
+```
+func getDisplayScale() -> Int?
+```
 
 **Parameter**
 
@@ -68,9 +92,15 @@ Get the displayScale
 
 Integer
 
-#### getUnit()
+#### getUnit
 
 Get the unit
+
+**Declaration**
+
+```
+func getUnit() -> String?
+```
 
 **Parameter**
 
@@ -80,9 +110,15 @@ Get the unit
 
 String
 
-#### getUnitPosition()
+#### getUnitPosition
 
 Get the unitPosition
+
+**Declaration**
+
+```
+func getUnitPosition() -> UnitPosition?
+```
 
 **Parameter**
 
@@ -92,9 +128,15 @@ Get the unitPosition
 
 UnitPosition
 
-#### getFormat()
+#### getFormat
 
 Get the format
+
+**Declaration**
+
+```
+func getFormat() -> NumberFormat?
+```
 
 **Parameter**
 
@@ -112,9 +154,15 @@ NumberFormat
 
 ### Methods
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -124,9 +172,15 @@ Get the defaultValue
 
 String
 
-#### getUnique()
+#### getUnique
 
 Get the unique
+
+**Declaration**
+
+```
+func getUnique() -> Bool?
+```
 
 **Parameter**
 
@@ -136,10 +190,16 @@ Get the unique
 
 Boolean
 
-#### getMaxLength()
+#### getMaxLength
 
 Get the maxLength
 
+**Declaration**
+
+```
+func getMaxLength() -> Int?
+```
+
 **Parameter**
 
 (none)
@@ -148,10 +208,16 @@ Get the maxLength
 
 Integer
 
-#### getMinLength()
+#### getMinLength
 
 Get the minLength
 
+**Declaration**
+
+```
+func getMinLength() -> Int?
+```
+
 **Parameter**
 
 (none)
@@ -160,9 +226,15 @@ Get the minLength
 
 Integer
 
-#### getProtocol()
+#### getProtocol
 
 Get the protocol
+
+**Declaration**
+
+```
+func getProtocol() -> LinkProtocol?
+```
 
 **Parameter**
 
@@ -180,9 +252,15 @@ LinkProtocol
 
 ### Methods
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -200,9 +278,15 @@ String
 
 ### Methods
 
-#### getDisplayScale()
+#### getDisplayScale
 
 Get the displayScale
+
+**Declaration**
+
+```
+func getDisplayScale() -> Int?
+```
 
 **Parameter**
 
@@ -212,9 +296,15 @@ Get the displayScale
 
 Integer
 
-#### getUnit()
+#### getUnit
 
 Get the unit
+
+**Declaration**
+
+```
+func getUnit() -> String?
+```
 
 **Parameter**
 
@@ -224,9 +314,15 @@ Get the unit
 
 String
 
-#### getUnitPosition()
+#### getUnitPosition
 
 Get the unitPosition
+
+**Declaration**
+
+```
+func getUnitPosition() -> UnitPosition?
+```
 
 **Parameter**
 
@@ -236,9 +332,15 @@ Get the unitPosition
 
 UnitPosition
 
-#### getDigit()
+#### getDigit
 
 Get the digit
+
+**Declaration**
+
+```
+func getDigit() -> Bool?
+```
 
 **Parameter**
 
@@ -248,10 +350,16 @@ Get the digit
 
 Boolean
 
-#### getMaxValue()
+#### getMaxValue
 
 Get the maxValue
 
+**Declaration**
+
+```
+func getMaxValue() -> Int?
+```
+
 **Parameter**
 
 (none)
@@ -260,10 +368,16 @@ Get the maxValue
 
 Integer
 
-#### getMinValue()
+#### getMinValue
 
 Get the minValue
 
+**Declaration**
+
+```
+func getMinValue() -> Int?
+```
+
 **Parameter**
 
 (none)
@@ -272,9 +386,15 @@ Get the minValue
 
 Integer
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -284,9 +404,15 @@ Get the defaultValue
 
 String
 
-#### getUnique()
+#### getUnique
 
 Get the unique
+
+**Declaration**
+
+```
+func getUnique() -> Bool?
+```
 
 **Parameter**
 
@@ -303,9 +429,15 @@ Boolean
 
 ### Methods
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -323,10 +455,16 @@ String
 
 ### Methods
 
-#### getMinLength()
+#### getMinLength
 
 Get the minLength
 
+**Declaration**
+
+```
+func getMinLength() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -335,10 +473,16 @@ Get the minLength
 
 Integer
 
-#### getMaxLength()
+#### getMaxLength
 
 Get the maxLength
 
+**Declaration**
+
+```
+func getMaxLength() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -347,9 +491,15 @@ Get the maxLength
 
 Integer
 
-#### getExpression()
+#### getExpression
 
 Get the expression
+
+**Declaration**
+
+```
+func getExpression() -> String?
+```
 
 **Parameter**
 
@@ -359,9 +509,15 @@ Get the expression
 
 String
 
-#### getHideExpression()
+#### getHideExpression
 
 Get the hideExpression
+
+**Declaration**
+
+```
+func getHideExpression() -> Bool?
+```
 
 **Parameter**
 
@@ -371,9 +527,15 @@ Get the hideExpression
 
 Boolean
 
-#### getDefaultValue()
+#### getDefaultValue
 
 Get the defaultValue
+
+**Declaration**
+
+```
+func getDefaultValue() -> String?
+```
 
 **Parameter**
 
@@ -383,9 +545,15 @@ Get the defaultValue
 
 String
 
-#### getUnique()
+#### getUnique
 
 Get the unique
+
+**Declaration**
+
+```
+func getUnique() -> Bool?
+```
 
 **Parameter**
 
@@ -403,9 +571,15 @@ Boolean
 
 ### Methods
 
-#### getLabel()
+#### getLabel
 
 Get the label
+
+**Declaration**
+
+```
+func getLabel() -> String?
+```
 
 **Parameter**
 
@@ -415,9 +589,15 @@ Get the label
 
 String
 
-#### getNoLabel()
+#### getNoLabel
 
 Get the noLabel
+
+**Declaration**
+
+```
+func getNoLabel() -> Bool?
+```
 
 **Parameter**
 
@@ -427,9 +607,15 @@ Get the noLabel
 
 Boolean
 
-#### getRequired()
+#### getRequired
 
 Get the required
+
+**Declaration**
+
+```
+func getRequired() -> Bool?
+```
 
 **Parameter**
 

@@ -13,9 +13,15 @@ The preview app.
 
 ## Methods
 
-### getApp()
+### getApp
 
 Get the appId
+
+**Declaration**
+
+```
+func getApp() -> Int?
+```
 
 **Parameter**
 
@@ -25,9 +31,15 @@ Get the appId
 
 Integer
 
-### getRevision()
+### getRevision
 
 The revision of the preview app.
+
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
 
 **Parameter **
 

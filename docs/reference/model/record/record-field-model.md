@@ -12,9 +12,15 @@ General Field's value of the kintone app
 
 ### Methods
 
-#### getType()
+#### getType
 
 Get the type of field.
+
+**Declaration**
+
+```
+func getType() -> FieldType?
+```
 
 **Parameter**
 
@@ -24,9 +30,15 @@ Get the type of field.
 
 FieldType
 
-#### setType(FieldType type)
+#### setType
 
 Set the type of field.
+
+**Declaration**
+
+```
+func setType(_ type: FieldType)
+```
 
 **Parameter**
 
@@ -42,6 +54,12 @@ Set the type of field.
 
 Get the value of field in the record.
 
+**Declaration**
+
+```
+func getValue() -> Any?
+```
+
 **Parameter**
 
 (none)
@@ -50,9 +68,15 @@ Get the value of field in the record.
 
 Object
 
-#### setValue(Object value)
+#### setValue
 
 Set the value of field in the record.
+
+**Declaration**
+
+```
+setValue(_ value: Any?)
+```
 
 **Parameter**
 
@@ -75,9 +99,15 @@ Set the value of field in the record.
 
 ### Methods
 
-#### getID()
+#### getID
 
 Get the ID of item in table.
+
+**Declaration**
+
+```
+func getID() -> Int?
+```
 
 **Parameter**
 
@@ -88,9 +118,15 @@ Get the ID of item in table.
 Integer
 
 
-#### setID(Integer id)
+#### setID
 
 Set the ID of table.
+
+**Declaration**
+
+```
+func setID(_ id: Int)
+```
 
 **Parameter**
 
@@ -102,9 +138,15 @@ Set the ID of table.
 
 (none)
 
-#### getValue()
+#### getValue
 
 Get the value of field in the record.
+
+**Declaration**
+
+```
+func getValue() -> [String:FieldValue]?
+```
 
 **Parameter**
 
@@ -114,9 +156,15 @@ Get the value of field in the record.
 
 HashMap<String, [FieldValue](#fieldvalue)\>
 
-#### setValue(HashMap<String, [FieldValue](#fieldvalue)\> value) 
+#### setValue
 
 set the value of field in the record.
+
+**Declaration**
+
+```
+func setValue(_ value: [String:FieldValue])
+```
 
 **Parameter**
 

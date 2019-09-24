@@ -44,9 +44,15 @@ Gets general information of an App, including the name, description, related Spa
 
 ## Methods
 
-### getApp(_ appId: Int?)
+### getApp
 
 Get the single app
+
+**Declaration**
+
+```
+func getApp(_ appId: Int) -> Promise<AppModel>
+```
 
 **Parameter**
 
@@ -88,11 +94,17 @@ Promise<[AppModel](../model/app/app/app-model)>
 
 </details>
 
-### getApps(_ offset: Int?, _ limit: Int?)
+### getApps
 
 Get multiple apps
 
-**Parameter **
+**Declaration**
+
+```
+func getApps(_ offset: Int?, _ limit: Int?) -> Promise<Array<AppModel>>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -137,11 +149,17 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsByIDs(_ ids: [Int]?, _ offset: Int?, _ limit: Int?)
+### getAppsByIDs
 
 Get multiple apps by the list of ids
 
-**Parameter **
+**Declaration**
+
+```
+func getAppsByIDs(_ ids: [Int]?, _ offset: Int?, _ limit: Int?) -> Promise<Array<AppModel>>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -191,11 +209,17 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsByCodes(_ codes: [String]?, _ offset: Int?, _ limit: Int?)
+### getAppsByCodes
 
 Get multiple apps by a list of codes
 
-**Parameter **
+**Declaration**
+
+```
+func getAppsByCodes(_ codes: [String]?, _ offset: Int?, _ limit: Int?) -> Promise<Array<AppModel>>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -246,11 +270,17 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsByName(_ name: String?, _ offset: Int?, _ limit: Int?)
+### getAppsByName
 
 Get multiple apps by name
 
-**Parameter **
+**Declaration**
+
+```
+func getAppsByName(_ name: String?, _ offset: Int?, _ limit: Int?) -> Promise<Array<AppModel>>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -301,11 +331,17 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### getAppsBySpaceIDs(_ spaceIds: [Int]?, _ offset: Int? = 0, _ limit: Int? = 100)
+### getAppsBySpaceIDs
 
 Get multiple apps by space id
 
-**Parameter **
+**Declaration**
+
+```
+func getAppsBySpaceIDs(_ spaceIds: [Int]?, _ offset: Int?, _ limit: Int?) -> Promise<Array<AppModel>>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -355,11 +391,17 @@ Promise< Array<[AppModel](../model/app/app/app-model)>>
 
 </details>
 
-### addPreviewApp(_ name: String, _ space: Int?, _ thread: Int?)
+### addPreviewApp
 
 Creates a preview App.
 
-**Parameter **
+**Declaration**
+
+```
+func addPreviewApp(_ name: String, _ space: Int?, _ thread: Int?) -> Promise<PreviewApp>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -400,11 +442,17 @@ Promise<[PreviewApp](../model/app/app/preview-app)>
 </details>
 
 
-### deployAppSettings(_ apps: Array<PreviewApp>, _ revert: Bool?)
+### deployAppSettings
 
 Updates the settings of a pre-live App to the live App.
 
-**Parameter **
+**Declaration**
+
+```
+func deployAppSettings(_ apps: Array<PreviewApp>, _ revert: Bool?) -> Promise<Void>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -441,11 +489,17 @@ Promise <Void\>
 
 </details>
 
-### getAppDeployStatus(_ apps: [Int]) 
+### getAppDeployStatus
 
 Updates the settings of a pre-live App to the live App.
 
-**Parameter **
+**Declaration**
+
+```
+func getAppDeployStatus(_ apps: [Int]) -> Promise<GetAppDeployStatusResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -486,11 +540,17 @@ Promise<[GetAppDeployStatusResponse](../model/app/app/get-app-deploy-status-resp
 </details>
 
 
-### getFormFields(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?)
+### getFormFields
 
 Get field of the form in the kintone app
 
-**Parameter **
+**Declaration**
+
+```
+func getFormFields(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?) -> Promise<FormFields>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -545,11 +605,17 @@ Promise<[FormFields](../model/app/form/field/form-fields)>
 
 </details>
 
-### addFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?) 
+### addFormFields
 
 Adds fields to a form of an App.
 
-**Parameter **
+**Declaration**
+
+```
+func addFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?) -> Promise<BasicResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -606,11 +672,17 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### updateFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?
+### updateFormFields
 
 Updates the field settings of fields in a form of an App.
 
-**Parameter **
+**Declaration**
+
+```
+func updateFormFields(_ app: Int, _ fields: [String: Field],_ revision: Int?) -> Promise<BasicResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -659,11 +731,17 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### deleteFormFields(_ app: Int, _ fields: [String],_ revision: Int?) 
+### deleteFormFields
 
 > Deletes fields from a form of an App.
 
-**Parameter **
+**Declaration**
+
+```
+func deleteFormFields(_ app: Int, _ fields: [String],_ revision: Int?) -> Promise<BasicResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -703,11 +781,17 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### getFormLayout(_ app: Int, _ isPreview: Bool?)
+### getFormLayout
 
 Get the layout of form in kintone app
 
-**Parameter **
+**Declaration**
+
+```
+func getFormLayout(_ app: Int, _ isPreview: Bool?) -> Promise<FormLayout>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -759,11 +843,17 @@ Promise<[FormLayout](../model/app/form/layout/form-layout)>
 
 </details>
 
-### updateFormLayout(_ app: Int, _ layout: [ItemLayout],_ revision: Int?)
+### updateFormLayout
 
 Updates the field layout info of a form in an App.
 
-**Parameter **
+**Declaration**
+
+```
+func updateFormLayout(_ app: Int, _ layout: [ItemLayout],_ revision: Int?) -> Promise<BasicResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -866,11 +956,17 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### getGeneralSettings(_ app: Int, _ lang: LanguageSetting?, _ isPreview: Bool?)
+### getGeneralSettings
 
 Gets the description, name, icon, revision and color theme of an App.
 
-**Parameter **
+**Declaration**
+
+```
+func getGeneralSettings(_ app: Int, _ lang: LanguageSetting?, _ isPreview: Bool?) -> Promise<GeneralSettings>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -928,11 +1024,17 @@ Promise<[GeneralSettings](../model/app/general/general-settings)>
 
 </details>
 
-### updateGeneralSettings(_ app: Int, _ generalSettings: GeneralSettings?)
+### updateGeneralSettings
 
 Updates the description, name, icon, revision and color theme of an App.
 
-**Parameter **
+**Declaration**
+
+```
+func updateGeneralSettings(_ app: Int, _ generalSettings: GeneralSettings?) -> Promise<BasicResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -976,11 +1078,17 @@ Promise<[BasicResponse](../model/app/basic-response)>
 
 </details>
 
-### getViews(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?)
+### getViews
 
 Gets the View settings of an App.
 
-**Parameter **
+**Declaration**
+
+```
+func getViews(_ app: Int, _ lang: LanguageSetting?,_ isPreview: Bool?) -> Promise<GetViewsResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
@@ -1034,11 +1142,17 @@ Promise<[GetViewsResponse](../model/app/view/update-views-response)>
 
 </details>
 
-### updateViews(_ app: Int, _ views: [String: ViewModel],_ revision: Int?)
+### updateViews
 
 Updates the View settings of an App.
 
-**Parameter **
+**Declaration**
+
+```
+func updateViews(_ app: Int, _ views: [String: ViewModel],_ revision: Int?) -> Promise<UpdateViewsResponse>
+```
+
+**Parameter**
 
 | Name| Type| Required| Description |
 | --- | --- | --- | --- |
