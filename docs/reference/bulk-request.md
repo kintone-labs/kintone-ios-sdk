@@ -60,7 +60,7 @@ func addRecord(_ app: Int, _ record: [String: FieldValue]?) throws -> BulkReques
 
 **Parameter**
 
-See at [Record - addRecord](./record#addrecord_-app-int-_-record-stringfieldvalue)
+See at [Record - addRecord](../record#addrecord)
 
 **Return**
 
@@ -98,7 +98,7 @@ func addRecords(_ app: Int, _ records: Array<[String: FieldValue]?>) throws -> B
 
 **Parameter**
 
-See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldvalue)
+See at [Record - addRecords](../record#addrecords)
 
 **Return**
 
@@ -145,7 +145,7 @@ func updateRecordByID(_ app: Int, _ id: Int, _ record: [String: FieldValue]?, _ 
 
 **Parameter**
 
-See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_-record-stringfieldvalue-_-revision-int)
+See at [Record - updateRecordByID](../record#updaterecordbyid)
 
 **Return**
 
@@ -187,7 +187,7 @@ func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record:
 
 **Parameter**
 
-See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-int-_-updatekey-recordupdatekey-_-record-stringfieldvalue-_-revision-int)
+See at [Record - updateRecordByUpdateKey](../record#updaterecordbyupdatekey)
 
 **Return**
 
@@ -231,7 +231,7 @@ func updateRecords(_ app: Int, _ records: Array<RecordUpdateItem> ) throws -> Bu
 
 **Parameter**
 
-See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-recordupdateitem)
+See at [Record - updateRecords](../record#updaterecords)
 
 **Return**
 
@@ -282,7 +282,7 @@ func deleteRecords(_ app: Int, _ ids: Array<Int>) throws -> BulkRequest
 
 **Parameter**
 
-See at [Record - deleteRecords](./record#deleterecords_-app-int-_-ids-int)
+See at [Record - deleteRecords](../record#deleterecords)
 
 **Return**
 
@@ -319,7 +319,7 @@ func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int: Int?]) throw
 
 **Parameter**
 
-See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-app-int-_-idwithrevision-intint)
+See at [Record - deleteRecordsWithRevision](../record#deleterecordswithrevision)
 
 **Return**
 
@@ -355,7 +355,7 @@ func updateRecordAssignees(_ app: Int, _ record: Int, _ assignees: Array<String>
 
 **Parameter**
 
-See at [Record - updateRecordAssignees](./record#updaterecordassignees_-app-int-_-id-int-_-assignees-string-_-revision-int)
+See at [Record - updateRecordAssignees](../record#updaterecordassignees)
 
 **Return**
 
@@ -391,7 +391,7 @@ func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: Str
 
 **Parameter**
 
-See at [Record - updateRecordStatus](./record#updaterecordstatus_-app-int-_-id-int-_-action-string-_-assignee-string-_-revision-int)
+See at [Record - updateRecordStatus](../record#updaterecordstatus)
 
 **Return**
 
@@ -427,7 +427,7 @@ func updateRecordsStatus(_ app: Int, _ records: Array<RecordUpdateStatusItem>) t
 
 **Parameter**
 
-See at [Record - updateRecordsStatus](./record#updaterecordsstatus_-app-int-_-records-recordupdatestatusitem)
+See at [Record - updateRecordsStatus](../record#updaterecordsstatus)
 
 **Return**
 

@@ -170,12 +170,12 @@ func getAllRecordsByQuery(_ app: Int,_ query: String? = "",_ fields: [String]? =
 
 **Parameter**
 
-| Name| Description |
-| --- | --- |
-| app | The kintone app ID
-| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
-| fields | List of field codes you want in the response.
-| totalCount | If "true", the request will retrieve total count of records match with query conditions.
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID|
+| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | Array<String\> | (optional) | List of field codes you want in the response.
+| totalCount | Boolean | (optional) | If "true", the request will retrieve total count of records match with query conditions.
 
 **Return**
 
