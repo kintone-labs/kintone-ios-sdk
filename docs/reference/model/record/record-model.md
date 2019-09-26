@@ -6,9 +6,15 @@ General record response, using for data response from the kintone app
 
 Methods
 
-### getRecord()
+### getRecord
 
 Get the Record data response.
+
+**Declaration**
+
+```
+func getRecord() -> [String:FieldValue]?
+```
 
 **Parameter**
 
@@ -22,9 +28,15 @@ HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>
 
 Methods
 
-### getRecords()
+### getRecords
 
 Get the Records data response.
+
+**Declaration**
+
+```
+func getRecords() -> [[String:FieldValue]]?
+```
 
 **Parameter**
 
@@ -34,9 +46,15 @@ Get the Records data response.
 
 ArrayList<HashMap<String, [FieldValue](./record-field-model#fieldvalue)\>\>
 
-### getTotalCount()
+### getTotalCount
 
 Get the number of records response.
+
+**Declaration**
+
+```
+func getTotalCount() -> Int?
+```
 
 **Parameter**
 
@@ -50,9 +68,15 @@ Integer
 
 Methods
 
-### getID()
+### getId
 
 Get the the ID of record added.
+
+**Declaration**
+
+```
+func getId() -> Int?
+```
 
 **Parameter**
 
@@ -62,9 +86,15 @@ Get the the ID of record added.
 
 Integer
 
-### getRevision()
+### getRevision
 
 Get the revision number of record added.
+
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
 
 **Parameter**
 
@@ -78,9 +108,15 @@ Integer
 
 Methods
 
-### getIDs()
+### getIDs
 
 Get the array of added records ID.
+
+**Declaration**
+
+```
+func getIDs() -> [Int]?
+```
 
 **Parameter**
 
@@ -90,9 +126,15 @@ Get the array of added records ID.
 
 ArrayList<Integer\>
 
-### getRevisions()
+### getRevisions
 
 Get the array of added records revision number.
+
+**Declaration**
+
+```
+func getRevisions() -> [Int]?
+```
 
 **Parameter**
 
@@ -106,9 +148,15 @@ ArrayList<Integer\>
 
 Methods
 
-### getRevision()
+### getRevision
 
 Get the revision number of record updated.
+
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
 
 **Parameter**
 
@@ -122,9 +170,15 @@ Integer
 
 Methods
 
-### getRecords()
+### getRecords
 
 Get the array of added records ID with revision.
+
+**Declaration**
+
+```
+func getRecords() -> [RecordUpdateResponseItem]? 
+```
 
 **Parameter**
 
@@ -138,9 +192,15 @@ ArrayList<[RecordUpdateResponseItem](#recordupdateresponseitem)\>
 
 Methods
 
-### getID()
+### getID
 
 Get the the ID of record updated.
+
+**Declaration**
+
+```
+func getID() -> Int?
+```
 
 **Parameter**
 
@@ -150,9 +210,15 @@ Get the the ID of record updated.
 
 Integer
 
-### getRevision()
+### getRevision
 
 Get the revision number of record updated.
+
+**Declaration**
+
+```
+func getRevision() -> Int? 
+```
 
 **Parameter**
 
@@ -208,5 +274,120 @@ Methods
 | revision | Integer  |  (Optional) The revision number of the record before updating the status.If the specified revision is not the latest revision, the request will result in an error.
 
 Methods
+
+(none)
+
+## RecordUpsertItem
+
+### Constructor
+
+**Declaration**
+
+<pre class="inline-code">
+public init(_ updateKey: RecordUpdateKey?,_ record: [String:FieldValue]?)
+</pre>
+
+**Parameter**
+
+| Name|Description |
+| --- | --- |
+| updateKey |  The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+| record | The data to update record.
+
+Methods
+
+### getRecord
+
+Get the Record data response.
+
+**Declaration**
+
+<pre class="inline-code">
+func getRecord() -> [String:FieldValue]?
+</pre>
+
+**Parameter**
+
+(none)
+
+**Return**
+
+HashMap&lt;String, [FieldValue](./record-field-model#fieldvalue)&gt;
+
+### getRecord
+
+Get the Record data response by UpdateKey.
+
+**Declaration**
+
+<pre class="inline-code">
+func getRecord(_ updateKey: RecordUpdateKey?) -> [String:FieldValue]?
+</pre>
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| updateKey | The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+
+**Return**
+
+HashMap&lt;String, [FieldValue](./record-field-model#fieldvalue)&gt;
+
+### getUpdateKey
+
+Get the unique key of record.
+
+**Declaration**
+
+<pre class="inline-code">
+func getUpdateKey() -> RecordUpdateKey?
+</pre>
+
+**Parameter**
+
+(none)
+
+**Return**
+
+[RecordUpdateKey](#recordupdatekey)
+
+### setRecord
+
+Set the Record data response.
+
+**Declaration**
+
+<pre class="inline-code">
+func setRecord(_ record: [String:FieldValue]?)
+</pre>
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| record | The data to update record.
+
+**Return**
+
+(none)
+
+### setUpdateKey
+
+Set the unique key of record.
+
+**Declaration**
+
+<pre class="inline-code">
+func setUpdateKey(_ updateKey: RecordUpdateKey?)
+</pre>
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| updateKey | The unique key of the record to be updated. Required, if id will not be specified. To specify this field, the field must have the "Prohibit duplicate values" option turned on.
+
+**Return**
 
 (none)

@@ -71,7 +71,7 @@ Promise<FileModel\>
     let recordManager = Record(con)
     
     
-    var fileTestRecord: Dictionary<String, FieldValue> = [:]
+    var fileTestRecord: Dictionary&lt;String, FieldValue&gt; = [:]
         var field = FieldValue()
         field.setType(FieldType.SINGLE_LINE_TEXT)
         field.setValue("testUploadSuccessForSingleFile")
@@ -85,7 +85,7 @@ Promise<FileModel\>
         fileManager.uploadAsync(upload_file_path.absoluteString).then{ fileResponse in
             // exec add record
             let fileList = [fileResponse]
-            fileTestRecord = Dictionary<String, FieldValue> = [:]
+            fileTestRecord = Dictionary&lt;String, FieldValue&gt; = [:]
             field.setType(FieldType.FILE)
             field.setValue(fileList)
             fileTestRecord["ATTACH_FILE_1"] = field
@@ -152,7 +152,7 @@ Promise<Void\>
     let fileManager = File(con)
     let recordManager = Record(con)
     var fieldCode = "SINGLE_LINE_TEXT"
-    var fileTestRecord: Dictionary<String, FieldValue> = [:]
+    var fileTestRecord: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
         field.setType(FieldType.SINGLE_LINE_TEXT)
         field.setValue("testDownloadSuccessForSingleFile")
@@ -165,7 +165,7 @@ Promise<Void\>
     self.fileManagement?.uploadAsync(upload_file_path.absoluteString).then{ fileResponse -> Promise<AddRecordResponse> in
         // exec add record
         let fileList = [fileResponse]
-        fileTestRecord = Dictionary<String, FieldValue> = [:]
+        fileTestRecord = Dictionary&lt;String, FieldValue&gt; = [:]
         field.setType(FieldType.FILE)
         field.setValue(fileList)
         fileTestRecord["ATTACH_FILE_1"] = field

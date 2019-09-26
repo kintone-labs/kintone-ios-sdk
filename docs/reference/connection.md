@@ -57,9 +57,15 @@
 
 ## Methods
 
-### setHeader(key, value)
+### setHeader
 
 Set new header of the [Connection](../connection)
+
+**Declaration**
+
+```
+func setHeader(_ key: String, _ value: String) -> Connection
+```
 
 **Parameter**
 
@@ -108,6 +114,7 @@ Set the proxy of the request
 **Declaration**
 ```
 func setProxy(_ host: String,_ port: Int,_ username: String? = nil,_ password: String? = nil)
+
 ```
 
 **Parameter**

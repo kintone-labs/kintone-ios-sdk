@@ -3,9 +3,15 @@ The response of the app deploy status.
 
 ## Methods
 
-### getApps()
+### getApps
 
 Get information of the deploy statuses of multiple app
+
+**Declaration**
+
+```
+func getApps() -> Array<AppDeployStatus>?
+```
 
 **Parameter**
 

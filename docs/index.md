@@ -11,6 +11,7 @@ The kintone API SDK for ios includes various features that are useful for callin
 - [Authentication](./reference/authentication)
 - [Connection](./reference/connection)
 - [Record](./reference/record)
+- [Cursor](./reference/record-cursor)
 - [BulkRequest](./reference/bulk-request)
 - [App](./reference/app)
 - [KintoneAPIException](./reference/kintone-api-exception)
@@ -32,6 +33,10 @@ The kintone API SDK for ios includes various features that are useful for callin
         - [General](./reference/model/app/general/general-settings.md)
         - [View](./reference/model/app/view/view-model.md)
     - [Record](./reference/model/record/record-model.md)
+    - Cursor
+        - Record Cursor
+          - [CreateRecordCursorResponse](./reference/model/cursor/record-cursor/create-record-cursor-response.md)
+          - [GetRecordCursorResponse](./reference/model/cursor/record-cursor/get-record-cursor-response.md)
     - [File](./reference/model/file/file-model.md)
     - [Bulk Request](./reference/model/bulk-request/bulk-request-model.md)
 

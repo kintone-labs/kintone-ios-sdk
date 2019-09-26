@@ -12,9 +12,15 @@ General comment structure of the record on kintone restAPI
 
 ### Methods
 
-#### getId()
+#### getId
 
 Get the Comment ID.
+
+**Declaration**
+
+```
+func getId() -> Int?
+```
 
 **Parameter**
 
@@ -50,9 +56,15 @@ Integer
 
 </details>
 
-#### getText()
+#### getText
 
 Get the comment including the line feed codes.
+
+**Declaration**
+
+```
+func getText() -> String?
+```
 
 **Parameter**
 
@@ -88,9 +100,15 @@ String
 
 </details>
 
-#### getCreatedAt()
+#### getCreatedAt
 
 Get the created date and time of the comment.
+
+**Declaration**
+
+```
+func getCreatedAt() -> Date?
+```
 
 **Parameter**
 
@@ -126,9 +144,15 @@ Date
 
 </details>
 
-#### getCreator()
+#### getCreator
 
 Get an object including information of the comment creator.
+
+**Declaration**
+
+```
+func getCreator() -> Member?
+```
 
 **Parameter**
 
@@ -164,9 +188,15 @@ Get an object including information of the comment creator.
 
 </details>
 
-#### getMentions()
+#### getMentions
 
 Get an array including information of mentioned users.
+
+**Declaration**
+
+```
+func getMentions() -> [CommentMention]?
+```
 
 **Parameter**
 
@@ -212,9 +242,15 @@ List<[CommentMention](#commentmention)\>
 
 ### Methods
 
-#### setText(String text)
+#### setText
 
 > set the comment including the line feed codes.
+
+**Declaration**
+
+```
+func setText(_ text: String)
+```
 
 **Parameter**
 
@@ -252,9 +288,15 @@ List<[CommentMention](#commentmention)\>
 
 </details>
 
-#### setMentions(List<[CommentMention](#commentmention)\> mentions)
+#### setMentions
 
 Get an array including information of mentioned users.
+
+**Declaration**
+
+```
+func setMentions(_ mentions: [CommentMention]?)
+```
 
 **Parameter**
 
@@ -302,9 +344,15 @@ Get an array including information of mentioned users.
 
 ### Methods
 
-#### getCode()
+#### getCode
 
 Get the code of the mentioned user, group or organization.
+
+**Declaration**
+
+```
+func getCode() -> String?
+```
 
 **Parameter**
 
@@ -342,9 +390,15 @@ String
 
 </details>
 
-#### setCode(String code)
+#### setCode
 
 > set the comment including the line feed codes.
+
+**Declaration**
+
+```
+func setCode(_ code: String)
+```
 
 **Parameter**
 
@@ -382,9 +436,15 @@ String
 
 </details>
 
-#### getType()
+#### getType
 
 Get the type of the mentioned user, group or organization.
+
+**Declaration**
+
+```
+func getType() -> String?
+```
 
 **Parameter**
 
@@ -422,9 +482,15 @@ String
 
 </details>
 
-#### setType(String type)
+#### setType
 
 Get an array including information of mentioned users.
+
+**Declaration**
+
+```
+func setType(_ type: String)
+```
 
 **Parameter**
 
@@ -472,9 +538,15 @@ Get an array including information of mentioned users.
 
 ### Methods
 
-#### getComments()
+#### getComments
 
 Get the comments List on a record.
+
+**Declaration**
+
+```
+func getComments() -> [Comment]?
+```
 
 **Parameter**
 
@@ -508,9 +580,15 @@ ArrayList<[Comment](#comment)\>
 
 </details>
 
-#### getOlder()
+#### getOlder
 
 Get information of older comments.
+
+**Declaration**
+
+```
+func getOlder() -> Bool
+```
 
 **Parameter**
 
@@ -544,9 +622,15 @@ Boolean
 
 </details>
 
-#### getNewer()
+#### getNewer
 
 Get information of newer comments.
+
+**Declaration**
+
+```
+func getNewer() -> Bool
+```
 
 **Parameter**
 
@@ -590,9 +674,15 @@ Boolean
 
 ### Methods
 
-#### getId()
+#### getId
 
 Get the ID of comment which have just created.
+
+**Declaration**
+
+```
+func getId() -> Int?
+```
 
 **Parameter**
 

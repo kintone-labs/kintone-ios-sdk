@@ -12,11 +12,17 @@ The  basic response
 
 ## Methods
 
-### getRevision()
+### getRevision
 
 The revision of the app.
 
-**Parameter **
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
+
+**Parameter**
 
 (none)
 

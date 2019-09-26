@@ -4,9 +4,15 @@ Handle error responses from the Kintone Rest API
 
 ## Methods
 
-### getHttpErrorCode()
+### getHttpErrorCode
 
-**Parameter **
+**Declaration**
+
+```
+func getHttpErrorCode() -> Int?
+```
+
+**Parameter**
 
 (none)
 
@@ -36,9 +42,15 @@ int
 
 </details>
 
-### getErrorResponse()
+### getErrorResponse
 
-**Parameter **
+**Declaration**
+
+```
+func getErrorResponse() -> ErrorResponse?
+```
+
+**Parameter**
 
 (none)
 
@@ -70,9 +82,15 @@ int
 
 </details>
 
-### getErrorResponses()
+### getErrorResponses
 
-**Parameter **
+**Declaration**
+
+```
+func getErrorResponses() -> Array<ErrorResponse>?
+```
+
+**Parameter**
 
 (none)
 

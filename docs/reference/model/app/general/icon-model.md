@@ -14,9 +14,15 @@ The Icom of an apps.
 
 ## Methods
 
-### getFile()
+### getFile
 
 The file of the Icon
+
+**Declaration**
+
+```
+func getFile() -> FileModel?
+```
 
 **Parameter**
 
@@ -26,11 +32,17 @@ The file of the Icon
 
 [FileModel](/reference/model/file/file-model)
 
-### getKey()
+### getKey
 
 The key of the Icon
 
-**Parameter **
+**Declaration**
+
+```
+func getKey() -> String?
+```
+
+**Parameter**
 
 (none)
 
@@ -38,11 +50,17 @@ The key of the Icon
 
 String
 
-### getIconType()
+### getIconType
 
 The icon type of the Icon
 
-**Parameter **
+**Declaration**
+
+```
+func getIconType() -> IconType?
+```
+
+**Parameter**
 
 (none)
 
