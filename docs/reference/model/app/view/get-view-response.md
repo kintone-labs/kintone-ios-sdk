@@ -13,9 +13,15 @@ The views of an apps.
 
 ## Methods
 
-### getViews()
+### getViews
 
 Get the views of an app.
+
+**Declaration**
+
+```
+func getViews() -> [String: ViewModel]?
+```
 
 **Parameter**
 
@@ -25,11 +31,17 @@ Get the views of an app.
 
 [String: [ViewModel](../view-model)]
 
-### getRevision()
+### getRevision
 
 The revision of the preview app.
 
-**Parameter **
+**Declaration**
+
+```
+func getRevision() -> Int?
+```
+
+**Parameter**
 
 (none)
 

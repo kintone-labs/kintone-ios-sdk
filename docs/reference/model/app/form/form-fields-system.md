@@ -22,9 +22,15 @@ Get a list of fields and their settings.
 
 ### Methods
 
-#### getEnabled()
+#### getEnabled
 
 Get the enabled
+
+**Declaration**
+
+```
+func getEnabled() -> Bool?
+```
 
 **Parameter**
 
@@ -111,9 +117,15 @@ Boolean
 
 ### Methods
 
-#### getLabel()
+#### getLabel
 
 Get the label
+
+**Declaration**
+
+```
+func getLabel() -> String?
+```
 
 **Parameter**
 
@@ -131,9 +143,15 @@ String
 
 ### Methods
 
-#### getEnabled()
+#### getEnabled
 
 Get the enabled
+
+**Declaration**
+
+```
+func getEnabled() -> Bool?
+```
 
 **Parameter**
 
@@ -151,9 +169,15 @@ Boolean
 
 ### Methods
 
-#### getNoLabel()
+#### getNoLabel
 
 Get the noLabel
+
+**Declaration**
+
+```
+func getNoLabel() -> Bool?
+```
 
 **Parameter**
 
