@@ -791,15 +791,16 @@ Promise<BulkRequestResponse\>
     let appID = {YOUR_APP_ID}
     let query = "{YOUR_QUERY}"
   
-    recordManagement.deleteAllRecordsByQuery(appID, query).then { resp in
-        let results = resp.getResults()
-        print(results!)
+    recordManagement.deleteAllRecordsByQuery(appID, query)
+        .then { resp in
+            let results = resp.getResults()
+            print(results!)
         }.catch{ error in
-            if error is KintoneAPIException {
-                print((error as! KintoneAPIException).toString()!)
+            if error is BulksException {
+                print((error as! BulksException).getError());
             }
             else {
-                print((error as! Error).localizedDescription)
+                print(error.localizedDescription)
             }
         }
 </pre>
