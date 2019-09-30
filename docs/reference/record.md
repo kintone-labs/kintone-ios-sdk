@@ -797,7 +797,7 @@ Promise<BulkRequestResponse\>
             print(results!)
         }.catch{ error in
             if error is BulksException {
-                print((error as! BulksException).getError());
+                print((error as! BulksException).getError()!);
             }
             else {
                 print(error.localizedDescription)
