@@ -7,12 +7,12 @@
 //
 import Foundation
 open class BulksException: Error {
-    private var results: [Any] = [];
+    private var results: [Any] = []
     
     open func getResults() -> [Any]{
-        return self.results;
+        return self.results
     }
-
+    
     open func getBulkErrorIndex() -> Int? {
         for i in 0..<results.count {
             if (type(of: results[i]) == KintoneAPIException.self) {
