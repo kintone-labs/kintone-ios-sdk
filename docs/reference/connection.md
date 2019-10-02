@@ -140,7 +140,7 @@ func setProxy(_ host: String,_ port: Int,_ username: String? = nil,_ password: S
 <pre class="inline-code">
 
     let proxyHost = "{YOUR_PROXY_HOST}"
-    let proxyPort: Int? = {YOUR_PROXY_PORT}
+    let proxyPort = {YOUR_PROXY_PORT}
     // Set proxy with auth
     let proxyUsername = "{YOUR_PROXY_USERNAME}"
     let proxyPassword = "{YOUR_PROXY_PASSWORD}"
