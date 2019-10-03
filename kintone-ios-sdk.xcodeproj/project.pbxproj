@@ -52,6 +52,7 @@
 		12DB97D721A7DFB80070C5C4 /* BulkRequestTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */; };
 		12F41DC721A80AEF00C0F1A7 /* ConnectionTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */; };
 		3A28DB562318B0160044F8C1 /* RecordConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB552318B0160044F8C1 /* RecordConstants.swift */; };
+		3A28DB582319163E0044F8C1 /* SetProxyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB572319163E0044F8C1 /* SetProxyTest.swift */; };
 		3A06D2922316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */; };
 		3A06D2942317821C00AF4CE0 /* DeleteAllRecordsByQueryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D2932317821B00AF4CE0 /* DeleteAllRecordsByQueryTest.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
@@ -282,6 +283,7 @@
 		12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestTestConstants.swift; sourceTree = "<group>"; };
 		12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTestConstants.swift; sourceTree = "<group>"; };
 		3A28DB552318B0160044F8C1 /* RecordConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordConstants.swift; sourceTree = "<group>"; };
+		3A28DB572319163E0044F8C1 /* SetProxyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProxyTest.swift; sourceTree = "<group>"; };
 		3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllRecordsByQueryTest.swift; sourceTree = "<group>"; };
 		3A06D2932317821B00AF4CE0 /* DeleteAllRecordsByQueryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllRecordsByQueryTest.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -499,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				110578F3216756A900F6E8C0 /* ConnectionTest.swift */,
+				3A28DB572319163E0044F8C1 /* SetProxyTest.swift */,
 			);
 			path = connection;
 			sourceTree = "<group>";
@@ -1420,6 +1423,7 @@
 				122F1DF4216B7BFB00160A27 /* GetAppsBySpaceIDsTest.swift in Sources */,
 				E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */,
 				3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */,
+				3A28DB582319163E0044F8C1 /* SetProxyTest.swift in Sources */,
 				122F1DD2216B7AAA00160A27 /* AddPreviewAppTest.swift in Sources */,
 				AE1F9DC12318CB4D0055C3B5 /* UpsertRecordsTest.swift in Sources */,
 				122F1DDA216B7B1100160A27 /* GetAppDeployStatusTest.swift in Sources */,
