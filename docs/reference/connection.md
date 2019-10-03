@@ -92,8 +92,8 @@ func setHeader(_ key: String, _ value: String) -> Connection
     let loginName = 'your_user_name'
     let loginPassword = 'your_password'
     let domain = 'your_kintone_domain'
-    let key = "X-HTTP-Method-Override";
-    let value = "GET";
+    let key = "X-HTTP-Method-Override"
+    let value = "GET"
     
     // Init authenticationAuth
     let auth = Auth()
@@ -101,7 +101,7 @@ func setHeader(_ key: String, _ value: String) -> Connection
     
     // Init connection
     let connection = Connection(domain, auth)
-    connection.setHeader(key, value);
+    connection.setHeader(key, value)
 
 </pre>
 
@@ -112,17 +112,19 @@ func setHeader(_ key: String, _ value: String) -> Connection
 Set the proxy of the request
 
 **Declaration**
-
 ```
-func setProxy(_ host: String, _ port: Int)
+func setProxy(_ host: String,_ port: Int,_ username: String? = nil,_ password: String? = nil)
+
 ```
 
 **Parameter**
 
-| Name| Type| Required| Description |
-| --- | --- | --- | --- |
-| proxyHost | String | yes | The proxy host name
-| proxyPort | Integer | yes | The proxy port number
+| Name| Description |
+| --- |  --- |
+| host | The proxy host name
+| port | The proxy port number
+| username | User name of the proxy
+| password | Password of the proxy
 
 **Return**
 
@@ -137,12 +139,15 @@ func setProxy(_ host: String, _ port: Int)
 
 <pre class="inline-code">
 
-    let proxyHost = "xxxx";
-    let proxyPort: Int? = {your_proxy_port};
+    let proxyHost = "{YOUR_PROXY_HOST}"
+    let proxyPort = {YOUR_PROXY_PORT}
+    // Set proxy with auth
+    let proxyUsername = "{YOUR_PROXY_USERNAME}"
+    let proxyPassword = "{YOUR_PROXY_PASSWORD}"
     
-    let loginName = 'your_user_login_name'
-    let loginPassword = 'your_password'
-    let domain = 'your_kintone_domain'
+    let username = "{YOUR_USERNAME}"
+    let password = "{YOUR_PASSWORD}"
+    let domain = "{YOUR_DOMAIN}"
     
     // Init authenticationAuth
     let auth = Auth()
@@ -150,8 +155,10 @@ func setProxy(_ host: String, _ port: Int)
     
     // Init connection
     let connection = Connection(domain, auth)
-    connection.setProxy(proxyHost, proxyPort);
-    
+    // Set proxy without auth
+    connection.setProxy(proxyHost, proxyPort)
+    // Set proxy with auth
+    connection.setProxy(proxyHost, proxyPort, proxyUsername, proxyPassword)
 </pre>
 
 </details>
