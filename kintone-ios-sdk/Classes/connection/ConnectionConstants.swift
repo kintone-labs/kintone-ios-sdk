@@ -59,4 +59,5 @@ open class ConnectionConstants: NSObject {
     public static let SPACE_TEMPLATE = "template/space"
     public static let SPACE_THREAD = "space/thread"
     public static let SPACE_THREAD_COMMENT = "space/thread/comment"
+    public static let CURSOR_RECORD = "records/cursor"
 }
