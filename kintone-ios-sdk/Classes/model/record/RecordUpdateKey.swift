@@ -11,6 +11,20 @@ open class RecordUpdateKey: NSObject, Codable {
     private var field: String?
     private var value: String?
     
+    /// get field of record
+    ///
+    /// - Returns: the string of field
+    open func getField() -> String? {
+        return self.field
+    }
+    
+    /// get value of record
+    ///
+    /// - Returns: the string of value
+    open func getValue() -> String? {
+        return self.value
+    }
+    
     /// Constructor
     ///
     /// - Parameters:
