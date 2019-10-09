@@ -44,9 +44,15 @@ Provide manipulate functions on records: get, update, delete, update the record 
 
 ## Methods
 
-### getRecord(_ app: Int, _ id: Int)
+### getRecord
 
 Retrieves details of 1 record from an app.
+
+**Declaration**
+
+```
+func getRecord(_ app: Int,_ id: Int) -> Promise<GetRecordResponse>
+```
 
 **Parameter**
 
@@ -75,7 +81,7 @@ Promise<GetRecordResponse\>
     
     recordManagement.getRecord(appID, recordID).then{response in
                 
-        let resultData: Dictionary<String, FieldValue> = response.getRecord()!
+        let resultData: Dictionary&lt;String, FieldValue&gt; = response.getRecord()!
         print(resultData["$id"]?.getValue())
                 
         for (code, value) in resultData {
@@ -95,9 +101,15 @@ Promise<GetRecordResponse\>
 
 </details>
 
-### getRecords(_ app: Int, _ query: String?, _fields: [String]?, _totalCount: Bool?)
+### getRecords
 
 Retrieves details of multiple records from an app using a query string.
+
+**Declaration**
+
+```
+func getRecords(_ app: Int, _ query: String?, _ fields: [String]?, _ totalCount: Bool?) -> Promise<GetRecordsResponse>
+```
 
 **Parameter**
 
@@ -146,9 +158,137 @@ Promise<GetRecordsResponse\>
 
 </details>
 
-### addRecord(_ app: Int, _ record: [String:FieldValue]?)
+### getAllRecordsByCursor
+
+Retrieves details of multiple records from an app using a query string.
+
+**Declaration**
+
+    func getAllRecordsByCursor(_ app: Int, _ query: String? = nil, _ fields: [String]? = nil)  -> Promise<GetRecordsResponse>
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | List of field codes you want in the response.
+
+**Return**
+
+Promise<[GetRecordsResponse](../model/record/record-model/#getrecordsresponse)\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Get all record by cursor</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+            
+    // execute get records API
+    let appID = {your_app_id}
+    let query = "レコード番号 >= 2 order by レコード番号 asc"
+    
+    recordManagement.getAllRecordsByCursor(appID, query, nil).then{response in
+        let records = response.getRecords()
+                
+        for (_, dval) in (records?.enumerated())! {
+            for (_, value) in dval {
+                print(value.getType() as Any)
+                print(value.getValue() as Any)
+            }
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print(error.localizedDescription)
+        }
+    }
+
+</pre>
+
+</details>
+
+### getAllRecordsByQuery
+
+Get all records from an app by using a query string.
+
+**Declaration**
+
+```
+func getAllRecordsByQuery(_ app: Int,_ query: String? = "",_ fields: [String]? = [],_ totalCount: Bool = false) -> Promise<GetRecordsResponse>
+```
+
+**Parameter**
+
+| Name| Type| Required| Description |
+| --- | --- | --- | --- |
+| app | Integer | yes | The kintone app ID|
+| query | String | (optional) | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded.
+| fields | Array<String\> | (optional) | List of field codes you want in the response.
+| totalCount | Boolean | (optional) | If "true", the request will retrieve total count of records match with query conditions.
+
+**Return**
+
+Promise<GetRecordsResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+
+<Summary>Get all records by query</Summary>
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+    let appID = {YOUR_APP_ID}
+    let query = "{YOUR_QUERY}"
+    
+    recordManagement.getAllRecordsByQuery(appID, query, nil, true).then {response in
+        let records = response.getRecords()
+        for (_, dval) in (records?.enumerated())! {
+            for (_, value) in dval {
+                print(value.getType() as Any)
+                print(value.getValue() as Any)
+            }
+        }
+        }.catch{ error in
+            if error is KintoneAPIException {
+                print((error as! KintoneAPIException).toString()!)
+            }
+            else {
+                print((error).localizedDescription)
+            }
+        }
+</pre>
+</details>
+
+### addRecord
 
 >Add one record to an app.
+
+**Declaration**
+
+```
+func addRecord(_ app: Int, _ record: [String:FieldValue]?) -> Promise<AddRecordResponse>
+```
 
 **Parameter**
 
@@ -170,7 +310,7 @@ Promise<AddRecordResponse\>
 
 <pre class="inline-code">
 
-    var addData: Dictionary<String, FieldValue> = [:]
+    var addData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value")
@@ -194,9 +334,15 @@ Promise<AddRecordResponse\>
 
 </details>
 
-### addRecords(_ app: Int, _ records: [[String:FieldValue]])
+### addRecords
 
 Add multiple records to an app.
+
+**Declaration**
+
+```
+func addRecords(_ app: Int, _ records: [[String:FieldValue]]) -> Promise<AddRecordsResponse>
+```
 
 **Parameter**
 
@@ -218,8 +364,8 @@ Promise<AddRecordsResponse\>
 
 <pre class="inline-code">
 
-    var addData1: Dictionary<String, FieldValue> = [:]
-    var addData2: Dictionary<String, FieldValue> = [:]
+    var addData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var addData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -248,9 +394,79 @@ Promise<AddRecordsResponse\>
 
 </details>
 
-### updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
+### addAllRecords
+
+Add all records to an app.
+
+**Declaration**
+```
+func addAllRecords (_ app: Int, _ records: [[String:FieldValue]] ) -> Promise<BulkRequestResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | List of records data to be add to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise<BulkRequestResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Add multi records</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    var addData1: Dictionary&ltString, FieldValue&gt = [:]
+    var addData2: Dictionary&ltString, FieldValue&gt = [:]
+    let field1 = FieldValue()
+    let field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Value1")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Value2")
+    addData1[{your_field_code}] = field1
+    addData2[{your_field_code}] = field2
+    let addDataList = [addData1, addData2]
+    
+    // execute add records API
+    let appID = 311
+    recordManagement.addAllRecords(appID, addDataList).then{response in
+        for items in response.getResults()! {
+            let addRecordsResponse = items as! [AddRecordsResponse]
+            for _ in addRecordsResponse {
+                print(response.getResults()!)
+            }
+        }
+    }.catch{ error in
+        var errorString = ""
+        if (type(of: error) == BulksException.self) {
+        errorString = (error as! BulksException).getError()!
+        } else {
+        errorString = error.localizedDescription
+        }
+        print(errorString)
+    }
+
+</pre>
+
+</details>
+
+### updateRecordByID
 
 Updates details of 1 record in an app by specifying its record number.
+
+**Declaration**
+
+```
+func updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -274,7 +490,7 @@ Promise<UpdateRecordResponse\>
 
 <pre class="inline-code">
 
-    var updateData:Dictionary<String, FieldValue> = [:]
+    var updateData:Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update")
@@ -298,9 +514,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)
+### updateRecordByUpdateKey
 
 Updates details of 1 record in an app by the unique key.
+
+**Declaration**
+
+```
+func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -324,7 +546,7 @@ Promise<UpdateRecordResponse\>
 
 <pre class="inline-code">
 
-    var updateData: Dictionary<String, FieldValue> = [:]
+    var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
@@ -350,9 +572,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecords(_ app: Int, _ records: [RecordUpdateItem])
+### updateRecords
 
 Updates details of multiple records in an app, by specifying their record number, or a different unique key.
+
+**Declaration**
+
+```
+func updateRecords(_ app: Int, _ records: [RecordUpdateItem]) -> Promise<UpdateRecordsResponse>
+```
 
 **Parameter**
 
@@ -376,8 +604,8 @@ Promise<UpdateRecordsResponse\>
 
     var recId1 = {your_record_id}
     var recId2 = {your_record_id}
-    var updateData1: Dictionary<String, FieldValue> = [:]
-    var updateData2: Dictionary<String, FieldValue> = [:]
+    var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -410,9 +638,87 @@ Promise<UpdateRecordsResponse\>
 
 </details>
 
+
+### updateAllRecords
+
+Updates details of all records in an app.
+
+**Declaration**
+
+    func updateAllRecords (_ app: Int, _ records: [RecordUpdateItem]) -> Promise<BulkRequestResponse>
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | The record data will be added to kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise<BulkRequestResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Update multi records</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let recId1 = {your_record_id}
+    let recId2 = {your_record_id}
+    var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
+    let field1 = FieldValue()
+    let field2 = FieldValue()
+    field1.setType(FieldType.SINGLE_LINE_TEXT)
+    field1.setValue("Test Update Value1 ")
+    field2.setType(FieldType.SINGLE_LINE_TEXT)
+    field2.setValue("Test Update Value2")
+    updateData1[{your_field_code}] = field1
+    updateData2[{your_field_code}] = field2
+    let updateDataItem1 = RecordUpdateItem(recId1, nil, nil, updateData1)
+    let updateDataItem2 = RecordUpdateItem(recId2, nil, nil, updateData2)
+    let updateItemList = [updateDataItem1 , updateDataItem2]
+            
+    // execute update records API
+    let appID = {your_app_id}
+    recordManagement.updateAllRecords(appID, updateItemList).then{response in
+        for result in response.getResults()! {
+            let updateRecordsResponse = result as! [UpdateRecordsResponse]
+            for item in updateRecordsResponse {
+                for record in item.getRecords()! {
+                    print(record.getID() as Any)
+                    print(record.getRevision() as Any)
+                }
+            }
+        }
+    }.catch{ error in
+        var errorString = ""
+        if (type(of: error) == BulksException.self) {
+            errorString = (error as! BulksException).getError()!
+        } else {
+            errorString = error.localizedDescription
+        }
+        print(errorString)
+    }
+
+</pre>
+
+</details>
+
 ### deleteRecords(_ app: Int, _ ids: [Int])
 
+
 Deletes multiple records in an app.
+
+**Declaration**
+
+```
+func deleteRecords(_ app: Int, _ ids: [Int]) -> Promise<Void>
+```
 
 **Parameter**
 
@@ -453,9 +759,63 @@ Promise<Void\>
 
 </details>
 
-### deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?])
+### deleteAllRecordsByQuery
+
+Delete all records by indicating query. Can delete over 2000 records, but can't do rollback.
+
+**Declaration**
+```
+func deleteAllRecordsByQuery(_ app: Int,_ query: String? = "") -> Promise<BulkRequestResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| query | [The query string](https://developer.kintone.io/hc/en-us/articles/213149287#getrecords) that will specify what records will be responded. If nothing is specified, fields will be returned from all accessible records. The query detail can't indicate limit and offset.
+
+**Return**
+
+Promise<BulkRequestResponse\>
+
+**Sample code**
+
+<details class="tab-container" open>
+<Summary>Delete all records by query</Summary>
+
+<strong class="tab-name">Source code</strong>
+
+<pre class="inline-code">
+
+    let appID = {YOUR_APP_ID}
+    let query = "{YOUR_QUERY}"
+  
+    recordManagement.deleteAllRecordsByQuery(appID, query)
+        .then { resp in
+            let results = resp.getResults()
+            print(results!)
+        }.catch{ error in
+            if error is BulksException {
+                print((error as! BulksException).getError()!);
+            }
+            else {
+                print(error.localizedDescription)
+            }
+        }
+</pre>
+
+</details>
+
+### deleteRecordsWithRevision
 
 Deletes multiple records in an app with revision.
+
+**Declaration**
+
+```
+func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int:Int?]) -> Promise<Void>
+```
 
 **Parameter**
 
@@ -478,7 +838,7 @@ Promise<Void\>
 <pre class="inline-code">
 
     let appID = {your_app_id}
-    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    var delIdAndRevision: Dictionary&lt;Int, Int&gt; = [:]
     delIdAndRevision[{your_record_id}] = {your_revision_id}
     delIdAndRevision[{your_record_id}] = {your_revision_id}
             
@@ -496,9 +856,15 @@ Promise<Void\>
 
 </details>
 
-### updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) 
+### updateRecordAssignees
 
 Update assignees of a record.
+
+**Declaration**
+
+```
+func updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -555,9 +921,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)
+### updateRecordStatus
 
 Updates the Status of a record of an app.
+
+**Declaration**
+
+```
+func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) -> Promise<UpdateRecordResponse>
+```
 
 **Parameter**
 
@@ -601,9 +973,15 @@ Promise<UpdateRecordResponse\>
 
 </details>
 
-### updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])
+### updateRecordsStatus
 
 Updates the Status of multiple records of an app.
+
+**Declaration**
+
+```
+func updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem]) -> Promise<UpdateRecordsResponse>
+```
 
 **Parameter**
 
@@ -654,7 +1032,13 @@ Promise<UpdateRecordsResponse\>
 
 </details>
 
-### getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?)
+### getComments
+
+**Declaration**
+
+```
+func getComments(_ app: Int, _ record: Int, _ order: String?, _ offset: Int?, _ limit: Int?) -> Promise<GetCommentsResponse>
+```
 
 **Parameter**
 
@@ -704,7 +1088,13 @@ Promise<GetCommentsResponse\>
 
 </details>
 
-### addComment(_ app: Int, _ record: Int, _ comment: CommentContent)
+### addComment
+
+**Declaration**
+
+```
+func addComment(_ app: Int, _ record: Int, _ comment: CommentContent) -> Promise<AddCommentResponse>
+```
 
 **Parameter**
 
@@ -753,7 +1143,13 @@ Promise<AddCommentResponse\>
 
 </details>
 
-### deleteComment(_ app: Int, _ record: Int, _ comment: Int)
+### deleteComment
+
+**Declaration**
+
+```
+func deleteComment(_ app: Int, _ record: Int, _ comment: Int) -> Promise<Void>
+```
 
 **Parameter**
 
@@ -793,6 +1189,157 @@ Promise<Void\>
 </pre>
 
 </details>
+
+### upsertRecord
+
+Insert or update a record to kintone app.<br>
+Insert the record if the updateKey doesn't exist and update the record if the updateKey exists.
+
+**Declaration**
+
+```
+func upsertRecord(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue], _ revision: Int? = -1) -> Promise<AddRecordResponse> or  Promise<UpdateRecordResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| updateKey | The unique key of the record to be updated. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| record | The record data will be added to the kintone app. About the format, please look the sample below or [reference](#reference) at the end of this page.
+| revision | The expected revision number. If the value does not match, an error will occur and the record will not be updated. If the value is not specified or is -1, the revision number will not be checked.
+
+**Return**
+
+Promise&lt;AddRecordResponse&gt; or  Promise&lt;UpdateRecordResponse&gt;
+
+**Sample code**
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+    // Init data
+    var upsertData: Dictionary&lt;String, FieldValue&gt; = [:]
+    let field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    upsertData[{your_field_code}] = field
+
+    // create update key
+    let updKey = RecordUpdateKey("{your_field_code}", "update key value")
+
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.upsertRecord(appID, updKey, upsertData, nil).then{response in
+        if let addResponse = response as? AddRecordResponse {
+            print(addResponse.getRevision())
+        } else if let updateResponse = response as? UpdateRecordResponse {
+            print(updateResponse.getRevision())
+        }
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        } else {
+            print(error.localizedDescription)
+        }
+    }
+
+</pre>
+
+### upsertRecords
+
+Insert or update up to 1500 records to kintone app.<br>
+If the records are over 1500, It is thrown Error.<br>
+Insert the records if the updateKey doesn't exist and update the records if the updateKey exists.
+
+**Declaration**
+
+```
+func upsertRecords(_ app: Int, _ records: [RecordUpsertItem]) -> Promise<BulkRequestResponse>
+```
+
+**Parameter**
+
+| Name| Description |
+| --- | --- |
+| app | The kintone app ID
+| records | The record data Array which has updateKey and record. About the format, please look the sample below or [reference](#reference) at the end of this page.
+
+**Return**
+
+Promise&lt;BulkRequestResponse&gt;
+
+**Sample code**
+
+<pre class="inline-code">
+
+    let username = {your_user_name}
+    let password = {your_user_password}
+    let domain = {your_domain}
+    
+    // Init authenticationAuth
+    var auth = Auth()
+    auth = auth.setPasswordAuth(username, password)
+            
+    // Init Connection without "guest space ID"
+    let connection = Connection(domain, auth)
+            
+    // Init Record Module
+    let recordManagement = Record(connection)
+
+    // create update key
+    let updKey1 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey2 = RecordUpdateKey("{your_field_code}", "update key value")
+    let updKey3 = RecordUpdateKey("{your_field_code}", "update key value")
+
+    let field = FieldValue()
+    field.setType(FieldType.SINGLE_LINE_TEXT)
+    field.setValue("Test Value Update For Key")
+    
+    var record1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record2: Dictionary&lt;String, FieldValue&gt; = [:]
+    var record3: Dictionary&lt;String, FieldValue&gt; = [:]
+    record1[{your_field_code}] = field
+    record2[{your_field_code}] = field
+    record3[{your_field_code}] = field
+
+    let recordUpsertItem1 = RecordUpsertItem(updKey1, record1)
+    let recordUpsertItem2 = RecordUpsertItem(updKey2, record2)
+    let recordUpsertItem3 = RecordUpsertItem(updKey3, record3)
+
+    var upsertRecords: [RecordUpsertItem] = []
+    upsertRecords.append(recordUpsertItem1)
+    upsertRecords.append(recordUpsertItem2)
+    upsertRecords.append(recordUpsertItem3)
+            
+    // execute update record API
+    let appID = {your_app_id}
+    recordManagement.upsertRecords(appID, upsertRecords).then{response in
+        print(response)
+    }.catch{ error in
+        if error is KintoneAPIException {
+            print((error as! KintoneAPIException).toString()!)
+        }
+        else {
+            print(error.localizedDescription)
+        }
+    }
+
+</pre>
 
 ## Reference
 

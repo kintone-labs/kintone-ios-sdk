@@ -13,9 +13,15 @@ label, space, and border settings.
 
 ### Methods
 
-#### getRevision()
+#### getRevision
 
 Get the revision
+
+**Declaration**
+
+```
+func getRevision() -> String?
+```
 
 **Parameter**
 
@@ -25,11 +31,17 @@ Get the revision
 
 String
 
-#### getLayout()
+#### getLayout
 
 Get the layout
 
-**Parameter **
+**Declaration**
+
+```
+func getLayout() -> [ItemLayout]?
+```
+
+**Parameter**
 
 (none)
 
@@ -41,10 +53,16 @@ List<[ItemLayout](#itemlayout)\>
 
 ### Methods
 
-#### getType()
+#### getType
 
 Get the type
 
+**Declaration**
+
+```
+func getType() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -53,10 +71,16 @@ Get the type
 
 String
 
-#### getCode()
+#### getCode
 
 Get the code
 
+**Declaration**
+
+```
+func getCode() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -65,10 +89,16 @@ Get the code
 
 String
 
-#### getElementId()
+#### getElementId
 
 Get the elementId
 
+**Declaration**
+
+```
+func getElementId() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -77,10 +107,16 @@ Get the elementId
 
 String
 
-#### getLabel()
+#### getLabel
 
 Get the label
 
+**Declaration**
+
+```
+func getLabel() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -89,9 +125,15 @@ Get the label
 
 String
 
-#### getSize()
+#### getSize
 
 Get the size
+
+**Declaration**
+
+```
+func getSize() -> FieldSize?
+```
 
 **Parameter**
 
@@ -105,10 +147,16 @@ Get the size
 
 ### Methods
 
-#### getWidth()
+#### getWidth
 
 Get the width
 
+**Declaration**
+
+```
+func getWidth() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -117,10 +165,16 @@ Get the width
 
 String
 
-#### getHeight()
+#### getHeight
 
 Get the height
 
+**Declaration**
+
+```
+func getHeight() -> String?
+```
+
 **Parameter**
 
 (none)
@@ -129,9 +183,15 @@ Get the height
 
 String
 
-#### getInnerHeight()
+#### getInnerHeight
 
 Get the innerHeight
+
+**Declaration**
+
+```
+func getInnerHeight() -> String?
+```
 
 **Parameter**
 
@@ -148,9 +208,15 @@ String
 
 ### Methods
 
-#### getCode()
+#### getCode
 
 Get the code
+
+**Declaration**
+
+```
+func getCode() -> String?
+```
 
 **Parameter**
 
@@ -160,9 +226,15 @@ Get the code
 
 String
 
-#### getLayout()
+#### getLayout
 
 Get the layout
+
+**Declaration**
+
+```
+func getLayout() -> [RowLayout]?
+```
 
 **Parameter**
 
@@ -179,9 +251,15 @@ List<[RowLayout](#rowlayout)>
 
 ### Methods
 
-#### getFields()
+#### getFields
 
 Get the fields
+
+**Declaration**
+
+```
+func getFields() -> [FieldLayout]?
+```
 
 **Parameter**
 
@@ -198,9 +276,15 @@ List<[FieldLayout](#fieldlayout)>
 
 ### Methods
 
-#### getCode()
+#### getCode
 
 Get the code
+
+**Declaration**
+
+```
+func getCode() -> String?
+```
 
 **Parameter**
 
@@ -217,9 +301,15 @@ String
 
 ### Methods
 
-#### getType()
+#### getType
 
 Get the type
+
+**Declaration**
+
+```
+func getType() -> LayoutType?
+```
 
 **Parameter**
 

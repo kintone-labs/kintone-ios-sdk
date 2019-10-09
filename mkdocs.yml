@@ -18,7 +18,7 @@ extra_javascript:
 extra_css:
   - 'asset/style/extra.css'
 extra:
-    version: 0.2.0
+    version: 0.3.0
 markdown_extensions:
   - admonition
 
@@ -30,6 +30,7 @@ nav:
   - Authentication: reference/authentication.md
   - Connection: reference/connection.md
   - Record: reference/record.md
+  - Record Cursor: reference/record-cursor
   - Bulk Request: reference/bulk-request.md
   - App: reference/app.md
   - Kintone APIException: reference/kintone-api-exception.md
@@ -56,6 +57,10 @@ nav:
         - Record: reference/model/record/record-model.md
         - Comment: reference/model/record/record-comment-model.md
         - Field: reference/model/record/record-field-model.md
+      - Cursor: 
+        - Record Cursor:
+          - CreateRecordCursorResponse: reference/model/cursor/record-cursor/create-record-cursor-response.md
+          - GetRecordCursorResponse: reference/model/cursor/record-cursor/get-record-cursor-response.md
       - File: reference/model/file/file-model.md
       - BulkRequest:
         - BulkRequestModel: reference/model/bulk-request/bulk-request-model.md

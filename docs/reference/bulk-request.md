@@ -50,11 +50,17 @@ The Bulk Request API allows multiple API requests to run on multiple kintone app
 
 All below methods (excluded `execute()` method) will add the request to the queue, you must execute the `execute()` function to get the result of BulkRequest.
 
-### addRecord(_ app: Int?, _ record: [String:FieldValue]?) 
+### addRecord
+
+**Declaration**
+
+```
+func addRecord(_ app: Int, _ record: [String: FieldValue]?) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - addRecord](./record#addrecord_-app-int-_-record-stringfieldvalue)
+See at [Record - addRecord](../record#addrecord)
 
 **Return**
 
@@ -82,11 +88,17 @@ See at [Record - addRecord](./record#addrecord_-app-int-_-record-stringfieldvalu
 
 </details>
 
-### addRecords(_ app: Int?, _ records: [[String:FieldValue]]) 
+### addRecords
+
+**Declaration**
+
+```
+func addRecords(_ app: Int, _ records: Array<[String: FieldValue]?>) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldvalue)
+See at [Record - addRecords](../record#addrecords)
 
 **Return**
 
@@ -102,8 +114,8 @@ See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldv
 <pre class="inline-code">
 
     // create add data
-    var addData1: Dictionary<String, FieldValue> = [:]
-    var addData2: Dictionary<String, FieldValue> = [:]
+    var addData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var addData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -123,11 +135,17 @@ See at [Record - addRecords](./record#addrecords_-app-int-_-records-stringfieldv
 
 </details>
 
-### updateRecordByID(_ app: Int, _ id: Int, _ record: [String:FieldValue]?, _ revision: Int?)
+### updateRecordByID
+
+**Declaration**
+
+```
+func updateRecordByID(_ app: Int, _ id: Int, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_-record-stringfieldvalue-_-revision-int)
+See at [Record - updateRecordByID](../record#updaterecordbyid)
 
 **Return**
 
@@ -143,7 +161,7 @@ See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_
 <pre class="inline-code">
 
     // create add data
-    var updateData:Dictionary<String, FieldValue> = [:]
+    var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update")
@@ -159,11 +177,17 @@ See at [Record - updateRecordByID](./record#updaterecordbyid_-app-int-_-id-int-_
 
 </details>
 
-### updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String:FieldValue]?, _ revision: Int?)
+### updateRecordByUpdateKey
+
+**Declaration**
+
+```
+func updateRecordByUpdateKey(_ app: Int, _ updateKey: RecordUpdateKey, _ record: [String: FieldValue]?, _ revision: Int?) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-int-_-updatekey-recordupdatekey-_-record-stringfieldvalue-_-revision-int)
+See at [Record - updateRecordByUpdateKey](../record#updaterecordbyupdatekey)
 
 **Return**
 
@@ -179,7 +203,7 @@ See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-
 <pre class="inline-code">
 
     // create update data
-    var updateData: Dictionary<String, FieldValue> = [:]
+    var updateData: Dictionary&lt;String, FieldValue&gt; = [:]
     var field = FieldValue()
     field.setType(FieldType.SINGLE_LINE_TEXT)
     field.setValue("Test Value Update For Key")
@@ -197,11 +221,17 @@ See at [Record - updateRecordByUpdateKey](./record#updaterecordbyupdatekey_-app-
 
 </details>
 
-### updateRecords(_ app: Int?, _ records: [RecordUpdateItem])
+### updateRecords
+
+**Declaration**
+
+```
+func updateRecords(_ app: Int, _ records: Array<RecordUpdateItem> ) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-recordupdateitem)
+See at [Record - updateRecords](../record#updaterecords)
 
 **Return**
 
@@ -219,8 +249,8 @@ See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-record
     // create update data
     var recId1 = {your_record_id}
     var recId2 = {your_record_id}
-    var updateData1: Dictionary<String, FieldValue> = [:]
-    var updateData2: Dictionary<String, FieldValue> = [:]
+    var updateData1: Dictionary&lt;String, FieldValue&gt; = [:]
+    var updateData2: Dictionary&lt;String, FieldValue&gt; = [:]
     var field1 = FieldValue()
     var field2 = FieldValue()
     field1.setType(FieldType.SINGLE_LINE_TEXT)
@@ -242,11 +272,17 @@ See at [Record - updateRecords](./record#updaterecords_-app-int-_-records-record
 
 </details>
 
-### deleteRecords(_ app: Int?, _ ids: [Int])
+### deleteRecords
+
+**Declaration**
+
+```
+func deleteRecords(_ app: Int, _ ids: Array<Int>) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - deleteRecords](./record#deleterecords_-app-int-_-ids-int)
+See at [Record - deleteRecords](../record#deleterecords)
 
 **Return**
 
@@ -273,11 +309,17 @@ See at [Record - deleteRecords](./record#deleterecords_-app-int-_-ids-int)
 
 </details>
 
-### deleteRecordsWithRevision(_ app: Int?, _ idWithRevision: [Int:Int>])
+### deleteRecordsWithRevision
+
+**Declaration**
+
+```
+func deleteRecordsWithRevision(_ app: Int, _ idsWithRevision: [Int: Int?]) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-app-int-_-idwithrevision-intint)
+See at [Record - deleteRecordsWithRevision](../record#deleterecordswithrevision)
 
 **Return**
 
@@ -294,7 +336,7 @@ See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-
 
     // create deleteRecordsWithRevision bulk request
     let appID = {your_app_id}
-    var delIdAndRevision: Dictionary<Int, Int> = [:]
+    var delIdAndRevision: Dictionary&lt;Int, Int&gt; = [:]
     delIdAndRevision[{your_record_id}] = {your_revision_id}
     delIdAndRevision[{your_record_id}] = {your_revision_id}
 
@@ -303,11 +345,17 @@ See at [Record - deleteRecordsWithRevision](./record#deleterecordswithrevision_-
 
 </details>
 
-### updateRecordAssignees(_ app: Int, _ id: Int, _ assignees: [String], _ revision: Int?)
+### updateRecordAssignees
+
+**Declaration**
+
+```
+func updateRecordAssignees(_ app: Int, _ record: Int, _ assignees: Array<String>, _ revision: Int?) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - updateRecordAssignees](./record#updaterecordassignees_-app-int-_-id-int-_-assignees-string-_-revision-int)
+See at [Record - updateRecordAssignees](../record#updaterecordassignees)
 
 **Return**
 
@@ -333,11 +381,17 @@ See at [Record - updateRecordAssignees](./record#updaterecordassignees_-app-int-
 
 </details>
 
-### updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?)
+### updateRecordStatus
+
+**Declaration**
+
+```
+func updateRecordStatus(_ app: Int, _ id: Int, _ action: String, _ assignee: String?, _ revision: Int?) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - updateRecordStatus](./record#updaterecordstatus_-app-int-_-id-int-_-action-string-_-assignee-string-_-revision-int)
+See at [Record - updateRecordStatus](../record#updaterecordstatus)
 
 **Return**
 
@@ -363,11 +417,17 @@ See at [Record - updateRecordStatus](./record#updaterecordstatus_-app-int-_-id-i
 
 </details>
 
-### updateRecordsStatus(_ app: Int, _ records: [RecordUpdateStatusItem])
+### updateRecordsStatus
+
+**Declaration**
+
+```
+func updateRecordsStatus(_ app: Int, _ records: Array<RecordUpdateStatusItem>) throws -> BulkRequest
+```
 
 **Parameter**
 
-See at [Record - updateRecordsStatus](./record#updaterecordsstatus_-app-int-_-records-recordupdatestatusitem)
+See at [Record - updateRecordsStatus](../record#updaterecordsstatus)
 
 **Return**
 
@@ -399,9 +459,15 @@ See at [Record - updateRecordsStatus](./record#updaterecordsstatus_-app-int-_-re
 
 </details>
 
-### execute()
+### execute
 
 Execute the bulk request and get data response
+
+**Declaration**
+
+```
+func execute() -> Promise<BulkRequestResponse>
+```
 
 **Parameter**
 
