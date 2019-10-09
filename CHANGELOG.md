@@ -1,7 +1,24 @@
 # Change Log
+## [v0.3.0](https://github.com/kintone/kintone-ios-sdk/tree/v0.3.0)
+**New features / functions**
+- Added new functions for Record Module:
+  - getAllRecordsByQuery
+  - addAllRecords
+  - deleteAllRecordsByQuery
+  - updateAllRecords
+  - upsertRecord
+  - upsertRecords
+- Added new Record Cursor module
+
+**Updates / Bug fixes**
+- Support Proxy login for function "setProxy"
+- Refactor User Guide to a more easily readable format
+
+## [v0.2.0](https://github.com/kintone/kintone-ios-sdk/tree/v0.2.0)
+**Implemented enhancements:**
+- Support Authentication and Basic Authentication when using certificate file
+
 ## [v0.1.0](https://github.com/kintone/kintone-ios-sdk/tree/v0.1.0) (2019-01-21)
-
-
 **Implemented basic features:**
 - Support Authentication and Basic Authentication by two way:
     - Password Authentication
@@ -20,9 +37,3 @@
     - Support REST API to upload/ download file to kintone.
 - Support Bulk Request REST API
     - Support REST API to send bulk request to kintone.
-
-## [v0.2.0](https://github.com/kintone/kintone-ios-sdk/tree/v0.2.0)
-
-**Implemented enhancements:**
-
-- Support Authentication and Basic Authentication when using certificate file
