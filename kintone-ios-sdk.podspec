@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "kintone-ios-sdk"
-  s.version      = "0.2.0"
+  s.version      = "0.3.0"
   s.summary      = "kintone-ios-sdk is kintone REST API Library for iOS(swift)"
 
   # This description is used to generate tags and improve search results.
