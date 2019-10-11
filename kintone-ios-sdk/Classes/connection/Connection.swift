@@ -23,7 +23,7 @@ open class Connection: NSObject {
     
     /// Kintone domain url.
     private var domain: String?
-
+    
     /// Guest space number in kintone domain.
     /// User describe it when connect data in guest space.
     private var guestSpaceID: Int? = -1
@@ -304,6 +304,17 @@ open class Connection: NSObject {
         return Promise<(Data?, URLResponse?, NSError?)> { fulfill, reject in
             session.dataTask(with: request) { (data, response, error) -> Void in
                 if error != nil {
+                    // Handle proxy error
+                    if((error! as NSError).domain == "kCFErrorDomainCFNetwork"){
+                        switch (error! as NSError).code {
+                        case 310:
+                            reject(KintoneAPIException("Crendentials proxy provided are invalid" as String))
+                        case 311:
+                            reject(KintoneAPIException("Unauthorized proxy request" as String))
+                        default:
+                            reject(KintoneAPIException("Setproxy problem" as String))
+                        }
+                    }
                     reject(KintoneAPIException(error!.localizedDescription))
                 }
                 fulfill((data, response, error as NSError?))
@@ -492,7 +503,7 @@ open class Connection: NSObject {
     /// - Parameter data: <#data description#>
     /// - Returns: <#return value description#>
     private func getErrorResponses(_ data: Data?) -> Array<ErrorResponse>? {
-    
+        
         let decoder = JSONDecoder()
         
         if let unwrapData = data {
