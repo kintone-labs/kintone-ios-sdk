@@ -304,18 +304,16 @@ open class Connection: NSObject {
         return Promise<(Data?, URLResponse?, NSError?)> { fulfill, reject in
             session.dataTask(with: request) { (data, response, error) -> Void in
                 if error != nil {
-                    // Handle proxy error
-                    if((error! as NSError).domain == "kCFErrorDomainCFNetwork"){
-                        switch (error! as NSError).code {
-                        case 310:
-                            reject(KintoneAPIException("Crendentials proxy provided are invalid" as String))
-                        case 311:
-                            reject(KintoneAPIException("Unauthorized proxy request" as String))
-                        default:
-                            reject(KintoneAPIException("Setproxy problem" as String))
-                        }
+                    if (error! as NSError).code == Int(CFNetworkErrors
+                        .cfErrorHTTPSProxyConnectionFailure
+                        .rawValue) ||
+                        (error! as NSError).code == Int(CFNetworkErrors
+                            .cfStreamErrorHTTPSProxyFailureUnexpectedResponseToCONNECTMethod
+                            .rawValue) {
+                        reject(KintoneAPIException("Failed to connect to proxy"))
+                    } else {
+                        reject(KintoneAPIException(error!.localizedDescription))
                     }
-                    reject(KintoneAPIException(error!.localizedDescription))
                 }
                 fulfill((data, response, error as NSError?))
             }.resume()
