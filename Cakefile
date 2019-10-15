@@ -32,7 +32,6 @@ application_for :ios, 11.4 do |target|
 
     # Uncomment this to include additional files
     #
-    target.include_files << "kintone-ios-sdk/**/*.*"
     
     # Uncomment this to exclude additional files
     #
@@ -64,7 +63,6 @@ application_for :ios, 11.4 do |target|
     #
     unit_tests_for target do |test_target|
         test_target.name = "kintone-ios-sdkTests"
-        test_target.include_files << "kintone-ios-sdkTests/**/*.*"
        
         test_target.all_configurations.each do |c|
             c.settings["FRAMEWORK_SEARCH_PATHS"] = "$(PROJECT_DIR)/Carthage/Build/iOS"
