@@ -9,12 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build
-        run: xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPad (5th generation),OS=12.4'
+        run: xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPad (5th generation),OS=12.4' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
         with: 
           repo_token: ${{ secrets.ACCESS_TOKEN }}
-          file: ~/Library/Developer/Xcode/DerivedData/kintone-ios-sdk-gbovytkbfubiwxgrkdawjgcphkme/Build/Products/Debug-iphonesimulator/kintone_ios_sdk.framework
+          file: buid/kintone-ios-sdk-gbovytkbfubiwxgrkdawjgcphkme/Build/Products/Debug-iphonesimulator/kintone_ios_sdk.framework
           asset_name: kintone_ios_sdk.framework
           tag: ${{ github.ref }}
           overwrite: true
