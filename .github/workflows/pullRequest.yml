@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build 
-        run: xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone Xs,OS=12.4'
+        run: xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone Xr,OS=12.4'
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
         with: 
