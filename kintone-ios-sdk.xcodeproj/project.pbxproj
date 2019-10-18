@@ -42,7 +42,7 @@
 		1283E3F5219E9F9100D8E282 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; };
 		1283E3F7219ECCC100D8E282 /* FBLPromises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3F3219E9F2900D8E282 /* FBLPromises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1283E3F8219ECCC100D8E282 /* Promises.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1283E3EE219E9C8500D8E282 /* Promises.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-        129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
+		129CB2A62159EC6400E3B324 /* LinkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88FEE3C2159DD9E00A7E838 /* LinkProtocol.swift */; };
 		129CB2A82159F11600E3B324 /* UpdateFormLayoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2A72159F11600E3B324 /* UpdateFormLayoutRequest.swift */; };
 		129CB2AC215C837200E3B324 /* AddUpdateFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AB215C837200E3B324 /* AddUpdateFormFieldsRequest.swift */; };
 		129CB2AE215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129CB2AD215CD2FC00E3B324 /* DeleteFormFieldsRequest.swift */; };
@@ -51,10 +51,10 @@
 		12DB97D521A7DF9E0070C5C4 /* FileTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */; };
 		12DB97D721A7DFB80070C5C4 /* BulkRequestTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */; };
 		12F41DC721A80AEF00C0F1A7 /* ConnectionTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */; };
-		3A28DB562318B0160044F8C1 /* RecordConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB552318B0160044F8C1 /* RecordConstants.swift */; };
-		3A28DB582319163E0044F8C1 /* SetProxyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB572319163E0044F8C1 /* SetProxyTest.swift */; };
 		3A06D2922316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */; };
 		3A06D2942317821C00AF4CE0 /* DeleteAllRecordsByQueryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A06D2932317821B00AF4CE0 /* DeleteAllRecordsByQueryTest.swift */; };
+		3A28DB562318B0160044F8C1 /* RecordConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB552318B0160044F8C1 /* RecordConstants.swift */; };
+		3A28DB582319163E0044F8C1 /* SetProxyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A28DB572319163E0044F8C1 /* SetProxyTest.swift */; };
 		3E17EA1B213E427F002D9BC0 /* kintone_ios_sdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */; };
 		3E17EA20213E427F002D9BC0 /* kintone_ios_sdkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17EA1F213E427F002D9BC0 /* kintone_ios_sdkTests.swift */; };
 		3E17EA22213E427F002D9BC0 /* kintone_ios_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -202,10 +202,12 @@
 		AE1F9DC12318CB4D0055C3B5 /* UpsertRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F9DC02318CB4D0055C3B5 /* UpsertRecordsTest.swift */; };
 		AE1F9DC32319174E0055C3B5 /* UpsertRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1F9DC22319174E0055C3B5 /* UpsertRecordTest.swift */; };
 		DD0C0B4C21649FCD003F9A6C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C0B4B21649FCD003F9A6C /* File.swift */; };
-		E719D4A623166DEE00E09399 /* UpdateAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */; };
 		DDDB9B072164912F00F2BB72 /* DownloadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */; };
 		E70BC39423068CC200DA98C7 /* DeleteCursorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BC39323068CC200DA98C7 /* DeleteCursorTest.swift */; };
 		E70BC3962306A05600DA98C7 /* GetAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BC3952306A05600DA98C7 /* GetAllRecordsTest.swift */; };
+		E719D4A623166DEE00E09399 /* UpdateAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */; };
+		E719D4A823176A3500E09399 /* BulksException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A723176A3500E09399 /* BulksException.swift */; };
+		E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */; };
 		E763B1A523054CEA005D4A73 /* RecordCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1A423054CEA005D4A73 /* RecordCursor.swift */; };
 		E763B1A723054DC5005D4A73 /* CursorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1A623054DC5005D4A73 /* CursorParser.swift */; };
 		E763B1AC23054FBA005D4A73 /* CreateCursorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1AB23054FBA005D4A73 /* CreateCursorTest.swift */; };
@@ -214,8 +216,6 @@
 		E763B1B923056D11005D4A73 /* GetRecordCursorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1B823056D11005D4A73 /* GetRecordCursorResponse.swift */; };
 		E763B1BC230574A8005D4A73 /* CursorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1BB230574A8005D4A73 /* CursorModel.swift */; };
 		E763B1BE23066115005D4A73 /* GetRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E763B1BD23066115005D4A73 /* GetRecordsTest.swift */; };
-		E719D4A823176A3500E09399 /* BulksException.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A723176A3500E09399 /* BulksException.swift */; };
-		E719D4AA23177A0A00E09399 /* AddAllRecordsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,10 +282,10 @@
 		12DB97D421A7DF9E0070C5C4 /* FileTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTestConstants.swift; sourceTree = "<group>"; };
 		12DB97D621A7DFB80070C5C4 /* BulkRequestTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulkRequestTestConstants.swift; sourceTree = "<group>"; };
 		12F41DC621A80AEF00C0F1A7 /* ConnectionTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionTestConstants.swift; sourceTree = "<group>"; };
-		3A28DB552318B0160044F8C1 /* RecordConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordConstants.swift; sourceTree = "<group>"; };
-		3A28DB572319163E0044F8C1 /* SetProxyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProxyTest.swift; sourceTree = "<group>"; };
 		3A06D2912316667D00AF4CE0 /* GetAllRecordsByQueryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllRecordsByQueryTest.swift; sourceTree = "<group>"; };
 		3A06D2932317821B00AF4CE0 /* DeleteAllRecordsByQueryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAllRecordsByQueryTest.swift; sourceTree = "<group>"; };
+		3A28DB552318B0160044F8C1 /* RecordConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordConstants.swift; sourceTree = "<group>"; };
+		3A28DB572319163E0044F8C1 /* SetProxyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProxyTest.swift; sourceTree = "<group>"; };
 		3E17EA11213E427F002D9BC0 /* kintone_ios_sdk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kintone_ios_sdk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E17EA14213E427F002D9BC0 /* kintone_ios_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kintone_ios_sdk.h; sourceTree = "<group>"; };
 		3E17EA15213E427F002D9BC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -436,11 +436,13 @@
 		AE1F9DBC2318C0A60055C3B5 /* BulksException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BulksException.swift; sourceTree = "<group>"; };
 		AE1F9DC02318CB4D0055C3B5 /* UpsertRecordsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpsertRecordsTest.swift; sourceTree = "<group>"; };
 		AE1F9DC22319174E0055C3B5 /* UpsertRecordTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpsertRecordTest.swift; sourceTree = "<group>"; };
-		E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAllRecordsTest.swift; sourceTree = "<group>"; };
 		DD0C0B4B21649FCD003F9A6C /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		DDDB9B062164912F00F2BB72 /* DownloadRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadRequest.swift; sourceTree = "<group>"; };
 		E70BC39323068CC200DA98C7 /* DeleteCursorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCursorTest.swift; sourceTree = "<group>"; };
 		E70BC3952306A05600DA98C7 /* GetAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllRecordsTest.swift; sourceTree = "<group>"; };
+		E719D4A523166DEE00E09399 /* UpdateAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAllRecordsTest.swift; sourceTree = "<group>"; };
+		E719D4A723176A3500E09399 /* BulksException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulksException.swift; sourceTree = "<group>"; };
+		E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAllRecordsTest.swift; sourceTree = "<group>"; };
 		E763B1A223054CDE005D4A73 /* Cursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
 		E763B1A423054CEA005D4A73 /* RecordCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCursor.swift; sourceTree = "<group>"; };
 		E763B1A623054DC5005D4A73 /* CursorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorParser.swift; sourceTree = "<group>"; };
@@ -450,8 +452,6 @@
 		E763B1B823056D11005D4A73 /* GetRecordCursorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordCursorResponse.swift; sourceTree = "<group>"; };
 		E763B1BB230574A8005D4A73 /* CursorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorModel.swift; sourceTree = "<group>"; };
 		E763B1BD23066115005D4A73 /* GetRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRecordsTest.swift; sourceTree = "<group>"; };
-		E719D4A723176A3500E09399 /* BulksException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulksException.swift; sourceTree = "<group>"; };
-		E719D4A923177A0A00E09399 /* AddAllRecordsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAllRecordsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1347,7 +1347,6 @@
 				A88FEE262159DD8B00A7E838 /* GetFormLayoutRequest.swift in Sources */,
 				A88FEE272159DD8B00A7E838 /* GetFormFieldsRequest.swift in Sources */,
 				3E60AFE42151E09D0041B02C /* Comment.swift in Sources */,
-				3A06D2902316322800AF4CE0 /* RecordConstants.swift in Sources */,
 				A88FEE7B2159DD9E00A7E838 /* DepartmentSelectionField.swift in Sources */,
 				A88FEE942159DD9E00A7E838 /* RowLayout.swift in Sources */,
 				A88FEE312159DD8B00A7E838 /* ViewModel.swift in Sources */,

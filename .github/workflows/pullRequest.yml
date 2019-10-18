@@ -4,12 +4,17 @@ on: pull_request
 
 jobs:
   build:
-
     runs-on: macOS-latest
-
     steps:
     - uses: actions/checkout@v1
-    - name: Run tests
-      run: xcodebuild test -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.0'
     - name: Build
-      run: swift build -v
+      run: xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.0'
+    - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v1-release
+        if: success()
+        with: 
+          repo_token: ${{ secrets.ACCESS_TOKEN }}
+          file: ~/Library/Developer/Xcode/DerivedData/kintone-ios-sdk-gbovytkbfubiwxgrkdawjgcphkme/Build/Products/Debug-iphonesimulator/kintone_ios_sdk.framework
+          asset_name: kintone_ios_sdk.framework
+          tag: ${{ github.ref }}
+          overwrite: true
