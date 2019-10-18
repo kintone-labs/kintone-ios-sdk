@@ -1,9 +1,10 @@
-name: Swift
+name: CI Build
 
 on: pull_request
 
 jobs:
   build:
+    name: Check Build
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
@@ -11,7 +12,6 @@ jobs:
         run: xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.0'
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
-        if: success()
         with: 
           repo_token: ${{ secrets.ACCESS_TOKEN }}
           file: ~/Library/Developer/Xcode/DerivedData/kintone-ios-sdk-gbovytkbfubiwxgrkdawjgcphkme/Build/Products/Debug-iphonesimulator/kintone_ios_sdk.framework
