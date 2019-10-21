@@ -12,8 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build 
-        run:  xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk.xcodeproj -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
-        bash <(curl -s https://codecov.io/bash)
+        run: xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk.xcodeproj -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env:
           destination: ${{ matrix.destination }}
       - name: Upload binaries to release
