@@ -12,7 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Build 
-        run: xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        run: |
+          cd kintone-ios-sdk
+          xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
         env:
           destination: ${{ matrix.destination }}
       - name: Upload binaries to release
