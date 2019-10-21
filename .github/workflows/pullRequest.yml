@@ -13,8 +13,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Build 
         run: |
-        carthage update --platform ios
-        xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -sdk iphonesimulator -destination "${destination}"
+         carthage update --platform ios
+         xcodebuild clean build -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -sdk iphonesimulator -destination "${destination}"
         env:
           destination: ${{ matrix.destination }}
       - name: Upload binaries to release
