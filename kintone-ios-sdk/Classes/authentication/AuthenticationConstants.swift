@@ -10,6 +10,4 @@ open class AuthenticationConstants: NSObject {
     public static let HEADER_KEY_AUTH_APITOKEN = "X-Cybozu-API-Token"
     public static let HEADER_KEY_AUTH_BASIC = "Authorization"
     public static let AUTH_BASIC_PREFIX = "Basic "
-    public static let AUTH_BASIC_PREFIX1 = "Basic 1"
-
 }
