@@ -524,8 +524,8 @@ open class Connection: NSObject {
             config.connectionProxyDictionary?[kCFNetworkProxiesHTTPEnable as String] = 1
             config.connectionProxyDictionary?[kCFNetworkProxiesHTTPProxy as String] = self.proxyHost
             config.connectionProxyDictionary?[kCFNetworkProxiesHTTPPort as String] = self.proxyPort
-            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
-            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
+//            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyHost as String] = self.proxyHost
+//            config.connectionProxyDictionary?[kCFStreamPropertyHTTPSProxyPort as String] = self.proxyPort
             if (self.proxyUsername != nil && self.proxyPassword != nil) {
                 let proxyAuth: String = "\(self.proxyUsername!):\(self.proxyPassword!)"
                 config.httpAdditionalHeaders = ["Proxy-Authorization":  "Basic " + getBase64EncodedCredential(proxyAuth)]
