@@ -617,10 +617,10 @@ open class Record: NSObject {
                 loopTimes = 1
             }
             for i in 0..<loopTimes {
-                let begin:Int = i * RecordConstants.LIMIT_DELETE_RECORD
-                let end:Int = (length - begin) < RecordConstants.LIMIT_DELETE_RECORD ? length : (begin + RecordConstants.LIMIT_DELETE_RECORD)
-                let idsPerRequest = ids[begin..<end]
-                try bulkRequest.deleteRecords(app, Array(idsPerRequest))
+                let _:Int = i * RecordConstants.LIMIT_DELETE_RECORD
+//                let end:Int = (length - begin) < RecordConstants.LIMIT_DELETE_RECORD ? length : (begin + RecordConstants.LIMIT_DELETE_RECORD)
+//                let idsPerRequest = ids[begin..<end]
+//                try bulkRequest.deleteRecords(app, Array(idsPerRequest))
             }
             return try await(bulkRequest.execute())
         } catch let error as KintoneAPIException {
