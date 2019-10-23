@@ -6,9 +6,6 @@ jobs:
   build:
     name: Check Build
     runs-on: macOS-latest
-    strategy:
-        matrix:
-          destination: ['platform=iOS Simulator,OS=12.4,name=iPhone Xs Max']
     steps:
       - uses: actions/checkout@master
       - name: list version
@@ -17,8 +14,8 @@ jobs:
         run: |
          carthage update
          xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,OS=12.4,name=iPhone Xs Max'
-        env:
-          destination: ${{ matrix.destination }}
+      - name: ls
+        run: ls
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
         with: 
