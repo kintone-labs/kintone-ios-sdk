@@ -11,7 +11,7 @@ jobs:
       - name: Build 
         run:  |
          carthage update
-         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone X,OS=12.4' CONFIGURATION_BUILD_DIR=./release
+         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPad (5th generation)' CONFIGURATION_BUILD_DIR=./release
       - name: ls release
         run: ls
       - name: Upload binaries to release
