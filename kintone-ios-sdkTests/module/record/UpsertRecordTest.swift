@@ -10,7 +10,7 @@ import XCTest
 @testable import kintone_ios_sdk
 @testable import Promises
 
-class UpsertRecordsTest: XCTestCase {
+class UpsertRecordTest: XCTestCase {
     var kintoneAuth: Auth?
     var connection: Connection?
     var app: App?
