@@ -1,0 +1,28 @@
+name: CI Build
+on:
+  release:
+    types: [created]
+jobs:
+  build:
+    name: Check Build
+    runs-on: macOS-latest
+    strategy:
+        matrix:
+          destination: ['platform=iOS Simulator,OS=12.4,name=iPhone Xs Max']
+    steps:
+      - uses: actions/checkout@master
+      - name: list version
+        run: xcrun simctl list
+      - name: Build 
+        run: |
+         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,OS=12.4,name=iPhone Xs Max'
+        env:
+          destination: ${{ matrix.destination }}
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v1-release
+        with: 
+          repo_token: ${{ secrets.ACCESS_TOKEN }}
+          file: Test-edlmavrgbadisocdjhmqzchupbri/Build/Products/Debug-iphonesimulator/Test.framework
+          asset_name: kintone_ios_sdk.framework
+          tag: ${{ github.ref }}
+          overwrite: true
