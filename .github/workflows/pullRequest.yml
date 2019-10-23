@@ -15,6 +15,7 @@ jobs:
         run: xcrun simctl list
       - name: Build 
         run: |
+         carthage update
          xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,OS=12.4,name=iPhone Xs Max'
         env:
           destination: ${{ matrix.destination }}
