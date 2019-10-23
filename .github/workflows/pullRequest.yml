@@ -11,7 +11,7 @@ jobs:
       - name: Build 
         run:  |
          carthage update
-         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,OS=12.4,name=iPhone Xs Max' CONFIGURATION_BUILD_DIR=release/
+         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone Xs Max' CONFIGURATION_BUILD_DIR=release/
       - name: Zip release
         if: success()
         run: zip -r kintone_ios_sdk release/kintone_ios_sdk.framework
