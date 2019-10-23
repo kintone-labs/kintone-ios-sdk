@@ -8,12 +8,10 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
-      - name: list version
-        run: xcrun simctl list
       - name: Build 
         run:  |
          carthage update
-         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.0' CONFIGURATION_BUILD_DIR=./release
+         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone Xs,OS=12.4' CONFIGURATION_BUILD_DIR=./release
       - name: ls release
         run: ls
       - name: Upload binaries to release
