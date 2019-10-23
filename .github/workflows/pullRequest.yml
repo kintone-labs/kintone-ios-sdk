@@ -8,19 +8,18 @@ jobs:
     runs-on: macOS-10.14
     steps:
       - uses: actions/checkout@master
-      - name: list version
-        run: xcrun simctl list
       - name: Build 
         run:  |
          carthage update
-         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone Xs Max'
-      - name: ls release
-        run: ls
+         xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,OS=12.4,name=iPhone Xs Max' CONFIGURATION_BUILD_DIR=release/
+      - name: Zip release
+        if: success()
+        run: zip -r kintone_ios_sdk release/kintone_ios_sdk.framework
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
         with: 
           repo_token: ${{ secrets.ACCESS_TOKEN }}
-          file: release/kintone_ios_sdk.framework
-          asset_name: kintone_ios_sdk.framework
+          file: kintone_ios_sdk.zip
+          asset_name: kintone_ios_sdk.zip
           tag: ${{ github.ref }}
           overwrite: true
