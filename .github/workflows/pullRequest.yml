@@ -12,7 +12,7 @@ jobs:
         working-directory: ./actions
         run: npm install
       - name: Check version
-        run: ./actions/check_version
+        run: ./actions/check_version/
       - name: Build 
         run: |
          carthage update
