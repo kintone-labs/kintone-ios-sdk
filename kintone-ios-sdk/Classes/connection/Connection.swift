@@ -23,7 +23,7 @@ open class Connection: NSObject {
     
     /// Kintone domain url.
     private var domain: String?
-
+    
     /// Guest space number in kintone domain.
     /// User describe it when connect data in guest space.
     private var guestSpaceID: Int? = -1
@@ -304,7 +304,16 @@ open class Connection: NSObject {
         return Promise<(Data?, URLResponse?, NSError?)> { fulfill, reject in
             session.dataTask(with: request) { (data, response, error) -> Void in
                 if error != nil {
-                    reject(KintoneAPIException(error!.localizedDescription))
+                    if (error! as NSError).code == Int(CFNetworkErrors
+                        .cfErrorHTTPSProxyConnectionFailure
+                        .rawValue) ||
+                        (error! as NSError).code == Int(CFNetworkErrors
+                            .cfStreamErrorHTTPSProxyFailureUnexpectedResponseToCONNECTMethod
+                            .rawValue) {
+                        reject(KintoneAPIException("Failed to connect to proxy"))
+                    } else {
+                        reject(KintoneAPIException(error!.localizedDescription))
+                    }
                 }
                 fulfill((data, response, error as NSError?))
             }.resume()
@@ -492,7 +501,7 @@ open class Connection: NSObject {
     /// - Parameter data: <#data description#>
     /// - Returns: <#return value description#>
     private func getErrorResponses(_ data: Data?) -> Array<ErrorResponse>? {
-    
+        
         let decoder = JSONDecoder()
         
         if let unwrapData = data {
