@@ -25,7 +25,7 @@ jobs:
         uses: svenstaro/upload-release-action@v1-release
         with: 
           repo_token: ${{ secrets.ACCESS_TOKEN }}
-          file: kintone_ios_sdk-${{ steps.check_version.outputs.version }}.zip
-          asset_name: kintone_ios_sdk-${{ steps.check_version.outputs.version }}.zip
+          file: kintone_ios_sdk.zip
+          asset_name: kintone_ios_sdk.zip
           tag: ${{ github.ref }}
           overwrite: true
