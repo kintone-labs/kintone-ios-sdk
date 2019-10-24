@@ -1,0 +1,8 @@
+name: 'Check version'
+description: 'Check version package'
+outputs:
+  version:
+    description: "Version package"
+runs:
+  using: 'node12'
+  main: 'index.js'
