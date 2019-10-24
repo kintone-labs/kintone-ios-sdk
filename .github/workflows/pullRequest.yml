@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Install dependences
         run: |
-        cd actions
-        npm install
+         cd actions
+         npm install
       - name: Check version
         run: ./actions/check_version
       - name: Build 
