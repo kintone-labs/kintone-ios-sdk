@@ -1,7 +1,6 @@
 {
   "name": "@kintone/kintone-ios-sdk",
-	"version": "0.4.1",
-	"description": "kintone ui component",
+	"description": "kintone ios sdk",
 	"author": "Cybozu, Inc.",
 	"license": "MIT", 
 	"repository": {
