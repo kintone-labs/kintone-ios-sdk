@@ -8,8 +8,14 @@ jobs:
     runs-on: macOS-10.14
     steps:
       - uses: actions/checkout@master
+      - name: Install dependences
+        run: |
+        cd actions
+        npm install
+      - name: Check version
+        run: ./actions/check_version
       - name: Build 
-        run:  |
+        run: |
          carthage update
          xcodebuild -project kintone-ios-sdk.xcodeproj -scheme kintone-ios-sdk -destination 'platform=iOS Simulator,name=iPhone Xs Max' CONFIGURATION_BUILD_DIR=release/
       - name: Zip release
