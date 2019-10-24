@@ -11,7 +11,7 @@ try {
     if (tagVersion !== packageVersion) {
       core.setFailed("Version is invalid");
     } else {
-      core.setOutput("version", package.version);
+      core.setOutput("version", packageVersion);
     }
   });
 } catch (e) {
