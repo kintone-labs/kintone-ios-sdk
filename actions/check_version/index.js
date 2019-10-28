@@ -12,8 +12,6 @@ try {
     let packageVersion = "v" + JSON.parse(stdout).version;
     if (tagVersion !== packageVersion) {
       core.setFailed("Version is invalid");
-    } else {
-      core.setOutput("version", packageVersion);
     }
   });
 } catch (e) {
