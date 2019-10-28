@@ -11,8 +11,6 @@ jobs:
       - name: Install dependences
         working-directory: ./actions
         run: npm install
-      - uses: unit-test
-        run: npm run unit-test
       - name: Check in podspec
         id: check_version
         uses: ./actions/check_version
