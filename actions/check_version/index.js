@@ -1,8 +1,11 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 const { exec } = require("child_process");
+
 try {
-  exec("pod ipc spec kintone-ios-sdk.podspec", function(err, stdout, stderr) {
+  let podFile = core.getInput("podFile");
+  console.log(podFile);
+  exec(`pod ipc spec ${podFile}`, function(err, stdout, stderr) {
     if (err) {
       core.setFailed(err);
     }
