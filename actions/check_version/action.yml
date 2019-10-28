@@ -1,9 +1,10 @@
 name: 'Check version'
 description: 'Check version package'
 imputs:
-  podFile:
+  podspec:
     description: "kintone-ios-sdk.podspec"
     require: true
+    default: "kintone-ios-sdk.podspec"
 outputs:
   version:
     description: "Version package"
