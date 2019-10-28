@@ -11,7 +11,7 @@ jobs:
       - name: Install dependences
         working-directory: ./actions
         run: npm install
-      - name: Check in podspec
+      - name: Check version
         id: check_version
         uses: ./actions/check_version
       - name: Build 
