@@ -8,7 +8,7 @@ jobs:
     runs-on: macOS-10.14
     steps:
       - uses: actions/checkout@master
-      - name: Install dependences
+      - name: Install dependencies
         working-directory: ./actions
         run: npm install
       - name: Check version
