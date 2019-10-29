@@ -5,7 +5,7 @@ on:
 jobs:
   build:
     name: Check Build
-    runs-on: macOS-10.14
+    runs-on: macOS-latest
     steps:
       - uses: actions/checkout@master
       - name: Install dependencies
@@ -15,6 +15,7 @@ jobs:
         id: check_version
         uses: ./actions/check_version
       - name: Build 
+        if: success()
         run: |
          carthage update
          xcodebuild -configuration "Release" -target kintone-ios-sdk -sdk iphoneos CONFIGURATION_BUILD_DIR=iphoneos
