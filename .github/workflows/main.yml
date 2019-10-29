@@ -17,7 +17,8 @@ jobs:
       - name: Build 
         if: success()
         run: |
-         carthage update
+         carthage update --platform iOS --no-use-binaries
+         pod install
          xcodebuild -configuration "Release" -target kintone-ios-sdk -sdk iphoneos CONFIGURATION_BUILD_DIR=iphoneos
          xcodebuild -configuration "Release" -target kintone-ios-sdk -sdk iphonesimulator CONFIGURATION_BUILD_DIR=iphonesimulator
          cp -r iphonesimulator/kintone_ios_sdk.framework/Modules/kintone_ios_sdk.swiftmodule/ iphoneos/kintone_ios_sdk.framework/Modules/kintone_ios_sdk.swiftmodule/
