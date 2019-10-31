@@ -14,23 +14,3 @@ jobs:
       - name: Check version
         id: check_version
         uses: ./actions/check_version
-      - name: Build 
-        if: success()
-        run: |
-         carthage update --platform iOS --no-use-binaries
-         pod install
-         xcodebuild -configuration "Release" -target kintone-ios-sdk -sdk iphoneos CONFIGURATION_BUILD_DIR=iphoneos
-         xcodebuild -configuration "Release" -target kintone-ios-sdk -sdk iphonesimulator CONFIGURATION_BUILD_DIR=iphonesimulator
-         cp -r iphonesimulator/kintone_ios_sdk.framework/Modules/kintone_ios_sdk.swiftmodule/ iphoneos/kintone_ios_sdk.framework/Modules/kintone_ios_sdk.swiftmodule/
-         lipo -create -output iphoneos/kintone_ios_sdk.framework/kintone_ios_sdk iphoneos/kintone_ios_sdk.framework/kintone_ios_sdk iphonesimulator/kintone_ios_sdk.framework/kintone_ios_sdk
-      - name: Zip release
-        if: success()
-        run: zip -r kintone_ios_sdk iphoneos/kintone_ios_sdk.framework
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v1-release
-        with: 
-          repo_token: ${{ secrets.ACCESS_TOKEN }}
-          file: kintone_ios_sdk.zip
-          asset_name: kintone_ios_sdk.zip
-          tag: ${{ github.ref }}
-          overwrite: true
