@@ -1,3 +1,7 @@
+# DEPRECATED
+
+The repository/library is deprecated.
+
 # Kintone iOS SDK in Swift
 
 [![Swift Version](https://img.shields.io/badge/Swift-4.2-orange.svg)](https://swift.org)
