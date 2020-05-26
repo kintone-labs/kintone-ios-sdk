@@ -133,5 +133,6 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.ios.dependency 'PromisesSwift', '~> 1.2.6'
-
+  # spec.deprecated = true
+  spec.deprecated = true
 end
