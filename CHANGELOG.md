@@ -1,4 +1,8 @@
 # Change Log
+## [v0.3.2](https://github.com/kintone/kintone-ios-sdk/tree/v0.3.2)
+**Update podspec file**
+- Add attribute deprecated to podspec file.
+
 ## [v0.3.0](https://github.com/kintone/kintone-ios-sdk/tree/v0.3.0)
 **New features / functions**
 - Added new functions for Record Module:
