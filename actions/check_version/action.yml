@@ -1,0 +1,13 @@
+name: 'Check version'
+description: 'Check version in podspec'
+inputs:
+  podspec:
+    description: "kintone-ios-sdk.podspec"
+    require: true
+    default: "kintone-ios-sdk.podspec"
+outputs:
+  version:
+    description: "correct podspec version"
+runs:
+  using: 'node12'
+  main: 'index.js'

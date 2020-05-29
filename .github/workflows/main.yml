@@ -1,0 +1,16 @@
+name: CI Build
+on:
+  release:
+    types: [created]
+jobs:
+  build:
+    name: Check Build
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install dependencies
+        working-directory: ./actions
+        run: npm install
+      - name: Check version
+        id: check_version
+        uses: ./actions/check_version

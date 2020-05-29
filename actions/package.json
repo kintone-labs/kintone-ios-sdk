@@ -1,0 +1,14 @@
+{
+	"name": "check-podspec-version",
+	"description": "kintone ios sdk",
+	"author": "Cybozu, Inc.",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/kintone/kintone-ios-sdk"
+	},
+	"devDependencies": {
+		"@actions/core": "1.2.0",
+		"@actions/github": "1.1.0"
+	}
+}
